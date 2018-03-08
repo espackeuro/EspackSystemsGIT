@@ -411,6 +411,7 @@ namespace CommonTools
             else
                 return t;
         }
+        /*
         public static string SetExtraDataValue(string ExtraData, string key, string newValue)
         {
             var ExtraDataArray = (ExtraData.Split('|')).Select(i => i.Split('=')).ToArray();
@@ -422,7 +423,7 @@ namespace CommonTools
             var ExtraDataArray = (ExtraData.Split('|')).Select(i => i.Split('=')).ToArray();
             return ExtraDataArray.First(o => o[0] == key)[1].ToString();
         }
-
+        */
 
 
 

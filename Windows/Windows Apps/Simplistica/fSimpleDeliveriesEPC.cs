@@ -85,7 +85,7 @@ namespace Simplistica
 
         private void CTLM_BeforeButtonClick(object sender, CTLMEventArgs e)
         {
-
+            /*
             switch (CTLM.Status)
             {
                 case EnumStatus.ADDNEW:
@@ -109,7 +109,7 @@ namespace Simplistica
                         break;
                     }
             }
-
+            */
         }
 
         private void CTLM_AfterButtonClick(object sender, CTLMEventArgs e)
