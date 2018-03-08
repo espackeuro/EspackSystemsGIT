@@ -11,11 +11,17 @@ using AccesoDatosNet;
 using static CommonToolsWin.CTWin;
 using VSGrid;
 using CTLMantenimientoNet;
+using EspackFormControls;
+using static CommonTools.CT;
+using CommonTools;
 
 namespace Simplistica
 {
+
     public partial class fSimpleDeliveriesEPC: Form
     {
+        private EspackString ExtraData { get; set; }
+
         public fSimpleDeliveriesEPC()
         {
             InitializeComponent();
@@ -37,7 +43,10 @@ namespace Simplistica
             CTLM.AddItem(cboDestination, "Destination", true, true, false, 0, false, true);
             CTLM.AddItem(dateStart, "StartDate", true, true, false, 0, false, true);
             CTLM.AddItem(dateEnd, "EndDate", true, true, false, 0, false, true);
-            CTLM.AddItem(lstFlags, "flags", false, false, false, 0, false, true);
+            CTLM.AddItem(lstFlags, "flags", false, false, false, 0, false, false);
+            CTLM.AddItem("", "ExtraData", true, true, false, 0, false, false);
+
+            ExtraData = (EspackString)CTLM.CTLMItem("ExtraData");
 
             //fields
             cboService.Source("Select Codigo from Servicios where dbo.CheckFlag(flags,'SIMPLE')=1 and cod3='" + Values.COD3 + "' order by codigo");
@@ -67,8 +76,38 @@ namespace Simplistica
             CTLM.AddDefaultStatusStrip();
             CTLM.AddItem(VS);
             CTLM.Start();
+            CTLM.BeforeButtonClick += CTLM_BeforeButtonClick;
             CTLM.AfterButtonClick += CTLM_AfterButtonClick;
             toolStrip.Enabled = false;
+        }
+
+        private void CTLM_BeforeButtonClick(object sender, CTLMEventArgs e)
+        {
+
+            switch (CTLM.Status)
+            {
+                case EnumStatus.ADDNEW:
+                case EnumStatus.EDIT:
+                    {
+                        if (e.ButtonClick == "btnOK")
+                        {
+                            ExtraData.Text = SetExtraDataValue(ExtraData.Text, "CHECKPOINTDATE", dateCheckPoint.Text);
+                            ExtraData.Text = SetExtraDataValue(ExtraData.Text, "EPCDATE", dateEPC.Text);
+                        }
+                        break;
+                    }
+                case EnumStatus.NAVIGATE:
+                case EnumStatus.SEARCH:
+                    {
+                        if ("btnFirst|btnLast|btnPrev|btnNext|".IndexOf( e.ButtonClick+"|" )!=-1)
+                        {
+                            dateCheckPoint.Text= GetExtraDataValue(ExtraData.Text, "CHECKPOINTDATE");
+                            dateEPC.Text = GetExtraDataValue(ExtraData.Text, "EPCDATE");
+                        }
+                        break;
+                    }
+            }
+
         }
 
         private void CTLM_AfterButtonClick(object sender, CTLMEventArgs e)

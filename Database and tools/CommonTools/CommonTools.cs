@@ -411,6 +411,20 @@ namespace CommonTools
             else
                 return t;
         }
+        public static string SetExtraDataValue(string ExtraData, string key, string newValue)
+        {
+            var ExtraDataArray = (ExtraData.Split('|')).Select(i => i.Split('=')).ToArray();
+            ExtraDataArray.First(o => o[0] == key)[1] = newValue;
+            return string.Join("|", ExtraDataArray.Select(p => string.Join("=", p)).ToArray());
+        }
+        public static string GetExtraDataValue(string ExtraData, string key)
+        {
+            var ExtraDataArray = (ExtraData.Split('|')).Select(i => i.Split('=')).ToArray();
+            return ExtraDataArray.First(o => o[0] == key)[1].ToString();
+        }
+
+
+
 
     }
 
@@ -572,6 +586,7 @@ namespace CommonTools
                 IP = _IP;
 
         }
+
     }
     public enum ServerTypes { SHARE, DATABASE }
     // Class cServerList
