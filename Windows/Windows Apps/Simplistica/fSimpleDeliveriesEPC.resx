@@ -120,16 +120,6 @@
   <metadata name="toolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>205, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnClose.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADBSURBVEhL7dI9CgIxEIbhsVGw8xrexht4FI8gaKlo5wk8
-        iq29lVpY+vPNmoTIfpswaxCLfeGBNTsjEZSuv2kCJ3i2lO2bL1fZ2JJFNrZkkY0ttTWFWmzQYubs4AZj
-        +IgtWfh6sIcDDPXAx5Ys4kZwhG31ycWWSgixlyWE2MsSQvHhHVawhoc7S0nNh+JDHfZtIH7HpOZrXUFv
-        4tN/wvn9SLPOyxL0Z+pNdFif59CUdV4GsIAL6E10uA9NWee7fp7IC2IDA5NDX7AmAAAAAElFTkSuQmCC
-</value>
-  </data>
   <metadata name="CTLM.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>310, 17</value>
   </metadata>
