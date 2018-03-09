@@ -7,9 +7,6 @@
 //using Android.OS;
 using System.Data;
 using System.Data.SqlClient;
-
-using LoginActivity;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -38,9 +35,10 @@ namespace logon
     [Activity(Label = "Espack Logon", MainLauncher = true, Icon = "@drawable/keyiconWhite")]
     public class MainActivity : AppCompatActivity
     {
+        private string CallingPackage { get; set; }
         protected override void OnCreate(Bundle bundle)
         {
-
+            CallingPackage = Intent.GetStringExtra("CallingPackage");
             var a = CP1252.GetEncoding("utf-32");
             base.OnCreate(bundle);
             //for the image barcode scanner
@@ -60,7 +58,7 @@ namespace logon
             intent.SetAction(Intent.ActionView);
             intent.AddCategory(Intent.CategoryLauncher);
             intent.PutExtra("Version", Values.Version);
-            intent.PutExtra("PackageName", "Partnumber Info");
+            intent.PutExtra("PackageName", CallingPackage ?? "com.espack.logon");
             StartActivityForResult(intent, 0);
         }
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)

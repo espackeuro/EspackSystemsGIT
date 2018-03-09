@@ -63,6 +63,7 @@
     <AotAssemblies>false</AotAssemblies>
     <EnableLLVM>false</EnableLLVM>
     <BundleAssemblies>false</BundleAssemblies>
+    <AndroidSupportedAbis />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FastAndroidCamera, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -143,6 +144,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoginActivityClass.cs" />
+    <Compile Include="LogonUser.cs" />
     <Compile Include="PartnumberInfo\DataOutputFragment.cs" />
     <Compile Include="PartnumberInfo\StatusFragment.cs" />
     <Compile Include="PartnumberInfo\DatabaseAccess.cs" />
@@ -178,6 +181,9 @@
     <AndroidResource Include="Resources\layout\StatusFragment.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\ls.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
@@ -198,9 +204,9 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LoginActivity\LoginActivity.csproj">
-      <Project>{5b9e50ce-299a-4a21-a8ad-d5d01bcd6916}</Project>
-      <Name>LoginActivity</Name>
+    <ProjectReference Include="..\..\BitmapHelpers\CommonAndroidTools.csproj">
+      <Project>{fe45781b-38cb-44f0-9de7-08e15e0c53bd}</Project>
+      <Name>CommonAndroidTools</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
