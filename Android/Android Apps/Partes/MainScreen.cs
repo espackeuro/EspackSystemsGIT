@@ -8,8 +8,10 @@ using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V7.App;
+using Android.Util;
 using Android.Views;
 using Android.Widget;
+using static Android.Content.PM.PackageManager;
 
 namespace logon
 {
@@ -41,8 +43,27 @@ namespace logon
 
         private void Button1_1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Intent intent = PackageManager.GetLaunchIntentForPackage("com.espack.partnumberinfo");
+                if (intent != null)
+                {
+                    intent.PutExtra("USR", Values.User);
+                    intent.PutExtra("PWD", Values.Pwd);
+                    intent.PutExtra("SRV", "db01.local");
+                    intent.PutExtra("VERSION", Values.Version);
+                    intent.PutExtra("FULLNAME", LoginActivity.LoginDetails.FullName);
+                    StartActivity(intent);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error("LOGON", ex.Message);
+            }
+            /*
             var intent = new Intent(this, typeof(PartnumberInfo));
             StartActivityForResult(intent, 0);
+            */
         }
     }
 }

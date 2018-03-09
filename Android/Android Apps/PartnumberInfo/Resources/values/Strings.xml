@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Partnumber Info</string>
+  <string-array name="Systems">
+    <item>IDC VAL</item>
+    <item>DDU VAL</item>
+    <item>IDC CRA</item>
+  </string-array>
+</resources>
