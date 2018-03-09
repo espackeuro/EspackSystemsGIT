@@ -97,7 +97,7 @@
             this.btnClose});
             this.toolStrip.Location = new System.Drawing.Point(299, 9);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(76, 31);
+            this.toolStrip.Size = new System.Drawing.Size(107, 31);
             this.toolStrip.TabIndex = 57;
             this.toolStrip.Text = "toolStrip1";
             // 
@@ -151,7 +151,6 @@
             this.VS.Del = false;
             this.VS.DependingRS = null;
             this.VS.EspackControlParent = null;
-            this.VS.ExtraDataLink = null;
             this.VS.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.VS.Location = new System.Drawing.Point(9, 236);
             this.VS.MsgStatusLabel = null;
@@ -186,7 +185,6 @@
             this.txtDeliveryN.DefaultValue = null;
             this.txtDeliveryN.Del = false;
             this.txtDeliveryN.DependingRS = null;
-            this.txtDeliveryN.ExtraDataLink = null;
             this.txtDeliveryN.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtDeliveryN.ForeColor = System.Drawing.Color.Gray;
             this.txtDeliveryN.Location = new System.Drawing.Point(9, 56);
@@ -216,7 +214,6 @@
             this.cboShift.DefaultValue = null;
             this.cboShift.Del = false;
             this.cboShift.DependingRS = null;
-            this.cboShift.ExtraDataLink = null;
             this.cboShift.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboShift.Font = new System.Drawing.Font("Tahoma", 10F);
             this.cboShift.ForeColor = System.Drawing.Color.Black;
@@ -251,7 +248,6 @@
             this.txtUser.DefaultValue = null;
             this.txtUser.Del = false;
             this.txtUser.DependingRS = null;
-            this.txtUser.ExtraDataLink = null;
             this.txtUser.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtUser.ForeColor = System.Drawing.Color.Gray;
             this.txtUser.Location = new System.Drawing.Point(419, 56);
@@ -281,7 +277,6 @@
             this.cboDock.DefaultValue = null;
             this.cboDock.Del = false;
             this.cboDock.DependingRS = null;
-            this.cboDock.ExtraDataLink = null;
             this.cboDock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboDock.Font = new System.Drawing.Font("Tahoma", 10F);
             this.cboDock.ForeColor = System.Drawing.Color.Black;
@@ -313,7 +308,6 @@
             this.cboDestination.DefaultValue = null;
             this.cboDestination.Del = false;
             this.cboDestination.DependingRS = null;
-            this.cboDestination.ExtraDataLink = null;
             this.cboDestination.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboDestination.Font = new System.Drawing.Font("Tahoma", 10F);
             this.cboDestination.ForeColor = System.Drawing.Color.Black;
@@ -344,7 +338,6 @@
             this.txtPlate.DefaultValue = null;
             this.txtPlate.Del = false;
             this.txtPlate.DependingRS = null;
-            this.txtPlate.ExtraDataLink = null;
             this.txtPlate.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtPlate.ForeColor = System.Drawing.Color.Gray;
             this.txtPlate.Location = new System.Drawing.Point(283, 56);
@@ -376,20 +369,18 @@
             this.dateCheckPoint.DefaultValue = null;
             this.dateCheckPoint.Del = false;
             this.dateCheckPoint.DependingRS = null;
-            this.dateCheckPoint.ExtraDataLink = null;
             this.dateCheckPoint.Font = new System.Drawing.Font("Tahoma", 10F);
             this.dateCheckPoint.ForeColor = System.Drawing.Color.Black;
             this.dateCheckPoint.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateCheckPoint.Location = new System.Drawing.Point(555, 56);
             this.dateCheckPoint.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.dateCheckPoint.Name = "dateCheckPoint";
-            this.dateCheckPoint.Nullable = true;
+            this.dateCheckPoint.Nullable = false;
             this.dateCheckPoint.Order = 0;
             this.dateCheckPoint.ParentConn = null;
             this.dateCheckPoint.ParentDA = null;
             this.dateCheckPoint.PK = false;
             this.dateCheckPoint.Search = false;
-            this.dateCheckPoint.ShowCheckBox = true;
             this.dateCheckPoint.Size = new System.Drawing.Size(130, 24);
             this.dateCheckPoint.Status = CommonTools.EnumStatus.ADDNEW;
             this.dateCheckPoint.TabIndex = 75;
@@ -410,20 +401,18 @@
             this.dateEPC.DefaultValue = null;
             this.dateEPC.Del = false;
             this.dateEPC.DependingRS = null;
-            this.dateEPC.ExtraDataLink = null;
             this.dateEPC.Font = new System.Drawing.Font("Tahoma", 10F);
             this.dateEPC.ForeColor = System.Drawing.Color.Black;
             this.dateEPC.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateEPC.Location = new System.Drawing.Point(555, 99);
             this.dateEPC.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.dateEPC.Name = "dateEPC";
-            this.dateEPC.Nullable = true;
+            this.dateEPC.Nullable = false;
             this.dateEPC.Order = 0;
             this.dateEPC.ParentConn = null;
             this.dateEPC.ParentDA = null;
             this.dateEPC.PK = false;
             this.dateEPC.Search = false;
-            this.dateEPC.ShowCheckBox = true;
             this.dateEPC.Size = new System.Drawing.Size(130, 24);
             this.dateEPC.Status = CommonTools.EnumStatus.ADDNEW;
             this.dateEPC.TabIndex = 77;
@@ -444,7 +433,6 @@
             this.dateStart.DefaultValue = null;
             this.dateStart.Del = false;
             this.dateStart.DependingRS = null;
-            this.dateStart.ExtraDataLink = null;
             this.dateStart.Font = new System.Drawing.Font("Tahoma", 10F);
             this.dateStart.ForeColor = System.Drawing.Color.Black;
             this.dateStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -477,7 +465,6 @@
             this.dateEnd.DefaultValue = null;
             this.dateEnd.Del = false;
             this.dateEnd.DependingRS = null;
-            this.dateEnd.ExtraDataLink = null;
             this.dateEnd.Font = new System.Drawing.Font("Tahoma", 10F);
             this.dateEnd.ForeColor = System.Drawing.Color.Black;
             this.dateEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -508,7 +495,6 @@
             this.lstFlags.DefaultValue = null;
             this.lstFlags.Del = false;
             this.lstFlags.DependingRS = null;
-            this.lstFlags.ExtraDataLink = null;
             this.lstFlags.Font = new System.Drawing.Font("Tahoma", 10F);
             this.lstFlags.ForeColor = System.Drawing.Color.Black;
             this.lstFlags.FormattingEnabled = true;
@@ -538,7 +524,6 @@
             this.cboService.DefaultValue = null;
             this.cboService.Del = false;
             this.cboService.DependingRS = null;
-            this.cboService.ExtraDataLink = null;
             this.cboService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboService.Font = new System.Drawing.Font("Tahoma", 10F);
             this.cboService.ForeColor = System.Drawing.Color.Black;

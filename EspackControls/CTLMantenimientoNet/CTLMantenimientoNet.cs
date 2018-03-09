@@ -133,13 +133,6 @@ namespace CTLMantenimientoNet
                 return mListItems;
             }
         }
-        public List<EspackControl> CTLMItemsNotLinked
-        {
-            get
-            {
-                return mListItems.Where(i => i.ExtraDataLink==null).ToList();
-            }
-        }
         public EspackControl CTLMItem(string dbFieldName)
         {
             return mListItems.Where(x => x.DBField == dbFieldName).FirstOrDefault();
@@ -173,7 +166,7 @@ namespace CTLMantenimientoNet
         {
             get
             {
-                return mListItems.Where(x => x.Order != 0 && x.ExtraDataLink == null).OrderBy(o => Math.Abs(o.Order)).ToList();
+                return mListItems.Where(x => x.Order != 0).OrderBy(o => Math.Abs(o.Order)).ToList();
             }
         }
         public List<EspackControl> ItemsFormControl
@@ -243,18 +236,15 @@ namespace CTLMantenimientoNet
 
                 foreach (EspackControl Item in CTLMItems)
                 {
-                    if (Item.ExtraDataLink == null)
+                    string lDelimiter = CT.IsNumericType(Item.DBFieldType) ? "" : "'";
+                    if (Item.DBField != "" && Item.DBField!= null)
                     {
-                        string lDelimiter = CT.IsNumericType(Item.DBFieldType) ? "" : "'";
-                        if (Item.DBField != "" && Item.DBField != null)
-                        {
-                            lQueryFields.Add(Item.DBField);
-                        }
-                        if ((Item.PK || Item.Search) && Item.DBField != "")
-                        {
-                            string lValue = "@" + Item.DBField;
-                            lWhereFields.Add("isnull(" + Item.DBField + ",'') like  '%'+convert(varchar(max),isnull(" + lValue + ",''))+'%'");
-                        }
+                        lQueryFields.Add(Item.DBField);
+                    }
+                    if ((Item.PK || Item.Search) && Item.DBField != "")
+                    {
+                        string lValue = "@" + Item.DBField;
+                        lWhereFields.Add("isnull("+Item.DBField + ",'') like  '%'+convert(varchar(max),isnull(" + lValue + ",''))+'%'");
                     }
                 }
                 foreach (EspackControl lItem in ItemsOrdered)
@@ -517,7 +507,7 @@ namespace CTLMantenimientoNet
 
         //AddControl: adds a Control to the Control collection
         public void AddItem(object pDataContainer, string pDBField = "", bool pAdd = false, bool pUpp = false, bool pDel = false, int pOrder = 0, bool pPK = false,
-            bool pSearch = false, object pDefValue = null, string pSPAddParamName = "", string pSPUppParamName = "", string pSPDelParamName = "", EspackExtraData pExtraDataLink = null)
+            bool pSearch = false, object pDefValue = null, string pSPAddParamName = "", string pSPUppParamName = "", string pSPDelParamName = "")
         {
             EspackControl lControl;
             if (pDataContainer is string)
@@ -553,24 +543,17 @@ namespace CTLMantenimientoNet
             mListItems.Add(lControl);
             if (lControl is Control && !(lControl is CtlVSGrid))
                 ((Control)lControl).Enabled = (pAdd && Status == EnumStatus.ADDNEW) || (pUpp && Status == EnumStatus.EDIT) || (pDel && Status == EnumStatus.DELETE) || (pSearch && Status == EnumStatus.SEARCH);
-
-            if (pExtraDataLink != null)
+            if (pAdd)
             {
-                pExtraDataLink.AddLinkedItem(lControl);
-            } else
+                mDA.InsertCommand.AddControlParameter("@" + (pSPAddParamName == "" ? pDBField : pSPAddParamName), lControl);
+            }
+            if (pUpp)
             {
-                if (pAdd)
-                {
-                    mDA.InsertCommand.AddControlParameter("@" + (pSPAddParamName == "" ? pDBField : pSPAddParamName), lControl);
-                }
-                if (pUpp)
-                {
-                    mDA.UpdateCommand.AddControlParameter("@" + (pSPUppParamName == "" ? pDBField : pSPUppParamName), lControl);
-                }
-                if (pDel)
-                {
-                    mDA.DeleteCommand.AddControlParameter("@" + (pSPDelParamName == "" ? pDBField : pSPDelParamName), lControl);
-                }
+                mDA.UpdateCommand.AddControlParameter("@" + (pSPUppParamName == "" ? pDBField : pSPUppParamName), lControl);
+            }
+            if (pDel)
+            {
+                mDA.DeleteCommand.AddControlParameter("@" + (pSPDelParamName == "" ? pDBField : pSPDelParamName), lControl);
             }
         }
         //adds the status strip to the parent form.
@@ -660,7 +643,7 @@ namespace CTLMantenimientoNet
         //ClearValues Cleans the form and fills it with the default values 
         public void ShowRSValues()
         {
-            foreach (EspackControl lItem in CTLMItemsNotLinked)
+            foreach (EspackControl lItem in CTLMItems)
                 try
                 {
                     lItem.UpdateEspackControl();
@@ -673,11 +656,11 @@ namespace CTLMantenimientoNet
         {
             //setRSPosition(0);
             if (PK)
-                CTLMItemsNotLinked.Where(r => r.PK==false).ToList().ForEach(i => {
+                CTLMItems.Where(r => r.PK==false).ToList().ForEach(i => {
                     i.ClearEspackControl();
                     });
             else
-                CTLMItemsNotLinked.ForEach(i => {
+                CTLMItems.ForEach(i => {
                     i.ClearEspackControl();
                 });
             if (MsgStatusInfoLabel != null) MsgStatusInfoLabel.Text = "";

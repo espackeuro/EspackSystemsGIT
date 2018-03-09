@@ -20,11 +20,10 @@ namespace Simplistica
 
     public partial class fSimpleDeliveriesEPC: Form
     {
-        private EspackExtraData ExtraData { get; set; } = new EspackExtraData();
+        private EspackString ExtraData { get; set; }
 
         public fSimpleDeliveriesEPC()
         {
-            
             InitializeComponent();
 
             //CTLM Definitions
@@ -45,10 +44,9 @@ namespace Simplistica
             CTLM.AddItem(dateStart, "StartDate", true, true, false, 0, false, true);
             CTLM.AddItem(dateEnd, "EndDate", true, true, false, 0, false, true);
             CTLM.AddItem(lstFlags, "flags", false, false, false, 0, false, false);
-            CTLM.AddItem(ExtraData, "ExtraData", true, true, false, 0, false, false);
-            CTLM.AddItem(dateCheckPoint, "DateCheckPoint", pExtraDataLink: ExtraData);
-            CTLM.AddItem(dateEPC, "DateEPC", pExtraDataLink: ExtraData);
+            CTLM.AddItem("", "ExtraData", true, true, false, 0, false, false);
 
+            ExtraData = (EspackString)CTLM.CTLMItem("ExtraData");
 
             //fields
             cboService.Source("Select Codigo from Servicios where dbo.CheckFlag(flags,'SIMPLE')=1 and cod3='" + Values.COD3 + "' order by codigo");

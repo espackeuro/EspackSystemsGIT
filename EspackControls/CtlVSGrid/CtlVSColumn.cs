@@ -53,7 +53,6 @@ namespace VSGrid
 
     public class CtlVSTextBoxColumn : DataGridViewColumn, CtlVSColumn
     {
-        public EspackControl ExtraDataLink { get; set; } = null;
         private string aQuery;
         private bool lLocked;
         public EspackControlTypeEnum EspackControlType { get; set; }
@@ -353,7 +352,6 @@ namespace VSGrid
 
     public class CtlVSComboColumn : DataGridViewComboBoxColumn, CtlVSColumn
     {
-        public EspackControl ExtraDataLink { get; set; } = null;
         private bool lLocked;
         //private string _query;
         public EspackControlTypeEnum EspackControlType { get; set; }
