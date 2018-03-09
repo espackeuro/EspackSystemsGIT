@@ -21,6 +21,7 @@ namespace EspackControls
     {
         EspackControlTypeEnum EspackControlType { get; set; }
         EnumStatus Status { get; set; }
+        EspackControl ExtraDataLink { get; set; }
         new object Value { get; set; }
         string Name { get; set; }
         string DBField { get; set; }
@@ -34,6 +35,7 @@ namespace EspackControls
         Type DBFieldType { get; set; }
         void UpdateEspackControl();
         void ClearEspackControl();
+        
     }
 
 

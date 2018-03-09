@@ -39,6 +39,10 @@
             this.txtSystemCode = new EspackFormControls.EspackTextBox();
             this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
             this.txtVersion = new EspackFormControls.EspackTextBox();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.btnReloadVersions = new System.Windows.Forms.ToolStripButton();
+            this.txtNetVersion = new EspackFormControls.EspackTextBox();
+            this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstUserPositions
@@ -353,11 +357,61 @@
             this.txtVersion.PK = false;
             this.txtVersion.ReadOnly = true;
             this.txtVersion.Search = false;
-            this.txtVersion.Size = new System.Drawing.Size(130, 17);
+            this.txtVersion.Size = new System.Drawing.Size(175, 17);
             this.txtVersion.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtVersion.TabIndex = 30;
             this.txtVersion.Upp = false;
             this.txtVersion.Value = "";
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnReloadVersions});
+            this.toolStrip2.Location = new System.Drawing.Point(948, 13);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(129, 31);
+            this.toolStrip2.TabIndex = 43;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // btnReloadVersions
+            // 
+            this.btnReloadVersions.Image = global::Sistemas.Properties.Resources.reload_24;
+            this.btnReloadVersions.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReloadVersions.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnReloadVersions.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnReloadVersions.Name = "btnReloadVersions";
+            this.btnReloadVersions.Size = new System.Drawing.Size(117, 28);
+            this.btnReloadVersions.Text = "Reload Versions";
+            this.btnReloadVersions.Click += new System.EventHandler(this.btnReloadVersions_Click);
+            // 
+            // txtNetVersion
+            // 
+            this.txtNetVersion.Add = false;
+            this.txtNetVersion.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtNetVersion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNetVersion.Caption = "Net Version";
+            this.txtNetVersion.DBField = null;
+            this.txtNetVersion.DBFieldType = null;
+            this.txtNetVersion.DefaultValue = null;
+            this.txtNetVersion.Del = false;
+            this.txtNetVersion.DependingRS = null;
+            this.txtNetVersion.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtNetVersion.ForeColor = System.Drawing.Color.Gray;
+            this.txtNetVersion.Location = new System.Drawing.Point(568, 107);
+            this.txtNetVersion.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtNetVersion.Name = "txtNetVersion";
+            this.txtNetVersion.Order = 0;
+            this.txtNetVersion.ParentConn = null;
+            this.txtNetVersion.ParentDA = null;
+            this.txtNetVersion.PK = false;
+            this.txtNetVersion.ReadOnly = true;
+            this.txtNetVersion.Search = false;
+            this.txtNetVersion.Size = new System.Drawing.Size(175, 17);
+            this.txtNetVersion.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtNetVersion.TabIndex = 45;
+            this.txtNetVersion.Upp = false;
+            this.txtNetVersion.Value = "";
             // 
             // fSystemsMaster
             // 
@@ -365,6 +419,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1120, 707);
+            this.Controls.Add(this.txtNetVersion);
+            this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.txtVersion);
             this.Controls.Add(this.lstUserPositions);
             this.Controls.Add(this.lstAreas);
@@ -379,6 +435,8 @@
             this.Name = "fSystemsMaster";
             this.ShowIcon = false;
             this.Text = "fSystemsMaster";
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -397,5 +455,8 @@
         private EspackFormControls.EspackCheckedListBox lstAreas;
         private EspackFormControls.EspackCheckedListBox lstUserPositions;
         private EspackFormControls.EspackTextBox txtVersion;
+        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripButton btnReloadVersions;
+        private EspackFormControls.EspackTextBox txtNetVersion;
     }
 }

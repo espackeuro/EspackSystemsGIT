@@ -21,6 +21,7 @@ namespace VSGrid
     
     public class CtlVSGrid : DataGridView, EspackFormControl
     {
+        public EspackControl ExtraDataLink { get; set; } = null;
         public EspackControlTypeEnum EspackControlType { get; set; }
         //private string mDBTable;
         private DA mDA = new DA();
