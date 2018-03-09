@@ -235,8 +235,6 @@
     <None Include="Resources\ic_build_2x.png" />
     <None Include="Resources\ic_build_3x.png" />
     <None Include="Resources\ic_build_black_24px.svg" />
-    <None Include="Resources\truck_24.png" />
-    <None Include="Resources\printer_24.png" />
     <Content Include="simplistica.ico" />
   </ItemGroup>
   <ItemGroup>
