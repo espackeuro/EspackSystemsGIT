@@ -15,6 +15,7 @@ using static Android.Content.PM.PackageManager;
 
 namespace logon
 {
+    using static Values;
     [Activity(Label = "Partnumber Info", WindowSoftInputMode = SoftInput.AdjustPan, Theme = "@style/AppTheme.NoActionBar")]
     public class MainScreen : AppCompatActivity
     {
@@ -41,29 +42,11 @@ namespace logon
             Button1_1.Click += Button1_1_Click;
         }
 
-        private void Button1_1_Click(object sender, EventArgs e)
+        private async void Button1_1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Intent intent = PackageManager.GetLaunchIntentForPackage("com.espack.partnumberinfo");
-                if (intent != null)
-                {
-                    intent.PutExtra("USR", Values.User);
-                    intent.PutExtra("PWD", Values.Pwd);
-                    intent.PutExtra("SRV", "db01.local");
-                    intent.PutExtra("VERSION", Values.Version);
-                    intent.PutExtra("FULLNAME", LoginActivity.LoginDetails.FullName);
-                    StartActivity(intent);
-                }
-            }
-            catch (Exception ex)
-            {
-                Log.Error("LOGON", ex.Message);
-            }
-            /*
-            var intent = new Intent(this, typeof(PartnumberInfo));
-            StartActivityForResult(intent, 0);
-            */
+            string packageName = "com.espack.partnumberinfo";
+            LogonDetails = await LogonUser.DoLogon(LogonDetails, packageName);
+            MainActivity.LaunchPackage(packageName, this);
         }
     }
 }

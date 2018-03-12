@@ -2,11 +2,14 @@
 using Android.Widget;
 using Android.OS;
 using System.Data.SqlClient;
+using Android.Content;
+using Android.Support.V7.App;
+using System;
+using ZXing.Mobile;
+using static PartnumberInfo.Values;
 
 namespace PartnumberInfo
 {
-    using Android.Content;
-    using static Values;
     public static class Values
     {
         public static SqlConnection gDatos;
@@ -21,30 +24,53 @@ namespace PartnumberInfo
         public static StatusFragment sF { get; set; }
     }
 
-    [Activity(Label = "PartnumberInfo", MainLauncher = false)]
-    public class MainActivity : Activity
+    [Activity(Label = "PartnumberInfo", MainLauncher = true, Icon = "@drawable/info")]
+    public class MainActivity : AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            //Toast.MakeText(this, "Pollo", ToastLength.Short).Show();
             //oldVersion = Intent.GetStringExtra("Version");
             base.OnCreate(savedInstanceState);
-#if DEBUG
+            //for the image barcode scanner
+            MobileBarcodeScanner.Initialize(Application);
+/*
             User = "sa";
             Pwd = "5380";
             Server = "db01.local";
-            Version = "DEBUG";
+            Values.Version = "DEBUG";
             FullName = "PEPITO PÉREZ";
-#else
-            User = Intent.GetStringExtra("USR");
-            Pwd = Intent.GetStringExtra("PWD");
-            Server = Intent.GetStringExtra("SRV");
-            Version = Intent.GetStringExtra("VERSION");
-            FullName = Intent.GetStringExtra("FULLNAME");
-#endif
+*/
+
+            try
+            {
+                User = Intent.GetStringExtra("USR");
+                if (User == null)
+                {
+                    Intent i = PackageManager.GetLaunchIntentForPackage("com.espack.logon");
+                    i.PutExtra("CallingPackage", "com.espack.partnumberinfo");
+                    StartActivity(i);
+                    return;
+                }
+                Pwd = Intent.GetStringExtra("PWD");
+                Server = Intent.GetStringExtra("SRV");
+                Values.Version = Intent.GetStringExtra("VERSION");
+                FullName = Intent.GetStringExtra("FULLNAME");
+            } catch (Exception ex)
+            {
+                Toast.MakeText(this, ex.Message, ToastLength.Short).Show();
+                User = "sa";
+                Pwd = "5380";
+                Server = "db01.local";
+                Values.Version = "DEBUG";
+                FullName = "PEPITO PÉREZ";
+            }
+
             var intent = new Intent(this, typeof(PartnumberInfo));
             StartActivityForResult(intent, 0);
             // Set our view from the "main" layout resource
            // SetContentView(Resource.Layout.Main);
+           
         }
     }
 }
