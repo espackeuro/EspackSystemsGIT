@@ -214,9 +214,7 @@ namespace Simplistica
 
             private void PrintPageEventHandler(object sender,PrintPageEventArgs e)
             {
-                Header();
                 PageNumber++;
-                Footer();
                // PrintPage += new PrintPageEventHandler(PrintPageEventHandler);
 
 
@@ -224,29 +222,35 @@ namespace Simplistica
 
             public PrintPage()
             {
-                PageNumber = 1;
-                PrintPage += new PrintPageEventHandler(PrintPageEventHandler);
+                //PageNumber = 1;
+                //PrintPage += new PrintPageEventHandler(PrintPageEventHandler);
             }
 
             protected override void OnPrintPage(PrintPageEventArgs e)
             {
                 //PageNumber++;
                 Graphics graphics = e.Graphics;
+                PageNumber++;
 
-                
                 if (PageNumber == 1)
                 {
-                    //Header();
+
+                    Header();
+
+                    NewLine(true, EnumDocumentParts.BODY);
+                    Add(string.Format("MUCHOS COSA"),new Font("Courier New",10, FontStyle.Bold));
+
                     this.CurrentFont = new Font("Courier New", 10);
                     for (int _pollocount = 0; _pollocount < 70; _pollocount++)
                         {
                             NewLine(true, EnumDocumentParts.BODY);
                             Add(string.Format("Pollitos {0}", _pollocount));
                         }
-                    //Footer();
                     
                 }
-                PageNumber++;
+               
+                Footer();
+
                 base.OnPrintPage(e);
             }
 
@@ -263,6 +267,7 @@ namespace Simplistica
 
             private void Footer()
             {
+                ClearFooter();
                 this.CurrentFont = new Font("Courier New", 12, FontStyle.Bold);
                 NewLine(false, EnumDocumentParts.FOOTER);
                 Add(string.Format("Page {0}", PageNumber));

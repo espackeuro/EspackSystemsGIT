@@ -274,6 +274,12 @@ namespace DiverseControls
             CurrentFont = pThing.Font;
 
         }
+
+        public void ClearFooter()
+        {
+            FooterList.Lines.RemoveAll(item=>true);
+        }
+
         public void Add(string pText)
         {
             var _thing = new PrintableText(pText, CurrentFont);
