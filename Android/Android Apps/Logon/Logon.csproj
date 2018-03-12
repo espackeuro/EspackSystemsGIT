@@ -146,16 +146,11 @@
   <ItemGroup>
     <Compile Include="LoginActivityClass.cs" />
     <Compile Include="LogonUser.cs" />
-    <Compile Include="PartnumberInfo\DataOutputFragment.cs" />
-    <Compile Include="PartnumberInfo\StatusFragment.cs" />
-    <Compile Include="PartnumberInfo\DatabaseAccess.cs" />
-    <Compile Include="PartnumberInfo\HeaderFragment.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MainScreen.cs" />
-    <Compile Include="PartnumberInfo\DataInputFragment.cs" />
-    <Compile Include="PartnumberInfo\PartnumberInfo.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpdatePackage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GettingStarted.Xamarin" />

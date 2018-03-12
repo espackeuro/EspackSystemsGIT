@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">Partnumber Info</string>
+  <string name="app_name">PartnumberInfo</string>
   <string-array name="Systems">
     <item>IDC VAL</item>
     <item>DDU VAL</item>

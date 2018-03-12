@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace logon
 {
-    public struct LogonDetails
+    public class LogonDetailsStruct
     {
         public string User { get; set; }
         public string Password { get; set; }
@@ -24,9 +24,13 @@ namespace logon
     }
     public static class LogonUser
     {
-        public static async Task<LogonDetails> DoLogon(string User, string Password, string Server, string PackageName)
+        public static async Task<LogonDetailsStruct> DoLogon(LogonDetailsStruct LogonDetails, string PackageName)
         {
-            LogonDetails result = new LogonDetails();
+            return await DoLogon(LogonDetails.User, LogonDetails.Password, LogonDetails.ConnectionServer, PackageName);
+        }
+        public static async Task<LogonDetailsStruct> DoLogon(string User, string Password, string Server, string PackageName)
+        {
+            LogonDetailsStruct result = new LogonDetailsStruct();
             string _connectionString = string.Format("Server={0};Initial Catalog={1};User Id={2};Password={3};MultipleActiveResultSets=True;Connection Lifetime=3;Max Pool Size=3", Server, "SISTEMAS", "SA", "5380");
             using (SqlConnection gDatos = new SqlConnection(_connectionString))
             {
@@ -64,6 +68,7 @@ namespace logon
                     result.User = sp.Parameters["@User"].Value.ToString();
                     result.FullName = sp.Parameters["@FullName"].Value.ToString();
                     result.Password = sp.Parameters["@Password"].Value.ToString();
+                    result.ConnectionServer = Server;
                     return result;
                 }
 
