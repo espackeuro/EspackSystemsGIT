@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ using CTLMantenimientoNet;
 using EspackFormControls;
 using static CommonTools.CT;
 using CommonTools;
+using DiverseControls;
 
 namespace Simplistica
 {
@@ -181,5 +183,94 @@ namespace Simplistica
                 MessageBox.Show(string.Format("Delivery closed OK."), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            using (var _pd = new PrintDialog())
+            {
+                if (_pd.ShowDialog() == DialogResult.OK)
+                {
+                    using (var _printIt = new PrintPage())
+                    {
+                        _printIt.PrinterSettings = _pd.PrinterSettings;
+                        _printIt.DeliveryNumber = "C500000001";
+                        _printIt.Service = "C500000001";
+                        _pd.Document = _printIt;
+                        _printIt.Print();
+                    }
+                }
+            }
+        }
+
+        public class PrintPage : EspackPrintDocument
+        {
+
+            public string SQLQuery { get; set; }
+            public string DeliveryNumber { get; set; }
+            public string Service { get; set; }
+            private int PageNumber { get; set; } = 0;
+
+            private void PrintPageEventHandler(object sender,PrintPageEventArgs e)
+            {
+                Header();
+                PageNumber++;
+                Footer();
+               // PrintPage += new PrintPageEventHandler(PrintPageEventHandler);
+
+
+            }
+
+            public PrintPage()
+            {
+                PageNumber = 1;
+                PrintPage += new PrintPageEventHandler(PrintPageEventHandler);
+            }
+
+            protected override void OnPrintPage(PrintPageEventArgs e)
+            {
+                //PageNumber++;
+                Graphics graphics = e.Graphics;
+
+                
+                if (PageNumber == 1)
+                {
+                    //Header();
+                    this.CurrentFont = new Font("Courier New", 10);
+                    for (int _pollocount = 0; _pollocount < 70; _pollocount++)
+                        {
+                            NewLine(true, EnumDocumentParts.BODY);
+                            Add(string.Format("Pollitos {0}", _pollocount));
+                        }
+                    //Footer();
+                    
+                }
+                PageNumber++;
+                base.OnPrintPage(e);
+            }
+
+            private void Header()
+            {
+
+                this.CurrentFont = new Font("Courier New", 16, FontStyle.Bold);
+
+                NewLine(true, EnumDocumentParts.HEADER);
+                Add(string.Format("DELIVERY NUMBER: {0}",DeliveryNumber));
+                NewLine(false, EnumDocumentParts.HEADER);
+
+            }
+
+            private void Footer()
+            {
+                this.CurrentFont = new Font("Courier New", 12, FontStyle.Bold);
+                NewLine(false, EnumDocumentParts.FOOTER);
+                Add(string.Format("Page {0}", PageNumber));
+            }
+
+
+        }
+
+
     }
 }
