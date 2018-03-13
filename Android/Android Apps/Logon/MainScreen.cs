@@ -47,6 +47,7 @@ namespace logon
             string packageName = "com.espack.partnumberinfo";
             LogonDetails = await LogonUser.DoLogon(LogonDetails, packageName);
             MainActivity.LaunchPackage(packageName, this);
+            //Finish();
         }
     }
 }

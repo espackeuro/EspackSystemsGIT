@@ -8,6 +8,7 @@ namespace PartnumberInfo
 {
     public struct DataRecord
     {
+        public string Partnumber;
         public string Supplier;
         public string Fase4;
         public string Description;
@@ -41,35 +42,39 @@ namespace PartnumberInfo
             string _Service = "";
             string _selectQuery = "";
             string _queryLastDel = "";
+            string _server = "appdb.local";
             DataRecord _result = new DataRecord();
             switch (System)
             {
                 case "DDU VAL":
                     _DB = "BRASIL";
                     _queryLastDel = string.Format("select top 1 SUM(Qty),CE.Fecha_Salida from Det_Modulos DM inner join Cab_Modulos CM on CM.CM = DM.CM inner join Cab_Expediciones CE on CE.Expedicion = CM.Expedicion Where PartNumber = '{0}' and dm.Servicio = '{1}' group by PartNumber, dm.Servicio, CE.Fecha_Salida order by Fecha_Salida desc", Partnumber, _Service);
+                    _server = "db01.local";
                     break;
                 case "IDC VAL":
                     _DB = "LOGISTICA_IDC";
                     _Service = "IDC";
-                    _selectQuery = string.Format(@"select proveedor,Fase4,Descripcion,rd.Embalaje,rd.qty_emb,rd.Lugar_Descarga,r.Loc1,r.Loc2,r.SPP,r.SPA,r.STD,r.SPS,r.SQC,r.SPC,r.SPE,r.SPX,r.SEV,r.MinGVDBA,r.MinGVDBADate,r.flags,BrkDate from referencias r inner join Referencias_Destinos rd on rd.Partnumber=r.partnumber and rd.Servicio=r.Servicio where dbo.CheckFlag(rd.flags,'DEFAULT')=1 and r.Partnumber='{0}' and r.Servicio='{1}'", Partnumber, _Service);
-                    _queryLastDel = string.Format("select top 1 Qty=SUM(Qty),Fecha_Salida=Min(CE.Fecha_Salida) from Det_Modulos DM inner join Cab_Modulos CM on CM.CM = DM.CM inner join Cab_Expediciones CE on CE.Expedicion = CM.Expedicion Where PartNumber = '{0}' and dm.Servicio = '{1}' group by CM.Expedicion order by CM.Expedicion desc", Partnumber, _Service);
+                    _selectQuery = string.Format(@"select r.partnumber,proveedor,Fase4,Descripcion,rd.Embalaje,rd.qty_emb,rd.Lugar_Descarga,r.Loc1,r.Loc2,r.SPP,r.SPA,r.STD,r.SPS,r.SQC,r.SPC,r.SPE,r.SPX,r.SEV,r.MinGVDBA,r.MinGVDBADate,r.flags,BrkDate from referencias r inner join Referencias_Destinos rd on rd.Partnumber=r.partnumber and rd.Servicio=r.Servicio where dbo.CheckFlag(rd.flags,'DEFAULT')=1 and (r.Partnumber='{0}' or (r.partnumber=Stuff('{0}',1,1,'') and LEFT('{0}',1)='P')) and r.Servicio='{1}'", Partnumber, _Service);
+                    _queryLastDel = string.Format("select top 1 Qty=SUM(Qty),Fecha_Salida=Min(CE.Fecha_Salida) from Det_Modulos DM inner join Cab_Modulos CM on CM.CM = DM.CM inner join Cab_Expediciones CE on CE.Expedicion = CM.Expedicion Where (Partnumber='{0}' or (partnumber=Stuff('{0}',1,1,'') and LEFT('{0}',1)='P'))  and dm.Servicio = '{1}' group by CM.Expedicion order by CM.Expedicion desc", Partnumber, _Service);
+                    _server = "db01.local";
                     break;
                 case "IDC CRA":
                     _DB = "LOGISTICA";
                     _Service = "IDCCRA";
-                    _selectQuery = string.Format(@"select proveedor,Fase4,Descripcion,rd.Embalaje,rd.qty_emb,rd.Lugar_Descarga,r.Loc1,r.Loc2,r.SPP,r.SPA,r.STD,r.SPS,r.SQC,r.SPC,r.SPE,r.SPX,r.SEV,r.MinGVDBA,r.MinGVDBADate,r.flags,BrkDate from referencias r inner join Referencias_Destinos rd on rd.Partnumber=r.partnumber and rd.Servicio=r.Servicio where dbo.CheckFlag(rd.flags,'DEFAULT')=1 and r.Partnumber='{0}' and r.Servicio='{1}'", Partnumber, _Service);
-                    _queryLastDel = string.Format("select top 1 Qty=SUM(Qty),Fecha_Salida=Min(CE.Fecha_Salida) from Det_Modulos DM inner join Cab_Modulos CM on CM.CM = DM.CM inner join Cab_Expediciones CE on CE.Expedicion = CM.Expedicion Where PartNumber = '{0}' and dm.Servicio = '{1}' group by CM.Expedicion order by CM.Expedicion desc", Partnumber, _Service);
+                    _selectQuery = string.Format(@"select r.partnumber,proveedor,Fase4,Descripcion,rd.Embalaje,rd.qty_emb,rd.Lugar_Descarga,rd.Loc1,r.Loc2,r.SPP,r.SPA,r.STD,r.SPS,r.SQC,r.SPC,r.SPE,r.SPX,r.SEV,r.MinGVDBA,r.MinGVDBADate,r.flags,BrkDate from referencias r inner join Referencias_Destinos rd on rd.Partnumber=r.partnumber and rd.Servicio=r.Servicio where dbo.CheckFlag(rd.flags,'DEFAULT')=1 and (r.Partnumber='{0}' or (r.partnumber=Stuff('{0}',1,1,'') and LEFT('{0}',1)='P')) and r.Servicio='{1}'", Partnumber, _Service);
+                    _queryLastDel = string.Format("select top 1 Qty=SUM(Qty),Fecha_Salida=Min(CE.Fecha_Salida) from Det_Modulos DM inner join Cab_Modulos CM on CM.CM = DM.CM inner join Cab_Expediciones CE on CE.Expedicion = CM.Expedicion Where (Partnumber='{0}' or (partnumber=Stuff('{0}',1,1,'') and LEFT('{0}',1)='P')) and dm.Servicio = '{1}' group by CM.Expedicion order by CM.Expedicion desc", Partnumber, _Service);
                     break;
                 default:
                     _DB = "LOGISTICA_IDC";
                     _Service = "IDC";
-                    _selectQuery = string.Format(@"select proveedor,Fase4,Descripcion,rd.Embalaje,rd.qty_emb,rd.Lugar_Descarga,r.Loc1,r.Loc2,r.SPP,r.SPA,r.STD,r.SPS,r.SQC,r.SPC,r.SPE,r.SPX,r.SEV,r.MinGVDBA,r.MinGVDBADate,r.flags,BrkDate from referencias r inner join Referencias_Destinos rd on rd.Partnumber=r.partnumber and rd.Servicio=r.Servicio where dbo.CheckFlag(rd.flags,'DEFAULT')=1 and r.Partnumber='{0}' and r.Servicio='{1}'", Partnumber, _Service);
-                    _queryLastDel = string.Format("select top 1 Qty=SUM(Qty),Fecha_Salida=Min(CE.Fecha_Salida) from Det_Modulos DM inner join Cab_Modulos CM on CM.CM = DM.CM inner join Cab_Expediciones CE on CE.Expedicion = CM.Expedicion Where PartNumber = '{0}' and dm.Servicio = '{1}' group by CM.Expedicion order by CM.Expedicion desc", Partnumber, _Service);
+                    _selectQuery = string.Format(@"select r.partnumber,proveedor,Fase4,Descripcion,rd.Embalaje,rd.qty_emb,rd.Lugar_Descarga,r.Loc1,r.Loc2,r.SPP,r.SPA,r.STD,r.SPS,r.SQC,r.SPC,r.SPE,r.SPX,r.SEV,r.MinGVDBA,r.MinGVDBADate,r.flags,BrkDate from referencias r inner join Referencias_Destinos rd on rd.Partnumber=r.partnumber and rd.Servicio=r.Servicio where dbo.CheckFlag(rd.flags,'DEFAULT')=1 and (r.Partnumber='{0}' or (r.partnumber=Stuff('{0}',1,1,'') and LEFT('{0}',1)='P')) and r.Servicio='{1}'", Partnumber, _Service);
+                    _queryLastDel = string.Format("select top 1 Qty=SUM(Qty),Fecha_Salida=Min(CE.Fecha_Salida) from Det_Modulos DM inner join Cab_Modulos CM on CM.CM = DM.CM inner join Cab_Expediciones CE on CE.Expedicion = CM.Expedicion Where (Partnumber='{0}' or (partnumber=Stuff('{0}',1,1,'') and LEFT('{0}',1)='P'))  and dm.Servicio = '{1}' group by CM.Expedicion order by CM.Expedicion desc", Partnumber, _Service);
+                    _server = "db01.local";
                     break;
             }
             if (gDatos == null)
             {
-                string _connectionString = string.Format("Server={0};Initial Catalog={1};User Id={2};Password={3};MultipleActiveResultSets=True;Connection Lifetime=3;Max Pool Size=3", "10.200.10.138", _DB, User, Pwd);
+                string _connectionString = string.Format("Server={0};Initial Catalog={1};User Id={2};Password={3};MultipleActiveResultSets=True;Connection Lifetime=3;Max Pool Size=3", _server, _DB, User, Pwd);
                 gDatos = new SqlConnection(_connectionString);
                 try
                 {
@@ -94,6 +99,7 @@ namespace PartnumberInfo
                     {
                         if (await _refDR.ReadAsync())
                         { //get the first one
+                            _result.Partnumber = _refDR["Partnumber"].ToString();
                             _result.Supplier = _refDR["Proveedor"].ToString();
                             _result.Fase4 = _refDR["Fase4"].ToString();
                             _result.Description = _refDR["Descripcion"].ToString();

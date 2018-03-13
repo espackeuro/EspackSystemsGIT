@@ -34,7 +34,7 @@ namespace logon
     public class MainActivity : AppCompatActivity
     {
         private string CallingPkg { get; set; }
-        protected async override void OnCreate(Bundle bundle)
+        protected override void OnCreate(Bundle bundle)
         {
             CallingPkg = Intent.GetStringExtra("CallingPackage");
             var a = CP1252.GetEncoding("utf-32");
@@ -53,19 +53,28 @@ namespace logon
             zf.Close();
             LogonDetails.Version = string.Format("{0}.{1}", LogonDetails.Version, dtDateTime.ToString("yyyyMMdd.Hmmss"));
 
-            if (loginActivityClass!= null && LogonDetails.User!=null && CallingPkg!= null)
+            if (LogonDetails.User==null || CallingPkg== null)
+            {
+                var intent = new Intent(this, typeof(LoginActivityClass));
+                intent.SetAction(Intent.ActionView);
+                intent.AddCategory(Intent.CategoryLauncher);
+                intent.PutExtra("Version", LogonDetails.Version);
+                intent.PutExtra("PackageName", CallingPkg ?? "com.espack.logon");
+                StartActivityForResult(intent, 0);
+            }
+        }
+        protected async override void OnStart()
+        {
+            base.OnStart();
+            CallingPkg = Intent.GetStringExtra("CallingPackage");
+            Intent.RemoveExtra("CallingPackage");
+            if (LogonDetails.User != null && CallingPkg != null)
             {
                 LogonDetails = await LogonUser.DoLogon(LogonDetails.User, LogonDetails.Password, "appdb.local", CallingPkg);
                 LaunchPackage(CallingPkg, this);
+                CallingPkg = null;
                 return;
             }
-
-            var intent = new Intent(this, typeof(LoginActivityClass));
-            intent.SetAction(Intent.ActionView);
-            intent.AddCategory(Intent.CategoryLauncher);
-            intent.PutExtra("Version", LogonDetails.Version);
-            intent.PutExtra("PackageName", CallingPkg ?? "com.espack.logon");
-            StartActivityForResult(intent, 0);
         }
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
