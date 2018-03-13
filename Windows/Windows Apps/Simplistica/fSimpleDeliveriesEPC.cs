@@ -197,6 +197,8 @@ namespace Simplistica
                         _printIt.PrinterSettings = _pd.PrinterSettings;
                         _printIt.DeliveryNumber = txtDeliveryN.Text;
                         _printIt.Service = cboService.Value.ToString();
+                        _printIt.TruckPlate = txtPlate.Text;
+                        _printIt.DateEPC = (CT.QNul(dateEPC.Text)==""?"< NONE >": dateEPC.Text.Substring(0,10));
                         _pd.Document = _printIt;
                         _printIt.Print();
                     }
@@ -208,14 +210,16 @@ namespace Simplistica
         {
             public string DeliveryNumber { get; set; }
             public string Service { get; set; }
-            //public string Date { get; set; }
+            public string DateEPC { get; set; }
+            public string TruckPlate { get; set; }
+            private bool _dontPrintSignature=false;
             private int PageNumber { get; set; } = 0;
 
             // Definition for the document. It will be called on any new page, so we just define the Header and the query for the Body once. The Footer is cleared and created on each call, as the 
             // page number has to change.
             protected override void OnPrintPage(PrintPageEventArgs e)
             {
-                Graphics graphics = e.Graphics;
+                Graphics _g = e.Graphics;
 
                 // Page counter
                 PageNumber++;
@@ -228,60 +232,80 @@ namespace Simplistica
                     Header();
 
                     // Define the Body columns
-                    
                     NewLine(false, EnumDocumentParts.BODY);
                     Add($"{"LINE",5} {"PARTNUMBER",-20} {"DESCRIPTION",-30} {"ORDERED",7} {"SENT",6}", new Font("Courier New", 10, FontStyle.Bold));
+
+
+                    // Change the font and run the query for the Body data
                     this.CurrentFont = new Font("Courier New", 10);
-
-
                     using (var _rs = new StaticRS(string.Format("Select Line,Partnumber,Description,OrderedQty,SentQty from vSimpleDeliveriesDet where DeliveryNumber='{0}' and Service='{1}'", DeliveryNumber, Service), Values.gDatos))
                     {
                         _rs.Open();
-                        NewLine(true);
+
+                        _dontPrintSignature = (_rs.RecordCount>50);
+
                         if (_rs.RecordCount != 0)
                         {
+
+                            // Loop through the recordset results
                             while (!_rs.EOF)
                             {
-                                Add(string.Format("{0,5} {1,-20} {2,-30} {3,7} {4,6}", _rs["Line"].ToString(), _rs["Partnumber"].ToString(), _rs["Description"].ToString().Substring(0, 30), _rs["OrderedQty"].ToString(), _rs["SentQty"].ToString()));
                                 NewLine(true);
+                                Add(string.Format("{0,5} {1,-20} {2,-30} {3,7} {4,6}", _rs["Line"], _rs["Partnumber"], _rs["Description"].ToString().Substring(0, 30), _rs["OrderedQty"], _rs["SentQty"]));
                                 _rs.MoveNext();
                             }
-                        } else { 
+                        } else {
+                            NewLine(true);
                             Add("--- NO DATA FOUND ---");
                         }
                     }                    
+                } else { 
+                    _dontPrintSignature = !((BodyList.Lines.Count() - BodyList.LastPrintedLine - 50) < 1);
                 }
                 
                 // Print the footer (changes on each new page)
                 Footer();
 
+                // Draw graphics
+                _g.DrawRectangle(new Pen(Color.Black, 0.5F), 25F, 50F, 725F, 75F); // Header box
+                _g.DrawLine(new Pen(Color.Black, 0.5F), 50F, 1040F, 750F, 1040F); // Footer separator
+
+                // Signature boxes when last page is reached
+                if (!_dontPrintSignature) //BodyList.LastPrintedLine+)
+                {
+                    _g.DrawRectangle(new Pen(Color.Black, 0.5F), 250F, 1050F, 225F, 100F);
+                    _g.DrawRectangle(new Pen(Color.Black, 0.5F), 475F, 1050F, 225F, 100F);
+                    _g.DrawString("Carrier Signature", new Font("Courier New", 6), new SolidBrush(Color.Black), new PointF(255F, 1052F));
+                    _g.DrawString("Forklift Driver Signature", new Font("Courier New", 6), new SolidBrush(Color.Black), new PointF(480F, 1052F));
+
+                }
+
+                // Base object: it has to be the last to be called as it prints the results
                 base.OnPrintPage(e);
+
             }
 
             private void Header()
             {
-                this.CurrentFont = new Font("Courier New", 16, FontStyle.Bold);
+                this.CurrentFont = new Font("Courier New", 12, FontStyle.Bold);
                 NewLine(false, EnumDocumentParts.HEADER);
-                Add(string.Format("DELIVERY NUMBER: {0}   SERVICE: {1}",DeliveryNumber,Service));
-                NewLine();
-                Add(string.Format("DATE: ????"));
-                
+                Add(string.Format("DELIVERY NUMBER: {0,-15} SERVICE: {1,-10}",DeliveryNumber,Service));
+                NewLine(false, EnumDocumentParts.HEADER);
+                Add(string.Format("TRUCK PLATE    : {0,-15} DATE   : {1,-10}", TruckPlate,DateEPC));
+                NewLine(false, EnumDocumentParts.HEADER);
+                NewLine(false, EnumDocumentParts.HEADER);
 
             }
 
             private void Footer()
             {
                 ClearFooter();
-                this.CurrentFont = new Font("Courier New", 12, FontStyle.Bold);
+                this.CurrentFont = new Font("Courier New", 10, FontStyle.Bold);
                 NewLine(false, EnumDocumentParts.FOOTER);
-                //Add("");
                 NewLine(false, EnumDocumentParts.FOOTER);
                 Add(string.Format("Page {0}", PageNumber));
+                NewLine(false, EnumDocumentParts.FOOTER);
             }
-
-
         }
-
-
     }
 }

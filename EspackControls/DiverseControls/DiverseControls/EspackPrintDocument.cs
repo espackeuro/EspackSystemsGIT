@@ -204,14 +204,14 @@ namespace DiverseControls
         {
             get
             {
-                return (DefaultPageSettings.PrintableArea.Left * 0.254F) + TOP_MARGIN;
+                return (DefaultPageSettings.PrintableArea.Left * 0.254F) + LEFT_MARGIN;
             }
         }
         public float XMax
         {
             get
             {
-                return (DefaultPageSettings.PrintableArea.Right * 0.254F) - BOTTOM_MARGIN;
+                return (DefaultPageSettings.PrintableArea.Right * 0.254F) - RIGHT_MARGIN;
             }
         }
 
@@ -219,7 +219,7 @@ namespace DiverseControls
         {
             get
             {
-                return (DefaultPageSettings.PrintableArea.Top * 0.254F) + LEFT_MARGIN;
+                return (DefaultPageSettings.PrintableArea.Top * 0.254F) + TOP_MARGIN;
             }
         }
 
@@ -227,7 +227,8 @@ namespace DiverseControls
         {
             get
             {
-                return (DefaultPageSettings.PrintableArea.Bottom * 0.254F) - RIGHT_MARGIN - FOOTER_TOP;
+                //return (DefaultPageSettings.PrintableArea.Bottom * 0.254F) - RIGHT_MARGIN - FOOTER_TOP;
+                return (DefaultPageSettings.PrintableArea.Bottom * 0.254F) - BOTTOM_MARGIN - FOOTER_TOP;
             }
         }
         public EspackPrintDocument() : base()
@@ -307,7 +308,7 @@ namespace DiverseControls
             // lets print the lines
             if (BodyList.LastPrintedLine >1)
                 PrintDocumentLine(BodyList.Lines[1], g, ref _y); // column titles in following new pages
-            while (_y <= YMax && BodyList.LastPrintedLine < BodyList.Lines.Count-1 )
+            while (_y <= YMax && BodyList.LastPrintedLine < BodyList.Lines.Count )
             {
                 PrintDocumentLine(BodyList.Lines[BodyList.LastPrintedLine], g, ref _y);
                 BodyList.LastPrintedLine++;
@@ -321,7 +322,7 @@ namespace DiverseControls
             });
 
             // are going to be more pages?
-            e.HasMorePages = (BodyList.LastPrintedLine < BodyList.Lines.Count - 1);
+            e.HasMorePages = (BodyList.LastPrintedLine < BodyList.Lines.Count);
 
             base.OnPrintPage(e);
         }
@@ -332,7 +333,7 @@ namespace DiverseControls
             var _x = XMin;
             var __y = _y;
             if (Line.Banding && (Line.LineNumber % 2 == 0))
-                g.FillRectangle(new SolidBrush(Color.LightGray), XMin, _y, Line.Width, Line.Height);
+                g.FillRectangle(new SolidBrush(Color.GhostWhite), XMin, _y, Line.Width, Line.Height);
             Line.Things.ForEach(t =>
             {
                 t.Draw(_x, __y);
