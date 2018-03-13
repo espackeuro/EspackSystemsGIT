@@ -363,7 +363,7 @@ namespace VSGrid
                     {
                         foreach (CtlVSColumn lCol in Columns)
                         {
-                            lCol.Locked = !lCol.Upp;
+                            lCol.Locked = (!lCol.Upp || lCol.PK);
                         }
                     }
                     foreach (DataGridViewCell lCell in Rows[RowCount - 1].Cells)
@@ -794,7 +794,7 @@ namespace VSGrid
         }
 
         public void AddColumn(string pName, string pDBFieldName = "", string pSPAdd = "", string pSPUpp = "", string pSPDel = "", bool pSortable = false,
-            bool pIsFlag=false, bool pLocked=false, string pQuery = "", int pWidth = 0, string pAlignment = "",  string pAttr="",AutoCompleteMode aMode=AutoCompleteMode.None,AutoCompleteSource aSource=AutoCompleteSource.None,string aQuery="", bool pPrint=false, bool pVisible=true)
+            bool pIsFlag=false, bool pLocked=false, string pQuery = "", int pWidth = 0, string pAlignment = "",  string pAttr="",AutoCompleteMode aMode=AutoCompleteMode.None,AutoCompleteSource aSource=AutoCompleteSource.None,string aQuery="", bool pPrint=false, bool pVisible=true,bool pPK=false)
         {
             if (pQuery=="")
             {
@@ -825,7 +825,8 @@ namespace VSGrid
                     AutoCompleteSource = aSource,
                     AutoCompleteQuery = aQuery,
                     Print = pPrint,
-                    Visible = pVisible
+                    Visible = pVisible,
+                    PK = pPK
                
                 };
                 _Col.SetQuery(pQuery);
@@ -862,14 +863,15 @@ namespace VSGrid
                     AutoCompleteSource = aSource,
                     AutoCompleteQuery = aQuery,
                     Print = pPrint,
-                    Visible = pVisible
+                    Visible = pVisible,
+                    PK=pPK
                 };
                 _Col.SetQuery(pQuery);
                 Columns.Add(_Col);
             }
         }
 
-        public void AddColumn(string pName, EspackFormControl pLinkedControl, string pSPAdd = "", string pSPUpp = "", string pSPDel = "", AutoCompleteMode aMode = AutoCompleteMode.None, AutoCompleteSource aSource = AutoCompleteSource.None, string aQuery="", bool pPrint=false, bool pVisible=true)
+        public void AddColumn(string pName, EspackFormControl pLinkedControl, string pSPAdd = "", string pSPUpp = "", string pSPDel = "", AutoCompleteMode aMode = AutoCompleteMode.None, AutoCompleteSource aSource = AutoCompleteSource.None, string aQuery="", bool pPrint=false, bool pVisible=true,bool pPK=false)
         {
             var _Col = new CtlVSTextBoxColumn()
             {
@@ -898,7 +900,8 @@ namespace VSGrid
                 AutoCompleteSource = aSource,
                 AutoCompleteQuery = aQuery,
                 Print = pPrint,
-                Visible = pVisible
+                Visible = pVisible,
+                PK=pPK
             };
             _Col.SetQuery("");
             Columns.Add(_Col);

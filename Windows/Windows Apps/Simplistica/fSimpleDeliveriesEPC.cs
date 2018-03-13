@@ -69,7 +69,7 @@ namespace Simplistica
             //VS Details
             VS.AddColumn("DeliveryNumber", txtDeliveryN, "@DeliveryNumber", "@DeliveryNumber", "@DeliveryNumber",pVisible:false);
             VS.AddColumn("Service", cboService, "@Service", "@Service", "@Service", pVisible: false);
-            VS.AddColumn("Line", "Line","","@Line", "@Line",pSortable:true,pLocked:true);
+            VS.AddColumn("Line", "Line","","@Line", "@Line",pSortable:true,pLocked:true,pPK:true);
             VS.AddColumn("PartNumber", "partnumber", "@partnumber", pSortable: true, pWidth: 90, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: string.Format("select partnumber from referencias where servicio='{0}'", cboService.Value));
             VS.AddColumn("Description","Description", pWidth: 160);
             VS.AddColumn("OrderedQty", "OrderedQty", "@OrderedQty", "@OrderedQty", pWidth: 90);
@@ -195,8 +195,8 @@ namespace Simplistica
                     using (var _printIt = new PrintPage())
                     {
                         _printIt.PrinterSettings = _pd.PrinterSettings;
-                        _printIt.DeliveryNumber = "C500000001";
-                        _printIt.Service = "C500000001";
+                        _printIt.DeliveryNumber = txtDeliveryN.Text;
+                        _printIt.Service = cboService.Value.ToString();
                         _pd.Document = _printIt;
                         _printIt.Print();
                     }
@@ -206,49 +206,53 @@ namespace Simplistica
 
         public class PrintPage : EspackPrintDocument
         {
-
-            public string SQLQuery { get; set; }
             public string DeliveryNumber { get; set; }
             public string Service { get; set; }
+            //public string Date { get; set; }
             private int PageNumber { get; set; } = 0;
 
-            private void PrintPageEventHandler(object sender,PrintPageEventArgs e)
-            {
-                PageNumber++;
-               // PrintPage += new PrintPageEventHandler(PrintPageEventHandler);
-
-
-            }
-
-            public PrintPage()
-            {
-                //PageNumber = 1;
-                //PrintPage += new PrintPageEventHandler(PrintPageEventHandler);
-            }
-
+            // Definition for the document. It will be called on any new page, so we just define the Header and the query for the Body once. The Footer is cleared and created on each call, as the 
+            // page number has to change.
             protected override void OnPrintPage(PrintPageEventArgs e)
             {
-                //PageNumber++;
                 Graphics graphics = e.Graphics;
+
+                // Page counter
                 PageNumber++;
 
+                // Just for the first time
                 if (PageNumber == 1)
                 {
 
+                    // Define the Header
                     Header();
 
-                    NewLine(true, EnumDocumentParts.BODY);
-                    Add(string.Format("MUCHOS COSA"),new Font("Courier New",10, FontStyle.Bold));
-
-                    this.CurrentFont = new Font("Courier New", 10);
-                    for (int _pollocount = 0; _pollocount < 70; _pollocount++)
-                        {
-                            NewLine(true, EnumDocumentParts.BODY);
-                            Add(string.Format("Pollitos {0}", _pollocount));
-                        }
+                    // Define the Body columns
                     
+                    NewLine(false, EnumDocumentParts.BODY);
+                    Add($"{"LINE",5} {"PARTNUMBER",-20} {"DESCRIPTION",-30} {"ORDERED",7} {"SENT",6}", new Font("Courier New", 10, FontStyle.Bold));
+                    this.CurrentFont = new Font("Courier New", 10);
+
+
+                    using (var _rs = new StaticRS(string.Format("Select Line,Partnumber,Description,OrderedQty,SentQty from vSimpleDeliveriesDet where DeliveryNumber='{0}' and Service='{1}'", DeliveryNumber, Service), Values.gDatos))
+                    {
+                        _rs.Open();
+                        NewLine(true);
+                        if (_rs.RecordCount != 0)
+                        {
+                            while (!_rs.EOF)
+                            {
+                                Add(string.Format("{0,5} {1,-20} {2,-30} {3,7} {4,6}", _rs["Line"].ToString(), _rs["Partnumber"].ToString(), _rs["Description"].ToString().Substring(0, 30), _rs["OrderedQty"].ToString(), _rs["SentQty"].ToString()));
+                                NewLine(true);
+                                _rs.MoveNext();
+                            }
+                        } else { 
+                            Add("--- NO DATA FOUND ---");
+                        }
+                    }                    
                 }
-               
+                
+                // Print the footer (changes on each new page)
                 Footer();
 
                 base.OnPrintPage(e);
@@ -256,12 +260,12 @@ namespace Simplistica
 
             private void Header()
             {
-
                 this.CurrentFont = new Font("Courier New", 16, FontStyle.Bold);
-
-                NewLine(true, EnumDocumentParts.HEADER);
-                Add(string.Format("DELIVERY NUMBER: {0}",DeliveryNumber));
                 NewLine(false, EnumDocumentParts.HEADER);
+                Add(string.Format("DELIVERY NUMBER: {0}   SERVICE: {1}",DeliveryNumber,Service));
+                NewLine();
+                Add(string.Format("DATE: ????"));
+                
 
             }
 
@@ -269,6 +273,8 @@ namespace Simplistica
             {
                 ClearFooter();
                 this.CurrentFont = new Font("Courier New", 12, FontStyle.Bold);
+                NewLine(false, EnumDocumentParts.FOOTER);
+                //Add("");
                 NewLine(false, EnumDocumentParts.FOOTER);
                 Add(string.Format("Page {0}", PageNumber));
             }
