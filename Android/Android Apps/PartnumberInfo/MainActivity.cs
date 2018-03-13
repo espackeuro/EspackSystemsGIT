@@ -34,14 +34,6 @@ namespace PartnumberInfo
             base.OnCreate(savedInstanceState);
             //for the image barcode scanner
             MobileBarcodeScanner.Initialize(Application);
-/*
-            User = "sa";
-            Pwd = "5380";
-            Server = "db01.local";
-            Values.Version = "DEBUG";
-            FullName = "PEPITO PÉREZ";
-*/
-
             try
             {
                 User = Intent.GetStringExtra("USR");
@@ -50,13 +42,16 @@ namespace PartnumberInfo
                     Intent i = PackageManager.GetLaunchIntentForPackage("com.espack.logon");
                     i.PutExtra("CallingPackage", "com.espack.partnumberinfo");
                     StartActivity(i);
+                    Finish();
                     return;
                 }
+                User = Intent.GetStringExtra("USR");
                 Pwd = Intent.GetStringExtra("PWD");
                 Server = Intent.GetStringExtra("SRV");
                 Values.Version = Intent.GetStringExtra("VERSION");
                 FullName = Intent.GetStringExtra("FULLNAME");
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Toast.MakeText(this, ex.Message, ToastLength.Short).Show();
                 User = "sa";
@@ -68,9 +63,7 @@ namespace PartnumberInfo
 
             var intent = new Intent(this, typeof(PartnumberInfo));
             StartActivityForResult(intent, 0);
-            // Set our view from the "main" layout resource
-           // SetContentView(Resource.Layout.Main);
-           
+
         }
     }
 }

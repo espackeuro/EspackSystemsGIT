@@ -130,6 +130,7 @@ namespace PartnumberInfo
         {
             Activity.RunOnUiThread(() =>
             {
+                txtPartNumber.Text = data.Partnumber;
                 doF.txtSupplier.Text = data.Supplier;
                 doF.txtFase4.Text = data.Fase4;
                 doF.txtDescription.Text = data.Description;
