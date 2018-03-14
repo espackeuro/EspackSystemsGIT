@@ -116,10 +116,8 @@ namespace Simplistica
 
         private void CTLM_AfterButtonClick(object sender, CTLMEventArgs e)
         {
-
             toolStrip.Enabled = (CTLM.Status == CommonTools.EnumStatus.NAVIGATE);
             toolStrip.Enabled = true; // The event that changes the status happens after this AfterButtonClick, so we left this enabled until I decide what to do.
-
         }
 
         private void CboService_SelectedValueChanged(object sender, EventArgs e)

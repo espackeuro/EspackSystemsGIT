@@ -31,7 +31,8 @@ namespace VSGrid
         private int mPageSize;
         private ToolStrip mNavigationBar;
         private EnumStatus mPreviousParentStatus;
-//Properties
+        public bool Protected { get; set; }
+        //Properties
         public bool AllowInsert { get; set; }
         public bool AllowUpdate { get; set; }
         public bool AllowDelete { get; set; }

@@ -93,6 +93,7 @@ namespace EspackFormControls
         public cAccesoDatosNet ParentConn { get; set; }
         private EnumStatus mStatus;
         private DynamicRS mDependingRS;
+        public bool Protected { get; set; }
         //private Padding _margin;
         //private Size _size;
 
@@ -196,9 +197,9 @@ namespace EspackFormControls
             set
             {
                 mStatus = value;
-                Enabled = true;
+                Enabled = !Protected;
 
-                ReadOnly = !((Add && Status == EnumStatus.ADDNEW) || (Upp && Status == EnumStatus.EDIT && !PK) || (Del && Status == EnumStatus.DELETE) || (Search && Status == EnumStatus.SEARCH));
+                ReadOnly = !((Add && Status == EnumStatus.ADDNEW) || (Upp && Status == EnumStatus.EDIT && !PK) || (Del && Status == EnumStatus.DELETE) || (Search && Status == EnumStatus.SEARCH)) || Protected;
                 BackColor = ReadOnly ? SystemColors.ButtonFace : Color.White;
                 ForeColor = ReadOnly ? Color.Gray : Color.Black;
 
@@ -267,9 +268,10 @@ namespace EspackFormControls
             }
         }
 
+
         //List<StaticRS> ExternalControls;//list of possible external controls, the key is the parameter name and the object is the control
         //List<EspackControl> DependingControls; //list of those controls which have me as external control
-        
+
 
         //void AddExternalControl(string pParameterName, StaticRS pRS)
         //{
@@ -283,7 +285,7 @@ namespace EspackFormControls
         //        }
         //    }
         //}
-        
+
 
         public EspackTextBox()
             : base()
@@ -349,6 +351,7 @@ namespace EspackFormControls
         public cAccesoDatosNet ParentConn { get; set; }
         private EnumStatus mStatus;
         private DynamicRS mDependingRS;
+        public bool Protected { get; set; }
 
         public new bool Visible
         {
@@ -374,7 +377,7 @@ namespace EspackFormControls
             {
                 mStatus = value;
                 Enabled = true;
-                ReadOnly = !((Add && Status == EnumStatus.ADDNEW) || (Upp && Status == EnumStatus.EDIT && !PK) || (Del && Status == EnumStatus.DELETE) || (Search && Status == EnumStatus.SEARCH));
+                ReadOnly = !((Add && Status == EnumStatus.ADDNEW) || (Upp && Status == EnumStatus.EDIT && !PK) || (Del && Status == EnumStatus.DELETE) || (Search && Status == EnumStatus.SEARCH)) || Protected;
                 BackColor = ReadOnly ? SystemColors.ButtonFace : Color.White;
                 ForeColor = ReadOnly ? SystemColors.InactiveCaptionText : SystemColors.ControlText;
             }
@@ -655,6 +658,7 @@ namespace EspackFormControls
         private DateTime? _value;
         private bool _nullable;
         private bool _checked;
+        public bool Protected { get; set; }
 
         public EnumStatus Status
         {
@@ -665,7 +669,7 @@ namespace EspackFormControls
             set
             {
                 mStatus = value;
-                Enabled = (Add && Status == EnumStatus.ADDNEW) || (Upp && Status == EnumStatus.EDIT && !PK) || (Del && Status == EnumStatus.DELETE) || (Search && Status == EnumStatus.SEARCH);
+                Enabled = ((Add && Status == EnumStatus.ADDNEW) || (Upp && Status == EnumStatus.EDIT && !PK) || (Del && Status == EnumStatus.DELETE) || (Search && Status == EnumStatus.SEARCH)) && !Protected;
             }
         }
 
@@ -942,6 +946,7 @@ namespace EspackFormControls
         public DynamicRS DependingRS { get; set; }
         public cAccesoDatosNet ParentConn { get; set; }
         public Point Location { get; set; }
+        public bool Protected { get; set; }
         public object Value
         {
             get
@@ -1018,6 +1023,7 @@ namespace EspackFormControls
         public Point Location { get; set; }
         private List<EspackControl> LinkedItems { get; set; } = new List<EspackControl>();
         //private string[][] ExtraDataArray;
+        public bool Protected { get; set; }
 
         public void AddLinkedItem(EspackControl Item)
         {
@@ -1138,7 +1144,7 @@ namespace EspackFormControls
         private DynamicRS _RS;
         private string _SQL;
         private bool noChange = false;
-
+        public bool Protected { get; set; }
 
 
         public event EventHandler<ChangeEventArgs> Changed;
@@ -1173,7 +1179,7 @@ namespace EspackFormControls
             set
             {
                 mStatus = value;
-                Enabled = (Add && Status == EnumStatus.ADDNEW) || (Upp && Status == EnumStatus.EDIT && !PK) || (Del && Status == EnumStatus.DELETE) || (Search && Status == EnumStatus.SEARCH);
+                Enabled = ((Add && Status == EnumStatus.ADDNEW) || (Upp && Status == EnumStatus.EDIT && !PK) || (Del && Status == EnumStatus.DELETE) || (Search && Status == EnumStatus.SEARCH)) && !Protected;
             }
         }
 
@@ -1493,6 +1499,7 @@ namespace EspackFormControls
         private DynamicRS _RS;
         private string _SQL;
         public EspackTextBox TBDescription { get; set; }
+        public bool Protected { get; set; }
 
         public new bool Visible
         {
@@ -1588,7 +1595,7 @@ namespace EspackFormControls
             set
             {
                 mStatus = value;
-                Enabled = (Add && Status == EnumStatus.ADDNEW) || (Upp && Status == EnumStatus.EDIT && !PK) || (Del && Status == EnumStatus.DELETE) || (Search && Status == EnumStatus.SEARCH);
+                Enabled = ((Add && Status == EnumStatus.ADDNEW) || (Upp && Status == EnumStatus.EDIT && !PK) || (Del && Status == EnumStatus.DELETE) || (Search && Status == EnumStatus.SEARCH)) && !Protected;
             }
         }
 

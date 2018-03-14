@@ -101,7 +101,7 @@
             this.btnPrint});
             this.toolStrip.Location = new System.Drawing.Point(543, 9);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(173, 31);
+            this.toolStrip.Size = new System.Drawing.Size(142, 31);
             this.toolStrip.TabIndex = 57;
             this.toolStrip.Text = "toolStrip1";
             // 
@@ -159,6 +159,7 @@
             this.cboService.ParentConn = null;
             this.cboService.ParentDA = null;
             this.cboService.PK = false;
+            this.cboService.Protected = false;
             this.cboService.Search = false;
             this.cboService.Size = new System.Drawing.Size(130, 24);
             this.cboService.Status = CommonTools.EnumStatus.ADDNEW;
@@ -190,6 +191,7 @@
             this.lstFlags.ParentConn = null;
             this.lstFlags.ParentDA = null;
             this.lstFlags.PK = false;
+            this.lstFlags.Protected = false;
             this.lstFlags.Search = false;
             this.lstFlags.Size = new System.Drawing.Size(540, 57);
             this.lstFlags.Status = CommonTools.EnumStatus.ADDNEW;
@@ -223,6 +225,7 @@
             this.dateEnd.ParentConn = null;
             this.dateEnd.ParentDA = null;
             this.dateEnd.PK = false;
+            this.dateEnd.Protected = false;
             this.dateEnd.Search = false;
             this.dateEnd.Size = new System.Drawing.Size(130, 24);
             this.dateEnd.Status = CommonTools.EnumStatus.ADDNEW;
@@ -256,6 +259,7 @@
             this.dateStart.ParentConn = null;
             this.dateStart.ParentDA = null;
             this.dateStart.PK = false;
+            this.dateStart.Protected = false;
             this.dateStart.Search = false;
             this.dateStart.Size = new System.Drawing.Size(130, 24);
             this.dateStart.Status = CommonTools.EnumStatus.ADDNEW;
@@ -277,6 +281,7 @@
             this.dateEPC.DefaultValue = null;
             this.dateEPC.Del = false;
             this.dateEPC.DependingRS = null;
+            this.dateEPC.Enabled = false;
             this.dateEPC.ExtraDataLink = null;
             this.dateEPC.Font = new System.Drawing.Font("Tahoma", 10F);
             this.dateEPC.ForeColor = System.Drawing.Color.Black;
@@ -289,6 +294,7 @@
             this.dateEPC.ParentConn = null;
             this.dateEPC.ParentDA = null;
             this.dateEPC.PK = false;
+            this.dateEPC.Protected = true;
             this.dateEPC.Search = false;
             this.dateEPC.ShowCheckBox = true;
             this.dateEPC.Size = new System.Drawing.Size(130, 24);
@@ -323,6 +329,7 @@
             this.dateCheckPoint.ParentConn = null;
             this.dateCheckPoint.ParentDA = null;
             this.dateCheckPoint.PK = false;
+            this.dateCheckPoint.Protected = false;
             this.dateCheckPoint.Search = false;
             this.dateCheckPoint.ShowCheckBox = true;
             this.dateCheckPoint.Size = new System.Drawing.Size(130, 24);
@@ -352,6 +359,7 @@
             this.txtPlate.ParentConn = null;
             this.txtPlate.ParentDA = null;
             this.txtPlate.PK = false;
+            this.txtPlate.Protected = false;
             this.txtPlate.ReadOnly = true;
             this.txtPlate.Search = false;
             this.txtPlate.Size = new System.Drawing.Size(130, 17);
@@ -384,6 +392,7 @@
             this.cboDestination.ParentConn = null;
             this.cboDestination.ParentDA = null;
             this.cboDestination.PK = false;
+            this.cboDestination.Protected = false;
             this.cboDestination.Search = false;
             this.cboDestination.Size = new System.Drawing.Size(130, 24);
             this.cboDestination.Status = CommonTools.EnumStatus.ADDNEW;
@@ -416,6 +425,7 @@
             this.cboDock.ParentConn = null;
             this.cboDock.ParentDA = null;
             this.cboDock.PK = false;
+            this.cboDock.Protected = false;
             this.cboDock.Search = false;
             this.cboDock.Size = new System.Drawing.Size(130, 24);
             this.cboDock.Status = CommonTools.EnumStatus.ADDNEW;
@@ -445,6 +455,7 @@
             this.txtUser.ParentConn = null;
             this.txtUser.ParentDA = null;
             this.txtUser.PK = false;
+            this.txtUser.Protected = false;
             this.txtUser.ReadOnly = true;
             this.txtUser.Search = false;
             this.txtUser.Size = new System.Drawing.Size(130, 17);
@@ -481,6 +492,7 @@
             this.cboShift.ParentConn = null;
             this.cboShift.ParentDA = null;
             this.cboShift.PK = false;
+            this.cboShift.Protected = false;
             this.cboShift.Search = false;
             this.cboShift.Size = new System.Drawing.Size(130, 24);
             this.cboShift.Status = CommonTools.EnumStatus.ADDNEW;
@@ -510,6 +522,7 @@
             this.txtDeliveryN.ParentConn = null;
             this.txtDeliveryN.ParentDA = null;
             this.txtDeliveryN.PK = false;
+            this.txtDeliveryN.Protected = false;
             this.txtDeliveryN.ReadOnly = true;
             this.txtDeliveryN.Search = false;
             this.txtDeliveryN.Size = new System.Drawing.Size(130, 17);
@@ -548,6 +561,7 @@
             this.VS.ParentConn = null;
             this.VS.ParentDA = null;
             this.VS.PK = false;
+            this.VS.Protected = false;
             this.VS.RowHeadersVisible = false;
             this.VS.Search = false;
             this.VS.Size = new System.Drawing.Size(676, 308);

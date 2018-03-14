@@ -62,6 +62,7 @@ namespace VSGrid
         private EnumStatus _status;
         public bool Print { get; set; }
         public event EventHandler TextChanged;
+        public bool Protected { get; set; }
 
         public EnumStatus Status
         {
@@ -362,6 +363,7 @@ namespace VSGrid
         private EnumStatus _status;
         public bool Print { get; set; }
         public event EventHandler TextChanged;
+        public bool Protected { get; set; }
 
         public EnumStatus Status
         {
