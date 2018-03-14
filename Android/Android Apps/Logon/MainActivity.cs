@@ -36,80 +36,84 @@ namespace logon
         private string CallingPkg { get; set; }
         protected override void OnCreate(Bundle bundle)
         {
-            CallingPkg = Intent.GetStringExtra("CallingPackage");
+            
             var a = CP1252.GetEncoding("utf-32");
             base.OnCreate(bundle);
             //for the image barcode scanner
             //MobileBarcodeScanner.Initialize(Application);
             //version control
-            Context context = this.ApplicationContext;
-            LogonDetails.Version = context.PackageManager.GetPackageInfo(context.PackageName, 0).VersionName;
-            ApplicationInfo ai = PackageManager.GetApplicationInfo(context.PackageName, 0);
-            ZipFile zf = new ZipFile(ai.SourceDir);
-            ZipEntry ze = zf.GetEntry("classes.dex");
-            long time = ze.Time;
-            System.DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
-            dtDateTime = dtDateTime.AddSeconds(Math.Round(time / 1000D)).ToLocalTime();
-            zf.Close();
-            LogonDetails.Version = string.Format("{0}.{1}", LogonDetails.Version, dtDateTime.ToString("yyyyMMdd.Hmmss"));
+            // Context context = this.ApplicationContext;
+            /*
+                        LogonDetails.Version = context.PackageManager.GetPackageInfo(CallingPkg, 0).VersionName;
+                        ApplicationInfo ai = PackageManager.GetApplicationInfo(CallingPkg, 0);
+                        ZipFile zf = new ZipFile(ai.SourceDir);
+                        ZipEntry ze = zf.GetEntry("classes.dex");
+                        long time = ze.Time;
+                        System.DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+                        dtDateTime = dtDateTime.AddSeconds(Math.Round(time / 1000D)).ToLocalTime();
+                        zf.Close();
+                        LogonDetails.Version = string.Format("{0}.{1}", LogonDetails.Version, dtDateTime.ToString("yyyyMMdd.Hmmss"));
+            */
 
-            if (LogonDetails.User==null || CallingPkg== null)
+            CallingPkg = Intent.GetStringExtra("CallingPackage") ?? "com.espack.logon";
+            Context context = this.ApplicationContext;
+            if (LogonDetails.User==null)
             {
                 var intent = new Intent(this, typeof(LoginActivityClass));
                 intent.SetAction(Intent.ActionView);
                 intent.AddCategory(Intent.CategoryLauncher);
-                intent.PutExtra("Version", LogonDetails.Version);
-                intent.PutExtra("PackageName", CallingPkg ?? "com.espack.logon");
+                intent.PutExtra("Version", context.PackageManager.GetPackageInfo(CallingPkg, 0).VersionName);
+                intent.PutExtra("PackageName", CallingPkg);
                 StartActivityForResult(intent, 0);
             }
         }
         protected async override void OnStart()
         {
             base.OnStart();
-            CallingPkg = Intent.GetStringExtra("CallingPackage");
-            Intent.RemoveExtra("CallingPackage");
-            if (LogonDetails.User != null && CallingPkg != null)
+            CallingPkg = Intent.GetStringExtra("CallingPackage") ?? "com.espack.logon";
+            if (LogonDetails.User != null)
             {
+                Intent.RemoveExtra("CallingPackage");
                 LogonDetails = await LogonUser.DoLogon(LogonDetails.User, LogonDetails.Password, "appdb.local", CallingPkg);
-                LaunchPackage(CallingPkg, this);
+                await LaunchPackage(CallingPkg, this);
                 CallingPkg = null;
                 return;
             }
         }
-        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
-        {
-            base.OnActivityResult(requestCode, resultCode, data);
-            if (resultCode == Result.Ok && requestCode == 0)
-            {
-                string Result = data.GetStringExtra("Result");
-                if (Result == "OK")
-                {
-                    if (CallingPkg == null)
-                    {
-                        var intent = new Intent(this, typeof(MainScreen));
-                        StartActivityForResult(intent, 1);
-                    } else
-                    {
-                        MainActivity.LaunchPackage(CallingPkg, this);
-                    }
-                }
-                else
-                {
-                    Finish();
-                }
-            }
-            else
-            {
-                Finish();
-            }
-        }
-        public static void LaunchPackage(string packageName, Context context)
+        //protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        //{
+        //    base.OnActivityResult(requestCode, resultCode, data);
+        //    if (resultCode == Result.Ok && requestCode == 0)
+        //    {
+        //        string Result = data.GetStringExtra("Result");
+        //        if (Result == "OK")
+        //        {
+        //            if (CallingPkg == null)
+        //            {
+        //                var intent = new Intent(this, typeof(MainScreen));
+        //                StartActivityForResult(intent, 1);
+        //            } else
+        //            {
+        //                MainActivity.LaunchPackage(CallingPkg, this);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            Finish();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Finish();
+        //    }
+        //}
+        public async static Task LaunchPackage(string packageName, Context context)
         {
             try
             {
-                Intent intent = context.PackageManager.GetLaunchIntentForPackage(packageName);
-                ((Activity)context).RunOnUiThread(async () => 
-                {
+                Intent intent = packageName == "com.espack.logon" ? new Intent(context, typeof(MainScreen)) : context.PackageManager.GetLaunchIntentForPackage(packageName);
+                //((Activity)context).RunOnUiThread(async () => 
+                //{
                     //check if package exists
                     if (intent == null)
                     {
@@ -137,21 +141,22 @@ namespace logon
                         {
                             var pd = ProgressDialog.Show(context, "", "Downloading...", false, false);
                             pd.SetProgressStyle(ProgressDialogStyle.Spinner);
-                            try
+                        try
+                        {
+                            await UpdatePackage.DoUpdatePackage(packageName, context);
+                            return;
+                            //intent = context.PackageManager.GetLaunchIntentForPackage(packageName);
+                        }
+                        catch (Exception ex)
+                        {
+                            var builder = new Android.Support.V7.App.AlertDialog.Builder(context);
+                            builder.SetTitle("ERROR");
+                            builder.SetIcon(Android.Resource.Drawable.IcDialogAlert);
+                            builder.SetMessage(ex.Message);
+                            builder.SetNeutralButton("OK", delegate
                             {
-                                await UpdatePackage.DoUpdatePackage(packageName, context);
-                                intent = context.PackageManager.GetLaunchIntentForPackage(packageName);
-                            }
-                            catch (Exception ex)
-                            {
-                                var builder = new Android.Support.V7.App.AlertDialog.Builder(context);
-                                builder.SetTitle("ERROR");
-                                builder.SetIcon(Android.Resource.Drawable.IcDialogAlert);
-                                builder.SetMessage(ex.Message);
-                                builder.SetNeutralButton("OK", delegate
-                                {
-                                });
-                            }
+                            });
+                        }
                             pd.Dismiss();
                         }
                     }
@@ -162,7 +167,7 @@ namespace logon
                     intent.PutExtra("VERSION", LogonDetails.Version);
                     intent.PutExtra("FULLNAME", LogonDetails.FullName);
                     context.StartActivity(intent);
-                });
+                //});
             }
             catch (Exception ex)
             {

@@ -77,14 +77,14 @@ namespace logon
             if (e.ActionId == Android.Views.InputMethods.ImeAction.Send)
             {
                 e.Handled = true;
-                await CheckLoginAndUpdate();
+                await CheckLogin();
             }
 
         }
 
         
 
-        public async Task CheckLoginAndUpdate()
+        public async Task CheckLogin()
         {
             if (txtUser.Text == "" || txtPwd.Text == "")
             {
@@ -109,9 +109,9 @@ namespace logon
                     return;
                 }
 
-                Intent intent = new Intent();
-                intent.PutExtra("Result", "OK");
-                SetResult(Result.Ok, intent);
+                //Intent intent = new Intent();
+                //intent.PutExtra("Result", "OK");
+                //SetResult(Result.Ok, intent);
                 Finish();
             }
         }
