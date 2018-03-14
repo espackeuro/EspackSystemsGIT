@@ -35,6 +35,7 @@ namespace EspackControls
         Type DBFieldType { get; set; }
         void UpdateEspackControl();
         void ClearEspackControl();
+        bool Protected { get; set; }
         
     }
 

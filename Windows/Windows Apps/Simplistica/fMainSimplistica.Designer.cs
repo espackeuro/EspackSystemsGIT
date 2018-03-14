@@ -70,14 +70,16 @@
             // simpleReceivalsToolStripMenuItem
             // 
             this.simpleReceivalsToolStripMenuItem.Name = "simpleReceivalsToolStripMenuItem";
-            this.simpleReceivalsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.simpleReceivalsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.simpleReceivalsToolStripMenuItem.Tag = "fSimpleReceivals";
             this.simpleReceivalsToolStripMenuItem.Text = "Simple Receivals";
             this.simpleReceivalsToolStripMenuItem.Click += new System.EventHandler(this.simpleReceivalsToolStripMenuItem_Click);
             // 
             // hSAReceivalsToolStripMenuItem
             // 
             this.hSAReceivalsToolStripMenuItem.Name = "hSAReceivalsToolStripMenuItem";
-            this.hSAReceivalsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.hSAReceivalsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hSAReceivalsToolStripMenuItem.Tag = "fHSAReceivals";
             this.hSAReceivalsToolStripMenuItem.Text = "HSA Receivals";
             this.hSAReceivalsToolStripMenuItem.Click += new System.EventHandler(this.hSAReceivalsToolStripMenuItem_Click);
             // 
@@ -92,7 +94,8 @@
             // referencesToolStripMenuItem
             // 
             this.referencesToolStripMenuItem.Name = "referencesToolStripMenuItem";
-            this.referencesToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.referencesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.referencesToolStripMenuItem.Tag = "fSimpleReferences";
             this.referencesToolStripMenuItem.Text = "References";
             this.referencesToolStripMenuItem.Click += new System.EventHandler(this.referencesToolStripMenuItem_Click);
             // 
@@ -109,6 +112,7 @@
             // 
             this.simpleProductionOrderToolStripMenuItem.Name = "simpleProductionOrderToolStripMenuItem";
             this.simpleProductionOrderToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.simpleProductionOrderToolStripMenuItem.Tag = "fProductionOrders";
             this.simpleProductionOrderToolStripMenuItem.Text = "Simple Production Order";
             this.simpleProductionOrderToolStripMenuItem.Click += new System.EventHandler(this.simpleProductionOrderToolStripMenuItem_Click);
             // 
@@ -116,6 +120,7 @@
             // 
             this.simpleExpeditionToolStripMenuItem.Name = "simpleExpeditionToolStripMenuItem";
             this.simpleExpeditionToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.simpleExpeditionToolStripMenuItem.Tag = "fSimpleDeliveriesEPC";
             this.simpleExpeditionToolStripMenuItem.Text = "Simple Deliveries EPC";
             this.simpleExpeditionToolStripMenuItem.Click += new System.EventHandler(this.simpleExpeditionToolStripMenuItem_Click);
             // 
@@ -133,6 +138,7 @@
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.settingsToolStripMenuItem.Tag = "fSettings";
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
@@ -140,6 +146,7 @@
             // 
             this.printRepairsUnitLabelsToolStripMenuItem.Name = "printRepairsUnitLabelsToolStripMenuItem";
             this.printRepairsUnitLabelsToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.printRepairsUnitLabelsToolStripMenuItem.Tag = "fPrintUnitLabels";
             this.printRepairsUnitLabelsToolStripMenuItem.Text = "Print Repairs Unit Labels";
             this.printRepairsUnitLabelsToolStripMenuItem.Click += new System.EventHandler(this.printRepairsUnitLabelsToolStripMenuItem_Click);
             // 
@@ -147,6 +154,7 @@
             // 
             this.printRackLabelsToolStripMenuItem.Name = "printRackLabelsToolStripMenuItem";
             this.printRackLabelsToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.printRackLabelsToolStripMenuItem.Tag = "fRackLabels";
             this.printRackLabelsToolStripMenuItem.Text = "Print Rack Labels";
             this.printRackLabelsToolStripMenuItem.Click += new System.EventHandler(this.printRackLabelsToolStripMenuItem_Click);
             // 
