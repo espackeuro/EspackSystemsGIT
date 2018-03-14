@@ -59,26 +59,30 @@ namespace Simplistica
             //fSimpleReceivals fSimpleReceivals = new fSimpleReceivals();
             //fSimpleReceivals.MdiParent = this;
             //fSimpleReceivals.Show();
-            fSimpleReceivals fSimpleReceivals = (fSimpleReceivals)GetChildInstance("fSimpleReceivals");
+            openForm(sender);
+            //fSimpleReceivals fSimpleReceivals = (fSimpleReceivals)GetChildInstance("fSimpleReceivals");
         }
 
         private void printRepairsUnitLabelsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //fPrintUnitLabels fPrintUnitLabels = new fPrintUnitLabels();
             //fPrintUnitLabels.Show();
-            fPrintUnitLabels fPrintUnitLabels = (fPrintUnitLabels)GetChildInstance("fPrintUnitLabels");
+            openForm(sender);
+            //fPrintUnitLabels fPrintUnitLabels = (fPrintUnitLabels)GetChildInstance("fPrintUnitLabels");
         }
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //fSettings fSettings = new fSettings();
             //fSettings.ShowDialog();
-            fSettings fSettings = (fSettings)GetChildInstance("fSettings");
+            openForm(sender);
+            //fSettings fSettings = (fSettings)GetChildInstance("fSettings");
         }
 
         private void printRackLabelsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fRackLabels fRackLabels = (fRackLabels)GetChildInstance("fRackLabels");
+            openForm(sender);
+            //fRackLabels fRackLabels = (fRackLabels)GetChildInstance("fRackLabels");
             //fRackLabels fRackLabels = new fRackLabels();
             //fRackLabels.MdiParent = this;
             //fRackLabels.Show();
@@ -107,23 +111,34 @@ namespace Simplistica
             return InstancedForms[pFormName];  //just created or created earlier.Return it+69
         }
 
+        private void openForm(object menuOption)
+        {
+            var formName = ((ToolStripMenuItem)menuOption).Tag.ToString();
+            var form = (Form)GetChildInstance(formName);
+            form.WindowState = FormWindowState.Maximized;
+        }
+
         private void referencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fSimpleReferences fSimpleReferences = (fSimpleReferences)GetChildInstance("fSimpleReferences");
+            //fSimpleReferences fSimpleReferences = (fSimpleReferences)GetChildInstance("fSimpleReferences");
+            openForm(sender);
         }
 
         private void simpleProductionOrderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fProductionOrders fProductionOrders = (fProductionOrders)GetChildInstance("fProductionOrders");
+            //fProductionOrders fProductionOrders = (fProductionOrders)GetChildInstance("fProductionOrders");
+            openForm(sender);
         }
 
         private void simpleExpeditionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fSimpleDeliveriesEPC fSimpleExpeditions = (fSimpleDeliveriesEPC)GetChildInstance("fSimpleDeliveriesEPC");
+            //fSimpleDeliveriesEPC fSimpleExpeditions = (fSimpleDeliveriesEPC)GetChildInstance("fSimpleDeliveriesEPC");
+            openForm(sender);
         }
         private void hSAReceivalsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fHSAReceivals fHSAReceivals = (fHSAReceivals)GetChildInstance("fHSAReceivals");
+            //fHSAReceivals fHSAReceivals = (fHSAReceivals)GetChildInstance("fHSAReceivals");
+            openForm(sender);
         }
     }
     public static class Values

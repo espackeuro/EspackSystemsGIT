@@ -123,6 +123,16 @@ namespace Simplistica.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Logo_Espack_transparente {
+            get {
+                object obj = ResourceManager.GetObject("Logo_Espack_transparente", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap nook_30 {
             get {
                 object obj = ResourceManager.GetObject("nook_30", resourceCulture);

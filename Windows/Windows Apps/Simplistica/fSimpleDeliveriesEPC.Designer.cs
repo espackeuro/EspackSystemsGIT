@@ -99,7 +99,7 @@
             this.btnClose,
             this.toolStripButton2,
             this.btnPrint});
-            this.toolStrip.Location = new System.Drawing.Point(543, 9);
+            this.toolStrip.Location = new System.Drawing.Point(565, 9);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(142, 31);
             this.toolStrip.TabIndex = 57;
@@ -220,14 +220,15 @@
             this.dateEnd.Location = new System.Drawing.Point(555, 185);
             this.dateEnd.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.dateEnd.Name = "dateEnd";
-            this.dateEnd.Nullable = false;
+            this.dateEnd.Nullable = true;
             this.dateEnd.Order = 0;
             this.dateEnd.ParentConn = null;
             this.dateEnd.ParentDA = null;
             this.dateEnd.PK = false;
             this.dateEnd.Protected = false;
             this.dateEnd.Search = false;
-            this.dateEnd.Size = new System.Drawing.Size(130, 24);
+            this.dateEnd.ShowCheckBox = true;
+            this.dateEnd.Size = new System.Drawing.Size(152, 24);
             this.dateEnd.Status = CommonTools.EnumStatus.ADDNEW;
             this.dateEnd.TabIndex = 81;
             this.dateEnd.Upp = false;
@@ -254,14 +255,15 @@
             this.dateStart.Location = new System.Drawing.Point(555, 142);
             this.dateStart.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.dateStart.Name = "dateStart";
-            this.dateStart.Nullable = false;
+            this.dateStart.Nullable = true;
             this.dateStart.Order = 0;
             this.dateStart.ParentConn = null;
             this.dateStart.ParentDA = null;
             this.dateStart.PK = false;
             this.dateStart.Protected = false;
             this.dateStart.Search = false;
-            this.dateStart.Size = new System.Drawing.Size(130, 24);
+            this.dateStart.ShowCheckBox = true;
+            this.dateStart.Size = new System.Drawing.Size(152, 24);
             this.dateStart.Status = CommonTools.EnumStatus.ADDNEW;
             this.dateStart.TabIndex = 79;
             this.dateStart.Upp = false;
@@ -297,7 +299,7 @@
             this.dateEPC.Protected = true;
             this.dateEPC.Search = false;
             this.dateEPC.ShowCheckBox = true;
-            this.dateEPC.Size = new System.Drawing.Size(130, 24);
+            this.dateEPC.Size = new System.Drawing.Size(152, 24);
             this.dateEPC.Status = CommonTools.EnumStatus.ADDNEW;
             this.dateEPC.TabIndex = 77;
             this.dateEPC.Upp = false;
@@ -332,7 +334,7 @@
             this.dateCheckPoint.Protected = false;
             this.dateCheckPoint.Search = false;
             this.dateCheckPoint.ShowCheckBox = true;
-            this.dateCheckPoint.Size = new System.Drawing.Size(130, 24);
+            this.dateCheckPoint.Size = new System.Drawing.Size(152, 24);
             this.dateCheckPoint.Status = CommonTools.EnumStatus.ADDNEW;
             this.dateCheckPoint.TabIndex = 75;
             this.dateCheckPoint.Upp = false;
@@ -564,7 +566,7 @@
             this.VS.Protected = false;
             this.VS.RowHeadersVisible = false;
             this.VS.Search = false;
-            this.VS.Size = new System.Drawing.Size(676, 308);
+            this.VS.Size = new System.Drawing.Size(698, 308);
             this.VS.SQL = null;
             this.VS.sSPAdd = "";
             this.VS.sSPDel = "";
@@ -599,7 +601,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(704, 586);
+            this.ClientSize = new System.Drawing.Size(719, 586);
             this.Controls.Add(this.cboService);
             this.Controls.Add(this.lstFlags);
             this.Controls.Add(this.dateEnd);

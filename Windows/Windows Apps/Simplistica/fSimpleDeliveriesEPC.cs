@@ -16,6 +16,7 @@ using EspackFormControls;
 using static CommonTools.CT;
 using CommonTools;
 using DiverseControls;
+using Simplistica.Properties;
 
 namespace Simplistica
 {
@@ -59,7 +60,7 @@ namespace Simplistica
             cboDestination.Source("Select Destination=planta from Servicios_Destinos where servicio='" + cboService.Value.ToString() + "' order by planta");
             lstFlags.Source("Select codigo,DescFlagEng from flags where Tabla='SimpleDeliveriesCab'");
 
-            //VS Definitions
+            //VS Definitions>
             VS.Conn = Values.gDatos;
             VS.sSPAdd = "pSimpleDeliveriesDetAdd";
             VS.sSPUpp = "pSimpleDeliveriesDetUpp";
@@ -196,7 +197,7 @@ namespace Simplistica
                         _printIt.DeliveryNumber = txtDeliveryN.Text;
                         _printIt.Service = cboService.Value.ToString();
                         _printIt.TruckPlate = txtPlate.Text;
-                        _printIt.DateEPC = (CT.QNul(dateEPC.Text)==""?"< NONE >": dateEPC.Text.Substring(0,10));
+                        _printIt.DateEPC = (dateEPC.Value==null?"< NONE >": dateEPC.Text.Substring(0,10));
                         _pd.Document = _printIt;
                         _printIt.Print();
                     }
@@ -240,7 +241,7 @@ namespace Simplistica
                     {
                         _rs.Open();
 
-                        _dontPrintSignature = (_rs.RecordCount>50);
+                        _dontPrintSignature = (_rs.RecordCount>48);
 
                         if (_rs.RecordCount != 0)
                         {
@@ -248,10 +249,16 @@ namespace Simplistica
                             // Loop through the recordset results
                             while (!_rs.EOF)
                             {
-                                NewLine(true);
-                                Add(string.Format("{0,5} {1,-20} {2,-30} {3,7} {4,6}", _rs["Line"], _rs["Partnumber"], _rs["Description"].ToString().Substring(0, 30), _rs["OrderedQty"], _rs["SentQty"]));
+                                //for (int i = 1; i < 25; i++)
+                                //{
+                                    NewLine(true);
+                                    Add(string.Format("{0,5} {1,-20} {2,-30} {3,7} {4,6}", _rs["Line"], _rs["Partnumber"], _rs["Description"].ToString().Substring(0, 30), _rs["OrderedQty"], _rs["SentQty"]));
+                                //    Add(string.Format("{0,5} {1,-20} {2,-30} {3,7} {4,6}", i, _rs["Partnumber"], _rs["Description"].ToString().Substring(0, 30), _rs["OrderedQty"], _rs["SentQty"]));
+                                //}
                                 _rs.MoveNext();
                             }
+                            //NewLine(true);
+                            //Add(string.Format("{0,5} {1,-20} {2,-30} {3,7} {4,6}", "xx", "Partnumber", "Description","OrderedQty", "SentQty"));
                         } else {
                             NewLine(true);
                             Add("--- NO DATA FOUND ---");
@@ -266,15 +273,16 @@ namespace Simplistica
 
                 // Draw graphics
                 _g.DrawRectangle(new Pen(Color.Black, 0.5F), 25F, 50F, 725F, 75F); // Header box
-                _g.DrawLine(new Pen(Color.Black, 0.5F), 50F, 1040F, 750F, 1040F); // Footer separator
+                _g.DrawImage(Resources.Logo_Espack_transparente, 27F, 52F,120F,45F);
+                _g.DrawLine(new Pen(Color.Black, 0.5F), 50F, 1010F, 750F, 1010F); // Footer separator
 
                 // Signature boxes when last page is reached
                 if (!_dontPrintSignature) //BodyList.LastPrintedLine+)
                 {
-                    _g.DrawRectangle(new Pen(Color.Black, 0.5F), 250F, 1050F, 225F, 100F);
-                    _g.DrawRectangle(new Pen(Color.Black, 0.5F), 475F, 1050F, 225F, 100F);
-                    _g.DrawString("Carrier Signature", new Font("Courier New", 6), new SolidBrush(Color.Black), new PointF(255F, 1052F));
-                    _g.DrawString("Forklift Driver Signature", new Font("Courier New", 6), new SolidBrush(Color.Black), new PointF(480F, 1052F));
+                    _g.DrawRectangle(new Pen(Color.Black, 0.5F), 250F, 1020F, 235F, 100F);
+                    _g.DrawRectangle(new Pen(Color.Black, 0.5F), 485F, 1020F, 235F, 100F);
+                    _g.DrawString("Carrier Signature", new Font("Courier New", 6), new SolidBrush(Color.Black), new PointF(255F, 1022F));
+                    _g.DrawString("Forklift Driver Signature", new Font("Courier New", 6), new SolidBrush(Color.Black), new PointF(490F, 1022F));
 
                 }
 
@@ -287,9 +295,9 @@ namespace Simplistica
             {
                 this.CurrentFont = new Font("Courier New", 12, FontStyle.Bold);
                 NewLine(false, EnumDocumentParts.HEADER);
-                Add(string.Format("DELIVERY NUMBER: {0,-15} SERVICE: {1,-10}",DeliveryNumber,Service));
+                Add(string.Format("{0,10}DELIVERY NUMBER: {1,-15} SERVICE: {2,-10}","",DeliveryNumber,Service));
                 NewLine(false, EnumDocumentParts.HEADER);
-                Add(string.Format("TRUCK PLATE    : {0,-15} DATE   : {1,-10}", TruckPlate,DateEPC));
+                Add(string.Format("{0,10}TRUCK PLATE    : {1,-15} DATE   : {2,-10}", "", TruckPlate,DateEPC));
                 NewLine(false, EnumDocumentParts.HEADER);
                 NewLine(false, EnumDocumentParts.HEADER);
 
@@ -300,9 +308,11 @@ namespace Simplistica
                 ClearFooter();
                 this.CurrentFont = new Font("Courier New", 10, FontStyle.Bold);
                 NewLine(false, EnumDocumentParts.FOOTER);
-                NewLine(false, EnumDocumentParts.FOOTER);
                 Add(string.Format("Page {0}", PageNumber));
-                NewLine(false, EnumDocumentParts.FOOTER);
+                //NewLine(false, EnumDocumentParts.FOOTER);
+                //NewLine(false, EnumDocumentParts.FOOTER);
+                //NewLine(false, EnumDocumentParts.FOOTER);
+                //NewLine(false, EnumDocumentParts.FOOTER);
             }
         }
     }
