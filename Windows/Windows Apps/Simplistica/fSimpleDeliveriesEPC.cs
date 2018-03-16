@@ -46,7 +46,7 @@ namespace Simplistica
             CTLM.AddItem(cboDock, "Dock", true, true, false, 0, false, true);
             CTLM.AddItem(cboDestination, "Destination", true, true, false, 0, false, true);
             CTLM.AddItem(dateStart, "StartDate", true, true, false, 0, false, true);
-            CTLM.AddItem(dateEnd, "EndDate", true, true, false, 0, false, true);
+            CTLM.AddItem(dateEnd, "EndDate", false, false, false, 0, false, true);
             CTLM.AddItem(lstFlags, "flags", false, false, false, 0, false, false);
             CTLM.AddItem(ExtraData, "ExtraData", true, true, false, 0, false, false);
             CTLM.AddItem(dateCheckPoint, "DateCheckPoint", pExtraDataLink: ExtraData);
@@ -252,7 +252,7 @@ namespace Simplistica
                                 //for (int i = 1; i < 25; i++)
                                 //{
                                     NewLine(true);
-                                    Add(string.Format("{0,5} {1,-20} {2,-30} {3,7} {4,6}", _rs["Line"], _rs["Partnumber"], _rs["Description"].ToString().Substring(0, 30), _rs["OrderedQty"], _rs["SentQty"]));
+                                    Add(string.Format("{0,5} {1,-20} {2,-30} {3,7} {4,6}", _rs["Line"], _rs["Partnumber"], _rs["Description"].ToString().Length>30?_rs["Description"].ToString().Substring(0, 30): _rs["Description"], _rs["OrderedQty"], _rs["SentQty"]));
                                 //    Add(string.Format("{0,5} {1,-20} {2,-30} {3,7} {4,6}", i, _rs["Partnumber"], _rs["Description"].ToString().Substring(0, 30), _rs["OrderedQty"], _rs["SentQty"]));
                                 //}
                                 _rs.MoveNext();
@@ -297,7 +297,7 @@ namespace Simplistica
                 NewLine(false, EnumDocumentParts.HEADER);
                 Add(string.Format("{0,10}DELIVERY NUMBER: {1,-15} SERVICE: {2,-10}","",DeliveryNumber,Service));
                 NewLine(false, EnumDocumentParts.HEADER);
-                Add(string.Format("{0,10}TRUCK PLATE    : {1,-15} DATE   : {2,-10}", "", TruckPlate,DateEPC));
+                Add(string.Format("{0,10}TRUCK PLATE    : {1,-15} DATE   : {2,-10}", "", TruckPlate.Length>15?TruckPlate.Substring(0,15):TruckPlate,DateEPC));
                 NewLine(false, EnumDocumentParts.HEADER);
                 NewLine(false, EnumDocumentParts.HEADER);
 

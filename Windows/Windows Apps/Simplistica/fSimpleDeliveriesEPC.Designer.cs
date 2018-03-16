@@ -296,7 +296,7 @@
             this.dateEPC.ParentConn = null;
             this.dateEPC.ParentDA = null;
             this.dateEPC.PK = false;
-            this.dateEPC.Protected = true;
+            this.dateEPC.Protected = false;
             this.dateEPC.Search = false;
             this.dateEPC.ShowCheckBox = true;
             this.dateEPC.Size = new System.Drawing.Size(152, 24);
