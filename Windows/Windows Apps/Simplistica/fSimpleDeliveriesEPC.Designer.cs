@@ -44,7 +44,7 @@
             this.dateStart = new EspackFormControls.EspackDateTimePicker();
             this.dateEPC = new EspackFormControls.EspackDateTimePicker();
             this.dateCheckPoint = new EspackFormControls.EspackDateTimePicker();
-            this.txtPlate = new EspackFormControls.EspackTextBox();
+            this.txtTruckPlate = new EspackFormControls.EspackTextBox();
             this.cboDestination = new EspackFormControls.EspackComboBox();
             this.cboDock = new EspackFormControls.EspackComboBox();
             this.txtUser = new EspackFormControls.EspackTextBox();
@@ -52,6 +52,7 @@
             this.txtDeliveryN = new EspackFormControls.EspackTextBox();
             this.VS = new VSGrid.CtlVSGrid();
             this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
+            this.txtTrailerPlate = new EspackFormControls.EspackTextBox();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
             this.SuspendLayout();
@@ -340,35 +341,35 @@
             this.dateCheckPoint.Upp = false;
             this.dateCheckPoint.Value = null;
             // 
-            // txtPlate
+            // txtTruckPlate
             // 
-            this.txtPlate.Add = false;
-            this.txtPlate.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtPlate.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPlate.Caption = "Plate";
-            this.txtPlate.DBField = null;
-            this.txtPlate.DBFieldType = null;
-            this.txtPlate.DefaultValue = null;
-            this.txtPlate.Del = false;
-            this.txtPlate.DependingRS = null;
-            this.txtPlate.ExtraDataLink = null;
-            this.txtPlate.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtPlate.ForeColor = System.Drawing.Color.Gray;
-            this.txtPlate.Location = new System.Drawing.Point(283, 56);
-            this.txtPlate.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
-            this.txtPlate.Name = "txtPlate";
-            this.txtPlate.Order = 0;
-            this.txtPlate.ParentConn = null;
-            this.txtPlate.ParentDA = null;
-            this.txtPlate.PK = false;
-            this.txtPlate.Protected = false;
-            this.txtPlate.ReadOnly = true;
-            this.txtPlate.Search = false;
-            this.txtPlate.Size = new System.Drawing.Size(130, 17);
-            this.txtPlate.Status = CommonTools.EnumStatus.ADDNEW;
-            this.txtPlate.TabIndex = 73;
-            this.txtPlate.Upp = false;
-            this.txtPlate.Value = "";
+            this.txtTruckPlate.Add = false;
+            this.txtTruckPlate.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtTruckPlate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTruckPlate.Caption = "Truck Plate";
+            this.txtTruckPlate.DBField = null;
+            this.txtTruckPlate.DBFieldType = null;
+            this.txtTruckPlate.DefaultValue = null;
+            this.txtTruckPlate.Del = false;
+            this.txtTruckPlate.DependingRS = null;
+            this.txtTruckPlate.ExtraDataLink = null;
+            this.txtTruckPlate.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtTruckPlate.ForeColor = System.Drawing.Color.Gray;
+            this.txtTruckPlate.Location = new System.Drawing.Point(283, 56);
+            this.txtTruckPlate.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtTruckPlate.Name = "txtTruckPlate";
+            this.txtTruckPlate.Order = 0;
+            this.txtTruckPlate.ParentConn = null;
+            this.txtTruckPlate.ParentDA = null;
+            this.txtTruckPlate.PK = false;
+            this.txtTruckPlate.Protected = false;
+            this.txtTruckPlate.ReadOnly = true;
+            this.txtTruckPlate.Search = false;
+            this.txtTruckPlate.Size = new System.Drawing.Size(116, 17);
+            this.txtTruckPlate.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtTruckPlate.TabIndex = 73;
+            this.txtTruckPlate.Upp = false;
+            this.txtTruckPlate.Value = "";
             // 
             // cboDestination
             // 
@@ -396,7 +397,7 @@
             this.cboDestination.PK = false;
             this.cboDestination.Protected = false;
             this.cboDestination.Search = false;
-            this.cboDestination.Size = new System.Drawing.Size(130, 24);
+            this.cboDestination.Size = new System.Drawing.Size(116, 24);
             this.cboDestination.Status = CommonTools.EnumStatus.ADDNEW;
             this.cboDestination.TabIndex = 71;
             this.cboDestination.TBDescription = null;
@@ -450,7 +451,7 @@
             this.txtUser.ExtraDataLink = null;
             this.txtUser.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtUser.ForeColor = System.Drawing.Color.Gray;
-            this.txtUser.Location = new System.Drawing.Point(419, 56);
+            this.txtUser.Location = new System.Drawing.Point(410, 99);
             this.txtUser.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtUser.Name = "txtUser";
             this.txtUser.Order = 0;
@@ -596,19 +597,50 @@
             this.CTLM.TabIndex = 56;
             this.CTLM.Text = "ctlMantenimientoNet1";
             // 
+            // txtTrailerPlate
+            // 
+            this.txtTrailerPlate.Add = false;
+            this.txtTrailerPlate.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtTrailerPlate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTrailerPlate.Caption = "Trailer Plate";
+            this.txtTrailerPlate.DBField = null;
+            this.txtTrailerPlate.DBFieldType = null;
+            this.txtTrailerPlate.DefaultValue = null;
+            this.txtTrailerPlate.Del = false;
+            this.txtTrailerPlate.DependingRS = null;
+            this.txtTrailerPlate.ExtraDataLink = null;
+            this.txtTrailerPlate.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtTrailerPlate.ForeColor = System.Drawing.Color.Gray;
+            this.txtTrailerPlate.Location = new System.Drawing.Point(410, 56);
+            this.txtTrailerPlate.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtTrailerPlate.Name = "txtTrailerPlate";
+            this.txtTrailerPlate.Order = 0;
+            this.txtTrailerPlate.ParentConn = null;
+            this.txtTrailerPlate.ParentDA = null;
+            this.txtTrailerPlate.PK = false;
+            this.txtTrailerPlate.Protected = false;
+            this.txtTrailerPlate.ReadOnly = true;
+            this.txtTrailerPlate.Search = false;
+            this.txtTrailerPlate.Size = new System.Drawing.Size(130, 17);
+            this.txtTrailerPlate.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtTrailerPlate.TabIndex = 111;
+            this.txtTrailerPlate.Upp = false;
+            this.txtTrailerPlate.Value = "";
+            // 
             // fSimpleDeliveriesEPC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(719, 586);
+            this.Controls.Add(this.txtTrailerPlate);
             this.Controls.Add(this.cboService);
             this.Controls.Add(this.lstFlags);
             this.Controls.Add(this.dateEnd);
             this.Controls.Add(this.dateStart);
             this.Controls.Add(this.dateEPC);
             this.Controls.Add(this.dateCheckPoint);
-            this.Controls.Add(this.txtPlate);
+            this.Controls.Add(this.txtTruckPlate);
             this.Controls.Add(this.cboDestination);
             this.Controls.Add(this.cboDock);
             this.Controls.Add(this.txtUser);
@@ -642,7 +674,7 @@
         private EspackFormControls.EspackTextBox txtUser;
         private EspackFormControls.EspackComboBox cboDock;
         private EspackFormControls.EspackComboBox cboDestination;
-        private EspackFormControls.EspackTextBox txtPlate;
+        private EspackFormControls.EspackTextBox txtTruckPlate;
         private EspackFormControls.EspackDateTimePicker dateCheckPoint;
         private EspackFormControls.EspackDateTimePicker dateEPC;
         private EspackFormControls.EspackDateTimePicker dateStart;
@@ -651,5 +683,6 @@
         private EspackFormControls.EspackComboBox cboService;
         private System.Windows.Forms.ToolStripSeparator toolStripButton2;
         private System.Windows.Forms.ToolStripButton btnPrint;
+        private EspackFormControls.EspackTextBox txtTrailerPlate;
     }
 }
