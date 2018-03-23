@@ -238,6 +238,7 @@
     <None Include="Resources\printer_24.png" />
     <None Include="Resources\truck_24.png" />
     <None Include="Resources\Logo_Espack_transparente.png" />
+    <None Include="Resources\truck_undo_24.png" />
     <Content Include="simplistica.ico" />
   </ItemGroup>
   <ItemGroup>

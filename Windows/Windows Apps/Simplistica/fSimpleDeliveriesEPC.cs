@@ -83,44 +83,39 @@ namespace Simplistica
             CTLM.AddDefaultStatusStrip();
             CTLM.AddItem(VS);
             CTLM.Start();
-            CTLM.BeforeButtonClick += CTLM_BeforeButtonClick;
+            //CTLM.BeforeButtonClick += CTLM_BeforeButtonClick;
             CTLM.AfterButtonClick += CTLM_AfterButtonClick;
             toolStrip.Enabled = false;
         }
 
-        private void CTLM_BeforeButtonClick(object sender, CTLMEventArgs e)
-        {
-            /*
-            switch (CTLM.Status)
-            {
-                case EnumStatus.ADDNEW:
-                case EnumStatus.EDIT:
-                    {
-                        if (e.ButtonClick == "btnOK")
-                        {
-                            ExtraData.Text = SetExtraDataValue(ExtraData.Text, "CHECKPOINTDATE", dateCheckPoint.Text);
-                            ExtraData.Text = SetExtraDataValue(ExtraData.Text, "EPCDATE", dateEPC.Text);
-                        }
-                        break;
-                    }
-                case EnumStatus.NAVIGATE:
-                case EnumStatus.SEARCH:
-                    {
-                        if ("btnFirst|btnLast|btnPrev|btnNext|".IndexOf( e.ButtonClick+"|" )!=-1)
-                        {
-                            dateCheckPoint.Text= GetExtraDataValue(ExtraData.Text, "CHECKPOINTDATE");
-                            dateEPC.Text = GetExtraDataValue(ExtraData.Text, "EPCDATE");
-                        }
-                        break;
-                    }
-            }
-            */
-        }
+        //private void CTLM_BeforeButtonClick(object sender, CTLMEventArgs e)
+        //{
+        //    //
+        //    //
+        //    //
+        //}
 
         private void CTLM_AfterButtonClick(object sender, CTLMEventArgs e)
         {
-            toolStrip.Enabled = (CTLM.Status == CommonTools.EnumStatus.NAVIGATE);
-            toolStrip.Enabled = true; // The event that changes the status happens after this AfterButtonClick, so we left this enabled until I decide what to do.
+
+            Application.DoEvents();
+
+            if (!lstFlags.CheckedValues.Contains("CLOSED"))
+            {
+                toolStrip.Items["btnClose"].Text = "Close";
+                toolStrip.Items["btnClose"].Image = Resources.truck_24;
+            }
+            else
+            {
+                toolStrip.Items["btnClose"].Text = "Open";
+                toolStrip.Items["btnClose"].Image = Resources.truck_undo_24;
+            }
+
+            CTLM.Items["btnUpp"].Enabled = toolStrip.Items["btnClose"].Text != "Open";
+            CTLM.Items["btnDel"].Enabled = toolStrip.Items["btnClose"].Text != "Open";
+
+            toolStrip.Enabled = (CTLM.Status == CommonTools.EnumStatus.NAVIGATE || CTLM.Status == CommonTools.EnumStatus.SEARCH) && ("btnUpp|btnCancel|btnAdd|".IndexOf(e.ButtonClick + "|") == -1);
+            //toolStrip.Enabled = true; // The event that changes the status happens after this AfterButtonClick, so we left this enabled until I decide what to do.
         }
 
         private void CboService_SelectedValueChanged(object sender, EventArgs e)
@@ -173,7 +168,7 @@ namespace Simplistica
             {
                 _sp.AddParameterValue("@DeliveryNumber", txtDeliveryN.Text);
                 _sp.AddParameterValue("@Service",cboService.Value.ToString());
-                _sp.AddParameterValue("@Action", "CLOSE");
+                _sp.AddParameterValue("@Action", toolStrip.Items["btnClose"].Text != "Open"?"OPEN":"CLOSE");
                 try
                 {
                     _sp.Execute();

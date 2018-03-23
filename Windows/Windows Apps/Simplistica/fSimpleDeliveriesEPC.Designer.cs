@@ -164,7 +164,7 @@
             this.cboService.Search = false;
             this.cboService.Size = new System.Drawing.Size(130, 24);
             this.cboService.Status = CommonTools.EnumStatus.ADDNEW;
-            this.cboService.TabIndex = 97;
+            this.cboService.TabIndex = 1;
             this.cboService.TBDescription = null;
             this.cboService.Upp = false;
             this.cboService.Value = "";
@@ -196,7 +196,7 @@
             this.lstFlags.Search = false;
             this.lstFlags.Size = new System.Drawing.Size(540, 57);
             this.lstFlags.Status = CommonTools.EnumStatus.ADDNEW;
-            this.lstFlags.TabIndex = 84;
+            this.lstFlags.TabIndex = 12;
             this.lstFlags.Upp = false;
             this.lstFlags.Value = "";
             // 
@@ -231,7 +231,7 @@
             this.dateEnd.ShowCheckBox = true;
             this.dateEnd.Size = new System.Drawing.Size(152, 24);
             this.dateEnd.Status = CommonTools.EnumStatus.ADDNEW;
-            this.dateEnd.TabIndex = 81;
+            this.dateEnd.TabIndex = 11;
             this.dateEnd.Upp = false;
             this.dateEnd.Value = null;
             // 
@@ -266,7 +266,7 @@
             this.dateStart.ShowCheckBox = true;
             this.dateStart.Size = new System.Drawing.Size(152, 24);
             this.dateStart.Status = CommonTools.EnumStatus.ADDNEW;
-            this.dateStart.TabIndex = 79;
+            this.dateStart.TabIndex = 10;
             this.dateStart.Upp = false;
             this.dateStart.Value = null;
             // 
@@ -302,7 +302,7 @@
             this.dateEPC.ShowCheckBox = true;
             this.dateEPC.Size = new System.Drawing.Size(152, 24);
             this.dateEPC.Status = CommonTools.EnumStatus.ADDNEW;
-            this.dateEPC.TabIndex = 77;
+            this.dateEPC.TabIndex = 9;
             this.dateEPC.Upp = false;
             this.dateEPC.Value = null;
             // 
@@ -337,7 +337,7 @@
             this.dateCheckPoint.ShowCheckBox = true;
             this.dateCheckPoint.Size = new System.Drawing.Size(152, 24);
             this.dateCheckPoint.Status = CommonTools.EnumStatus.ADDNEW;
-            this.dateCheckPoint.TabIndex = 75;
+            this.dateCheckPoint.TabIndex = 8;
             this.dateCheckPoint.Upp = false;
             this.dateCheckPoint.Value = null;
             // 
@@ -367,7 +367,7 @@
             this.txtTruckPlate.Search = false;
             this.txtTruckPlate.Size = new System.Drawing.Size(116, 17);
             this.txtTruckPlate.Status = CommonTools.EnumStatus.ADDNEW;
-            this.txtTruckPlate.TabIndex = 73;
+            this.txtTruckPlate.TabIndex = 2;
             this.txtTruckPlate.Upp = false;
             this.txtTruckPlate.Value = "";
             // 
@@ -399,7 +399,7 @@
             this.cboDestination.Search = false;
             this.cboDestination.Size = new System.Drawing.Size(116, 24);
             this.cboDestination.Status = CommonTools.EnumStatus.ADDNEW;
-            this.cboDestination.TabIndex = 71;
+            this.cboDestination.TabIndex = 6;
             this.cboDestination.TBDescription = null;
             this.cboDestination.Upp = false;
             this.cboDestination.Value = "";
@@ -432,7 +432,7 @@
             this.cboDock.Search = false;
             this.cboDock.Size = new System.Drawing.Size(130, 24);
             this.cboDock.Status = CommonTools.EnumStatus.ADDNEW;
-            this.cboDock.TabIndex = 69;
+            this.cboDock.TabIndex = 5;
             this.cboDock.TBDescription = null;
             this.cboDock.Upp = false;
             this.cboDock.Value = "";
@@ -463,7 +463,7 @@
             this.txtUser.Search = false;
             this.txtUser.Size = new System.Drawing.Size(130, 17);
             this.txtUser.Status = CommonTools.EnumStatus.ADDNEW;
-            this.txtUser.TabIndex = 63;
+            this.txtUser.TabIndex = 7;
             this.txtUser.Upp = false;
             this.txtUser.Value = "";
             // 
@@ -499,7 +499,7 @@
             this.cboShift.Search = false;
             this.cboShift.Size = new System.Drawing.Size(130, 24);
             this.cboShift.Status = CommonTools.EnumStatus.ADDNEW;
-            this.cboShift.TabIndex = 61;
+            this.cboShift.TabIndex = 4;
             this.cboShift.TBDescription = null;
             this.cboShift.Upp = false;
             this.cboShift.Value = "";
@@ -530,7 +530,7 @@
             this.txtDeliveryN.Search = false;
             this.txtDeliveryN.Size = new System.Drawing.Size(130, 17);
             this.txtDeliveryN.Status = CommonTools.EnumStatus.ADDNEW;
-            this.txtDeliveryN.TabIndex = 59;
+            this.txtDeliveryN.TabIndex = 0;
             this.txtDeliveryN.Upp = false;
             this.txtDeliveryN.Value = "";
             // 
@@ -573,7 +573,7 @@
             this.VS.sSPDel = "";
             this.VS.sSPUpp = "";
             this.VS.Status = CommonTools.EnumStatus.SEARCH;
-            this.VS.TabIndex = 58;
+            this.VS.TabIndex = 13;
             this.VS.Upp = false;
             this.VS.Value = null;
             // 
@@ -623,7 +623,7 @@
             this.txtTrailerPlate.Search = false;
             this.txtTrailerPlate.Size = new System.Drawing.Size(130, 17);
             this.txtTrailerPlate.Status = CommonTools.EnumStatus.ADDNEW;
-            this.txtTrailerPlate.TabIndex = 111;
+            this.txtTrailerPlate.TabIndex = 3;
             this.txtTrailerPlate.Upp = false;
             this.txtTrailerPlate.Value = "";
             // 
