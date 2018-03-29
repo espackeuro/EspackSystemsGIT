@@ -58,7 +58,7 @@ namespace Simplistica
             cboService.Source("Select Codigo from Servicios where dbo.CheckFlag(flags,'SIMPLE')=1 and cod3='" + Values.COD3 + "' order by codigo");
             cboService.SelectedValueChanged += CboService_SelectedValueChanged;
             cboDock.Source("Select DockCode from SedesDocks where cod3='" + Values.COD3 + "' order by DockCode");
-            cboDestination.Source("Select Destination=planta from Servicios_Destinos where servicio='" + cboService.Value.ToString() + "' order by planta");
+            cboDestination.Source("Select Destination=planta+'- ('+descripcion2+') '+descripcion1 from Servicios_Destinos where servicio='" + cboService.Value.ToString() + "' order by planta");
             cboDestination.SelectedValueChanged += CboDestination_SelectedValueChanged;
             lstFlags.Source("Select codigo,DescFlagEng from flags where Tabla='SimpleDeliveriesCab'");
 
@@ -80,6 +80,7 @@ namespace Simplistica
             VS.CellEndEdit += VS_CellEndEdit; //VS_CellValidating; ; ;
 
             //Various
+            CTLM.ReQuery = true;
             CTLM.AddDefaultStatusStrip();
             CTLM.AddItem(VS);
             CTLM.Start();
@@ -100,6 +101,16 @@ namespace Simplistica
 
             Application.DoEvents();
 
+            ChangeButtonsStatus();
+            if (e.ButtonClick == "btnCancel" && CTLM.Status == CommonTools.EnumStatus.NAVIGATE) cboDestination.Text = "";
+
+            toolStrip.Enabled = (CTLM.Status == CommonTools.EnumStatus.NAVIGATE || CTLM.Status == CommonTools.EnumStatus.SEARCH) && ("btnUpp|btnCancel|btnAdd|".IndexOf(e.ButtonClick + "|") == -1);
+            //toolStrip.Enabled = true; // The event that changes the status happens after this AfterButtonClick, so we left this enabled until I decide what to do.
+        }
+
+        private void ChangeButtonsStatus()
+        {
+
             if (!lstFlags.CheckedValues.Contains("CLOSED"))
             {
                 toolStrip.Items["btnClose"].Text = "Close";
@@ -113,9 +124,6 @@ namespace Simplistica
 
             CTLM.Items["btnUpp"].Enabled = toolStrip.Items["btnClose"].Text != "Open";
             CTLM.Items["btnDel"].Enabled = toolStrip.Items["btnClose"].Text != "Open";
-
-            toolStrip.Enabled = (CTLM.Status == CommonTools.EnumStatus.NAVIGATE || CTLM.Status == CommonTools.EnumStatus.SEARCH) && ("btnUpp|btnCancel|btnAdd|".IndexOf(e.ButtonClick + "|") == -1);
-            //toolStrip.Enabled = true; // The event that changes the status happens after this AfterButtonClick, so we left this enabled until I decide what to do.
         }
 
         private void CboService_SelectedValueChanged(object sender, EventArgs e)
@@ -123,7 +131,7 @@ namespace Simplistica
             if (cboService.Value.ToString() != "")
             {
                 cboDestination.Value = "";
-                cboDestination.Source("Select Destination=planta from Servicios_Destinos where servicio='" + cboService.Value.ToString() + "' order by planta");
+                cboDestination.Source("Select Destination=planta+'- ('+descripcion2+') '+descripcion1 from Servicios_Destinos where servicio='" + cboService.Value.ToString() + "' order by planta");
             }
                
         }
@@ -166,9 +174,11 @@ namespace Simplistica
             // Launch the robot process.
             using (var _sp = new SP(Values.gDatos, "pSimpleDeliveriesChangeStatus"))
             {
+                bool _closed = lstFlags.itemStatus("CLOSED");
+
                 _sp.AddParameterValue("@DeliveryNumber", txtDeliveryN.Text);
                 _sp.AddParameterValue("@Service",cboService.Value.ToString());
-                _sp.AddParameterValue("@Action", toolStrip.Items["btnClose"].Text != "Open"?"OPEN":"CLOSE");
+                _sp.AddParameterValue("@Action", _closed ? "OPEN":"CLOSE");
                 try
                 {
                     _sp.Execute();
@@ -183,7 +193,11 @@ namespace Simplistica
                     MsgError(_sp.LastMsg);
                     return;
                 }
-                MessageBox.Show(string.Format("Delivery closed OK."), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                CTLM.Button_Click("btnCancel");
+                cboDestination.Text = "";
+                ChangeButtonsStatus();
+                MessageBox.Show(string.Format("Delivery {0} OK.",_closed?"opened":"closed"), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
