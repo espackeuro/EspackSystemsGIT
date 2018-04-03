@@ -44,7 +44,7 @@ namespace LogOn
         private bool _update;
 
         public List<cUpdaterThread> UpdatingThreads = new List<cUpdaterThread>();
-        public const int NUMTHREADS = 4;
+        public const int NUMTHREADS = 10;
         public const int MAXTIMER = 300;
         delegate void gbDebugCallBack(Control c);
         delegate void LogOnChangeStatusCallBack(LogOnStatus l);
@@ -602,7 +602,7 @@ namespace LogOn
                     }
                     x.ShowStatus();
                 }).Start();
-                SpinWait.SpinUntil(() => _numThreads < 20);
+                SpinWait.SpinUntil(() => _numThreads < NUMTHREADS);
             }
             await Task.Delay(100);
             SpinWait.SpinUntil(() => Values.AppList.CheckingApps.Count == 0);

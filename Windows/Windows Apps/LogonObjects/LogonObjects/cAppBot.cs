@@ -312,7 +312,7 @@ namespace LogOnObjects
                     client.ConnectTimeout = 120000;
                     client.Host = ShareServer.HostName;
                     client.Credentials = new NetworkCredential(ShareServer.User, ShareServer.Password);
-                    client.DataConnectionType = FtpDataConnectionType.AutoActive;
+                    client.DataConnectionType = FtpDataConnectionType.AutoPassive;
                     try
                     {
                         await Task.Delay(500);
