@@ -49,11 +49,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EspackPrinting.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="EspackPrintDocument.cs" />
     <Compile Include="ScrollingStatusLabel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Database and tools\cAccesoDatos.NET\cAccesoDatosNet.csproj">
+      <Project>{D3E453AA-39B7-480F-8917-6D7F5076C3ED}</Project>
+      <Name>cAccesoDatosNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\EspackControls\EspackControls.csproj">
+      <Project>{ECE9AA32-F756-4BE3-A926-B0771E69066B}</Project>
+      <Name>EspackControls</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

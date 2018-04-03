@@ -27,7 +27,7 @@ namespace Simplistica
 
         public fSimpleDeliveriesEPC()
         {
-            
+
             InitializeComponent();
 
             //CTLM Definitions
@@ -40,13 +40,14 @@ namespace Simplistica
             //Header
             CTLM.AddItem(txtDeliveryN, "DeliveryNumber", false, true, true, 1, true, true);
             CTLM.AddItem(cboService, "Service", true, true, true, 0, false, true);
-            CTLM.AddItem(txtPlate, "TruckPlate", true, true, false, 0, false,true);
+            CTLM.AddItem(txtTruckPlate, "TruckPlate", true, true, false, 0, false,true);
+            CTLM.AddItem(txtTrailerPlate, "TrailerPlate", true, true, false, 0, false, true);
             CTLM.AddItem(txtUser, "UserProc", true, true, false, 0, false, true);
             CTLM.AddItem(cboShift, "Shift", true, true, false, 0, false, true);
             CTLM.AddItem(cboDock, "Dock", true, true, false, 0, false, true);
             CTLM.AddItem(cboDestination, "Destination", true, true, false, 0, false, true);
             CTLM.AddItem(dateStart, "StartDate", true, true, false, 0, false, true);
-            CTLM.AddItem(dateEnd, "EndDate", true, true, false, 0, false, true);
+            CTLM.AddItem(dateEnd, "EndDate", false, false, false, 0, false, true);
             CTLM.AddItem(lstFlags, "flags", false, false, false, 0, false, false);
             CTLM.AddItem(ExtraData, "ExtraData", true, true, false, 0, false, false);
             CTLM.AddItem(dateCheckPoint, "DateCheckPoint", pExtraDataLink: ExtraData);
@@ -57,7 +58,8 @@ namespace Simplistica
             cboService.Source("Select Codigo from Servicios where dbo.CheckFlag(flags,'SIMPLE')=1 and cod3='" + Values.COD3 + "' order by codigo");
             cboService.SelectedValueChanged += CboService_SelectedValueChanged;
             cboDock.Source("Select DockCode from SedesDocks where cod3='" + Values.COD3 + "' order by DockCode");
-            cboDestination.Source("Select Destination=planta from Servicios_Destinos where servicio='" + cboService.Value.ToString() + "' order by planta");
+            cboDestination.Source("Select Destination=planta+'- ('+descripcion2+') '+descripcion1 from Servicios_Destinos where servicio='" + cboService.Value.ToString() + "' order by planta");
+            cboDestination.SelectedValueChanged += CboDestination_SelectedValueChanged;
             lstFlags.Source("Select codigo,DescFlagEng from flags where Tabla='SimpleDeliveriesCab'");
 
             //VS Definitions>
@@ -78,59 +80,69 @@ namespace Simplistica
             VS.CellEndEdit += VS_CellEndEdit; //VS_CellValidating; ; ;
 
             //Various
+            CTLM.ReQuery = true;
             CTLM.AddDefaultStatusStrip();
             CTLM.AddItem(VS);
             CTLM.Start();
-            CTLM.BeforeButtonClick += CTLM_BeforeButtonClick;
+            //CTLM.BeforeButtonClick += CTLM_BeforeButtonClick;
             CTLM.AfterButtonClick += CTLM_AfterButtonClick;
             toolStrip.Enabled = false;
         }
 
-        private void CTLM_BeforeButtonClick(object sender, CTLMEventArgs e)
-        {
-            /*
-            switch (CTLM.Status)
-            {
-                case EnumStatus.ADDNEW:
-                case EnumStatus.EDIT:
-                    {
-                        if (e.ButtonClick == "btnOK")
-                        {
-                            ExtraData.Text = SetExtraDataValue(ExtraData.Text, "CHECKPOINTDATE", dateCheckPoint.Text);
-                            ExtraData.Text = SetExtraDataValue(ExtraData.Text, "EPCDATE", dateEPC.Text);
-                        }
-                        break;
-                    }
-                case EnumStatus.NAVIGATE:
-                case EnumStatus.SEARCH:
-                    {
-                        if ("btnFirst|btnLast|btnPrev|btnNext|".IndexOf( e.ButtonClick+"|" )!=-1)
-                        {
-                            dateCheckPoint.Text= GetExtraDataValue(ExtraData.Text, "CHECKPOINTDATE");
-                            dateEPC.Text = GetExtraDataValue(ExtraData.Text, "EPCDATE");
-                        }
-                        break;
-                    }
-            }
-            */
-        }
+        //private void CTLM_BeforeButtonClick(object sender, CTLMEventArgs e)
+        //{
+        //    //
+        //    //
+        //    //
+        //}
 
         private void CTLM_AfterButtonClick(object sender, CTLMEventArgs e)
         {
-            toolStrip.Enabled = (CTLM.Status == CommonTools.EnumStatus.NAVIGATE);
-            toolStrip.Enabled = true; // The event that changes the status happens after this AfterButtonClick, so we left this enabled until I decide what to do.
+
+            Application.DoEvents();
+
+            ChangeButtonsStatus();
+            if (e.ButtonClick == "btnCancel" && CTLM.Status == CommonTools.EnumStatus.NAVIGATE) cboDestination.Text = "";
+
+            toolStrip.Enabled = (CTLM.Status == CommonTools.EnumStatus.NAVIGATE || CTLM.Status == CommonTools.EnumStatus.SEARCH) && ("btnUpp|btnCancel|btnAdd|".IndexOf(e.ButtonClick + "|") == -1);
+            //toolStrip.Enabled = true; // The event that changes the status happens after this AfterButtonClick, so we left this enabled until I decide what to do.
+        }
+
+        private void ChangeButtonsStatus()
+        {
+
+            if (!lstFlags.CheckedValues.Contains("CLOSED"))
+            {
+                toolStrip.Items["btnClose"].Text = "Close";
+                toolStrip.Items["btnClose"].Image = Resources.truck_24;
+            }
+            else
+            {
+                toolStrip.Items["btnClose"].Text = "Open";
+                toolStrip.Items["btnClose"].Image = Resources.truck_undo_24;
+            }
+
+            CTLM.Items["btnUpp"].Enabled = toolStrip.Items["btnClose"].Text != "Open";
+            CTLM.Items["btnDel"].Enabled = toolStrip.Items["btnClose"].Text != "Open";
         }
 
         private void CboService_SelectedValueChanged(object sender, EventArgs e)
         {
             if (cboService.Value.ToString() != "")
-            { 
-                ((CtlVSColumn)VS.Columns["PartNumber"]).AutoCompleteQuery = string.Format("select partnumber from referencias where servicio='{0}'", cboService.Value);
-                ((CtlVSColumn)VS.Columns["PartNumber"]).ReQuery();
-
-                cboDestination.Source("Select Destination=planta from Servicios_Destinos where servicio='" + cboService.Value.ToString() + "' order by planta");
+            {
+                cboDestination.Value = "";
+                cboDestination.Source("Select Destination=planta+'- ('+descripcion2+') '+descripcion1 from Servicios_Destinos where servicio='" + cboService.Value.ToString() + "' order by planta");
             }
                
+        }
+
+        private void CboDestination_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cboDestination.Value.ToString() != "")
+            {
+                ((CtlVSColumn)VS.Columns["PartNumber"]).AutoCompleteQuery = string.Format("select distinct partnumber from referencias_destinos where servicio='{0}' and planta='{1}'", cboService.Value, cboDestination.Value);
+                ((CtlVSColumn)VS.Columns["PartNumber"]).ReQuery();
+            }
         }
 
         private void VS_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -162,9 +174,11 @@ namespace Simplistica
             // Launch the robot process.
             using (var _sp = new SP(Values.gDatos, "pSimpleDeliveriesChangeStatus"))
             {
+                bool _closed = lstFlags.itemStatus("CLOSED");
+
                 _sp.AddParameterValue("@DeliveryNumber", txtDeliveryN.Text);
                 _sp.AddParameterValue("@Service",cboService.Value.ToString());
-                _sp.AddParameterValue("@Action", "CLOSE");
+                _sp.AddParameterValue("@Action", _closed ? "OPEN":"CLOSE");
                 try
                 {
                     _sp.Execute();
@@ -179,7 +193,11 @@ namespace Simplistica
                     MsgError(_sp.LastMsg);
                     return;
                 }
-                MessageBox.Show(string.Format("Delivery closed OK."), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                CTLM.Button_Click("btnCancel");
+                cboDestination.Text = "";
+                ChangeButtonsStatus();
+                MessageBox.Show(string.Format("Delivery {0} OK.",_closed?"opened":"closed"), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -196,8 +214,11 @@ namespace Simplistica
                         _printIt.PrinterSettings = _pd.PrinterSettings;
                         _printIt.DeliveryNumber = txtDeliveryN.Text;
                         _printIt.Service = cboService.Value.ToString();
-                        _printIt.TruckPlate = txtPlate.Text;
-                        _printIt.DateEPC = (dateEPC.Value==null?"< NONE >": dateEPC.Text.Substring(0,10));
+                        _printIt.TruckPlate = txtTruckPlate.Text;
+                        _printIt.TrailerPlate = txtTrailerPlate.Text;
+                        _printIt.Destination= cboDestination.Text;
+                        _printIt.Dock= cboDock.Text;
+                        _printIt.EndDate = (dateEnd.Value==null?"< NONE >": dateEnd.Text.Substring(0,10));
                         _pd.Document = _printIt;
                         _printIt.Print();
                     }
@@ -209,9 +230,12 @@ namespace Simplistica
         {
             public string DeliveryNumber { get; set; }
             public string Service { get; set; }
-            public string DateEPC { get; set; }
+            public string EndDate { get; set; }
             public string TruckPlate { get; set; }
-            private bool _dontPrintSignature=false;
+            public string TrailerPlate { get; set; }
+            public string Destination { get; set; }
+            public string Dock { get; set; }
+            private bool _dontPrintSignature = false;
             private int PageNumber { get; set; } = 0;
 
             // Definition for the document. It will be called on any new page, so we just define the Header and the query for the Body once. The Footer is cleared and created on each call, as the 
@@ -241,7 +265,7 @@ namespace Simplistica
                     {
                         _rs.Open();
 
-                        _dontPrintSignature = (_rs.RecordCount>48);
+                        _dontPrintSignature = (_rs.RecordCount > 48);
 
                         if (_rs.RecordCount != 0)
                         {
@@ -251,29 +275,33 @@ namespace Simplistica
                             {
                                 //for (int i = 1; i < 25; i++)
                                 //{
-                                    NewLine(true);
-                                    Add(string.Format("{0,5} {1,-20} {2,-30} {3,7} {4,6}", _rs["Line"], _rs["Partnumber"], _rs["Description"].ToString().Substring(0, 30), _rs["OrderedQty"], _rs["SentQty"]));
-                                //    Add(string.Format("{0,5} {1,-20} {2,-30} {3,7} {4,6}", i, _rs["Partnumber"], _rs["Description"].ToString().Substring(0, 30), _rs["OrderedQty"], _rs["SentQty"]));
+                                NewLine(true);
+                                Add(string.Format("{0,5} {1,-20} {2,-30} {3,7} {4,6}", _rs["Line"], _rs["Partnumber"], _rs["Description"].ToString().Length > 30 ? _rs["Description"].ToString().Substring(0, 30) : _rs["Description"], _rs["OrderedQty"], _rs["SentQty"]));
+                                //    Add(string.Format("{0,5} {1,-20} {2,-30} {3,7} {4,6}", i, _rs["Partnumber"], _rs["Description"].ToString().Length > 30 ? _rs["Description"].ToString().Substring(0, 30) : _rs["Description"], _rs["OrderedQty"], _rs["SentQty"]));
                                 //}
                                 _rs.MoveNext();
                             }
                             //NewLine(true);
                             //Add(string.Format("{0,5} {1,-20} {2,-30} {3,7} {4,6}", "xx", "Partnumber", "Description","OrderedQty", "SentQty"));
-                        } else {
+                        }
+                        else
+                        {
                             NewLine(true);
                             Add("--- NO DATA FOUND ---");
                         }
-                    }                    
-                } else { 
+                    }
+                }
+                else
+                {
                     _dontPrintSignature = !((BodyList.Lines.Count() - BodyList.LastPrintedLine - 50) < 1);
                 }
-                
+
                 // Print the footer (changes on each new page)
                 Footer();
 
                 // Draw graphics
-                _g.DrawRectangle(new Pen(Color.Black, 0.5F), 25F, 50F, 725F, 75F); // Header box
-                _g.DrawImage(Resources.Logo_Espack_transparente, 27F, 52F,120F,45F);
+                _g.DrawRectangle(new Pen(Color.Black, 0.5F), 25F, 65F, 725F, 75F); // Header box
+                _g.DrawImage(Resources.Logo_Espack_transparente, 27F, 67F, 140F, 55F);
                 _g.DrawLine(new Pen(Color.Black, 0.5F), 50F, 1010F, 750F, 1010F); // Footer separator
 
                 // Signature boxes when last page is reached
@@ -293,14 +321,17 @@ namespace Simplistica
 
             private void Header()
             {
+                string _plates = TruckPlate + (TrailerPlate != "" ? "/" + TrailerPlate : "");
+                string _destination = Destination + " / " + Dock;
+
                 this.CurrentFont = new Font("Courier New", 12, FontStyle.Bold);
                 NewLine(false, EnumDocumentParts.HEADER);
-                Add(string.Format("{0,10}DELIVERY NUMBER: {1,-15} SERVICE: {2,-10}","",DeliveryNumber,Service));
+                Add(string.Format("{0,12}DELIVERY: {1,-22} SERVICE: {2,-10}", "", DeliveryNumber, Service));
                 NewLine(false, EnumDocumentParts.HEADER);
-                Add(string.Format("{0,10}TRUCK PLATE    : {1,-15} DATE   : {2,-10}", "", TruckPlate,DateEPC));
+                Add(string.Format("{0,12}PLATE   : {1,-22} DATE   : {2,-10}", "", _plates.Length > 22 ? _plates.Substring(0, 22) : _plates, EndDate));
                 NewLine(false, EnumDocumentParts.HEADER);
+                Add(string.Format("{0,12}DEST.   : {1}", "", _destination));
                 NewLine(false, EnumDocumentParts.HEADER);
-
             }
 
             private void Footer()
@@ -315,5 +346,7 @@ namespace Simplistica
                 //NewLine(false, EnumDocumentParts.FOOTER);
             }
         }
+
+        
     }
 }
