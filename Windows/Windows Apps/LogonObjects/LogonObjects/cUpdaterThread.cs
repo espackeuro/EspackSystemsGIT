@@ -203,7 +203,7 @@ namespace LogOnObjects
 
 
         //ftp normal
-        public async void Process()
+        public async Task Process()
         {
             while (Values.AppList.PendingApps.Count != 0 || Values.AppList.CheckingApps.Count != 0)
             {
@@ -215,7 +215,7 @@ namespace LogOnObjects
                     {
                         using (var ftp = new cFTP(Values.ShareServerList[Values.COD3], ""))
                         {
-                            ftp.DownloadItem(_item.Item, _item.LocalPath);
+                            await ftp.DownloadItemAsync(_item.Item, _item.LocalPath);
                         }
                         _item.Status = LogonItemUpdateStatus.UPDATED;
                         _item.Parent.ChangeProgress(_item.Parent.ProgressValue + 1);

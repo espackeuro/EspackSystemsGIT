@@ -95,12 +95,18 @@ namespace LogOn
         // Main
         public fMain(string[] args)
         {
-            // MessageBox.Show("Pollo1", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //MessageBox.Show("Pollo1", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (args.Contains("/ext=1"))
                 External = true;
             try
             {
                 InitializeComponent();
+                txtUser.Status = EnumStatus.EDIT;
+                txtPassword.Status = EnumStatus.EDIT;
+                txtNewPassword.Status = EnumStatus.EDIT;
+                txtNewPasswordConfirm.Status = EnumStatus.EDIT;
+                txtNewPIN.Status = EnumStatus.EDIT;
+                txtNewPINConfirm.Status = EnumStatus.EDIT;
                 ServicePointManager.DnsRefreshTimeout = 0;
                 this.Text = string.Format("LogOn Build {0} - ({1:yyyyMMdd})*", Assembly.GetExecutingAssembly().GetName().Version.ToString(), CT.GetBuildDateTime(Assembly.GetExecutingAssembly()));
                 // Customize the textbox controls 
@@ -125,7 +131,7 @@ namespace LogOn
                 txtUser.Text = "dvalles";
                 txtPassword.Text = "*Kru0DMar*";
 #endif
-                // MessageBox.Show("Pollo2", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Pollo2", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 
             } catch (Exception ex)
@@ -184,7 +190,7 @@ namespace LogOn
                 }
                 catch (Exception e)
                 {
-                    // MessageBox.Show("Pollo4.3"+e.Message+e.InnerException, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //MessageBox.Show("Pollo4.3"+e.Message+e.InnerException, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     throw new Exception("Error connecting database server: " + e.Message);
                 }
                 // tries to check if we are inside of Espack
@@ -193,7 +199,7 @@ namespace LogOn
                 _update = isEspackIP(ref _cod3) && !External;
                 if (!_update)
                 {
-                    MessageBox.Show("This location does not allow application updates.", "Warningr", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("This location does not allow application updates.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     _cod3 = "OUT";
                 }
 
@@ -210,7 +216,7 @@ namespace LogOn
                 Panel3.Text = "DB Server IP: " + Values.gDatos.Server;
                 if (_update)
                     Panel4.Text = "Share Server IP: " + Values.ShareServerList[Values.COD3].HostName;
-                // MessageBox.Show("Pollo5", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Pollo5", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 if (_update)
                     FilesToUpdate = FilesToUpdate.Concat(System.IO.Directory.GetFiles("lib").Select(x => x.Replace("\\", "/")).Where(x => Path.GetExtension(x) == ".dll")).ToArray();
                 if (!Directory.Exists(Values.LOCAL_PATH + "/lib"))
@@ -231,7 +237,11 @@ namespace LogOn
                         x = x.Replace("\\", "/");
                         if (File.Exists(Values.LOCAL_PATH + x))
                         {
-                            if (File.GetLastWriteTime(Values.LOCAL_PATH + x) != File.GetLastWriteTime(Values.LOCAL_PATH + "logon/" + x))
+                            if (!File.Exists(Values.LOCAL_PATH + "logon/" + x))
+                            {
+                                File.Delete(Values.LOCAL_PATH + x);
+                            }
+                            else if (File.GetLastWriteTime(Values.LOCAL_PATH + x) != File.GetLastWriteTime(Values.LOCAL_PATH + "logon/" + x))
                             {
                                 File.Delete(Values.LOCAL_PATH + x);
                                 File.Copy(Values.LOCAL_PATH + "logon/" + x, Values.LOCAL_PATH + x);
@@ -279,7 +289,7 @@ namespace LogOn
             }
             catch (Exception ex)
             {
-                // MessageBox.Show("Pollo7", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error Pollo7: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw new Exception(string.Format("Error 3 {0}", ex.Message));
             }
 
@@ -680,7 +690,7 @@ namespace LogOn
                         Values.ActiveThreads++;
                         var _thread = new cUpdaterThread(Values.debugBox, Values.ActiveThreads);
                         this.UpdatingThreads.Add(_thread);
-                        new Thread(() => _thread.Process()).Start();
+                        new Thread(async () => await _thread.Process()).Start();
 
                     }
                 }

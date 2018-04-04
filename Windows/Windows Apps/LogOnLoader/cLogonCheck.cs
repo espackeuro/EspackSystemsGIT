@@ -39,10 +39,10 @@ namespace LogOnLoader
                 External = true;
 
             }
-#if DEBUG
-            _dbserver = "db02.cr2.local";
-            _shareserver = "net01.cr2.local";
-#endif
+//#if DEBUG
+//            _dbserver = "db01";
+//            _shareserver = "valsrv02";
+//#endif
             // string _pathLogonHosts;
             ServicePointManager.DnsRefreshTimeout = 0;
 
@@ -81,7 +81,7 @@ namespace LogOnLoader
                     ActiveThreads++;
                     var _thread = new cUpdaterThread(Values.debugBox, Values.ActiveThreads);
                     // launch task not async
-                    _thread.Process();
+                    await _thread.Process();
                 }
                 this.Message = "LogOn updated. Launching.";
                 System.Threading.Thread.Sleep(250);

@@ -312,7 +312,7 @@ namespace LogOnObjects
                     client.ConnectTimeout = 120000;
                     client.Host = ShareServer.HostName;
                     client.Credentials = new NetworkCredential(ShareServer.User, ShareServer.Password);
-                    client.DataConnectionType = FtpDataConnectionType.AutoPassive;
+                    client.DataConnectionType = FtpDataConnectionType.EPSV;
                     try
                     {
                         await Task.Delay(500);
@@ -644,7 +644,7 @@ namespace LogOnObjects
                     ActiveThreads++;
                     var _thread = new cUpdaterThread(debugBox, ActiveThreads);
                     // launch task not async
-                    _thread.Process();
+                    await _thread.Process();
                 }
                 SetStatus(AppBotStatus.UPDATED);
             }
@@ -706,6 +706,7 @@ namespace LogOnObjects
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
         }

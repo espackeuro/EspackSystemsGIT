@@ -99,6 +99,28 @@ namespace FTP
             }
         }
 
+        public async Task DownloadItemAsync(DirectoryItem item, string localPath)
+        {
+            using (WebClient ftpClient = new WebClient())
+            {
+                ftpClient.Credentials = new NetworkCredential(server.User, server.Password);
+                ftpClient.Proxy = null;
+                var _path = Path.GetDirectoryName(localPath);
+                if (!Directory.Exists(_path))
+                    Directory.CreateDirectory(_path);
+                try
+                {
+                    await ftpClient.DownloadFileTaskAsync(item.Uri, @localPath);
+                    File.SetLastWriteTime(localPath, item.DateCreated);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                //await ftpClient.DownloadFileTaskAsync(item.Uri, @localPath);
+            }
+        }
+
         #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls
 

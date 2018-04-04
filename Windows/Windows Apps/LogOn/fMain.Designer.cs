@@ -131,7 +131,7 @@ namespace LogOn
             // txtNewPINConfirm
             // 
             this.txtNewPINConfirm.Add = false;
-            this.txtNewPINConfirm.BackColor = System.Drawing.Color.White;
+            this.txtNewPINConfirm.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtNewPINConfirm.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNewPINConfirm.Caption = "Confirm";
             this.txtNewPINConfirm.DBField = null;
@@ -139,8 +139,9 @@ namespace LogOn
             this.txtNewPINConfirm.DefaultValue = null;
             this.txtNewPINConfirm.Del = false;
             this.txtNewPINConfirm.DependingRS = null;
+            this.txtNewPINConfirm.ExtraDataLink = null;
             this.txtNewPINConfirm.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtNewPINConfirm.ForeColor = System.Drawing.Color.Black;
+            this.txtNewPINConfirm.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.txtNewPINConfirm.Location = new System.Drawing.Point(417, 13);
             this.txtNewPINConfirm.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtNewPINConfirm.Mask = "9999";
@@ -151,12 +152,13 @@ namespace LogOn
             this.txtNewPINConfirm.PasswordChar = '*';
             this.txtNewPINConfirm.PK = false;
             this.txtNewPINConfirm.PromptChar = ' ';
+            this.txtNewPINConfirm.Protected = false;
             this.txtNewPINConfirm.Search = false;
             this.txtNewPINConfirm.Size = new System.Drawing.Size(100, 17);
             this.txtNewPINConfirm.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtNewPINConfirm.TabIndex = 38;
             this.txtNewPINConfirm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtNewPINConfirm.Upp = false;
+            this.txtNewPINConfirm.Upp = true;
             this.txtNewPINConfirm.UseSystemPasswordChar = true;
             this.txtNewPINConfirm.Value = "";
             this.txtNewPINConfirm.Visible = false;
@@ -164,7 +166,7 @@ namespace LogOn
             // txtNewPIN
             // 
             this.txtNewPIN.Add = false;
-            this.txtNewPIN.BackColor = System.Drawing.Color.White;
+            this.txtNewPIN.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtNewPIN.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNewPIN.Caption = "PIN";
             this.txtNewPIN.DBField = null;
@@ -172,8 +174,9 @@ namespace LogOn
             this.txtNewPIN.DefaultValue = null;
             this.txtNewPIN.Del = false;
             this.txtNewPIN.DependingRS = null;
+            this.txtNewPIN.ExtraDataLink = null;
             this.txtNewPIN.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtNewPIN.ForeColor = System.Drawing.Color.Black;
+            this.txtNewPIN.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.txtNewPIN.Location = new System.Drawing.Point(311, 13);
             this.txtNewPIN.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtNewPIN.Mask = "9999";
@@ -184,12 +187,13 @@ namespace LogOn
             this.txtNewPIN.PasswordChar = '*';
             this.txtNewPIN.PK = false;
             this.txtNewPIN.PromptChar = ' ';
+            this.txtNewPIN.Protected = false;
             this.txtNewPIN.Search = false;
             this.txtNewPIN.Size = new System.Drawing.Size(100, 17);
             this.txtNewPIN.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtNewPIN.TabIndex = 37;
             this.txtNewPIN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtNewPIN.Upp = false;
+            this.txtNewPIN.Upp = true;
             this.txtNewPIN.UseSystemPasswordChar = true;
             this.txtNewPIN.Value = "";
             this.txtNewPIN.Visible = false;
@@ -197,7 +201,7 @@ namespace LogOn
             // txtNewPasswordConfirm
             // 
             this.txtNewPasswordConfirm.Add = false;
-            this.txtNewPasswordConfirm.BackColor = System.Drawing.Color.White;
+            this.txtNewPasswordConfirm.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtNewPasswordConfirm.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNewPasswordConfirm.Caption = "Confirm";
             this.txtNewPasswordConfirm.DBField = null;
@@ -205,8 +209,9 @@ namespace LogOn
             this.txtNewPasswordConfirm.DefaultValue = null;
             this.txtNewPasswordConfirm.Del = false;
             this.txtNewPasswordConfirm.DependingRS = null;
+            this.txtNewPasswordConfirm.ExtraDataLink = null;
             this.txtNewPasswordConfirm.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtNewPasswordConfirm.ForeColor = System.Drawing.Color.Black;
+            this.txtNewPasswordConfirm.ForeColor = System.Drawing.Color.Gray;
             this.txtNewPasswordConfirm.Location = new System.Drawing.Point(193, 13);
             this.txtNewPasswordConfirm.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtNewPasswordConfirm.Multiline = true;
@@ -215,6 +220,7 @@ namespace LogOn
             this.txtNewPasswordConfirm.ParentConn = null;
             this.txtNewPasswordConfirm.ParentDA = null;
             this.txtNewPasswordConfirm.PK = false;
+            this.txtNewPasswordConfirm.Protected = false;
             this.txtNewPasswordConfirm.Search = false;
             this.txtNewPasswordConfirm.Size = new System.Drawing.Size(100, 17);
             this.txtNewPasswordConfirm.Status = CommonTools.EnumStatus.EDIT;
@@ -227,7 +233,7 @@ namespace LogOn
             // txtNewPassword
             // 
             this.txtNewPassword.Add = false;
-            this.txtNewPassword.BackColor = System.Drawing.Color.White;
+            this.txtNewPassword.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtNewPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNewPassword.Caption = "New Password";
             this.txtNewPassword.DBField = null;
@@ -235,8 +241,9 @@ namespace LogOn
             this.txtNewPassword.DefaultValue = null;
             this.txtNewPassword.Del = false;
             this.txtNewPassword.DependingRS = null;
+            this.txtNewPassword.ExtraDataLink = null;
             this.txtNewPassword.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtNewPassword.ForeColor = System.Drawing.Color.Black;
+            this.txtNewPassword.ForeColor = System.Drawing.Color.Gray;
             this.txtNewPassword.Location = new System.Drawing.Point(87, 13);
             this.txtNewPassword.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtNewPassword.Multiline = true;
@@ -245,6 +252,7 @@ namespace LogOn
             this.txtNewPassword.ParentConn = null;
             this.txtNewPassword.ParentDA = null;
             this.txtNewPassword.PK = false;
+            this.txtNewPassword.Protected = false;
             this.txtNewPassword.Search = false;
             this.txtNewPassword.Size = new System.Drawing.Size(100, 17);
             this.txtNewPassword.Status = CommonTools.EnumStatus.EDIT;
@@ -281,7 +289,7 @@ namespace LogOn
             // txtPassword
             // 
             this.txtPassword.Add = false;
-            this.txtPassword.BackColor = System.Drawing.Color.White;
+            this.txtPassword.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Caption = "Password";
             this.txtPassword.DBField = null;
@@ -289,8 +297,9 @@ namespace LogOn
             this.txtPassword.DefaultValue = null;
             this.txtPassword.Del = false;
             this.txtPassword.DependingRS = null;
+            this.txtPassword.ExtraDataLink = null;
             this.txtPassword.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtPassword.ForeColor = System.Drawing.Color.Black;
+            this.txtPassword.ForeColor = System.Drawing.Color.Gray;
             this.txtPassword.Location = new System.Drawing.Point(120, 14);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtPassword.Multiline = true;
@@ -299,6 +308,7 @@ namespace LogOn
             this.txtPassword.ParentConn = null;
             this.txtPassword.ParentDA = null;
             this.txtPassword.PK = false;
+            this.txtPassword.Protected = false;
             this.txtPassword.Search = false;
             this.txtPassword.Size = new System.Drawing.Size(100, 17);
             this.txtPassword.Status = CommonTools.EnumStatus.EDIT;
@@ -310,7 +320,7 @@ namespace LogOn
             // txtUser
             // 
             this.txtUser.Add = false;
-            this.txtUser.BackColor = System.Drawing.Color.White;
+            this.txtUser.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUser.Caption = "User";
             this.txtUser.DBField = null;
@@ -318,8 +328,9 @@ namespace LogOn
             this.txtUser.DefaultValue = null;
             this.txtUser.Del = false;
             this.txtUser.DependingRS = null;
+            this.txtUser.ExtraDataLink = null;
             this.txtUser.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtUser.ForeColor = System.Drawing.Color.Black;
+            this.txtUser.ForeColor = System.Drawing.Color.Gray;
             this.txtUser.Location = new System.Drawing.Point(6, 14);
             this.txtUser.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtUser.Multiline = true;
@@ -328,6 +339,7 @@ namespace LogOn
             this.txtUser.ParentConn = null;
             this.txtUser.ParentDA = null;
             this.txtUser.PK = false;
+            this.txtUser.Protected = false;
             this.txtUser.Search = false;
             this.txtUser.Size = new System.Drawing.Size(108, 17);
             this.txtUser.Status = CommonTools.EnumStatus.EDIT;
