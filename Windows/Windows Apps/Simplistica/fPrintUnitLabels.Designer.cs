@@ -39,7 +39,7 @@
             // 
             this.txtQty.Add = false;
             this.txtQty.AllowSpace = false;
-            this.txtQty.BackColor = System.Drawing.Color.White;
+            this.txtQty.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtQty.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtQty.Caption = "Number of labels";
             this.txtQty.DBField = null;
@@ -47,8 +47,9 @@
             this.txtQty.DefaultValue = null;
             this.txtQty.Del = false;
             this.txtQty.DependingRS = null;
+            this.txtQty.ExtraDataLink = null;
             this.txtQty.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtQty.ForeColor = System.Drawing.Color.Black;
+            this.txtQty.ForeColor = System.Drawing.Color.Gray;
             this.txtQty.Length = 0;
             this.txtQty.Location = new System.Drawing.Point(12, 68);
             this.txtQty.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
@@ -59,13 +60,15 @@
             this.txtQty.ParentDA = null;
             this.txtQty.PK = false;
             this.txtQty.Precision = 0;
+            this.txtQty.Protected = false;
+            this.txtQty.ReadOnly = true;
             this.txtQty.Search = false;
             this.txtQty.Size = new System.Drawing.Size(160, 17);
-            this.txtQty.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtQty.Status = CommonTools.EnumStatus.SEARCH;
             this.txtQty.TabIndex = 0;
             this.txtQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtQty.ThousandsGroup = false;
-            this.txtQty.Upp = false;
+            this.txtQty.Upp = true;
             this.txtQty.Value = null;
             // 
             // cboService
@@ -80,6 +83,7 @@
             this.cboService.DefaultValue = null;
             this.cboService.Del = false;
             this.cboService.DependingRS = null;
+            this.cboService.ExtraDataLink = null;
             this.cboService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboService.Font = new System.Drawing.Font("Tahoma", 10F);
             this.cboService.ForeColor = System.Drawing.Color.Black;
@@ -91,6 +95,7 @@
             this.cboService.ParentConn = null;
             this.cboService.ParentDA = null;
             this.cboService.PK = false;
+            this.cboService.Protected = false;
             this.cboService.Search = false;
             this.cboService.Size = new System.Drawing.Size(160, 24);
             this.cboService.Status = CommonTools.EnumStatus.ADDNEW;
@@ -112,7 +117,7 @@
             // txtDesService
             // 
             this.txtDesService.Add = false;
-            this.txtDesService.BackColor = System.Drawing.Color.White;
+            this.txtDesService.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtDesService.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDesService.Caption = "";
             this.txtDesService.DBField = null;
@@ -120,8 +125,9 @@
             this.txtDesService.DefaultValue = null;
             this.txtDesService.Del = false;
             this.txtDesService.DependingRS = null;
+            this.txtDesService.ExtraDataLink = null;
             this.txtDesService.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtDesService.ForeColor = System.Drawing.Color.Black;
+            this.txtDesService.ForeColor = System.Drawing.Color.Gray;
             this.txtDesService.Location = new System.Drawing.Point(178, 25);
             this.txtDesService.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtDesService.Multiline = true;
@@ -130,6 +136,8 @@
             this.txtDesService.ParentConn = null;
             this.txtDesService.ParentDA = null;
             this.txtDesService.PK = false;
+            this.txtDesService.Protected = false;
+            this.txtDesService.ReadOnly = true;
             this.txtDesService.Search = false;
             this.txtDesService.Size = new System.Drawing.Size(257, 24);
             this.txtDesService.Status = CommonTools.EnumStatus.ADDNEW;
@@ -140,7 +148,8 @@
             // txtQtyLabel
             // 
             this.txtQtyLabel.Add = false;
-            this.txtQtyLabel.BackColor = System.Drawing.Color.White;
+            this.txtQtyLabel.AllowSpace = false;
+            this.txtQtyLabel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtQtyLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtQtyLabel.Caption = "Copies per label";
             this.txtQtyLabel.DBField = null;
@@ -148,21 +157,29 @@
             this.txtQtyLabel.DefaultValue = null;
             this.txtQtyLabel.Del = false;
             this.txtQtyLabel.DependingRS = null;
+            this.txtQtyLabel.ExtraDataLink = null;
             this.txtQtyLabel.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtQtyLabel.ForeColor = System.Drawing.Color.Black;
+            this.txtQtyLabel.ForeColor = System.Drawing.Color.Gray;
+            this.txtQtyLabel.Length = 0;
             this.txtQtyLabel.Location = new System.Drawing.Point(188, 68);
             this.txtQtyLabel.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtQtyLabel.Mask = false;
             this.txtQtyLabel.Name = "txtQtyLabel";
             this.txtQtyLabel.Order = 0;
             this.txtQtyLabel.ParentConn = null;
             this.txtQtyLabel.ParentDA = null;
             this.txtQtyLabel.PK = false;
+            this.txtQtyLabel.Precision = 0;
+            this.txtQtyLabel.Protected = false;
+            this.txtQtyLabel.ReadOnly = true;
             this.txtQtyLabel.Search = false;
             this.txtQtyLabel.Size = new System.Drawing.Size(100, 17);
-            this.txtQtyLabel.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtQtyLabel.Status = CommonTools.EnumStatus.SEARCH;
             this.txtQtyLabel.TabIndex = 9;
-            this.txtQtyLabel.Upp = false;
-            this.txtQtyLabel.Value = "";
+            this.txtQtyLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtQtyLabel.ThousandsGroup = false;
+            this.txtQtyLabel.Upp = true;
+            this.txtQtyLabel.Value = null;
             // 
             // fPrintUnitLabels
             // 

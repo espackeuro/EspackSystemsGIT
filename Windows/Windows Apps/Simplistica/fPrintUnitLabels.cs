@@ -18,6 +18,8 @@ namespace Simplistica
         public fPrintUnitLabels()
         {
             InitializeComponent();
+            txtDesService.Status = CommonTools.EnumStatus.EDIT;
+            txtQty.Status = CommonTools.EnumStatus.EDIT;
             cboService.Enabled = true;
             txtDesService.Enabled = true;
             txtQty.Enabled = true;

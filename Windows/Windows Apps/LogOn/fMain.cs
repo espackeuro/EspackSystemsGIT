@@ -44,7 +44,7 @@ namespace LogOn
         private bool _update;
 
         public List<cUpdaterThread> UpdatingThreads = new List<cUpdaterThread>();
-        public const int NUMTHREADS = 10;
+        //public static int NUMTHREADS = 10;
         public const int MAXTIMER = 300;
         delegate void gbDebugCallBack(Control c);
         delegate void LogOnChangeStatusCallBack(LogOnStatus l);
@@ -152,9 +152,9 @@ namespace LogOn
                     try
                     {
                         var _dnsDB = Dns.GetHostEntry("appdb.local");
-                        _dbserver = _dnsDB.HostName;
+                        _dbserver = _dnsDB.AddressList[0].ToString(); //.HostName;
                         var _dnsShare = Dns.GetHostEntry("appshare.local");
-                        _shareserver = _dnsShare.HostName;
+                        _shareserver = _dnsShare.AddressList[0].ToString();
                     }
                     catch
                     {
@@ -211,11 +211,11 @@ namespace LogOn
                 if (_cod3=="OUT")
                     Values.DBServerList.Add(new cServer() { HostName = _dbserver, COD3 = "OUT", Type = ServerTypes.DATABASE, User = Values.User, Password = Values.Password });
 
-                Panel1.Text = "You are connected to " + Values.gDatos.oServer.HostName.Replace(".local", "") + "!";
+                Panel1.Text = "You are connected to " + Values.gDatos.oServer.IP;//HostName.Replace(".local", "") + "!";
                 Panel2.Text = "My IP: " + Values.gDatos.IP.ToString();
                 Panel3.Text = "DB Server IP: " + Values.gDatos.Server;
                 if (_update)
-                    Panel4.Text = "Share Server IP: " + Values.ShareServerList[Values.COD3].HostName;
+                    Panel4.Text = "Share Server IP: " + Values.ShareServerList[Values.COD3].IP;
                 //MessageBox.Show("Pollo5", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 if (_update)
                     FilesToUpdate = FilesToUpdate.Concat(System.IO.Directory.GetFiles("lib").Select(x => x.Replace("\\", "/")).Where(x => Path.GetExtension(x) == ".dll")).ToArray();
@@ -597,10 +597,10 @@ namespace LogOn
                 x.SetStatus(AppBotStatus.CHECKING);
                 Application.DoEvents();
                 _numThreads++;
-                new Thread(() =>
+                new Thread(async () =>
                 {
                     //if (await x.CheckUpdated().ConfigureAwait(false))
-                    if (x.CheckUpdated().Result)
+                    if (await x.CheckUpdated())
                     {
                         _numThreads--;
                         x.Status = AppBotStatus.UPDATED;
@@ -612,7 +612,7 @@ namespace LogOn
                     }
                     x.ShowStatus();
                 }).Start();
-                SpinWait.SpinUntil(() => _numThreads < NUMTHREADS);
+                SpinWait.SpinUntil(() => _numThreads < Values.MaxNumThreads);
             }
             await Task.Delay(100);
             SpinWait.SpinUntil(() => Values.AppList.CheckingApps.Count == 0);
@@ -685,13 +685,14 @@ namespace LogOn
 
                 if (Values.AppList.PendingApps.Count != 0)
                 {
-                    for (var i = 0; i < NUMTHREADS; i++)
+                    var maxThreads = Values.AppList.PendingApps.Count > Values.MaxNumThreads ? Values.MaxNumThreads : Values.AppList.PendingApps.Count;
+                    for (var i = 0; i < maxThreads; i++)
                     {
                         Values.ActiveThreads++;
                         var _thread = new cUpdaterThread(Values.debugBox, Values.ActiveThreads);
                         this.UpdatingThreads.Add(_thread);
                         new Thread(async () => await _thread.Process()).Start();
-
+                        await Task.Delay(200);
                     }
                 }
                 LogOnChangeStatus(LogOnStatus.CONNECTED);
@@ -743,29 +744,6 @@ namespace LogOn
                 CTWin.MsgError(_SP.LastMsg);
                 return;
             }
-            ////checking OWNCLOUD settings
-            //if (Values.userFlags.Contains("OWNCLOUD"))
-            //{
-            //    string _master="";
-            //    using (var _RS= new DynamicRS("select master=cast(dbo.fGetContextInfo() as nvarchar)", Values.gDatos))
-            //    {
-            //        _RS.Open();
-            //        _master = _RS["master"].ToString();
-            //    }
-            //    bool _result= await OCCommands.CheckUser(txtUser.Text);
-            //    PanelName.Text = (_result ? "Owncloud user found" : "Owncoud user not found");
-            //    if (!_result)
-            //    {
-            //        _result = await OCCommands.AddUser(txtUser.Text, txtNewPassword.Text, Values.FullName, Values.COD3);
-            //        PanelName.Text = (_result ? "Owncloud user created correctly" : "ERROR creating Owncloud user!!!");
-            //    }
-            //    else
-            //    {
-            //        _result = await OCCommands.UppUser(txtUser.Text, txtNewPassword.Text, Values.FullName, "");
-            //        PanelName.Text = (_result ? "Owncloud user updated correctly" : "ERROR updating Owncloud user!!!");
-            //    }
-            //}
-
             MessageBox.Show("Password and PIN changed OK", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             PanelName.Text = Values.FullName;
             Values.User = txtUser.Text;

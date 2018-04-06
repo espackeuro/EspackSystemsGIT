@@ -9,6 +9,8 @@ using FTP;
 using System.Net;
 using System.Windows.Forms;
 using CommonToolsWin;
+using System.IO.Compression;
+
 namespace LogOnObjects
 
 {
@@ -57,6 +59,7 @@ namespace LogOnObjects
         //public string ServerPath;
         public string LocalPath;
         public DirectoryItem Item;
+        public int ThreadNum;
         public cUpdaterThread Thread;
         public LogonItemUpdateStatus Status;
     }
@@ -130,108 +133,49 @@ namespace LogOnObjects
                 throw ex;
             }
         }
-        //ftp client
-        //public async void Process()
-        //{
-        //    using (var client = new FtpClient())
-        //    {
-        //        client.Host = Values.ShareServerList[Values.COD3].IP.ToString();
-        //        client.Credentials = new NetworkCredential(Values.ShareServerList[Values.COD3].User, Values.ShareServerList[Values.COD3].Password);
-        //        while (Values.AppList.PendingApps.Count != 0 || Values.AppList.CheckingApps.Count != 0)
-        //        {
-        //            cUpdateListItem _item;
-        //            try
-        //            {
-        //                _item = stealOne(this, Values.UpdateList);
-        //                var _path = Path.GetDirectoryName(_item.LocalPath);
-        //                if (!Directory.Exists(_path))
-        //                    Directory.CreateDirectory(_path);
-        //                using (var ftpStream = client.OpenRead(_item.Item.AbsolutePath.Replace("ftp://" + client.Host, "")))
-        //                using (var fileStream = File.Create(_item.LocalPath, (int)ftpStream.Length))
-        //                {
-        //                    var buffer = new byte[8 * 1024];
-        //                    int count;
-        //                    while ((count = ftpStream.Read(buffer, 0, buffer.Length)) > 0)
-        //                    {
-        //                        fileStream.Write(buffer, 0, count);
-        //                    }
-        //                }
-        //                _item.Status = LogonItemUpdateStatus.UPDATED;
-        //                if (_item.Parent.UpdatedItems.Count == _item.Parent.Items.Count())
-        //                {
-        //                    _item.Parent.Activate(true);
-        //                }
-        //            }
-        //            catch (Exception ex)
-        //            {
-        //                if (debug != null)
-        //                {
-        //                    AppendDebugText("Waiting " + ex.Message + "\n");
-        //                }
-        //                System.Threading.Thread.Sleep(500);
 
-        //            }
-        //        }
-        //    }
-        //    if (Values.ActiveThreads == 1)
-        //    {
-        //        while (Values.UpdateDir.Where(x => x.Status == LogonItemUpdateStatus.PENDING).ToList().Count != 0)
-        //        {
-        //            if (debug != null)
-        //                AppendDebugText("Syncing directories.\n");
-        //            cUpdateListItem _item;
-        //            try
-        //            {
-        //                _item = stealOne(this, Values.UpdateDir);
-        //                Directory.SetLastWriteTime(_item.LocalPath, _item.Item.DateCreated);
-        //                _item.Status = LogonItemUpdateStatus.UPDATED;
-        //            }
-        //            catch (Exception ex)
-        //            {
-        //                if (debug != null)
-        //                {
-        //                    AppendDebugText(ex.Message + "\n");
-        //                }
-        //                System.Threading.Thread.Sleep(500);
-
-        //            }
-        //        }
-        //    }
-        //    Values.ActiveThreads--;
-
-        //}
-
-
-        //ftp normal
         public async Task Process()
         {
             while (Values.AppList.PendingApps.Count != 0 || Values.AppList.CheckingApps.Count != 0)
             {
-                cUpdateListItem _item= new cUpdateListItem();
+                cUpdateListItem item= new cUpdateListItem();
                 try
                 {
-                    _item = stealOne(this, Values.UpdateList);
-                    if (_item != null)
+                    item = stealOne(this, Values.UpdateList);
+                    if (item != null)
                     {
                         using (var ftp = new cFTP(Values.ShareServerList[Values.COD3], ""))
                         {
-                            await ftp.DownloadItemAsync(_item.Item, _item.LocalPath);
+                            await ftp.DownloadItemAsync(item.Item, item.LocalPath);
                         }
-                        _item.Status = LogonItemUpdateStatus.UPDATED;
-                        _item.Parent.ChangeProgress(_item.Parent.ProgressValue + 1);
-                        if (_item.Parent.UpdatedItems.Count == _item.Parent.Items.Count())
+                        item.Status = LogonItemUpdateStatus.UPDATED;
+                        item.Parent.ChangeProgress(item.Parent.ProgressValue + 1);
+                        if (item.Parent.UpdatedItems.Count == item.Parent.Items.Count())
                         {
-                            _item.Parent.SetStatus(AppBotStatus.UPDATED);
+                            item.Parent.SetStatus(AppBotStatus.UPDATED);
+                        }
+                        if (item.Parent.Special) //if its special unzip it
+                        {
+                            try
+                            {
+                                if (Directory.Exists(item.Parent.LocalPath))
+                                    Directory.Delete(item.Parent.LocalPath, true);
+                                await (Task.Run(() => ZipFile.ExtractToDirectory(item.LocalPath, Values.LOCAL_PATH)));
+                            }
+                            catch (Exception ex)
+                            {
+                                AppendDebugText(string.Format("Thread {0} Error {1}\n", NumThread, ex.Message));
+                            }
                         }
                     }
                 }
                 catch (WebException ex)
                 {
                     CTWin.MsgError(ex.Message+"\n"+ex.InnerException.Message);
-                    if (null != _item)
+                    if (null != item)
                     {
-                        _item.Status = LogonItemUpdateStatus.ERROR;
-                        _item.Parent.SetStatus(AppBotStatus.ERROR);
+                        item.Status = LogonItemUpdateStatus.ERROR;
+                        item.Parent.SetStatus(AppBotStatus.ERROR);
                     }
 
 
@@ -259,6 +203,7 @@ namespace LogOnObjects
                     System.Threading.Thread.Sleep(500);
 
                 }
+
             }
             if (Values.ActiveThreads == 1)
             {

@@ -304,13 +304,14 @@ namespace LogOnObjects
         public async Task<bool> CheckUpdated(bool force=false)
         {
             //ShowStatus(AppBotStatus.CHECKING);
+            
             bool _clean = true;
             if (!File.Exists(LocalPath) || File.Exists(LocalPath) && FileVersionInfo.GetVersionInfo(LocalPath).FileVersion.ToString()!=version || Special==true || force==true)
             {
                 using (var client = new FtpClient())
                 {
                     client.ConnectTimeout = 120000;
-                    client.Host = ShareServer.HostName;
+                    client.Host = ShareServer.IP.ToString();
                     client.Credentials = new NetworkCredential(ShareServer.User, ShareServer.Password);
                     client.DataConnectionType = FtpDataConnectionType.EPSV;
                     try
@@ -331,7 +332,34 @@ namespace LogOnObjects
                             await client.ConnectAsync();
                         }
                     }
-                    _clean = await readDirFTP(client, "/APPS_CS/", Code.ToLower());
+                    if (Special)
+                    {
+                        var specialFilePath = LOCAL_PATH + Code.ToLower() + ".zip";
+                        FtpListItem a = (await client.GetListingAsync("/APPS_CS/")).FirstOrDefault(x=> x.Name== Code.ToLower() + ".zip");
+                        if (GetLastWriteTime(specialFilePath) != a.Modified || !Exists(specialFilePath) || !Directory.Exists(LocalPath))
+                        {
+                            UpdateList.Add(new cUpdateListItem()
+                            {
+                                Parent = this,
+                                Item = new DirectoryItem()
+                                {
+                                    Server = ShareServer,
+                                    DateCreated = a.Modified,
+                                    IsDirectory = false,
+                                    Name = a.Name,
+                                    BaseUri = new UriBuilder("ftp://" + ShareServer.HostName + "/APPS_CS").Uri
+                                },
+                                LocalPath = specialFilePath,
+                                Status = LogonItemUpdateStatus.PENDING,
+                                //ThreadNum = UpdateList.Count % Values.MaxNumThreads
+                            });
+                            _clean = false;
+                        }
+                        else
+                            _clean = true;
+                    }
+                    else
+                        _clean = await readDirFTP(client, "/APPS_CS/", Code.ToLower());
                 }
             } 
             return _clean;
@@ -544,92 +572,6 @@ namespace LogOnObjects
             }
         }
 
-
-        //ChangeProgressCallback(int Value);
-        //private bool readDirSSH(SftpClient client, string basePath, string relativePath, bool checkFiles)
-        //{
-        //    bool _clean = true;
-        //    client.ChangeDirectory(basePath + relativePath);
-        //    var list = client.ListDirectory(".").Where(x => x.Name != "." && x.Name != "..");
-        //    foreach (var item in list)
-        //    {
-        //        if (item.Attributes.IsDirectory)
-        //        {
-        //            var _check = false;
-        //            var _condition = !Directory.Exists(LOCAL_PATH + relativePath + "/" + item.Name);
-        //            if (_condition == false)
-        //                _condition = (item.LastWriteTime != Directory.GetLastWriteTime(LOCAL_PATH + relativePath + "/" + item.Name));
-        //            if (_condition)
-        //            {
-        //                UpdateDir.Add(new cUpdateListItem()
-        //                {
-        //                    Parent = this,
-        //                    Item = new DirectoryItem()
-        //                    {
-        //                        Server = ShareServer,
-        //                        DateCreated = item.LastWriteTime,
-        //                        IsDirectory = item.IsDirectory,
-        //                        Name = item.Name,
-        //                        BaseUri = new UriBuilder("ftp://" + ShareServer.IP.ToString() + "/APPS_CS/" + relativePath + "/").Uri
-        //                    },
-        //                    LocalPath = LOCAL_PATH + relativePath + "/" + item.Name,
-        //                    Status = LogonItemUpdateStatus.PENDING
-        //                });
-        //                _check = true;
-        //            }
-        //            _clean = readDirSSH(client, basePath, relativePath + "/" + item.Name,_check) && _clean;
-        //        }
-        //        else if (checkFiles)
-        //        {
-        //            if (File.Exists(LOCAL_PATH + relativePath + "/" + item.Name))
-        //            {
-        //                if (File.GetCreationTime(LOCAL_PATH + relativePath + "/" + item.Name) != item.Attributes.LastWriteTime)
-        //                {
-        //                    if (Status != AppBotStatus.PENDING_UPDATE)
-        //                        ShowStatus(AppBotStatus.PENDING_UPDATE);
-        //                    UpdateList.Add(new cUpdateListItem()
-        //                    {
-        //                        Parent = this,
-        //                        Item = new DirectoryItem()
-        //                        {
-        //                            Server = ShareServer,
-        //                            DateCreated = item.LastWriteTime,
-        //                            IsDirectory = item.IsDirectory,
-        //                            Name = item.Name,
-        //                            BaseUri = new UriBuilder("ftp://" + ShareServer.IP.ToString() + "/APPS_CS/" + relativePath + "/").Uri
-        //                        },
-        //                        LocalPath = LOCAL_PATH + relativePath + "/" + item.Name,
-        //                        Status = LogonItemUpdateStatus.PENDING
-        //                    });
-        //                    _clean = false;
-        //                }
-        //            }
-        //            else
-        //            {
-        //                if (Status != AppBotStatus.PENDING_UPDATE)
-        //                    ShowStatus(AppBotStatus.PENDING_UPDATE);
-        //                UpdateList.Add(new cUpdateListItem()
-        //                {
-        //                    Parent = this,
-        //                    Item = new DirectoryItem()
-        //                    {
-        //                        Server = ShareServer,
-        //                        DateCreated = item.LastWriteTime,
-        //                        IsDirectory = item.IsDirectory,
-        //                        Name = item.Name,
-        //                        BaseUri = new UriBuilder("ftp://" + ShareServer.IP.ToString() + "/APPS_CS/" + relativePath + "/").Uri
-        //                    },
-        //                    LocalPath = LOCAL_PATH + relativePath + "/" + item.Name,
-        //                    Status = LogonItemUpdateStatus.PENDING
-        //                });
-        //                _clean = false;
-        //            }
-
-        //        }
-        //    }
-        //    return _clean;
-        //}
-
         public async Task LaunchApp(bool temp = false)
         {
 
@@ -697,7 +639,7 @@ namespace LogOnObjects
             startInfo.UseShellExecute = false;
             startInfo.FileName = _tempPath;
             startInfo.WindowStyle = ProcessWindowStyle.Maximized;
-            startInfo.Arguments = string.Format("/srv={0} /db={1} /usr={2} /pwd={3} /loc={4} /app={5}{6}", DBServer.HostName, DataBase, DBServer.User, DBServer.Password, "OUT", Name, External ? " /ext=1" : "");
+            startInfo.Arguments = string.Format("/srv={0} /db={1} /usr={2} /pwd={3} /loc={4} /app={5}{6}", DBServer.IP.ToString(), DataBase, DBServer.User, DBServer.Password, "OUT", Name, External ? " /ext=1" : "");
 
             try
             {
