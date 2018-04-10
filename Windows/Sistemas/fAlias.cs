@@ -40,16 +40,26 @@ namespace Sistemas
             VS.DBTable = "MAIL..aliasDET";
 
             //Details
-            VS.AddColumn("Address", txtAddress, "@Address", "", "@Address");
-            VS.AddColumn("GoToAddress", "gotoAddress", "@gotoAddress", "", "@gotoAddress", false, false, false, pWidth: 200, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: "select email from mail..vEmailListAll order by email");
-            VS.AddColumn("LocalPart", "local_part", "", "", "",false,false,true, pWidth: 90);
-            VS.AddColumn("LocalPartGoTo", "local_part_goto", "", "", "", false, false, true, pWidth: 90);
-            VS.AddColumn("Domain", "domain", "", "", "", false, false, false, pWidth: 125);
-            VS.AddColumn("DomainGoTo", "domain_goto", "", "", "", false, false, false, pWidth: 150);
+            VS.AddColumn("Address", txtAddress, "@Address", "", "@Address",pVisible: false);
+            VS.AddColumn("Destinations", "gotoAddress", "@gotoAddress", "", "@gotoAddress", false, false, false, pWidth: 200, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: "select email from mail..vEmailListAll order by email");
+
+
+
+            //VS Definitions
+            VSExceptions.Conn = Values.gDatos;
+            VSExceptions.sSPAdd = "MAIL..pAddAliasExceptionsDET";
+            VSExceptions.sSPUpp = "";
+            VSExceptions.sSPDel = "MAIL..pDelAliasExceptionsDet";
+            VSExceptions.DBTable = "MAIL..aliasExceptionsDET";
+
+            //Details
+            VSExceptions.AddColumn("Address", txtAddress, "@Address", "", "@Address", pVisible: false);
+            VSExceptions.AddColumn("Exceptions", "gotoAddress", "@gotoAddress", "", "@gotoAddress", false, false, false, pWidth: 200, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: "select email from mail..vEmailListAll order by email");
 
             //Various
             CTLM.AddDefaultStatusStrip();
             CTLM.AddItem(VS);
+            CTLM.AddItem(VSExceptions);
             CTLM.Start();
             
 

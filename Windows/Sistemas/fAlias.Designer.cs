@@ -37,9 +37,11 @@
             this.lstCOD3 = new EspackFormControls.EspackCheckedListBox();
             this.lstFlags = new EspackFormControls.EspackCheckedListBox();
             this.VS = new VSGrid.CtlVSGrid();
+            this.VSExceptions = new VSGrid.CtlVSGrid();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VSExceptions)).BeginInit();
             this.SuspendLayout();
             // 
             // CTLM
@@ -87,6 +89,7 @@
             this.txtDomain.DefaultValue = null;
             this.txtDomain.Del = false;
             this.txtDomain.DependingRS = null;
+            this.txtDomain.ExtraDataLink = null;
             this.txtDomain.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtDomain.ForeColor = System.Drawing.Color.Gray;
             this.txtDomain.Location = new System.Drawing.Point(343, 75);
@@ -97,6 +100,7 @@
             this.txtDomain.ParentConn = null;
             this.txtDomain.ParentDA = null;
             this.txtDomain.PK = false;
+            this.txtDomain.Protected = false;
             this.txtDomain.ReadOnly = true;
             this.txtDomain.Search = false;
             this.txtDomain.Size = new System.Drawing.Size(225, 24);
@@ -116,6 +120,7 @@
             this.txtLocalPart.DefaultValue = null;
             this.txtLocalPart.Del = false;
             this.txtLocalPart.DependingRS = null;
+            this.txtLocalPart.ExtraDataLink = null;
             this.txtLocalPart.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtLocalPart.ForeColor = System.Drawing.Color.Gray;
             this.txtLocalPart.Location = new System.Drawing.Point(28, 75);
@@ -126,6 +131,7 @@
             this.txtLocalPart.ParentConn = null;
             this.txtLocalPart.ParentDA = null;
             this.txtLocalPart.PK = false;
+            this.txtLocalPart.Protected = false;
             this.txtLocalPart.ReadOnly = true;
             this.txtLocalPart.Search = false;
             this.txtLocalPart.Size = new System.Drawing.Size(225, 24);
@@ -145,6 +151,7 @@
             this.txtAddress.DefaultValue = null;
             this.txtAddress.Del = false;
             this.txtAddress.DependingRS = null;
+            this.txtAddress.ExtraDataLink = null;
             this.txtAddress.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtAddress.ForeColor = System.Drawing.Color.Gray;
             this.txtAddress.Location = new System.Drawing.Point(28, 32);
@@ -155,6 +162,7 @@
             this.txtAddress.ParentConn = null;
             this.txtAddress.ParentDA = null;
             this.txtAddress.PK = false;
+            this.txtAddress.Protected = false;
             this.txtAddress.ReadOnly = true;
             this.txtAddress.Search = false;
             this.txtAddress.Size = new System.Drawing.Size(540, 24);
@@ -189,6 +197,7 @@
             this.lstCOD3.DefaultValue = null;
             this.lstCOD3.Del = false;
             this.lstCOD3.DependingRS = null;
+            this.lstCOD3.ExtraDataLink = null;
             this.lstCOD3.Font = new System.Drawing.Font("Tahoma", 10F);
             this.lstCOD3.ForeColor = System.Drawing.Color.Black;
             this.lstCOD3.FormattingEnabled = true;
@@ -200,6 +209,7 @@
             this.lstCOD3.ParentConn = null;
             this.lstCOD3.ParentDA = null;
             this.lstCOD3.PK = false;
+            this.lstCOD3.Protected = false;
             this.lstCOD3.Search = false;
             this.lstCOD3.Size = new System.Drawing.Size(540, 95);
             this.lstCOD3.Status = CommonTools.EnumStatus.ADDNEW;
@@ -220,6 +230,7 @@
             this.lstFlags.DefaultValue = null;
             this.lstFlags.Del = false;
             this.lstFlags.DependingRS = null;
+            this.lstFlags.ExtraDataLink = null;
             this.lstFlags.Font = new System.Drawing.Font("Tahoma", 10F);
             this.lstFlags.ForeColor = System.Drawing.Color.Black;
             this.lstFlags.FormattingEnabled = true;
@@ -231,6 +242,7 @@
             this.lstFlags.ParentConn = null;
             this.lstFlags.ParentDA = null;
             this.lstFlags.PK = false;
+            this.lstFlags.Protected = false;
             this.lstFlags.Search = false;
             this.lstFlags.Size = new System.Drawing.Size(540, 76);
             this.lstFlags.Status = CommonTools.EnumStatus.ADDNEW;
@@ -246,7 +258,7 @@
             this.VS.AllowUpdate = false;
             this.VS.AllowUserToAddRows = false;
             this.VS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.VS.Caption = "";
+            this.VS.Caption = "Destinations";
             this.VS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.VS.Conn = null;
             this.VS.DBField = null;
@@ -256,8 +268,9 @@
             this.VS.Del = false;
             this.VS.DependingRS = null;
             this.VS.EspackControlParent = null;
+            this.VS.ExtraDataLink = null;
             this.VS.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.VS.Location = new System.Drawing.Point(12, 392);
+            this.VS.Location = new System.Drawing.Point(12, 413);
             this.VS.MsgStatusLabel = null;
             this.VS.Name = "VS";
             this.VS.NumPages = 0;
@@ -267,9 +280,10 @@
             this.VS.ParentConn = null;
             this.VS.ParentDA = null;
             this.VS.PK = false;
+            this.VS.Protected = false;
             this.VS.RowHeadersVisible = false;
             this.VS.Search = false;
-            this.VS.Size = new System.Drawing.Size(592, 198);
+            this.VS.Size = new System.Drawing.Size(278, 198);
             this.VS.SQL = null;
             this.VS.sSPAdd = "";
             this.VS.sSPDel = "";
@@ -279,11 +293,55 @@
             this.VS.Upp = false;
             this.VS.Value = null;
             // 
+            // VSExceptions
+            // 
+            this.VSExceptions.Add = false;
+            this.VSExceptions.AllowDelete = false;
+            this.VSExceptions.AllowInsert = false;
+            this.VSExceptions.AllowUpdate = false;
+            this.VSExceptions.AllowUserToAddRows = false;
+            this.VSExceptions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.VSExceptions.Caption = "Exceptions";
+            this.VSExceptions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.VSExceptions.Conn = null;
+            this.VSExceptions.DBField = null;
+            this.VSExceptions.DBFieldType = null;
+            this.VSExceptions.DBTable = null;
+            this.VSExceptions.DefaultValue = null;
+            this.VSExceptions.Del = false;
+            this.VSExceptions.DependingRS = null;
+            this.VSExceptions.EspackControlParent = null;
+            this.VSExceptions.ExtraDataLink = null;
+            this.VSExceptions.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.VSExceptions.Location = new System.Drawing.Point(328, 413);
+            this.VSExceptions.MsgStatusLabel = null;
+            this.VSExceptions.Name = "VSExceptions";
+            this.VSExceptions.NumPages = 0;
+            this.VSExceptions.Order = 0;
+            this.VSExceptions.Page = 0;
+            this.VSExceptions.Paginate = false;
+            this.VSExceptions.ParentConn = null;
+            this.VSExceptions.ParentDA = null;
+            this.VSExceptions.PK = false;
+            this.VSExceptions.Protected = false;
+            this.VSExceptions.RowHeadersVisible = false;
+            this.VSExceptions.Search = false;
+            this.VSExceptions.Size = new System.Drawing.Size(277, 198);
+            this.VSExceptions.SQL = null;
+            this.VSExceptions.sSPAdd = "";
+            this.VSExceptions.sSPDel = "";
+            this.VSExceptions.sSPUpp = "";
+            this.VSExceptions.Status = CommonTools.EnumStatus.SEARCH;
+            this.VSExceptions.TabIndex = 5;
+            this.VSExceptions.Upp = false;
+            this.VSExceptions.Value = null;
+            // 
             // fAlias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(617, 650);
+            this.Controls.Add(this.VSExceptions);
             this.Controls.Add(this.VS);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -297,6 +355,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VSExceptions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -313,5 +372,6 @@
         private EspackFormControls.EspackCheckedListBox lstFlags;
         private VSGrid.CtlVSGrid VS;
         private EspackFormControls.EspackCheckedListBox lstCOD3;
+        private VSGrid.CtlVSGrid VSExceptions;
     }
 }
