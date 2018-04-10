@@ -158,8 +158,9 @@ namespace LogOnObjects
                         {
                             try
                             {
-                                if (Directory.Exists(item.Parent.LocalPath))
-                                    Directory.Delete(item.Parent.LocalPath, true);
+                                var _localPath = Path.GetDirectoryName(item.Parent.LocalPath);
+                                if (Directory.Exists(_localPath))
+                                    Directory.Delete(_localPath, true);
                                 await (Task.Run(() => ZipFile.ExtractToDirectory(item.LocalPath, Values.LOCAL_PATH)));
                             }
                             catch (Exception ex)
