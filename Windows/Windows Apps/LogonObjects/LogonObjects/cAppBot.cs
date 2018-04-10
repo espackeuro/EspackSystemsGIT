@@ -316,7 +316,6 @@ namespace LogOnObjects
                     client.DataConnectionType = FtpDataConnectionType.EPSV;
                     try
                     {
-                        await Task.Delay(500);
                         await client.ConnectAsync();
                     }
                     catch
@@ -335,7 +334,15 @@ namespace LogOnObjects
                     if (Special)
                     {
                         var specialFilePath = LOCAL_PATH + Code.ToLower() + ".zip";
-                        FtpListItem a = (await client.GetListingAsync("/APPS_CS/")).FirstOrDefault(x=> x.Name== Code.ToLower() + ".zip");
+                        FtpListItem a;
+                        try
+                        {
+                            a = (await client.GetListingAsync("/APPS_CS/")).FirstOrDefault(x => x.Name == Code.ToLower() + ".zip");
+                        } catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
                         if (GetLastWriteTime(specialFilePath) != a.Modified || !Exists(specialFilePath) || !Directory.Exists(Path.GetDirectoryName(LocalPath)))
                         {
                             UpdateList.Add(new cUpdateListItem()
@@ -498,17 +505,17 @@ namespace LogOnObjects
         //    return _clean;
         //}
 
-        private bool readDir(string basePath, string relativePath)
+        private async Task<bool> readDir(string basePath, string relativePath)
         {
             bool _clean = true;
             List<DirectoryItem> list;
             using (var ftp = new cFTP(ShareServer, basePath + relativePath))
             {
-                list = ftp.GetDirectoryList("", getDateTimes: true);
+                list = await ftp.GetDirectoryList("", getDateTimes: true);
             }
-            list.Where(x => x.IsDirectory).ToList().ForEach(a =>
+            list.Where(x => x.IsDirectory).ToList().ForEach(async a =>
             {
-                _clean = (readDir(basePath, relativePath + "/" + a.Name) && _clean);
+                _clean = (await readDir(basePath, relativePath + "/" + a.Name) && _clean);
             });
             list.Where(x => !x.IsDirectory).ToList().ForEach(a =>
             {
@@ -649,7 +656,7 @@ namespace LogOnObjects
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw ex;
+                return;
             }
         }
 

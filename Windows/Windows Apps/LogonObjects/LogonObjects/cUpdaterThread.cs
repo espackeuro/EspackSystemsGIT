@@ -10,6 +10,7 @@ using System.Net;
 using System.Windows.Forms;
 using CommonToolsWin;
 using System.IO.Compression;
+using FluentFTP;
 
 namespace LogOnObjects
 

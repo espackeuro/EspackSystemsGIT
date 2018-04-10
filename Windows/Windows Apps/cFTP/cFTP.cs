@@ -24,13 +24,24 @@ namespace FTP
             startingPath = pStartingPath;
         }
 
-        public List<DirectoryItem> GetDirectoryList(string path = "", Boolean getDateTimes = false)
+        public class MiWebClient: WebClient
+        {
+            protected override WebRequest GetWebRequest(Uri address)
+            {
+                FtpWebRequest req = (FtpWebRequest)base.GetWebRequest(address);
+                req.UsePassive = true;
+                req.UseBinary = true;
+                return req;
+            }
+        }
+
+        public async Task<List<DirectoryItem>> GetDirectoryList(string path = "", Boolean getDateTimes = false)
         {
             FtpWebRequest request = (FtpWebRequest)FtpWebRequest.Create("ftp://" + server.IP.ToString() + startingPath + path);
             request.Method = WebRequestMethods.Ftp.ListDirectoryDetails;
             request.Proxy = null;
             request.Credentials = new NetworkCredential(server.User, server.Password);
-            request.UsePassive = false;
+            request.UsePassive = true;
             request.UseBinary = true;
             request.KeepAlive = false;
             string _all = "";
@@ -38,7 +49,7 @@ namespace FTP
             {
                 using (StreamReader reader = new StreamReader(response.GetResponseStream()))
                 {
-                    _all = reader.ReadToEnd();
+                    _all = await reader.ReadToEndAsync();
                 }
             }
             var DirectoryList = Regex.Matches(_all, "(.*?)\\r\\n");
@@ -101,7 +112,7 @@ namespace FTP
 
         public async Task DownloadItemAsync(DirectoryItem item, string localPath)
         {
-            using (WebClient ftpClient = new WebClient())
+            using (WebClient ftpClient = new MiWebClient())
             {
                 ftpClient.Credentials = new NetworkCredential(server.User, server.Password);
                 ftpClient.Proxy = null;
