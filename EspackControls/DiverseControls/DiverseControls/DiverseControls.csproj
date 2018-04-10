@@ -49,9 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EspackPrinting.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="EspackPrintDocument.cs" />
     <Compile Include="ScrollingStatusLabel.cs">
       <SubType>Component</SubType>
