@@ -232,7 +232,7 @@ namespace EspackSyncService
                     var _flags = r["flags"].ToString().Split('|');
                     int _error = 0;
                     //lets get the group members
-                    using (var _aliases = new DynamicRS(string.Format("Select local_part_goto,domain_goto from aliasDET where address='{0}'", r["address"].ToString()), Values.gDatos))
+                    using (var _aliases = new DynamicRS(string.Format("select * from dbo.fExpandAlias('{0}') where gotoAddress not in (select gotoAddress from dbo.fExpandAliasExceptions('{0}'))", r["address"].ToString()), Values.gDatos))
                     {
                         try
                         {

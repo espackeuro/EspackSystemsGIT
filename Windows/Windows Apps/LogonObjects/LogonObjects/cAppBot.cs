@@ -336,7 +336,7 @@ namespace LogOnObjects
                     {
                         var specialFilePath = LOCAL_PATH + Code.ToLower() + ".zip";
                         FtpListItem a = (await client.GetListingAsync("/APPS_CS/")).FirstOrDefault(x=> x.Name== Code.ToLower() + ".zip");
-                        if (GetLastWriteTime(specialFilePath) != a.Modified || !Exists(specialFilePath) || !Directory.Exists(LocalPath))
+                        if (GetLastWriteTime(specialFilePath) != a.Modified || !Exists(specialFilePath) || !Directory.Exists(Path.GetDirectoryName(LocalPath)))
                         {
                             UpdateList.Add(new cUpdateListItem()
                             {
