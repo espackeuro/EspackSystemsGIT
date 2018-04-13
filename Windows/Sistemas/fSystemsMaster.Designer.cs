@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fSystemsMaster));
             this.lstUserPositions = new EspackFormControls.EspackCheckedListBox();
             this.lstAreas = new EspackFormControls.EspackCheckedListBox();
             this.lstRequiredUserFlags = new EspackFormControls.EspackCheckedListBox();
@@ -42,6 +43,7 @@
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btnReloadVersions = new System.Windows.Forms.ToolStripButton();
             this.txtNetVersion = new EspackFormControls.EspackTextBox();
+            this.btnXMLFile = new System.Windows.Forms.ToolStripButton();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +60,7 @@
             this.lstUserPositions.DefaultValue = null;
             this.lstUserPositions.Del = false;
             this.lstUserPositions.DependingRS = null;
+            this.lstUserPositions.ExtraDataLink = null;
             this.lstUserPositions.Font = new System.Drawing.Font("Tahoma", 10F);
             this.lstUserPositions.ForeColor = System.Drawing.Color.Black;
             this.lstUserPositions.FormattingEnabled = true;
@@ -69,6 +72,7 @@
             this.lstUserPositions.ParentConn = null;
             this.lstUserPositions.ParentDA = null;
             this.lstUserPositions.PK = false;
+            this.lstUserPositions.Protected = false;
             this.lstUserPositions.Search = false;
             this.lstUserPositions.Size = new System.Drawing.Size(540, 95);
             this.lstUserPositions.Status = CommonTools.EnumStatus.ADDNEW;
@@ -89,6 +93,7 @@
             this.lstAreas.DefaultValue = null;
             this.lstAreas.Del = false;
             this.lstAreas.DependingRS = null;
+            this.lstAreas.ExtraDataLink = null;
             this.lstAreas.Font = new System.Drawing.Font("Tahoma", 10F);
             this.lstAreas.ForeColor = System.Drawing.Color.Black;
             this.lstAreas.FormattingEnabled = true;
@@ -100,6 +105,7 @@
             this.lstAreas.ParentConn = null;
             this.lstAreas.ParentDA = null;
             this.lstAreas.PK = false;
+            this.lstAreas.Protected = false;
             this.lstAreas.Search = false;
             this.lstAreas.Size = new System.Drawing.Size(540, 95);
             this.lstAreas.Status = CommonTools.EnumStatus.ADDNEW;
@@ -120,6 +126,7 @@
             this.lstRequiredUserFlags.DefaultValue = null;
             this.lstRequiredUserFlags.Del = false;
             this.lstRequiredUserFlags.DependingRS = null;
+            this.lstRequiredUserFlags.ExtraDataLink = null;
             this.lstRequiredUserFlags.Font = new System.Drawing.Font("Tahoma", 10F);
             this.lstRequiredUserFlags.ForeColor = System.Drawing.Color.Black;
             this.lstRequiredUserFlags.FormattingEnabled = true;
@@ -131,6 +138,7 @@
             this.lstRequiredUserFlags.ParentConn = null;
             this.lstRequiredUserFlags.ParentDA = null;
             this.lstRequiredUserFlags.PK = false;
+            this.lstRequiredUserFlags.Protected = false;
             this.lstRequiredUserFlags.Search = false;
             this.lstRequiredUserFlags.Size = new System.Drawing.Size(540, 209);
             this.lstRequiredUserFlags.Status = CommonTools.EnumStatus.ADDNEW;
@@ -151,6 +159,7 @@
             this.lstFlags.DefaultValue = null;
             this.lstFlags.Del = false;
             this.lstFlags.DependingRS = null;
+            this.lstFlags.ExtraDataLink = null;
             this.lstFlags.Font = new System.Drawing.Font("Tahoma", 10F);
             this.lstFlags.ForeColor = System.Drawing.Color.Black;
             this.lstFlags.FormattingEnabled = true;
@@ -162,6 +171,7 @@
             this.lstFlags.ParentConn = null;
             this.lstFlags.ParentDA = null;
             this.lstFlags.PK = false;
+            this.lstFlags.Protected = false;
             this.lstFlags.Search = false;
             this.lstFlags.Size = new System.Drawing.Size(1096, 95);
             this.lstFlags.Status = CommonTools.EnumStatus.ADDNEW;
@@ -182,6 +192,7 @@
             this.lstLocations.DefaultValue = null;
             this.lstLocations.Del = false;
             this.lstLocations.DependingRS = null;
+            this.lstLocations.ExtraDataLink = null;
             this.lstLocations.Font = new System.Drawing.Font("Tahoma", 10F);
             this.lstLocations.ForeColor = System.Drawing.Color.Black;
             this.lstLocations.FormattingEnabled = true;
@@ -193,6 +204,7 @@
             this.lstLocations.ParentConn = null;
             this.lstLocations.ParentDA = null;
             this.lstLocations.PK = false;
+            this.lstLocations.Protected = false;
             this.lstLocations.Search = false;
             this.lstLocations.Size = new System.Drawing.Size(539, 209);
             this.lstLocations.Status = CommonTools.EnumStatus.ADDNEW;
@@ -211,6 +223,7 @@
             this.txtApp.DefaultValue = null;
             this.txtApp.Del = false;
             this.txtApp.DependingRS = null;
+            this.txtApp.ExtraDataLink = null;
             this.txtApp.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtApp.ForeColor = System.Drawing.Color.Gray;
             this.txtApp.Location = new System.Drawing.Point(149, 107);
@@ -220,6 +233,7 @@
             this.txtApp.ParentConn = null;
             this.txtApp.ParentDA = null;
             this.txtApp.PK = false;
+            this.txtApp.Protected = false;
             this.txtApp.ReadOnly = true;
             this.txtApp.Search = false;
             this.txtApp.Size = new System.Drawing.Size(403, 17);
@@ -240,6 +254,7 @@
             this.cboDatabase.DefaultValue = null;
             this.cboDatabase.Del = false;
             this.cboDatabase.DependingRS = null;
+            this.cboDatabase.ExtraDataLink = null;
             this.cboDatabase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboDatabase.Font = new System.Drawing.Font("Tahoma", 10F);
             this.cboDatabase.ForeColor = System.Drawing.Color.Black;
@@ -251,6 +266,7 @@
             this.cboDatabase.ParentConn = null;
             this.cboDatabase.ParentDA = null;
             this.cboDatabase.PK = false;
+            this.cboDatabase.Protected = false;
             this.cboDatabase.Search = false;
             this.cboDatabase.Size = new System.Drawing.Size(130, 24);
             this.cboDatabase.Status = CommonTools.EnumStatus.ADDNEW;
@@ -270,6 +286,7 @@
             this.txtDescription.DefaultValue = null;
             this.txtDescription.Del = false;
             this.txtDescription.DependingRS = null;
+            this.txtDescription.ExtraDataLink = null;
             this.txtDescription.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtDescription.ForeColor = System.Drawing.Color.Gray;
             this.txtDescription.Location = new System.Drawing.Point(149, 71);
@@ -279,6 +296,7 @@
             this.txtDescription.ParentConn = null;
             this.txtDescription.ParentDA = null;
             this.txtDescription.PK = false;
+            this.txtDescription.Protected = false;
             this.txtDescription.ReadOnly = true;
             this.txtDescription.Search = false;
             this.txtDescription.Size = new System.Drawing.Size(403, 17);
@@ -298,6 +316,7 @@
             this.txtSystemCode.DefaultValue = null;
             this.txtSystemCode.Del = false;
             this.txtSystemCode.DependingRS = null;
+            this.txtSystemCode.ExtraDataLink = null;
             this.txtSystemCode.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtSystemCode.ForeColor = System.Drawing.Color.Gray;
             this.txtSystemCode.Location = new System.Drawing.Point(13, 71);
@@ -307,6 +326,7 @@
             this.txtSystemCode.ParentConn = null;
             this.txtSystemCode.ParentDA = null;
             this.txtSystemCode.PK = false;
+            this.txtSystemCode.Protected = false;
             this.txtSystemCode.ReadOnly = true;
             this.txtSystemCode.Search = false;
             this.txtSystemCode.Size = new System.Drawing.Size(130, 17);
@@ -346,6 +366,7 @@
             this.txtVersion.DefaultValue = null;
             this.txtVersion.Del = false;
             this.txtVersion.DependingRS = null;
+            this.txtVersion.ExtraDataLink = null;
             this.txtVersion.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtVersion.ForeColor = System.Drawing.Color.Gray;
             this.txtVersion.Location = new System.Drawing.Point(568, 71);
@@ -355,6 +376,7 @@
             this.txtVersion.ParentConn = null;
             this.txtVersion.ParentDA = null;
             this.txtVersion.PK = false;
+            this.txtVersion.Protected = false;
             this.txtVersion.ReadOnly = true;
             this.txtVersion.Search = false;
             this.txtVersion.Size = new System.Drawing.Size(175, 17);
@@ -367,10 +389,11 @@
             // 
             this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnReloadVersions});
-            this.toolStrip2.Location = new System.Drawing.Point(948, 13);
+            this.btnReloadVersions,
+            this.btnXMLFile});
+            this.toolStrip2.Location = new System.Drawing.Point(834, 13);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(129, 31);
+            this.toolStrip2.Size = new System.Drawing.Size(261, 31);
             this.toolStrip2.TabIndex = 43;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -396,6 +419,7 @@
             this.txtNetVersion.DefaultValue = null;
             this.txtNetVersion.Del = false;
             this.txtNetVersion.DependingRS = null;
+            this.txtNetVersion.ExtraDataLink = null;
             this.txtNetVersion.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtNetVersion.ForeColor = System.Drawing.Color.Gray;
             this.txtNetVersion.Location = new System.Drawing.Point(568, 107);
@@ -405,6 +429,7 @@
             this.txtNetVersion.ParentConn = null;
             this.txtNetVersion.ParentDA = null;
             this.txtNetVersion.PK = false;
+            this.txtNetVersion.Protected = false;
             this.txtNetVersion.ReadOnly = true;
             this.txtNetVersion.Search = false;
             this.txtNetVersion.Size = new System.Drawing.Size(175, 17);
@@ -412,6 +437,15 @@
             this.txtNetVersion.TabIndex = 45;
             this.txtNetVersion.Upp = false;
             this.txtNetVersion.Value = "";
+            // 
+            // btnXMLFile
+            // 
+            this.btnXMLFile.Image = ((System.Drawing.Image)(resources.GetObject("btnXMLFile.Image")));
+            this.btnXMLFile.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnXMLFile.Name = "btnXMLFile";
+            this.btnXMLFile.Size = new System.Drawing.Size(101, 28);
+            this.btnXMLFile.Text = "Generate XML";
+            this.btnXMLFile.Click += new System.EventHandler(this.btnXMLFile_Click);
             // 
             // fSystemsMaster
             // 
@@ -458,5 +492,6 @@
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton btnReloadVersions;
         private EspackFormControls.EspackTextBox txtNetVersion;
+        private System.Windows.Forms.ToolStripButton btnXMLFile;
     }
 }

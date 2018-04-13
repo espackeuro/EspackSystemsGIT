@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.IO.File;
 using static LogOnObjects.Values;
+using System.Xml.Linq;
 
 namespace LogOnObjects
 {
@@ -298,6 +299,57 @@ namespace LogOnObjects
             this.SuspendLayout();
             this.ResumeLayout(false);
 
+        }
+
+        public bool CheckUpdatedXML()
+        {
+            bool clean = true;
+            XElement xe = null;
+            try
+            {
+                xe = XMLSystemState.Descendants("system").First(s => s.Attribute("name").Value == Code.ToLower());
+            } catch (Exception ex)
+            {
+                Debug.Print(ex.Message);
+            }
+            foreach (var file in xe.Descendants("File").ToList())
+            {
+                var fileName = file.Attribute("fileName").Value;
+                var filePath = file.Attribute("path").Value.Replace("\\","/");
+                var fileDateTime = DateTime.Parse(file.Attribute("fileTime").Value);
+                var localFilePath = LOCAL_PATH + filePath + fileName;
+                if (File.Exists(localFilePath))
+                {
+                    var localFileInfo = new FileInfo(localFilePath);
+                    if (localFileInfo.LastWriteTime != fileDateTime)
+                    {
+                        clean = false;
+                    }
+                } else
+                {
+                    clean = false;
+                }
+                if (!clean)
+                {
+                    UpdateList.Add(new cUpdateListItem()
+                    {
+                        Parent = this,
+                        Item = new DirectoryItem()
+                        {
+                            Server = ShareServer,
+                            DateCreated = fileDateTime,
+                            IsDirectory = false,
+                            Name = fileName,
+                            BaseUri = new UriBuilder("ftp://" + ShareServer.HostName + "/APPS_CS/"+filePath).Uri
+                        },
+                        LocalPath = localFilePath,
+                        Status = LogonItemUpdateStatus.PENDING,
+                        //ThreadNum = UpdateList.Count % Values.MaxNumThreads
+                    });
+                }
+
+            }
+            return clean;
         }
 
         // CheckUpdated -> Returns true if all the files for this APP are updated.

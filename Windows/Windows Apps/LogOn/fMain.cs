@@ -207,6 +207,7 @@ namespace LogOn
                     FilesToUpdate = new string[] { "logonloader.exe", "logonloader.exe.config" };
 
                 Values.FillServers(_cod3);
+                this.Load += FMain_Load;
                 //if we are out, we add the server we just entered
                 if (_cod3=="OUT")
                     Values.DBServerList.Add(new cServer() { HostName = _dbserver, COD3 = "OUT", Type = ServerTypes.DATABASE, User = Values.User, Password = Values.Password });
@@ -295,8 +296,10 @@ namespace LogOn
 
         }
 
-
-
+        private async void FMain_Load(object sender, EventArgs e)
+        {
+            await Values.getSystemVersions(ShareServerList[Values.COD3]);
+        }
 
         private void _timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
@@ -591,16 +594,27 @@ namespace LogOn
         {
             //return Task.Run(() =>
             //{
-                int _numThreads = 0;
+            //int _numThreads = 0;
             foreach (var x in Values.AppList.ToList())
             {
                 x.SetStatus(AppBotStatus.CHECKING);
                 Application.DoEvents();
+                if (x.CheckUpdatedXML())
+                {
+                    x.Status = AppBotStatus.UPDATED;
+                }
+                else
+                {
+                    x.Status = AppBotStatus.PENDING_UPDATE;
+                }
+                x.ShowStatus();
+                /*
                 _numThreads++;
                 new Thread(async () =>
                 {
                     //if (await x.CheckUpdated().ConfigureAwait(false))
-                    if (await x.CheckUpdated())
+                    //if (await x.CheckUpdated())
+                    if (await x.CheckUpdatedXML())
                     {
                         _numThreads--;
                         x.Status = AppBotStatus.UPDATED;
@@ -613,6 +627,7 @@ namespace LogOn
                     x.ShowStatus();
                 }).Start();
                 SpinWait.SpinUntil(() => _numThreads < Values.MaxNumThreads);
+                */
             }
             await Task.Delay(100);
             SpinWait.SpinUntil(() => Values.AppList.CheckingApps.Count == 0);
@@ -658,7 +673,7 @@ namespace LogOn
                     _SPQuote.Execute();
                     PanelQOTD.Text = _quote.Value.ToString();
                 }
-                catch (Exception ex)
+                catch 
                 {
                     PanelQOTD.Text = "";
                 }

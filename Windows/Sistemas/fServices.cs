@@ -90,7 +90,7 @@ namespace Sistemas
                                     {
                                         MessageBox.Show(se.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
-                                    catch (Exception ex)
+                                    catch 
                                     {
                                         // MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         txtNetVersion.Text = "";

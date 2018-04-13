@@ -121,8 +121,10 @@ namespace FTP
                     Directory.CreateDirectory(_path);
                 try
                 {
-                    await ftpClient.DownloadFileTaskAsync(item.Uri, @localPath);
-                    File.SetLastWriteTime(localPath, item.DateCreated);
+                    await ftpClient.DownloadFileTaskAsync(item.Uri, localPath);
+                    if (item.DateCreated != DateTime.Parse("01/01/0001 0:00:00"))
+                        File.SetLastWriteTime(localPath, item.DateCreated);
+
                 }
                 catch (Exception ex)
                 {

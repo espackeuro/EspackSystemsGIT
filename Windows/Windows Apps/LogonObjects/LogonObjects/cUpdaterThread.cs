@@ -147,7 +147,7 @@ namespace LogOnObjects
                     {
                         using (var ftp = new cFTP(Values.ShareServerList[Values.COD3], ""))
                         {
-                            await ftp.DownloadItemAsync(item.Item, item.LocalPath);
+                            await ftp.DownloadItemAsync(item.Item, item.LocalPath.Replace("\\","/"));
                         }
                         item.Status = LogonItemUpdateStatus.UPDATED;
                         item.Parent.ChangeProgress(item.Parent.ProgressValue + 1);
@@ -155,20 +155,20 @@ namespace LogOnObjects
                         {
                             item.Parent.SetStatus(AppBotStatus.UPDATED);
                         }
-                        if (item.Parent.Special) //if its special unzip it
-                        {
-                            try
-                            {
-                                var _localPath = Path.GetDirectoryName(item.Parent.LocalPath);
-                                if (Directory.Exists(_localPath))
-                                    Directory.Delete(_localPath, true);
-                                await (Task.Run(() => ZipFile.ExtractToDirectory(item.LocalPath, Values.LOCAL_PATH)));
-                            }
-                            catch (Exception ex)
-                            {
-                                AppendDebugText(string.Format("Thread {0} Error {1}\n", NumThread, ex.Message));
-                            }
-                        }
+                        //if (item.Parent.Special) //if its special unzip it
+                        //{
+                        //    try
+                        //    {
+                        //        var _localPath = Path.GetDirectoryName(item.Parent.LocalPath);
+                        //        if (Directory.Exists(_localPath))
+                        //            Directory.Delete(_localPath, true);
+                        //        await (Task.Run(() => ZipFile.ExtractToDirectory(item.LocalPath, Values.LOCAL_PATH)));
+                        //    }
+                        //    catch (Exception ex)
+                        //    {
+                        //        AppendDebugText(string.Format("Thread {0} Error {1}\n", NumThread, ex.Message));
+                        //    }
+                        //}
                     }
                 }
                 catch (WebException ex)

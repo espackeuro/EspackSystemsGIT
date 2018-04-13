@@ -1,17 +1,19 @@
 ﻿using AccesoDatosNet;
 using CommonTools;
+using CommonToolsWin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Xml.Linq;
 
 namespace Sistemas
 {
@@ -100,7 +102,7 @@ namespace Sistemas
                                     {
                                         MessageBox.Show(se.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
-                                    catch (Exception ex)
+                                    catch 
                                     {
                                         // MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         txtNetVersion.Text = "";
@@ -178,6 +180,89 @@ namespace Sistemas
                 throw ex;
             }
             btnReloadVersions.Enabled = true;
+        }
+        private bool generateXMLSystems()
+        {
+            int contador=0;
+            string servidor = "";
+            // lets get the counter for the XML file version
+            using (var getContador= new SP(Values.gDatos, "pGetContador"))
+            {
+                getContador.AddParameterValue("Contador", contador);
+                getContador.AddParameterValue("Serv", servidor);
+                getContador.AddParameterValue("Codigo", "XMLSystems");
+                try
+                {
+                    getContador.Execute();
+                }
+                catch (Exception ex)
+                {
+                    CTWin.MsgError(ex.Message);
+                    return false;
+                }
+                if (getContador.LastMsg.Substring(0, 2) != "OK")
+                {
+                    CTWin.MsgError(getContador.LastMsg);
+                    return false;
+                }
+                contador = Convert.ToInt32(getContador.ReturnValues()["@Contador"]);
+            }
+            // create the root of the XML doc
+            XDocument xmlDocument;
+            string _xml = string.Format(
+@"<?xml version='1.0' encoding='utf - 8'?>
+<!--{0} systems file-->
+<systemsfile version='{0}'>
+<rootDir>
+</rootDir>
+<systems>
+</systems>
+</systemsfile>", contador);
+            xmlDocument = XDocument.Parse(_xml);
+            var serverSystemsPath = "\\\\VALSRV02\\APPS_CS";
+            //get files in apps directory
+            var serverSystemsDir = Directory.GetFiles(serverSystemsPath);
+            //create the rootDir element
+            foreach (var filePath in serverSystemsDir)
+            {
+                var fileInfo = new FileInfo(filePath);
+                var xElement = new XElement("File",new XAttribute("path", filePath.Replace(serverSystemsPath, "").Replace(fileInfo.Name,"").Substring(1)), new XAttribute("fileName", fileInfo.Name), new XAttribute("fileSize", fileInfo.Length), new XAttribute("fileTime", fileInfo.CreationTime));
+                xmlDocument.Descendants("rootDir").FirstOrDefault().Add(xElement);
+            }
+            var directories = Directory.GetDirectories(serverSystemsPath);
+            foreach (var directoryPath in directories)
+            {
+                var dirInfo = new DirectoryInfo(directoryPath);
+                var xSystemElement = new XElement("system", new XAttribute("name",dirInfo.Name));
+                xSystemElement.Add(xmlFromDirectory(directoryPath, serverSystemsPath));
+                xmlDocument.Descendants("systems").FirstOrDefault().Add(xSystemElement);
+            }
+            var localXmlFile = "d:\\APPS_CS\\systems.xml";
+            xmlDocument.Save(localXmlFile);
+            return true;
+        }
+
+        private XElement xmlFromDirectory(string baseDir, string serverSystemsPath)
+        {
+            var files = Directory.GetFiles(baseDir);
+            XElement xResult = new XElement("Directory",new XAttribute("path", baseDir.Replace(serverSystemsPath, "").Substring(1)));
+            foreach (var filePath in files)
+            {
+                var fileInfo = new FileInfo(filePath);
+                var xElement = new XElement("File", new XAttribute("path", filePath.Replace(serverSystemsPath, "").Replace(fileInfo.Name, "").Substring(1)), new XAttribute("fileName", fileInfo.Name), new XAttribute("fileSize", fileInfo.Length), new XAttribute("fileTime", fileInfo.CreationTime));
+                xResult.Add(xElement);
+            }
+            var directories = Directory.GetDirectories(baseDir);
+            foreach (var directoryPath in directories)
+            {
+                xResult.Add(xmlFromDirectory(directoryPath, serverSystemsPath));
+            }
+            return xResult;
+        }
+
+        private void btnXMLFile_Click(object sender, EventArgs e)
+        {
+            generateXMLSystems();
         }
     }
 }

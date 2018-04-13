@@ -187,7 +187,7 @@ namespace Simplistica
                                   _CMLabel.Parameters["QTY"] = row["QTY"].ToString();
                                   if (!_printer.SendUTF8StringToPrinter(_CMLabel.ToString(), 1))
                                   {
-                                      CTWin.MsgError(string.Format("Error printing label {}.", row["CM"]));
+                                      CTWin.MsgError(string.Format("Error printing label {0}.", row["CM"]));
                                   }
                               });
                           }

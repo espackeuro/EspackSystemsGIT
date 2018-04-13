@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using AccesoDatosNet;
 using CommonTools;
 using System.Net;
+using System.Xml.Linq;
+using FTP;
 
 namespace LogOnObjects
 {
@@ -26,7 +28,8 @@ namespace LogOnObjects
         public static DebugTextbox debugBox;
         public static List<string> userFlags;
         public static string FullName;
-        public static int MaxNumThreads = 10;
+        public static int MaxNumThreads = 1;
+        public static XDocument XMLSystemState = null;
         public static void FillServers(string pCOD3)
         {
 
@@ -57,6 +60,24 @@ namespace LogOnObjects
                 
             }
            
+        }
+        public async static Task getSystemVersions(cServer ShareServer)
+        {
+            if (XMLSystemState == null)
+            {
+                using (var ftp = new cFTP(ShareServer, "APPS_CS"))
+                {
+                    var Item = new DirectoryItem()
+                    {
+                        Server = ShareServer,
+                        IsDirectory = false,
+                        Name = "systems.xml",
+                        BaseUri = new UriBuilder("ftp://" + ShareServer.HostName + "/APPS_CS").Uri
+                    };
+                    await ftp.DownloadItemAsync(Item, LOCAL_PATH + "systems.xml");
+                    XMLSystemState = XDocument.Load(LOCAL_PATH + "systems.xml");
+                }
+            }
         }
         public static bool External = false;
     }
