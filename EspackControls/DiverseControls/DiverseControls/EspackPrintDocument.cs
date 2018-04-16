@@ -348,176 +348,176 @@ namespace DiverseControls
         }
     }
 
-
+    
 
 
     /* ------------------------------------------------- */
 
 
-    public interface IEspackPrintingItem
-    {
-        float X { get; set; }
-        float Y { get; set; }
-        Graphics Graphics { get; set; }
-        float Height { get; }
-        float Width { get; }
-        void Draw(float x, float y);
-        void Draw();
-    }
+    //public interface IEspackPrintingItem
+    //{
+    //    float X { get; set; }
+    //    float Y { get; set; }
+    //    Graphics Graphics { get; set; }
+    //    float Height { get; }
+    //    float Width { get; }
+    //    void Draw(float x, float y);
+    //    void Draw();
+    //}
 
 
-    public class EspackPrintingText: IEspackPrintingItem
-    {
-        public float X { get; set; }
-        public float Y { get; set; }
-        public Graphics Graphics { get; set; }
-        public float Height
-        {
-            get
-            {
-                if (Graphics != null)
-                    return Graphics.MeasureString(Text.Replace(' ', '@'), Font).Height;
-                else return 0;
-            }
-        }
-        public float Width
-        {
-            get
-            {
-                if (Graphics != null)
-                    return Graphics.MeasureString(Text.Replace(' ', '@') + '@', Font).Width;
-                else return 0;
-            }
-        }
-        public string Text { get; set; }
-        public Font Font { get; set; }
-        public Brush Brush { get; set; }
+    //public class EspackPrintingText: IEspackPrintingItem
+    //{
+    //    public float X { get; set; }
+    //    public float Y { get; set; }
+    //    public Graphics Graphics { get; set; }
+    //    public float Height
+    //    {
+    //        get
+    //        {
+    //            if (Graphics != null)
+    //                return Graphics.MeasureString(Text.Replace(' ', '@'), Font).Height;
+    //            else return 0;
+    //        }
+    //    }
+    //    public float Width
+    //    {
+    //        get
+    //        {
+    //            if (Graphics != null)
+    //                return Graphics.MeasureString(Text.Replace(' ', '@') + '@', Font).Width;
+    //            else return 0;
+    //        }
+    //    }
+    //    public string Text { get; set; }
+    //    public Font Font { get; set; }
+    //    public Brush Brush { get; set; }
 
-        public EspackPrintingText(string ThisText, Font ThisFont, Brush ThisBrush, float ThisX, float ThisY)
-        {
-            Text= ThisText;
-            Font = ThisFont;
-            Brush = ThisBrush;
-            X = ThisX;
-            Y = ThisY;
-        }
+    //    public EspackPrintingText(string ThisText, Font ThisFont, Brush ThisBrush, float ThisX, float ThisY)
+    //    {
+    //        Text= ThisText;
+    //        Font = ThisFont;
+    //        Brush = ThisBrush;
+    //        X = ThisX;
+    //        Y = ThisY;
+    //    }
 
-        public void Draw(float x, float y)
-        {
-            if (Graphics != null)
-            {
-                Graphics.DrawString(Text, Font, Brush, x, y);
-            }
-        }
+    //    public void Draw(float x, float y)
+    //    {
+    //        if (Graphics != null)
+    //        {
+    //            Graphics.DrawString(Text, Font, Brush, x, y);
+    //        }
+    //    }
 
-        public void Draw()
-        {
-            if (Graphics != null)
-            {
-                Graphics.DrawString(Text, Font, Brush, X, Y);
-            }
-        }
+    //    public void Draw()
+    //    {
+    //        if (Graphics != null)
+    //        {
+    //            Graphics.DrawString(Text, Font, Brush, X, Y);
+    //        }
+    //    }
 
-    }
+    //}
 
 
-    /*
-    *         Font Font { get; set; }
-            Brush Brush { get; set; }
+    ///*
+    //*         Font Font { get; set; }
+    //        Brush Brush { get; set; }
 
-     * 
-     * 
-     * */
+    // * 
+    // * 
+    // * */
 
-    public class EspackPrinting : PrintDocument
-    {
+    //public class EspackPrinting : PrintDocument
+    //{
 
-        public float CurrentX { get; set; }
-        public float CurrentY { get; set; }
+    //    public float CurrentX { get; set; }
+    //    public float CurrentY { get; set; }
 
-        List<object> Items { get; set; } = new List<object>();
+    //    List<object> Items { get; set; } = new List<object>();
 
-        /*
-                private Graphics _g;
-                public Graphics Graphics
-                {
-                    get
-                    {
-                        return _g;
-                    }
-                    set
-                    {
-                        _g = value;
-                        Lines.ForEach(x => x.Graphics = value);
-                    }
-                }
-                */
+    //    /*
+    //            private Graphics _g;
+    //            public Graphics Graphics
+    //            {
+    //                get
+    //                {
+    //                    return _g;
+    //                }
+    //                set
+    //                {
+    //                    _g = value;
+    //                    Lines.ForEach(x => x.Graphics = value);
+    //                }
+    //            }
+    //            */
 
-        public EspackPrinting()
-        {
-            CurrentFont = new Font(FontFamily.GenericSansSerif, 10F, FontStyle.Regular);
-            CurrentBrush = new SolidBrush(Color.Black);
-        }
+    //    public EspackPrinting()
+    //    {
+    //        CurrentFont = new Font(FontFamily.GenericSansSerif, 10F, FontStyle.Regular);
+    //        CurrentBrush = new SolidBrush(Color.Black);
+    //    }
 
-        public void NewLine()
-        {
-            float _height=-1;
+    //    public void NewLine()
+    //    {
+    //        float _height=-1;
 
-            if (Items.Count != 0)
-            {
-                EspackPrintingText _item = (EspackPrintingText)Items[Items.Count - 1];
-            }
-            else
-            {
-                EspackPrintingText _item = new EspackPrintingText("", CurrentFont, CurrentBrush, 0, 0);
-            }
+    //        if (Items.Count != 0)
+    //        {
+    //            EspackPrintingText _item = (EspackPrintingText)Items[Items.Count - 1];
+    //        }
+    //        else
+    //        {
+    //            EspackPrintingText _item = new EspackPrintingText("", CurrentFont, CurrentBrush, 0, 0);
+    //        }
 
-            //    if (_item.Graphics != null)
-            //        _height = _item.Graphics.MeasureString("@", _item.Font).Height;
+    //        //    if (_item.Graphics != null)
+    //        //        _height = _item.Graphics.MeasureString("@", _item.Font).Height;
                 
-            //} else
-            //{
-            //    _height = Graphics.MeasureString("@", CurrentFont).Height;
-            //}
+    //        //} else
+    //        //{
+    //        //    _height = Graphics.MeasureString("@", CurrentFont).Height;
+    //        //}
 
-            //if(_height==-1)
-            //{
-            //    _height = Graphics.MeasureString("@", CurrentFont).Height;
-            //}
+    //        //if(_height==-1)
+    //        //{
+    //        //    _height = Graphics.MeasureString("@", CurrentFont).Height;
+    //        //}
 
-            //NewLine(_height);
-        }
+    //        //NewLine(_height);
+    //    }
 
-        public void NewLine(float Height)
-        {
-            CurrentX = 0;
-            CurrentY = CurrentY + Height;
-        }
+    //    public void NewLine(float Height)
+    //    {
+    //        CurrentX = 0;
+    //        CurrentY = CurrentY + Height;
+    //    }
 
  
+    //    
 
+    //    public void AddText(string Text)
+    //    {
+    //        AddItem(new EspackPrintingText(Text, CurrentFont, CurrentBrush, CurrentX, CurrentY));
+    //    }
+    //    public void AddText(string Text,Font ThisFont)
+    //    {
+    //        AddItem(new EspackPrintingText(Text, ThisFont, CurrentBrush, CurrentX, CurrentY));
+    //    }
+    //    public void AddText(string Text, Font ThisFont, Brush ThisBrush)
+    //    {
+    //        AddItem(new EspackPrintingText(Text, ThisFont, ThisBrush, CurrentX, CurrentY));
+    //    }
+    //    public void AddText(string Text, float X, float Y)
+    //    {
+    //        AddItem(new EspackPrintingText(Text, CurrentFont, CurrentBrush, X, Y));
+    //    }
 
-        public void AddText(string Text)
-        {
-            AddItem(new EspackPrintingText(Text, CurrentFont, CurrentBrush, CurrentX, CurrentY));
-        }
-        public void AddText(string Text,Font ThisFont)
-        {
-            AddItem(new EspackPrintingText(Text, ThisFont, CurrentBrush, CurrentX, CurrentY));
-        }
-        public void AddText(string Text, Font ThisFont, Brush ThisBrush)
-        {
-            AddItem(new EspackPrintingText(Text, ThisFont, ThisBrush, CurrentX, CurrentY));
-        }
-        public void AddText(string Text, float X, float Y)
-        {
-            AddItem(new EspackPrintingText(Text, CurrentFont, CurrentBrush, X, Y));
-        }
+    //    private void AddItem(object Item)
+    //    {
 
-        private void AddItem(object Item)
-        {
-
-        }
-
-    }
+    //    }
+    //    
+    //}
 }

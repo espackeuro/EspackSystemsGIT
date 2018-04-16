@@ -28,7 +28,7 @@ namespace LogOnObjects
         public static DebugTextbox debugBox;
         public static List<string> userFlags;
         public static string FullName;
-        public static int MaxNumThreads = 1;
+        public static int MaxNumThreads = 10;
         public static XDocument XMLSystemState = null;
         public static void FillServers(string pCOD3)
         {

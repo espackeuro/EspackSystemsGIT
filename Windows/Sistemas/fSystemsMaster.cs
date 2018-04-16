@@ -213,21 +213,23 @@ namespace Sistemas
 @"<?xml version='1.0' encoding='utf - 8'?>
 <!--{0} systems file-->
 <systemsfile version='{0}'>
-<rootDir>
-</rootDir>
+<specials>
+</specials>
 <systems>
 </systems>
 </systemsfile>", contador);
             xmlDocument = XDocument.Parse(_xml);
             var serverSystemsPath = "\\\\VALSRV02\\APPS_CS";
             //get files in apps directory
-            var serverSystemsDir = Directory.GetFiles(serverSystemsPath);
+            var serverSystemsDir = Directory.GetFiles(serverSystemsPath).Where(f => Path.GetExtension(f)==".zip");
             //create the rootDir element
             foreach (var filePath in serverSystemsDir)
             {
                 var fileInfo = new FileInfo(filePath);
-                var xElement = new XElement("File",new XAttribute("path", filePath.Replace(serverSystemsPath, "").Replace(fileInfo.Name,"").Substring(1)), new XAttribute("fileName", fileInfo.Name), new XAttribute("fileSize", fileInfo.Length), new XAttribute("fileTime", fileInfo.CreationTime));
-                xmlDocument.Descendants("rootDir").FirstOrDefault().Add(xElement);
+                var xSpecialElement = new XElement("special", new XAttribute("name", Path.GetFileNameWithoutExtension(filePath)));
+                var xSElement = new XElement("File",new XAttribute("path", filePath.Replace(serverSystemsPath, "").Replace(fileInfo.Name,"").Substring(1)), new XAttribute("fileName", fileInfo.Name), new XAttribute("fileSize", fileInfo.Length), new XAttribute("fileTime", fileInfo.CreationTime));
+                xSpecialElement.Add(xSElement);
+                xmlDocument.Descendants("specials").FirstOrDefault().Add(xSpecialElement);
             }
             var directories = Directory.GetDirectories(serverSystemsPath);
             foreach (var directoryPath in directories)

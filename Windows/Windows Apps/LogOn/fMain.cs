@@ -22,6 +22,7 @@ using System.Reflection;
 using DiverseControls;
 using CommonToolsWin;
 using MasterClass;
+using System.Xml.Linq;
 
 namespace LogOn
 {
@@ -98,6 +99,10 @@ namespace LogOn
             //MessageBox.Show("Pollo1", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (args.Contains("/ext=1"))
                 External = true;
+            var noXML = args.Contains("/noxml=1");
+//#if DEBUG
+//            noXML = true;
+//#endif 
             try
             {
                 InitializeComponent();
@@ -207,7 +212,10 @@ namespace LogOn
                     FilesToUpdate = new string[] { "logonloader.exe", "logonloader.exe.config" };
 
                 Values.FillServers(_cod3);
-                this.Load += FMain_Load;
+                if (noXML)
+                    XMLSystemState = XDocument.Load(LOCAL_PATH + "systems.xml");
+                else
+                    this.Load += FMain_Load;
                 //if we are out, we add the server we just entered
                 if (_cod3=="OUT")
                     Values.DBServerList.Add(new cServer() { HostName = _dbserver, COD3 = "OUT", Type = ServerTypes.DATABASE, User = Values.User, Password = Values.Password });
@@ -700,7 +708,8 @@ namespace LogOn
 
                 if (Values.AppList.PendingApps.Count != 0)
                 {
-                    var maxThreads = Values.AppList.PendingApps.Count > Values.MaxNumThreads ? Values.MaxNumThreads : Values.AppList.PendingApps.Count;
+                    //var maxThreads = Values.AppList.PendingApps.Count > Values.MaxNumThreads ? Values.MaxNumThreads : Values.AppList.PendingApps.Count;
+                    var maxThreads = Values.UpdateList.PendingCount > Values.MaxNumThreads ? Values.MaxNumThreads : Values.UpdateList.PendingCount;
                     for (var i = 0; i < maxThreads; i++)
                     {
                         Values.ActiveThreads++;

@@ -66,7 +66,21 @@ namespace LogOnObjects
     }
     public class cUpdateList : List<cUpdateListItem>
     {
+        public List<cUpdateListItem> PendingUpdateItems
+        {
+            get
+            {
+                return this.Where(x => x.Status == LogonItemUpdateStatus.PENDING).ToList();
+            }
 
+        }
+        public int PendingCount
+        {
+            get
+            {
+                return PendingUpdateItems.Count();
+            }
+        }
     }
 
     public class cUpdaterThread: IDisposable
@@ -137,7 +151,8 @@ namespace LogOnObjects
 
         public async Task Process()
         {
-            while (Values.AppList.PendingApps.Count != 0 || Values.AppList.CheckingApps.Count != 0)
+            //while (Values.AppList.PendingApps.Count != 0 || Values.AppList.CheckingApps.Count != 0)
+            while (Values.UpdateList.PendingCount!=0)
             {
                 cUpdateListItem item= new cUpdateListItem();
                 try
@@ -155,20 +170,21 @@ namespace LogOnObjects
                         {
                             item.Parent.SetStatus(AppBotStatus.UPDATED);
                         }
-                        //if (item.Parent.Special) //if its special unzip it
-                        //{
-                        //    try
-                        //    {
-                        //        var _localPath = Path.GetDirectoryName(item.Parent.LocalPath);
-                        //        if (Directory.Exists(_localPath))
-                        //            Directory.Delete(_localPath, true);
-                        //        await (Task.Run(() => ZipFile.ExtractToDirectory(item.LocalPath, Values.LOCAL_PATH)));
-                        //    }
-                        //    catch (Exception ex)
-                        //    {
-                        //        AppendDebugText(string.Format("Thread {0} Error {1}\n", NumThread, ex.Message));
-                        //    }
-                        //}
+                        if (item.Parent.Special) //if its special unzip it
+                        {
+                            try
+                            {
+                                var _localPath = Path.GetDirectoryName(item.Parent.LocalPath);
+                                if (Directory.Exists(_localPath))
+                                    Directory.Delete(_localPath, true);
+                                await (Task.Run(() => ZipFile.ExtractToDirectory(item.LocalPath, Values.LOCAL_PATH)));
+
+                            }
+                            catch (Exception ex)
+                            {
+                                AppendDebugText(string.Format("Thread {0} Error {1}\n", NumThread, ex.Message));
+                            }
+                        }
                     }
                 }
                 catch (WebException ex)

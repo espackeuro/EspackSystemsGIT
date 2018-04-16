@@ -307,7 +307,10 @@ namespace LogOnObjects
             XElement xe = null;
             try
             {
-                xe = XMLSystemState.Descendants("system").First(s => s.Attribute("name").Value == Code.ToLower());
+                if (Special)
+                    xe = XMLSystemState.Descendants("special").First(s => s.Attribute("name").Value == Code.ToLower());
+                else
+                    xe = XMLSystemState.Descendants("system").First(s => s.Attribute("name").Value == Code.ToLower());
             } catch (Exception ex)
             {
                 Debug.Print(ex.Message);
@@ -320,8 +323,9 @@ namespace LogOnObjects
                 var localFilePath = LOCAL_PATH + filePath + fileName;
                 if (File.Exists(localFilePath))
                 {
-                    var localFileInfo = new FileInfo(localFilePath);
-                    if (localFileInfo.LastWriteTime != fileDateTime)
+                    var localFileDate = GetLastWriteTime(localFilePath);
+                    //var localFileInfo = new FileInfo(localFilePath);
+                    if (localFileDate != fileDateTime)
                     {
                         clean = false;
                     }
@@ -698,7 +702,7 @@ namespace LogOnObjects
             startInfo.UseShellExecute = false;
             startInfo.FileName = _tempPath;
             startInfo.WindowStyle = ProcessWindowStyle.Maximized;
-            startInfo.Arguments = string.Format("/srv={0} /db={1} /usr={2} /pwd={3} /loc={4} /app={5}{6}", DBServer.IP.ToString(), DataBase, DBServer.User, DBServer.Password, "OUT", Name, External ? " /ext=1" : "");
+            startInfo.Arguments = string.Format("/srv={0} /db={1} /usr={2} /pwd={3} /loc={4} /app={5}{6}{7}", DBServer.IP.ToString(), DataBase, DBServer.User, DBServer.Password, "OUT", Name, External ? " /ext=1" : "", Code=="logon"?" /noxml=1":"");
 
             try
             {

@@ -66,10 +66,11 @@ namespace LogOnLoader
             };
             ShareServerList.Add(_serverShare);
             COD3 = _cod3;// _line.Split('|')[4];
+            await getSystemVersions(_serverShare);
             AppList.Add(new cAppBot("logon", "LOGON", "SISTEMAS", "logon.exe", "LOC", _serverDB, _serverShare, "", true));
             if (!External)
             {
-                var _clean = await Values.AppList[0].CheckUpdated(true);
+                var _clean = Values.AppList[0].CheckUpdatedXML();
                 if (!_clean)
                     AppList[0].Status = AppBotStatus.PENDING_UPDATE;
                 if (Values.AppList.PendingApps.Count != 0)
