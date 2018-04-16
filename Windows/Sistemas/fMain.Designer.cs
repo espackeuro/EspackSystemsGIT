@@ -45,8 +45,8 @@
             this.usersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aliasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.securityProfilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -128,7 +128,7 @@
             // dHCPControlToolStripMenuItem
             // 
             this.dHCPControlToolStripMenuItem.Name = "dHCPControlToolStripMenuItem";
-            this.dHCPControlToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.dHCPControlToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.dHCPControlToolStripMenuItem.Tag = "fDHCP";
             this.dHCPControlToolStripMenuItem.Text = "DHCP Control";
             this.dHCPControlToolStripMenuItem.Click += new System.EventHandler(this.dHCPControlToolStripMenuItem_Click);
@@ -136,7 +136,7 @@
             // dNSControlToolStripMenuItem
             // 
             this.dNSControlToolStripMenuItem.Name = "dNSControlToolStripMenuItem";
-            this.dNSControlToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.dNSControlToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.dNSControlToolStripMenuItem.Tag = "fDNS";
             this.dNSControlToolStripMenuItem.Text = "DNS Control";
             this.dNSControlToolStripMenuItem.Click += new System.EventHandler(this.dNSControlToolStripMenuItem_Click);
@@ -201,6 +201,13 @@
             this.securityProfilesToolStripMenuItem.Text = "Security Profiles";
             this.securityProfilesToolStripMenuItem.Click += new System.EventHandler(this.securityProfilesToolStripMenuItem_Click);
             // 
+            // windowToolStripMenuItem
+            // 
+            this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
+            this.windowToolStripMenuItem.Size = new System.Drawing.Size(63, 19);
+            this.windowToolStripMenuItem.Text = "Window";
+            this.windowToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
+            // 
             // toolStripContainer1
             // 
             this.toolStripContainer1.BottomToolStripPanelVisible = false;
@@ -218,12 +225,6 @@
             this.toolStripContainer1.TabIndex = 6;
             this.toolStripContainer1.Text = "toolStripContainer1";
             this.toolStripContainer1.TopToolStripPanelVisible = false;
-            // 
-            // windowToolStripMenuItem
-            // 
-            this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
-            this.windowToolStripMenuItem.Size = new System.Drawing.Size(63, 19);
-            this.windowToolStripMenuItem.Text = "Window";
             // 
             // fMain
             // 

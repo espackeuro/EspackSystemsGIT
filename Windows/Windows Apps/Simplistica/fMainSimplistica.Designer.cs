@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMainSimplistica));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.receivalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,6 +43,7 @@
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printRepairsUnitLabelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printRackLabelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,7 +72,7 @@
             // simpleReceivalsToolStripMenuItem
             // 
             this.simpleReceivalsToolStripMenuItem.Name = "simpleReceivalsToolStripMenuItem";
-            this.simpleReceivalsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.simpleReceivalsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.simpleReceivalsToolStripMenuItem.Tag = "fSimpleReceivals";
             this.simpleReceivalsToolStripMenuItem.Text = "Simple Receivals";
             this.simpleReceivalsToolStripMenuItem.Click += new System.EventHandler(this.simpleReceivalsToolStripMenuItem_Click);
@@ -78,7 +80,7 @@
             // hSAReceivalsToolStripMenuItem
             // 
             this.hSAReceivalsToolStripMenuItem.Name = "hSAReceivalsToolStripMenuItem";
-            this.hSAReceivalsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hSAReceivalsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.hSAReceivalsToolStripMenuItem.Tag = "fHSAReceivals";
             this.hSAReceivalsToolStripMenuItem.Text = "HSA Receivals";
             this.hSAReceivalsToolStripMenuItem.Click += new System.EventHandler(this.hSAReceivalsToolStripMenuItem_Click);
@@ -94,7 +96,7 @@
             // referencesToolStripMenuItem
             // 
             this.referencesToolStripMenuItem.Name = "referencesToolStripMenuItem";
-            this.referencesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.referencesToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.referencesToolStripMenuItem.Tag = "fSimpleReferences";
             this.referencesToolStripMenuItem.Text = "References";
             this.referencesToolStripMenuItem.Click += new System.EventHandler(this.referencesToolStripMenuItem_Click);
@@ -158,6 +160,11 @@
             this.printRackLabelsToolStripMenuItem.Text = "Print Rack Labels";
             this.printRackLabelsToolStripMenuItem.Click += new System.EventHandler(this.printRackLabelsToolStripMenuItem_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // fMainSimplistica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -192,6 +199,7 @@
         private System.Windows.Forms.ToolStripMenuItem simpleProductionOrderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem simpleExpeditionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hSAReceivalsToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
 

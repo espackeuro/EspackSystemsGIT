@@ -183,6 +183,11 @@ namespace Sistemas
         {
             openForm(sender);
         }
+
+        private void windowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public static class Values
