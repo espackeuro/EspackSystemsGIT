@@ -32,13 +32,22 @@
             this.movementsToolStripMenuItem = new EspackMenuNS.EspackToolStripItem();
             this.espackToolStripItem1 = new EspackMenuNS.EspackToolStripItem();
             this.espackToolStripItem2 = new EspackMenuNS.EspackToolStripItem();
+            this.espackToolStripItem3 = new EspackMenuNS.EspackToolStripItem();
+            this.espackToolStripItem4 = new EspackMenuNS.EspackToolStripItem();
+            this.espackToolStripItem5 = new EspackMenuNS.EspackToolStripItem();
+            this.espackToolStripItem6 = new EspackMenuNS.EspackToolStripItem();
+            this.espackToolStripItem7 = new EspackMenuNS.EspackToolStripItem();
+            this.espackToolStripItem8 = new EspackMenuNS.EspackToolStripItem();
             this.espackMenu1.SuspendLayout();
             this.SuspendLayout();
             // 
             // espackMenu1
             // 
             this.espackMenu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.movementsToolStripMenuItem});
+            this.movementsToolStripMenuItem,
+            this.espackToolStripItem3,
+            this.espackToolStripItem6,
+            this.espackToolStripItem7});
             this.espackMenu1.Location = new System.Drawing.Point(0, 0);
             this.espackMenu1.Name = "espackMenu1";
             this.espackMenu1.Size = new System.Drawing.Size(1118, 24);
@@ -52,21 +61,65 @@
             this.espackToolStripItem2});
             this.movementsToolStripMenuItem.Name = "movementsToolStripMenuItem";
             this.movementsToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
+            this.movementsToolStripMenuItem.Tag = "-";
             this.movementsToolStripMenuItem.Text = "Movements";
             // 
             // espackToolStripItem1
             // 
             this.espackToolStripItem1.Name = "espackToolStripItem1";
-            this.espackToolStripItem1.Size = new System.Drawing.Size(152, 22);
+            this.espackToolStripItem1.Size = new System.Drawing.Size(180, 22);
             this.espackToolStripItem1.Tag = "fReceivals";
             this.espackToolStripItem1.Text = "Repairs";
             // 
             // espackToolStripItem2
             // 
             this.espackToolStripItem2.Name = "espackToolStripItem2";
-            this.espackToolStripItem2.Size = new System.Drawing.Size(152, 22);
+            this.espackToolStripItem2.Size = new System.Drawing.Size(180, 22);
             this.espackToolStripItem2.Tag = "fDeliveries";
             this.espackToolStripItem2.Text = "Deliveries";
+            // 
+            // espackToolStripItem3
+            // 
+            this.espackToolStripItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.espackToolStripItem4,
+            this.espackToolStripItem5});
+            this.espackToolStripItem3.Name = "espackToolStripItem3";
+            this.espackToolStripItem3.Size = new System.Drawing.Size(60, 20);
+            this.espackToolStripItem3.Text = "Masters";
+            // 
+            // espackToolStripItem4
+            // 
+            this.espackToolStripItem4.Name = "espackToolStripItem4";
+            this.espackToolStripItem4.Size = new System.Drawing.Size(180, 22);
+            this.espackToolStripItem4.Text = "Services";
+            // 
+            // espackToolStripItem5
+            // 
+            this.espackToolStripItem5.Name = "espackToolStripItem5";
+            this.espackToolStripItem5.Size = new System.Drawing.Size(180, 22);
+            this.espackToolStripItem5.Text = "References";
+            // 
+            // espackToolStripItem6
+            // 
+            this.espackToolStripItem6.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.espackToolStripItem8});
+            this.espackToolStripItem6.Name = "espackToolStripItem6";
+            this.espackToolStripItem6.Size = new System.Drawing.Size(47, 20);
+            this.espackToolStripItem6.Tag = "-";
+            this.espackToolStripItem6.Text = "Tools";
+            // 
+            // espackToolStripItem7
+            // 
+            this.espackToolStripItem7.Name = "espackToolStripItem7";
+            this.espackToolStripItem7.Size = new System.Drawing.Size(68, 20);
+            this.espackToolStripItem7.Text = "Windows";
+
+            // 
+            // espackToolStripItem8
+            // 
+            this.espackToolStripItem8.Name = "espackToolStripItem8";
+            this.espackToolStripItem8.Size = new System.Drawing.Size(180, 22);
+            this.espackToolStripItem8.Text = "Settings";
             // 
             // fMainRepairs
             // 
@@ -91,5 +144,11 @@
         private EspackMenuNS.EspackToolStripItem espackToolStripItem1;
         private EspackMenuNS.EspackToolStripItem espackToolStripItem2;
         private EspackMenuNS.EspackToolStripItem movementsToolStripMenuItem;
+        private EspackMenuNS.EspackToolStripItem espackToolStripItem3;
+        private EspackMenuNS.EspackToolStripItem espackToolStripItem4;
+        private EspackMenuNS.EspackToolStripItem espackToolStripItem5;
+        private EspackMenuNS.EspackToolStripItem espackToolStripItem6;
+        private EspackMenuNS.EspackToolStripItem espackToolStripItem7;
+        private EspackMenuNS.EspackToolStripItem espackToolStripItem8;
     }
 }

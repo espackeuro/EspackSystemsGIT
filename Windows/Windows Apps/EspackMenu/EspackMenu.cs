@@ -17,10 +17,19 @@ namespace EspackMenuNS
     {
         protected override void OnClick(EventArgs e)
         {
+            // Call the base code
             base.OnClick(e);
-            if (Tag != null && Tag.ToString() != "")
-                openForm();
 
+            // Check the Tag is defined.
+            if (Tag != null)
+            {
+                // If we don't want to do anything with this item click event, we set the Tag to "-". Useful for the root items of a menu.
+                if (Tag.ToString() != "-")
+                    // Open the form whose name is the Tag string.
+                    openForm();
+            }  else
+                // The Tag is not defined: we show an error explaining what to do for those fool IT guys.
+                MessageBox.Show(string.Format("Tag property not set when designing menu entry '{0}'. Use a form name or a '-' if not opening intended.", Text), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         public Form MDIParent()
         {
@@ -39,6 +48,8 @@ namespace EspackMenuNS
         {
             var formName = Tag.ToString();
             var form = (Form)GetChildInstance(formName);
+            if (form == null)
+                return;
             form.WindowState = FormWindowState.Maximized;
         }
         //remember to fill property ProjectName on design time
@@ -47,8 +58,17 @@ namespace EspackMenuNS
             Form _Form;
             if (!InstancedForms.TryGetValue(pFormName, out _Form))
             {
-                _Form = (Form)Activator.CreateInstance(Type.GetType(string.Format("{0}.{1},{0}",ProjectName, pFormName)));
+                try
+                {
+                    _Form = (Form)Activator.CreateInstance(Type.GetType(string.Format("{0}.{1},{0}", ProjectName, pFormName)));
+                }
+                catch
+                {
+                    MessageBox.Show(string.Format("Form '{0}' doesn't exist yet.", pFormName), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
                 //_Form =(Form)(Assembly.GetEntryAssembly().CreateInstance(pFormName));
+
                 _Form.MdiParent = MDIParent();
                 InstancedForms.Add(pFormName, _Form);
             }
