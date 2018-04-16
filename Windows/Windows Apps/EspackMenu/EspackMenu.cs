@@ -1,37 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static EspackMenuNS.EspackMenu;
 
 namespace EspackMenuNS
 {
-    public class EspackToolStripItemCollection : ToolStripItemCollection
+    public interface EspackMenuItem
     {
-
+        Form MDIParent();
     }
-
-    public class EspackMenu:MenuStrip
+    public class EspackToolStripItem : ToolStripMenuItem, EspackMenuItem
     {
-
-        //form opening control
-        private static Dictionary<string, Form> InstancedForms = new Dictionary<string, Form>();
-        public string ProjectName { get; set; }
-        //private Form Parent { get; set; }
-
-        public override ToolStripItemCollection Items
+        protected override void OnClick(EventArgs e)
         {
-            get;
-            set
-            {
+            base.OnClick(e);
+            if (Tag != null && Tag.ToString() != "")
+                openForm();
 
-            }
         }
-
-        private void openForm(object menuOption)
+        public Form MDIParent()
         {
-            var formName = ((ToolStripMenuItem)menuOption).Tag.ToString();
+
+            EspackMenuItem _parent = null;
+            if (Owner is EspackMenuItem)
+                _parent = (EspackMenuItem)Owner;
+            else if (OwnerItem is EspackMenuItem)
+                _parent = (EspackMenuItem)OwnerItem;
+
+            if (_parent != null)
+                return _parent.MDIParent();
+            else return null;
+        }
+        private void openForm()
+        {
+            var formName = Tag.ToString();
             var form = (Form)GetChildInstance(formName);
             form.WindowState = FormWindowState.Maximized;
         }
@@ -41,8 +47,9 @@ namespace EspackMenuNS
             Form _Form;
             if (!InstancedForms.TryGetValue(pFormName, out _Form))
             {
-                _Form = (Form)Activator.CreateInstance(Type.GetType(ProjectName + "." + pFormName));
-                _Form.MdiParent = (Form)this.Parent;
+                _Form = (Form)Activator.CreateInstance(Type.GetType(string.Format("{0}.{1},{0}",ProjectName, pFormName)));
+                //_Form =(Form)(Assembly.GetEntryAssembly().CreateInstance(pFormName));
+                _Form.MdiParent = MDIParent();
                 InstancedForms.Add(pFormName, _Form);
             }
             InstancedForms[pFormName].Show();
@@ -56,13 +63,24 @@ namespace EspackMenuNS
         }
 
 
-
-        protected override void OnItemClicked(ToolStripItemClickedEventArgs e)
-        {
-            base.OnItemClicked(e);
-            if (!(e.ClickedItem.Tag == null) && e.ClickedItem.Tag.ToString() != "")
-                openForm(e.ClickedItem);
-        }
     }
 
+    public class EspackMenu : MenuStrip, EspackMenuItem
+    {
+        private Form mdiFormParent { get; set; }
+        public Form MDIParent()
+        {
+            if (Parent is Form)
+                return (Form)Parent;
+            else return null;
+        }
+
+        //form opening control
+        public static Dictionary<string, Form> InstancedForms = new Dictionary<string, Form>();
+        public static string ProjectName { get => Assembly.GetEntryAssembly().GetName().Name; }
+        //private Form Parent { get; set; }
+
+    }
 }
+
+

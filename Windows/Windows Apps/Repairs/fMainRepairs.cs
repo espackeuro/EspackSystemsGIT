@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using System.Reflection;
+using System;
 
 namespace Repairs
 {
@@ -14,16 +8,8 @@ namespace Repairs
     {
         public fMainRepairs()
         {
+            //var a = Type.GetType("");
             InitializeComponent();
         }
-
-        private void receptionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        //form opening control
-
-
     }
 }
