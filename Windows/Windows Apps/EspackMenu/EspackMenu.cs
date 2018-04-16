@@ -29,7 +29,7 @@ namespace EspackMenuNS
                     openForm();
             }  else
                 // The Tag is not defined: we show an error explaining what to do for those fool IT guys.
-                MessageBox.Show(string.Format("Tag property not set when designing menu entry '{0}'. Use a form name or a '-' if not opening intended.", Text), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(string.Format("Tag property not set when designing menu entry '{0}'. Use a form name or a '-' if you not opening intended.", Text), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         public Form MDIParent()
         {
