@@ -72,10 +72,18 @@ namespace LogOnObjects
                         Server = ShareServer,
                         IsDirectory = false,
                         Name = "systems.xml",
-                        BaseUri = new UriBuilder("ftp://" + ShareServer.HostName + "/APPS_CS").Uri
+                        BaseUri = new UriBuilder("ftp://" + ShareServer.IP.ToString() + "/APPS_CS").Uri
                     };
-                    await ftp.DownloadItemAsync(Item, LOCAL_PATH + "systems.xml");
+                    try
+                    {
+                        await ftp.DownloadItemAsync(Item, LOCAL_PATH + "systems.xml");
+                    } catch (Exception ex)
+                    {
+                        //debugBox.AppendText(ex.Message);
+                    }
+
                     XMLSystemState = XDocument.Load(LOCAL_PATH + "systems.xml");
+
                 }
             }
         }
