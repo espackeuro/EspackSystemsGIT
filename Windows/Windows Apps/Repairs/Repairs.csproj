@@ -30,6 +30,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -56,10 +60,19 @@
     <Compile Include="fReceivals.Designer.cs">
       <DependentUpon>fReceivals.cs</DependentUpon>
     </Compile>
+    <Compile Include="fSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fSettings.Designer.cs">
+      <DependentUpon>fSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fMainRepairs.resx">
       <DependentUpon>fMainRepairs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fSettings.resx">
+      <DependentUpon>fSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -112,10 +125,20 @@
       <Project>{70432336-f038-4ef1-af04-012ae8e6c009}</Project>
       <Name>EspackFormControls</Name>
     </ProjectReference>
+    <ProjectReference Include="..\cAccesoDatos\cAccesoDatos.csproj">
+      <Project>{5da9cb0b-9007-40f1-8086-1b0303d8271f}</Project>
+      <Name>cAccesoDatos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EspackMenu\EspackMenu.csproj">
       <Project>{f58c64dc-f90a-4732-8afa-24db566247f9}</Project>
       <Name>EspackMenu</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>ROBOCOPY "$(TargetDir) " "$(TargetDir)lib " /XF *.exe *.config *.manifest /XD lib logs data /E /IS /MOV
+; Move all to APPs folder
+ROBOCOPY "$(TargetDir) " "D:\APPS_CS\repairs" /XF *.vshost.* /XD logs data /E /IS 
+if %25errorlevel%25 leq 4 exit 0 else exit %25errorlevel</PostBuildEvent>
+  </PropertyGroup>
 </Project>
