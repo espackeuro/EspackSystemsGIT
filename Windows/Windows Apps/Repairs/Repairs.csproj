@@ -60,19 +60,10 @@
     <Compile Include="fReceivals.Designer.cs">
       <DependentUpon>fReceivals.cs</DependentUpon>
     </Compile>
-    <Compile Include="fSettings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fSettings.Designer.cs">
-      <DependentUpon>fSettings.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fMainRepairs.resx">
       <DependentUpon>fMainRepairs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="fSettings.resx">
-      <DependentUpon>fSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

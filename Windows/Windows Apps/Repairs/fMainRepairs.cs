@@ -36,11 +36,11 @@ namespace Repairs
             }
             Values.gDatos.Close();
             //check settings file
-            if (!cSettings.SettingFileNameExists)
-            {
-                fSettings fSettings = new fSettings();
-                fSettings.ShowDialog();
-            }
+            //if (!cSettings.SettingFileNameExists)
+            //{
+            //    fSettings fSettings = new fSettings();
+            //    fSettings.ShowDialog();
+            //}
             Values.LabelPrinterAddress = cSettings.readSetting("labelPrinter");
             Values.COD3 = cSettings.readSetting("COD3");
         }
