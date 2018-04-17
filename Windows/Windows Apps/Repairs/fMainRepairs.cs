@@ -12,7 +12,7 @@ namespace Repairs
         public fMainRepairs(string[] args)
         {
             InitializeComponent();
-
+            
             var espackArgs = CT.LoadVars(args);
             //Values.gDatos.DataBase = "Sistemas";//espackArgs.DataBase;
             //Values.gDatos.Server = "192.168.200.7";//espackArgs.Server;
@@ -35,14 +35,15 @@ namespace Repairs
                 Application.Exit();
             }
             Values.gDatos.Close();
-            //check settings file
-            //if (!cSettings.SettingFileNameExists)
-            //{
-            //    fSettings fSettings = new fSettings();
-            //    fSettings.ShowDialog();
-            //}
+            // check settings file
+            if (!cSettings.SettingFileNameExists)
+            {
+                fSettings fSettings = new fSettings();
+                fSettings.ShowDialog();
+            }
             Values.LabelPrinterAddress = cSettings.readSetting("labelPrinter");
             Values.COD3 = cSettings.readSetting("COD3");
+
         }
 
     }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMainRepairs));
             this.espackMenu1 = new EspackMenuNS.EspackMenu();
             this.movementsToolStripMenuItem = new EspackMenuNS.EspackToolStripItem();
             this.espackToolStripItem1 = new EspackMenuNS.EspackToolStripItem();
@@ -49,7 +50,7 @@
             this.espackToolStripItem7});
             this.espackMenu1.Location = new System.Drawing.Point(0, 0);
             this.espackMenu1.Name = "espackMenu1";
-            this.espackMenu1.Size = new System.Drawing.Size(1118, 24);
+            this.espackMenu1.Size = new System.Drawing.Size(1096, 24);
             this.espackMenu1.TabIndex = 1;
             this.espackMenu1.Text = "espackMenu1";
             // 
@@ -65,7 +66,7 @@
             // espackToolStripItem1
             // 
             this.espackToolStripItem1.Name = "espackToolStripItem1";
-            this.espackToolStripItem1.Size = new System.Drawing.Size(180, 22);
+            this.espackToolStripItem1.Size = new System.Drawing.Size(112, 22);
             this.espackToolStripItem1.Tag = "fReceivals";
             this.espackToolStripItem1.Text = "Repairs";
             // 
@@ -104,6 +105,7 @@
             // 
             this.espackToolStripItem8.Name = "espackToolStripItem8";
             this.espackToolStripItem8.Size = new System.Drawing.Size(116, 22);
+            this.espackToolStripItem8.Tag = "fSettings";
             this.espackToolStripItem8.Text = "Settings";
             // 
             // espackToolStripItem7
@@ -116,12 +118,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1118, 261);
+            this.ClientSize = new System.Drawing.Size(1096, 758);
             this.Controls.Add(this.espackMenu1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.espackMenu1;
             this.Name = "fMainRepairs";
             this.Text = "fMainRepairs";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.espackMenu1.ResumeLayout(false);
             this.espackMenu1.PerformLayout();
             this.ResumeLayout(false);

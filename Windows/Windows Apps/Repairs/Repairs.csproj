@@ -34,6 +34,9 @@
     <StartupObject>
     </StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Repairs.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -60,10 +63,22 @@
     <Compile Include="fReceivals.Designer.cs">
       <DependentUpon>fReceivals.cs</DependentUpon>
     </Compile>
+    <Compile Include="fSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fSettings.Designer.cs">
+      <DependentUpon>fSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fMainRepairs.resx">
       <DependentUpon>fMainRepairs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fReceivals.resx">
+      <DependentUpon>fReceivals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fSettings.resx">
+      <DependentUpon>fSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -100,6 +115,10 @@
       <Project>{9148f7e6-31f6-4f96-b7dc-afea449998c7}</Project>
       <Name>CommonTools</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\EspackClasses\EspackClasses.csproj">
+      <Project>{60c3af59-c083-4db1-a9ff-ddec1e429029}</Project>
+      <Name>EspackClasses</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\EspackControls\CTLMantenimientoNet\CTLMantenimientoNet.csproj">
       <Project>{3569913e-7914-44d8-b6e6-9b72164c6580}</Project>
       <Name>CTLMantenimientoNet</Name>
@@ -111,6 +130,10 @@
     <ProjectReference Include="..\..\..\EspackControls\DiverseControls\DiverseControls\DiverseControls.csproj">
       <Project>{005bd28a-42c7-4785-9eb1-bd6f2b7564c3}</Project>
       <Name>DiverseControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\EspackControls\EspackControls\EspackControls.csproj">
+      <Project>{ece9aa32-f756-4be3-a926-b0771e69066b}</Project>
+      <Name>EspackControls</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\EspackControls\EspackFormControls\EspackFormControls.csproj">
       <Project>{70432336-f038-4ef1-af04-012ae8e6c009}</Project>
@@ -125,11 +148,18 @@
       <Name>EspackMenu</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Repairs.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>ROBOCOPY "$(TargetDir) " "$(TargetDir)lib " /XF *.exe *.config *.manifest /XD lib logs data /E /IS /MOV
 ; Move all to APPs folder
 ROBOCOPY "$(TargetDir) " "D:\APPS_CS\repairs" /XF *.vshost.* /XD logs data /E /IS 
 if %25errorlevel%25 leq 4 exit 0 else exit %25errorlevel</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
 </Project>
