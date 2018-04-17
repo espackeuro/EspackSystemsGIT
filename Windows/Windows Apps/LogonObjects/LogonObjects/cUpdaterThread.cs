@@ -177,7 +177,21 @@ namespace LogOnObjects
                                 var _localPath = Path.GetDirectoryName(item.Parent.LocalPath);
                                 if (Directory.Exists(_localPath))
                                     Directory.Delete(_localPath, true);
-                                await (Task.Run(() => ZipFile.ExtractToDirectory(item.LocalPath, Values.LOCAL_PATH)));
+                                //await (Task.Run(() => ZipFile.ExtractToDirectory(item.LocalPath, Values.LOCAL_PATH)));
+                                using (ZipArchive archive = ZipFile.OpenRead(item.LocalPath))
+                                {
+                                    foreach (ZipArchiveEntry entry in archive.Entries)
+                                    {
+                                        if (entry.FullName.Substring(entry.FullName.Length-1,1) == "/")
+                                        {
+                                            Directory.CreateDirectory(Path.Combine(Values.LOCAL_PATH, entry.FullName));
+                                        } else
+                                        {
+                                            entry.ExtractToFile(Path.Combine(Values.LOCAL_PATH, entry.FullName));
+                                        }
+                                    }
+                                }
+                                File.Delete(item.LocalPath);
 
                             }
                             catch (Exception ex)

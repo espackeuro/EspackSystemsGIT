@@ -301,16 +301,32 @@ namespace LogOnObjects
 
         }
 
+
+
         public bool CheckUpdatedXML()
         {
             bool clean = true;
             XElement xe = null;
+            XElement xs = null;
+            XElement zipFile = null;
+            string zipFileName = "";
+            string zipFilePath = "";
+            DateTime zipFileDateTime = DateTime.MinValue;
+            string zipLocalFilePath = "";
             try
             {
                 if (Special)
-                    xe = XMLSystemState.Descendants("special").First(s => s.Attribute("name").Value == Code.ToLower());
-                else
-                    xe = XMLSystemState.Descendants("system").First(s => s.Attribute("name").Value == Code.ToLower());
+                {
+                    xs = XMLSystemState.Descendants("special").First(s => s.Attribute("name").Value == Code.ToLower());
+                    zipFile = xs.Descendants("File").First();
+                    zipFileName = zipFile.Attribute("fileName").Value;
+                    zipFilePath = zipFile.Attribute("path").Value.Replace("\\", "/");
+                    zipFileDateTime = DateTime.Parse(zipFile.Attribute("fileTime").Value);
+                    zipLocalFilePath = LOCAL_PATH + zipFilePath + zipFileName;
+                    if (File.Exists(zipLocalFilePath))
+                        File.Delete(zipLocalFilePath);
+                }
+                xe = XMLSystemState.Descendants("system").First(s => s.Attribute("name").Value == Code.ToLower());
             } catch (Exception ex)
             {
                 Debug.Print(ex.Message);
@@ -318,38 +334,59 @@ namespace LogOnObjects
             foreach (var file in xe.Descendants("File").ToList())
             {
                 var fileName = file.Attribute("fileName").Value;
-                var filePath = file.Attribute("path").Value.Replace("\\","/");
+                var filePath = file.Attribute("path").Value.Replace("\\", "/");
                 var fileDateTime = DateTime.Parse(file.Attribute("fileTime").Value);
                 var localFilePath = LOCAL_PATH + filePath + fileName;
                 if (File.Exists(localFilePath))
                 {
                     var localFileDate = GetLastWriteTime(localFilePath);
                     //var localFileInfo = new FileInfo(localFilePath);
-                    if (localFileDate != fileDateTime)
+                    if ((localFileDate - fileDateTime).Duration().TotalSeconds > 10)
                     {
                         clean = false;
                     }
-                } else
+                }
+                else
                 {
                     clean = false;
                 }
                 if (!clean)
                 {
-                    UpdateList.Add(new cUpdateListItem()
+                    if (Special) //adds only the zip file
                     {
-                        Parent = this,
-                        Item = new DirectoryItem()
+                        UpdateList.Add(new cUpdateListItem()
                         {
-                            Server = ShareServer,
-                            DateCreated = fileDateTime,
-                            IsDirectory = false,
-                            Name = fileName,
-                            BaseUri = new UriBuilder("ftp://" + ShareServer.HostName + "/APPS_CS/"+filePath).Uri
-                        },
-                        LocalPath = localFilePath,
-                        Status = LogonItemUpdateStatus.PENDING,
-                        //ThreadNum = UpdateList.Count % Values.MaxNumThreads
-                    });
+                            Parent = this,
+                            Item = new DirectoryItem()
+                            {
+                                Server = ShareServer,
+                                DateCreated = zipFileDateTime,
+                                IsDirectory = false,
+                                Name = zipFileName,
+                                BaseUri = new UriBuilder("ftp://" + ShareServer.HostName + "/APPS_CS/" + zipFilePath).Uri
+                            },
+                            LocalPath = zipLocalFilePath,
+                            Status = LogonItemUpdateStatus.PENDING,
+                            //ThreadNum = UpdateList.Count % Values.MaxNumThreads
+                        });
+                        break;
+                    }
+                    else
+                        UpdateList.Add(new cUpdateListItem()
+                        {
+                            Parent = this,
+                            Item = new DirectoryItem()
+                            {
+                                Server = ShareServer,
+                                DateCreated = fileDateTime,
+                                IsDirectory = false,
+                                Name = fileName,
+                                BaseUri = new UriBuilder("ftp://" + ShareServer.HostName + "/APPS_CS/" + filePath).Uri
+                            },
+                            LocalPath = localFilePath,
+                            Status = LogonItemUpdateStatus.PENDING,
+                            //ThreadNum = UpdateList.Count % Values.MaxNumThreads
+                        });
                 }
 
             }

@@ -227,7 +227,7 @@ namespace Sistemas
             {
                 var fileInfo = new FileInfo(filePath);
                 var xSpecialElement = new XElement("special", new XAttribute("name", Path.GetFileNameWithoutExtension(filePath)));
-                var xSElement = new XElement("File",new XAttribute("path", filePath.Replace(serverSystemsPath, "").Replace(fileInfo.Name,"").Substring(1)), new XAttribute("fileName", fileInfo.Name), new XAttribute("fileSize", fileInfo.Length), new XAttribute("fileTime", fileInfo.CreationTime));
+                var xSElement = new XElement("File",new XAttribute("path", filePath.Replace(serverSystemsPath, "").Replace(fileInfo.Name,"").Substring(1)), new XAttribute("fileName", fileInfo.Name), new XAttribute("fileSize", fileInfo.Length), new XAttribute("fileTime", fileInfo.LastWriteTime));
                 xSpecialElement.Add(xSElement);
                 xmlDocument.Descendants("specials").FirstOrDefault().Add(xSpecialElement);
             }
@@ -251,7 +251,7 @@ namespace Sistemas
             foreach (var filePath in files)
             {
                 var fileInfo = new FileInfo(filePath);
-                var xElement = new XElement("File", new XAttribute("path", filePath.Replace(serverSystemsPath, "").Replace(fileInfo.Name, "").Substring(1)), new XAttribute("fileName", fileInfo.Name), new XAttribute("fileSize", fileInfo.Length), new XAttribute("fileTime", fileInfo.CreationTime));
+                var xElement = new XElement("File", new XAttribute("path", filePath.Replace(serverSystemsPath, "").Replace(fileInfo.Name, "").Substring(1)), new XAttribute("fileName", fileInfo.Name), new XAttribute("fileSize", fileInfo.Length), new XAttribute("fileTime", fileInfo.LastWriteTime));
                 xResult.Add(xElement);
             }
             var directories = Directory.GetDirectories(baseDir);

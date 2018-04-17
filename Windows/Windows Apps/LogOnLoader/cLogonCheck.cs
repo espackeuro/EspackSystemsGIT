@@ -67,7 +67,7 @@ namespace LogOnLoader
             ShareServerList.Add(_serverShare);
             COD3 = _cod3;// _line.Split('|')[4];
             await getSystemVersions(_serverShare);
-            AppList.Add(new cAppBot("logon", "LOGON", "SISTEMAS", "logon.exe", "LOC", _serverDB, _serverShare, "", true));
+            AppList.Add(new cAppBot("logon", "LOGON", "SISTEMAS", "logon.exe", "LOC", _serverDB, _serverShare, ""));
             if (!External)
             {
                 var _clean = Values.AppList[0].CheckUpdatedXML();
