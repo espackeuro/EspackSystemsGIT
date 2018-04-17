@@ -43,6 +43,7 @@ namespace LogOn
         private System.Timers.Timer _timer;
         private int _time;
         private bool _update;
+        private bool noXML;
 
         public List<cUpdaterThread> UpdatingThreads = new List<cUpdaterThread>();
         //public static int NUMTHREADS = 10;
@@ -99,7 +100,7 @@ namespace LogOn
             //MessageBox.Show("Pollo1", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (args.Contains("/ext=1"))
                 External = true;
-            var noXML = args.Contains("/noxml=1");
+              noXML = args.Contains("/noxml=1");
 //#if DEBUG
 //            noXML = true;
 //#endif 
@@ -121,6 +122,7 @@ namespace LogOn
                 txtNewPasswordConfirm.Multiline = false;
                 txtNewPIN.Multiline = false;
                 txtNewPINConfirm.Multiline = false;
+                btnOk.Enabled = false;
                 //timer control
                 _time = 0;
                 _timer = new System.Timers.Timer() { Interval = 1000, Enabled = false };
@@ -212,10 +214,8 @@ namespace LogOn
                     FilesToUpdate = new string[] { "logonloader.exe", "logonloader.exe.config" };
 
                 Values.FillServers(_cod3);
-                if (noXML)
-                    XMLSystemState = XDocument.Load(LOCAL_PATH + "systems.xml");
-                else
-                    this.Load += FMain_Load;
+                
+                //this.Load += FMain_Load;
                 //if we are out, we add the server we just entered
                 if (_cod3=="OUT")
                     Values.DBServerList.Add(new cServer() { HostName = _dbserver, COD3 = "OUT", Type = ServerTypes.DATABASE, User = Values.User, Password = Values.Password });
@@ -270,29 +270,6 @@ namespace LogOn
 
                 //#endif
 
-                //check Autologon with windows credentials
-                var _enviromentUser = Environment.UserName;
-                using (var _rs = new StaticRS(string.Format("Select flags,Password from vUsers where UserCode='{0}'", _enviromentUser), Values.gDatos))
-                {
-                    Values.gDatos.context_info = MasterPassword.MasterBytes;
-                    _rs.Open();
-                    if (!_rs.EOF)
-                    {
-                        var _flags = _rs["flags"].ToString().Split('|');
-                        if (_flags.Contains("AUTOLOGON"))
-                        {
-                            this.Show();
-                            this.txtUser.Text = _enviromentUser;
-                            this.txtPassword.Text = _rs["Password"].ToString();
-                            btnOk_Click(null, null);
-                        }
-                    }
-                    
-                };
-
-
-
-
                 KeyDown += restartTimer;
                 MouseClick += restartTimer;
             }
@@ -301,13 +278,38 @@ namespace LogOn
                 MessageBox.Show("Error Pollo7: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw new Exception(string.Format("Error 3 {0}", ex.Message));
             }
+            //check Autologon with windows credentials
+            var _enviromentUser = Environment.UserName;
+            using (var _rs = new StaticRS(string.Format("Select flags,Password from vUsers where UserCode='{0}'", _enviromentUser), Values.gDatos))
+            {
+                Values.gDatos.context_info = MasterPassword.MasterBytes;
+                _rs.Open();
+                if (!_rs.EOF)
+                {
+                    var _flags = _rs["flags"].ToString().Split('|');
+                    if (_flags.Contains("AUTOLOGON"))
+                    {
+                        this.Show();
+                        this.txtUser.Text = _enviromentUser;
+                        this.txtPassword.Text = _rs["Password"].ToString();
+                        btnOk_Click(null, null);
+                    }
+                }
 
+            };
+         
         }
 
         private async void FMain_Load(object sender, EventArgs e)
         {
-            await Values.getSystemVersions(ShareServerList[Values.COD3]);
+            await AsyncProcedures();
         }
+
+        public async Task AsyncProcedures()
+        {
+
+        }
+
 
         private void _timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
@@ -607,15 +609,24 @@ namespace LogOn
             {
                 x.SetStatus(AppBotStatus.CHECKING);
                 Application.DoEvents();
-                if (x.CheckUpdatedXML())
+                try
                 {
-                    x.Status = AppBotStatus.UPDATED;
-                }
-                else
+                    if (x.CheckUpdatedXML())
+                    {
+                        x.Status = AppBotStatus.UPDATED;
+                    }
+                    else
+                    {
+                        x.Status = AppBotStatus.PENDING_UPDATE;
+                    }
+                    x.ShowStatus();
+                } catch (Exception ex)
                 {
-                    x.Status = AppBotStatus.PENDING_UPDATE;
+                    if (debugBox != null)
+                    {
+                        debugBox.AppendText(string.Format("App {0} Error: {1}\n", x.Code, ex.Message));
+                    }
                 }
-                x.ShowStatus();
                 /*
                 _numThreads++;
                 new Thread(async () =>
@@ -644,6 +655,13 @@ namespace LogOn
         }
         private async void btnOk_Click(object sender, EventArgs e)
         {
+//#if DEBUG
+//            noXML = true;
+//#endif
+            if (noXML)
+                XMLSystemState = XDocument.Load(LOCAL_PATH + "systems.xml");
+            else
+                await Values.getSystemVersions(ShareServerList[Values.COD3]);
             previousStatus = Status;
             if (Status == LogOnStatus.INIT)
             {

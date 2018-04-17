@@ -676,20 +676,20 @@ namespace LogOnObjects
         {
 
 
-            if (!Special && !External)
-            {
-                SetStatus(AppBotStatus.PENDING_UPDATE);
-                //if (!await CheckUpdated().ConfigureAwait(false))
-                if (!await CheckUpdated(true))
-                {
-                    Application.DoEvents();
-                    ActiveThreads++;
-                    var _thread = new cUpdaterThread(debugBox, ActiveThreads);
-                    // launch task not async
-                    await _thread.Process();
-                }
-                SetStatus(AppBotStatus.UPDATED);
-            }
+            //if (!Special && !External)
+            //{
+            //    SetStatus(AppBotStatus.PENDING_UPDATE);
+            //    //if (!await CheckUpdated().ConfigureAwait(false))
+            //    if (!await CheckUpdated(true))
+            //    {
+            //        Application.DoEvents();
+            //        ActiveThreads++;
+            //        var _thread = new cUpdaterThread(debugBox, ActiveThreads);
+            //        // launch task not async
+            //        await _thread.Process();
+            //    }
+            //    SetStatus(AppBotStatus.UPDATED);
+            //}
             if (DBServer.HostName != gDatos.Server && DBServer.User != "procesos")
             {
                 var _datos = new cAccesoDatosNet();
