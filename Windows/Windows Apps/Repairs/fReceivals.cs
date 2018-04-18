@@ -8,8 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AccesoDatosNet;
-
-
+using CTLMantenimientoNet;
 
 namespace Repairs
 {
@@ -25,14 +24,13 @@ namespace Repairs
             CTLM.sSPUpp = "pPackReceivalsCabUpp";
             CTLM.sSPDel = "pPackReceivalsCabDel";
             CTLM.DBTable = "vPackReceivalsCabCOD3";
-            //CTLM.DBTable = "(Select H.*,DescService=S.Nombre from HSAReceivalsCab H inner join Servicios S on S.codigo=H.service where s.cod3='" + Values.COD3 + "' and dbo.CheckFlag(s.flags,'HSA')=1) a";
 
             //Header
             CTLM.AddItem(txtReceivalNumber, "RecNumber", false, true, true, 1, true, true);
             CTLM.AddItem(cboService, "Service", true, true,true, 1, true, true);
-            CTLM.AddItem(txtDate, "Date", false, true, false, 0, false, true);
+            CTLM.AddItem(txtDate, "Date", false, true, false, 0, false, false);
             CTLM.AddItem(txtSupplierDoc, "SupplierDoc", true, true, false, 0, false, false);
-            CTLM.AddItem(txtUser, "User", true, true, false, 0, false, false);
+            CTLM.AddItem(txtUser, "UserProc", true, true, false, 0, false, false);
             CTLM.AddItem(txtNotes, "Notes", true, true, false, 0, false, false);
             CTLM.AddItem(lstFlags, "Flags", true, true, false, 0, false, true);
             CTLM.AddItem(txtDescService, "DescService");
@@ -45,37 +43,70 @@ namespace Repairs
             cboService.SelectedValueChanged += CboService_SelectedValueChanged;
             lstFlags.Source("Select FlagCode,Caption from MasterFlags where TableName='PackReceivalsCab'");
 
-
-            
             //VS Definitions
             VS.Conn = Values.gDatos;
             VS.sSPAdd = "pPackReceivalsDetAdd";
-            VS.sSPAdd = "pPackReceivalsDetDel";
+            VS.sSPDel = "pPackReceivalsDetDel";
             VS.AllowInsert = true;
             VS.AllowUpdate = false;
             VS.AllowDelete = true;
-            VS.DBTable = "vHSAReceivalsDet";
+            VS.DBTable = "vPackReceivalsDet";
 
-            //VS Details
-            VS.AddColumn("RecCode", txtReceivalNumber, "@RecCode");
-            VS.AddColumn("Line", "line");
-            VS.AddColumn("Partnumber", "partnumber", "@partnumber", pSortable: true, pWidth: 90, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: string.Format("select partnumber from referencias where servicio='{0}'", cboService.Value));
-            VS.AddColumn("Description", "description", pSortable: true, pWidth: 200);
-            VS.AddColumn("Qty", "Qty", "@qty", pWidth: 90);
-            VS.AddColumn("SupplierDoc", "SupplierDoc", "@supplierDoc");
+            //VS Columns
+            VS.AddColumn("RecNumber", txtReceivalNumber, "@RecNumber", pSPDel: "@RecNumber", pVisible: false);
+            VS.AddColumn("Service", cboService, "@Service", pSPDel: "@Service", pVisible: false);
+            VS.AddColumn("UnitNumber", "UnitNumber", "@UnitNumber", pSPDel: "@UnitNumber");
+            VS.AddColumn("Reference", "Reference", "@Reference", pSortable: true, pWidth: 90, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: string.Format("select Reference from MasterRepairReferences where service='{0}'", cboService.Value));
+            VS.AddColumn("Description", "Description", pSortable: true, pWidth: 200);
             //VS.AddColumn("Flags", "Flags", "");
-            //VS.CellEndEdit += VS_CellEndEdit; //VS_CellValidating; ; ;
+            VS.CellEndEdit += VS_CellEndEdit; 
             
             //Various
             CTLM.AddDefaultStatusStrip();
-            //CTLM.AddItem(VS);
+            CTLM.AddItem(VS);
             CTLM.Start();
             //CTLM.AfterButtonClick += CTLM_AfterButtonClick;
-            //CTLM.BeforeButtonClick += CTLM_BeforeButtonClick;
+            CTLM.BeforeButtonClick += CTLM_BeforeButtonClick;
             //toolStrip.Enabled = false;
             
          
 
+        }
+
+        private void VS_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (VS.Columns[e.ColumnIndex].Name == "Reference")
+            {
+                if (VS.CurrentCell.Value != "")
+                {
+                    using (var _rs = new StaticRS(string.Format("Select Description from MasterRepairReferences where reference='{0}' and service='{1}'", VS[e.ColumnIndex, e.RowIndex].Value, cboService.Value), Values.gDatos))
+                    {
+                        _rs.Open();
+                        if (_rs.RecordCount == 0)
+                        {
+                            MessageBox.Show("Wrong partnumber", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            VS[e.ColumnIndex, e.RowIndex].Value = "";
+                            VS[VS.Columns["Description"].Index, e.RowIndex].Value = "";
+                            VS.CurrentCell = VS[e.ColumnIndex, e.RowIndex];
+                        }
+                        else
+                        {
+                            VS[VS.Columns["Description"].Index, e.RowIndex].Value = _rs["Description"].ToString();
+                            VS.CurrentCell = VS[VS.Columns["Description"].Index, e.RowIndex];
+                        }
+                    }
+
+                }
+                else
+                {
+                    VS[VS.Columns["Description"].Index, e.RowIndex].Value = "";
+                }
+            }
+        }
+
+        private void CTLM_BeforeButtonClick(object sender, CTLMEventArgs e)
+        {
+            int p=1;
         }
 
         private void CboService_SelectedValueChanged(object sender, EventArgs e)
