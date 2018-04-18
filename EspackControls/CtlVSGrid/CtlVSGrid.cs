@@ -664,6 +664,9 @@ namespace VSGrid
                     {
                         if (e.KeyCode == Keys.Delete)
                         {
+                            if (CurrentCell.RowIndex == Rows.Count - 1)
+                                break;
+
                             if (!AllowDelete)
                             {
                                 MessageBox.Show("Deletion not allowed.", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
