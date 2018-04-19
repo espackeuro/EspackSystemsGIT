@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AccesoDatosNet;
 using CTLMantenimientoNet;
+using DiverseControls;
 
 namespace Repairs
 {
@@ -141,6 +142,31 @@ namespace Repairs
             {
                 txtDescService.Value = "";
             }
+        }
+
+        private void toolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+
+            using (var _pd = new PrintDialog())
+            {
+                if (_pd.ShowDialog() == DialogResult.OK)
+                {
+                    using (var _pollo = new EspackPrinting())
+                    {
+                        _pollo.PrinterSettings = _pd.PrinterSettings;
+                        _pd.Document = _pollo;
+
+                        _pollo.AddText("PELONES HEADER");
+                        _pollo.AddText("PELONES BODY", EnumDocumentParts.BODY);
+                        _pollo.AddText("PELONES FOOTER", EnumDocumentParts.FOOTER);
+
+
+                        _pollo.Print();
+                    }
+                }
+            }
+
         }
     }
 }

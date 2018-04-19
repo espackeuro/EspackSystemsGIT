@@ -420,121 +420,59 @@ namespace DiverseControls
     }
 
 
-    ///*
-    //*         Font Font { get; set; }
-    //        Brush Brush { get; set; }
-
-    // * 
-    // * 
-    // * */
-
-    public class EspackPrinting : PrintDocument
+    public class EspackPrintingArea
     {
+        private float _lastItemHeight;
+        private float _lastItemWidth;
 
-        private float _lastObjWidth;
-        private float _lastObjHeight;
+        public EnumDocumentParts DocumentArea;
 
         public float CurrentX { get; set; }
         public float CurrentY { get; set; }
-        public float LastObjHeight { get { return _lastObjHeight; } }
-        public float LastObjWidth { get { return _lastObjWidth; } }
-        public Font CurrentFont;
-        public Brush CurrentBrush;
-        public EnumDocumentParts CurrentDocumentPart;
-        
+        public float MinY { get; set; }
+        public float MaxY { get; set; }
+        public Font CurrentFont { get; set; }
+        public Brush CurrentBrush { get; set; }
 
-        List<object> HeaderItems { get; set; } = new List<object>();
-        List<object> BodyItems { get; set; } = new List<object>();
-        List<object> FooterItems { get; set; } = new List<object>();
+        public float LastItemHeight { get { return _lastItemHeight; } }
+        public float LastItemWidth { get { return _lastItemWidth; } }
 
-        /*
-                private Graphics _g;
-                public Graphics Graphics
-                {
-                    get
-                    {
-                        return _g;
-                    }
-                    set
-                    {
-                        _g = value;
-                        Lines.ForEach(x => x.Graphics = value);
-                    }
-                }
-                */
+        public List<object> Items { get; set; } = new List<object>();
 
-        public EspackPrinting()
+        public EspackPrintingArea(Font pFont = null,Brush pBrush=null)
         {
-            
+            // Set the default font/brush.
+            CurrentFont = pFont == null ? new Font(FontFamily.GenericSansSerif, 10F, FontStyle.Regular) : pFont;
+            CurrentBrush = pBrush == null ? new SolidBrush(Color.Black) : pBrush;
 
-            CurrentFont = new Font(FontFamily.GenericSansSerif, 10F, FontStyle.Regular);
-            CurrentBrush = new SolidBrush(Color.Black);
+            // Set the last used item width/height (no items yet, so we set the value from a dummy object).
             EspackPrintingText _dummy = new EspackPrintingText("@", CurrentFont, CurrentBrush, 0, 0);
-            _lastObjWidth = _dummy.Width;
-            _lastObjHeight = _dummy.Height;
+            _lastItemWidth = _dummy.Width;
+            _lastItemHeight = _dummy.Height;
             _dummy = null;
-        }
 
+            CurrentX = 0;
+            CurrentY = 0;
+
+            MinY = 0;
+            MaxY = 39483948;
+        }
 
         public void NewLine()
         {
-            CurrentY = CurrentY + _lastObjHeight;
-
-            //if (BodyItems.Count != 0)
-            //{
-            //    EspackPrintingText _item = (EspackPrintingText)BodyItems[BodyItems.Count - 1];
-            //}
-            //else
-            //{
-            //    EspackPrintingText _item = new EspackPrintingText("@", CurrentFont, CurrentBrush, 0, 0);
-            //}
-
-            //    if (_item.Graphics != null)
-            //        _height = _item.Graphics.MeasureString("@", _item.Font).Height;
-
-            //} else
-            //{
-            //    _height = Graphics.MeasureString("@", CurrentFont).Height;
-            //}
-
-            //if(_height==-1)
-            //{
-            //    _height = Graphics.MeasureString("@", CurrentFont).Height;
-            //}
-
-            //NewLine(_height);
+            CurrentY = CurrentY + LastItemHeight;
         }
 
-        public void NewLine(float Height)
-        {
-            CurrentX = 0;
-            CurrentY = CurrentY + Height;
-        }
-
-
-        // Distinct versions of AddText.
-        public void AddText(string pText, EnumDocumentParts pDocumentPart=EnumDocumentParts.NONE)
-        {
-            // When not passed, we use the current values.
-            if (pDocumentPart == EnumDocumentParts.NONE)
-                pDocumentPart = CurrentDocumentPart;
-            AddText(pText, CurrentFont, CurrentBrush, CurrentX, CurrentY, pDocumentPart);
-        }
-        public void AddText(string pText, Font pFont=null, Brush pBrush=null, float pX=-1, float pY=-1, EnumDocumentParts pDocumentPart=EnumDocumentParts.NONE)
+        public void AddText(string pText, Font pFont = null, Brush pBrush = null, float pX = -1, float pY = -1)
         {
             EspackPrintingText _textObj;
-            bool _recalculateX;
+            bool _recalculateX = (pX == -1 && pY == -1);
 
             // When not passed, we use the current values.
             if (pFont == null)
                 pFont = CurrentFont;
             if (pBrush == null)
                 pBrush = CurrentBrush;
-            if (pDocumentPart == EnumDocumentParts.NONE)
-                pDocumentPart = CurrentDocumentPart;
-
-            _recalculateX = (pDocumentPart == CurrentDocumentPart && pX == -1 && pY == -1);
-
             if (pX == -1)
                 pX = CurrentX;
             if (pY == -1)
@@ -542,37 +480,93 @@ namespace DiverseControls
 
             // Create and add the object to the corresponding list.
             _textObj = new EspackPrintingText(pText, pFont, pBrush, pX, pY);
-            AddItem(_textObj, pDocumentPart);
+            Items.Add(_textObj);
 
             // Post operations
             if (_recalculateX)
-                CurrentX = CurrentX + _lastObjWidth;
-            _lastObjHeight = _textObj.Height;
-            _lastObjWidth = _textObj.Width;
-            //_lastObjHeight = (EspackPrintingText)_obj.Height;
-            //_lastObjWidth = (EspackPrintingText)_obj.Width;
+                CurrentX = CurrentX + _lastItemWidth;
+            _lastItemHeight = _textObj.Height;
+            _lastItemWidth = _textObj.Width;
         }
 
-        // Add an item to the corresponding list, and set the current document part.
-        private void AddItem(object Item,EnumDocumentParts DocumentPart )
+    }
+
+    public class EspackPrinting : PrintDocument
+    {
+
+        public EnumDocumentParts CurrentDocumentArea;
+        
+        public EspackPrintingArea HeaderArea { get; set; }
+        public EspackPrintingArea BodyArea { get; set; }
+        public EspackPrintingArea FooterArea { get; set; }
+
+        public EspackPrinting()
         {
-            switch (DocumentPart)
+            HeaderArea = new EspackPrintingArea();
+            BodyArea = new EspackPrintingArea();
+            FooterArea = new EspackPrintingArea();
+        }
+
+        public void NewLine(EnumDocumentParts pDocumentArea=EnumDocumentParts.NONE)
+        {
+            // When not passed, we use the current values.
+            if (pDocumentArea == EnumDocumentParts.NONE)
+                pDocumentArea = CurrentDocumentArea;
+
+            switch (pDocumentArea)
             {
                 case EnumDocumentParts.HEADER:
-                    HeaderItems.Add(Item);
+                    HeaderArea.NewLine();
                     break;
                 case EnumDocumentParts.BODY:
-                    BodyItems.Add(Item);
+                    BodyArea.NewLine();
                     break;
                 case EnumDocumentParts.FOOTER:
-                    FooterItems.Add(Item);
-                    break;
-                default:
+                    FooterArea.NewLine();
                     break;
             }
-            CurrentDocumentPart = DocumentPart;
         }
-        
+
+
+        // Distinct versions of AddText.
+        public void AddText(string pText)
+        {
+            AddText(pText, CurrentDocumentArea);
+        }
+        public void AddText(string pText, EnumDocumentParts pDocumentArea)
+        {
+            // When not passed, we use the current values.
+            if (pDocumentArea == EnumDocumentParts.NONE)
+                pDocumentArea = CurrentDocumentArea;
+
+            AddText(pText, null, null, -1, -1, pDocumentArea);
+        }
+
+        public void AddText(string pText, Font pFont=null, Brush pBrush=null, float pX=-1, float pY=-1, EnumDocumentParts pDocumentArea = EnumDocumentParts.NONE)
+        {
+            // When not passed, we use the current values.
+            if (pDocumentArea == EnumDocumentParts.NONE)
+                pDocumentArea = CurrentDocumentArea;
+
+            if (pDocumentArea == EnumDocumentParts.NONE)
+                pDocumentArea = EnumDocumentParts.HEADER;
+
+            CurrentDocumentArea = pDocumentArea;
+
+            switch (pDocumentArea)
+            {
+                case EnumDocumentParts.HEADER:
+                    HeaderArea.AddText(pText, pFont, pBrush, pX, pY);
+                    break;
+                case EnumDocumentParts.BODY:
+                    BodyArea.AddText(pText, pFont, pBrush, pX, pY);
+                    break;
+                case EnumDocumentParts.FOOTER:
+                    FooterArea.AddText(pText, pFont, pBrush, pX, pY);
+                    break;
+            }
+
+        }
 
     }
 }

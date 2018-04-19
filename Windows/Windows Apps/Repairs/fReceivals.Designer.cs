@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fReceivals));
             this.VS = new VSGrid.CtlVSGrid();
             this.lstFlags = new EspackFormControls.EspackCheckedListBox();
             this.cboService = new EspackFormControls.EspackComboBox();
@@ -38,7 +39,10 @@
             this.txtReceivalNumber = new EspackFormControls.EspackTextBox();
             this.txtSupplierDoc = new EspackFormControls.EspackTextBox();
             this.txtUser = new EspackFormControls.EspackTextBox();
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.btnPrint = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
+            this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // VS
@@ -352,11 +356,35 @@
             this.txtUser.Upp = false;
             this.txtUser.Value = "";
             // 
+            // toolStrip
+            // 
+            this.toolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnPrint});
+            this.toolStrip.Location = new System.Drawing.Point(630, 7);
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.Size = new System.Drawing.Size(103, 31);
+            this.toolStrip.TabIndex = 76;
+            this.toolStrip.Text = "toolStrip1";
+            this.toolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip_ItemClicked);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
+            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrint.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(60, 28);
+            this.btnPrint.Text = "Print";
+            // 
             // fReceivals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(710, 532);
+            this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.txtSupplierDoc);
             this.Controls.Add(this.txtDate);
@@ -371,6 +399,8 @@
             this.ShowIcon = false;
             this.Text = "Receivals";
             ((System.ComponentModel.ISupportInitialize)(this.VS)).EndInit();
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -388,5 +418,7 @@
         private EspackFormControls.EspackTextBox txtReceivalNumber;
         private EspackFormControls.EspackTextBox txtSupplierDoc;
         private EspackFormControls.EspackTextBox txtUser;
+        private System.Windows.Forms.ToolStrip toolStrip;
+        private System.Windows.Forms.ToolStripButton btnPrint;
     }
 }
