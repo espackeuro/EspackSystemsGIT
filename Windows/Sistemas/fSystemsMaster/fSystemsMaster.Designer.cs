@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fSystemsMaster));
             this.lstUserPositions = new EspackFormControls.EspackCheckedListBox();
             this.lstAreas = new EspackFormControls.EspackCheckedListBox();
             this.lstRequiredUserFlags = new EspackFormControls.EspackCheckedListBox();
@@ -42,9 +41,19 @@
             this.txtVersion = new EspackFormControls.EspackTextBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btnReloadVersions = new System.Windows.Forms.ToolStripButton();
-            this.txtNetVersion = new EspackFormControls.EspackTextBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnXMLFile = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnCommit = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnServerCheckout = new System.Windows.Forms.ToolStripButton();
+            this.txtNetVersion = new EspackFormControls.EspackTextBox();
+            this.grpServers = new System.Windows.Forms.GroupBox();
+            this.txtCheckoutUser = new EspackFormControls.EspackTextBox();
+            this.txtCheckoutPwd = new EspackFormControls.EspackTextBox();
+            this.chkSelectAll = new System.Windows.Forms.CheckBox();
             this.toolStrip2.SuspendLayout();
+            this.grpServers.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstUserPositions
@@ -390,10 +399,15 @@
             this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnReloadVersions,
-            this.btnXMLFile});
-            this.toolStrip2.Location = new System.Drawing.Point(834, 13);
+            this.toolStripSeparator1,
+            this.btnXMLFile,
+            this.toolStripSeparator2,
+            this.btnCommit,
+            this.toolStripSeparator3,
+            this.btnServerCheckout});
+            this.toolStrip2.Location = new System.Drawing.Point(917, 13);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(261, 31);
+            this.toolStrip2.Size = new System.Drawing.Size(505, 39);
             this.toolStrip2.TabIndex = 43;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -404,9 +418,54 @@
             this.btnReloadVersions.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnReloadVersions.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnReloadVersions.Name = "btnReloadVersions";
-            this.btnReloadVersions.Size = new System.Drawing.Size(117, 28);
+            this.btnReloadVersions.Size = new System.Drawing.Size(117, 36);
             this.btnReloadVersions.Text = "Reload Versions";
             this.btnReloadVersions.Click += new System.EventHandler(this.btnReloadVersions_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
+            // 
+            // btnXMLFile
+            // 
+            this.btnXMLFile.Image = global::Sistemas.Properties.Resources.xml;
+            this.btnXMLFile.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnXMLFile.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnXMLFile.Name = "btnXMLFile";
+            this.btnXMLFile.Size = new System.Drawing.Size(117, 36);
+            this.btnXMLFile.Text = "Generate XML";
+            this.btnXMLFile.Click += new System.EventHandler(this.btnXMLFile_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 39);
+            // 
+            // btnCommit
+            // 
+            this.btnCommit.Image = global::Sistemas.Properties.Resources.commit;
+            this.btnCommit.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnCommit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCommit.Name = "btnCommit";
+            this.btnCommit.Size = new System.Drawing.Size(112, 36);
+            this.btnCommit.Text = "SVN Commit";
+            this.btnCommit.Click += new System.EventHandler(this.btnCommit_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 39);
+            // 
+            // btnServerCheckout
+            // 
+            this.btnServerCheckout.Image = global::Sistemas.Properties.Resources.checkout;
+            this.btnServerCheckout.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnServerCheckout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnServerCheckout.Name = "btnServerCheckout";
+            this.btnServerCheckout.Size = new System.Drawing.Size(129, 36);
+            this.btnServerCheckout.Text = "Server Checkout";
+            this.btnServerCheckout.Click += new System.EventHandler(this.btnServerCheckout_Click);
             // 
             // txtNetVersion
             // 
@@ -438,21 +497,98 @@
             this.txtNetVersion.Upp = false;
             this.txtNetVersion.Value = "";
             // 
-            // btnXMLFile
+            // grpServers
             // 
-            this.btnXMLFile.Image = ((System.Drawing.Image)(resources.GetObject("btnXMLFile.Image")));
-            this.btnXMLFile.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnXMLFile.Name = "btnXMLFile";
-            this.btnXMLFile.Size = new System.Drawing.Size(101, 28);
-            this.btnXMLFile.Text = "Generate XML";
-            this.btnXMLFile.Click += new System.EventHandler(this.btnXMLFile_Click);
+            this.grpServers.BackColor = System.Drawing.SystemColors.Control;
+            this.grpServers.Controls.Add(this.chkSelectAll);
+            this.grpServers.Location = new System.Drawing.Point(1151, 140);
+            this.grpServers.Name = "grpServers";
+            this.grpServers.Size = new System.Drawing.Size(280, 474);
+            this.grpServers.TabIndex = 70;
+            this.grpServers.TabStop = false;
+            this.grpServers.Text = "Servers";
+            // 
+            // txtCheckoutUser
+            // 
+            this.txtCheckoutUser.Add = false;
+            this.txtCheckoutUser.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtCheckoutUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCheckoutUser.Caption = "Server User";
+            this.txtCheckoutUser.DBField = null;
+            this.txtCheckoutUser.DBFieldType = null;
+            this.txtCheckoutUser.DefaultValue = null;
+            this.txtCheckoutUser.Del = false;
+            this.txtCheckoutUser.DependingRS = null;
+            this.txtCheckoutUser.ExtraDataLink = null;
+            this.txtCheckoutUser.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtCheckoutUser.ForeColor = System.Drawing.Color.Gray;
+            this.txtCheckoutUser.Location = new System.Drawing.Point(1151, 107);
+            this.txtCheckoutUser.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtCheckoutUser.Name = "txtCheckoutUser";
+            this.txtCheckoutUser.Order = 0;
+            this.txtCheckoutUser.ParentConn = null;
+            this.txtCheckoutUser.ParentDA = null;
+            this.txtCheckoutUser.PK = false;
+            this.txtCheckoutUser.Protected = false;
+            this.txtCheckoutUser.ReadOnly = true;
+            this.txtCheckoutUser.Search = false;
+            this.txtCheckoutUser.Size = new System.Drawing.Size(100, 17);
+            this.txtCheckoutUser.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtCheckoutUser.TabIndex = 71;
+            this.txtCheckoutUser.Upp = true;
+            this.txtCheckoutUser.Value = "";
+            // 
+            // txtCheckoutPwd
+            // 
+            this.txtCheckoutPwd.Add = false;
+            this.txtCheckoutPwd.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtCheckoutPwd.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCheckoutPwd.Caption = "Password";
+            this.txtCheckoutPwd.DBField = null;
+            this.txtCheckoutPwd.DBFieldType = null;
+            this.txtCheckoutPwd.DefaultValue = null;
+            this.txtCheckoutPwd.Del = false;
+            this.txtCheckoutPwd.DependingRS = null;
+            this.txtCheckoutPwd.ExtraDataLink = null;
+            this.txtCheckoutPwd.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtCheckoutPwd.ForeColor = System.Drawing.Color.Gray;
+            this.txtCheckoutPwd.Location = new System.Drawing.Point(1258, 107);
+            this.txtCheckoutPwd.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtCheckoutPwd.Name = "txtCheckoutPwd";
+            this.txtCheckoutPwd.Order = 0;
+            this.txtCheckoutPwd.ParentConn = null;
+            this.txtCheckoutPwd.ParentDA = null;
+            this.txtCheckoutPwd.PK = false;
+            this.txtCheckoutPwd.Protected = false;
+            this.txtCheckoutPwd.ReadOnly = true;
+            this.txtCheckoutPwd.Search = false;
+            this.txtCheckoutPwd.Size = new System.Drawing.Size(100, 17);
+            this.txtCheckoutPwd.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtCheckoutPwd.TabIndex = 73;
+            this.txtCheckoutPwd.Upp = true;
+            this.txtCheckoutPwd.UseSystemPasswordChar = true;
+            this.txtCheckoutPwd.Value = "";
+            // 
+            // chkSelectAll
+            // 
+            this.chkSelectAll.AutoSize = true;
+            this.chkSelectAll.Location = new System.Drawing.Point(10, 20);
+            this.chkSelectAll.Name = "chkSelectAll";
+            this.chkSelectAll.Size = new System.Drawing.Size(108, 17);
+            this.chkSelectAll.TabIndex = 0;
+            this.chkSelectAll.Text = "Check All / None";
+            this.chkSelectAll.UseVisualStyleBackColor = true;
+            this.chkSelectAll.CheckedChanged += new System.EventHandler(this.chkSelectAll_CheckedChanged);
             // 
             // fSystemsMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1120, 707);
+            this.ClientSize = new System.Drawing.Size(1480, 707);
+            this.Controls.Add(this.txtCheckoutPwd);
+            this.Controls.Add(this.txtCheckoutUser);
+            this.Controls.Add(this.grpServers);
             this.Controls.Add(this.txtNetVersion);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.txtVersion);
@@ -471,6 +607,8 @@
             this.Text = "fSystemsMaster";
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            this.grpServers.ResumeLayout(false);
+            this.grpServers.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -493,5 +631,14 @@
         private System.Windows.Forms.ToolStripButton btnReloadVersions;
         private EspackFormControls.EspackTextBox txtNetVersion;
         private System.Windows.Forms.ToolStripButton btnXMLFile;
+        private System.Windows.Forms.ToolStripButton btnCommit;
+        private System.Windows.Forms.ToolStripButton btnServerCheckout;
+        private System.Windows.Forms.GroupBox grpServers;
+        private EspackFormControls.EspackTextBox txtCheckoutUser;
+        private EspackFormControls.EspackTextBox txtCheckoutPwd;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.CheckBox chkSelectAll;
     }
 }

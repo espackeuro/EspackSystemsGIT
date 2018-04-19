@@ -14,14 +14,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using SharpSvn;
+using SharpSvn.UI;
+using static Sistemas.Values;
+using Renci.SshNet;
+using System.Threading;
 
 namespace Sistemas
 {
     public partial class fSystemsMaster : Form
     {
+        public struct ServerCheckWithInfo
+        {
+            public CheckBox CheckBox { get; set; }
+            public Label Label { get; set; }
+        }
+        public Dictionary<string, ServerCheckWithInfo> ListServers = new Dictionary<string, ServerCheckWithInfo>();
         public fSystemsMaster()
         {
             InitializeComponent();
+            //async button
+            if (IsGeneratingXML)
+                btnXMLFile.Image = global::Sistemas.Properties.Resources.rolling;
+
 
             //CTLM Definitions
             CTLM.Conn = Values.gDatos;
@@ -55,6 +70,47 @@ namespace Sistemas
             CTLM.Start();
             CTLM.AfterButtonClick += CTLM_AfterButtonClick;
             CTLM.BeforeButtonClick += CTLM_BeforeButtonClick;
+
+            txtCheckoutUser.Upp = true;
+            txtCheckoutUser.ReadOnly = false;
+            txtCheckoutPwd.Upp = true;
+            txtCheckoutPwd.ReadOnly = false;
+
+            // servers list
+
+            using (var rs = new StaticRS("Select AppServer, COD3 from NetworkSedes where dbo.CheckFlag(flags, 'ACTIVE') = 1 AND dbo.CheckFlag(flags, 'CHECKOUT') = 1", Values.gDatos))
+            {
+                rs.Open();
+                Point location = new Point() { X = 10 , Y = 30 + chkSelectAll.Height };
+                rs.Rows.ForEach((r) =>
+                {
+                    //checkbox
+                    var cs = new CheckBox()
+                    {
+                        Text = r["AppServer"].ToString()
+                    };
+                    cs.Width = (int)(cs.Width * 0.9);
+                    grpServers.Controls.Add(cs);
+                    cs.Location = location;
+                    //label
+                    var ls = new Label()
+                    {
+                        Text = string.Format("Server for {0}", r["COD3"])
+                    };
+                    grpServers.Controls.Add(ls);
+                    ls.Location = new Point() { X = location.X + cs.Width + 5, Y = location.Y + 3 };
+                    ls.Width = grpServers.Width - cs.Width - 25;
+                    location.Y = location.Y + cs.Height;
+                    //Server element
+                    var se = new ServerCheckWithInfo()
+                    {
+                        CheckBox = cs,
+                        Label = ls
+                    };
+
+                    ListServers.Add(r["COD3"].ToString(), se);
+                });
+            }
         }
         private void CTLM_BeforeButtonClick(object sender, CTLMantenimientoNet.CTLMEventArgs e)
         {
@@ -102,7 +158,7 @@ namespace Sistemas
                                     {
                                         MessageBox.Show(se.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
-                                    catch 
+                                    catch
                                     {
                                         // MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         txtNetVersion.Text = "";
@@ -174,7 +230,8 @@ namespace Sistemas
                     txtNetVersion.Text = "";
                     CTLM.Button_Click("btnNext");
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 btnReloadVersions.Enabled = true;
                 throw ex;
@@ -183,10 +240,11 @@ namespace Sistemas
         }
         private bool generateXMLSystems()
         {
-            int contador=0;
+            Cursor.Current = Cursors.WaitCursor;
+            int contador = 0;
             string servidor = "";
             // lets get the counter for the XML file version
-            using (var getContador= new SP(Values.gDatos, "pGetContador"))
+            using (var getContador = new SP(Values.gDatos, "pGetContador"))
             {
                 getContador.AddParameterValue("Contador", contador);
                 getContador.AddParameterValue("Serv", servidor);
@@ -221,33 +279,54 @@ namespace Sistemas
             xmlDocument = XDocument.Parse(_xml);
             var serverSystemsPath = "\\\\VALSRV02\\APPS_CS";
             //get files in apps directory
-            var serverSystemsDir = Directory.GetFiles(serverSystemsPath).Where(f => Path.GetExtension(f)==".zip");
+            var serverSystemsDir = Directory.GetFiles(serverSystemsPath).Where(f => Path.GetExtension(f) == ".zip");
             //create the rootDir element
             foreach (var filePath in serverSystemsDir)
             {
                 var fileInfo = new FileInfo(filePath);
                 var xSpecialElement = new XElement("special", new XAttribute("name", Path.GetFileNameWithoutExtension(filePath)));
-                var xSElement = new XElement("File",new XAttribute("path", filePath.Replace(serverSystemsPath, "").Replace(fileInfo.Name,"").Substring(1)), new XAttribute("fileName", fileInfo.Name), new XAttribute("fileSize", fileInfo.Length), new XAttribute("fileTime", fileInfo.LastWriteTime));
+                var xSElement = new XElement("File", new XAttribute("path", filePath.Replace(serverSystemsPath, "").Replace(fileInfo.Name, "").Substring(1)), new XAttribute("fileName", fileInfo.Name), new XAttribute("fileSize", fileInfo.Length), new XAttribute("fileTime", fileInfo.LastWriteTime));
                 xSpecialElement.Add(xSElement);
                 xmlDocument.Descendants("specials").FirstOrDefault().Add(xSpecialElement);
             }
             var directories = Directory.GetDirectories(serverSystemsPath);
-            foreach (var directoryPath in directories)
+            foreach (var directoryPath in directories.Where(x => !x.Contains(".svn")))
             {
                 var dirInfo = new DirectoryInfo(directoryPath);
-                var xSystemElement = new XElement("system", new XAttribute("name",dirInfo.Name));
+                var xSystemElement = new XElement("system", new XAttribute("name", dirInfo.Name));
                 xSystemElement.Add(xmlFromDirectory(directoryPath, serverSystemsPath));
                 xmlDocument.Descendants("systems").FirstOrDefault().Add(xSystemElement);
             }
             var localXmlFile = "d:\\APPS_CS\\systems.xml";
             xmlDocument.Save(localXmlFile);
+            // commit new file to svn
+            SvnCommitArgs args = new SvnCommitArgs();
+            args.LogMessage = string.Format("systems.xml file version {0} Commit", contador);
+            SvnCommitResult result;
+            using (var client = new SvnClient())
+            {
+                try
+                {
+                    SvnUI.Bind(client, this);
+                    client.Commit(localXmlFile, args, out result);
+                    if (result != null)
+                        CTLM.StatusMsg("Successfully commited revision " + result.Revision);
+                    else
+                        CTLM.StatusMsg("No changes have been made to working copy since it was checked out.");
+                }
+                catch (SvnException se)
+                {
+                    CTLM.StatusMsg(se.Message + "Error: " + se.SvnErrorCode);
+                }
+
+            }
             return true;
         }
 
         private XElement xmlFromDirectory(string baseDir, string serverSystemsPath)
         {
             var files = Directory.GetFiles(baseDir);
-            XElement xResult = new XElement("Directory",new XAttribute("path", baseDir.Replace(serverSystemsPath, "").Substring(1)));
+            XElement xResult = new XElement("Directory", new XAttribute("path", baseDir.Replace(serverSystemsPath, "").Substring(1)));
             foreach (var filePath in files)
             {
                 var fileInfo = new FileInfo(filePath);
@@ -262,9 +341,152 @@ namespace Sistemas
             return xResult;
         }
 
-        private void btnXMLFile_Click(object sender, EventArgs e)
+        private async void btnXMLFile_Click(object sender, EventArgs e)
         {
-            generateXMLSystems();
+            if (IsGeneratingXML)
+                return;
+            IsGeneratingXML = true;
+            btnXMLFile.Image = global::Sistemas.Properties.Resources.rolling;
+            await Task.Run(() => generateXMLSystems());
+            btnXMLFile.Image = global::Sistemas.Properties.Resources.xml;
+            MessageBox.Show("XML Created correctly!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            IsGeneratingXML = false;
+        }
+
+        private void btnCommit_Click(object sender, EventArgs e)
+        {
+            if (txtSystemCode.Text == "")
+                return;
+            var localAppsCSFileVersion = FileVersionInfo.GetVersionInfo(string.Format("d:/APPS_CS/{0}/{0}.exe", txtSystemCode.Text));
+            SvnCommitArgs args = new SvnCommitArgs();
+            args.LogMessage = string.Format("System {0} version {1} Commit", txtSystemCode, localAppsCSFileVersion.FileVersion);
+            SvnCommitResult result;
+            using (var client = new SvnClient())
+            {
+                try
+                {
+                    SvnUI.Bind(client, this);
+                    var addArgs = new SvnAddArgs() { Force = true };
+                    client.Add(string.Format("d:/APPS_CS/{0}", txtSystemCode.Text.ToLower()), addArgs);
+                    client.Commit(string.Format("d:/APPS_CS/{0}", txtSystemCode.Text.ToLower()), args, out result);
+                    if (result != null)
+                        MessageBox.Show("Successfully commited revision " + result.Revision);
+                    else
+                        MessageBox.Show("No changes have been made to working copy since it was checked out.");
+                }
+                catch (SvnException se)
+                {
+                    MessageBox.Show(se.Message + "Error: " + se.SvnErrorCode + Environment.NewLine,
+                    "svn commit error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                }
+
+            }
+        }
+
+
+        private async void btnServerCheckout_Click(object sender, EventArgs e)
+        {
+            if (IsCheckingOut)
+                return;
+            if (txtCheckoutUser.Text == "" || txtCheckoutPwd.Text == "")
+            {
+                MessageBox.Show("Wrong User or password!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            IsCheckingOut = true;
+            btnServerCheckout.Image = global::Sistemas.Properties.Resources.rolling;
+            var serverList = ListServers.Where(w => w.Value.CheckBox.Checked == true).Select(s => s.Value.CheckBox.Text).ToList<string>();
+            //clean all server messages.
+            ListServers.ToList().ForEach(f =>
+            {
+                f.Value.Label.Text = "--";
+                LabelStyle(f.Value.Label, LabelStyles.NORMAL);
+            });
+            //create the checkout task
+            var ServerCheckoutTask = new ServerCheckout(serverList, txtCheckoutUser.Text, txtCheckoutPwd.Text);
+            ServerCheckoutTask.Callback += ServerCheckoutTask_Callback;
+            ServerCheckoutTask.ErrorCallback += ServerCheckoutTask_ErrorCallback;
+            //launch and wait
+            await ServerCheckoutTask.Start();
+            btnServerCheckout.Image = global::Sistemas.Properties.Resources.checkout;
+            MessageBox.Show("All checkout tasks finished!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            IsCheckingOut = false;
+        }
+
+        private void ServerCheckoutTask_Callback(object sender, AsyncTaskResponse e)
+        {
+            if (e.ServerName != "")
+            {
+                var elLabel = ListServers.First(s => s.Value.CheckBox.Text == e.ServerName).Value.Label;
+                LabelStyle(elLabel, LabelStyles.NORMAL);
+                elLabel.Text = e.Message;
+                if (e.Message == "Checkout completed.")
+                    ListServers.First(s => s.Value.CheckBox.Text == e.ServerName).Value.CheckBox.Checked = false;
+            }
+            else
+            {
+                MessageBox.Show("Info: " + e.Message + Environment.NewLine,
+                                "Information",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                ListServers.ToList().ForEach(f =>
+                {
+                    f.Value.Label.Text = "--";
+                    LabelStyle(f.Value.Label, LabelStyles.NORMAL);
+                });
+            }
+        }
+
+        private void ServerCheckoutTask_ErrorCallback(object sender, AsyncTaskResponse e)
+        {
+            if (e.ServerName != "")
+            {
+                var elLabel = ListServers.First(s => s.Value.CheckBox.Text == e.ServerName).Value.Label;
+                LabelStyle(elLabel, LabelStyles.ERROR);
+                elLabel.Text = e.Message;
+            }
+            else
+            {
+                MessageBox.Show(e.Message + Environment.NewLine,
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                ListServers.ToList().ForEach(f =>
+                {
+                    f.Value.Label.Text = "--";
+                    LabelStyle(f.Value.Label, LabelStyles.NORMAL);
+                });
+            }
+        }
+        private enum LabelStyles { NORMAL, ERROR };
+        private void LabelStyle(Label pLabel, LabelStyles pStyle)
+        {
+            switch (pStyle)
+            {
+                case LabelStyles.ERROR:
+                    {
+                        pLabel.BackColor = Color.Red;
+                        pLabel.ForeColor = Color.White;
+                        pLabel.Font = new Font(pLabel.Font, FontStyle.Bold);
+                        break;
+                    }
+                case LabelStyles.NORMAL:
+                    {
+                        pLabel.BackColor = Color.Transparent;
+                        pLabel.ForeColor = Color.Black;
+                        pLabel.Font = new Font(pLabel.Font, FontStyle.Regular);
+                        break;
+                    }
+            }
+        }
+
+        private void chkSelectAll_CheckedChanged(object sender, EventArgs e)
+        {
+            ListServers.ToList().ForEach(f => f.Value.CheckBox.Checked = ((CheckBox)sender).Checked);
         }
     }
+
 }
+

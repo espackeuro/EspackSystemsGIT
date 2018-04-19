@@ -29,7 +29,7 @@ namespace Sistemas
             Values.gDatos.User = espackArgs.User;
             Values.gDatos.Password = espackArgs.Password;
             Values.gMasterPassword = MasterPassword.Master;
-            Values.gOldMaster = "Y?D6d#b@".ToSecureString();
+            //Values.gOldMaster = "Y?D6d#b@".ToSecureString();
             Values.gDatos.context_info = MasterPassword.MasterBytes;
             this.Text = string.Format("Sistemas Build {0} - ({1:yyyyMMdd})*", Assembly.GetExecutingAssembly().GetName().Version.ToString(), CT.GetBuildDateTime(Assembly.GetExecutingAssembly()));
             try
@@ -198,6 +198,8 @@ namespace Sistemas
         public static int SecurityLevel { get; set; }
         public static string Position { get; set; }
         public static string FullName { get; set; }
+        public static bool IsGeneratingXML { get; set; } = false;
+        public static bool IsCheckingOut { get; set; } = false;
     }
 
 }
