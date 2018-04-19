@@ -361,7 +361,6 @@ namespace DiverseControls
         Graphics Graphics { get; set; }
         float Height { get; }
         float Width { get; }
-        void Draw(float x, float y);
         void Draw();
     }
 
@@ -379,6 +378,7 @@ namespace DiverseControls
                 else return 0;
             }
         }
+
         public float Width
         {
             get
@@ -388,33 +388,26 @@ namespace DiverseControls
                 else return 0;
             }
         }
+
         public string Text { get; set; }
         public Font Font { get; set; }
         public Brush Brush { get; set; }
 
-        public EspackPrintingText(string ThisText, Font ThisFont, Brush ThisBrush, float ThisX, float ThisY)
+        // Constructor.
+        public EspackPrintingText(Graphics pGraphics, string pText, Font pFont, Brush pBrush, float pX, float pY)
         {
-            Text = ThisText;
-            Font = ThisFont;
-            Brush = ThisBrush;
-            X = ThisX;
-            Y = ThisY;
-        }
-
-        public void Draw(float x, float y)
-        {
-            if (Graphics != null)
-            {
-                Graphics.DrawString(Text, Font, Brush, x, y);
-            }
+            Graphics = pGraphics;
+            Text = pText;
+            Font = pFont;
+            Brush = pBrush;
+            X = pX;
+            Y = pY;
         }
 
         public void Draw()
         {
             if (Graphics != null)
-            {
                 Graphics.DrawString(Text, Font, Brush, X, Y);
-            }
         }
 
     }
@@ -433,20 +426,22 @@ namespace DiverseControls
         public float MaxY { get; set; }
         public Font CurrentFont { get; set; }
         public Brush CurrentBrush { get; set; }
+        public Graphics Graphics { get; set; }
 
         public float LastItemHeight { get { return _lastItemHeight; } }
         public float LastItemWidth { get { return _lastItemWidth; } }
 
         public List<object> Items { get; set; } = new List<object>();
 
-        public EspackPrintingArea(Font pFont = null,Brush pBrush=null)
+        public EspackPrintingArea(Graphics pGraphics,Font pFont = null,Brush pBrush=null)
         {
             // Set the default font/brush.
             CurrentFont = pFont == null ? new Font(FontFamily.GenericSansSerif, 10F, FontStyle.Regular) : pFont;
             CurrentBrush = pBrush == null ? new SolidBrush(Color.Black) : pBrush;
+            Graphics = pGraphics;
 
             // Set the last used item width/height (no items yet, so we set the value from a dummy object).
-            EspackPrintingText _dummy = new EspackPrintingText("@", CurrentFont, CurrentBrush, 0, 0);
+            EspackPrintingText _dummy = new EspackPrintingText(Graphics,"@", CurrentFont, CurrentBrush, 0, 0);
             _lastItemWidth = _dummy.Width;
             _lastItemHeight = _dummy.Height;
             _dummy = null;
@@ -479,7 +474,7 @@ namespace DiverseControls
                 pY = CurrentX;
 
             // Create and add the object to the corresponding list.
-            _textObj = new EspackPrintingText(pText, pFont, pBrush, pX, pY);
+            _textObj = new EspackPrintingText(Graphics,pText, pFont, pBrush, pX, pY);
             Items.Add(_textObj);
 
             // Post operations
@@ -499,12 +494,13 @@ namespace DiverseControls
         public EspackPrintingArea HeaderArea { get; set; }
         public EspackPrintingArea BodyArea { get; set; }
         public EspackPrintingArea FooterArea { get; set; }
+        public Graphics Graphics { get; set; }
 
         public EspackPrinting()
         {
-            HeaderArea = new EspackPrintingArea();
-            BodyArea = new EspackPrintingArea();
-            FooterArea = new EspackPrintingArea();
+            HeaderArea = new EspackPrintingArea(Graphics);
+            BodyArea = new EspackPrintingArea(Graphics);
+            FooterArea = new EspackPrintingArea(Graphics);
         }
 
         public void NewLine(EnumDocumentParts pDocumentArea=EnumDocumentParts.NONE)
@@ -566,6 +562,24 @@ namespace DiverseControls
                     break;
             }
 
+        }
+
+        protected override void OnPrintPage(PrintPageEventArgs e)
+        {
+            var g = e.Graphics;
+            g.PageUnit = GraphicsUnit.Millimeter;
+            // are going to be more pages?
+
+            //e.HasMorePages = (BodyList.LastPrintedLine < BodyList.Lines.Count);
+
+
+            BodyArea.Items.ToList().ForEach(t =>
+            {
+                ((EspackPrintingText)t).Draw();
+            });
+
+
+            base.OnPrintPage(e);
         }
 
     }
