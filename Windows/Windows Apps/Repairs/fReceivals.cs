@@ -159,9 +159,8 @@ namespace Repairs
 
                         _pollo.AddText("PELONES HEADER");
                         _pollo.AddText("PELONES BODY 1", EnumDocumentParts.BODY);
-                        _pollo.AddText("PELONES BODY 2");
+                        _pollo.AddText("PELONES BODY 2",true);
                         _pollo.AddText("PELONES BODY 3");
-                        _pollo.NewLine();
                         _pollo.AddText("PELONES BODY 4");
                         _pollo.AddText("PELONES FOOTER", EnumDocumentParts.FOOTER);
 
