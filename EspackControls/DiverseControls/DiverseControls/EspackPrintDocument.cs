@@ -487,8 +487,8 @@ namespace DiverseControls
             RectangleF = pArea;
 
             // Set the default font/brush.
-            Font = pFont;
-            Brush = pBrush;
+            Font = pFont ?? new Font(FontFamily.GenericSansSerif, 10F, FontStyle.Regular);
+            Brush = pBrush ?? new SolidBrush(Color.Black);
         }
         public EspackPrintingArea(EnumDocumentZones pZone, float pX, float pY, float pWidth, float pHeight, Font pFont = null, Brush pBrush = null, EnumZoneDocking pDocking = EnumZoneDocking.ALLOWED)
             : this(pZone, new RectangleF(pX, pY, pWidth, pHeight), pFont, pBrush, pDocking)
@@ -519,9 +519,29 @@ namespace DiverseControls
         }
 
         // Convert all relative positions to absolute
-        public void ArrangeItems(Graphics pGraphics)
+        public void ArrangeItems(Graphics pGraphics,EspackPrintingArea pPreviousArea)
         {
-            EspackPrintingText _previousText=null; //=new EspackPrintingText("@",new Font(FontFamily.GenericSansSerif, 10F, FontStyle.Regular),new SolidBrush(Color.Black),0,0,false);
+    
+            EspackPrintingText _previousText = null; //=new EspackPrintingText("@",new Font(FontFamily.GenericSansSerif, 10F, FontStyle.Regular),new SolidBrush(Color.Black),0,0,false);
+
+            if (pPreviousArea != null)
+            {
+                switch (Docking)
+                {
+                    case EnumZoneDocking.RIGHTWARDS:
+                        if (X == -1) X = pPreviousArea.X + pPreviousArea.Width;
+                        if (Y == -1) Y = pPreviousArea.Y;
+                        break;
+                    case EnumZoneDocking.DOWNWARDS:
+                        if (X == -1) X = pPreviousArea.X;
+                        if (Y == -1) Y = pPreviousArea.Y + pPreviousArea.Height;
+                        break;
+                    default:
+                        if (X == -1) X = 0;
+                        if (Y == -1) Y = pPreviousArea.Y + pPreviousArea.Height;
+                        break;
+                }
+            }
 
             // Calculate the X and Y for each item when they are not defined
             Items.ForEach(x =>
@@ -551,9 +571,9 @@ namespace DiverseControls
                                 }
                             }
                             if (_currentItem.Font == null)
-                                _currentItem.Font = _previousText.Font;
+                                _currentItem.Font = _previousText.Font??Font;
                             if (_currentItem.Brush == null)
-                                _currentItem.Brush = _previousText.Brush;
+                                _currentItem.Brush = _previousText.Brush??Brush;
 
                         }
                         else
@@ -561,8 +581,8 @@ namespace DiverseControls
                             // First element: set defaults if not passed
                             _currentItem.X = _currentItem.X == -1 ? X : X + _currentItem.X; // LEFT MARGIN
                             _currentItem.Y = _currentItem.Y == -1 ? Y : Y + _currentItem.Y; // TOP MARGIN
-                            _currentItem.Font = _currentItem.Font == null ? (new Font(FontFamily.GenericSansSerif, 10F, FontStyle.Regular)) : _currentItem.Font;
-                            _currentItem.Brush = _currentItem.Brush == null ? (new SolidBrush(Color.Black)) : _currentItem.Brush;
+                            _currentItem.Font = _currentItem.Font ?? Font;
+                            _currentItem.Brush = _currentItem.Brush ?? Brush;
                         }
                         if (_currentItem.X + _currentItem.Width > Width)
                             Width = _currentItem.X + _currentItem.Width;
@@ -577,42 +597,50 @@ namespace DiverseControls
             });
         }
 
+        // Draw all the items in the area
+        public void Draw()
+        {
+            // Draw them
+            Items.ForEach(_item =>
+            {
+                ((IEspackPrintingItem)_item).Draw();
+            });
+        }
     }
 
     // Espack Print Document class
-    public class EspackPrinting : PrintDocument
+        public class EspackPrinting : PrintDocument
     {
 
-        public EspackPrintingArea CurrentArea;
+        public EspackPrintingArea CurrentArea;                                                  // Current Area, in which all the actions will be done
+        public List<EspackPrintingArea> Areas { get; set; } = new List<EspackPrintingArea>();   // List of areas in the document
+        private bool FirstPage = true;                                                          // Control the first iteration of OnPrintPage event
+        private int PageCounter=1;
+        private int TotalPages;
+        public string PageCounterFormat = "Page {0} of {1}";
 
-        public List<EspackPrintingArea> Areas { get; set; } = new List<EspackPrintingArea>();
-
-        private bool FirstPage = true;
-
-        public Graphics Graphics { get; set; }
-
+        // Constructor
         public EspackPrinting()
         {
 
         }
 
+        // Add a new area and set it as current
         public void AddArea(EnumDocumentZones pZone,Font pFont=null, Brush pBrush=null, EnumZoneDocking pDocking=EnumZoneDocking.NONE)
         {
             CurrentArea = new EspackPrintingArea(pZone, pFont, pBrush, pDocking);
             Areas.Add(CurrentArea);
         }
 
-        // Distinct versions of AddText.
+        // Add a text item to the current area
         public void AddText(string pText)
         {
             AddText(pText, null, null, -1, -1, false);
         }
-
         public void AddText(string pText, bool pEOL)
         {
             AddText(pText, null, null, -1, -1, pEOL);
         }
-
         public void AddText(string pText, Font pFont = null, Brush pBrush = null, float pX = -1, float pY = -1, bool pEOL= false)
         {
             if (CurrentArea!=null)
@@ -625,96 +653,83 @@ namespace DiverseControls
             }
         }
 
+        // OnPrintPage event, triggered on each new page
         protected override void OnPrintPage(PrintPageEventArgs e)
         {
-            EspackPrintingArea _previousArea=null;
+            EspackPrintingArea _previousArea = null;
+
             var _g = e.Graphics;
             _g.PageUnit = GraphicsUnit.Millimeter;
          
+           
+
             if (FirstPage)
             {
-                float _minY=0;
+                float _minBodyY = 0;
+                float _maxBodyY = 0;
+
+                // Header areas
                 Areas.Where(_item => (_item.Zone == EnumDocumentZones.HEADER)).ToList().ForEach(_item =>
-                { 
-                    if (_previousArea != null)
-                    {
-                        switch (_item.Docking)
-                        {
-                            case EnumZoneDocking.RIGHTWARDS:
-                                if (_item.X == -1) _item.X = _previousArea.X + _previousArea.Width;
-                                if (_item.Y == -1) _item.Y = _previousArea.Y;
-                                break;
-                            case EnumZoneDocking.DOWNWARDS:
-                                if (_item.X == -1) _item.X = _previousArea.X;
-                                if (_item.Y == -1) _item.Y = _previousArea.Y + _previousArea.Height;
-                                break;
-                            default:
-                                if (_item.X == -1) _item.X = 0;
-                                if (_item.Y == -1) _item.Y = _previousArea.Y + _previousArea.Height;
-                                break;
-                        }
-
-                        
-                    }
-                    _item.ArrangeItems(_g);
-                    _minY = (_minY < _item.Height) ? _item.Height : _minY;
+                {
+                    _item.ArrangeItems(_g, _previousArea);
+                    _minBodyY = (_minBodyY < _item.Y + _item.Height) ? _item.Y + _item.Height : _minBodyY;
                     _previousArea = _item;
-
                 });
-
-                float _maxY = 0;
+                
+                // Footer areas
                 _previousArea = null;
                 Areas.Where(_item => (_item.Zone == EnumDocumentZones.FOOTER)).ToList().ForEach(_item =>
                 {
-                    if (_previousArea != null)
-                    {
-                        switch (_item.Docking)
-                        {
-                            case EnumZoneDocking.RIGHTWARDS:
-                                if (_item.X == -1) _item.X = _previousArea.X + _previousArea.Width;
-                                if (_item.Y == -1) _item.Y = _previousArea.Y;
-                                break;
-                            case EnumZoneDocking.DOWNWARDS:
-                                if (_item.X == -1) _item.X = _previousArea.X;
-                                if (_item.Y == -1) _item.Y = _previousArea.Y + _previousArea.Height;
-                                break;
-                            default:
-                                if (_item.X == -1) _item.X = 0;
-                                if (_item.Y == -1) _item.Y = _previousArea.Y + _previousArea.Height;
-                                break;
-                        }
-
-
-                    }
-                    _item.ArrangeItems(_g);
-                    _maxY = (_maxY < _item.Height) ? _item.Height : _maxY;
+                    _item.ArrangeItems(_g, _previousArea);
+                    _maxBodyY = (_maxBodyY < _item.Y +_item.Height) ? _item.Y+ _item.Height : _maxBodyY;
                     _previousArea = _item;
-
                 });
+                _maxBodyY = e.PageBounds.Height - _maxBodyY;
 
-                _maxY = e.PageBounds.Height - _maxY;
-
+                // Move the footer relative positions to its absolute place
                 Areas.Where(_item => (_item.Zone == EnumDocumentZones.FOOTER)).ToList().ForEach(_item =>
                 {
-                    _item.Move(0,_maxY);
+                    _item.Move(0, (_maxBodyY/5));
+                    //_item.Move(0, _maxBody);
                 });
 
+                // Set the Y limits for body areas
+                Areas.Where(_item => (_item.Zone == EnumDocumentZones.BODY)).ToList().ForEach(_item =>
+                {
+                    _item.Y = _minBodyY;
+                    _item.Height = _maxBodyY;
+                });
+                FirstPage = false;
             }
-            
 
-            //e.HasMorePages = (BodyList.LastPrintedLine < BodyList.Lines.Count);
+            _previousArea = null;
 
+            // body areas stuff
+            /*
             Areas.Where(x => (x.Zone == EnumDocumentZones.BODY )).ToList().ForEach(x =>
             {
-                x.ArrangeItems(_g);
-            });
-
-            /*
-            BodyArea.Items.ToList().ForEach(t =>
-            {
-                ((EspackPrintingText)t).Draw();
+                x.ArrangeItems(_g,_previousArea);
             });
             */
+            
+
+            // printing            
+            Areas.ForEach(_item =>
+            {
+                _item.Draw();
+            });
+
+            // paging
+            //e.HasMorePages = (BodyList.LastPrintedLine < BodyList.Lines.Count);
+            PageCounter++;
+            TotalPages = 1;
+            if (PageCounterFormat!="")
+            {
+//                DefaultPageSettings.Landscape = false;
+                _g.DrawString(String.Format(PageCounterFormat,PageCounter,TotalPages), new Font(FontFamily.GenericSansSerif, 10F, FontStyle.Regular), new SolidBrush(Color.Black),  e.PageSettings.Margins.Right-100F,100F);
+                _g.DrawString(String.Format(PageCounterFormat, PageCounter, TotalPages), new Font(FontFamily.GenericSansSerif, 10F, FontStyle.Regular), new SolidBrush(Color.Black), 0, e.PageSettings.Margins.Bottom-50F);
+            }
+
 
             base.OnPrintPage(e);
         }

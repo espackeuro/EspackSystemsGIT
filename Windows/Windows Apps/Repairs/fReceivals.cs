@@ -157,13 +157,26 @@ namespace Repairs
                         _pollo.PrinterSettings = _pd.PrinterSettings;
                         _pd.Document = _pollo;
 
-                        _pollo.AddText("PELONES HEADER");
-                        _pollo.AddText("PELONES BODY 1", EnumDocumentParts.BODY);
-                        _pollo.AddText("PELONES BODY 2",true);
-                        _pollo.AddText("PELONES BODY 3");
-                        _pollo.AddText("PELONES BODY 4");
-                        _pollo.AddText("PELONES FOOTER", EnumDocumentParts.FOOTER);
+                        FontFamily fontFamily = new FontFamily("Arial");
 
+                        _pollo.AddArea(EnumDocumentZones.HEADER, new Font(fontFamily, 16, FontStyle.Bold), new SolidBrush(Color.Red));
+                        _pollo.AddText("HOLA1");
+                        _pollo.AddText("HOLA2",true);
+                        _pollo.AddText("ADIOS", new Font(fontFamily, 11, FontStyle.Bold), new SolidBrush(Color.Blue));
+                        _pollo.AddText("ADIOS");
+                        _pollo.AddText("ADIOS");
+                        _pollo.AddText("ADIOS",true);
+                        _pollo.AddText("P");
+                        _pollo.AddText("P");
+                        _pollo.AddText("P");
+                        _pollo.AddText("P");
+                        _pollo.AddText("P");
+                        _pollo.AddArea(EnumDocumentZones.FOOTER); //, new Font(fontFamily, 10, FontStyle.Bold), new SolidBrush(Color.Black));
+                        _pollo.AddText("YUHU!!");
+                        _pollo.AddText("YUPI!!");
+                        _pollo.AddText("OLE!!",true);
+                        _pollo.AddText("YUHU!!");
+                        _pollo.AddText("YUPI!!",true);
 
                         _pollo.Print();
                     }
