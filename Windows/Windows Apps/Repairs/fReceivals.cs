@@ -157,25 +157,26 @@ namespace Repairs
                         _pollo.PrinterSettings = _pd.PrinterSettings;
                         _pd.Document = _pollo;
 
-                        FontFamily fontFamily = new FontFamily("Arial");
+                        EspackFont pFont= new EspackFont("Arial",10F,pBrush:new SolidBrush(Color.Blue));
 
-                        _pollo.AddArea(EnumDocumentZones.HEADER, new Font(fontFamily, 16, FontStyle.Bold), new SolidBrush(Color.Red));
+                        _pollo.AddArea(EnumDocumentZones.HEADER, new EspackFont("Arial",10F,FontStyle.Underline, new SolidBrush(Color.Red)));
                         _pollo.AddText("HOLA1");
                         _pollo.AddText("HOLA2",true);
-                        _pollo.AddText("ADIOS", new Font(fontFamily, 11, FontStyle.Bold), new SolidBrush(Color.Blue));
+                        _pollo.AddText("ADIOS", new EspackFont("Tahoma", 6F)); ;
                         _pollo.AddText("ADIOS");
                         _pollo.AddText("ADIOS");
                         _pollo.AddText("ADIOS",true);
+                        _pollo.AddText("P",pFont);
                         _pollo.AddText("P");
+                        ((SolidBrush)pFont.Brush).Color = Color.Green;
                         _pollo.AddText("P");
+                        _pollo.AddText("P"); 
                         _pollo.AddText("P");
-                        _pollo.AddText("P");
-                        _pollo.AddText("P");
-                        _pollo.AddArea(EnumDocumentZones.FOOTER); //, new Font(fontFamily, 10, FontStyle.Bold), new SolidBrush(Color.Black));
+                        _pollo.AddArea(EnumDocumentZones.FOOTER, new EspackFont("Tahoma",5.4F)); //, new Font(fontFamily, 10, FontStyle.Bold), new SolidBrush(Color.Black));
                         _pollo.AddText("YUHU!!");
                         _pollo.AddText("YUPI!!");
                         _pollo.AddText("OLE!!",true);
-                        _pollo.AddText("YUHU!!");
+                        _pollo.AddText("YUHU!!", new EspackFont("Comic Sans MS", 4F));
                         _pollo.AddText("YUPI!!",true);
 
                         _pollo.Print();
