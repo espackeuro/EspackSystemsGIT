@@ -5,6 +5,9 @@ using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using AccesoDatos;
+using AccesoDatosNet;
 
 namespace DiverseControls
 {
@@ -14,8 +17,8 @@ namespace DiverseControls
         Font Font { get; set; }
         Brush Brush { get; set; }
         Graphics Graphics { get; set; }
-        float Height { get;  }
-        float Width { get;  }
+        float Height { get; }
+        float Width { get; }
         void Draw(float x, float y);
     }
 
@@ -64,7 +67,7 @@ namespace DiverseControls
 
         public void Draw(float x, float y)
         {
-            if ( Graphics!= null)
+            if (Graphics != null)
             {
                 Graphics.DrawString(_item, Font, Brush, x, y);
             }
@@ -163,10 +166,9 @@ namespace DiverseControls
         }
 
     }
+    public enum EnumDocumentParts { HEADER, BODY, FOOTER }
 
-    public enum EnumDocumentParts { HEADER, BODY, FOOTER, NONE }
-
-    public class EspackPrintDocument:PrintDocument
+    public class EspackPrintDocument : PrintDocument
     {
         public const float TOP_MARGIN = 15F;
         public const float BOTTOM_MARGIN = 15F;
@@ -179,12 +181,12 @@ namespace DiverseControls
         public PrintableLineList HeaderList { get; set; } = new PrintableLineList();
         public PrintableLineList BodyList { get; set; } = new PrintableLineList();
         public PrintableLineList FooterList { get; set; } = new PrintableLineList();
-        public EnumDocumentParts CurrentPart { get; set; }
+        public EnumDocumentParts CurrentZone { get; set; }
         public PrintableLine CurrentLine
         {
             get
             {
-                switch (CurrentPart)
+                switch (CurrentZone)
                 {
                     case EnumDocumentParts.HEADER:
                         return HeaderList.Lines[CurrentLineIndex];
@@ -198,7 +200,7 @@ namespace DiverseControls
             }
         }
         public int CurrentLineIndex { get; set; }
-        
+
         public Font CurrentFont { get; set; }
         public Brush CurrentBrush { get; set; }
 
@@ -241,29 +243,29 @@ namespace DiverseControls
             BodyList.Lines.Add(new PrintableLine());
             CurrentLineIndex = 0;
         }
-        public void NewLine(bool pBanding = false, EnumDocumentParts pPart=EnumDocumentParts.BODY)
+        public void NewLine(bool pBanding = false, EnumDocumentParts pArea = EnumDocumentParts.BODY)
         {
-            var _line = new PrintableLine() { Banding = pBanding, LineNumber= BodyList.Lines.Count };
+            var _line = new PrintableLine() { Banding = pBanding, LineNumber = BodyList.Lines.Count };
             _line.Add(new PrintableText(" ", CurrentFont));
-            switch (pPart)
+            switch (pArea)
             {
                 case EnumDocumentParts.HEADER:
                     HeaderList.Lines.Add(_line);
                     CurrentLineIndex = HeaderList.Lines.Count - 1;
-                    CurrentPart = EnumDocumentParts.HEADER;
+                    CurrentZone = EnumDocumentParts.HEADER;
                     break;
                 case EnumDocumentParts.BODY:
                     BodyList.Lines.Add(_line);
                     CurrentLineIndex = BodyList.Lines.Count - 1;
-                    CurrentPart = EnumDocumentParts.BODY;
+                    CurrentZone = EnumDocumentParts.BODY;
                     break;
                 case EnumDocumentParts.FOOTER:
                     FooterList.Lines.Add(_line);
                     CurrentLineIndex = FooterList.Lines.Count - 1;
-                    CurrentPart = EnumDocumentParts.FOOTER;
+                    CurrentZone = EnumDocumentParts.FOOTER;
                     break;
             }
-            
+
         }
         public void Add(PrintableThing pThing)
         {
@@ -272,7 +274,7 @@ namespace DiverseControls
                 CurrentLine.Things.RemoveAt(0);
                 CurrentLine.Empty = false;
             }
-                
+
             CurrentLine.Add(pThing);
             CurrentFont = pThing.Font;
 
@@ -280,7 +282,7 @@ namespace DiverseControls
 
         public void ClearFooter()
         {
-            FooterList.Lines.RemoveAll(item=>true);
+            FooterList.Lines.RemoveAll(item => true);
         }
 
         public void Add(string pText)
@@ -308,9 +310,9 @@ namespace DiverseControls
             });
 
             // lets print the lines
-            if (BodyList.LastPrintedLine >1)
+            if (BodyList.LastPrintedLine > 1)
                 PrintDocumentLine(BodyList.Lines[1], g, ref _y); // column titles in following new pages
-            while (_y <= YMax && BodyList.LastPrintedLine < BodyList.Lines.Count )
+            while (_y <= YMax && BodyList.LastPrintedLine < BodyList.Lines.Count)
             {
                 PrintDocumentLine(BodyList.Lines[BodyList.LastPrintedLine], g, ref _y);
                 BodyList.LastPrintedLine++;
@@ -344,16 +346,21 @@ namespace DiverseControls
 
             _y += Line.Height;
             _x = XMin;
-            
+
         }
     }
 
 
 
 
-    /* ------------------------------------------------- */
+    /* -----------------------------------------------------------------------------------------------
+     *  NEW ESPACK PRINTING CLASSES
+     * ----------------------------------------------------------------------------------------------- */
 
+    public enum EnumDocumentZones { HEADER, BODY, FOOTER, NONE }
+    public enum EnumZoneDocking { ALLOWED, RIGHTWARDS, DOWNWARDS, NONE }
 
+    // Interface
     public interface IEspackPrintingItem
     {
         float X { get; set; }
@@ -361,212 +368,551 @@ namespace DiverseControls
         Graphics Graphics { get; set; }
         float Height { get; }
         float Width { get; }
-        void Draw(float x, float y);
+        bool NewPage { get; set; } 
         void Draw();
     }
 
-    public class EspackPrintingText : IEspackPrintingItem
+    // Font class with millimeter units, brush and default values
+    public class EspackFont
     {
+        public Font Font;
+        public Brush Brush;
+        public EspackFont(string FontName = "Tahoma", float pSize = 10, FontStyle pStyle = FontStyle.Regular, Brush pBrush = null)
+        {
+            FontFamily pFamily;
+            try
+            {
+                pFamily = new FontFamily(FontName);
+            }
+            catch (Exception)
+            {
+                pFamily = new FontFamily("Tahoma");
+            }
+            Font = new Font(pFamily, pSize, pStyle, GraphicsUnit.Millimeter);
+            Brush = pBrush ?? new SolidBrush(Color.Black);
+        }
+    }
+
+    // Text items class
+    public class EspackPrintingText : IEspackPrintingItem, IDisposable
+    {
+        public string Text { get; set; }
         public float X { get; set; }
         public float Y { get; set; }
+        public bool EOL { get; set; }       // End Of Line
+        public Font Font { get; set; }
+        public Brush Brush { get; set; }
+        public bool NewPage { get; set; } = false;
         public Graphics Graphics { get; set; }
+
+        // Get the height for current text
         public float Height
         {
             get
             {
                 if (Graphics != null)
-                    return Graphics.MeasureString(Text.Replace(' ', '@'), Font).Height;
+                    return Graphics.MeasureString(Text, Font).Height;
                 else return 0;
             }
         }
+
+        // Get the width for current text
         public float Width
         {
             get
             {
                 if (Graphics != null)
-                    return Graphics.MeasureString(Text.Replace(' ', '@') + '@', Font).Width;
+                    return Graphics.MeasureString(Text, Font).Width;
                 else return 0;
             }
         }
-        public string Text { get; set; }
-        public Font Font { get; set; }
-        public Brush Brush { get; set; }
 
-        public EspackPrintingText(string ThisText, Font ThisFont, Brush ThisBrush, float ThisX, float ThisY)
+        // Get the size (width,height)
+        public PointF Size
         {
-            Text = ThisText;
-            Font = ThisFont;
-            Brush = ThisBrush;
-            X = ThisX;
-            Y = ThisY;
-        }
-
-        public void Draw(float x, float y)
-        {
-            if (Graphics != null)
+            get
             {
-                Graphics.DrawString(Text, Font, Brush, x, y);
+                return new PointF(Width, Height);
             }
         }
 
+
+        // Constructor.
+        public EspackPrintingText(string pText, EspackFont pFont=null, float pX=-1, float pY=-1, bool pEOL=false)
+        {
+            Text = pText;
+            Font = pFont != null ? pFont.Font : null;
+            Brush = pFont != null ? pFont.Brush : null;
+            X = pX;
+            Y = pY;
+            EOL = pEOL;
+        }
+
+        // Draw the text
         public void Draw()
         {
-            if (Graphics != null)
-            {
+            if (Graphics!=null)
                 Graphics.DrawString(Text, Font, Brush, X, Y);
+        }
+
+        // --------- IDisposable stuff ---------
+        #region IDisposable Support
+        private bool disposedValue = false; // To detect redundant calls
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    // TODO: dispose managed state (managed objects).
+                }
+
+                // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
+                // TODO: set large fields to null.
+
+                disposedValue = true;
             }
         }
 
+        // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
+        // ~EspackPrintingText() {
+        //   // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+        //   Dispose(false);
+        // }
+
+        // This code added to correctly implement the disposable pattern.
+        public void Dispose()
+        {
+            // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+            Dispose(true);
+            // TODO: uncomment the following line if the finalizer is overridden above.
+            // GC.SuppressFinalize(this);
+        }
+        #endregion
+        // --------- until here ---------
     }
 
-
+    // Class for grouping several EspackPringing objects
     public class EspackPrintingArea
     {
-        private float _lastItemHeight;
-        private float _lastItemWidth;
+        public EnumDocumentZones Zone;
+        public EnumZoneDocking Docking;
 
-        public EnumDocumentParts DocumentArea;
+        public float X { get; set; }
+        public float Y { get; set; }
+        public float Width { get; set; }
+        public float Height { get; set; }
+        public float MaxHeight { get; set; }
+        public RectangleF RectangleF { get; set; }
 
-        public float CurrentX { get; set; }
-        public float CurrentY { get; set; }
-        public float MinY { get; set; }
-        public float MaxY { get; set; }
-        public Font CurrentFont { get; set; }
-        public Brush CurrentBrush { get; set; }
-
-        public float LastItemHeight { get { return _lastItemHeight; } }
-        public float LastItemWidth { get { return _lastItemWidth; } }
+        private EspackFont Font;
+        //private Brush Brush;
 
         public List<object> Items { get; set; } = new List<object>();
 
-        public EspackPrintingArea(Font pFont = null,Brush pBrush=null)
+        // Constructor
+        public EspackPrintingArea(EnumDocumentZones pZone, RectangleF pArea, float pMaxHeight, EspackFont pFont = null, EnumZoneDocking pDocking = EnumZoneDocking.ALLOWED)
         {
-            // Set the default font/brush.
-            CurrentFont = pFont == null ? new Font(FontFamily.GenericSansSerif, 10F, FontStyle.Regular) : pFont;
-            CurrentBrush = pBrush == null ? new SolidBrush(Color.Black) : pBrush;
+            Zone = pZone;
+            Docking = pDocking;
 
-            // Set the last used item width/height (no items yet, so we set the value from a dummy object).
-            EspackPrintingText _dummy = new EspackPrintingText("@", CurrentFont, CurrentBrush, 0, 0);
-            _lastItemWidth = _dummy.Width;
-            _lastItemHeight = _dummy.Height;
-            _dummy = null;
+            // Set dimensions
+            X = pArea.X;
+            Y = pArea.Y;
+            Width = pArea.Width;
+            Height = pArea.Height;
+            RectangleF = pArea;
+            MaxHeight = pMaxHeight;
 
-            CurrentX = 0;
-            CurrentY = 0;
+            // Set the font/brush.
+            Font = pFont;
 
-            MinY = 0;
-            MaxY = 39483948;
+        }
+        public EspackPrintingArea(EnumDocumentZones pZone, float pX, float pY, float pWidth, float pHeight, float pMaxHeight=-1, EspackFont pFont = null, EnumZoneDocking pDocking = EnumZoneDocking.ALLOWED)
+            : this(pZone, new RectangleF(pX, pY, pWidth, pHeight), pMaxHeight, pFont, pDocking)
+        {
+
+        }
+        public EspackPrintingArea(EnumDocumentZones pZone, EspackFont pFont = null, EnumZoneDocking pDocking = EnumZoneDocking.ALLOWED)
+            : this(pZone, new RectangleF(-1, -1, -1, -1), -1, pFont, pDocking)
+        {
+
         }
 
-        public void NewLine()
+        // Add a text object to the list
+        public void AddText(string pText, EspackFont pFont = null, float pX = -1, float pY = -1,bool pEOL=false)
         {
-            CurrentY = CurrentY + LastItemHeight;
+            // Create and add the object to the list
+            Items.Add(new EspackPrintingText(pText, pFont, pX, pY, pEOL));
         }
 
-        public void AddText(string pText, Font pFont = null, Brush pBrush = null, float pX = -1, float pY = -1)
+        // Move all X,Y units
+        public void Move(float pX=0,float pY = 0)
         {
-            EspackPrintingText _textObj;
-            bool _recalculateX = (pX == -1 && pY == -1);
-
-            // When not passed, we use the current values.
-            if (pFont == null)
-                pFont = CurrentFont;
-            if (pBrush == null)
-                pBrush = CurrentBrush;
-            if (pX == -1)
-                pX = CurrentX;
-            if (pY == -1)
-                pY = CurrentX;
-
-            // Create and add the object to the corresponding list.
-            _textObj = new EspackPrintingText(pText, pFont, pBrush, pX, pY);
-            Items.Add(_textObj);
-
-            // Post operations
-            if (_recalculateX)
-                CurrentX = CurrentX + _lastItemWidth;
-            _lastItemHeight = _textObj.Height;
-            _lastItemWidth = _textObj.Width;
+            Items.ForEach(_item =>
+            {
+                ((IEspackPrintingItem)_item).X += pX;
+                ((IEspackPrintingItem)_item).Y += pY;
+            });
         }
 
+        // Convert all relative positions to absolute
+        public void ArrangeItems(Graphics pGraphics,PointF HardMargins, EspackPrintingArea pPreviousArea)
+        {
+    
+            EspackPrintingText _previousText = null;
+
+            if (pPreviousArea != null)
+            {
+                switch (Docking)
+                {
+                    case EnumZoneDocking.RIGHTWARDS:
+                        if (X == -1) X = pPreviousArea.X + pPreviousArea.Width;
+                        if (Y == -1) Y = pPreviousArea.Y;
+                        break;
+                    case EnumZoneDocking.DOWNWARDS:
+                        if (X == -1) X = pPreviousArea.X;
+                        if (Y == -1) Y = pPreviousArea.Y + pPreviousArea.Height;
+                        break;
+                    default:
+                        if (X == -1) X = HardMargins.X;
+                        if (Y == -1) Y = pPreviousArea.Y + pPreviousArea.Height;
+                        break;
+                }
+                if (Font == null)
+                    Font = pPreviousArea.Font;
+            }
+            else
+            {
+                // Set the min visible coordinates as default
+                if (X == -1) X = HardMargins.X;
+                if (Y == -1) Y = HardMargins.Y;
+                Font = Font ?? new EspackFont();
+            }
+
+            // Calculate the X and Y for each item when they are not defined
+            Items.ForEach(x =>
+            {
+                // Text items
+                if (x.GetType().Name == "EspackPrintingText")
+                {
+                    ((IEspackPrintingItem)x).Graphics = pGraphics;
+
+                    using (var _currentItem = ((EspackPrintingText)x))
+                    {
+                        if (_previousText != null)
+                        {
+                            // Previous item exists
+                            if (_currentItem.X == -1 && _currentItem.Y == -1)
+                            {
+                                // X and Y not set. Set them depending of EOL value
+                                if (!_previousText.EOL)
+                                {
+                                    _currentItem.X = _previousText.X + _previousText.Width;
+                                    _currentItem.Y = _previousText.Y;
+                                }
+                                else
+                                {
+                                    _currentItem.X = X; // LEFT MARGIN
+                                    _currentItem.Y = _previousText.Y + _previousText.Height;
+                                }
+                            }
+                            if (_currentItem.Font == null)
+                                _currentItem.Font = _previousText.Font??Font.Font;
+                            if (_currentItem.Brush == null)
+                                _currentItem.Brush = _previousText.Brush??Font.Brush;
+                        }
+                        else
+                        {
+                            // First element: set defaults if not passed
+                            _currentItem.X = _currentItem.X == -1 ? X : X + _currentItem.X; // LEFT MARGIN
+                            _currentItem.Y = _currentItem.Y == -1 ? Y : Y + _currentItem.Y; // TOP MARGIN
+                            _currentItem.Font = _currentItem.Font ?? Font.Font;
+                            _currentItem.Brush = _currentItem.Brush ?? Font.Brush;
+                        }
+
+                        if (_currentItem.Y + _currentItem.Height > MaxHeight)
+                        {
+                            _currentItem.Y = Y;
+                            _currentItem.NewPage= true;
+                        }
+
+                        if (_currentItem.X + _currentItem.Width > Width)
+                            Width = _currentItem.X + _currentItem.Width;
+                        if (_currentItem.Y + _currentItem.Height> Height)
+                            Height = _currentItem.Y + _currentItem.Height;
+
+                        
+
+                        _previousText = _currentItem;
+                        
+                    }
+                    
+                }
+                
+            });
+        }
+
+        // Draw all the items in the area
+        public void Draw()
+        {
+            // Draw them
+            Items.ForEach(_item =>
+            {
+                ((IEspackPrintingItem)_item).Draw();
+            });
+        }
     }
 
+    // Class to manage the paging 
+    public class EspackPageCounter
+    {
+        public bool Active { get; set; }
+        public string Format { get; set; }
+        public int Counter { get; set; }
+        public int Total { get; set; }
+        public HorizontalAlignment Alignment { get; set; }
+        public float X { get; set; }
+        public float Y { get; set; }
+        public EspackFont Font { get; set; }
+        public string Text
+        {
+            get
+            {
+                return string.Format(Format, Counter, Total);
+            }
+        }
+
+        public EspackPageCounter(bool pActive = true, string pFormat = "Page {0} of {1}", HorizontalAlignment pAlignment = HorizontalAlignment.Right)
+            : this(new EspackFont(pSize: 2), pActive, pFormat, pAlignment)
+        {
+            
+        }
+        public EspackPageCounter(EspackFont pFont, bool pActive = true, string pFormat = "Page {0} of {1}", HorizontalAlignment pAlignment = HorizontalAlignment.Right)
+        {
+            Font = pFont;
+            Active = pActive;
+            Format = pFormat;
+            Alignment = pAlignment;
+        }
+
+        public PointF Size(Graphics pGraphics)
+        {
+            EspackPrintingText _textObj = new EspackPrintingText(string.Format(Format, Counter, Total), Font);
+            _textObj.Graphics = pGraphics;
+            return _textObj.Size;
+        }
+    }
+
+    // Espack Print Document class
     public class EspackPrinting : PrintDocument
     {
+        public EspackPrintingArea CurrentArea;                                                  // Current Area, in which all the actions will be done
+        public List<EspackPrintingArea> Areas { get; set; } = new List<EspackPrintingArea>();   // List of areas in the document
+        public EspackPageCounter Pager;
+        public PointF HardMargins = new PointF(10F, 10F);
+        public RectangleF VisibleArea;
 
-        public EnumDocumentParts CurrentDocumentArea;
-        
-        public EspackPrintingArea HeaderArea { get; set; }
-        public EspackPrintingArea BodyArea { get; set; }
-        public EspackPrintingArea FooterArea { get; set; }
-
+        // Constructor
         public EspackPrinting()
         {
-            HeaderArea = new EspackPrintingArea();
-            BodyArea = new EspackPrintingArea();
-            FooterArea = new EspackPrintingArea();
+            Pager = new EspackPageCounter(true);
         }
-
-        public void NewLine(EnumDocumentParts pDocumentArea=EnumDocumentParts.NONE)
+        public EspackPrinting(EspackPageCounter pPager)
         {
-            // When not passed, we use the current values.
-            if (pDocumentArea == EnumDocumentParts.NONE)
-                pDocumentArea = CurrentDocumentArea;
-
-            switch (pDocumentArea)
-            {
-                case EnumDocumentParts.HEADER:
-                    HeaderArea.NewLine();
-                    break;
-                case EnumDocumentParts.BODY:
-                    BodyArea.NewLine();
-                    break;
-                case EnumDocumentParts.FOOTER:
-                    FooterArea.NewLine();
-                    break;
-            }
+            Pager = pPager;
         }
 
+        // Add a new area and set it as current
+        public void AddArea(EnumDocumentZones pZone,EspackFont pFont=null, EnumZoneDocking pDocking=EnumZoneDocking.NONE)
+        {
+            CurrentArea = new EspackPrintingArea(pZone, pFont, pDocking);
+            Areas.Add(CurrentArea);
+        }
 
-        // Distinct versions of AddText.
+        // Add a text item to the current area
         public void AddText(string pText)
         {
-            AddText(pText, CurrentDocumentArea);
+            AddText(pText, null, -1, -1, false);
         }
-        public void AddText(string pText, EnumDocumentParts pDocumentArea)
+        public void AddText(string pText, bool pEOL)
         {
-            // When not passed, we use the current values.
-            if (pDocumentArea == EnumDocumentParts.NONE)
-                pDocumentArea = CurrentDocumentArea;
-
-            AddText(pText, null, null, -1, -1, pDocumentArea);
+            AddText(pText, null, -1, -1, pEOL);
         }
-
-        public void AddText(string pText, Font pFont=null, Brush pBrush=null, float pX=-1, float pY=-1, EnumDocumentParts pDocumentArea = EnumDocumentParts.NONE)
+        public void AddText(string pText, EspackFont pFont = null, float pX = -1, float pY = -1, bool pEOL= false)
         {
-            // When not passed, we use the current values.
-            if (pDocumentArea == EnumDocumentParts.NONE)
-                pDocumentArea = CurrentDocumentArea;
-
-            if (pDocumentArea == EnumDocumentParts.NONE)
-                pDocumentArea = EnumDocumentParts.HEADER;
-
-            CurrentDocumentArea = pDocumentArea;
-
-            switch (pDocumentArea)
+            if (CurrentArea!=null)
             {
-                case EnumDocumentParts.HEADER:
-                    HeaderArea.AddText(pText, pFont, pBrush, pX, pY);
-                    break;
-                case EnumDocumentParts.BODY:
-                    BodyArea.AddText(pText, pFont, pBrush, pX, pY);
-                    break;
-                case EnumDocumentParts.FOOTER:
-                    FooterArea.AddText(pText, pFont, pBrush, pX, pY);
-                    break;
+                CurrentArea.AddText(pText, pFont, pX, pY, pEOL);
+            }
+            else
+            {
+                MessageBox.Show("There is not current Area defined.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Add the results of a query to the current area
+        public void AddQuery(string pSQL, cAccesoDatosNet pConn, bool pShowTitles=false)
+        {
+            if (CurrentArea != null)
+            {
+                using (var _rs = new StaticRS(pSQL, pConn))
+                {
+                    _rs.Open();
+                    if (_rs.RecordCount == 0)
+                    {
+                        MessageBox.Show("The query returned no data.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                    {
+                        while (!_rs.EOF)
+                        {
+                            AddText(_rs[0].ToString(),true);
+                            _rs.MoveNext();
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("There is not current Area defined.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+
+
+        // OnPrintPage event, triggered on each new page
+        protected override void OnPrintPage(PrintPageEventArgs e)
+        {
+            EspackPrintingArea _previousArea = null;
+
+            var _g = e.Graphics;
+            _g.PageUnit = GraphicsUnit.Millimeter;
+            //_g.VisibleClipBounds
+
+            //potas(e);
+           
+
+            if (Pager.Counter==0)
+            {
+                float _minBodyY = 0;
+                float _maxBodyY = 0;
+
+
+                //VisibleArea=new RectangleF(HardMargins.X,HardMargins.Y,_g.VisibleClipBounds.)
+                VisibleArea = new RectangleF(_g.VisibleClipBounds.X, _g.VisibleClipBounds.Y, _g.VisibleClipBounds.Width, _g.VisibleClipBounds.Height);
+
+                PointF _pagerSize;
+
+                // Header areas
+                Areas.Where(_item => (_item.Zone == EnumDocumentZones.HEADER)).ToList().ForEach(_item =>
+                {
+                    _item.ArrangeItems(_g, HardMargins, _previousArea);
+                    _minBodyY = (_minBodyY < _item.Y + _item.Height) ? _item.Y + _item.Height : _minBodyY;
+                    _previousArea = _item;
+                });
+
+                // Footer areas
+                _previousArea = null;
+                Areas.Where(_item => (_item.Zone == EnumDocumentZones.FOOTER)).ToList().ForEach(_item =>
+                {
+                    _item.ArrangeItems(_g, HardMargins, _previousArea);
+                    _maxBodyY = (_maxBodyY < _item.Y + _item.Height) ? _item.Y + _item.Height : _maxBodyY;
+                    _previousArea = _item;
+                });
+
+                _maxBodyY = _g.VisibleClipBounds.Bottom - HardMargins.Y - _maxBodyY;
+
+                // If pager is active, we must take it into account
+                if (Pager.Active)
+                {
+                    _pagerSize = Pager.Size(_g);
+                    _maxBodyY -= _pagerSize.Y;
+                    Pager.Y = _g.VisibleClipBounds.Bottom - HardMargins.Y - _pagerSize.Y;
+                    Pager.X = _g.VisibleClipBounds.Right - HardMargins.X - _pagerSize.X; 
+
+                }
+
+                // Move the footer relative positions to its absolute place
+                Areas.Where(_item => (_item.Zone == EnumDocumentZones.FOOTER)).ToList().ForEach(_item =>
+                {
+                    _item.Move(0, _maxBodyY);
+                });
+
+                // Set the Y limits for body areas
+                Areas.Where(_item => (_item.Zone == EnumDocumentZones.BODY)).ToList().ForEach(_item =>
+                {
+                    _item.Y = _minBodyY;
+                    _item.MaxHeight = _maxBodyY;
+                });
+
+                Pager.Counter = 1;
             }
 
+            _previousArea = null;
+
+            // body areas stuff
+            Areas.Where(_item => (_item.Zone == EnumDocumentZones.BODY )).ToList().ForEach(_item =>
+            {
+                _item.ArrangeItems(_g,HardMargins,_previousArea);
+            });
+
+            
+
+            // printing            
+            Areas.ForEach(_item =>
+            {
+                _item.Draw();
+            });
+
+            // paging
+            //e.HasMorePages = (BodyList.LastPrintedLine < BodyList.Lines.Count);
+
+            if (Pager.Active)
+            {
+                Pager.Total = 1; //
+                _g.DrawString(Pager.Text, Pager.Font.Font, Pager.Font.Brush, Pager.X, Pager.Y);
+                Pager.Counter++;
+            }
+
+
+            base.OnPrintPage(e);
         }
 
     }
 }
+/*
+private void potas(PrintPageEventArgs e)
+{
+    Graphics g = e.Graphics;
+    g.PageUnit = GraphicsUnit.Millimeter;
+
+    Image img = new Bitmap(@"c:\Sunset.jpg");
+    Graphics gg = Graphics.FromImage(img);
+
+
+    RectangleF marginBounds = e.MarginBounds;
+    if (!PrintController.IsPreview)
+        marginBounds.Offset(-e.PageSettings.HardMarginX,
+                        -e.PageSettings.HardMarginY);
+
+    float x = marginBounds.X / 100f +
+                    (marginBounds.Width / 100f -
+                        (float)img.Width / gg.DpiX) / 2f;
+    float y = marginBounds.Y / 100f +
+                    (marginBounds.Height / 100f -
+                        (float)img.Height / gg.DpiY) / 2f;
+
+
+
+    g.DrawImage(img, x, y);
+
+    //Don't call g.Dispose(). Operating System will do this job.
+    gg.Dispose();//You should call it to release graphics object immediately.
+}
+*/
+
