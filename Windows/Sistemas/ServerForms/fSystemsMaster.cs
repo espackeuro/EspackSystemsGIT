@@ -2,7 +2,7 @@
 using CommonTools;
 using CommonToolsWin;
 using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
@@ -24,12 +24,8 @@ namespace Sistemas
 {
     public partial class fSystemsMaster : Form
     {
-        public struct ServerCheckWithInfo
-        {
-            public CheckBox CheckBox { get; set; }
-            public Label Label { get; set; }
-        }
-        public Dictionary<string, ServerCheckWithInfo> ListServers = new Dictionary<string, ServerCheckWithInfo>();
+
+        
         public fSystemsMaster()
         {
             InitializeComponent();
@@ -71,46 +67,9 @@ namespace Sistemas
             CTLM.AfterButtonClick += CTLM_AfterButtonClick;
             CTLM.BeforeButtonClick += CTLM_BeforeButtonClick;
 
-            txtCheckoutUser.Upp = true;
-            txtCheckoutUser.ReadOnly = false;
-            txtCheckoutPwd.Upp = true;
-            txtCheckoutPwd.ReadOnly = false;
-
             // servers list
 
-            using (var rs = new StaticRS("Select AppServer, COD3 from NetworkSedes where dbo.CheckFlag(flags, 'ACTIVE') = 1 AND dbo.CheckFlag(flags, 'CHECKOUT') = 1", Values.gDatos))
-            {
-                rs.Open();
-                Point location = new Point() { X = 10 , Y = 30 + chkSelectAll.Height };
-                rs.Rows.ForEach((r) =>
-                {
-                    //checkbox
-                    var cs = new CheckBox()
-                    {
-                        Text = r["AppServer"].ToString()
-                    };
-                    cs.Width = (int)(cs.Width * 0.9);
-                    grpServers.Controls.Add(cs);
-                    cs.Location = location;
-                    //label
-                    var ls = new Label()
-                    {
-                        Text = string.Format("Server for {0}", r["COD3"])
-                    };
-                    grpServers.Controls.Add(ls);
-                    ls.Location = new Point() { X = location.X + cs.Width + 5, Y = location.Y + 3 };
-                    ls.Width = grpServers.Width - cs.Width - 25;
-                    location.Y = location.Y + cs.Height;
-                    //Server element
-                    var se = new ServerCheckWithInfo()
-                    {
-                        CheckBox = cs,
-                        Label = ls
-                    };
-
-                    ListServers.Add(r["COD3"].ToString(), se);
-                });
-            }
+            serversList1.Start("APPServer","~/checkout.sh", btnServerCheckout);
         }
         private void CTLM_BeforeButtonClick(object sender, CTLMantenimientoNet.CTLMEventArgs e)
         {
@@ -388,104 +347,9 @@ namespace Sistemas
 
         private async void btnServerCheckout_Click(object sender, EventArgs e)
         {
-            if (IsCheckingOut)
-                return;
-            if (txtCheckoutUser.Text == "" || txtCheckoutPwd.Text == "")
-            {
-                MessageBox.Show("Wrong User or password!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            IsCheckingOut = true;
-            btnServerCheckout.Image = global::Sistemas.Properties.Resources.rolling;
-            var serverList = ListServers.Where(w => w.Value.CheckBox.Checked == true).Select(s => s.Value.CheckBox.Text).ToList<string>();
-            //clean all server messages.
-            ListServers.ToList().ForEach(f =>
-            {
-                f.Value.Label.Text = "--";
-                LabelStyle(f.Value.Label, LabelStyles.NORMAL);
-            });
-            //create the checkout task
-            var ServerCheckoutTask = new ServerCheckout(serverList, txtCheckoutUser.Text, txtCheckoutPwd.Text);
-            ServerCheckoutTask.Callback += ServerCheckoutTask_Callback;
-            ServerCheckoutTask.ErrorCallback += ServerCheckoutTask_ErrorCallback;
-            //launch and wait
-            await ServerCheckoutTask.Start();
-            btnServerCheckout.Image = global::Sistemas.Properties.Resources.checkout;
-            MessageBox.Show("All checkout tasks finished!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            IsCheckingOut = false;
+            await serversList1.ExecuteCommandInServers();
         }
 
-        private void ServerCheckoutTask_Callback(object sender, AsyncTaskResponse e)
-        {
-            if (e.ServerName != "")
-            {
-                var elLabel = ListServers.First(s => s.Value.CheckBox.Text == e.ServerName).Value.Label;
-                LabelStyle(elLabel, LabelStyles.NORMAL);
-                elLabel.Text = e.Message;
-                if (e.Message == "Checkout completed.")
-                    ListServers.First(s => s.Value.CheckBox.Text == e.ServerName).Value.CheckBox.Checked = false;
-            }
-            else
-            {
-                MessageBox.Show("Info: " + e.Message + Environment.NewLine,
-                                "Information",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
-                ListServers.ToList().ForEach(f =>
-                {
-                    f.Value.Label.Text = "--";
-                    LabelStyle(f.Value.Label, LabelStyles.NORMAL);
-                });
-            }
-        }
-
-        private void ServerCheckoutTask_ErrorCallback(object sender, AsyncTaskResponse e)
-        {
-            if (e.ServerName != "")
-            {
-                var elLabel = ListServers.First(s => s.Value.CheckBox.Text == e.ServerName).Value.Label;
-                LabelStyle(elLabel, LabelStyles.ERROR);
-                elLabel.Text = e.Message;
-            }
-            else
-            {
-                MessageBox.Show(e.Message + Environment.NewLine,
-                                "Error",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-                ListServers.ToList().ForEach(f =>
-                {
-                    f.Value.Label.Text = "--";
-                    LabelStyle(f.Value.Label, LabelStyles.NORMAL);
-                });
-            }
-        }
-        private enum LabelStyles { NORMAL, ERROR };
-        private void LabelStyle(Label pLabel, LabelStyles pStyle)
-        {
-            switch (pStyle)
-            {
-                case LabelStyles.ERROR:
-                    {
-                        pLabel.BackColor = Color.Red;
-                        pLabel.ForeColor = Color.White;
-                        pLabel.Font = new Font(pLabel.Font, FontStyle.Bold);
-                        break;
-                    }
-                case LabelStyles.NORMAL:
-                    {
-                        pLabel.BackColor = Color.Transparent;
-                        pLabel.ForeColor = Color.Black;
-                        pLabel.Font = new Font(pLabel.Font, FontStyle.Regular);
-                        break;
-                    }
-            }
-        }
-
-        private void chkSelectAll_CheckedChanged(object sender, EventArgs e)
-        {
-            ListServers.ToList().ForEach(f => f.Value.CheckBox.Checked = ((CheckBox)sender).Checked);
-        }
     }
 
 }
