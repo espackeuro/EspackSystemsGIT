@@ -178,8 +178,8 @@ namespace Repairs
                         _pollo.AddText("OLE!!",true);
                         _pollo.AddText("YUHU!!", new EspackFont("Comic Sans MS", 4F));
                         _pollo.AddText("YUPI!!");
-                        _pollo.AddArea(EnumDocumentZones.BODY, new EspackFont("Tahoma", 4F),pDocking:EnumZoneDocking.DOWNWARDS);
-                        _pollo.AddQuery("select * from PackReceivalsDet",Values.gDatos);
+                        _pollo.AddArea(EnumDocumentZones.BODY, new EspackFont("Tahoma", 3F),pDocking:EnumZoneDocking.DOWNWARDS);
+                        _pollo.AddQuery("select top 56 * from GENERAL..usuarios_web",Values.gDatos);
 
                         _pollo.Print();
                     }
