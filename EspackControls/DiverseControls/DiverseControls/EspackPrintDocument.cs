@@ -368,7 +368,8 @@ namespace DiverseControls
         Graphics Graphics { get; set; }
         float Height { get; }
         float Width { get; }
-        bool NewPage { get; set; } 
+        bool Persistent { get; set; }
+        bool PrintMe { get; set;  }
         void Draw();
     }
 
@@ -402,8 +403,9 @@ namespace DiverseControls
         public bool EOL { get; set; }       // End Of Line
         public Font Font { get; set; }
         public Brush Brush { get; set; }
-        public bool NewPage { get; set; } = false;
         public Graphics Graphics { get; set; }
+        public bool Persistent { get; set; }
+        public bool PrintMe { get; set; }
 
         // Get the height for current text
         public float Height
@@ -411,7 +413,7 @@ namespace DiverseControls
             get
             {
                 if (Graphics != null)
-                    return Graphics.MeasureString(Text, Font).Height;
+                    return Graphics.MeasureString(Text!=""?Text:"@", Font).Height;
                 else return 0;
             }
         }
@@ -422,7 +424,7 @@ namespace DiverseControls
             get
             {
                 if (Graphics != null)
-                    return Graphics.MeasureString(Text, Font).Width;
+                    return Graphics.MeasureString(Text != "" ? Text : "@", Font).Width;
                 else return 0;
             }
         }
@@ -438,7 +440,7 @@ namespace DiverseControls
 
 
         // Constructor.
-        public EspackPrintingText(string pText, EspackFont pFont=null, float pX=-1, float pY=-1, bool pEOL=false)
+        public EspackPrintingText(string pText, EspackFont pFont=null, float pX=-1, float pY=-1, bool pEOL=false, bool pTitle=false)
         {
             Text = pText;
             Font = pFont != null ? pFont.Font : null;
@@ -446,6 +448,7 @@ namespace DiverseControls
             X = pX;
             Y = pY;
             EOL = pEOL;
+            Persistent = pTitle;
         }
 
         // Draw the text
@@ -541,10 +544,10 @@ namespace DiverseControls
         }
 
         // Add a text object to the list
-        public void AddText(string pText, EspackFont pFont = null, float pX = -1, float pY = -1,bool pEOL=false)
+        public void AddText(string pText, EspackFont pFont = null, float pX = -1, float pY = -1,bool pEOL=false,bool pTitle=false)
         {
             // Create and add the object to the list
-            Items.Add(new EspackPrintingText(pText, pFont, pX, pY, pEOL));
+            Items.Add(new EspackPrintingText(pText, pFont, pX, pY, pEOL,pTitle));
         }
 
         // Move all X,Y units
@@ -592,7 +595,8 @@ namespace DiverseControls
             }
 
             // Calculate the X and Y for each item when they are not defined
-            Items.ForEach(x =>
+            
+            foreach(var x in Items)
             {
                 // Text items
                 if (x.GetType().Name == "EspackPrintingText")
@@ -615,6 +619,12 @@ namespace DiverseControls
                                 else
                                 {
                                     _currentItem.X = X; // LEFT MARGIN
+
+                                    if (Zone == EnumDocumentZones.BODY && _previousText.Y + _previousText.Height > MaxHeight)
+                                    {
+                                        break;
+                                    }
+                                    
                                     _currentItem.Y = _previousText.Y + _previousText.Height;
                                 }
                             }
@@ -632,35 +642,41 @@ namespace DiverseControls
                             _currentItem.Brush = _currentItem.Brush ?? Font.Brush;
                         }
 
-                        if (_currentItem.Y + _currentItem.Height > MaxHeight)
-                        {
-                            _currentItem.Y = Y;
-                            _currentItem.NewPage= true;
-                        }
+                        //if ( MaxHeight!=-1 && _currentItem.Y + _currentItem.Height > MaxHeight)
+                        //{
+                        //    _currentItem.Y = Y;
+                        //    _currentItem.NewPage= true;
+                        //}
 
                         if (_currentItem.X + _currentItem.Width > Width)
                             Width = _currentItem.X + _currentItem.Width;
                         if (_currentItem.Y + _currentItem.Height> Height)
                             Height = _currentItem.Y + _currentItem.Height;
 
-                        
 
+                        _currentItem.PrintMe = true;
                         _previousText = _currentItem;
                         
                     }
                     
                 }
                 
-            });
+            }
+
         }
 
         // Draw all the items in the area
         public void Draw()
         {
-            // Draw them
-            Items.ForEach(_item =>
+            // Draw those that have PrintMe==true 
+            Items.Where(_item => (((IEspackPrintingItem)_item).PrintMe == true)).ToList().ForEach(_item =>
             {
-                ((IEspackPrintingItem)_item).Draw();
+                IEspackPrintingItem _printitem = ((IEspackPrintingItem)_item);
+                _printitem.Draw();
+
+                // For body zones, remove non persistent items after printing
+                if (Zone==EnumDocumentZones.BODY && !_printitem.Persistent)
+                    Items.Remove(_item);
             });
         }
     }
@@ -734,17 +750,29 @@ namespace DiverseControls
         // Add a text item to the current area
         public void AddText(string pText)
         {
-            AddText(pText, null, -1, -1, false);
+            AddText(false,pText, null, -1, -1, false);
         }
         public void AddText(string pText, bool pEOL)
         {
-            AddText(pText, null, -1, -1, pEOL);
+            AddText(false,pText, null, -1, -1, pEOL);
         }
-        public void AddText(string pText, EspackFont pFont = null, float pX = -1, float pY = -1, bool pEOL= false)
+        public void AddText(bool pTitle,string pText)
+        {
+            AddText(pTitle, pText, null, -1, -1, false);
+        }
+        public void AddText(bool pTitle, string pText, bool pEOL)
+        {
+            AddText(pTitle, pText, null, -1, -1, pEOL);
+        }
+        public void AddText(string pText, EspackFont pFont = null, float pX = -1, float pY = -1, bool pEOL = false)
+        {
+            AddText(false, pText, pFont, pX, pY, pEOL);
+        }
+        public void AddText(bool pTitle,string pText, EspackFont pFont = null, float pX = -1, float pY = -1, bool pEOL= false)
         {
             if (CurrentArea!=null)
             {
-                CurrentArea.AddText(pText, pFont, pX, pY, pEOL);
+                CurrentArea.AddText(pText, pFont, pX, pY, pEOL, pTitle);
             }
             else
             {
@@ -752,8 +780,15 @@ namespace DiverseControls
             }
         }
 
+        // Change to the next line
+        public void NewLine()
+        {
+            ((EspackPrintingText)CurrentArea.Items[CurrentArea.Items.Count() - 1]).EOL = true;
+            //AddText("", null, -1, -1, true);
+        }
+
         // Add the results of a query to the current area
-        public void AddQuery(string pSQL, cAccesoDatosNet pConn, bool pShowTitles=false)
+        public void AddQuery(string pSQL, cAccesoDatosNet pConn, bool pHideTitles=false)
         {
             if (CurrentArea != null)
             {
@@ -767,11 +802,23 @@ namespace DiverseControls
                     }
                     else
                     {
-                        while (!_rs.EOF)
+                        /*
+                        if (!pHideTitles)
                         {
-                            AddText(_rs[0].ToString(),true);
-                            _rs.MoveNext();
-                        }
+                            foreach(var _item in _rs.Fields)
+                            {
+                                AddText(true,_item.ToString());
+                            }
+                            AddText(true, "",true);
+                        }*/
+                        _rs.ToList().ForEach(_row =>
+                       {
+                           _row.ItemArray.ToList().ForEach(_column =>
+                           {
+                               AddText(_column.ToString());
+                           });
+                           NewLine();
+                       });
                     }
                 }
             }
@@ -801,7 +848,6 @@ namespace DiverseControls
             {
                 float _minBodyY = 0;
                 float _maxBodyY = 0;
-
 
                 //VisibleArea=new RectangleF(HardMargins.X,HardMargins.Y,_g.VisibleClipBounds.)
                 VisibleArea = new RectangleF(_g.VisibleClipBounds.X, _g.VisibleClipBounds.Y, _g.VisibleClipBounds.Width, _g.VisibleClipBounds.Height);
@@ -834,7 +880,6 @@ namespace DiverseControls
                     _maxBodyY -= _pagerSize.Y;
                     Pager.Y = _g.VisibleClipBounds.Bottom - HardMargins.Y - _pagerSize.Y;
                     Pager.X = _g.VisibleClipBounds.Right - HardMargins.X - _pagerSize.X; 
-
                 }
 
                 // Move the footer relative positions to its absolute place
@@ -848,8 +893,8 @@ namespace DiverseControls
                 {
                     _item.Y = _minBodyY;
                     _item.MaxHeight = _maxBodyY;
+                    Pager.Total = Pager.Total < _item.Items.Count ? _item.Items.Count : Pager.Total;
                 });
-
                 Pager.Counter = 1;
             }
 
@@ -862,23 +907,23 @@ namespace DiverseControls
             });
 
             
-
             // printing            
             Areas.ForEach(_item =>
             {
                 _item.Draw();
+                if (_item.Zone == EnumDocumentZones.BODY && Pager.Counter==1)
+                {
+                    Pager.Total = (int)Math.Ceiling((Pager.Total + 0.0) / (Pager.Total - _item.Items.Count + 0.0));
+                }
             });
 
             // paging
-            //e.HasMorePages = (BodyList.LastPrintedLine < BodyList.Lines.Count);
-
             if (Pager.Active)
             {
-                Pager.Total = 1; //
                 _g.DrawString(Pager.Text, Pager.Font.Font, Pager.Font.Brush, Pager.X, Pager.Y);
-                Pager.Counter++;
             }
-
+            e.HasMorePages = Pager.Counter < Pager.Total;
+            Pager.Counter++;
 
             base.OnPrintPage(e);
         }
