@@ -14,7 +14,7 @@ using System.IO.IsolatedStorage;
 using CommonToolsWin;
 using System.Reflection;
 
-namespace Simplistica
+namespace Sistemas
 {
     public partial class fMainSimplistica : Form
     {

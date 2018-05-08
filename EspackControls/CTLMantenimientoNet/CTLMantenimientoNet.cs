@@ -549,6 +549,7 @@ namespace CTLMantenimientoNet
             {
                 ((EspackFormControl)lControl).ParentDA = mDA;
                 ((EspackFormControl)lControl).ParentConn = Conn;
+                ((EspackFormControl)lControl).IsCTLMOwned = true;
             }
             mListItems.Add(lControl);
             if (lControl is Control && !(lControl is CtlVSGrid))

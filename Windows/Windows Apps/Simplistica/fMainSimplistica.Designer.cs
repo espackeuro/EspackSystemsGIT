@@ -1,4 +1,4 @@
-﻿namespace Simplistica
+﻿namespace Sistemas
 {
     partial class fMainSimplistica
     {

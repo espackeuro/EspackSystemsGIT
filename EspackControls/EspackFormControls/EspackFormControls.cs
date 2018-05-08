@@ -19,12 +19,14 @@ namespace EspackFormControls
 
     public interface EspackFormControl : EspackControl
     {
+        bool IsCTLMOwned { get; set; }
         EspackLabel CaptionLabel { get; set; }
         string Caption { get; set; }
         DA ParentDA { get; set; }
         cAccesoDatosNet ParentConn { get; set; }
         DynamicRS DependingRS { get; set; }
         Point Location { get; set; }
+
         
         //List<StaticRS> ExternalControls;//list of possible external controls, the key is the parameter name and the object is the control
         //List<EspackControl> DependingControls { get; set; } //list of those controls which have me as external control
@@ -59,6 +61,8 @@ namespace EspackFormControls
 
     public class EspackLabel : Label
     {
+        private EspackTextBox espackTextBox1;
+
         EspackFormControl ParentControl { get; set; }
         public string Caption
         {
@@ -83,10 +87,48 @@ namespace EspackFormControls
             Caption = pCaption;
             Margin = new Padding(0, 0, 0, 0);
         }
+
+        private void InitializeComponent()
+        {
+            this.espackTextBox1 = new EspackFormControls.EspackTextBox();
+            this.SuspendLayout();
+            // 
+            // espackTextBox1
+            // 
+            this.espackTextBox1.Add = false;
+            this.espackTextBox1.BackColor = System.Drawing.Color.White;
+            this.espackTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.espackTextBox1.Caption = "";
+            this.espackTextBox1.DBField = null;
+            this.espackTextBox1.DBFieldType = null;
+            this.espackTextBox1.DefaultValue = null;
+            this.espackTextBox1.Del = false;
+            this.espackTextBox1.DependingRS = null;
+            this.espackTextBox1.ExtraDataLink = null;
+            this.espackTextBox1.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.espackTextBox1.ForeColor = System.Drawing.Color.Black;
+            this.espackTextBox1.Location = new System.Drawing.Point(0, 0);
+            this.espackTextBox1.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.espackTextBox1.Name = "espackTextBox1";
+            this.espackTextBox1.Order = 0;
+            this.espackTextBox1.ParentConn = null;
+            this.espackTextBox1.ParentDA = null;
+            this.espackTextBox1.PK = false;
+            this.espackTextBox1.Protected = false;
+            this.espackTextBox1.Search = false;
+            this.espackTextBox1.Size = new System.Drawing.Size(100, 17);
+            this.espackTextBox1.Status = CommonTools.EnumStatus.ADDNEW;
+            this.espackTextBox1.TabIndex = 0;
+            this.espackTextBox1.Upp = false;
+            this.espackTextBox1.Value = "";
+            this.ResumeLayout(false);
+
+        }
     }
 
     public class EspackTextBox : TextBox, EspackFormControl
     {
+        public bool IsCTLMOwned { get; set; } = false;
         public EspackControl ExtraDataLink { get; set; } = null;
         public EspackControlTypeEnum EspackControlType { get; set; }
         public EspackLabel CaptionLabel { get; set; }
@@ -198,8 +240,8 @@ namespace EspackFormControls
             {
                 mStatus = value;
                 Enabled = !Protected;
-
-                ReadOnly = !((Add && Status == EnumStatus.ADDNEW) || (Upp && Status == EnumStatus.EDIT && !PK) || (Del && Status == EnumStatus.DELETE) || (Search && Status == EnumStatus.SEARCH)) || Protected;
+                if (IsCTLMOwned)
+                    ReadOnly = !((Add && Status == EnumStatus.ADDNEW) || (Upp && Status == EnumStatus.EDIT && !PK) || (Del && Status == EnumStatus.DELETE) || (Search && Status == EnumStatus.SEARCH)) || Protected;
                 BackColor = ReadOnly ? SystemColors.ButtonFace : Color.White;
                 ForeColor = ReadOnly ? Color.Gray : Color.Black;
 
@@ -345,6 +387,7 @@ namespace EspackFormControls
 
     public class EspackMaskedTextBox : MaskedTextBox, EspackFormControl
     {
+        public bool IsCTLMOwned { get; set; } = false;
         public EspackControl ExtraDataLink { get; set; } = null;
         public EspackControlTypeEnum EspackControlType { get; set; }
         public EspackLabel CaptionLabel { get; set; }
@@ -377,7 +420,8 @@ namespace EspackFormControls
             {
                 mStatus = value;
                 Enabled = true;
-                ReadOnly = !((Add && Status == EnumStatus.ADDNEW) || (Upp && Status == EnumStatus.EDIT && !PK) || (Del && Status == EnumStatus.DELETE) || (Search && Status == EnumStatus.SEARCH)) || Protected;
+                if (IsCTLMOwned)
+                    ReadOnly = !((Add && Status == EnumStatus.ADDNEW) || (Upp && Status == EnumStatus.EDIT && !PK) || (Del && Status == EnumStatus.DELETE) || (Search && Status == EnumStatus.SEARCH)) || Protected;
                 BackColor = ReadOnly ? SystemColors.ButtonFace : Color.White;
                 ForeColor = ReadOnly ? SystemColors.InactiveCaptionText : SystemColors.ControlText;
             }
@@ -649,6 +693,7 @@ namespace EspackFormControls
 
     public class EspackDateTimePicker : DateTimePicker, EspackFormControl
     {
+        public bool IsCTLMOwned { get; set; } = false;
         public EspackControl ExtraDataLink { get; set; } = null;
         public EspackControlTypeEnum EspackControlType { get; set; }
         public EspackLabel CaptionLabel { get; set; }
@@ -669,7 +714,8 @@ namespace EspackFormControls
             set
             {
                 mStatus = value;
-                Enabled = ((Add && Status == EnumStatus.ADDNEW) || (Upp && Status == EnumStatus.EDIT && !PK) || (Del && Status == EnumStatus.DELETE) || (Search && Status == EnumStatus.SEARCH)) && !Protected;
+                if (IsCTLMOwned)
+                    Enabled = ((Add && Status == EnumStatus.ADDNEW) || (Upp && Status == EnumStatus.EDIT && !PK) || (Del && Status == EnumStatus.DELETE) || (Search && Status == EnumStatus.SEARCH)) && !Protected;
             }
         }
 
@@ -939,6 +985,7 @@ namespace EspackFormControls
 
     public class EspackString : EspackFormControl
     {
+        public bool IsCTLMOwned { get; set; } = false;
         public EspackControl ExtraDataLink { get; set; } = null;
         public EspackControlTypeEnum EspackControlType { get; set; }
         private string theString { get; set; }
@@ -1015,6 +1062,7 @@ namespace EspackFormControls
 
     public class EspackExtraData : EspackFormControl
     {
+        public bool IsCTLMOwned { get; set; } = false;
         public EspackControl ExtraDataLink { get; set; } = null;
         public EspackControlTypeEnum EspackControlType { get; set; }
         public EnumStatus Status { get; set; }
@@ -1135,6 +1183,7 @@ namespace EspackFormControls
     }
     public class EspackCheckedListBox : CheckedListBox, EspackFormControl
     {
+        public bool IsCTLMOwned { get; set; } = false;
         public EspackControl ExtraDataLink { get; set; } = null;
         public EspackControlTypeEnum EspackControlType { get; set; }
         public EspackLabel CaptionLabel { get; set; }
@@ -1179,7 +1228,8 @@ namespace EspackFormControls
             set
             {
                 mStatus = value;
-                Enabled = ((Add && Status == EnumStatus.ADDNEW) || (Upp && Status == EnumStatus.EDIT && !PK) || (Del && Status == EnumStatus.DELETE) || (Search && Status == EnumStatus.SEARCH)) && !Protected;
+                if (IsCTLMOwned)
+                    Enabled = ((Add && Status == EnumStatus.ADDNEW) || (Upp && Status == EnumStatus.EDIT && !PK) || (Del && Status == EnumStatus.DELETE) || (Search && Status == EnumStatus.SEARCH)) && !Protected;
             }
         }
 
@@ -1490,6 +1540,7 @@ namespace EspackFormControls
 
     public class EspackComboBox : ComboBox, EspackFormControl
     {
+        public bool IsCTLMOwned { get; set; } = false;
         public EspackControl ExtraDataLink { get; set; } = null;
         public EspackControlTypeEnum EspackControlType { get; set; }
         public EspackLabel CaptionLabel { get; set; }
@@ -1595,7 +1646,8 @@ namespace EspackFormControls
             set
             {
                 mStatus = value;
-                Enabled = ((Add && Status == EnumStatus.ADDNEW) || (Upp && Status == EnumStatus.EDIT && !PK) || (Del && Status == EnumStatus.DELETE) || (Search && Status == EnumStatus.SEARCH)) && !Protected;
+                if (IsCTLMOwned)
+                    Enabled = ((Add && Status == EnumStatus.ADDNEW) || (Upp && Status == EnumStatus.EDIT && !PK) || (Del && Status == EnumStatus.DELETE) || (Search && Status == EnumStatus.SEARCH)) && !Protected;
             }
         }
 

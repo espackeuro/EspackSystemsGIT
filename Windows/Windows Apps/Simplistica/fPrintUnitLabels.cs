@@ -11,7 +11,7 @@ using AccesoDatosNet;
 using EspackClasses;
 using RawPrinterHelper;
 
-namespace Simplistica
+namespace Sistemas
 {
     public partial class fPrintUnitLabels : Form
     {

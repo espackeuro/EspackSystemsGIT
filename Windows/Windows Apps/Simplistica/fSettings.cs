@@ -12,7 +12,7 @@ using System.IO.IsolatedStorage;
 using System.Xml;
 using CommonToolsWin;
 
-namespace Simplistica
+namespace Sistemas
 {
     public partial class fSettings : Form
     {

@@ -107,6 +107,12 @@
     <Compile Include="fServices.Designer.cs">
       <DependentUpon>fServices.cs</DependentUpon>
     </Compile>
+    <Compile Include="fSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fSettings.Designer.cs">
+      <DependentUpon>fSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="ServerForms\AsyncServerTasks.cs" />
     <Compile Include="ServerForms\fSystemsMaster.cs">
       <SubType>Form</SubType>
@@ -186,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fServices.resx">
       <DependentUpon>fServices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fSettings.resx">
+      <DependentUpon>fSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ServerForms\fSystemsMaster.resx">
       <DependentUpon>fSystemsMaster.cs</DependentUpon>

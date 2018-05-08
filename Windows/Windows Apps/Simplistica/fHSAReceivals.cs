@@ -13,7 +13,7 @@ using RawPrinterHelper;
 using CommonToolsWin;
 using CommonTools;
 
-namespace Simplistica
+namespace Sistemas
 {
     public partial class fHSAReceivals : Form
     {

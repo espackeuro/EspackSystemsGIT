@@ -16,9 +16,9 @@ using EspackFormControls;
 using static CommonTools.CT;
 using CommonTools;
 using DiverseControls;
-using Simplistica.Properties;
+using Sistemas.Properties;
 
-namespace Simplistica
+namespace Sistemas
 {
 
     public partial class fSimpleDeliveriesEPC: Form

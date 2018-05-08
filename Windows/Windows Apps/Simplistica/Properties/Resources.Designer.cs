@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Simplistica.Properties {
+namespace Sistemas.Properties {
     using System;
     
     

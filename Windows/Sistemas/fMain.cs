@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Security;
 using static System.Convert;
 using MasterClass;
+using CommonToolsWin;
 
 namespace Sistemas
 {
@@ -59,6 +60,14 @@ namespace Sistemas
             AddStatusStip();
             MessageBox.Show(string.Format("Welcome {0} {1}, your level access is {2}",Values.Position, Values.FullName, Values.SecurityLevel));
             Values.gDatos.Close();
+            //settings
+            if (!cSettings.SettingFileNameExists)
+            {
+                fSettings fSettings = new fSettings();
+                fSettings.ShowDialog();
+            }
+            Values.DefaultUserForServers = cSettings.readSetting("DefaultUserForServers");
+            Values.DefaultPasswordForServers = cSettings.readSetting("DefaultPasswordForServers");
         }
 
         public void AddStatusStip()
@@ -199,7 +208,8 @@ namespace Sistemas
         public static string Position { get; set; }
         public static string FullName { get; set; }
         public static bool IsGeneratingXML { get; set; } = false;
-        public static bool IsCheckingOut { get; set; } = false;
+        public static string DefaultUserForServers { get; set; };
+        public static string DefaultPasswordForServers { get; set; };
     }
 
 }

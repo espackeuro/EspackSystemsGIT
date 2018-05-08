@@ -12,7 +12,7 @@ using EspackClasses;
 using RawPrinterHelper;
 using CommonToolsWin;
 
-namespace Simplistica
+namespace Sistemas
 {
     public partial class fRackLabels : Form
     {
