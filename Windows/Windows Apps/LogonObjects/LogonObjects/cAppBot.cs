@@ -68,7 +68,7 @@ namespace LogOnObjects
         {
             get
             {
-                return UpdateList.Where(x => x.Parent == this && x.Status == LogonItemUpdateStatus.PENDING).ToList();
+                return UpdateList.Where(x => x.AppBotCode == this.Code && x.Status == LogonItemUpdateStatus.PENDING).ToList();
             }
         }
 
@@ -77,7 +77,7 @@ namespace LogOnObjects
         {
             get
             {
-                return UpdateList.Where(x => x.Parent == this && x.Status == LogonItemUpdateStatus.UPDATING).ToList();
+                return UpdateList.Where(x => x.AppBotCode == this.Code && x.Status == LogonItemUpdateStatus.UPDATING).ToList();
             }
         }
         
@@ -86,7 +86,7 @@ namespace LogOnObjects
         {
             get
             {
-                return UpdateList.Where(x => x.Parent.Code == this.Code).ToList();
+                return UpdateList.Where(x => x.AppBotCode == this.Code).ToList();
             }
         }
 
@@ -95,7 +95,7 @@ namespace LogOnObjects
         {
             get
             {
-                return UpdateList.Where(x => x.Parent == this && x.Status == LogonItemUpdateStatus.UPDATED).ToList();
+                return UpdateList.Where(x => x.AppBotCode == this.Code && x.Status == LogonItemUpdateStatus.UPDATED).ToList();
             }
         }
 
@@ -128,61 +128,55 @@ namespace LogOnObjects
         {
             try
             {
-                if (this.prgApp.InvokeRequired)
+                if (debugBox != null)
                 {
-                    ShowStatusCallback a = new ShowStatusCallback(ShowStatus);
-                    this.Invoke(a);
+                    debugBox.AppendText(string.Format("App {0} status: {1}\n", Code, Status));
                 }
-                else
+                switch (Status)
                 {
-                    if (debugBox != null)
-                    {
-                        debugBox.AppendText(string.Format("App {0} status: {1}\n", Code, Status));
-                    }
-                    switch (Status)
-                    {
-                        // When INIT/UPDATED -> Button enabled, ProgressBar not visible.
-                        case AppBotStatus.INIT:
-                        case AppBotStatus.UPDATED:
-                            if (Special)
-                                AppIcon = Resources.Engineering_48;
-                            else
-                                try
-                                {
-                                    // First try to get the App icon from the exe file.
-                                    AppIcon = Icon.ExtractAssociatedIcon(LocalPath).ToBitmap();
-                                }
-                                catch
-                                {
-                                    // If not possible, we use the default App icon.
-                                    AppIcon = Resources.Prototype_96;
-                                }
-                            pctApp.Image = AppIcon;
-                            pctApp.Enabled = Status == AppBotStatus.UPDATED;
-                            prgApp.Visible = false;
-                            break;
-                        // When CHECKING -> Button disabled, ProgressBar not visible.
-                        case AppBotStatus.CHECKING:
-                            pctApp.Enabled = false;
-                            prgApp.Visible = false;
-                            break;
-                        // When PENDING_UPDATE -> Button disabled, ProgressBar visible and running.
-                        case AppBotStatus.PENDING_UPDATE:
-                            prgApp.Style = ProgressBarStyle.Continuous;
-                            prgApp.Minimum = 0;
-                            prgApp.Maximum = PendingItems.Count+1;
-                            //prgApp.MarqueeAnimationSpeed = 50;
-                            prgApp.Visible = true;
-                            pctApp.Enabled = false;
+                    // When INIT/UPDATED -> Button enabled, ProgressBar not visible.
+                    case AppBotStatus.INIT:
+                    case AppBotStatus.UPDATED:
+                        if (Special)
+                            AppIcon = Resources.Engineering_48;
+                        else
+                            try
+                            {
+                                // First try to get the App icon from the exe file.
+                                AppIcon = Icon.ExtractAssociatedIcon(LocalPath).ToBitmap();
+                            }
+                            catch
+                            {
+                                // If not possible, we use the default App icon.
+                                AppIcon = Resources.Prototype_96;
+                            }
+                        pctApp.Image = AppIcon;
+                        pctApp.Enabled = Status == AppBotStatus.UPDATED;
+                        prgApp.Visible = false;
+                        break;
+                    // When CHECKING -> Button disabled, ProgressBar not visible.
+                    case AppBotStatus.CHECKING:
+                        pctApp.Enabled = false;
+                        prgApp.Visible = false;
+                        break;
+                    // When PENDING_UPDATE -> Button disabled, ProgressBar visible and running.
+                    case AppBotStatus.PENDING_UPDATE:
+                        prgApp.Style = ProgressBarStyle.Continuous;
+                        prgApp.Minimum = 0;
+                        prgApp.Maximum = PendingItems.Count + 1;
+                        //prgApp.MarqueeAnimationSpeed = 50;
+                        prgApp.Visible = true;
+                        pctApp.Enabled = false;
 
-                            break;
-                        case AppBotStatus.ERROR:
-                            pctApp.Image = Resources.Forbid;
-                            pctApp.Enabled = false;
-                            prgApp.Visible = false;
-                            break;
-                    }
+                        break;
+                    case AppBotStatus.ERROR:
+                        pctApp.Image = Resources.Forbid;
+                        pctApp.Enabled = false;
+                        prgApp.Visible = false;
+                        this.PendingItems.ForEach(i => i.Status = LogonItemUpdateStatus.ERROR);
+                        break;
                 }
+
             }
             catch (Exception ex)
             {
@@ -339,11 +333,14 @@ namespace LogOnObjects
                 var localFilePath = LOCAL_PATH + filePath + fileName;
                 if (File.Exists(localFilePath))
                 {
-                    var localFileDate = GetLastWriteTime(localFilePath);
-                    //var localFileInfo = new FileInfo(localFilePath);
-                    if ((localFileDate - fileDateTime).Duration().TotalSeconds > 10)
+                    if (!Special)
                     {
-                        clean = false;
+                        var localFileDate = GetLastWriteTime(localFilePath);
+                        //var localFileInfo = new FileInfo(localFilePath);
+                        if ((localFileDate - fileDateTime).Duration().TotalSeconds > 10)
+                        {
+                            clean = false;
+                        }
                     }
                 }
                 else
@@ -356,7 +353,8 @@ namespace LogOnObjects
                     {
                         UpdateList.Add(new cUpdateListItem()
                         {
-                            Parent = this,
+                            AppBotCode = this.Code,
+                            AppPath = this.LocalPath,
                             Item = new DirectoryItem()
                             {
                                 Server = ShareServer,
@@ -367,6 +365,7 @@ namespace LogOnObjects
                             },
                             LocalPath = zipLocalFilePath,
                             Status = LogonItemUpdateStatus.PENDING,
+                            zipFile = true
                             //ThreadNum = UpdateList.Count % Values.MaxNumThreads
                         });
                         break;
@@ -374,7 +373,8 @@ namespace LogOnObjects
                     else
                         UpdateList.Add(new cUpdateListItem()
                         {
-                            Parent = this,
+                            AppBotCode = this.Code,
+                            AppPath = this.LocalPath,
                             Item = new DirectoryItem()
                             {
                                 Server = ShareServer,
@@ -440,7 +440,8 @@ namespace LogOnObjects
                         {
                             UpdateList.Add(new cUpdateListItem()
                             {
-                                Parent = this,
+                                AppBotCode = this.Code,
+                                AppPath = this.LocalPath,
                                 Item = new DirectoryItem()
                                 {
                                     Server = ShareServer,
@@ -504,7 +505,8 @@ namespace LogOnObjects
                 {
                     UpdateDir.Add(new cUpdateListItem()
                     {
-                        Parent = this,
+                        AppBotCode = this.Code,
+                        AppPath = this.LocalPath,
                         Item = new DirectoryItem()
                         {
                             Server = ShareServer,
@@ -532,7 +534,8 @@ namespace LogOnObjects
                             //    ShowStatus(AppBotStatus.PENDING_UPDATE);
                             UpdateList.Add(new cUpdateListItem()
                             {
-                                Parent = this,
+                                AppBotCode = this.Code,
+                                AppPath = this.LocalPath,
                                 Item = new DirectoryItem()
                                 {
                                     Server = ShareServer,
@@ -551,7 +554,8 @@ namespace LogOnObjects
                     {
                         UpdateList.Add(new cUpdateListItem()
                         {
-                            Parent = this,
+                            AppBotCode = this.Code,
+                            AppPath = this.LocalPath,
                             Item = new DirectoryItem()
                             {
                                 Server = ShareServer,
@@ -618,8 +622,9 @@ namespace LogOnObjects
                     {
                         UpdateList.Add(new cUpdateListItem()
                         {
-                            Parent = this,
-                               //ServerPath = basePath + relativePath + "/" + a.Name,
+                            AppBotCode = this.Code,
+                            AppPath = this.LocalPath,
+                            //ServerPath = basePath + relativePath + "/" + a.Name,
                             LocalPath = LOCAL_PATH + relativePath + "/" + a.Name,
                             Item = a,
                             Status = LogonItemUpdateStatus.PENDING
@@ -631,9 +636,10 @@ namespace LogOnObjects
                 {
                     UpdateList.Add(new cUpdateListItem()
                     {
-                        Parent = this,
-                           //ServerPath = basePath + relativePath + "/" + a.Name,
-                           LocalPath = LOCAL_PATH + relativePath + "/" + a.Name,
+                        AppBotCode = this.Code,
+                        AppPath = this.LocalPath,
+                        //ServerPath = basePath + relativePath + "/" + a.Name,
+                        LocalPath = LOCAL_PATH + relativePath + "/" + a.Name,
                         Item = a,
                         Status = LogonItemUpdateStatus.PENDING
                     });
@@ -656,15 +662,7 @@ namespace LogOnObjects
                 Value = prgApp.Minimum;
             try
             {
-                if (this.prgApp.InvokeRequired)
-                {
-                    ChangeProgressCallback a = new ChangeProgressCallback(ChangeProgress);
-                    this.Invoke(a, new object[] { Value });
-                }
-                else
-                {
-                    prgApp.Value=Value;
-                }
+                prgApp.Value = Value;
             }
             catch (Exception ex)
             {

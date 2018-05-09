@@ -30,7 +30,13 @@ namespace Sistemas
             _RS.Close();
             _RS = null;
             txtUser.Focus();
+            if (Values.DefaultUserForServers != "")
+            {
+                txtUser.Text = Values.DefaultUserForServers;
+                txtPassword.Text = Values.DefaultPasswordForServers;
+            }
 
+                
         }
 
         private void btnProcess_Click(object sender, EventArgs e)

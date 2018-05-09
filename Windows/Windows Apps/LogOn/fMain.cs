@@ -45,7 +45,7 @@ namespace LogOn
         private bool _update;
         private bool noXML;
 
-        public List<cUpdaterThread> UpdatingThreads = new List<cUpdaterThread>();
+        //public List<cUpdaterThread> UpdatingThreads = new List<cUpdaterThread>();
         //public static int NUMTHREADS = 10;
         public const int MAXTIMER = 300;
         delegate void gbDebugCallBack(Control c);
@@ -299,17 +299,6 @@ namespace LogOn
             };
          
         }
-
-        private async void FMain_Load(object sender, EventArgs e)
-        {
-            await AsyncProcedures();
-        }
-
-        public async Task AsyncProcedures()
-        {
-
-        }
-
 
         private void _timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
@@ -723,7 +712,7 @@ namespace LogOn
                 //{
                 //    System.Threading.Thread.Sleep(500);
                 //}
-
+                /*
                 if (Values.AppList.PendingApps.Count != 0)
                 {
                     //var maxThreads = Values.AppList.PendingApps.Count > Values.MaxNumThreads ? Values.MaxNumThreads : Values.AppList.PendingApps.Count;
@@ -737,11 +726,49 @@ namespace LogOn
                         await Task.Delay(200);
                     }
                 }
+                */
+                var UpdaterTask = new Updater(Values.UpdateList, Values.MaxNumThreads);
+                UpdaterTask.Callback += UpdaterTask_Callback;
+                UpdaterTask.ErrorCallback += UpdaterTask_ErrorCallback;
+                await UpdaterTask.Start();
                 LogOnChangeStatus(LogOnStatus.CONNECTED);
             }
             else
             {
                 LogOnChangeStatus(LogOnStatus.INIT);
+            }
+        }
+
+        private void UpdaterTask_ErrorCallback(object sender, AsyncTaskResponse e)
+        {
+            var _App = e.AppBotCode != "" ? Values.AppList.Where(a => a.Code == e.AppBotCode).First() : null;
+            if (_App != null)
+            {
+                _App.SetStatus(AppBotStatus.ERROR);
+            }
+            CTWin.MsgError(e.Message);
+            if (debugBox != null)
+                debugBox.AppendText(e.Message);
+
+        }
+
+        private void UpdaterTask_Callback(object sender, AsyncTaskResponse e)
+        {
+            var _App = e.AppBotCode != "" ? Values.AppList.Where(a => a.Code == e.AppBotCode).First() : null;
+            switch (e.Message)
+            {
+                case "PROGRESS":
+                    _App.ProgressValue++;
+                    break;
+                case "UPDATED":
+                    if (_App.PendingItems.Count() == 0 && _App.UpdatingItems.Count()==0)
+                        _App.SetStatus(AppBotStatus.UPDATED);
+                    break;
+                default:
+                    if (debugBox != null)
+                        debugBox.AppendText(e.Message);
+
+                    break;
             }
         }
 
@@ -858,7 +885,7 @@ namespace LogOn
         {
             if (((CheckBox)sender).Checked)
             {
-                Values.debugBox = new DebugTextbox();
+                Values.debugBox = new TextBox() { Multiline=true };
                 Values.debugBox.Dock = System.Windows.Forms.DockStyle.Bottom;
                 Values.debugBox.Location = new System.Drawing.Point(3, 411);
                 Values.debugBox.Multiline = true;

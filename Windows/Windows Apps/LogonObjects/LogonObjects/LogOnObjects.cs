@@ -8,6 +8,7 @@ using CommonTools;
 using System.Net;
 using System.Xml.Linq;
 using FTP;
+using System.Windows.Forms;
 
 namespace LogOnObjects
 {
@@ -25,7 +26,7 @@ namespace LogOnObjects
         public static cUpdateList UpdateList = new cUpdateList();
         public static cUpdateList UpdateDir = new cUpdateList();
         public static int ActiveThreads = 0;
-        public static DebugTextbox debugBox;
+        public static TextBox debugBox;
         public static List<string> userFlags;
         public static string FullName;
         public static int MaxNumThreads = 10;

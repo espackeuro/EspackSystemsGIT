@@ -1,4 +1,4 @@
-﻿namespace Sistemas
+﻿namespace Simplistica
 {
     partial class fSettings
     {

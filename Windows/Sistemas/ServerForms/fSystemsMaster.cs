@@ -68,7 +68,8 @@ namespace Sistemas
             CTLM.BeforeButtonClick += CTLM_BeforeButtonClick;
 
             // servers list
-
+            serversList1.User = Values.DefaultUserForServers;
+            serversList1.Password = Values.DefaultPasswordForServers;
             serversList1.Start("APPServer","~/checkout.sh", btnServerCheckout);
         }
         private void CTLM_BeforeButtonClick(object sender, CTLMantenimientoNet.CTLMEventArgs e)
@@ -316,7 +317,7 @@ namespace Sistemas
         {
             if (txtSystemCode.Text == "")
                 return;
-            var localAppsCSFileVersion = FileVersionInfo.GetVersionInfo(string.Format("d:/APPS_CS/{0}/{0}.exe", txtSystemCode.Text));
+            var localAppsCSFileVersion = FileVersionInfo.GetVersionInfo(string.Format("d:/APPS_CS/{0}/{1}",txtSystemCode.Text ,txtApp.Text));
             SvnCommitArgs args = new SvnCommitArgs();
             args.LogMessage = string.Format("System {0} version {1} Commit", txtSystemCode, localAppsCSFileVersion.FileVersion);
             SvnCommitResult result;

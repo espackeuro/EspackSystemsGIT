@@ -197,6 +197,7 @@ namespace Sistemas
         {
 
         }
+
     }
 
     public static class Values
@@ -208,8 +209,8 @@ namespace Sistemas
         public static string Position { get; set; }
         public static string FullName { get; set; }
         public static bool IsGeneratingXML { get; set; } = false;
-        public static string DefaultUserForServers { get; set; };
-        public static string DefaultPasswordForServers { get; set; };
+        public static string DefaultUserForServers { get; set; }
+        public static string DefaultPasswordForServers { get; set; }
     }
 
 }

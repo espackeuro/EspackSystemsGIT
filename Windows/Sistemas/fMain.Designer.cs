@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMain));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip1 = new EspackMenuNS.EspackMenu();
             this.mnuNetwork = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTowns = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuZones = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +46,9 @@
             this.aliasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.securityProfilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.espackToolStripItem1 = new EspackMenuNS.EspackToolStripItem();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.espackToolStripItem2 = new EspackMenuNS.EspackToolStripItem();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -62,7 +64,8 @@
             this.actionsToolStripMenuItem,
             this.tasksToolStripMenuItem,
             this.controlToolStripMenuItem,
-            this.windowToolStripMenuItem});
+            this.windowToolStripMenuItem,
+            this.espackToolStripItem1});
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.menuStrip1.Location = new System.Drawing.Point(9, 3);
             this.menuStrip1.MdiWindowListItem = this.windowToolStripMenuItem;
@@ -208,6 +211,15 @@
             this.windowToolStripMenuItem.Text = "Window";
             this.windowToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
             // 
+            // espackToolStripItem1
+            // 
+            this.espackToolStripItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.espackToolStripItem2});
+            this.espackToolStripItem1.Name = "espackToolStripItem1";
+            this.espackToolStripItem1.Size = new System.Drawing.Size(47, 19);
+            this.espackToolStripItem1.Tag = "-";
+            this.espackToolStripItem1.Text = "Tools";
+            // 
             // toolStripContainer1
             // 
             this.toolStripContainer1.BottomToolStripPanelVisible = false;
@@ -225,6 +237,13 @@
             this.toolStripContainer1.TabIndex = 6;
             this.toolStripContainer1.Text = "toolStripContainer1";
             this.toolStripContainer1.TopToolStripPanelVisible = false;
+            // 
+            // espackToolStripItem2
+            // 
+            this.espackToolStripItem2.Name = "espackToolStripItem2";
+            this.espackToolStripItem2.Size = new System.Drawing.Size(152, 22);
+            this.espackToolStripItem2.Tag = "fSettings";
+            this.espackToolStripItem2.Text = "Settings";
             // 
             // fMain
             // 
@@ -267,6 +286,8 @@
         private System.Windows.Forms.ToolStripMenuItem dNSControlToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem systemsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem windowToolStripMenuItem;
+        private EspackMenuNS.EspackToolStripItem espackToolStripItem1;
+        private EspackMenuNS.EspackToolStripItem espackToolStripItem2;
     }
 }
 

@@ -80,9 +80,9 @@ namespace LogOnLoader
                     Application.DoEvents();
                     System.Threading.Thread.Sleep(250);
                     ActiveThreads++;
-                    var _thread = new cUpdaterThread(Values.debugBox, Values.ActiveThreads);
+                    var _thread = new Updater(Values.UpdateList);
                     // launch task not async
-                    await _thread.Process();
+                    await _thread.Start();
                 }
                 this.Message = "LogOn updated. Launching.";
                 System.Threading.Thread.Sleep(250);

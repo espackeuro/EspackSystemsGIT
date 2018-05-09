@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using CommonToolsWin;
 
-namespace Sistemas
+namespace Simplistica
 {
     static class Program
     {

@@ -1753,6 +1753,7 @@ namespace EspackFormControls
         {
             Source(pSql, ParentConn);
             TBDescription = pTB;
+            TBDescription.IsCTLMOwned = true;
         }
         public void UpdateEspackControl()
         {

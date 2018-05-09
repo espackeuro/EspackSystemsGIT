@@ -18,14 +18,16 @@ namespace Sistemas
         private bool IsExecuting { get; set; }
         public string Command { get; set; }
         public object CallingButton { get; set; }
+        public string User { get => txtServerUser.Text; set => txtServerUser.Text = value; }
+        public string Password { get => txtServerPwd.Text; set => txtServerPwd.Text = value; }
 
         public ServersList()
         {
             InitializeComponent();
-            txtCheckoutUser.Upp = true;
-            txtCheckoutUser.ReadOnly = false;
-            txtCheckoutPwd.Upp = true;
-            txtCheckoutPwd.ReadOnly = false;
+            txtServerUser.Upp = true;
+            txtServerUser.ReadOnly = false;
+            txtServerPwd.Upp = true;
+            txtServerPwd.ReadOnly = false;
             chkSelectAll.CheckedChanged += ChkSelectAll_CheckedChanged;
         }
 
@@ -78,7 +80,7 @@ namespace Sistemas
         {
             if (IsExecuting)
                 return;
-            if (txtCheckoutUser.Text == "" || txtCheckoutPwd.Text == "")
+            if (txtServerUser.Text == "" || txtServerPwd.Text == "")
             {
                 MessageBox.Show("Wrong User or password!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -108,7 +110,7 @@ namespace Sistemas
                 LabelStyle(f.Label, LabelStyles.NORMAL);
             });
             //create the task
-            var ServerTask = new ServerCommand(serverList, txtCheckoutUser.Text, txtCheckoutPwd.Text, Command);
+            var ServerTask = new ServerCommand(serverList, txtServerUser.Text, txtServerPwd.Text, Command);
             ServerTask.Callback += ServerTask_Callback; ;
             ServerTask.ErrorCallback += ServerTask_ErrorCallback; ;
             //launch and wait

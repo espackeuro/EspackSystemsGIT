@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sistemas
+namespace Simplistica
 {
     public partial class fProductionOrders : Form
     {

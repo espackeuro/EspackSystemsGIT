@@ -20,6 +20,8 @@ namespace Sistemas
         {
             InitializeComponent();
             // servers list
+            serverList1.User = Values.DefaultUserForServers;
+            serverList1.Password = Values.DefaultPasswordForServers;
             serverList1.Start("DHCPServer", "service isc-dhcp-server restart", btnProcess);
 
         }

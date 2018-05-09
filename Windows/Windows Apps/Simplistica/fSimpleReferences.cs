@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sistemas
+namespace Simplistica
 {
     public partial class fSimpleReferences : Form
     {
@@ -35,21 +35,21 @@ namespace Sistemas
             CTLM.AddItem(lstFlags, "Flags", true, true, false, 0, false, true);
 
             //empty header values
-            CTLM.AddItem("", "prefix", true, true, true, 0, true);
-            CTLM.AddItem("", "suffix", true, true, true, 0, true);
-            CTLM.AddItem("N", "aduana", true, true, false);
-            CTLM.AddItem("CARD", "tipo", true, true, false);
-            CTLM.AddItem("0", "MP_Min", true, true, false);
-            CTLM.AddItem("0", "MP_Max", true, true, false);
-            CTLM.AddItem("1", "qty_pzas_card", true, true, false);
-            CTLM.AddItem("1", "qty_pzas_call", true, true, false);
-            CTLM.AddItem("", "loc2", true, true, false);
-            CTLM.AddItem("", "muelle", true, true, false);
-            CTLM.AddItem("0", "proveedor", true, true, false);
-            CTLM.AddItem("0", "precio_trasvase", true, true, false);
-            CTLM.AddItem("", "prefix_serv", true, true, false);
-            CTLM.AddItem("", "base_serv", true, true, false);
-            CTLM.AddItem("", "suffix_serv", true, true, false);
+            CTLM.AddItem("", "prefix", true, true, true, 0, true, pDefValue:"");
+            CTLM.AddItem("", "suffix", true, true, true, 0, true, pDefValue: "");
+            CTLM.AddItem("N", "aduana", true, true, false, pDefValue: "N");
+            CTLM.AddItem("CARD", "tipo", true, true, false, pDefValue: "CARD");
+            CTLM.AddItem("0", "MP_Min", true, true, false, pDefValue: "0");
+            CTLM.AddItem("0", "MP_Max", true, true, false, pDefValue: "0");
+            CTLM.AddItem("1", "qty_pzas_card", true, true, false, pDefValue: "1");
+            CTLM.AddItem("1", "qty_pzas_call", true, true, false, pDefValue: "1");
+            CTLM.AddItem("", "loc2", true, true, false, pDefValue: "");
+            CTLM.AddItem("", "muelle", true, true, false, pDefValue: "");
+            CTLM.AddItem("0", "proveedor", true, true, false, pDefValue: "0");
+            CTLM.AddItem("0", "precio_trasvase", true, true, false, pDefValue: "0");
+            CTLM.AddItem("", "prefix_serv", true, true, false, pDefValue: "");
+            CTLM.AddItem("", "base_serv", true, true, false, pDefValue: "");
+            CTLM.AddItem("", "suffix_serv", true, true, false, pDefValue: "");
 
             //fields
             cboServicio.Source("Select Codigo,Nombre from Servicios where dbo.CheckFlag(flags,'SIMPLE')=1 and cod3='" + Values.COD3 + "' order by codigo", txtDesServicio);

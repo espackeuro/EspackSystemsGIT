@@ -14,7 +14,7 @@ using EspackClasses;
 using RawPrinterHelper;
 using System.Threading;
 
-namespace Sistemas
+namespace Simplistica
 {
     public partial class fSimpleReceivals : Form
     {

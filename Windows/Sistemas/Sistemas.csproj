@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sistemas</RootNamespace>
-    <AssemblyName>sistemas_cs</AssemblyName>
+    <AssemblyName>Sistemas</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -34,7 +34,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -172,10 +172,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServersList.cs">
+    <Compile Include="ServerForms\ServersList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ServersList.Designer.cs">
+    <Compile Include="ServerForms\ServersList.Designer.cs">
       <DependentUpon>ServersList.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="fAlias.resx">
@@ -230,7 +230,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ServersList.resx">
+    <EmbeddedResource Include="ServerForms\ServersList.resx">
       <DependentUpon>ServersList.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -320,6 +320,10 @@
     <ProjectReference Include="..\Windows Apps\cAccesoDatos\cAccesoDatos.csproj">
       <Project>{5da9cb0b-9007-40f1-8086-1b0303d8271f}</Project>
       <Name>cAccesoDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Windows Apps\EspackMenu\EspackMenu.csproj">
+      <Project>{f58c64dc-f90a-4732-8afa-24db566247f9}</Project>
+      <Name>EspackMenu</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
