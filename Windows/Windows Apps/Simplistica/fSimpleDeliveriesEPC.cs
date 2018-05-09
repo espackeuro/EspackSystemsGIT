@@ -42,16 +42,16 @@ namespace Simplistica
             CTLM.AddItem(cboService, "Service", true, true, true, 0, false, true);
             CTLM.AddItem(txtTruckPlate, "TruckPlate", true, true, false, 0, false,true);
             CTLM.AddItem(txtTrailerPlate, "TrailerPlate", true, true, false, 0, false, true);
-            CTLM.AddItem(txtUser, "UserProc", true, true, false, 0, false, true);
-            CTLM.AddItem(cboShift, "Shift", true, true, false, 0, false, true);
             CTLM.AddItem(cboDock, "Dock", true, true, false, 0, false, true);
             CTLM.AddItem(cboDestination, "Destination", true, true, false, 0, false, true);
-            CTLM.AddItem(dateStart, "StartDate", true, true, false, 0, false, true);
-            CTLM.AddItem(dateEnd, "EndDate", false, false, false, 0, false, true);
-            CTLM.AddItem(lstFlags, "flags", false, false, false, 0, false, false);
-            CTLM.AddItem(ExtraData, "ExtraData", true, true, false, 0, false, false);
+            CTLM.AddItem(txtUser, "UserProc", true, true, false, 0, false, true);
+            CTLM.AddItem(cboShift, "Shift", true, true, false, 0, false, true);
             CTLM.AddItem(dateCheckPoint, "DateCheckPoint", pExtraDataLink: ExtraData);
             CTLM.AddItem(dateEPC, "DateEPC", pExtraDataLink: ExtraData);
+            CTLM.AddItem(dateStart, "StartDate", false, false, false, 0, false, false);
+            CTLM.AddItem(dateEnd, "EndDate", false, false, false, 0, false, false);
+            CTLM.AddItem(lstFlags, "flags", false, false, false, 0, false, false);
+            CTLM.AddItem(ExtraData, "ExtraData", true, true, false, 0, false, false);
 
 
             //fields
@@ -140,7 +140,7 @@ namespace Simplistica
         {
             if (cboDestination.Value.ToString() != "")
             {
-                ((CtlVSColumn)VS.Columns["PartNumber"]).AutoCompleteQuery = string.Format("select distinct partnumber from referencias_destinos where servicio='{0}' and planta='{1}'", cboService.Value, cboDestination.Value);
+                ((CtlVSColumn)VS.Columns["PartNumber"]).AutoCompleteQuery = string.Format("select distinct partnumber from referencias_destinos where servicio='{0}' and planta='{1}'", cboService.Value, cboDestination.Value.ToString().Substring(0,2));
                 ((CtlVSColumn)VS.Columns["PartNumber"]).ReQuery();
             }
         }
