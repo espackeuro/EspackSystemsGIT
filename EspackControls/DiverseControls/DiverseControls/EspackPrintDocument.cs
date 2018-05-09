@@ -370,7 +370,7 @@ namespace DiverseControls
         float Width { get; }
         bool Persistent { get; set; }
         bool PrintMe { get; set;  }
-        void Draw();
+        void Draw(Graphics pGraphics);
     }
 
     // Font class with millimeter units, brush and default values
@@ -424,7 +424,7 @@ namespace DiverseControls
             get
             {
                 if (Graphics != null)
-                    return Graphics.MeasureString(Text != "" ? Text : "@", Font).Width;
+                    return Graphics.MeasureString(Text != "" ? Text : "@", Font).Width - Graphics.MeasureString(" ", Font).Width;
                 else return 0;
             }
         }
@@ -452,10 +452,10 @@ namespace DiverseControls
         }
 
         // Draw the text
-        public void Draw()
+        public void Draw(Graphics pGraphics)
         {
             if (Graphics!=null)
-                Graphics.DrawString(Text, Font, Brush, X, Y);
+                pGraphics.DrawString(Text, Font, Brush, X, Y);
         }
 
         // --------- IDisposable stuff ---------
@@ -666,13 +666,13 @@ namespace DiverseControls
         }
 
         // Draw all the items in the area
-        public void Draw()
+        public void Draw(Graphics pGraphics)
         {
             // Draw those that have PrintMe==true 
             Items.Where(_item => (((IEspackPrintingItem)_item).PrintMe == true)).ToList().ForEach(_item =>
             {
                 IEspackPrintingItem _printitem = ((IEspackPrintingItem)_item);
-                _printitem.Draw();
+                _printitem.Draw(pGraphics);
 
                 // For body zones, remove non persistent items after printing
                 if (Zone==EnumDocumentZones.BODY && !_printitem.Persistent)
@@ -792,7 +792,7 @@ namespace DiverseControls
         {
             if (CurrentArea != null)
             {
-                using (var _rs = new StaticRS(pSQL, pConn))
+                using (var _rs = new DynamicRS(pSQL, pConn))
                 {
                     _rs.Open();
                     if (_rs.RecordCount == 0)
@@ -802,15 +802,15 @@ namespace DiverseControls
                     }
                     else
                     {
-                        /*
+                        
                         if (!pHideTitles)
                         {
                             foreach(var _item in _rs.Fields)
                             {
                                 AddText(true,_item.ToString());
                             }
-                            AddText(true, "",true);
-                        }*/
+                            NewLine();
+                        }
                         _rs.ToList().ForEach(_row =>
                        {
                            _row.ItemArray.ToList().ForEach(_column =>
@@ -858,7 +858,8 @@ namespace DiverseControls
                 Areas.Where(_item => (_item.Zone == EnumDocumentZones.HEADER)).ToList().ForEach(_item =>
                 {
                     _item.ArrangeItems(_g, HardMargins, _previousArea);
-                    _minBodyY = (_minBodyY < _item.Y + _item.Height) ? _item.Y + _item.Height : _minBodyY;
+                    _minBodyY = (_minBodyY <  _item.Height) ?  _item.Height : _minBodyY;
+                    //_minBodyY = (_minBodyY < _item.Y + _item.Height) ? _item.Y + _item.Height : _minBodyY;
                     _previousArea = _item;
                 });
 
@@ -867,7 +868,8 @@ namespace DiverseControls
                 Areas.Where(_item => (_item.Zone == EnumDocumentZones.FOOTER)).ToList().ForEach(_item =>
                 {
                     _item.ArrangeItems(_g, HardMargins, _previousArea);
-                    _maxBodyY = (_maxBodyY < _item.Y + _item.Height) ? _item.Y + _item.Height : _maxBodyY;
+                    _maxBodyY = (_maxBodyY < _item.Height) ?  _item.Height : _maxBodyY;
+                    //_maxBodyY = (_maxBodyY < _item.Y + _item.Height) ? _item.Y + _item.Height : _maxBodyY;
                     _previousArea = _item;
                 });
 
@@ -910,7 +912,7 @@ namespace DiverseControls
             // printing            
             Areas.ForEach(_item =>
             {
-                _item.Draw();
+                _item.Draw(_g);
                 if (_item.Zone == EnumDocumentZones.BODY && Pager.Counter==1)
                 {
                     Pager.Total = (int)Math.Ceiling((Pager.Total + 0.0) / (Pager.Total - _item.Items.Count + 0.0));
