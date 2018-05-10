@@ -44,8 +44,8 @@ namespace Simplistica
             CTLM.AddItem(txtTrailerPlate, "TrailerPlate", true, true, false, 0, false, true);
             CTLM.AddItem(cboDock, "Dock", true, true, false, 0, false, true);
             CTLM.AddItem(cboDestination, "Destination", true, true, false, 0, false, true);
-            CTLM.AddItem(txtUser, "UserProc", true, true, false, 0, false, true);
             CTLM.AddItem(cboShift, "Shift", true, true, false, 0, false, true);
+            CTLM.AddItem(txtUser, "UserProc", true, true, false, 0, false, true);
             CTLM.AddItem(dateCheckPoint, "DateCheckPoint", pExtraDataLink: ExtraData);
             CTLM.AddItem(dateEPC, "DateEPC", pExtraDataLink: ExtraData);
             CTLM.AddItem(dateStart, "StartDate", false, false, false, 0, false, false);
