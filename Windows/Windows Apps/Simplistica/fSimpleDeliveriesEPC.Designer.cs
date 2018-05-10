@@ -153,7 +153,7 @@
             this.cboService.Font = new System.Drawing.Font("Tahoma", 10F);
             this.cboService.ForeColor = System.Drawing.Color.Black;
             this.cboService.FormattingEnabled = true;
-            this.cboService.Location = new System.Drawing.Point(145, 49);
+            this.cboService.Location = new System.Drawing.Point(148, 49);
             this.cboService.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.cboService.Name = "cboService";
             this.cboService.Order = 0;
@@ -185,7 +185,7 @@
             this.lstFlags.Font = new System.Drawing.Font("Tahoma", 10F);
             this.lstFlags.ForeColor = System.Drawing.Color.Black;
             this.lstFlags.FormattingEnabled = true;
-            this.lstFlags.Location = new System.Drawing.Point(9, 152);
+            this.lstFlags.Location = new System.Drawing.Point(9, 171);
             this.lstFlags.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.lstFlags.Name = "lstFlags";
             this.lstFlags.Order = 0;
@@ -194,7 +194,7 @@
             this.lstFlags.PK = false;
             this.lstFlags.Protected = false;
             this.lstFlags.Search = false;
-            this.lstFlags.Size = new System.Drawing.Size(540, 57);
+            this.lstFlags.Size = new System.Drawing.Size(540, 38);
             this.lstFlags.Status = CommonTools.EnumStatus.ADDNEW;
             this.lstFlags.TabIndex = 12;
             this.lstFlags.Upp = false;
@@ -365,7 +365,7 @@
             this.txtTruckPlate.Protected = false;
             this.txtTruckPlate.ReadOnly = true;
             this.txtTruckPlate.Search = false;
-            this.txtTruckPlate.Size = new System.Drawing.Size(116, 17);
+            this.txtTruckPlate.Size = new System.Drawing.Size(130, 17);
             this.txtTruckPlate.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtTruckPlate.TabIndex = 2;
             this.txtTruckPlate.Upp = false;
@@ -388,7 +388,7 @@
             this.cboDestination.Font = new System.Drawing.Font("Tahoma", 10F);
             this.cboDestination.ForeColor = System.Drawing.Color.Black;
             this.cboDestination.FormattingEnabled = true;
-            this.cboDestination.Location = new System.Drawing.Point(283, 92);
+            this.cboDestination.Location = new System.Drawing.Point(148, 92);
             this.cboDestination.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.cboDestination.Name = "cboDestination";
             this.cboDestination.Order = 0;
@@ -397,7 +397,7 @@
             this.cboDestination.PK = false;
             this.cboDestination.Protected = false;
             this.cboDestination.Search = false;
-            this.cboDestination.Size = new System.Drawing.Size(116, 24);
+            this.cboDestination.Size = new System.Drawing.Size(401, 24);
             this.cboDestination.Status = CommonTools.EnumStatus.ADDNEW;
             this.cboDestination.TabIndex = 6;
             this.cboDestination.TBDescription = null;
@@ -421,7 +421,7 @@
             this.cboDock.Font = new System.Drawing.Font("Tahoma", 10F);
             this.cboDock.ForeColor = System.Drawing.Color.Black;
             this.cboDock.FormattingEnabled = true;
-            this.cboDock.Location = new System.Drawing.Point(146, 92);
+            this.cboDock.Location = new System.Drawing.Point(12, 92);
             this.cboDock.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.cboDock.Name = "cboDock";
             this.cboDock.Order = 0;
@@ -451,7 +451,7 @@
             this.txtUser.ExtraDataLink = null;
             this.txtUser.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtUser.ForeColor = System.Drawing.Color.Gray;
-            this.txtUser.Location = new System.Drawing.Point(410, 99);
+            this.txtUser.Location = new System.Drawing.Point(148, 135);
             this.txtUser.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtUser.Name = "txtUser";
             this.txtUser.Order = 0;
@@ -488,7 +488,7 @@
             "Morning",
             "Afternoon",
             "Night"});
-            this.cboShift.Location = new System.Drawing.Point(9, 92);
+            this.cboShift.Location = new System.Drawing.Point(12, 135);
             this.cboShift.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.cboShift.Name = "cboShift";
             this.cboShift.Order = 0;
@@ -518,7 +518,7 @@
             this.txtDeliveryN.ExtraDataLink = null;
             this.txtDeliveryN.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtDeliveryN.ForeColor = System.Drawing.Color.Gray;
-            this.txtDeliveryN.Location = new System.Drawing.Point(9, 56);
+            this.txtDeliveryN.Location = new System.Drawing.Point(12, 56);
             this.txtDeliveryN.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtDeliveryN.Name = "txtDeliveryN";
             this.txtDeliveryN.Order = 0;
@@ -554,7 +554,7 @@
             this.VS.EspackControlParent = null;
             this.VS.ExtraDataLink = null;
             this.VS.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.VS.Location = new System.Drawing.Point(9, 236);
+            this.VS.Location = new System.Drawing.Point(9, 229);
             this.VS.MsgStatusLabel = null;
             this.VS.Name = "VS";
             this.VS.NumPages = 0;
@@ -611,7 +611,7 @@
             this.txtTrailerPlate.ExtraDataLink = null;
             this.txtTrailerPlate.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtTrailerPlate.ForeColor = System.Drawing.Color.Gray;
-            this.txtTrailerPlate.Location = new System.Drawing.Point(410, 56);
+            this.txtTrailerPlate.Location = new System.Drawing.Point(419, 56);
             this.txtTrailerPlate.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtTrailerPlate.Name = "txtTrailerPlate";
             this.txtTrailerPlate.Order = 0;
@@ -632,7 +632,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(719, 586);
+            this.ClientSize = new System.Drawing.Size(719, 552);
             this.Controls.Add(this.txtTrailerPlate);
             this.Controls.Add(this.cboService);
             this.Controls.Add(this.lstFlags);
