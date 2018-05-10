@@ -48,10 +48,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EspackFormControls.cs">
+    <Compile Include="EspackCheckedListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EspackComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EspackDateTimePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EspackExtraData.cs" />
+    <Compile Include="EspackFormControls.cs" />
+    <Compile Include="EspackLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EspackMaskedTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EspackString.cs" />
+    <Compile Include="EspackTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="EspackTheme.cs" />
+    <Compile Include="NumericTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

@@ -1,0 +1,86 @@
+﻿using System;
+using System.Drawing;
+using EspackControls;
+using CommonTools;
+using AccesoDatosNet;
+
+namespace EspackFormControls
+{
+    public class EspackString : EspackFormControl
+    {
+        public bool IsCTLMOwned { get; set; } = false;
+        public EspackControl ExtraDataLink { get; set; } = null;
+        public EspackControlTypeEnum EspackControlType { get; set; }
+        private string theString { get; set; }
+        public EnumStatus Status { get; set; }
+        public DynamicRS DependingRS { get; set; }
+        public cAccesoDatosNet ParentConn { get; set; }
+        public Point Location { get; set; }
+        public bool Protected { get; set; }
+        public object Value
+        {
+            get
+            {
+                return theString;
+            }
+            set
+            {
+                theString = value.ToString();
+            }
+        }
+
+        public string DBField { get; set; }
+        public bool Add { get; set; }
+        public bool Upp { get; set; }
+        public bool Del { get; set; }
+        public int Order { get; set; }
+        public bool PK { get; set; }
+        public bool Search { get; set; }
+        public object DefaultValue { get; set; } = "";
+        public Type DBFieldType { get; set; }
+
+        public event EventHandler TextChanged;
+
+        public void UpdateEspackControl()
+        {
+            theString = ParentDA.SelectRS[DBField.ToString()].ToString();
+        }
+        public void ClearEspackControl()
+        {
+            if (DefaultValue != null)
+                theString = DefaultValue.ToString();
+            else
+                theString = "";
+        }
+        public EspackLabel CaptionLabel { get; set; }
+        public DA ParentDA { get; set; }
+        public string Caption { get; set; }
+
+        public string Text
+        {
+            get
+            {
+                return theString;
+            }
+
+            set
+            {
+                theString = value; ;
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return theString;
+            }
+
+            set
+            {
+                theString = value; ;
+            }
+        }
+    }
+
+}
