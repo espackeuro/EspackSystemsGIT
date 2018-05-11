@@ -43,9 +43,8 @@ namespace Simplistica
             CTLM.AddItem(txtTruckPlate, "TruckPlate", true, true, false, 0, false,true);
             CTLM.AddItem(txtTrailerPlate, "TrailerPlate", true, true, false, 0, false, true);
             CTLM.AddItem(cboDock, "Dock", true, true, false, 0, false, true);
-            CTLM.AddItem(cboDestination, "Destination", true, true, false, 0, false, true);
             CTLM.AddItem(cboShift, "Shift", true, true, false, 0, false, true);
-            CTLM.AddItem(txtUser, "UserProc", true, true, false, 0, false, true);
+            CTLM.AddItem(txtResponsible, "UserProc", true, true, false, 0, false, true);
             CTLM.AddItem(dateCheckPoint, "DateCheckPoint", pExtraDataLink: ExtraData);
             CTLM.AddItem(dateEPC, "DateEPC", pExtraDataLink: ExtraData);
             CTLM.AddItem(dateStart, "StartDate", false, false, false, 0, false, false);
@@ -53,13 +52,10 @@ namespace Simplistica
             CTLM.AddItem(lstFlags, "flags", false, false, false, 0, false, false);
             CTLM.AddItem(ExtraData, "ExtraData", true, true, false, 0, false, false);
 
-
             //fields
             cboService.Source("Select Codigo from Servicios where dbo.CheckFlag(flags,'SIMPLE')=1 and cod3='" + Values.COD3 + "' order by codigo");
             cboService.SelectedValueChanged += CboService_SelectedValueChanged;
             cboDock.Source("Select DockCode from SedesDocks where cod3='" + Values.COD3 + "' order by DockCode");
-            cboDestination.Source("Select Destination=planta+'- ('+descripcion2+') '+descripcion1 from Servicios_Destinos where servicio='" + cboService.Value.ToString() + "' order by planta");
-            cboDestination.SelectedValueChanged += CboDestination_SelectedValueChanged;
             lstFlags.Source("Select codigo,DescFlagEng from flags where Tabla='SimpleDeliveriesCab'");
 
             //VS Definitions>
@@ -75,6 +71,7 @@ namespace Simplistica
             VS.AddColumn("Line", "Line","","@Line", "@Line",pSortable:true,pLocked:true,pPK:true);
             VS.AddColumn("PartNumber", "partnumber", "@partnumber", pSortable: true, pWidth: 90, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: string.Format("select partnumber from referencias where servicio='{0}'", cboService.Value));
             VS.AddColumn("Description","Description", pWidth: 160);
+            VS.AddColumn("Destination", "Destination", "@Destination", pQuery: string.Format("select Destination=planta+'('+Descripcion2+') '+Descripcion1 from servicios_destinos where servicio='{0}'", cboService.Value), pSortable: true, pWidth: 90); //, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: string.Format("select partnumber from servicio_destinos where servicio='{0}'", cboService.Value));
             VS.AddColumn("OrderedQty", "OrderedQty", "@OrderedQty", "@OrderedQty", pWidth: 90);
             VS.AddColumn("SentQty", "SentQty", "@SentQty", "@SentQty", pWidth: 90);
             VS.CellEndEdit += VS_CellEndEdit; //VS_CellValidating; ; ;
@@ -102,7 +99,6 @@ namespace Simplistica
             Application.DoEvents();
 
             ChangeButtonsStatus();
-            if (e.ButtonClick == "btnCancel" && CTLM.Status == CommonTools.EnumStatus.NAVIGATE) cboDestination.Text = "";
 
             toolStrip.Enabled = (CTLM.Status == CommonTools.EnumStatus.NAVIGATE || CTLM.Status == CommonTools.EnumStatus.SEARCH) && ("btnUpp|btnCancel|btnAdd|".IndexOf(e.ButtonClick + "|") == -1);
             //toolStrip.Enabled = true; // The event that changes the status happens after this AfterButtonClick, so we left this enabled until I decide what to do.
@@ -128,43 +124,44 @@ namespace Simplistica
 
         private void CboService_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (cboService.Value.ToString() != "")
-            {
-                cboDestination.Value = "";
-                cboDestination.Source("Select Destination=planta+'- ('+descripcion2+') '+descripcion1 from Servicios_Destinos where servicio='" + cboService.Value.ToString() + "' order by planta");
-            }
-               
-        }
 
-        private void CboDestination_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if (cboDestination.Value.ToString() != "")
-            {
-                ((CtlVSColumn)VS.Columns["PartNumber"]).AutoCompleteQuery = string.Format("select distinct partnumber from referencias_destinos where servicio='{0}' and planta='{1}'", cboService.Value, cboDestination.Value.ToString().Substring(0,2));
-                ((CtlVSColumn)VS.Columns["PartNumber"]).ReQuery();
-            }
         }
 
         private void VS_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == (VS.Columns["PartNumber"].Index)) 
             {
-                using (var _rs = new StaticRS(string.Format("Select Descripcion from Referencias where partnumber='{0}' and Servicio='{1}'", VS[e.ColumnIndex, e.RowIndex].Value, cboService.Value), Values.gDatos))
+                if (VS[e.ColumnIndex, e.RowIndex].Value.ToString() != "")
                 {
-                    _rs.Open();
-                    if (_rs.RecordCount == 0)
+                    using (var _rs = new StaticRS(string.Format("Select Descripcion from Referencias where partnumber='{0}' and Servicio='{1}'", VS[e.ColumnIndex, e.RowIndex].Value, cboService.Value), Values.gDatos))
                     {
-                        MsgError("Wrong partnumber");
-                        VS[e.ColumnIndex, e.RowIndex].Value = "";
-                        VS[VS.Columns["Description"].Index, e.RowIndex].Value = "";
-                    }
-                    else
-                    {
-                        VS[VS.Columns["Description"].Index, e.RowIndex].Value = _rs["Descripcion"].ToString();
-                        VS.CurrentCell = VS[VS.Columns["Description"].Index, e.RowIndex];
+                        _rs.Open();
+                        if (_rs.RecordCount == 0)
+                        {
+                            MsgError("Wrong partnumber");
+                            VS[e.ColumnIndex, e.RowIndex].Value = "";
+                            VS[VS.Columns["Description"].Index, e.RowIndex].Value = "";
+                            VS[VS.Columns["Destination"].Index, e.RowIndex].Value = "";
+                        }
+                        else
+                        {
+                            VS[VS.Columns["Description"].Index, e.RowIndex].Value = _rs["Descripcion"].ToString();
+                            VS.CurrentCell = VS[VS.Columns["Description"].Index, e.RowIndex];
+                        }
                     }
                 }
-
+                else
+                {
+                    VS[e.ColumnIndex, e.RowIndex].Value = "";
+                    VS[VS.Columns["Description"].Index, e.RowIndex].Value = "";
+                    VS[VS.Columns["Destination"].Index, e.RowIndex].Value = "";
+                }
+                ((CtlVSComboColumn)VS.Columns["Destination"]).SetQuery(string.Format("select Destination='' union all select s.planta+'('+s.Descripcion2+') '+s.Descripcion1 from servicios_destinos s inner join referencias_destinos r on r.servicio=s.servicio and r.ruta=s.ruta where s.servicio='{0}' and r.partnumber='{1}' ", cboService.Value, VS[e.ColumnIndex, e.RowIndex].Value));
+                if (((CtlVSComboColumn)VS.Columns["Destination"]).Items.Count>1 )
+                {
+                    ((CtlVSComboColumn)VS.Columns["Destination"]).Value=((CtlVSComboColumn)VS.Columns["Destination"]).Items[1].ToString();
+                    
+                }
             }
         }
 
@@ -195,7 +192,6 @@ namespace Simplistica
                 }
                 
                 CTLM.Button_Click("btnCancel");
-                cboDestination.Text = "";
                 ChangeButtonsStatus();
                 MessageBox.Show(string.Format("Delivery {0} OK.",_closed?"opened":"closed"), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -216,7 +212,6 @@ namespace Simplistica
                         _printIt.Service = cboService.Value.ToString();
                         _printIt.TruckPlate = txtTruckPlate.Text;
                         _printIt.TrailerPlate = txtTrailerPlate.Text;
-                        _printIt.Destination= cboDestination.Text;
                         _printIt.Dock= cboDock.Text;
                         _printIt.EndDate = (dateEnd.Value==null?"< NONE >": dateEnd.Text.Substring(0,10));
                         _pd.Document = _printIt;
