@@ -69,13 +69,14 @@ namespace Simplistica
             VS.AddColumn("DeliveryNumber", txtDeliveryN, "@DeliveryNumber", "@DeliveryNumber", "@DeliveryNumber",pVisible:false);
             VS.AddColumn("Service", cboService, "@Service", "@Service", "@Service", pVisible: false);
             VS.AddColumn("Line", "Line","","@Line", "@Line",pSortable:true,pLocked:true,pPK:true);
-            VS.AddColumn("PartNumber", "partnumber", "@partnumber", pSortable: true, pWidth: 90, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: string.Format("select partnumber from referencias where servicio='{0}'", cboService.Value));
+            VS.AddColumn("PartNumber", "partnumber", "@partnumber", pSortable: true, pWidth: 200, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: string.Format("select partnumber from referencias where servicio='{0}'", cboService.Value));
             VS.AddColumn("Description","Description", pWidth: 160);
-            VS.AddColumn("Destination", "Destination", "@Destination", pQuery: string.Format("select Destination=planta+'('+Descripcion2+') '+Descripcion1 from servicios_destinos where servicio='{0}'", cboService.Value), pSortable: true, pWidth: 90); //, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: string.Format("select partnumber from servicio_destinos where servicio='{0}'", cboService.Value));
+            VS.AddColumn("Destination", "DestString", "@Destination","@Destination", pQuery: string.Format("select Destination='' union all select planta+' ('+Descripcion2+') '+Descripcion1 from servicios_destinos where servicio='{0}'", cboService.Value), pSortable: true, pWidth: 90); //, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: string.Format("select partnumber from servicio_destinos where servicio='{0}'", cboService.Value));
             VS.AddColumn("OrderedQty", "OrderedQty", "@OrderedQty", "@OrderedQty", pWidth: 90);
             VS.AddColumn("SentQty", "SentQty", "@SentQty", "@SentQty", pWidth: 90);
             VS.CellEndEdit += VS_CellEndEdit; //VS_CellValidating; ; ;
-
+            VS.CellEnter += VS_CellEnter;
+            VS.DataError += VS_DataError;
             //Various
             CTLM.ReQuery = true;
             CTLM.AddDefaultStatusStrip();
@@ -85,6 +86,7 @@ namespace Simplistica
             CTLM.AfterButtonClick += CTLM_AfterButtonClick;
             toolStrip.Enabled = false;
         }
+
 
         //private void CTLM_BeforeButtonClick(object sender, CTLMEventArgs e)
         //{
@@ -122,9 +124,56 @@ namespace Simplistica
             CTLM.Items["btnDel"].Enabled = toolStrip.Items["btnClose"].Text != "Open";
         }
 
+        private void VS_DataError(object sender, DataGridViewDataErrorEventArgs anError)
+        {
+            
+            
+            MessageBox.Show("Error happened " + anError.Context.ToString());
+
+            if (anError.Context == DataGridViewDataErrorContexts.Commit)
+            {
+                MessageBox.Show("Commit error");
+            }
+            if (anError.Context == DataGridViewDataErrorContexts.CurrentCellChange)
+            {
+                MessageBox.Show("Cell change");
+            }
+            if (anError.Context == DataGridViewDataErrorContexts.Parsing)
+            {
+                MessageBox.Show("parsing error");
+            }
+            if (anError.Context == DataGridViewDataErrorContexts.LeaveControl)
+            {
+                MessageBox.Show("leave control error");
+            }
+
+            if ((anError.Exception) is ConstraintException)
+            {
+                DataGridView view = (DataGridView)sender;
+                view.Rows[anError.RowIndex].ErrorText = "an error";
+                view.Rows[anError.RowIndex].Cells[anError.ColumnIndex].ErrorText = "an error";
+
+                anError.ThrowException = false;
+            }
+        }
+
         private void CboService_SelectedValueChanged(object sender, EventArgs e)
         {
+            ((CtlVSComboColumn)VS.Columns["Destination"]).SetQuery(string.Format("select Destination='' union all select s.planta+' ('+s.Descripcion2+') '+s.Descripcion1 from servicios_destinos s where s.servicio='{0}'", cboService.Value));
+        }
 
+        private void VS_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+
+
+            if (VS[VS.Columns["Partnumber"].Index,e.RowIndex].Value != "")
+            {
+                ((CtlVSComboColumn)VS.Columns["Destination"]).SetQuery(string.Format("select Destination='' union all select s.planta+' ('+s.Descripcion2+') '+s.Descripcion1 from servicios_destinos s inner join referencias_destinos r on r.servicio=s.servicio and r.ruta=s.ruta where s.servicio='{0}' and r.partnumber='{1}' ", cboService.Value, VS[VS.Columns["Partnumber"].Index, e.RowIndex].Value));
+            }
+            else
+            {
+                ((CtlVSComboColumn)VS.Columns["Destination"]).SetQuery(string.Format("select Destination='' union all select s.planta+' ('+s.Descripcion2+') '+s.Descripcion1 from servicios_destinos s where s.servicio='{0}'", cboService.Value));
+            }
         }
 
         private void VS_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -156,12 +205,7 @@ namespace Simplistica
                     VS[VS.Columns["Description"].Index, e.RowIndex].Value = "";
                     VS[VS.Columns["Destination"].Index, e.RowIndex].Value = "";
                 }
-                ((CtlVSComboColumn)VS.Columns["Destination"]).SetQuery(string.Format("select Destination='' union all select s.planta+'('+s.Descripcion2+') '+s.Descripcion1 from servicios_destinos s inner join referencias_destinos r on r.servicio=s.servicio and r.ruta=s.ruta where s.servicio='{0}' and r.partnumber='{1}' ", cboService.Value, VS[e.ColumnIndex, e.RowIndex].Value));
-                if (((CtlVSComboColumn)VS.Columns["Destination"]).Items.Count>1 )
-                {
-                    ((CtlVSComboColumn)VS.Columns["Destination"]).Value=((CtlVSComboColumn)VS.Columns["Destination"]).Items[1].ToString();
-                    
-                }
+                //((CtlVSComboColumn)VS.Columns["Destination"]).SetQuery(string.Format("select Destination='' union all select s.planta+' ('+s.Descripcion2+') '+s.Descripcion1 from servicios_destinos s inner join referencias_destinos r on r.servicio=s.servicio and r.ruta=s.ruta where s.servicio='{0}' and r.partnumber='{1}' ", cboService.Value, VS[e.ColumnIndex, e.RowIndex].Value));
             }
         }
 
