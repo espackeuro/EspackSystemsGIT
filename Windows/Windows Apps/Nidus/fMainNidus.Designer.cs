@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMainNidus));
-            this.espackMenu1 = new EspackMenuNS.EspackMenu();
-            this.espackToolStripItem1 = new EspackMenuNS.EspackToolStripItem();
-            this.espackToolStripItem2 = new EspackMenuNS.EspackToolStripItem();
+            this.espackMenu1 = new EspackFormControls.EspackMenu();
+            this.espackToolStripItem1 = new EspackFormControls.EspackToolStripItem();
+            this.espackToolStripItem2 = new EspackFormControls.EspackToolStripItem();
             this.espackMenu1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,12 +51,13 @@
             this.espackToolStripItem2});
             this.espackToolStripItem1.Name = "espackToolStripItem1";
             this.espackToolStripItem1.Size = new System.Drawing.Size(80, 20);
+            this.espackToolStripItem1.Tag = "-";
             this.espackToolStripItem1.Text = "Documents";
             // 
             // espackToolStripItem2
             // 
             this.espackToolStripItem2.Name = "espackToolStripItem2";
-            this.espackToolStripItem2.Size = new System.Drawing.Size(145, 22);
+            this.espackToolStripItem2.Size = new System.Drawing.Size(152, 22);
             this.espackToolStripItem2.Tag = "fDocumentControl";
             this.espackToolStripItem2.Text = "Management";
             // 
@@ -81,9 +82,9 @@
 
         #endregion
 
-        private EspackMenuNS.EspackMenu espackMenu1;
-        private EspackMenuNS.EspackToolStripItem espackToolStripItem1;
-        private EspackMenuNS.EspackToolStripItem espackToolStripItem2;
+        private EspackFormControls.EspackMenu espackMenu1;
+        private EspackFormControls.EspackToolStripItem espackToolStripItem1;
+        private EspackFormControls.EspackToolStripItem espackToolStripItem2;
     }
 }
 

@@ -15,12 +15,16 @@ using EspackFormControls;
 using DiverseControls;
 using System.Drawing.Printing;
 using System.Threading.Tasks;
+using CheckedComboBoxNS;
+using System.Diagnostics;
 
 namespace VSGrid
 {
-    
+
+
     public class CtlVSGrid : DataGridView, EspackFormControl
     {
+        #region Properties
         public bool IsCTLMOwned { get; set; } = false;
         public EspackControl ExtraDataLink { get; set; } = null;
         public EspackControlTypeEnum EspackControlType { get; set; }
@@ -50,6 +54,30 @@ namespace VSGrid
         public bool Search { get; set; }
         public object DefaultValue { get; set; }
         public Type DBFieldType { get; set; }
+        //filter props
+        private bool mFilterRowEnabled;
+        public bool IsFilterFocused { get; set; }
+        public DataGridViewRow FilterRow { get; set; }
+        public bool FilterRowEnabled
+        {
+            get => mFilterRowEnabled;
+            set
+            {
+                mFilterRowEnabled = value;
+                if (value == true)
+                {
+                    AddFilterRow();
+                }
+                else
+                {
+                    Rows.RemoveAt(0);
+                    FilterRow = null;
+                }
+            }
+        }
+
+
+        public List<FilterCell> FilterCells { get; set; } = new List<FilterCell>();
         //EspackFormControl properties
         public EspackLabel CaptionLabel { get; set; }
         public string Caption
@@ -179,7 +207,7 @@ namespace VSGrid
         {
             get
             {
-                if (mDA.SelectRS != null) 
+                if (mDA.SelectRS != null)
                 {
                     return mDA.SQL;
                 }
@@ -256,18 +284,19 @@ namespace VSGrid
                     {
                         Page = 1;
                         mPaginate = true;
-                        
-                        mNavigationBar = new ToolStrip() { 
-                            Location= new Point(this.Location.X,this.Location.Y+this.Size.Height-25),
-                            Size=new Size(this.Size.Width,RowTemplate.Height), //the height of a row
-                            Dock=DockStyle.None
+
+                        mNavigationBar = new ToolStrip()
+                        {
+                            Location = new Point(this.Location.X, this.Location.Y + this.Size.Height - 25),
+                            Size = new Size(this.Size.Width, RowTemplate.Height), //the height of a row
+                            Dock = DockStyle.None
                         };
                         this.Size = new Size(this.Size.Width, this.Size.Height - RowTemplate.Height);
                         this.Parent.FindForm().Controls.Add(mNavigationBar);
                         mNavigationBar.Items.Add(new ToolStripButton()
                         {
                             Name = "btnFirst",
-                            Image =(System.Drawing.Image)Properties.Resources.first16
+                            Image = (System.Drawing.Image)Properties.Resources.first16
                         });
                         mNavigationBar.Items.Add(new ToolStripButton()
                         {
@@ -329,7 +358,8 @@ namespace VSGrid
                             if (RowCount == 0 && DataSource == null)
                             {
                                 Rows.Add();
-                            } else
+                            }
+                            else
                             {
                                 DataRow newRow = mDA.Table.NewRow();
                                 mDA.Table.Rows.Add(newRow);
@@ -359,7 +389,7 @@ namespace VSGrid
                             break;
                         }
                 }
-                if ((Status == EnumStatus.ADDNEW || Status == EnumStatus.EDIT) && RowCount>0)
+                if ((Status == EnumStatus.ADDNEW || Status == EnumStatus.EDIT) && RowCount > 0)
                 {
                     if (AllowUpdate)
                     {
@@ -382,7 +412,11 @@ namespace VSGrid
                             lCell.Style.ForeColor = Colors.CELLFORECOLOR;
                         }
                     }
-                    this.CurrentCell = Rows[RowCount - 1].Cells.Cast<DataGridViewCell>().First(x => x.ReadOnly == false && x.Visible==true);
+                    this.CurrentCell = Rows[RowCount - 1].Cells.Cast<DataGridViewCell>().First(x => x.ReadOnly == false && x.Visible == true);
+                }
+                if (FilterRowEnabled)
+                {
+                    FilterRow.Cells.OfType<FilterCell>().ToList().ForEach(c => c.ReadOnly = false);
                 }
             }
             get
@@ -407,7 +441,7 @@ namespace VSGrid
                     string lDelimiter = CT.IsNumericType(Item.DBFieldType) ? "" : "'";
                     if (Item.DBField != "")
                     {
-                        lQueryFields.Add("["+Item.Name + "]=" + Item.DBField);
+                        lQueryFields.Add("[" + Item.Name + "]=" + Item.DBField);
 
                     }
                     if (Item.LinkedControl != null)
@@ -422,7 +456,7 @@ namespace VSGrid
                     {
                         lOrderFields.Add(lItem.DBField);
                     }
-                    
+
                 }
                 //construnt the select clause
                 lSQL = "Select " + string.Join(", ", lQueryFields) + " from " + DBTable;
@@ -441,8 +475,9 @@ namespace VSGrid
 
         public string DBTable { get; set; }
         private int RowEdited;
-        private bool RowEditedBool=false;
-//Constructors
+        private bool RowEditedBool = false;
+        #endregion
+        //Constructors
         public CtlVSGrid()
         {
             AllowDelete = false;
@@ -454,9 +489,16 @@ namespace VSGrid
             AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             //EditMode = DataGridViewEditMode.EditOnEnter;
             CellBeginEdit += VSCellBeginEdit;
-            CellEndEdit+=VSCellEndEdit;
+            CellEndEdit += VSCellEndEdit;
             Resize += CtlVSGrid_Resize;
             KeyDown += CtlVSGrid_KeyDown;
+            CellEnter += CtlVSGrid_CellEnter;
+            //this.ProcessKeyPreview
+            // pruebas
+            //KeyPress += CtlVSGrid_KeyPress;
+            //PreviewKeyDown += CtlVSGrid_PreviewKeyDown;
+
+
             SelectionChanged += CtlVSGrid_SelectionChanged;
             EditingControlShowing += CtlVSGrid_EditingControlShowing;
             Status = EnumStatus.SEARCH;
@@ -467,6 +509,41 @@ namespace VSGrid
             CaptionLabel = new EspackLabel("", this) { AutoSize = true };
             EspackTheme.changeControlFormat(this);
         }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if ((keyData == Keys.Enter))
+            {
+                if (IsCurrentCellInEditMode)
+                {
+                    EndEdit();
+                }
+                else
+                if (!CurrentCell.ReadOnly)
+                    BeginEdit(true);
+                return true;
+            }
+            else
+                return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+
+        private void CtlVSGrid_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (!this[e.ColumnIndex, e.RowIndex].ReadOnly)
+                BeginEdit(true);
+        }
+
+        //private void CtlVSGrid_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        //{
+        //    Debug.Print("Caca");
+        //}
+
+        //private void CtlVSGrid_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    //throw new NotImplementedException();
+        //    Debug.Print("Caca");
+        //}
 
         private void CtlVSGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
@@ -502,6 +579,28 @@ namespace VSGrid
                 CaptionLabel.Dispose();
             CaptionLabel = null;
         }
+
+        #region FilterMethods
+        private void AddFilterRow()
+        {
+            var _row = mDA.Table.NewRow(); 
+            mDA.Table.Rows.InsertAt(_row, 0);
+            FilterRow = Rows[0];
+            //FilterRow.Cells.OfType<FilterCell>().ToList().ForEach(c => c.ReadOnly = false);
+        }
+        public void AddFilterCell(FilterCellTypes type, int column, string sqlSource = "")
+        {
+            this[column, 0] = new FilterCell() { Type = type, SqlSource = sqlSource };
+            FilterCells.Add((FilterCell)this[column, 0]);
+            this[column, 0].ReadOnly = false;
+        }
+
+        #endregion
+
+
+
+
+
 
         //private void CtlVSGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
         //{
@@ -638,13 +737,12 @@ namespace VSGrid
         {
             SP lCommand;
             string lMsg = "";
-
-            if (Status != EnumStatus.ADDGRIDLINE && Status != EnumStatus.EDITGRIDLINE && Status != EnumStatus.EDIT && Status != EnumStatus.ADDNEW)
+            if (Status != EnumStatus.ADDGRIDLINE && Status != EnumStatus.EDITGRIDLINE && Status != EnumStatus.EDIT && Status != EnumStatus.ADDNEW && !(CurrentCell is FilterCell) )
             {
                 CancelEdit();
                 return;
             }
-
+            
             switch (e.KeyCode)
             {
                 case Keys.Enter:
@@ -763,7 +861,7 @@ namespace VSGrid
                         CellTemplate = new DataGridViewTextBoxCell(),
                         DataPropertyName = Col.ColumnName,
                         DBFieldType = Col.DataType,
-                        AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells
+                        AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                     });
                 }
             }
@@ -1076,6 +1174,8 @@ namespace VSGrid
         public static Color CELLLOCKEDFORECOLOR = Color.Black;
         public static Color CELLBACKCOLOR = Color.Beige;
         public static Color CELLFORECOLOR = Color.Black;
+        public static Color CELLFILTERBACKCOLOR = Color.Beige;
+        public static Color CELLFILTERFORECOLOR = Color.Red;
     }
 
 

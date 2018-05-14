@@ -321,10 +321,6 @@
       <Project>{5da9cb0b-9007-40f1-8086-1b0303d8271f}</Project>
       <Name>cAccesoDatos</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Windows Apps\EspackMenu\EspackMenu.csproj">
-      <Project>{f58c64dc-f90a-4732-8afa-24db566247f9}</Project>
-      <Name>EspackMenu</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

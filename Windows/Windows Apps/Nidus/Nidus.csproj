@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EspackMenu">
-      <HintPath>..\EspackMenu\obj\Debug\EspackMenu.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -115,6 +112,10 @@
     <ProjectReference Include="..\..\..\EspackControls\CtlVSGrid\CtlVSGrid.csproj">
       <Project>{6e156f1f-61f2-402b-a942-356427642a52}</Project>
       <Name>CtlVSGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\EspackControls\EspackControls\EspackControls.csproj">
+      <Project>{ECE9AA32-F756-4BE3-A926-B0771E69066B}</Project>
+      <Name>EspackControls</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\EspackControls\EspackFormControls\EspackFormControls.csproj">
       <Project>{70432336-f038-4ef1-af04-012ae8e6c009}</Project>

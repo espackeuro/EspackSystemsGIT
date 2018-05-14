@@ -4,8 +4,9 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Diagnostics;
+using System.Data;
 
-namespace CheckComboBoxTest
+namespace CheckedComboBoxNS
 {
     public partial class CheckedComboBox : ComboBox
     {
@@ -133,7 +134,7 @@ namespace CheckComboBoxTest
             private bool dropdownClosed = true;
 
             private CustomCheckedListBox cclb;
-            public CustomCheckedListBox List
+            public CustomCheckedListBox InternalCheckedListBox
             {
                 get { return cclb; }
                 set { cclb = value; }
@@ -187,9 +188,11 @@ namespace CheckComboBoxTest
             public string GetCheckedItemsStringValue()
             {
                 StringBuilder sb = new StringBuilder("");
-                for (int i = 0; i < cclb.CheckedItems.Count; i++)
+                //for (int i = 0; i < cclb.CheckedItems.Count; i++)
+                foreach (DataRowView item in cclb.CheckedItems)
                 {
-                    sb.Append(cclb.GetItemText(cclb.CheckedItems[i])).Append(ccbParent.ValueSeparator);
+                    //sb.Append(cclb.GetItemText(cclb.CheckedItems[i])).Append(ccbParent.ValueSeparator);
+                    sb.Append(item[cclb.ValueMember].ToString()).Append(ccbParent.ValueSeparator);
                 }
                 if (sb.Length > 0)
                 {
@@ -302,29 +305,29 @@ namespace CheckComboBoxTest
 
         public bool CheckOnClick
         {
-            get { return dropdown.List.CheckOnClick; }
-            set { dropdown.List.CheckOnClick = value; }
+            get { return dropdown.InternalCheckedListBox.CheckOnClick; }
+            set { dropdown.InternalCheckedListBox.CheckOnClick = value; }
         }
 
         public new string DisplayMember
         {
-            get { return dropdown.List.DisplayMember; }
-            set { dropdown.List.DisplayMember = value; }
+            get { return dropdown.InternalCheckedListBox.DisplayMember; }
+            set { dropdown.InternalCheckedListBox.DisplayMember = value; }
         }
 
         public new CheckedListBox.ObjectCollection Items
         {
-            get { return dropdown.List.Items; }
+            get { return dropdown.InternalCheckedListBox.Items; }
         }
 
         public CheckedListBox.CheckedItemCollection CheckedItems
         {
-            get { return dropdown.List.CheckedItems; }
+            get { return dropdown.InternalCheckedListBox.CheckedItems; }
         }
 
         public CheckedListBox.CheckedIndexCollection CheckedIndices
         {
-            get { return dropdown.List.CheckedIndices; }
+            get { return dropdown.InternalCheckedListBox.CheckedIndices; }
         }
 
         public bool ValueChanged
@@ -372,6 +375,13 @@ namespace CheckComboBoxTest
             base.Dispose(disposing);
         }
 
+        public void ClearSelected()
+        {
+            dropdown.InternalCheckedListBox.ClearSelected();
+        }
+        public new object DataSource { get => dropdown.InternalCheckedListBox.DataSource; set => dropdown.InternalCheckedListBox.DataSource = value; }
+        public new string ValueMember { get => dropdown.InternalCheckedListBox.ValueMember; set => dropdown.InternalCheckedListBox.ValueMember = value; }
+
         protected override void OnDropDown(EventArgs e)
         {
             base.OnDropDown(e);
@@ -384,7 +394,7 @@ namespace CheckComboBoxTest
             {
                 Rectangle rect = RectangleToScreen(this.ClientRectangle);
                 dropdown.Location = new Point(rect.X, rect.Y + this.Size.Height);
-                int count = dropdown.List.Items.Count;
+                int count = dropdown.InternalCheckedListBox.Items.Count;
                 if (count > this.MaxDropDownItems)
                 {
                     count = this.MaxDropDownItems;
@@ -393,7 +403,7 @@ namespace CheckComboBoxTest
                 {
                     count = 1;
                 }
-                dropdown.Size = new Size(this.Size.Width, (dropdown.List.ItemHeight) * count + 2);
+                dropdown.Size = new Size(this.Size.Width, (dropdown.InternalCheckedListBox.ItemHeight) * count + 2);
                 dropdown.Show(this);
             }
         }
@@ -440,7 +450,7 @@ namespace CheckComboBoxTest
             }
             else
             {
-                return dropdown.List.GetItemChecked(index);
+                return dropdown.InternalCheckedListBox.GetItemChecked(index);
             }
         }
 
@@ -452,7 +462,7 @@ namespace CheckComboBoxTest
             }
             else
             {
-                dropdown.List.SetItemChecked(index, isChecked);
+                dropdown.InternalCheckedListBox.SetItemChecked(index, isChecked);
                 // Need to update the Text.
                 this.Text = dropdown.GetCheckedItemsStringValue();
             }
@@ -466,7 +476,7 @@ namespace CheckComboBoxTest
             }
             else
             {
-                return dropdown.List.GetItemCheckState(index);
+                return dropdown.InternalCheckedListBox.GetItemCheckState(index);
             }
         }
 
@@ -478,7 +488,7 @@ namespace CheckComboBoxTest
             }
             else
             {
-                dropdown.List.SetItemCheckState(index, state);
+                dropdown.InternalCheckedListBox.SetItemCheckState(index, state);
                 // Need to update the Text.
                 this.Text = dropdown.GetCheckedItemsStringValue();
             }
