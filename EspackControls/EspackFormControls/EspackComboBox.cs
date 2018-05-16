@@ -180,6 +180,8 @@ namespace EspackFormControls
         //        base.Margin = _m;
         //    }
         //}
+        public EnumStatus Status { get => GetStatus(); set => SetStatus(value); }
+
         public void SetStatus(EnumStatus value)
         {
             mStatus = value;
