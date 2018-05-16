@@ -424,7 +424,18 @@ namespace DiverseControls
             get
             {
                 if (Graphics != null)
-                    return Graphics.MeasureString(Text != "" ? Text : "@", Font).Width - Graphics.MeasureString(" ", Font).Width;
+                {
+                    Font _f;
+                    if (Persistent && !Font.Bold)
+                    {
+                        _f= new Font(Font.Name,Font.Size,FontStyle.Bold);
+                    }
+                    else
+                    {
+                        _f = Font;
+                    }
+                    return Graphics.MeasureString(Text != "" ? Text : "@", _f).Width - Graphics.MeasureString(" ", _f).Width;
+                }
                 else return 0;
             }
         }
@@ -454,8 +465,21 @@ namespace DiverseControls
         // Draw the text
         public void Draw(Graphics pGraphics)
         {
-            if (Graphics!=null)
-                pGraphics.DrawString(Text, Font, Brush, X, Y);
+            if (Graphics != null)
+            {
+                Font _f;
+                if (Persistent && !Font.Bold)
+
+
+                {
+                    _f = new Font(Font.Name, Font.SizeInPoints, FontStyle.Bold);
+                }
+                else
+                {
+                    _f = Font;
+                }
+                pGraphics.DrawString(Text, _f, Brush, X, Y);
+            }
         }
 
         // --------- IDisposable stuff ---------
@@ -605,60 +629,54 @@ namespace DiverseControls
 
                     using (var _currentItem = ((EspackPrintingText)x))
                     {
-                        if (_previousText != null)
+                        // It has not arranged yet: when arranged, the items get true on PrintMe property
+                        if (!_currentItem.PrintMe)
                         {
-                            // Previous item exists
-                            if (_currentItem.X == -1 && _currentItem.Y == -1)
+                            if (_previousText != null)
                             {
-                                // X and Y not set. Set them depending of EOL value
-                                if (!_previousText.EOL)
+                                // Previous item exists
+                                if (_currentItem.X == -1 && _currentItem.Y == -1)
                                 {
-                                    _currentItem.X = _previousText.X + _previousText.Width;
-                                    _currentItem.Y = _previousText.Y;
-                                }
-                                else
-                                {
-                                    _currentItem.X = X; // LEFT MARGIN
-
-                                    if (Zone == EnumDocumentZones.BODY && _previousText.Y + _previousText.Height > MaxHeight)
+                                    // X and Y not set. Set them depending of EOL value
+                                    if (!_previousText.EOL)
                                     {
-                                        break;
+                                        _currentItem.X = _previousText.X + _previousText.Width;
+                                        _currentItem.Y = _previousText.Y;
                                     }
-                                    
-                                    _currentItem.Y = _previousText.Y + _previousText.Height;
+                                    else
+                                    {
+                                        if (Zone == EnumDocumentZones.BODY && _previousText.Y + _previousText.Height > MaxHeight)
+                                        {
+                                            break;
+                                        }
+                                        _currentItem.X = X; // LEFT MARGIN
+                                        _currentItem.Y = _previousText.Y + _previousText.Height;
+                                    }
                                 }
+                                if (_currentItem.Font == null)
+                                    _currentItem.Font = _previousText.Font ?? (Font)Font.Font.Clone();
+                                if (_currentItem.Brush == null)
+                                    _currentItem.Brush = _previousText.Brush ?? (Brush)Font.Brush.Clone();
                             }
-                            if (_currentItem.Font == null)
-                                _currentItem.Font = _previousText.Font??Font.Font;
-                            if (_currentItem.Brush == null)
-                                _currentItem.Brush = _previousText.Brush??Font.Brush;
+                            else
+                            {
+                                // First element: set defaults if not passed
+                                _currentItem.X = _currentItem.X == -1 ? X : X + _currentItem.X; // LEFT MARGIN
+                                _currentItem.Y = _currentItem.Y == -1 ? Y : Y + _currentItem.Y; // TOP MARGIN
+                                _currentItem.Font = _currentItem.Font ?? (Font)Font.Font.Clone();
+                                _currentItem.Brush = _currentItem.Brush ?? (Brush)Font.Brush.Clone();
+                            }
+         
+                            if (_currentItem.X + _currentItem.Width > Width)
+                                Width = _currentItem.X + _currentItem.Width;
+                            if (_currentItem.Y + _currentItem.Height > Height)
+                                Height = _currentItem.Y + _currentItem.Height;
+
+                            _currentItem.PrintMe = true;
                         }
-                        else
-                        {
-                            // First element: set defaults if not passed
-                            _currentItem.X = _currentItem.X == -1 ? X : X + _currentItem.X; // LEFT MARGIN
-                            _currentItem.Y = _currentItem.Y == -1 ? Y : Y + _currentItem.Y; // TOP MARGIN
-                            _currentItem.Font = _currentItem.Font ?? Font.Font;
-                            _currentItem.Brush = _currentItem.Brush ?? Font.Brush;
-                        }
-
-                        //if ( MaxHeight!=-1 && _currentItem.Y + _currentItem.Height > MaxHeight)
-                        //{
-                        //    _currentItem.Y = Y;
-                        //    _currentItem.NewPage= true;
-                        //}
-
-                        if (_currentItem.X + _currentItem.Width > Width)
-                            Width = _currentItem.X + _currentItem.Width;
-                        if (_currentItem.Y + _currentItem.Height> Height)
-                            Height = _currentItem.Y + _currentItem.Height;
-
-
-                        _currentItem.PrintMe = true;
                         _previousText = _currentItem;
-                        
                     }
-                    
+
                 }
                 
             }
@@ -788,7 +806,7 @@ namespace DiverseControls
         }
 
         // Add the results of a query to the current area
-        public void AddQuery(string pSQL, cAccesoDatosNet pConn, bool pHideTitles=false)
+        public void AddQuery(string pSQL, cAccesoDatosNet pConn, EspackFont pFont=null, bool pHideTitles=false)
         {
             if (CurrentArea != null)
             {
@@ -802,23 +820,61 @@ namespace DiverseControls
                     }
                     else
                     {
-                        
-                        if (!pHideTitles)
+
+                        Dictionary<string, List<string>> _matrix = new Dictionary<string, List<string>>();
+
+                        foreach (var _item in _rs.Fields)
                         {
-                            foreach(var _item in _rs.Fields)
-                            {
-                                AddText(true,_item.ToString());
-                            }
-                            NewLine();
+                            _matrix[_item.ToString().Trim()] = new List<string>();
                         }
+
+                        int _col;
+
                         _rs.ToList().ForEach(_row =>
-                       {
-                           _row.ItemArray.ToList().ForEach(_column =>
-                           {
-                               AddText(_column.ToString());
-                           });
-                           NewLine();
-                       });
+                        {
+                            _col = 0;
+                            _row.ItemArray.ToList().ForEach(_column =>
+                            {
+                                _matrix[_matrix.Keys.ToList()[_col]].Add(_column.ToString().Trim());
+                                _col++;
+                            });
+                        });
+
+                        foreach (var _key in _matrix.Keys)
+                        {
+                            //EspackPrintingArea _a;
+                            Areas.Add(CurrentArea = new EspackPrintingArea(EnumDocumentZones.BODY,pFont, pDocking: EnumZoneDocking.RIGHTWARDS));
+                            foreach (var _item in _matrix[_key])
+                            {
+                                AddText(_item.ToString());
+                                NewLine();
+                            }
+                        }
+
+                        //if (!pHideTitles)
+
+                        //{
+                        //    EspackPrintingArea _a;
+                        //    //Areas.Add(_a = new EspackPrintingArea(EnumDocumentZones.BODY, pDocking: EnumZoneDocking.RIGHTWARDS));
+                        //    foreach (var _item in _rs.Fields)
+                        //    {
+                        //        Areas.Add(_a = new EspackPrintingArea(EnumDocumentZones.BODY, pDocking: EnumZoneDocking.RIGHTWARDS));
+                        //        _a.AddText(_item.ToString());
+                        //        //AddText(true,_item.ToString());
+                        //    }
+                        //    //NewLine();
+                        //}
+                        
+                        //List<string> _theList = new List<string>();
+                        //_rs.ToList().ForEach(_row => 
+                        //{ 
+                        //   _row.ItemArray.ToList().ForEach(_column =>
+                        //   {
+                        //       _theList.Add( _column.ToString());
+                        //       AddText(_column.ToString());
+                        //   });
+                        //   NewLine();
+                        //});
                     }
                 }
             }
@@ -906,6 +962,7 @@ namespace DiverseControls
             Areas.Where(_item => (_item.Zone == EnumDocumentZones.BODY )).ToList().ForEach(_item =>
             {
                 _item.ArrangeItems(_g,HardMargins,_previousArea);
+                _previousArea = _item;
             });
 
             

@@ -45,9 +45,8 @@
             this.dateEPC = new EspackFormControls.EspackDateTimePicker();
             this.dateCheckPoint = new EspackFormControls.EspackDateTimePicker();
             this.txtTruckPlate = new EspackFormControls.EspackTextBox();
-            this.cboDestination = new EspackFormControls.EspackComboBox();
             this.cboDock = new EspackFormControls.EspackComboBox();
-            this.txtUser = new EspackFormControls.EspackTextBox();
+            this.txtResponsible = new EspackFormControls.EspackTextBox();
             this.cboShift = new EspackFormControls.EspackComboBox();
             this.txtDeliveryN = new EspackFormControls.EspackTextBox();
             this.VS = new EspackDataGrid.EspackDataGridView();
@@ -153,7 +152,8 @@
             this.cboService.Font = new System.Drawing.Font("Tahoma", 10F);
             this.cboService.ForeColor = System.Drawing.Color.Black;
             this.cboService.FormattingEnabled = true;
-            this.cboService.Location = new System.Drawing.Point(148, 49);
+            this.cboService.IsCTLMOwned = false;
+            this.cboService.Location = new System.Drawing.Point(145, 53);
             this.cboService.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.cboService.Name = "cboService";
             this.cboService.Order = 0;
@@ -185,7 +185,8 @@
             this.lstFlags.Font = new System.Drawing.Font("Tahoma", 10F);
             this.lstFlags.ForeColor = System.Drawing.Color.Black;
             this.lstFlags.FormattingEnabled = true;
-            this.lstFlags.Location = new System.Drawing.Point(9, 171);
+            this.lstFlags.IsCTLMOwned = false;
+            this.lstFlags.Location = new System.Drawing.Point(12, 133);
             this.lstFlags.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.lstFlags.Name = "lstFlags";
             this.lstFlags.Order = 0;
@@ -194,8 +195,8 @@
             this.lstFlags.PK = false;
             this.lstFlags.Protected = false;
             this.lstFlags.Search = false;
-            this.lstFlags.Size = new System.Drawing.Size(540, 38);
-            this.lstFlags.SetStatus(CommonTools.EnumStatus.ADDNEW);
+            this.lstFlags.Size = new System.Drawing.Size(535, 76);
+            this.lstFlags.Status = CommonTools.EnumStatus.ADDNEW;
             this.lstFlags.TabIndex = 12;
             this.lstFlags.Upp = false;
             this.lstFlags.Value = "";
@@ -218,7 +219,8 @@
             this.dateEnd.Font = new System.Drawing.Font("Tahoma", 10F);
             this.dateEnd.ForeColor = System.Drawing.Color.Black;
             this.dateEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateEnd.Location = new System.Drawing.Point(555, 185);
+            this.dateEnd.IsCTLMOwned = false;
+            this.dateEnd.Location = new System.Drawing.Point(553, 183);
             this.dateEnd.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.dateEnd.Name = "dateEnd";
             this.dateEnd.Nullable = true;
@@ -253,7 +255,8 @@
             this.dateStart.Font = new System.Drawing.Font("Tahoma", 10F);
             this.dateStart.ForeColor = System.Drawing.Color.Black;
             this.dateStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateStart.Location = new System.Drawing.Point(555, 142);
+            this.dateStart.IsCTLMOwned = false;
+            this.dateStart.Location = new System.Drawing.Point(553, 140);
             this.dateStart.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.dateStart.Name = "dateStart";
             this.dateStart.Nullable = true;
@@ -289,7 +292,8 @@
             this.dateEPC.Font = new System.Drawing.Font("Tahoma", 10F);
             this.dateEPC.ForeColor = System.Drawing.Color.Black;
             this.dateEPC.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateEPC.Location = new System.Drawing.Point(555, 99);
+            this.dateEPC.IsCTLMOwned = false;
+            this.dateEPC.Location = new System.Drawing.Point(553, 97);
             this.dateEPC.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.dateEPC.Name = "dateEPC";
             this.dateEPC.Nullable = true;
@@ -324,7 +328,8 @@
             this.dateCheckPoint.Font = new System.Drawing.Font("Tahoma", 10F);
             this.dateCheckPoint.ForeColor = System.Drawing.Color.Black;
             this.dateCheckPoint.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateCheckPoint.Location = new System.Drawing.Point(555, 56);
+            this.dateCheckPoint.IsCTLMOwned = false;
+            this.dateCheckPoint.Location = new System.Drawing.Point(553, 54);
             this.dateCheckPoint.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.dateCheckPoint.Name = "dateCheckPoint";
             this.dateCheckPoint.Nullable = true;
@@ -355,7 +360,8 @@
             this.txtTruckPlate.ExtraDataLink = null;
             this.txtTruckPlate.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtTruckPlate.ForeColor = System.Drawing.Color.Gray;
-            this.txtTruckPlate.Location = new System.Drawing.Point(283, 56);
+            this.txtTruckPlate.IsCTLMOwned = false;
+            this.txtTruckPlate.Location = new System.Drawing.Point(281, 54);
             this.txtTruckPlate.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtTruckPlate.Name = "txtTruckPlate";
             this.txtTruckPlate.Order = 0;
@@ -370,39 +376,6 @@
             this.txtTruckPlate.TabIndex = 2;
             this.txtTruckPlate.Upp = false;
             this.txtTruckPlate.Value = "";
-            // 
-            // cboDestination
-            // 
-            this.cboDestination.Add = false;
-            this.cboDestination.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboDestination.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboDestination.BackColor = System.Drawing.Color.White;
-            this.cboDestination.Caption = "Destination";
-            this.cboDestination.DBField = null;
-            this.cboDestination.DBFieldType = null;
-            this.cboDestination.DefaultValue = null;
-            this.cboDestination.Del = false;
-            this.cboDestination.DependingRS = null;
-            this.cboDestination.ExtraDataLink = null;
-            this.cboDestination.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cboDestination.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.cboDestination.ForeColor = System.Drawing.Color.Black;
-            this.cboDestination.FormattingEnabled = true;
-            this.cboDestination.Location = new System.Drawing.Point(148, 92);
-            this.cboDestination.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
-            this.cboDestination.Name = "cboDestination";
-            this.cboDestination.Order = 0;
-            this.cboDestination.ParentConn = null;
-            this.cboDestination.ParentDA = null;
-            this.cboDestination.PK = false;
-            this.cboDestination.Protected = false;
-            this.cboDestination.Search = false;
-            this.cboDestination.Size = new System.Drawing.Size(401, 24);
-            this.cboDestination.SetStatus(CommonTools.EnumStatus.ADDNEW);
-            this.cboDestination.TabIndex = 6;
-            this.cboDestination.TBDescription = null;
-            this.cboDestination.Upp = false;
-            this.cboDestination.Value = "";
             // 
             // cboDock
             // 
@@ -421,7 +394,8 @@
             this.cboDock.Font = new System.Drawing.Font("Tahoma", 10F);
             this.cboDock.ForeColor = System.Drawing.Color.Black;
             this.cboDock.FormattingEnabled = true;
-            this.cboDock.Location = new System.Drawing.Point(12, 92);
+            this.cboDock.IsCTLMOwned = false;
+            this.cboDock.Location = new System.Drawing.Point(12, 97);
             this.cboDock.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.cboDock.Name = "cboDock";
             this.cboDock.Order = 0;
@@ -430,42 +404,43 @@
             this.cboDock.PK = false;
             this.cboDock.Protected = false;
             this.cboDock.Search = false;
-            this.cboDock.Size = new System.Drawing.Size(130, 24);
-            this.cboDock.SetStatus(CommonTools.EnumStatus.ADDNEW);
+            this.cboDock.Size = new System.Drawing.Size(127, 24);
+            this.cboDock.Status = CommonTools.EnumStatus.ADDNEW;
             this.cboDock.TabIndex = 5;
             this.cboDock.TBDescription = null;
             this.cboDock.Upp = false;
             this.cboDock.Value = "";
             // 
-            // txtUser
+            // txtResponsible
             // 
-            this.txtUser.Add = false;
-            this.txtUser.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUser.Caption = "User";
-            this.txtUser.DBField = null;
-            this.txtUser.DBFieldType = null;
-            this.txtUser.DefaultValue = null;
-            this.txtUser.Del = false;
-            this.txtUser.DependingRS = null;
-            this.txtUser.ExtraDataLink = null;
-            this.txtUser.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtUser.ForeColor = System.Drawing.Color.Gray;
-            this.txtUser.Location = new System.Drawing.Point(148, 135);
-            this.txtUser.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Order = 0;
-            this.txtUser.ParentConn = null;
-            this.txtUser.ParentDA = null;
-            this.txtUser.PK = false;
-            this.txtUser.Protected = false;
-            this.txtUser.ReadOnly = true;
-            this.txtUser.Search = false;
-            this.txtUser.Size = new System.Drawing.Size(130, 17);
-            this.txtUser.SetStatus(CommonTools.EnumStatus.ADDNEW);
-            this.txtUser.TabIndex = 7;
-            this.txtUser.Upp = false;
-            this.txtUser.Value = "";
+            this.txtResponsible.Add = false;
+            this.txtResponsible.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtResponsible.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtResponsible.Caption = "Load Responsible";
+            this.txtResponsible.DBField = null;
+            this.txtResponsible.DBFieldType = null;
+            this.txtResponsible.DefaultValue = null;
+            this.txtResponsible.Del = false;
+            this.txtResponsible.DependingRS = null;
+            this.txtResponsible.ExtraDataLink = null;
+            this.txtResponsible.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtResponsible.ForeColor = System.Drawing.Color.Gray;
+            this.txtResponsible.IsCTLMOwned = false;
+            this.txtResponsible.Location = new System.Drawing.Point(281, 97);
+            this.txtResponsible.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtResponsible.Name = "txtResponsible";
+            this.txtResponsible.Order = 0;
+            this.txtResponsible.ParentConn = null;
+            this.txtResponsible.ParentDA = null;
+            this.txtResponsible.PK = false;
+            this.txtResponsible.Protected = false;
+            this.txtResponsible.ReadOnly = true;
+            this.txtResponsible.Search = false;
+            this.txtResponsible.Size = new System.Drawing.Size(266, 17);
+            this.txtResponsible.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtResponsible.TabIndex = 7;
+            this.txtResponsible.Upp = false;
+            this.txtResponsible.Value = "";
             // 
             // cboShift
             // 
@@ -484,11 +459,12 @@
             this.cboShift.Font = new System.Drawing.Font("Tahoma", 10F);
             this.cboShift.ForeColor = System.Drawing.Color.Black;
             this.cboShift.FormattingEnabled = true;
+            this.cboShift.IsCTLMOwned = false;
             this.cboShift.Items.AddRange(new object[] {
             "Morning",
             "Afternoon",
             "Night"});
-            this.cboShift.Location = new System.Drawing.Point(12, 135);
+            this.cboShift.Location = new System.Drawing.Point(145, 97);
             this.cboShift.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.cboShift.Name = "cboShift";
             this.cboShift.Order = 0;
@@ -518,7 +494,8 @@
             this.txtDeliveryN.ExtraDataLink = null;
             this.txtDeliveryN.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtDeliveryN.ForeColor = System.Drawing.Color.Gray;
-            this.txtDeliveryN.Location = new System.Drawing.Point(12, 56);
+            this.txtDeliveryN.IsCTLMOwned = false;
+            this.txtDeliveryN.Location = new System.Drawing.Point(9, 54);
             this.txtDeliveryN.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtDeliveryN.Name = "txtDeliveryN";
             this.txtDeliveryN.Order = 0;
@@ -554,6 +531,7 @@
             this.VS.EspackControlParent = null;
             this.VS.ExtraDataLink = null;
             this.VS.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.VS.IsCTLMOwned = false;
             this.VS.Location = new System.Drawing.Point(9, 229);
             this.VS.MsgStatusLabel = null;
             this.VS.Name = "VS";
@@ -611,7 +589,8 @@
             this.txtTrailerPlate.ExtraDataLink = null;
             this.txtTrailerPlate.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtTrailerPlate.ForeColor = System.Drawing.Color.Gray;
-            this.txtTrailerPlate.Location = new System.Drawing.Point(419, 56);
+            this.txtTrailerPlate.IsCTLMOwned = false;
+            this.txtTrailerPlate.Location = new System.Drawing.Point(417, 54);
             this.txtTrailerPlate.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtTrailerPlate.Name = "txtTrailerPlate";
             this.txtTrailerPlate.Order = 0;
@@ -641,9 +620,8 @@
             this.Controls.Add(this.dateEPC);
             this.Controls.Add(this.dateCheckPoint);
             this.Controls.Add(this.txtTruckPlate);
-            this.Controls.Add(this.cboDestination);
             this.Controls.Add(this.cboDock);
-            this.Controls.Add(this.txtUser);
+            this.Controls.Add(this.txtResponsible);
             this.Controls.Add(this.cboShift);
             this.Controls.Add(this.txtDeliveryN);
             this.Controls.Add(this.VS);
@@ -671,9 +649,8 @@
         private EspackDataGrid.EspackDataGridView VS;
         private EspackFormControls.EspackTextBox txtDeliveryN;
         private EspackFormControls.EspackComboBox cboShift;
-        private EspackFormControls.EspackTextBox txtUser;
+        private EspackFormControls.EspackTextBox txtResponsible;
         private EspackFormControls.EspackComboBox cboDock;
-        private EspackFormControls.EspackComboBox cboDestination;
         private EspackFormControls.EspackTextBox txtTruckPlate;
         private EspackFormControls.EspackDateTimePicker dateCheckPoint;
         private EspackFormControls.EspackDateTimePicker dateEPC;
