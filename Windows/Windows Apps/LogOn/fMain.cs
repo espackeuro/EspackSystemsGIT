@@ -107,12 +107,12 @@ namespace LogOn
             try
             {
                 InitializeComponent();
-                txtUser.Status = EnumStatus.EDIT;
-                txtPassword.Status = EnumStatus.EDIT;
-                txtNewPassword.Status = EnumStatus.EDIT;
-                txtNewPasswordConfirm.Status = EnumStatus.EDIT;
-                txtNewPIN.Status = EnumStatus.EDIT;
-                txtNewPINConfirm.Status = EnumStatus.EDIT;
+                txtUser.SetStatus(EnumStatus.EDIT);
+                txtPassword.SetStatus(EnumStatus.EDIT);
+                txtNewPassword.SetStatus(EnumStatus.EDIT);
+                txtNewPasswordConfirm.SetStatus(EnumStatus.EDIT);
+                txtNewPIN.SetStatus(EnumStatus.EDIT);
+                txtNewPINConfirm.SetStatus(EnumStatus.EDIT);
                 ServicePointManager.DnsRefreshTimeout = 0;
                 this.Text = string.Format("LogOn Build {0} - ({1:yyyyMMdd})*", Assembly.GetExecutingAssembly().GetName().Version.ToString(), CT.GetBuildDateTime(Assembly.GetExecutingAssembly()));
                 // Customize the textbox controls 

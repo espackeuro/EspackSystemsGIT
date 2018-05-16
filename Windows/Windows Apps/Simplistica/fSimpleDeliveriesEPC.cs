@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AccesoDatosNet;
 using static CommonToolsWin.CTWin;
-using VSGrid;
+using EspackDataGrid;
 using CTLMantenimientoNet;
 using EspackFormControls;
 using static CommonTools.CT;
@@ -140,8 +140,8 @@ namespace Simplistica
         {
             if (cboDestination.Value.ToString() != "")
             {
-                ((CtlVSColumn)VS.Columns["PartNumber"]).AutoCompleteQuery = string.Format("select distinct partnumber from referencias_destinos where servicio='{0}' and planta='{1}'", cboService.Value, cboDestination.Value.ToString().Substring(0,2));
-                ((CtlVSColumn)VS.Columns["PartNumber"]).ReQuery();
+                ((EspackDataGridViewColumn)VS.Columns["PartNumber"]).AutoCompleteQuery = string.Format("select distinct partnumber from referencias_destinos where servicio='{0}' and planta='{1}'", cboService.Value, cboDestination.Value.ToString().Substring(0,2));
+                //((EspackDataGridViewColumn)VS.Columns["PartNumber"]).ReQuery();
             }
         }
 

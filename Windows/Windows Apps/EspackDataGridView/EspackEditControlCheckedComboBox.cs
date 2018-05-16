@@ -4,9 +4,9 @@ using EspackControls;
 //using Microsoft.Data.Schema.ScriptDom.Sql;
 using EspackFormControls;
 
-namespace VSGrid
+namespace EspackDataGrid
 {
-    public class FilterCellCheckedComboBox : EspackCheckedComboBox, IFilterControl
+    public class EspackEditControlCheckedComboBox : EspackCheckedComboBox, IEspackEditControl
     {
 
 
@@ -14,9 +14,8 @@ namespace VSGrid
         protected int rowIndex;
         public EspackControl Control { get => this; }
         private string _sqlSource;
-        
 
-        public FilterCellCheckedComboBox()
+        public EspackEditControlCheckedComboBox()
         {
             Enabled = true;
             FlatStyle = FlatStyle.Flat;
@@ -34,19 +33,8 @@ namespace VSGrid
         }
 
 
-        public CtlVSGrid ParentDataGrid { get; set; }
+        public EspackDataGridView ParentDataGrid { get; set; }
 
-        private void Control_LostFocus(object sender, System.EventArgs e)
-        {
-            ParentDataGrid.IsFilterFocused = false;
-        }
-
-        private void Control_GotFocus(object sender, System.EventArgs e)
-        {
-            ParentDataGrid.IsFilterFocused = true;
-            ParentDataGrid.ClearSelection();
-
-        }
         public void SendKeyToControl(Keys keyData)
         {
             var e = new KeyEventArgs(keyData);
@@ -72,7 +60,7 @@ namespace VSGrid
 
         // Implements the IDataGridViewEditingControl
         // .EditingControlDataGridView property.
-        public DataGridView EditingControlDataGridView { get => ParentDataGrid; set => ParentDataGrid = (CtlVSGrid)value; }
+        public DataGridView EditingControlDataGridView { get => ParentDataGrid; set => ParentDataGrid = (EspackDataGridView)value; }
 
         //
         public object EditingControlFormattedValue

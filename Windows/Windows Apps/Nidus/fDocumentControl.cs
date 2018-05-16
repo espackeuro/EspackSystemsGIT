@@ -17,23 +17,20 @@ namespace Nidus
         {
             InitializeComponent();
             VS.Conn = Values.gDatos;
-            VS.SQL = "Select Area,UserCode from Users ";
+            VS.SQL = "Select Area,UserCode,Domain from Users ";
             VS.Start();
             VS.UpdateEspackControl();
             VS.FilterRowEnabled = true;
             this.Load += FDocumentControl_Load;
-            this.KeyDown += FDocumentControl_KeyDown;
+            
         }
 
-        private void FDocumentControl_KeyDown(object sender, KeyEventArgs e)
-        {
-            Debug.Print("Caca");
-        }
 
         private void FDocumentControl_Load(object sender, EventArgs e)
         {
-            VS.AddFilterCell(FilterCellTypes.CHECKEDCOMBO, 0, "Select distinct idArea,Description from MasterAreas");
-            VS.AddFilterCell(FilterCellTypes.TEXT, 1, "Select UserCode from Users order by UserCode");
+            VS.AddFilterCell(EspackCellTypes.CHECKEDCOMBO, 0, "Select distinct idArea,Description from MasterAreas");
+            VS.AddFilterCell(EspackCellTypes.TEXT, 1, "Select UserCode from Users order by UserCode");
+            VS.AddFilterCell(EspackCellTypes.COMBO, 2, "Select distinct Domain from Users order by Domain");
         }
 
         private void CboTest_Changed(object sender, EspackFormControls.ChangeEventArgs e)

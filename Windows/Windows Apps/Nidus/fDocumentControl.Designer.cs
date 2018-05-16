@@ -72,7 +72,7 @@
             this.VS.sSPAdd = "";
             this.VS.sSPDel = "";
             this.VS.sSPUpp = "";
-            this.VS.Status = CommonTools.EnumStatus.SEARCH;
+            this.VS.SetStatus(CommonTools.EnumStatus.SEARCH);
             this.VS.TabIndex = 5;
             this.VS.Upp = false;
             this.VS.Value = null;

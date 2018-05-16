@@ -64,7 +64,7 @@
             this.txtQty.ReadOnly = true;
             this.txtQty.Search = false;
             this.txtQty.Size = new System.Drawing.Size(160, 17);
-            this.txtQty.Status = CommonTools.EnumStatus.SEARCH;
+            this.txtQty.SetStatus(CommonTools.EnumStatus.SEARCH);
             this.txtQty.TabIndex = 0;
             this.txtQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtQty.ThousandsGroup = false;
@@ -98,7 +98,7 @@
             this.cboService.Protected = false;
             this.cboService.Search = false;
             this.cboService.Size = new System.Drawing.Size(160, 24);
-            this.cboService.Status = CommonTools.EnumStatus.ADDNEW;
+            this.cboService.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.cboService.TabIndex = 2;
             this.cboService.TBDescription = null;
             this.cboService.Upp = false;
@@ -140,7 +140,7 @@
             this.txtDesService.ReadOnly = true;
             this.txtDesService.Search = false;
             this.txtDesService.Size = new System.Drawing.Size(257, 24);
-            this.txtDesService.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtDesService.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtDesService.TabIndex = 5;
             this.txtDesService.Upp = false;
             this.txtDesService.Value = "";
@@ -174,7 +174,7 @@
             this.txtQtyLabel.ReadOnly = true;
             this.txtQtyLabel.Search = false;
             this.txtQtyLabel.Size = new System.Drawing.Size(100, 17);
-            this.txtQtyLabel.Status = CommonTools.EnumStatus.SEARCH;
+            this.txtQtyLabel.SetStatus(CommonTools.EnumStatus.SEARCH);
             this.txtQtyLabel.TabIndex = 9;
             this.txtQtyLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtQtyLabel.ThousandsGroup = false;

@@ -59,7 +59,7 @@
             this.txtServerPwd.Protected = false;
             this.txtServerPwd.Search = false;
             this.txtServerPwd.Size = new System.Drawing.Size(130, 17);
-            this.txtServerPwd.Status = CommonTools.EnumStatus.EDIT;
+            this.txtServerPwd.SetStatus(CommonTools.EnumStatus.EDIT);
             this.txtServerPwd.TabIndex = 90;
             this.txtServerPwd.Upp = true;
             this.txtServerPwd.UseSystemPasswordChar = true;
@@ -89,7 +89,7 @@
             this.txtServerUser.Protected = false;
             this.txtServerUser.Search = false;
             this.txtServerUser.Size = new System.Drawing.Size(144, 17);
-            this.txtServerUser.Status = CommonTools.EnumStatus.EDIT;
+            this.txtServerUser.SetStatus(CommonTools.EnumStatus.EDIT);
             this.txtServerUser.TabIndex = 89;
             this.txtServerUser.Upp = true;
             this.txtServerUser.Value = "";

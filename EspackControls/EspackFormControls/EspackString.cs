@@ -12,7 +12,19 @@ namespace EspackFormControls
         public EspackControl ExtraDataLink { get; set; } = null;
         public EspackControlTypeEnum EspackControlType { get; set; }
         private string theString { get; set; }
-        public EnumStatus Status { get; set; }
+
+        private EnumStatus status;
+
+        public EnumStatus GetStatus()
+        {
+            return status;
+        }
+
+        public void SetStatus(EnumStatus value)
+        {
+            status = value;
+        }
+
         public DynamicRS DependingRS { get; set; }
         public cAccesoDatosNet ParentConn { get; set; }
         public Point Location { get; set; }

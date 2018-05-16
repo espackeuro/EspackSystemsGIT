@@ -87,7 +87,7 @@
             this.txtPassword.PK = false;
             this.txtPassword.Search = true;
             this.txtPassword.Size = new System.Drawing.Size(188, 20);
-            this.txtPassword.Status = CommonTools.EnumStatus.SEARCH;
+            this.txtPassword.SetStatus(CommonTools.EnumStatus.SEARCH);
             this.txtPassword.TabIndex = 15;
             this.txtPassword.Upp = true;
             this.txtPassword.Value = "";
@@ -115,7 +115,7 @@
             this.txtUser.PK = false;
             this.txtUser.Search = true;
             this.txtUser.Size = new System.Drawing.Size(188, 20);
-            this.txtUser.Status = CommonTools.EnumStatus.SEARCH;
+            this.txtUser.SetStatus(CommonTools.EnumStatus.SEARCH);
             this.txtUser.TabIndex = 14;
             this.txtUser.Upp = true;
             this.txtUser.Value = "";
@@ -143,7 +143,7 @@
             this.txtServerName.PK = false;
             this.txtServerName.Search = true;
             this.txtServerName.Size = new System.Drawing.Size(188, 20);
-            this.txtServerName.Status = CommonTools.EnumStatus.SEARCH;
+            this.txtServerName.SetStatus(CommonTools.EnumStatus.SEARCH);
             this.txtServerName.TabIndex = 13;
             this.txtServerName.Upp = true;
             this.txtServerName.Value = "";

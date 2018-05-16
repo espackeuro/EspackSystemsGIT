@@ -20,7 +20,10 @@ namespace EspackControls
     public interface EspackControl:IsValuable
     {
         EspackControlTypeEnum EspackControlType { get; set; }
-        EnumStatus Status { get; set; }
+
+        EnumStatus GetStatus();
+        void SetStatus(EnumStatus value);
+
         EspackControl ExtraDataLink { get; set; }
         new object Value { get; set; }
         string Name { get; set; }

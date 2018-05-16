@@ -35,7 +35,7 @@
             this.cboServicio = new EspackFormControls.EspackComboBox();
             this.txtDesRoute = new EspackFormControls.EspackTextBox();
             this.cboRuta = new EspackFormControls.EspackComboBox();
-            this.VS = new VSGrid.CtlVSGrid();
+            this.VS = new EspackDataGrid.EspackDataGridView();
             this.txtExpedicion = new EspackFormControls.NumericTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
             this.SuspendLayout();
@@ -86,7 +86,7 @@
             this.txtNumero.Precision = 0;
             this.txtNumero.Search = false;
             this.txtNumero.Size = new System.Drawing.Size(145, 17);
-            this.txtNumero.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtNumero.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtNumero.TabIndex = 1;
             this.txtNumero.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtNumero.ThousandsGroup = false;
@@ -120,7 +120,7 @@
             this.txtFecha.PK = false;
             this.txtFecha.Search = false;
             this.txtFecha.Size = new System.Drawing.Size(145, 24);
-            this.txtFecha.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtFecha.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtFecha.TabIndex = 3;
             this.txtFecha.Upp = false;
             this.txtFecha.Value = null;
@@ -147,7 +147,7 @@
             this.txtDesServicio.PK = false;
             this.txtDesServicio.Search = false;
             this.txtDesServicio.Size = new System.Drawing.Size(297, 17);
-            this.txtDesServicio.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtDesServicio.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtDesServicio.TabIndex = 23;
             this.txtDesServicio.Upp = false;
             this.txtDesServicio.Value = "";
@@ -177,7 +177,7 @@
             this.cboServicio.PK = false;
             this.cboServicio.Search = false;
             this.cboServicio.Size = new System.Drawing.Size(130, 24);
-            this.cboServicio.Status = CommonTools.EnumStatus.ADDNEW;
+            this.cboServicio.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.cboServicio.TabIndex = 22;
             this.cboServicio.TBDescription = null;
             this.cboServicio.Upp = false;
@@ -205,7 +205,7 @@
             this.txtDesRoute.PK = false;
             this.txtDesRoute.Search = false;
             this.txtDesRoute.Size = new System.Drawing.Size(143, 17);
-            this.txtDesRoute.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtDesRoute.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtDesRoute.TabIndex = 31;
             this.txtDesRoute.Upp = false;
             this.txtDesRoute.Value = "";
@@ -235,7 +235,7 @@
             this.cboRuta.PK = false;
             this.cboRuta.Search = false;
             this.cboRuta.Size = new System.Drawing.Size(130, 24);
-            this.cboRuta.Status = CommonTools.EnumStatus.ADDNEW;
+            this.cboRuta.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.cboRuta.TabIndex = 30;
             this.cboRuta.TBDescription = null;
             this.cboRuta.Upp = false;
@@ -277,7 +277,7 @@
             this.VS.sSPAdd = "";
             this.VS.sSPDel = "";
             this.VS.sSPUpp = "";
-            this.VS.Status = CommonTools.EnumStatus.SEARCH;
+            this.VS.SetStatus(CommonTools.EnumStatus.SEARCH);
             this.VS.TabIndex = 32;
             this.VS.Upp = false;
             this.VS.Value = null;
@@ -308,7 +308,7 @@
             this.txtExpedicion.Precision = 0;
             this.txtExpedicion.Search = false;
             this.txtExpedicion.Size = new System.Drawing.Size(145, 17);
-            this.txtExpedicion.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtExpedicion.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtExpedicion.TabIndex = 41;
             this.txtExpedicion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtExpedicion.ThousandsGroup = false;
@@ -346,7 +346,7 @@
         private EspackFormControls.EspackComboBox cboServicio;
         private EspackFormControls.EspackTextBox txtDesRoute;
         private EspackFormControls.EspackComboBox cboRuta;
-        private VSGrid.CtlVSGrid VS;
+        private EspackDataGrid.EspackDataGridView VS;
         private EspackFormControls.NumericTextBox txtExpedicion;
     }
 }

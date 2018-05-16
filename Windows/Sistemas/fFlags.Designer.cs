@@ -104,7 +104,7 @@
             this.cboTable.PK = false;
             this.cboTable.Search = false;
             this.cboTable.Size = new System.Drawing.Size(250, 24);
-            this.cboTable.Status = CommonTools.EnumStatus.ADDNEW;
+            this.cboTable.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.cboTable.TabIndex = 11;
             this.cboTable.TBDescription = null;
             this.cboTable.Upp = false;
@@ -134,7 +134,7 @@
             this.txtCode.ReadOnly = true;
             this.txtCode.Search = false;
             this.txtCode.Size = new System.Drawing.Size(125, 24);
-            this.txtCode.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtCode.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtCode.TabIndex = 15;
             this.txtCode.Upp = false;
             this.txtCode.Value = "";
@@ -163,7 +163,7 @@
             this.txtLetter.ReadOnly = true;
             this.txtLetter.Search = false;
             this.txtLetter.Size = new System.Drawing.Size(55, 24);
-            this.txtLetter.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtLetter.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtLetter.TabIndex = 13;
             this.txtLetter.Upp = false;
             this.txtLetter.Value = "";
@@ -192,7 +192,7 @@
             this.txtIdReg.ReadOnly = true;
             this.txtIdReg.Search = false;
             this.txtIdReg.Size = new System.Drawing.Size(125, 24);
-            this.txtIdReg.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtIdReg.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtIdReg.TabIndex = 9;
             this.txtIdReg.Upp = false;
             this.txtIdReg.Value = "";
@@ -234,7 +234,7 @@
             this.txtDesFlagEng.ReadOnly = true;
             this.txtDesFlagEng.Search = false;
             this.txtDesFlagEng.Size = new System.Drawing.Size(190, 24);
-            this.txtDesFlagEng.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtDesFlagEng.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtDesFlagEng.TabIndex = 2;
             this.txtDesFlagEng.Upp = false;
             this.txtDesFlagEng.Value = "";
@@ -263,7 +263,7 @@
             this.txtDescFlag.ReadOnly = true;
             this.txtDescFlag.Search = false;
             this.txtDescFlag.Size = new System.Drawing.Size(190, 24);
-            this.txtDescFlag.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtDescFlag.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtDescFlag.TabIndex = 0;
             this.txtDescFlag.Upp = false;
             this.txtDescFlag.Value = "";
@@ -306,7 +306,7 @@
             this.lstServices.PK = false;
             this.lstServices.Search = false;
             this.lstServices.Size = new System.Drawing.Size(675, 285);
-            this.lstServices.Status = CommonTools.EnumStatus.ADDNEW;
+            this.lstServices.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.lstServices.TabIndex = 0;
             this.lstServices.Upp = false;
             this.lstServices.Value = "";

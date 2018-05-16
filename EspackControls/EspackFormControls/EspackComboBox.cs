@@ -106,18 +106,85 @@ namespace EspackFormControls
         //        base.Margin = _m;
         //    }
         //}
-        public EnumStatus Status
+        public EnumStatus GetStatus()
         {
-            get
-            {
-                return mStatus;
-            }
-            set
-            {
-                mStatus = value;
-                if (IsCTLMOwned)
-                    Enabled = ((Add && Status == EnumStatus.ADDNEW) || (Upp && Status == EnumStatus.EDIT && !PK) || (Del && Status == EnumStatus.DELETE) || (Search && Status == EnumStatus.SEARCH)) && !Protected;
-            }
+            return mStatus;
+        }
+
+        //public new Size Size
+        //{
+        //    get
+        //    {
+        //        return _size;
+        //    }
+        //    set
+        //    {
+        //        _size = value;
+        //        base.Height = value.Height - CaptionLabel.Height;
+        //        base.Width = value.Width;
+        //    }
+        //}
+        //public new Point Location
+        //{
+        //    get
+        //    {
+        //        if (CaptionLabel != null)
+        //        {
+        //            var _l = new Point();
+        //            _l.X = base.Location.X;
+        //            _l.Y = base.Location.Y - CaptionLabel.Height;
+        //            return _l;
+        //        }
+        //        else return base.Location;
+        //    }
+        //    set
+        //    {
+        //        var gap = 0;
+        //        if (CaptionLabel != null)
+        //        {
+        //            CaptionLabel.Location = value;
+        //            gap = CaptionLabel.Height;
+        //        }
+
+        //        var _l = new Point();
+        //        _l.X = value.X;
+        //        _l.Y = value.Y + gap;
+        //        base.Location = _l;
+
+        //    }
+        //}
+        //[DefaultValue(typeof(Padding), "3, 3, 3, 3")]
+        //public new Padding Margin
+        //{
+        //    get
+        //    {
+        //        var gap = 0;
+        //        if (CaptionLabel != null)
+        //            gap = CaptionLabel.Height;
+        //        else
+        //            gap = 10;
+        //        var _m = new Padding();
+        //        _m = base.Margin;
+        //        //Text = base.Margin.Top.ToString();
+        //        _m.Top -= gap;
+        //        return _m;
+        //    }
+        //    set
+        //    {
+        //        var gap = 0;
+        //        if (CaptionLabel != null)
+        //            gap = CaptionLabel.Height;
+        //        var _m = new Padding();
+        //        _m = value;
+        //        _m.Top += gap;
+        //        base.Margin = _m;
+        //    }
+        //}
+        public void SetStatus(EnumStatus value)
+        {
+            mStatus = value;
+            if (IsCTLMOwned)
+                Enabled = ((Add && GetStatus() == EnumStatus.ADDNEW) || (Upp && GetStatus() == EnumStatus.EDIT && !PK) || (Del && GetStatus() == EnumStatus.DELETE) || (Search && GetStatus() == EnumStatus.SEARCH)) && !Protected;
         }
 
         public DA ParentDA { get; set; }

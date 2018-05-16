@@ -104,7 +104,7 @@
             this.txtDomain.ReadOnly = true;
             this.txtDomain.Search = false;
             this.txtDomain.Size = new System.Drawing.Size(225, 24);
-            this.txtDomain.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtDomain.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtDomain.TabIndex = 18;
             this.txtDomain.Upp = false;
             this.txtDomain.Value = "";
@@ -135,7 +135,7 @@
             this.txtLocalPart.ReadOnly = true;
             this.txtLocalPart.Search = false;
             this.txtLocalPart.Size = new System.Drawing.Size(225, 24);
-            this.txtLocalPart.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtLocalPart.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtLocalPart.TabIndex = 16;
             this.txtLocalPart.Upp = false;
             this.txtLocalPart.Value = "";
@@ -166,7 +166,7 @@
             this.txtAddress.ReadOnly = true;
             this.txtAddress.Search = false;
             this.txtAddress.Size = new System.Drawing.Size(540, 24);
-            this.txtAddress.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtAddress.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtAddress.TabIndex = 0;
             this.txtAddress.Upp = false;
             this.txtAddress.Value = "";
@@ -212,7 +212,7 @@
             this.lstCOD3.Protected = false;
             this.lstCOD3.Search = false;
             this.lstCOD3.Size = new System.Drawing.Size(540, 95);
-            this.lstCOD3.Status = CommonTools.EnumStatus.ADDNEW;
+            this.lstCOD3.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.lstCOD3.TabIndex = 2;
             this.lstCOD3.Upp = false;
             this.lstCOD3.Value = "";
@@ -245,7 +245,7 @@
             this.lstFlags.Protected = false;
             this.lstFlags.Search = false;
             this.lstFlags.Size = new System.Drawing.Size(540, 76);
-            this.lstFlags.Status = CommonTools.EnumStatus.ADDNEW;
+            this.lstFlags.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.lstFlags.TabIndex = 0;
             this.lstFlags.Upp = false;
             this.lstFlags.Value = "";
@@ -288,7 +288,7 @@
             this.VS.sSPAdd = "";
             this.VS.sSPDel = "";
             this.VS.sSPUpp = "";
-            this.VS.Status = CommonTools.EnumStatus.SEARCH;
+            this.VS.SetStatus(CommonTools.EnumStatus.SEARCH);
             this.VS.TabIndex = 3;
             this.VS.Upp = false;
             this.VS.Value = null;
@@ -331,7 +331,7 @@
             this.VSExceptions.sSPAdd = "";
             this.VSExceptions.sSPDel = "";
             this.VSExceptions.sSPUpp = "";
-            this.VSExceptions.Status = CommonTools.EnumStatus.SEARCH;
+            this.VSExceptions.SetStatus(CommonTools.EnumStatus.SEARCH);
             this.VSExceptions.TabIndex = 5;
             this.VSExceptions.Upp = false;
             this.VSExceptions.Value = null;

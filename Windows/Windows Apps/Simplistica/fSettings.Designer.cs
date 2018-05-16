@@ -58,7 +58,7 @@
             this.cboPrinters.PK = false;
             this.cboPrinters.Search = false;
             this.cboPrinters.Size = new System.Drawing.Size(238, 24);
-            this.cboPrinters.Status = CommonTools.EnumStatus.ADDNEW;
+            this.cboPrinters.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.cboPrinters.TabIndex = 43;
             this.cboPrinters.TBDescription = null;
             this.cboPrinters.Upp = false;
@@ -90,7 +90,7 @@
             this.cboWarehouse.PK = false;
             this.cboWarehouse.Search = false;
             this.cboWarehouse.Size = new System.Drawing.Size(238, 24);
-            this.cboWarehouse.Status = CommonTools.EnumStatus.ADDNEW;
+            this.cboWarehouse.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.cboWarehouse.TabIndex = 46;
             this.cboWarehouse.TBDescription = null;
             this.cboWarehouse.Upp = false;

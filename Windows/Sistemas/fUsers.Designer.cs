@@ -105,7 +105,7 @@
             this.txtUserNumber.ReadOnly = true;
             this.txtUserNumber.Search = false;
             this.txtUserNumber.Size = new System.Drawing.Size(100, 24);
-            this.txtUserNumber.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtUserNumber.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtUserNumber.TabIndex = 2;
             this.txtUserNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtUserNumber.ThousandsGroup = false;
@@ -137,7 +137,7 @@
             this.txtSurname2.ReadOnly = true;
             this.txtSurname2.Search = false;
             this.txtSurname2.Size = new System.Drawing.Size(157, 24);
-            this.txtSurname2.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtSurname2.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtSurname2.TabIndex = 5;
             this.txtSurname2.Upp = false;
             this.txtSurname2.Value = "";
@@ -167,7 +167,7 @@
             this.txtSurname1.ReadOnly = true;
             this.txtSurname1.Search = false;
             this.txtSurname1.Size = new System.Drawing.Size(157, 24);
-            this.txtSurname1.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtSurname1.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtSurname1.TabIndex = 4;
             this.txtSurname1.Upp = false;
             this.txtSurname1.Value = "";
@@ -197,7 +197,7 @@
             this.txtName.ReadOnly = true;
             this.txtName.Search = false;
             this.txtName.Size = new System.Drawing.Size(157, 24);
-            this.txtName.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtName.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtName.TabIndex = 3;
             this.txtName.Upp = false;
             this.txtName.Value = "";
@@ -227,7 +227,7 @@
             this.txtUserCode.ReadOnly = true;
             this.txtUserCode.Search = false;
             this.txtUserCode.Size = new System.Drawing.Size(130, 24);
-            this.txtUserCode.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtUserCode.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtUserCode.TabIndex = 1;
             this.txtUserCode.Upp = false;
             this.txtUserCode.Value = "";
@@ -277,7 +277,7 @@
             this.cboArea.PK = false;
             this.cboArea.Search = false;
             this.cboArea.Size = new System.Drawing.Size(154, 24);
-            this.cboArea.Status = CommonTools.EnumStatus.ADDNEW;
+            this.cboArea.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.cboArea.TabIndex = 134;
             this.cboArea.TBDescription = null;
             this.cboArea.Upp = false;
@@ -308,7 +308,7 @@
             this.cboPositionLevel.PK = false;
             this.cboPositionLevel.Search = false;
             this.cboPositionLevel.Size = new System.Drawing.Size(157, 24);
-            this.cboPositionLevel.Status = CommonTools.EnumStatus.ADDNEW;
+            this.cboPositionLevel.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.cboPositionLevel.TabIndex = 126;
             this.cboPositionLevel.TBDescription = null;
             this.cboPositionLevel.Upp = false;
@@ -338,7 +338,7 @@
             this.txtPosition.ReadOnly = true;
             this.txtPosition.Search = false;
             this.txtPosition.Size = new System.Drawing.Size(338, 24);
-            this.txtPosition.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtPosition.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtPosition.TabIndex = 124;
             this.txtPosition.TabStop = false;
             this.txtPosition.Upp = false;
@@ -369,7 +369,7 @@
             this.cboSecurityLevel.PK = false;
             this.cboSecurityLevel.Search = false;
             this.cboSecurityLevel.Size = new System.Drawing.Size(157, 24);
-            this.cboSecurityLevel.Status = CommonTools.EnumStatus.ADDNEW;
+            this.cboSecurityLevel.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.cboSecurityLevel.TabIndex = 122;
             this.cboSecurityLevel.TBDescription = null;
             this.cboSecurityLevel.Upp = false;
@@ -399,7 +399,7 @@
             this.txtDesCod3.ReadOnly = true;
             this.txtDesCod3.Search = false;
             this.txtDesCod3.Size = new System.Drawing.Size(338, 24);
-            this.txtDesCod3.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtDesCod3.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtDesCod3.TabIndex = 116;
             this.txtDesCod3.TabStop = false;
             this.txtDesCod3.Upp = false;
@@ -430,7 +430,7 @@
             this.cboCOD3.PK = false;
             this.cboCOD3.Search = true;
             this.cboCOD3.Size = new System.Drawing.Size(138, 24);
-            this.cboCOD3.Status = CommonTools.EnumStatus.SEARCH;
+            this.cboCOD3.SetStatus(CommonTools.EnumStatus.SEARCH);
             this.cboCOD3.TabIndex = 6;
             this.cboCOD3.TBDescription = null;
             this.cboCOD3.Upp = true;
@@ -462,7 +462,7 @@
             this.listCOD3.PK = false;
             this.listCOD3.Search = false;
             this.listCOD3.Size = new System.Drawing.Size(482, 133);
-            this.listCOD3.Status = CommonTools.EnumStatus.ADDNEW;
+            this.listCOD3.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.listCOD3.TabIndex = 7;
             this.listCOD3.Upp = false;
             this.listCOD3.Value = "";
@@ -492,7 +492,7 @@
             this.cboPosition.PK = false;
             this.cboPosition.Search = false;
             this.cboPosition.Size = new System.Drawing.Size(130, 24);
-            this.cboPosition.Status = CommonTools.EnumStatus.ADDNEW;
+            this.cboPosition.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.cboPosition.TabIndex = 8;
             this.cboPosition.TBDescription = null;
             this.cboPosition.Upp = false;
@@ -546,7 +546,7 @@
             this.txtTicketExp.PK = false;
             this.txtTicketExp.Search = false;
             this.txtTicketExp.Size = new System.Drawing.Size(155, 24);
-            this.txtTicketExp.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtTicketExp.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtTicketExp.TabIndex = 32;
             this.txtTicketExp.Upp = false;
             this.txtTicketExp.Value = null;
@@ -575,7 +575,7 @@
             this.txtTicket.ReadOnly = true;
             this.txtTicket.Search = false;
             this.txtTicket.Size = new System.Drawing.Size(130, 24);
-            this.txtTicket.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtTicket.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtTicket.TabIndex = 23;
             this.txtTicket.Upp = false;
             this.txtTicket.Value = "";
@@ -604,7 +604,7 @@
             this.txtEmail.ReadOnly = true;
             this.txtEmail.Search = false;
             this.txtEmail.Size = new System.Drawing.Size(303, 24);
-            this.txtEmail.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtEmail.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtEmail.TabIndex = 12;
             this.txtEmail.Upp = false;
             this.txtEmail.Value = "";
@@ -637,7 +637,7 @@
             this.txtPIN.ReadOnly = true;
             this.txtPIN.Search = false;
             this.txtPIN.Size = new System.Drawing.Size(51, 24);
-            this.txtPIN.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtPIN.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtPIN.TabIndex = 10;
             this.txtPIN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtPIN.ThousandsGroup = false;
@@ -672,7 +672,7 @@
             this.txtQuota.ReadOnly = true;
             this.txtQuota.Search = false;
             this.txtQuota.Size = new System.Drawing.Size(125, 24);
-            this.txtQuota.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtQuota.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtQuota.TabIndex = 13;
             this.txtQuota.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtQuota.ThousandsGroup = false;
@@ -704,7 +704,7 @@
             this.cboDomain.PK = false;
             this.cboDomain.Search = false;
             this.cboDomain.Size = new System.Drawing.Size(170, 24);
-            this.cboDomain.Status = CommonTools.EnumStatus.ADDNEW;
+            this.cboDomain.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.cboDomain.TabIndex = 11;
             this.cboDomain.TBDescription = null;
             this.cboDomain.Upp = false;
@@ -738,7 +738,7 @@
             this.txtPasswordEXP.Search = false;
             this.txtPasswordEXP.ShowCheckBox = true;
             this.txtPasswordEXP.Size = new System.Drawing.Size(163, 24);
-            this.txtPasswordEXP.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtPasswordEXP.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtPasswordEXP.TabIndex = 19;
             this.txtPasswordEXP.Upp = false;
             this.txtPasswordEXP.Value = null;
@@ -769,7 +769,7 @@
             this.lstFlags.PK = false;
             this.lstFlags.Search = false;
             this.lstFlags.Size = new System.Drawing.Size(482, 114);
-            this.lstFlags.Status = CommonTools.EnumStatus.ADDNEW;
+            this.lstFlags.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.lstFlags.TabIndex = 14;
             this.lstFlags.Upp = false;
             this.lstFlags.Value = "";
@@ -798,7 +798,7 @@
             this.txtPWD.ReadOnly = true;
             this.txtPWD.Search = false;
             this.txtPWD.Size = new System.Drawing.Size(130, 24);
-            this.txtPWD.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtPWD.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtPWD.TabIndex = 9;
             this.txtPWD.Upp = false;
             this.txtPWD.Value = "";
@@ -827,7 +827,7 @@
             this.lstEmailAliases.PK = false;
             this.lstEmailAliases.Search = false;
             this.lstEmailAliases.Size = new System.Drawing.Size(292, 741);
-            this.lstEmailAliases.Status = CommonTools.EnumStatus.ADDNEW;
+            this.lstEmailAliases.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.lstEmailAliases.TabIndex = 15;
             this.lstEmailAliases.Upp = false;
             this.lstEmailAliases.Value = "";

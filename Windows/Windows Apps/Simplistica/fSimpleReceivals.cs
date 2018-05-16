@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AccesoDatosNet;
 using CommonToolsWin;
-using VSGrid;
+using EspackDataGrid;
 using EspackClasses;
 using RawPrinterHelper;
 using System.Threading;
@@ -60,10 +60,10 @@ namespace Simplistica
             VS.DBTable = "Det_Recepcion";
 
             //VS Details
-            VS.AddColumn("Entrada", txtEntrada, "@entrada", "", "@entrada");
+            VS.AddColumn("Entrada", txtEntrada, "@entrada", "", "@entrada", pVisible: false);
             VS.AddColumn("Linea", "linea", "", "", "@linea");
             VS.AddColumn("PartNumber", "partnumber", "@partnumber", pSortable: true, pWidth: 90, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: string.Format("select partnumber from referencias where servicio='{0}'", cboServicio.Value));
-            VS.AddColumn("Descripcion", "descripcion", "@descripcion", pSortable: true, pWidth: 200);
+            VS.AddColumn("Descripcion", "descripcion", "@descripcion", pSortable: true, pWidth: 200, pLocked:true);
             VS.AddColumn("Qty", "Qty", "@qty", pWidth: 90);
             VS.CellEndEdit += VS_CellEndEdit; //VS_CellValidating; ; ;
 
@@ -94,8 +94,8 @@ namespace Simplistica
                         ServiceFlags = _RS["flags"].ToString().Split('|');
                         btnLabelCMs.Enabled = !ServiceFlags.Contains("AUTOCHECK");
                         btnACheck.Enabled = ServiceFlags.Contains("AUTOCHECK");
-                        ((CtlVSColumn)VS.Columns["PartNumber"]).AutoCompleteQuery = string.Format("select partnumber from referencias where servicio='{0}'", cboServicio.Value);
-                        ((CtlVSColumn)VS.Columns["PartNumber"]).ReQuery();
+                        ((EspackDataGridViewColumn)VS.Columns["PartNumber"]).AutoCompleteQuery = string.Format("select partnumber from referencias where servicio='{0}'", cboServicio.Value);
+                        //((EspackDataGridViewColumn)VS.Columns["PartNumber"]).ReQuery();
                     }
                 }
             else

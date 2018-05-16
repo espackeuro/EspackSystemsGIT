@@ -4,24 +4,11 @@ using System.Windows.Forms;
 
 namespace VSGrid
 {
-    public interface IFilterControl: IDataGridViewEditingControl 
-    {
-        //int? Column { get; set; }
-        //int Row { get; set; }
-        EspackControl Control { get; }
-        //string DataSource { get; set; }
-        //DataGridViewCell ParentCell { get; }
-        CtlVSGrid ParentDataGrid { get; set; }
-        string SqlSource { get; set; }
-        //void SendKeyToControl(Keys keyData);
-        object Value { get; set; }
-    }
-
     public class FilterCell : DataGridViewTextBoxCell
     {
         public string SqlSource { get; set; }
-        public FilterCellTypes Type { get; set; }
-        private IFilterControl editControl;
+        public EspackCellTypes Type { get; set; }
+        private IEspackEditControl editControl;
 
         public FilterCell()
         {
@@ -41,18 +28,18 @@ namespace VSGrid
             // Set the value of the editing control to the current cell value.
             base.InitializeEditingControl(rowIndex, initialFormattedValue,
                 dataGridViewCellStyle);
-            IFilterControl ctl = null;
+            //IEspackEditControl ctl = null;
             switch (Type)
             {
-                case FilterCellTypes.CHECKEDCOMBO:
-                    editControl = DataGridView.EditingControl as FilterCellCheckedComboBox;
+                case EspackCellTypes.CHECKEDCOMBO:
+                    editControl = DataGridView.EditingControl as EspackEditControlCheckedComboBox;
                     break;
-                case FilterCellTypes.COMBO:
-                    editControl = DataGridView.EditingControl as FilterCellComboBox;
+                case EspackCellTypes.COMBO:
+                    editControl = DataGridView.EditingControl as EspackEditControlComboBox;
                     break;
-                case FilterCellTypes.TEXT:
-                case FilterCellTypes.WILDCARDTEXT:
-                    editControl = DataGridView.EditingControl as FilterCellTextBox;
+                case EspackCellTypes.TEXT:
+                case EspackCellTypes.WILDCARDTEXT:
+                    editControl = DataGridView.EditingControl as EspackEditControlTextBox;
                     break;
             }
             editControl.SqlSource = SqlSource;
@@ -75,13 +62,13 @@ namespace VSGrid
                 // Return the type of the editing control that CalendarCell uses.
                 switch (Type)
                 {
-                    case FilterCellTypes.CHECKEDCOMBO:
-                        return typeof(FilterCellCheckedComboBox);
-                    case FilterCellTypes.COMBO:
-                        return typeof(FilterCellComboBox);
-                    case FilterCellTypes.TEXT:
-                    case FilterCellTypes.WILDCARDTEXT:
-                        return typeof(FilterCellTextBox);
+                    case EspackCellTypes.CHECKEDCOMBO:
+                        return typeof(EspackEditControlCheckedComboBox);
+                    case EspackCellTypes.COMBO:
+                        return typeof(EspackEditControlComboBox);
+                    case EspackCellTypes.TEXT:
+                    case EspackCellTypes.WILDCARDTEXT:
+                        return typeof(EspackEditControlTextBox);
                     default:
                         return null;
                 }

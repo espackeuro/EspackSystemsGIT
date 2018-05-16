@@ -155,7 +155,7 @@ namespace LogOn
             this.txtNewPINConfirm.Protected = false;
             this.txtNewPINConfirm.Search = false;
             this.txtNewPINConfirm.Size = new System.Drawing.Size(100, 17);
-            this.txtNewPINConfirm.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtNewPINConfirm.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtNewPINConfirm.TabIndex = 38;
             this.txtNewPINConfirm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtNewPINConfirm.Upp = true;
@@ -190,7 +190,7 @@ namespace LogOn
             this.txtNewPIN.Protected = false;
             this.txtNewPIN.Search = false;
             this.txtNewPIN.Size = new System.Drawing.Size(100, 17);
-            this.txtNewPIN.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtNewPIN.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtNewPIN.TabIndex = 37;
             this.txtNewPIN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtNewPIN.Upp = true;
@@ -223,7 +223,7 @@ namespace LogOn
             this.txtNewPasswordConfirm.Protected = false;
             this.txtNewPasswordConfirm.Search = false;
             this.txtNewPasswordConfirm.Size = new System.Drawing.Size(100, 17);
-            this.txtNewPasswordConfirm.Status = CommonTools.EnumStatus.EDIT;
+            this.txtNewPasswordConfirm.SetStatus(CommonTools.EnumStatus.EDIT);
             this.txtNewPasswordConfirm.TabIndex = 36;
             this.txtNewPasswordConfirm.Upp = true;
             this.txtNewPasswordConfirm.UseSystemPasswordChar = true;
@@ -255,7 +255,7 @@ namespace LogOn
             this.txtNewPassword.Protected = false;
             this.txtNewPassword.Search = false;
             this.txtNewPassword.Size = new System.Drawing.Size(100, 17);
-            this.txtNewPassword.Status = CommonTools.EnumStatus.EDIT;
+            this.txtNewPassword.SetStatus(CommonTools.EnumStatus.EDIT);
             this.txtNewPassword.TabIndex = 35;
             this.txtNewPassword.Upp = true;
             this.txtNewPassword.UseSystemPasswordChar = true;
@@ -311,7 +311,7 @@ namespace LogOn
             this.txtPassword.Protected = false;
             this.txtPassword.Search = false;
             this.txtPassword.Size = new System.Drawing.Size(100, 17);
-            this.txtPassword.Status = CommonTools.EnumStatus.EDIT;
+            this.txtPassword.SetStatus(CommonTools.EnumStatus.EDIT);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.Upp = true;
             this.txtPassword.UseSystemPasswordChar = true;
@@ -342,7 +342,7 @@ namespace LogOn
             this.txtUser.Protected = false;
             this.txtUser.Search = false;
             this.txtUser.Size = new System.Drawing.Size(108, 17);
-            this.txtUser.Status = CommonTools.EnumStatus.EDIT;
+            this.txtUser.SetStatus(CommonTools.EnumStatus.EDIT);
             this.txtUser.TabIndex = 0;
             this.txtUser.Upp = true;
             this.txtUser.Value = "";

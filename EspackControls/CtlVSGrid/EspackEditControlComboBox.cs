@@ -7,7 +7,7 @@ using EspackFormControls;
 
 namespace VSGrid
 {
-    public class FilterCellComboBox : EspackComboBox, IFilterControl
+    public class EspackEditControlComboBox : EspackComboBox, IEspackEditControl
     {
 
 
@@ -17,18 +17,22 @@ namespace VSGrid
         private string _sqlSource;
         
 
-        public FilterCellComboBox()
+        public EspackEditControlComboBox()
         {
             Enabled = true;
             FlatStyle = FlatStyle.Flat;
             KeyDown += FilterCellComboBox_KeyDown;
+            SelectedValueChanged += FilterCellComboBox_SelectedValueChanged;
             //this.GotFocus += Control_GotFocus;
             //this.LostFocus += Control_LostFocus;
         }
 
+        
+
+
         private void FilterCellComboBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode== Keys.Enter)
                 if (ParentDataGrid.IsCurrentCellInEditMode)
                     ParentDataGrid.EndEdit();
         }
@@ -111,13 +115,12 @@ namespace VSGrid
             }
         }
 
-        protected override void OnSelectedItemChanged(EventArgs eventargs)
+        private void FilterCellComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
             // Notify the DataGridView that the contents of the cell
             // have changed.
             EditingControlValueChanged = true;
             this.EditingControlDataGridView.NotifyCurrentCellDirty(true);
-            base.OnSelectedItemChanged(eventargs);
         }
 
         // Implements the IDataGridViewEditingControl

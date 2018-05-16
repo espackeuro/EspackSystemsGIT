@@ -39,7 +39,7 @@
             this.txtArrivalDate = new EspackFormControls.EspackTextBox();
             this.txtDate = new EspackFormControls.EspackDateTimePicker();
             this.txtLocation = new EspackFormControls.EspackTextBox();
-            this.VS = new VSGrid.CtlVSGrid();
+            this.VS = new EspackDataGrid.EspackDataGridView();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.btnRobotProcess = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -94,7 +94,7 @@
             this.txtReceivalCode.PK = false;
             this.txtReceivalCode.Search = false;
             this.txtReceivalCode.Size = new System.Drawing.Size(100, 17);
-            this.txtReceivalCode.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtReceivalCode.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtReceivalCode.TabIndex = 22;
             this.txtReceivalCode.Upp = false;
             this.txtReceivalCode.Value = "";
@@ -121,7 +121,7 @@
             this.txtContainer.PK = false;
             this.txtContainer.Search = false;
             this.txtContainer.Size = new System.Drawing.Size(145, 17);
-            this.txtContainer.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtContainer.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtContainer.TabIndex = 24;
             this.txtContainer.Upp = false;
             this.txtContainer.Value = "";
@@ -151,7 +151,7 @@
             this.cboService.PK = false;
             this.cboService.Search = false;
             this.cboService.Size = new System.Drawing.Size(110, 24);
-            this.cboService.Status = CommonTools.EnumStatus.ADDNEW;
+            this.cboService.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.cboService.TabIndex = 30;
             this.cboService.TBDescription = null;
             this.cboService.Upp = false;
@@ -179,7 +179,7 @@
             this.txtDescService.PK = false;
             this.txtDescService.Search = false;
             this.txtDescService.Size = new System.Drawing.Size(316, 17);
-            this.txtDescService.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtDescService.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtDescService.TabIndex = 32;
             this.txtDescService.Upp = false;
             this.txtDescService.Value = "";
@@ -208,7 +208,7 @@
             this.lstFlags.PK = false;
             this.lstFlags.Search = false;
             this.lstFlags.Size = new System.Drawing.Size(690, 57);
-            this.lstFlags.Status = CommonTools.EnumStatus.ADDNEW;
+            this.lstFlags.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.lstFlags.TabIndex = 35;
             this.lstFlags.Upp = false;
             this.lstFlags.Value = "";
@@ -235,7 +235,7 @@
             this.txtArrivalDate.PK = false;
             this.txtArrivalDate.Search = false;
             this.txtArrivalDate.Size = new System.Drawing.Size(143, 17);
-            this.txtArrivalDate.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtArrivalDate.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtArrivalDate.TabIndex = 42;
             this.txtArrivalDate.Upp = false;
             this.txtArrivalDate.Value = "";
@@ -267,7 +267,7 @@
             this.txtDate.Search = false;
             this.txtDate.ShowCheckBox = true;
             this.txtDate.Size = new System.Drawing.Size(143, 24);
-            this.txtDate.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtDate.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtDate.TabIndex = 44;
             this.txtDate.Upp = false;
             this.txtDate.Value = new System.DateTime(2016, 6, 22, 13, 36, 41, 91);
@@ -294,7 +294,7 @@
             this.txtLocation.PK = false;
             this.txtLocation.Search = false;
             this.txtLocation.Size = new System.Drawing.Size(145, 17);
-            this.txtLocation.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtLocation.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtLocation.TabIndex = 46;
             this.txtLocation.Upp = false;
             this.txtLocation.Value = "";
@@ -335,7 +335,7 @@
             this.VS.sSPAdd = "";
             this.VS.sSPDel = "";
             this.VS.sSPUpp = "";
-            this.VS.Status = CommonTools.EnumStatus.SEARCH;
+            this.VS.SetStatus(CommonTools.EnumStatus.SEARCH);
             this.VS.TabIndex = 47;
             this.VS.Upp = false;
             this.VS.Value = null;
@@ -390,7 +390,7 @@
             this.txtPackingSlip.PK = false;
             this.txtPackingSlip.Search = false;
             this.txtPackingSlip.Size = new System.Drawing.Size(145, 17);
-            this.txtPackingSlip.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtPackingSlip.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtPackingSlip.TabIndex = 66;
             this.txtPackingSlip.Upp = false;
             this.txtPackingSlip.Value = "";
@@ -430,7 +430,7 @@
             this.txtPortDepartureDate.PK = false;
             this.txtPortDepartureDate.Search = false;
             this.txtPortDepartureDate.Size = new System.Drawing.Size(143, 17);
-            this.txtPortDepartureDate.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtPortDepartureDate.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtPortDepartureDate.TabIndex = 81;
             this.txtPortDepartureDate.Upp = false;
             this.txtPortDepartureDate.Value = "";
@@ -477,7 +477,7 @@
         private EspackFormControls.EspackTextBox txtArrivalDate;
         private EspackFormControls.EspackDateTimePicker txtDate;
         private EspackFormControls.EspackTextBox txtLocation;
-        private VSGrid.CtlVSGrid VS;
+        private EspackDataGrid.EspackDataGridView VS;
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton btnRobotProcess;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;

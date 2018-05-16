@@ -59,7 +59,7 @@
             this.txtExternalIP.ReadOnly = true;
             this.txtExternalIP.Search = false;
             this.txtExternalIP.Size = new System.Drawing.Size(352, 17);
-            this.txtExternalIP.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtExternalIP.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtExternalIP.TabIndex = 15;
             this.txtExternalIP.Upp = false;
             this.txtExternalIP.Value = "";
@@ -87,7 +87,7 @@
             this.txtMask.ReadOnly = true;
             this.txtMask.Search = false;
             this.txtMask.Size = new System.Drawing.Size(130, 17);
-            this.txtMask.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtMask.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtMask.TabIndex = 10;
             this.txtMask.Upp = false;
             this.txtMask.Value = "";
@@ -115,7 +115,7 @@
             this.txtSubNet.ReadOnly = true;
             this.txtSubNet.Search = false;
             this.txtSubNet.Size = new System.Drawing.Size(130, 17);
-            this.txtSubNet.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtSubNet.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtSubNet.TabIndex = 7;
             this.txtSubNet.Upp = false;
             this.txtSubNet.Value = "";
@@ -143,7 +143,7 @@
             this.txtCOD3Name.ReadOnly = true;
             this.txtCOD3Name.Search = false;
             this.txtCOD3Name.Size = new System.Drawing.Size(204, 17);
-            this.txtCOD3Name.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtCOD3Name.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtCOD3Name.TabIndex = 5;
             this.txtCOD3Name.Upp = false;
             this.txtCOD3Name.Value = "";
@@ -173,7 +173,7 @@
             this.cboCOD3.PK = false;
             this.cboCOD3.Search = false;
             this.cboCOD3.Size = new System.Drawing.Size(130, 24);
-            this.cboCOD3.Status = CommonTools.EnumStatus.ADDNEW;
+            this.cboCOD3.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.cboCOD3.TabIndex = 3;
             this.cboCOD3.TBDescription = null;
             this.cboCOD3.Upp = false;

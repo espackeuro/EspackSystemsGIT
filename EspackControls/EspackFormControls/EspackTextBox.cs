@@ -111,22 +111,20 @@ namespace EspackFormControls
             }
         }
 
-        public EnumStatus Status
+        public EnumStatus GetStatus()
         {
-            get
-            {
-                return mStatus;
-            }
-            set
-            {
-                mStatus = value;
-                Enabled = !Protected;
-                if (IsCTLMOwned)
-                    ReadOnly = !((Add && Status == EnumStatus.ADDNEW) || (Upp && Status == EnumStatus.EDIT && !PK) || (Del && Status == EnumStatus.DELETE) || (Search && Status == EnumStatus.SEARCH)) || Protected;
-                BackColor = ReadOnly ? SystemColors.ButtonFace : Color.White;
-                ForeColor = ReadOnly ? Color.Gray : Color.Black;
+            return mStatus;
+        }
 
-            }
+        public void SetStatus(EnumStatus value)
+        {
+            mStatus = value;
+            Enabled = !Protected;
+            if (IsCTLMOwned)
+                ReadOnly = !((Add && GetStatus() == EnumStatus.ADDNEW) || (Upp && GetStatus() == EnumStatus.EDIT && !PK) || (Del && GetStatus() == EnumStatus.DELETE) || (Search && GetStatus() == EnumStatus.SEARCH)) || Protected;
+            BackColor = ReadOnly ? SystemColors.ButtonFace : Color.White;
+            ForeColor = ReadOnly ? Color.Gray : Color.Black;
+
         }
 
         public object Value

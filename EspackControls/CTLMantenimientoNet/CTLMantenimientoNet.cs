@@ -16,6 +16,7 @@ using VSGrid;
 using EspackControls;
 using EspackFormControls;
 using AccesoDatos;
+using EspackDataGrid;
 
 namespace CTLMantenimientoNet
 {
@@ -158,6 +159,14 @@ namespace CTLMantenimientoNet
             get
             {
                 return mListItems.Where(x => x is CtlVSGrid).ToList();
+            }
+        }
+
+        public List<EspackControl> EDGVs
+        {
+            get
+            {
+                return mListItems.Where(x => x is EspackDataGridView).ToList();
             }
         }
 
@@ -424,7 +433,7 @@ namespace CTLMantenimientoNet
                     }
 
             }
-            ItemsFormControl.ForEach(i => i.Status = value);
+            ItemsFormControl.ForEach(i => i.SetStatus(value));
             if (CTLStatusBar != null)
             {
                 if (MsgStatusLabel != null)
@@ -463,6 +472,11 @@ namespace CTLMantenimientoNet
             {
                 ((CtlVSGrid)VS).MsgStatusLabel = MsgStatusInfoLabel;
                 ((CtlVSGrid)VS).Start();
+            }
+            foreach (EspackControl EDGV in EDGVs)
+            {
+                ((EspackDataGridView)EDGV).MsgStatusLabel = MsgStatusInfoLabel;
+                ((EspackDataGridView)EDGV).Start();
             }
             SetStatus(EnumStatus.SEARCH);
 
@@ -552,7 +566,7 @@ namespace CTLMantenimientoNet
                 ((EspackFormControl)lControl).IsCTLMOwned = true;
             }
             mListItems.Add(lControl);
-            if (lControl is Control && !(lControl is CtlVSGrid))
+            if (lControl is Control && !(lControl is CtlVSGrid) && !(lControl is EspackDataGridView))
                 ((Control)lControl).Enabled = (pAdd && Status == EnumStatus.ADDNEW) || (pUpp && Status == EnumStatus.EDIT) || (pDel && Status == EnumStatus.DELETE) || (pSearch && Status == EnumStatus.SEARCH);
 
             if (pExtraDataLink != null)
@@ -748,6 +762,12 @@ namespace CTLMantenimientoNet
                         {
                             SetStatus(EnumStatus.EDIT);
                             ((Control)VsGrids[0]).Focus();
+                        }
+
+                        if (EDGVs.Count != 0)
+                        {
+                            SetStatus(EnumStatus.EDIT);
+                            ((Control)EDGVs[0]).Focus();
                         }
                         else
                             SetStatus(EnumStatus.SEARCH);

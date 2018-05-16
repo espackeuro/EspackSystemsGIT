@@ -20,6 +20,18 @@ using System.Diagnostics;
 
 namespace VSGrid
 {
+    public interface IEspackEditControl : IDataGridViewEditingControl
+    {
+        //int? Column { get; set; }
+        //int Row { get; set; }
+        EspackControl Control { get; }
+        //string DataSource { get; set; }
+        //DataGridViewCell ParentCell { get; }
+        CtlVSGrid ParentDataGrid { get; set; }
+        string SqlSource { get; set; }
+        //void SendKeyToControl(Keys keyData);
+        object Value { get; set; }
+    }
 
 
     public class CtlVSGrid : DataGridView, EspackFormControl
@@ -334,94 +346,93 @@ namespace VSGrid
                 }
             }
         }
+        public EnumStatus Status { get => GetStatus(); set => SetStatus(value); }
 
-
-        public EnumStatus Status
+        public EnumStatus GetStatus()
         {
-            set
+            return mStatus;
+        }
+
+
+        public void SetStatus(EnumStatus value)
+        {
+            foreach (CtlVSColumn Col in Columns)
             {
-                foreach (CtlVSColumn Col in Columns)
-                {
-                    Col.Status = value;
-                }
-                mStatus = value;
-                switch (value)
-                {
-                    case EnumStatus.ADDNEW:
-                        {
-                            break;
-                        }
-                    case EnumStatus.EDIT:
-                        {
-
-
-                            if (RowCount == 0 && DataSource == null)
-                            {
-                                Rows.Add();
-                            }
-                            else
-                            {
-                                DataRow newRow = mDA.Table.NewRow();
-                                mDA.Table.Rows.Add(newRow);
-                            }
-                            Refresh();
-                            break;
-                        }
-                    case EnumStatus.DELETE:
-                        {
-                            break;
-                        }
-                    case EnumStatus.SEARCH:
-                        {
-                            RowEditedBool = false;
-                            foreach (CtlVSColumn Col in Columns)
-                            {
-                                Col.Locked = true;
-                            }
-                            break;
-                        }
-                    case EnumStatus.NAVIGATE:
-                        {
-                            foreach (CtlVSColumn Col in Columns)
-                            {
-                                Col.Locked = true;
-                            }
-                            break;
-                        }
-                }
-                if ((Status == EnumStatus.ADDNEW || Status == EnumStatus.EDIT) && RowCount > 0)
-                {
-                    if (AllowUpdate)
+                Col.SetStatus(value);
+            }
+            mStatus = value;
+            switch (value)
+            {
+                case EnumStatus.ADDNEW:
                     {
-                        foreach (CtlVSColumn lCol in Columns)
-                        {
-                            lCol.Locked = (!lCol.Upp || lCol.PK);
-                        }
+                        break;
                     }
-                    foreach (DataGridViewCell lCell in Rows[RowCount - 1].Cells)
+                case EnumStatus.EDIT:
                     {
-                        lCell.ReadOnly = !((CtlVSColumn)Columns[lCell.ColumnIndex]).Add;
-                        if (lCell.ReadOnly)
+
+
+                        if (RowCount == 0 && DataSource == null)
                         {
-                            lCell.Style.BackColor = Colors.CELLLOCKEDBACKCOLOR;
-                            lCell.Style.ForeColor = Colors.CELLLOCKEDFORECOLOR;
+                            Rows.Add();
                         }
                         else
                         {
-                            lCell.Style.BackColor = Colors.CELLBACKCOLOR;
-                            lCell.Style.ForeColor = Colors.CELLFORECOLOR;
+                            DataRow newRow = mDA.Table.NewRow();
+                            mDA.Table.Rows.Add(newRow);
                         }
+                        Refresh();
+                        break;
                     }
-                    this.CurrentCell = Rows[RowCount - 1].Cells.Cast<DataGridViewCell>().First(x => x.ReadOnly == false && x.Visible == true);
-                }
-                if (FilterRowEnabled)
-                {
-                    FilterRow.Cells.OfType<FilterCell>().ToList().ForEach(c => c.ReadOnly = false);
-                }
+                case EnumStatus.DELETE:
+                    {
+                        break;
+                    }
+                case EnumStatus.SEARCH:
+                    {
+                        RowEditedBool = false;
+                        foreach (CtlVSColumn Col in Columns)
+                        {
+                            Col.Locked = true;
+                        }
+                        break;
+                    }
+                case EnumStatus.NAVIGATE:
+                    {
+                        foreach (CtlVSColumn Col in Columns)
+                        {
+                            Col.Locked = true;
+                        }
+                        break;
+                    }
             }
-            get
+            if ((GetStatus() == EnumStatus.ADDNEW || GetStatus() == EnumStatus.EDIT) && RowCount > 0)
             {
-                return mStatus;
+                if (AllowUpdate)
+                {
+                    foreach (CtlVSColumn lCol in Columns)
+                    {
+                        lCol.Locked = (!lCol.Upp || lCol.PK);
+                    }
+                }
+                foreach (DataGridViewCell lCell in Rows[RowCount - 1].Cells)
+                {
+                    lCell.ReadOnly = !((CtlVSColumn)Columns[lCell.ColumnIndex]).Add;
+                    if (lCell.ReadOnly)
+                    {
+                        lCell.Style.BackColor = Colors.CELLLOCKEDBACKCOLOR;
+                        lCell.Style.ForeColor = Colors.CELLLOCKEDFORECOLOR;
+                    }
+                    else
+                    {
+                        lCell.Style.BackColor = Colors.CELLBACKCOLOR;
+                        lCell.Style.ForeColor = Colors.CELLFORECOLOR;
+                    }
+                }
+                this.CurrentCell = Rows[RowCount - 1].Cells.Cast<DataGridViewCell>().First(x => x.ReadOnly == false && x.Visible == true);
+            }
+            if (FilterRowEnabled)
+            {
+                FilterRow.Cells.OfType<FilterCell>().ToList().ForEach(c => c.ReadOnly = false);
             }
         }
 
@@ -501,7 +512,7 @@ namespace VSGrid
 
             SelectionChanged += CtlVSGrid_SelectionChanged;
             EditingControlShowing += CtlVSGrid_EditingControlShowing;
-            Status = EnumStatus.SEARCH;
+            SetStatus(EnumStatus.SEARCH);
             AllowUserToAddRows = false;
             //CellValidating += CtlVSGrid_CellValidating;
             //EditingControlShowing += CtlVSGrid_EditingControlShowing;
@@ -509,6 +520,10 @@ namespace VSGrid
             CaptionLabel = new EspackLabel("", this) { AutoSize = true };
             EspackTheme.changeControlFormat(this);
         }
+
+
+
+
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -588,7 +603,7 @@ namespace VSGrid
             FilterRow = Rows[0];
             //FilterRow.Cells.OfType<FilterCell>().ToList().ForEach(c => c.ReadOnly = false);
         }
-        public void AddFilterCell(FilterCellTypes type, int column, string sqlSource = "")
+        public void AddFilterCell(EspackCellTypes type, int column, string sqlSource = "")
         {
             this[column, 0] = new FilterCell() { Type = type, SqlSource = sqlSource };
             FilterCells.Add((FilterCell)this[column, 0]);
@@ -661,14 +676,14 @@ namespace VSGrid
 
             if (EspackControlParent != null && !RowEditedBool)
             {
-                mPreviousParentStatus = EspackControlParent.Status;
+                mPreviousParentStatus = EspackControlParent.GetStatus();
                 if (CurrentCell.RowIndex == Rows.Count - 1)
                 {
-                    EspackControlParent.Status = EnumStatus.ADDGRIDLINE;
+                    EspackControlParent.SetStatus(EnumStatus.ADDGRIDLINE);
                 }
                 else
                 {
-                    EspackControlParent.Status = EnumStatus.EDITGRIDLINE;
+                    EspackControlParent.SetStatus(EnumStatus.EDITGRIDLINE);
                 }
             }
         }
@@ -737,7 +752,7 @@ namespace VSGrid
         {
             SP lCommand;
             string lMsg = "";
-            if (Status != EnumStatus.ADDGRIDLINE && Status != EnumStatus.EDITGRIDLINE && Status != EnumStatus.EDIT && Status != EnumStatus.ADDNEW && !(CurrentCell is FilterCell) )
+            if (GetStatus() != EnumStatus.ADDGRIDLINE && GetStatus() != EnumStatus.EDITGRIDLINE && GetStatus() != EnumStatus.EDIT && GetStatus() != EnumStatus.ADDNEW && !(CurrentCell is FilterCell) )
             {
                 CancelEdit();
                 return;
@@ -830,7 +845,7 @@ namespace VSGrid
                         UpdateEspackControl();
                         if (EspackControlParent != null && !lCommand.Equals(mDA.DeleteCommand))
                         {
-                            EspackControlParent.Status = mPreviousParentStatus;
+                            EspackControlParent.SetStatus(mPreviousParentStatus);
                         }
                         break;
                     }
@@ -1048,7 +1063,7 @@ namespace VSGrid
             }
             DataSource = mDA.Table;
             Refresh();
-            Status = mStatus;
+            SetStatus(mStatus);
         }
 
         public void Navigate()

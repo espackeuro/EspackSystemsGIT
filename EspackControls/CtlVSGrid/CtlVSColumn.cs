@@ -16,7 +16,9 @@ using System.Threading.Tasks;
 
 namespace VSGrid
 {
+
     public enum AggregateOperations { COUNT, MIN, MAX, SUM, AVERAGE, NONE }
+
     public interface CtlVSColumn : EspackControl
     {
         string Attr { get; set; }
@@ -64,19 +66,17 @@ namespace VSGrid
         public event EventHandler TextChanged;
         public bool Protected { get; set; }
 
-        public EnumStatus Status
+        public EnumStatus GetStatus()
         {
-            get
+            return _status;
+        }
+
+        public void SetStatus(EnumStatus value)
+        {
+            _status = value;
+            if (value == EnumStatus.ADDNEW || value == EnumStatus.EDIT)
             {
-                return _status;
-            }
-            set
-            {
-                _status = value;
-                if (value== EnumStatus.ADDNEW || value==EnumStatus.EDIT)
-                {
-                    ReQuery();
-                }
+                ReQuery();
             }
         }
         public CtlVSGrid Parent { get; set; }
@@ -365,26 +365,24 @@ namespace VSGrid
         public event EventHandler TextChanged;
         public bool Protected { get; set; }
 
-        public EnumStatus Status
+        public EnumStatus GetStatus()
         {
-            get
-            {
-                return _status;
-            }
-            set
-            {
-                _status = value;
-                //if (value == EnumStatus.ADDNEW || value == EnumStatus.EDIT)
-                //{
-                //    if (Query != "" && Conn != null)
-                //    {
-                //        var _RS = new DynamicRS(Query, Conn);
-                //        DataSource = _RS.DataObject;
-                //        DisplayMember = _RS.Fields[0];
-                //        ValueMember = DisplayMember;
-                //    }
-                //}
-            }
+            return _status;
+        }
+
+        public void SetStatus(EnumStatus value)
+        {
+            _status = value;
+            //if (value == EnumStatus.ADDNEW || value == EnumStatus.EDIT)
+            //{
+            //    if (Query != "" && Conn != null)
+            //    {
+            //        var _RS = new DynamicRS(Query, Conn);
+            //        DataSource = _RS.DataObject;
+            //        DisplayMember = _RS.Fields[0];
+            //        ValueMember = DisplayMember;
+            //    }
+            //}
         }
         public CtlVSGrid Parent { get; set; }
         public string Caption { get; set; }

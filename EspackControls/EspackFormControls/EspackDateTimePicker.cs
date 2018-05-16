@@ -22,18 +22,16 @@ namespace EspackFormControls
         private bool _checked;
         public bool Protected { get; set; }
 
-        public EnumStatus Status
+        public EnumStatus GetStatus()
         {
-            get
-            {
-                return mStatus;
-            }
-            set
-            {
-                mStatus = value;
-                if (IsCTLMOwned)
-                    Enabled = ((Add && Status == EnumStatus.ADDNEW) || (Upp && Status == EnumStatus.EDIT && !PK) || (Del && Status == EnumStatus.DELETE) || (Search && Status == EnumStatus.SEARCH)) && !Protected;
-            }
+            return mStatus;
+        }
+
+        public void SetStatus(EnumStatus value)
+        {
+            mStatus = value;
+            if (IsCTLMOwned)
+                Enabled = ((Add && GetStatus() == EnumStatus.ADDNEW) || (Upp && GetStatus() == EnumStatus.EDIT && !PK) || (Del && GetStatus() == EnumStatus.DELETE) || (Search && GetStatus() == EnumStatus.SEARCH)) && !Protected;
         }
 
         public new bool Visible

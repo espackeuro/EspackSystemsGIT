@@ -84,7 +84,7 @@
             this.txtReference.PK = true;
             this.txtReference.Search = false;
             this.txtReference.Size = new System.Drawing.Size(287, 17);
-            this.txtReference.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtReference.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtReference.TabIndex = 1;
             this.txtReference.Upp = false;
             this.txtReference.Value = "";
@@ -111,7 +111,7 @@
             this.txtDescription.PK = false;
             this.txtDescription.Search = false;
             this.txtDescription.Size = new System.Drawing.Size(433, 17);
-            this.txtDescription.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtDescription.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtDescription.TabIndex = 3;
             this.txtDescription.Upp = false;
             this.txtDescription.Value = "";
@@ -142,7 +142,7 @@
             this.txtFase4.Precision = 0;
             this.txtFase4.Search = false;
             this.txtFase4.Size = new System.Drawing.Size(100, 17);
-            this.txtFase4.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtFase4.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtFase4.TabIndex = 5;
             this.txtFase4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtFase4.ThousandsGroup = false;
@@ -175,7 +175,7 @@
             this.txtPrice.Precision = 0;
             this.txtPrice.Search = false;
             this.txtPrice.Size = new System.Drawing.Size(100, 17);
-            this.txtPrice.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtPrice.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtPrice.TabIndex = 9;
             this.txtPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtPrice.ThousandsGroup = false;
@@ -208,7 +208,7 @@
             this.txtPeso.Precision = 0;
             this.txtPeso.Search = false;
             this.txtPeso.Size = new System.Drawing.Size(100, 17);
-            this.txtPeso.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtPeso.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtPeso.TabIndex = 11;
             this.txtPeso.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtPeso.ThousandsGroup = false;
@@ -238,7 +238,7 @@
             this.txtNotes.PK = false;
             this.txtNotes.Search = false;
             this.txtNotes.Size = new System.Drawing.Size(433, 64);
-            this.txtNotes.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtNotes.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtNotes.TabIndex = 13;
             this.txtNotes.Upp = false;
             this.txtNotes.Value = "";
@@ -268,7 +268,7 @@
             this.cboServicio.PK = false;
             this.cboServicio.Search = false;
             this.cboServicio.Size = new System.Drawing.Size(130, 24);
-            this.cboServicio.Status = CommonTools.EnumStatus.ADDNEW;
+            this.cboServicio.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.cboServicio.TabIndex = 17;
             this.cboServicio.TBDescription = null;
             this.cboServicio.Upp = false;
@@ -296,7 +296,7 @@
             this.txtDesServicio.PK = false;
             this.txtDesServicio.Search = false;
             this.txtDesServicio.Size = new System.Drawing.Size(297, 17);
-            this.txtDesServicio.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtDesServicio.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtDesServicio.TabIndex = 19;
             this.txtDesServicio.Upp = false;
             this.txtDesServicio.Value = "";
@@ -325,7 +325,7 @@
             this.lstFlags.PK = false;
             this.lstFlags.Search = false;
             this.lstFlags.Size = new System.Drawing.Size(433, 76);
-            this.lstFlags.Status = CommonTools.EnumStatus.ADDNEW;
+            this.lstFlags.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.lstFlags.TabIndex = 21;
             this.lstFlags.Upp = false;
             this.lstFlags.Value = "";
@@ -356,7 +356,7 @@
             this.txtMin.Precision = 0;
             this.txtMin.Search = false;
             this.txtMin.Size = new System.Drawing.Size(100, 17);
-            this.txtMin.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtMin.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtMin.TabIndex = 23;
             this.txtMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtMin.ThousandsGroup = false;
@@ -389,7 +389,7 @@
             this.txtMax.Precision = 0;
             this.txtMax.Search = false;
             this.txtMax.Size = new System.Drawing.Size(100, 17);
-            this.txtMax.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtMax.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtMax.TabIndex = 26;
             this.txtMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtMax.ThousandsGroup = false;

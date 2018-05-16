@@ -56,7 +56,7 @@
             this.txtDefaultUserForServers.Protected = false;
             this.txtDefaultUserForServers.Search = false;
             this.txtDefaultUserForServers.Size = new System.Drawing.Size(224, 17);
-            this.txtDefaultUserForServers.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtDefaultUserForServers.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtDefaultUserForServers.TabIndex = 4;
             this.txtDefaultUserForServers.Upp = false;
             this.txtDefaultUserForServers.Value = "";
@@ -85,7 +85,7 @@
             this.txtDefaultPasswordForServers.Protected = false;
             this.txtDefaultPasswordForServers.Search = false;
             this.txtDefaultPasswordForServers.Size = new System.Drawing.Size(224, 17);
-            this.txtDefaultPasswordForServers.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtDefaultPasswordForServers.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtDefaultPasswordForServers.TabIndex = 7;
             this.txtDefaultPasswordForServers.Upp = false;
             this.txtDefaultPasswordForServers.UseSystemPasswordChar = true;

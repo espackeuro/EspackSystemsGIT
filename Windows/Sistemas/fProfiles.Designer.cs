@@ -87,7 +87,7 @@
             this.txtDescription.ReadOnly = true;
             this.txtDescription.Search = false;
             this.txtDescription.Size = new System.Drawing.Size(345, 22);
-            this.txtDescription.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtDescription.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtDescription.TabIndex = 29;
             this.txtDescription.Upp = false;
             this.txtDescription.Value = "";
@@ -118,7 +118,7 @@
             this.lstCOD3.PK = false;
             this.lstCOD3.Search = false;
             this.lstCOD3.Size = new System.Drawing.Size(400, 95);
-            this.lstCOD3.Status = CommonTools.EnumStatus.ADDNEW;
+            this.lstCOD3.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.lstCOD3.TabIndex = 26;
             this.lstCOD3.Upp = false;
             this.lstCOD3.Value = "";
@@ -149,7 +149,7 @@
             this.lstFlags.PK = false;
             this.lstFlags.Search = false;
             this.lstFlags.Size = new System.Drawing.Size(174, 95);
-            this.lstFlags.Status = CommonTools.EnumStatus.ADDNEW;
+            this.lstFlags.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.lstFlags.TabIndex = 25;
             this.lstFlags.Upp = false;
             this.lstFlags.Value = "";
@@ -178,7 +178,7 @@
             this.txtProfileCode.ReadOnly = true;
             this.txtProfileCode.Search = false;
             this.txtProfileCode.Size = new System.Drawing.Size(225, 24);
-            this.txtProfileCode.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtProfileCode.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtProfileCode.TabIndex = 0;
             this.txtProfileCode.Upp = false;
             this.txtProfileCode.Value = "";
@@ -220,7 +220,7 @@
             this.lstServiceDefaultFlags.PK = false;
             this.lstServiceDefaultFlags.Search = false;
             this.lstServiceDefaultFlags.Size = new System.Drawing.Size(579, 76);
-            this.lstServiceDefaultFlags.Status = CommonTools.EnumStatus.ADDNEW;
+            this.lstServiceDefaultFlags.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.lstServiceDefaultFlags.TabIndex = 30;
             this.lstServiceDefaultFlags.Upp = false;
             this.lstServiceDefaultFlags.Value = "";
@@ -265,7 +265,7 @@
             this.VS.sSPAdd = "";
             this.VS.sSPDel = "";
             this.VS.sSPUpp = "";
-            this.VS.Status = CommonTools.EnumStatus.SEARCH;
+            this.VS.SetStatus(CommonTools.EnumStatus.SEARCH);
             this.VS.TabIndex = 3;
             this.VS.Upp = false;
             this.VS.Value = null;
@@ -309,7 +309,7 @@
             this.ProfileCode.SPAddParamName = "@ProfileCode";
             this.ProfileCode.SPDelParamName = "@ProfileCode";
             this.ProfileCode.SPUppParamName = "@ProfileCode";
-            this.ProfileCode.Status = CommonTools.EnumStatus.SEARCH;
+            this.ProfileCode.SetStatus(CommonTools.EnumStatus.SEARCH);
             this.ProfileCode.Text = "";
             this.ProfileCode.Upp = true;
             this.ProfileCode.Value = "";
@@ -353,7 +353,7 @@
             this.Service.SPAddParamName = "@Service";
             this.Service.SPDelParamName = "@Service";
             this.Service.SPUppParamName = "@Service";
-            this.Service.Status = CommonTools.EnumStatus.SEARCH;
+            this.Service.SetStatus(CommonTools.EnumStatus.SEARCH);
             this.Service.Text = "";
             this.Service.Upp = true;
             this.Service.Value = "";
@@ -397,7 +397,7 @@
             this.DefaultFlags.SPAddParamName = "@DefaultFlags";
             this.DefaultFlags.SPDelParamName = "";
             this.DefaultFlags.SPUppParamName = "@DefaultFlags";
-            this.DefaultFlags.Status = CommonTools.EnumStatus.SEARCH;
+            this.DefaultFlags.SetStatus(CommonTools.EnumStatus.SEARCH);
             this.DefaultFlags.Text = "";
             this.DefaultFlags.Upp = true;
             this.DefaultFlags.Value = "";

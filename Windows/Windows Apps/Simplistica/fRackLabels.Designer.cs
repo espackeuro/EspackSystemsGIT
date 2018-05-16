@@ -68,7 +68,7 @@
             this.txtCOD3.PK = false;
             this.txtCOD3.Search = false;
             this.txtCOD3.Size = new System.Drawing.Size(145, 24);
-            this.txtCOD3.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtCOD3.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtCOD3.TabIndex = 14;
             this.txtCOD3.Upp = false;
             this.txtCOD3.Value = "";
@@ -98,7 +98,7 @@
             this.cboCOD3.PK = false;
             this.cboCOD3.Search = false;
             this.cboCOD3.Size = new System.Drawing.Size(125, 24);
-            this.cboCOD3.Status = CommonTools.EnumStatus.ADDNEW;
+            this.cboCOD3.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.cboCOD3.TabIndex = 11;
             this.cboCOD3.TBDescription = null;
             this.cboCOD3.Upp = false;
@@ -127,7 +127,7 @@
             this.txtLOCATION.PK = false;
             this.txtLOCATION.Search = false;
             this.txtLOCATION.Size = new System.Drawing.Size(145, 24);
-            this.txtLOCATION.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtLOCATION.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtLOCATION.TabIndex = 9;
             this.txtLOCATION.Upp = false;
             this.txtLOCATION.Value = "";
@@ -155,7 +155,7 @@
             this.txtAISLE.PK = false;
             this.txtAISLE.Search = false;
             this.txtAISLE.Size = new System.Drawing.Size(145, 24);
-            this.txtAISLE.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtAISLE.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtAISLE.TabIndex = 7;
             this.txtAISLE.Upp = false;
             this.txtAISLE.Value = "";

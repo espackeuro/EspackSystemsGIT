@@ -52,13 +52,13 @@
     <Compile Include="CtlVSGrid.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FilterCellTextBox.cs">
+    <Compile Include="EspackEditControlTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FilterCellCheckedComboBox.cs">
+    <Compile Include="EspackEditControlCheckedComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FilterCellComboBox.cs">
+    <Compile Include="EspackEditControlComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="FilterCell.cs" />

@@ -100,7 +100,7 @@
             this.cboPrinters.PK = false;
             this.cboPrinters.Search = false;
             this.cboPrinters.Size = new System.Drawing.Size(286, 24);
-            this.cboPrinters.Status = CommonTools.EnumStatus.ADDNEW;
+            this.cboPrinters.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.cboPrinters.TabIndex = 1;
             this.cboPrinters.TBDescription = null;
             this.cboPrinters.Upp = false;
@@ -129,7 +129,7 @@
             this.txtCode.PK = false;
             this.txtCode.Search = false;
             this.txtCode.Size = new System.Drawing.Size(286, 24);
-            this.txtCode.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtCode.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtCode.TabIndex = 0;
             this.txtCode.TabStop = false;
             this.txtCode.Upp = false;
@@ -173,7 +173,7 @@
             this.ctlVSGrid1.sSPAdd = "";
             this.ctlVSGrid1.sSPDel = "";
             this.ctlVSGrid1.sSPUpp = "";
-            this.ctlVSGrid1.Status = CommonTools.EnumStatus.SEARCH;
+            this.ctlVSGrid1.SetStatus(CommonTools.EnumStatus.SEARCH);
             this.ctlVSGrid1.TabIndex = 17;
             this.ctlVSGrid1.Upp = false;
             this.ctlVSGrid1.Value = null;
@@ -216,7 +216,7 @@
             this.vsLabels.sSPAdd = "";
             this.vsLabels.sSPDel = "";
             this.vsLabels.sSPUpp = "";
-            this.vsLabels.Status = CommonTools.EnumStatus.SEARCH;
+            this.vsLabels.SetStatus(CommonTools.EnumStatus.SEARCH);
             this.vsLabels.TabIndex = 7;
             this.vsLabels.Upp = false;
             this.vsLabels.Value = null;
@@ -261,7 +261,7 @@
             this.vsGroups.sSPAdd = "";
             this.vsGroups.sSPDel = "";
             this.vsGroups.sSPUpp = "";
-            this.vsGroups.Status = CommonTools.EnumStatus.SEARCH;
+            this.vsGroups.SetStatus(CommonTools.EnumStatus.SEARCH);
             this.vsGroups.TabIndex = 6;
             this.vsGroups.Upp = false;
             this.vsGroups.Value = null;
@@ -303,7 +303,7 @@
             this.vsParameters.sSPAdd = "";
             this.vsParameters.sSPDel = "";
             this.vsParameters.sSPUpp = "";
-            this.vsParameters.Status = CommonTools.EnumStatus.SEARCH;
+            this.vsParameters.SetStatus(CommonTools.EnumStatus.SEARCH);
             this.vsParameters.TabIndex = 2;
             this.vsParameters.Upp = false;
             this.vsParameters.Value = null;

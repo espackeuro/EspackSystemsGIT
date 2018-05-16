@@ -83,7 +83,7 @@
             this.VS.sSPAdd = "";
             this.VS.sSPDel = "";
             this.VS.sSPUpp = "";
-            this.VS.Status = CommonTools.EnumStatus.SEARCH;
+            this.VS.SetStatus(CommonTools.EnumStatus.SEARCH);
             this.VS.TabIndex = 55;
             this.VS.Upp = false;
             this.VS.Value = null;
@@ -114,7 +114,7 @@
             this.lstFlags.Protected = false;
             this.lstFlags.Search = false;
             this.lstFlags.Size = new System.Drawing.Size(690, 57);
-            this.lstFlags.Status = CommonTools.EnumStatus.ADDNEW;
+            this.lstFlags.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.lstFlags.TabIndex = 54;
             this.lstFlags.Upp = false;
             this.lstFlags.Value = "";
@@ -146,7 +146,7 @@
             this.cboService.Protected = false;
             this.cboService.Search = false;
             this.cboService.Size = new System.Drawing.Size(110, 24);
-            this.cboService.Status = CommonTools.EnumStatus.ADDNEW;
+            this.cboService.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.cboService.TabIndex = 53;
             this.cboService.TBDescription = null;
             this.cboService.Upp = false;
@@ -177,7 +177,7 @@
             this.txtNotes.ReadOnly = true;
             this.txtNotes.Search = false;
             this.txtNotes.Size = new System.Drawing.Size(689, 17);
-            this.txtNotes.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtNotes.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtNotes.TabIndex = 52;
             this.txtNotes.Upp = false;
             this.txtNotes.Value = "";
@@ -227,7 +227,7 @@
             this.txtDescService.ReadOnly = true;
             this.txtDescService.Search = false;
             this.txtDescService.Size = new System.Drawing.Size(316, 17);
-            this.txtDescService.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtDescService.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtDescService.TabIndex = 57;
             this.txtDescService.Upp = false;
             this.txtDescService.Value = "";
@@ -261,7 +261,7 @@
             this.txtDate.Search = false;
             this.txtDate.ShowCheckBox = true;
             this.txtDate.Size = new System.Drawing.Size(135, 24);
-            this.txtDate.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtDate.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtDate.TabIndex = 63;
             this.txtDate.Upp = false;
             this.txtDate.Value = new System.DateTime(2016, 6, 22, 13, 36, 41, 91);
@@ -291,7 +291,7 @@
             this.txtReceivalNumber.ReadOnly = true;
             this.txtReceivalNumber.Search = false;
             this.txtReceivalNumber.Size = new System.Drawing.Size(110, 17);
-            this.txtReceivalNumber.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtReceivalNumber.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtReceivalNumber.TabIndex = 62;
             this.txtReceivalNumber.Upp = false;
             this.txtReceivalNumber.Value = "";
@@ -321,7 +321,7 @@
             this.txtSupplierDoc.ReadOnly = true;
             this.txtSupplierDoc.Search = false;
             this.txtSupplierDoc.Size = new System.Drawing.Size(227, 17);
-            this.txtSupplierDoc.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtSupplierDoc.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtSupplierDoc.TabIndex = 65;
             this.txtSupplierDoc.Upp = false;
             this.txtSupplierDoc.Value = "";
@@ -351,7 +351,7 @@
             this.txtUser.ReadOnly = true;
             this.txtUser.Search = false;
             this.txtUser.Size = new System.Drawing.Size(145, 17);
-            this.txtUser.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtUser.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtUser.TabIndex = 67;
             this.txtUser.Upp = false;
             this.txtUser.Value = "";

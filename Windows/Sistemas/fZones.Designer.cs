@@ -65,7 +65,7 @@
             this.txtCode.ReadOnly = true;
             this.txtCode.Search = false;
             this.txtCode.Size = new System.Drawing.Size(228, 17);
-            this.txtCode.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtCode.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtCode.TabIndex = 1;
             this.txtCode.Upp = false;
             this.txtCode.Value = "";
@@ -93,7 +93,7 @@
             this.txtSubNet.ReadOnly = true;
             this.txtSubNet.Search = false;
             this.txtSubNet.Size = new System.Drawing.Size(10, 17);
-            this.txtSubNet.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtSubNet.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtSubNet.TabIndex = 3;
             this.txtSubNet.Upp = false;
             this.txtSubNet.Value = "";
@@ -122,7 +122,7 @@
             this.txtMask.ReadOnly = true;
             this.txtMask.Search = false;
             this.txtMask.Size = new System.Drawing.Size(10, 17);
-            this.txtMask.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtMask.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtMask.TabIndex = 5;
             this.txtMask.Upp = false;
             this.txtMask.Value = "";

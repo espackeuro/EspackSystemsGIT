@@ -35,7 +35,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnACheck = new System.Windows.Forms.ToolStripButton();
             this.lstFlags = new EspackFormControls.EspackCheckedListBox();
-            this.VS = new VSGrid.CtlVSGrid();
+            this.VS = new EspackDataGrid.EspackDataGridView();
             this.txtDesServicio = new EspackFormControls.EspackTextBox();
             this.cboServicio = new EspackFormControls.EspackComboBox();
             this.txtNotes = new EspackFormControls.EspackTextBox();
@@ -120,7 +120,7 @@
             this.lstFlags.PK = false;
             this.lstFlags.Search = false;
             this.lstFlags.Size = new System.Drawing.Size(540, 57);
-            this.lstFlags.Status = CommonTools.EnumStatus.ADDNEW;
+            this.lstFlags.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.lstFlags.TabIndex = 31;
             this.lstFlags.Upp = false;
             this.lstFlags.Value = "";
@@ -161,7 +161,7 @@
             this.VS.sSPAdd = "";
             this.VS.sSPDel = "";
             this.VS.sSPUpp = "";
-            this.VS.Status = CommonTools.EnumStatus.SEARCH;
+            this.VS.SetStatus(CommonTools.EnumStatus.SEARCH);
             this.VS.TabIndex = 23;
             this.VS.Upp = false;
             this.VS.Value = null;
@@ -189,7 +189,7 @@
             this.txtDesServicio.PK = false;
             this.txtDesServicio.Search = false;
             this.txtDesServicio.Size = new System.Drawing.Size(382, 23);
-            this.txtDesServicio.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtDesServicio.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtDesServicio.TabIndex = 15;
             this.txtDesServicio.Upp = false;
             this.txtDesServicio.Value = "";
@@ -219,7 +219,7 @@
             this.cboServicio.PK = false;
             this.cboServicio.Search = false;
             this.cboServicio.Size = new System.Drawing.Size(130, 24);
-            this.cboServicio.Status = CommonTools.EnumStatus.ADDNEW;
+            this.cboServicio.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.cboServicio.TabIndex = 13;
             this.cboServicio.TBDescription = null;
             this.cboServicio.Upp = false;
@@ -247,7 +247,7 @@
             this.txtNotes.PK = false;
             this.txtNotes.Search = false;
             this.txtNotes.Size = new System.Drawing.Size(383, 17);
-            this.txtNotes.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtNotes.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtNotes.TabIndex = 11;
             this.txtNotes.Upp = false;
             this.txtNotes.Value = "";
@@ -274,7 +274,7 @@
             this.txtSuppDoc.PK = false;
             this.txtSuppDoc.Search = false;
             this.txtSuppDoc.Size = new System.Drawing.Size(121, 17);
-            this.txtSuppDoc.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtSuppDoc.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtSuppDoc.TabIndex = 7;
             this.txtSuppDoc.Upp = false;
             this.txtSuppDoc.Value = "";
@@ -305,7 +305,7 @@
             this.txtFecha.PK = false;
             this.txtFecha.Search = false;
             this.txtFecha.Size = new System.Drawing.Size(163, 24);
-            this.txtFecha.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtFecha.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtFecha.TabIndex = 5;
             this.txtFecha.Upp = false;
             this.txtFecha.Value = new System.DateTime(2016, 6, 22, 13, 36, 41, 91);
@@ -333,7 +333,7 @@
             this.txtEntrada.PK = false;
             this.txtEntrada.Search = false;
             this.txtEntrada.Size = new System.Drawing.Size(121, 24);
-            this.txtEntrada.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtEntrada.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.txtEntrada.TabIndex = 1;
             this.txtEntrada.Upp = false;
             this.txtEntrada.Value = "";
@@ -393,7 +393,7 @@
         private EspackFormControls.EspackTextBox txtNotes;
         private EspackFormControls.EspackComboBox cboServicio;
         private EspackFormControls.EspackTextBox txtDesServicio;
-        private VSGrid.CtlVSGrid VS;
+        private EspackDataGrid.EspackDataGridView VS;
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton btnLabelCMs;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;

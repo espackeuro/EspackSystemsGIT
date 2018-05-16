@@ -11,16 +11,16 @@ using EspackFormControls;
 
 namespace VSGrid
 {
-    public enum FilterCellTypes { COMBO, CHECKEDCOMBO, TEXT, WILDCARDTEXT }
+    public enum EspackCellTypes { COMBO, CHECKEDCOMBO, TEXT, WILDCARDTEXT }
 
-    public class FilterCellTextBox : EspackTextBox, IFilterControl
+    public class EspackEditControlTextBox : EspackTextBox, IEspackEditControl
     {
         protected int rowIndex;
         public EspackControl Control { get => this; }
         //private FilterCellTypes _type;
         private string _sqlSource;
         //public object Value { get => Control.Value; set => Control.Value = value; }
-        public FilterCellTextBox()
+        public EspackEditControlTextBox()
         {
             Enabled = true;
             ReadOnly = false;
