@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 using AccesoDatosNet;
 using EspackControls;
@@ -53,8 +54,8 @@ namespace EspackDataGrid
             {
                 _sqlSource = value;
                 Source(_sqlSource, ParentDataGrid.Conn);
-                if (((DynamicRS)DataSource).RecordCount == 1)
-                    Text = ((DynamicRS)DataSource).Fields[0];
+                if (((DataTable)DataSource).Rows.Count == 1)
+                    Text = ((DataTable)DataSource).Rows[0].ItemArray[0].ToString();
             }
 
         }

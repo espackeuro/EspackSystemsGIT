@@ -111,6 +111,8 @@ namespace EspackFormControls
             }
         }
 
+        public EnumStatus Status { get => GetStatus(); set => SetStatus(value); }
+
         public EnumStatus GetStatus()
         {
             return mStatus;
