@@ -75,8 +75,9 @@ namespace Simplistica
             VS.AddColumn("Destination", "DestString", "@Destination","@Destination", pWidth:200, pQuery: string.Format("select Destination=planta+' ('+Descripcion2+') '+Descripcion1 from servicios_destinos where servicio='{0}'", cboService.Value), pSortable: true); //, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: string.Format("select partnumber from servicio_destinos where servicio='{0}'", cboService.Value));
             VS.AddColumn("OrderedQty", "OrderedQty", "@OrderedQty", "@OrderedQty", pWidth: 90);
             VS.AddColumn("SentQty", "SentQty", "@SentQty", "@SentQty", pWidth: 90);
+
+            VS.CellBeginEdit += VS_CellBeginEdit;
             VS.CellEndEdit += VS_CellEndEdit; //VS_CellValidating; ; ;
-            VS.CellEnter += VS_CellEnter;
             VS.DataError += VS_DataError;
             //Various
             CTLM.ReQuery = true;
@@ -88,13 +89,13 @@ namespace Simplistica
             toolStrip.Enabled = false;
         }
 
-
-        //private void CTLM_BeforeButtonClick(object sender, CTLMEventArgs e)
-        //{
-        //    //
-        //    //
-        //    //
-        //}
+        private void VS_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            if (e.ColumnIndex == (VS.Columns["Destination"].Index))
+            {
+                ((EspackDataGridViewCell)VS[VS.Columns["Destination"].Index, e.RowIndex]).SqlSource = string.Format("select Destination=s.planta+' ('+s.Descripcion2+') '+s.Descripcion1 from servicios_destinos s inner join referencias_destinos r on r.servicio=s.servicio and r.ruta=s.ruta where s.servicio='{0}' and r.partnumber='{1}' order by s.planta", cboService.Value, VS[VS.Columns["Partnumber"].Index, e.RowIndex].Value);
+            }
+        }
 
         private void CTLM_AfterButtonClick(object sender, CTLMEventArgs e)
         {
@@ -160,21 +161,7 @@ namespace Simplistica
 
         private void CboService_SelectedValueChanged(object sender, EventArgs e)
         {
-            
-        }
-
-        private void VS_CellEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == VS.Columns["Partnumber"].Index)
-            {
-                using (var p = ((EspackDataGridViewCell)VS[VS.Columns["Partnumber"].Index, e.RowIndex]))
-                {
-                    p.AutoCompleteQuery = string.Format("select partnumber from referencias where servicio='{0}' order by partnumber", cboService.Value);
-                    p.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
-
-                }
-            }
+            ((EspackDataGridViewColumn)VS.Columns["Partnumber"]).AutoCompleteQuery=string.Format("select partnumber from referencias where servicio='{0}' order by partnumber", cboService.Value);
         }
 
         private void VS_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -183,7 +170,8 @@ namespace Simplistica
             {
                 if (VS[e.ColumnIndex, e.RowIndex].Value.ToString() != "")
                 {
-                    using (var _rs = new StaticRS(string.Format("Select Descripcion from Referencias where partnumber='{0}' and Servicio='{1}'", VS[e.ColumnIndex, e.RowIndex].Value, cboService.Value), Values.gDatos))
+                    using (var _rs = new StaticRS(string.Format("Select Descripcion,Destination=isnull((select top 1 s.planta+' ('+s.Descripcion2+') '+s.Descripcion1 from servicios_destinos s inner join referencias_destinos rd on rd.servicio=s.servicio and rd.ruta=s.ruta where rd.servicio=r.servicio and rd.partnumber=r.partnumber order by s.planta),'') from Referencias r where partnumber='{0}' and Servicio='{1}'", VS[e.ColumnIndex, e.RowIndex].Value, cboService.Value), Values.gDatos))
+                    //select s.planta+' ('+s.Descripcion2+') '+s.Descripcion1 from servicios_destinos s inner join referencias_destinos r on r.servicio=s.servicio and r.ruta=s.ruta where s.servicio='{0}' and r.partnumber='{1}' order by s.planta
                     {
                         _rs.Open();
                         if (_rs.RecordCount == 0)
@@ -197,6 +185,7 @@ namespace Simplistica
                         {
                             VS[VS.Columns["Description"].Index, e.RowIndex].Value = _rs["Descripcion"].ToString();
                             VS.CurrentCell = VS[VS.Columns["Description"].Index, e.RowIndex];
+                            VS[VS.Columns["Destination"].Index, e.RowIndex].Value = _rs["Destination"].ToString(); ;
                         }
                     }
                 }
@@ -206,7 +195,7 @@ namespace Simplistica
                     VS[VS.Columns["Description"].Index, e.RowIndex].Value = "";
                     VS[VS.Columns["Destination"].Index, e.RowIndex].Value = "";
                 }
-                ((EspackDataGridViewCell)VS[VS.Columns["Destination"].Index,e.RowIndex]).SqlSource=string.Format("select Destination=s.planta+' ('+s.Descripcion2+') '+s.Descripcion1 from servicios_destinos s inner join referencias_destinos r on r.servicio=s.servicio and r.ruta=s.ruta where s.servicio='{0}' and r.partnumber='{1}' ", cboService.Value, VS[e.ColumnIndex, e.RowIndex].Value);
+                
 
             }
         }
