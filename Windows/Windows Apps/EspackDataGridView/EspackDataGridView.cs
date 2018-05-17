@@ -13,6 +13,7 @@ using CommonTools;
 using System;
 using DiverseControls;
 
+
 namespace EspackDataGrid
 {
     public enum AggregateOperations { COUNT, MIN, MAX, SUM, AVERAGE, NONE }
@@ -358,7 +359,7 @@ namespace EspackDataGrid
                     }
                 case EnumStatus.SEARCH:
                     {
-                        RowEditedBool = false;
+                        //RowEditedBool = false;
                         foreach (EspackDataGridViewColumn Col in Columns)
                         {
                             Col.ReadOnly = true;
@@ -447,8 +448,10 @@ namespace EspackDataGrid
         }
 
         public string DBTable { get; set; }
-        private int RowEdited;
-        private bool RowEditedBool = false;
+        private EspackDataGridViewCell oldCurrentCell; //{ get; set; }
+        public bool Dirty { get; set; }
+        //private int RowEdited;
+        //private bool RowEditedBool = false;
         #endregion
         public EspackDataGridView()
         {
@@ -463,16 +466,44 @@ namespace EspackDataGrid
             Resize += CtlVSGrid_Resize;
             KeyDown += CtlVSGrid_KeyDown;
             CellEnter += EspackDataGridView_CellEnter; ;
-            SelectionChanged += EspackDataGridView_SelectionChanged; ;
+            SelectionChanged += EspackDataGridView_SelectionChanged;
+            CurrentCellChanged += EspackDataGridView_CurrentCellChanged;
+            Dirty = false;
             SetStatus(EnumStatus.SEARCH);
             AllowUserToAddRows = false;
             CaptionLabel = new EspackLabel("", this) { AutoSize = true };
             EspackTheme.changeControlFormat(this);
         }
 
+        private void EspackDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            oldCurrentCell = (EspackDataGridViewCell)CurrentCell;
+        }
+
+        private void EspackDataGridView_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (CurrentCell.RowIndex != oldCurrentCell.RowIndex)
+            {
+                if (CurrentCell.RowIndex == RowCount-1 && AllowInsert && Dirty)
+                {
+                    if (MessageBox.Show("The current line is not yet inserted. Are you sure?","Warning",MessageBoxButtons.YesNo, MessageBoxIcon.Warning)== DialogResult.No)
+                    {
+                        CurrentCell = oldCurrentCell;
+                    }
+                } else if (AllowUpdate && Dirty)
+                    if (MessageBox.Show("The current line is not yet updated. Are you sure?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                    {
+                        CurrentCell = oldCurrentCell;
+                    }
+            }
+        }
+
         private void EspackDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex < Columns.Count - 1)
+            bool commitEdit = false;
+            if (e.ColumnIndex == Columns.Count - 1)
+                commitEdit = true;
+            else
             {
                 do
                 {
@@ -484,17 +515,18 @@ namespace EspackDataGrid
                 }
                 while (CurrentCell.ReadOnly && CurrentCell.ColumnIndex < Columns.Count - 1);
             }
-            RowEdited = e.RowIndex;
-            RowEditedBool = true;
+            if (CurrentCell.ReadOnly && e.ColumnIndex == Columns.Count - 1)
+                commitEdit = true;
+            if (commitEdit)
+            {
+                ExecuteCommand(true);
+            }
+
+            //RowEdited = e.RowIndex;
+            //RowEditedBool = true;
         }
 
-        private void EspackDataGridView_SelectionChanged(object sender, EventArgs e)
-        {
-            if (RowEditedBool && RowEdited != CurrentCell.RowIndex && Rows.Count > RowEdited)
-            {
-                CurrentCell = Rows[RowEdited].Cells[CurrentCell.ColumnIndex];
-            }
-        }
+
 
         private void EspackDataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -645,64 +677,80 @@ namespace EspackDataGrid
                             }
                             else
                             {
+                                ExecuteCommand();
                                 break;
                             }
-                        }
-                        else
-                        {
-                            if (!AllowInsert)
-                            {
-                                MessageBox.Show("Insertion not allowed.", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                                break;
-                            }
-                            if (CurrentCell.RowIndex == Rows.Count - 1)
-                            {
-                                if (!AllowInsert)
-                                {
-                                    MessageBox.Show("Insertion not allowed.", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                                    break;
-                                }
-                                lCommand = mDA.InsertCommand;
-                                lMsg = "Line inserted OK";
-                            }
-                            else
-                            {
-                                if (!AllowUpdate)
-                                {
-                                    MessageBox.Show("Update not allowed.", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                                    break;
-                                }
-                                lCommand = mDA.UpdateCommand;
-                                lMsg = "Line updated OK";
-                            }
-                        }
-                        lCommand.Execute();
-                        if (lCommand.LastMsg.Substring(0, 2) != "OK")
-                        {
-                            MessageBox.Show("ERROR:" + lCommand.LastMsg, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            lMsg = "ERROR:" + lCommand.LastMsg;
-                            if (lCommand == mDA.UpdateCommand) //si es un update que ha dado error, reconsultamos el grid para eliminar los valores erróneos
-                            {
-                                RowEditedBool = false;
-                                var x = CurrentCell.ColumnIndex;
-                                var y = CurrentCell.RowIndex;
-                                UpdateEspackControl();
-                                CurrentCell = Rows[y].Cells[x];
-                            }
-
-                            break;
-                        }
-                        StatusMsg(lMsg);
-                        RowEditedBool = false;
-                        UpdateEspackControl();
-                        if (EspackControlParent != null && !lCommand.Equals(mDA.DeleteCommand))
-                        {
-                            EspackControlParent.SetStatus(mPreviousParentStatus);
                         }
                         break;
                     }
+            
             }
         }
+        private void ExecuteCommand(bool warning=false)
+        {
+            SP lCommand;
+            string lMsg = "";
+            string lWarning = "";
+            {
+                if (CurrentCell.RowIndex == Rows.Count - 1)
+                {
+                    if (!AllowInsert)
+                    {
+                        MessageBox.Show("Insertion not allowed.", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        return;
+                    }
+                    lCommand = mDA.InsertCommand;
+                    lMsg = "Line inserted OK";
+                    lWarning = "Do you want to insert current line?";
+                }
+                else
+                {
+                    if (!AllowUpdate)
+                    {
+                        MessageBox.Show("Update not allowed.", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        Dirty = false;
+                        return;
+                    }
+                    lCommand = mDA.UpdateCommand;
+                    lMsg = "Line updated OK";
+                    lWarning = "Do you want to insert current line?";
+                }
+            }
+            if (warning)
+            {
+                if (MessageBox.Show(lWarning, "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                {
+                    Dirty = false;
+                    return;
+                }
+                    
+            }
+            lCommand.Execute();
+            if (lCommand.LastMsg.Substring(0, 2) != "OK")
+            {
+                MessageBox.Show("ERROR:" + lCommand.LastMsg, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lMsg = "ERROR:" + lCommand.LastMsg;
+                if (lCommand == mDA.UpdateCommand) //si es un update que ha dado error, reconsultamos el grid para eliminar los valores erróneos
+                {
+                    //RowEditedBool = false;
+                    var x = CurrentCell.ColumnIndex;
+                    var y = CurrentCell.RowIndex;
+                    UpdateEspackControl();
+                    CurrentCell = Rows[y].Cells[x];
+                }
+                Dirty = false;
+                return;
+            }
+            StatusMsg(lMsg);
+            //RowEditedBool = false;
+            UpdateEspackControl();
+            if (EspackControlParent != null && !lCommand.Equals(mDA.DeleteCommand))
+            {
+                EspackControlParent.SetStatus(mPreviousParentStatus);
+            }
+            Dirty = false;
+        }
+
         protected override void OnMove(EventArgs e)
         {
             CaptionLabel.Location = new Point(base.Location.X, base.Location.Y - CaptionLabel.PreferredHeight - 5);
@@ -717,7 +765,7 @@ namespace EspackDataGrid
                 e.Cancel = true;
                 return;
             }
-            if (EspackControlParent != null && !RowEditedBool)
+            if (EspackControlParent != null /*&& !RowEditedBool*/)
             {
                 mPreviousParentStatus = EspackControlParent.GetStatus();
                 if (CurrentCell.RowIndex == Rows.Count - 1)
@@ -729,6 +777,7 @@ namespace EspackDataGrid
                     EspackControlParent.SetStatus(EnumStatus.EDITGRIDLINE);
                 }
             }
+            Dirty = true;
         }
         public void Start()
         {
@@ -840,7 +889,7 @@ namespace EspackDataGrid
         }
         public void ClearEspackControl()
         {
-            RowEditedBool = false;
+            //RowEditedBool = false;
             this.DataSource = null;
             this.RowCount = 0;
             //this.ScrollBars = ScrollBars.None;
