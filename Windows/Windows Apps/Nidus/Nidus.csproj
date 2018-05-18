@@ -125,9 +125,9 @@
       <Project>{5da9cb0b-9007-40f1-8086-1b0303d8271f}</Project>
       <Name>cAccesoDatos</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CheckedComboBox\CheckedComboBox.csproj">
-      <Project>{00cfb81e-5b4b-46fc-89da-43f2e9a4b5a9}</Project>
-      <Name>CheckedComboBox</Name>
+    <ProjectReference Include="..\EspackDataGridView\EspackDataGridView.csproj">
+      <Project>{8404fc85-7941-4884-9db7-82a621e0bf97}</Project>
+      <Name>EspackDataGridView</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -111,7 +111,9 @@ namespace EspackDataGrid
             if (Column != null)
             {
                 ReadOnly = locked;
-            }; 
+            };
+            Style.BackColor = Colors.CELLLOCKEDBACKCOLOR;
+            Style.ForeColor = Colors.CELLLOCKEDFORECOLOR;
             //Parent = (EspackDataGridView)DataGridView;
             //Style.BackColor = Colors.CELLFILTERBACKCOLOR;
             //Style.ForeColor = Colors.CELLFILTERFORECOLOR;

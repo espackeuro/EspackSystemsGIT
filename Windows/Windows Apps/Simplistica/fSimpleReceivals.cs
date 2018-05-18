@@ -120,7 +120,7 @@ namespace Simplistica
                     else
                     {
                         VS[e.ColumnIndex + 1, e.RowIndex].Value = _rs["Descripcion"].ToString();
-                        VS.CurrentCell = VS[e.ColumnIndex + 2, e.RowIndex];
+                        //VS.CurrentCell = VS[e.ColumnIndex + 2, e.RowIndex];
                     }
                 }
 

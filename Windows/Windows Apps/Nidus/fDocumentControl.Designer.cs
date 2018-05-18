@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fDocumentControl));
-            this.VS = new VSGrid.CtlVSGrid();
+            this.VS = new EspackDataGrid.EspackDataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,6 +94,6 @@
 
         #endregion
 
-        private VSGrid.CtlVSGrid VS;
+        private EspackDataGrid.EspackDataGridView VS;
     }
 }
