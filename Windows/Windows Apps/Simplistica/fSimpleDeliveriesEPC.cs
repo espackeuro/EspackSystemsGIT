@@ -72,7 +72,7 @@ namespace Simplistica
             VS.AddColumn("Line", "Line","","@Line", "@Line",pSortable:true,pLocked:true,pPK:true);
             VS.AddColumn("PartNumber", "partnumber", "@partnumber", pSortable: true, pWidth: 100, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: string.Format("select partnumber from referencias where servicio='{0}' order by partnumber", cboService.Value));
             VS.AddColumn("Description","Description", pWidth: 160);
-            VS.AddColumn("Destination", "DestString", "@Destination","@Destination", pWidth:200, pQuery: string.Format("select Destination=planta+' ('+Descripcion2+') '+Descripcion1 from servicios_destinos where servicio='{0}'", cboService.Value), pSortable: true); //, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: string.Format("select partnumber from servicio_destinos where servicio='{0}'", cboService.Value));
+            VS.AddColumn("Destination", "Destination", "@Destination","@Destination", pWidth:200, pQuery: string.Format("select Destination=planta+' ('+Descripcion2+') '+Descripcion1 from servicios_destinos where servicio='{0}'", cboService.Value), pSortable: true); //, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: string.Format("select partnumber from servicio_destinos where servicio='{0}'", cboService.Value));
             VS.AddColumn("OrderedQty", "OrderedQty", "@OrderedQty", "@OrderedQty", pWidth: 90);
             VS.AddColumn("SentQty", "SentQty", "@SentQty", "@SentQty", pWidth: 90);
 
@@ -84,9 +84,14 @@ namespace Simplistica
             CTLM.AddDefaultStatusStrip();
             CTLM.AddItem(VS);
             CTLM.Start();
-            //CTLM.BeforeButtonClick += CTLM_BeforeButtonClick;
+            CTLM.BeforeButtonClick += CTLM_BeforeButtonClick; ;
             CTLM.AfterButtonClick += CTLM_AfterButtonClick;
             toolStrip.Enabled = false;
+        }
+
+        private void CTLM_BeforeButtonClick(object sender, CTLMEventArgs e)
+        {
+            //var p = 1;
         }
 
         private void VS_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)

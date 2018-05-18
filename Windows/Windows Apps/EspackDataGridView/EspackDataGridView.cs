@@ -727,7 +727,6 @@ namespace EspackDataGrid
                             {
                                 EspackControlParent.SetStatus(mPreviousParentStatus);
                             }
-                            Dirty = false;
                             return ;
                         }
                         ExecuteCommand();
@@ -758,7 +757,6 @@ namespace EspackDataGrid
                     if (!AllowUpdate)
                     {
                         MessageBox.Show("Update not allowed.", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        Dirty = false;
                         return false;
                     }
                     lCommand = mDA.UpdateCommand;
@@ -798,7 +796,6 @@ namespace EspackDataGrid
             {
                 EspackControlParent.SetStatus(mPreviousParentStatus);
             }
-            Dirty = false;
             return true;
         }
 
@@ -937,9 +934,9 @@ namespace EspackDataGrid
             }
             SelectionChanged -= EspackDataGridView_SelectionChanged;
             DataSource = mDA.Table;
-            SelectionChanged += EspackDataGridView_SelectionChanged;
-            
             Refresh();
+            SelectionChanged += EspackDataGridView_SelectionChanged;
+            Dirty = false;
             SetStatus(mStatus);
         }
         public void ClearEspackControl()
