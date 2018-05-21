@@ -17,7 +17,7 @@ using static CommonTools.CT;
 using CommonTools;
 using DiverseControls;
 using Simplistica.Properties;
-using VSGrid;
+
 
 namespace Simplistica
 {
@@ -78,7 +78,7 @@ namespace Simplistica
 
             VS.CellBeginEdit += VS_CellBeginEdit;
             VS.CellEndEdit += VS_CellEndEdit; //VS_CellValidating; ; ;
-            VS.DataError += VS_DataError;
+            VS.DataError += VS_DataError; 
             //Various
             CTLM.ReQuery = true;
             CTLM.AddDefaultStatusStrip();

@@ -347,7 +347,7 @@ namespace EspackFormControls
 
         public void OnValueChanged(ValueChangedEventArgs e)
         {
-            throw new NotImplementedException();
+            ValueChanged?.Invoke(this, e);
         }
     }
 }
