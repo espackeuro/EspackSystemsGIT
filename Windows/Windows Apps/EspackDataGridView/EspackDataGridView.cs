@@ -531,6 +531,9 @@ namespace EspackDataGrid
         //    }
         //}
         private bool cancelSelect = false;
+
+        public event EventHandler<ValueChangedEventArgs> ValueChanged;
+
         private void EspackDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             bool commitEdit = false;
@@ -1012,6 +1015,11 @@ namespace EspackDataGrid
                 p.NewLine();
             });
             p.CurrentFont = _font;
+        }
+
+        public void OnValueChanged(ValueChangedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         public class AggregateItem

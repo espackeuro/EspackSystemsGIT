@@ -487,6 +487,8 @@ namespace VSGrid
         public string DBTable { get; set; }
         private int RowEdited;
         private bool RowEditedBool = false;
+
+        public event EventHandler<ValueChangedEventArgs> ValueChanged;
         #endregion
         //Constructors
         public CtlVSGrid()
@@ -1142,6 +1144,12 @@ namespace VSGrid
             });
             p.CurrentFont = _font;
         }
+
+        public void OnValueChanged(ValueChangedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         public class AggregateItem
         {
             public AggregateOperations Aggregate;

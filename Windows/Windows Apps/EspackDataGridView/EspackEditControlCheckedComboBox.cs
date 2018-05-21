@@ -19,7 +19,7 @@ namespace EspackDataGrid
         {
             Enabled = true;
             FlatStyle = FlatStyle.Flat;
-            Changed += FilterCellCheckedComboBox_Changed;
+            ValueChanged += FilterCellCheckedComboBox_Changed;
             KeyDown += FilterCellComboBox_KeyDown;
             //this.GotFocus += Control_GotFocus;
             //this.LostFocus += Control_LostFocus;
@@ -105,7 +105,7 @@ namespace EspackDataGrid
 
 
 
-        private void FilterCellCheckedComboBox_Changed(object sender, ChangeEventArgs e)
+        private void FilterCellCheckedComboBox_Changed(object sender, ValueChangedEventArgs e)
         {
             // Notify the DataGridView that the contents of the cell
             // have changed.
