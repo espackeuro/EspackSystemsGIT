@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using EspackDataGrid;
+using VSGrid;
 namespace Nidus
 {
     public partial class fDocumentControl : Form

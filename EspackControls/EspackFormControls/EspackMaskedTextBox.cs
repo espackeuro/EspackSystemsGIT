@@ -16,9 +16,6 @@ namespace EspackFormControls
         public cAccesoDatosNet ParentConn { get; set; }
         private EnumStatus mStatus;
         private DynamicRS mDependingRS;
-
-        public event EventHandler<ValueChangedEventArgs> ValueChanged;
-
         public bool Protected { get; set; }
 
         public new bool Visible
@@ -48,21 +45,6 @@ namespace EspackFormControls
                 ReadOnly = !((Add && GetStatus() == EnumStatus.ADDNEW) || (Upp && GetStatus() == EnumStatus.EDIT && !PK) || (Del && GetStatus() == EnumStatus.DELETE) || (Search && GetStatus() == EnumStatus.SEARCH)) || Protected;
             BackColor = ReadOnly ? SystemColors.ButtonFace : Color.White;
             ForeColor = ReadOnly ? SystemColors.InactiveCaptionText : SystemColors.ControlText;
-        }
-
-        public override string Text
-        {
-            get => base.Text;
-            set
-            {
-                if (value != base.Text)
-                {
-                    //raise the value change event
-                    var oldValue = base.Text;
-                    base.Text = value;
-                    OnValueChanged(new ValueChangedEventArgs(oldValue, value));
-                }
-            }
         }
 
         public object Value
@@ -195,11 +177,6 @@ namespace EspackFormControls
         public void ClearEspackControl()
         {
             Text = "";
-        }
-
-        public void OnValueChanged(ValueChangedEventArgs e)
-        {
-            ValueChanged?.Invoke(this, e);
         }
     }
 

@@ -37,8 +37,6 @@ namespace EspackFormControls
 
         private Size _size;
 
-        public event EventHandler<ValueChangedEventArgs> ValueChanged;
-
         //public new Size Size
         //{
         //    get
@@ -207,20 +205,6 @@ namespace EspackFormControls
             }
         }
 
-        public override string Text
-        {
-            get => base.Text;
-            set
-            {
-                if (value != base.Text)
-                {
-                    //raise the value change event
-                    var oldValue = base.Text;
-                    base.Text = value;
-                    OnValueChanged(new ValueChangedEventArgs(oldValue, value));
-                }
-            }
-        }
         public string DBField { get; set; }
         public bool Add { get; set; }
         public bool Upp { get; set; }
@@ -338,11 +322,6 @@ namespace EspackFormControls
             //CaptionLabel.Location = new Point(Location.X - CaptionLabel.PreferredWidth - 6, Location.Y);
             CaptionLabel.Location = new Point(base.Location.X, base.Location.Y - CaptionLabel.PreferredHeight);
             base.OnMove(e);
-        }
-
-        public void OnValueChanged(ValueChangedEventArgs e)
-        {
-            ValueChanged?.Invoke(this, e);
         }
 
         ////to be able to change borderstyle

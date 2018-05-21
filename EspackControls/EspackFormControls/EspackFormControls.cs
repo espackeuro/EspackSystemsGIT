@@ -10,16 +10,7 @@ using System.Threading.Tasks;
 
 namespace EspackFormControls
 {
-    public class ValueChangedEventArgs : EventArgs
-    {
-        object OldValue { get; set; }
-        object NewValue { get; set; }
-        public ValueChangedEventArgs(object oldValue, object newValue)
-        {
-            OldValue = oldValue;
-            NewValue = newValue;
-        }
-    }
+
 
     public interface EspackFormControl : EspackControl
     {
@@ -30,8 +21,8 @@ namespace EspackFormControls
         cAccesoDatosNet ParentConn { get; set; }
         DynamicRS DependingRS { get; set; }
         Point Location { get; set; }
-        event EventHandler<ValueChangedEventArgs> ValueChanged;
-        void OnValueChanged(ValueChangedEventArgs e);
+
+
         //List<StaticRS> ExternalControls;//list of possible external controls, the key is the parameter name and the object is the control
         //List<EspackControl> DependingControls { get; set; } //list of those controls which have me as external control
         //void AddRS(string pFieldName, EspackControl pControl);

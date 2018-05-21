@@ -27,7 +27,7 @@ namespace EspackFormControls
         public bool Protected { get; set; }
 
 
-        
+        public event EventHandler<ChangeEventArgs> Changed;
         public event EventHandler<AfterItemCheckEventArgs> AfterItemCheck;
 
 
@@ -68,27 +68,26 @@ namespace EspackFormControls
         {
             get
             {
-                return ListJoin;
+                string _result = ListJoin;
+
+                return _result;// == "" ? "" : "|" + _result + "|";
                 //return base.Text;
             }
             set
             {
-                var oldValue = Value;
                 if (value != null)
                 {
-                    var _textList = ((string)value).Split('|');
-                    Items.OfType<DataRowView>().Where(i => _textList.Contains(i[ValueMember].ToString())).ToList().ForEach(c =>
+                    base.Text = value.ToString();
+                    Items.OfType<DataRowView>().Where(i => base.Text.Contains(i[ValueMember].ToString())).ToList().ForEach(c =>
                     {
                         SetItemChecked(Items.IndexOf(c), true);
                     });
-                    Items.OfType<DataRowView>().Where(i => !_textList.Contains(i[ValueMember].ToString())).ToList().ForEach(c =>
+                    Items.OfType<DataRowView>().Where(i => !base.Text.Contains(i[ValueMember].ToString())).ToList().ForEach(c =>
                     {
                         SetItemChecked(Items.IndexOf(c), false);
                     });
                     //UpdateEspackControl();
                 }
-                if (oldValue != Value)
-                    OnValueChanged(new ValueChangedEventArgs(oldValue, value));
             }
         }
         public string Caption
@@ -143,10 +142,19 @@ namespace EspackFormControls
             base.Margin = _m;
             EspackTheme.changeControlFormat(this);
             ItemCheck += EspackCheckedComboBox_ItemCheck;
+            Changed += DefaultEventChanged;
+            AfterItemCheck += EspackCheckedListBox_AfterItemCheck;
         }
 
-        public event EventHandler<ValueChangedEventArgs> ValueChanged;
+        private void EspackCheckedListBox_AfterItemCheck(object sender, AfterItemCheckEventArgs e)
+        {
+            if (e.ListNewValue != e.ListCurrentValue)
+            {
+                var _ev = new ChangeEventArgs() { CurrentValue = e.ListCurrentValue, NewValue = e.ListNewValue };
+                Changed(this, _ev);
+            }
 
+        }
 
         private void EspackCheckedComboBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
@@ -155,21 +163,20 @@ namespace EspackFormControls
             noChange = true;
             var _old = Value;
             //noChange = true;
-            var handler = ValueChanged;
+            var handler = AfterItemCheck;
             if (handler != null)
             {
-                Delegate[] invocationList = ValueChanged.GetInvocationList();
+                Delegate[] invocationList = AfterItemCheck.GetInvocationList();
                 foreach (var receiver in invocationList)
                 {
-                    ValueChanged -= (EventHandler<ValueChangedEventArgs>)receiver;
+                    AfterItemCheck -= (EventHandler<AfterItemCheckEventArgs>)receiver;
                 }
-                var oldValue = Value;
+
                 SetItemCheckState(e.Index, e.NewValue);
-                if (oldValue != Value)
-                    OnValueChanged(new ValueChangedEventArgs(oldValue, Value));
+
                 foreach (var receiver in invocationList)
                 {
-                    ValueChanged += (EventHandler<ValueChangedEventArgs>)receiver;
+                    AfterItemCheck += (EventHandler<AfterItemCheckEventArgs>)receiver;
                 }
             }
             var ex = new AfterItemCheckEventArgs(e.Index, e.CurrentValue, e.NewValue) { ListCurrentValue = _old.ToString(), ListNewValue = Value.ToString() };
@@ -236,7 +243,15 @@ namespace EspackFormControls
             ClearSelected();
             if (ParentDA != null)
                 Text = ParentDA.SelectRS[DBField.ToString()].ToString();
-            Value = Text;
+            var _textList = Text.Split('|');
+            Items.OfType<DataRowView>().Where(i => _textList.Contains(i[ValueMember].ToString())).ToList().ForEach(c =>
+            {
+                SetItemChecked(Items.IndexOf(c), true);
+            });
+            Items.OfType<DataRowView>().Where(i => !_textList.Contains(i[ValueMember].ToString())).ToList().ForEach(c =>
+            {
+                SetItemChecked(Items.IndexOf(c), false);
+            });
             //for (var i = 0; i < Items.Count; i++)
             //{
             //    SetItemChecked(i, false);
@@ -251,6 +266,11 @@ namespace EspackFormControls
             //        }
             //    }
             //}
+            if (Value.ToString() != _old.ToString())
+            {
+                var _ev = new ChangeEventArgs() { CurrentValue = _old.ToString(), NewValue = Value.ToString() };
+                Changed(this, _ev);
+            }
             noChange = false;
         }
 
@@ -309,7 +329,17 @@ namespace EspackFormControls
         {
             var _old = Value;
             noChange = true;
-            Value = "";
+            Items.Cast<DataRowView>().ToList().ForEach(x => SetItemChecked(Items.IndexOf(x), false));
+            //for (var i = 0; i < Items.Count; i++)
+            //{
+            //    SetItemChecked(i, false);
+            //}
+
+            if (Value.ToString() != _old.ToString())
+            {
+                var _ev = new ChangeEventArgs() { CurrentValue = _old.ToString(), NewValue = Value.ToString() };
+                Changed(this, _ev);
+            }
             noChange = false;
         }
         public List<string> CheckedValues
@@ -345,9 +375,7 @@ namespace EspackFormControls
             base.OnMove(e);
         }
 
-        public void OnValueChanged(ValueChangedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+
+
     }
 }

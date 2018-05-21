@@ -37,13 +37,7 @@ namespace EspackFormControls
             }
             set
             {
-                if (theString != (string)value)
-                {
-                    var oldValue = theString;
-                    theString = value.ToString();
-                    OnValueChanged(new ValueChangedEventArgs(oldValue, value));
-                }
-                
+                theString = value.ToString();
             }
         }
 
@@ -58,7 +52,6 @@ namespace EspackFormControls
         public Type DBFieldType { get; set; }
 
         public event EventHandler TextChanged;
-        public event EventHandler<ValueChangedEventArgs> ValueChanged;
 
         public void UpdateEspackControl()
         {
@@ -71,12 +64,6 @@ namespace EspackFormControls
             else
                 theString = "";
         }
-
-        public void OnValueChanged(ValueChangedEventArgs e)
-        {
-            ValueChanged?.Invoke(this, e);
-        }
-
         public EspackLabel CaptionLabel { get; set; }
         public DA ParentDA { get; set; }
         public string Caption { get; set; }
