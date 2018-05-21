@@ -50,7 +50,7 @@ namespace EspackDataGrid
         public int NumPages { get; set; }
         public EspackControl EspackControlParent { get; set; }
         //public Dictionary<string,Control> VSPrimaryKey { get; set; }
-        public object Value { get; set; }
+        
         public string DBField { get; set; }
         public bool Add { get; set; }
         public bool Upp { get; set; }
@@ -60,6 +60,22 @@ namespace EspackDataGrid
         public bool Search { get; set; }
         public object DefaultValue { get; set; }
         public Type DBFieldType { get; set; }
+
+        //private object _value;
+        public object Value
+        {
+            get => CurrentCell?.Value;
+            set
+            {
+                if (Value != value)
+                {
+                    var oldValue = Value;
+                    Value = value;
+                    OnValueChanged(new ValueChangedEventArgs(oldValue, value));
+                }
+            }
+        }
+
 
         //filter props
         private bool mFilterRowEnabled;
@@ -73,18 +89,19 @@ namespace EspackDataGrid
                 mFilterRowEnabled = value;
                 if (value == true)
                 {
+                    FilterCells = new List<EspackDataGridViewCell>();
                     AddFilterRow();
                 }
                 else
                 {
                     Rows.RemoveAt(0);
                     FilterRow = null;
+                    FilterCells = null;
                 }
             }
         }
-
-
-        public List<EspackDataGridViewCell> FilterCells { get; set; } = new List<EspackDataGridViewCell>();
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public List<EspackDataGridViewCell> FilterCells { get; set; } = null;
         //EspackFormControl properties
         public EspackLabel CaptionLabel { get; set; }
         public string Caption
@@ -1019,7 +1036,7 @@ namespace EspackDataGrid
 
         public void OnValueChanged(ValueChangedEventArgs e)
         {
-            throw new NotImplementedException();
+            ValueChanged?.Invoke(this, e);
         }
 
         public class AggregateItem

@@ -50,10 +50,14 @@
             this.VS.DefaultValue = null;
             this.VS.Del = false;
             this.VS.DependingRS = null;
+            this.VS.Dirty = false;
             this.VS.EspackControlParent = null;
             this.VS.ExtraDataLink = null;
+            this.VS.FilterRow = null;
+            this.VS.FilterRowEnabled = false;
             this.VS.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.VS.IsCTLMOwned = false;
+            this.VS.IsFilterFocused = false;
             this.VS.Location = new System.Drawing.Point(58, 54);
             this.VS.MsgStatusLabel = null;
             this.VS.Name = "VS";
@@ -72,7 +76,7 @@
             this.VS.sSPAdd = "";
             this.VS.sSPDel = "";
             this.VS.sSPUpp = "";
-            this.VS.SetStatus(CommonTools.EnumStatus.SEARCH);
+            this.VS.Status = CommonTools.EnumStatus.SEARCH;
             this.VS.TabIndex = 5;
             this.VS.Upp = false;
             this.VS.Value = null;
@@ -88,7 +92,6 @@
             this.Text = "Document Control";
             ((System.ComponentModel.ISupportInitialize)(this.VS)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

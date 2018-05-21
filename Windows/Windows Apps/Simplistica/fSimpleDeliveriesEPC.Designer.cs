@@ -49,9 +49,9 @@
             this.txtResponsible = new EspackFormControls.EspackTextBox();
             this.cboShift = new EspackFormControls.EspackComboBox();
             this.txtDeliveryN = new EspackFormControls.EspackTextBox();
-            this.VS = new EspackDataGrid.EspackDataGridView();
             this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
             this.txtTrailerPlate = new EspackFormControls.EspackTextBox();
+            this.VS = new EspackDataGrid.EspackDataGridView();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
             this.SuspendLayout();
@@ -163,7 +163,7 @@
             this.cboService.Protected = false;
             this.cboService.Search = false;
             this.cboService.Size = new System.Drawing.Size(130, 24);
-            this.cboService.SetStatus(CommonTools.EnumStatus.ADDNEW);
+            this.cboService.Status = CommonTools.EnumStatus.ADDNEW;
             this.cboService.TabIndex = 1;
             this.cboService.TBDescription = null;
             this.cboService.Upp = false;
@@ -232,7 +232,6 @@
             this.dateEnd.Search = false;
             this.dateEnd.ShowCheckBox = true;
             this.dateEnd.Size = new System.Drawing.Size(152, 24);
-            this.dateEnd.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.dateEnd.TabIndex = 11;
             this.dateEnd.Upp = false;
             this.dateEnd.Value = null;
@@ -268,7 +267,6 @@
             this.dateStart.Search = false;
             this.dateStart.ShowCheckBox = true;
             this.dateStart.Size = new System.Drawing.Size(152, 24);
-            this.dateStart.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.dateStart.TabIndex = 10;
             this.dateStart.Upp = false;
             this.dateStart.Value = null;
@@ -305,7 +303,6 @@
             this.dateEPC.Search = false;
             this.dateEPC.ShowCheckBox = true;
             this.dateEPC.Size = new System.Drawing.Size(152, 24);
-            this.dateEPC.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.dateEPC.TabIndex = 9;
             this.dateEPC.Upp = false;
             this.dateEPC.Value = null;
@@ -341,7 +338,6 @@
             this.dateCheckPoint.Search = false;
             this.dateCheckPoint.ShowCheckBox = true;
             this.dateCheckPoint.Size = new System.Drawing.Size(152, 24);
-            this.dateCheckPoint.SetStatus(CommonTools.EnumStatus.ADDNEW);
             this.dateCheckPoint.TabIndex = 8;
             this.dateCheckPoint.Upp = false;
             this.dateCheckPoint.Value = null;
@@ -372,7 +368,7 @@
             this.txtTruckPlate.ReadOnly = true;
             this.txtTruckPlate.Search = false;
             this.txtTruckPlate.Size = new System.Drawing.Size(130, 17);
-            this.txtTruckPlate.SetStatus(CommonTools.EnumStatus.ADDNEW);
+            this.txtTruckPlate.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtTruckPlate.TabIndex = 2;
             this.txtTruckPlate.Upp = false;
             this.txtTruckPlate.Value = "";
@@ -474,7 +470,7 @@
             this.cboShift.Protected = false;
             this.cboShift.Search = false;
             this.cboShift.Size = new System.Drawing.Size(130, 24);
-            this.cboShift.SetStatus(CommonTools.EnumStatus.ADDNEW);
+            this.cboShift.Status = CommonTools.EnumStatus.ADDNEW;
             this.cboShift.TabIndex = 4;
             this.cboShift.TBDescription = null;
             this.cboShift.Upp = false;
@@ -506,54 +502,10 @@
             this.txtDeliveryN.ReadOnly = true;
             this.txtDeliveryN.Search = false;
             this.txtDeliveryN.Size = new System.Drawing.Size(130, 17);
-            this.txtDeliveryN.SetStatus(CommonTools.EnumStatus.ADDNEW);
+            this.txtDeliveryN.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtDeliveryN.TabIndex = 0;
             this.txtDeliveryN.Upp = false;
             this.txtDeliveryN.Value = "";
-            // 
-            // VS
-            // 
-            this.VS.Add = false;
-            this.VS.AllowDelete = false;
-            this.VS.AllowInsert = false;
-            this.VS.AllowUpdate = false;
-            this.VS.AllowUserToAddRows = false;
-            this.VS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.VS.Caption = "";
-            this.VS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.VS.Conn = null;
-            this.VS.DBField = null;
-            this.VS.DBFieldType = null;
-            this.VS.DBTable = null;
-            this.VS.DefaultValue = null;
-            this.VS.Del = false;
-            this.VS.DependingRS = null;
-            this.VS.EspackControlParent = null;
-            this.VS.ExtraDataLink = null;
-            this.VS.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.VS.IsCTLMOwned = false;
-            this.VS.Location = new System.Drawing.Point(9, 229);
-            this.VS.MsgStatusLabel = null;
-            this.VS.Name = "VS";
-            this.VS.NumPages = 0;
-            this.VS.Order = 0;
-            this.VS.Page = 0;
-            this.VS.Paginate = false;
-            this.VS.ParentConn = null;
-            this.VS.ParentDA = null;
-            this.VS.PK = false;
-            this.VS.Protected = false;
-            this.VS.RowHeadersVisible = false;
-            this.VS.Search = false;
-            this.VS.Size = new System.Drawing.Size(698, 308);
-            this.VS.SQL = null;
-            this.VS.sSPAdd = "";
-            this.VS.sSPDel = "";
-            this.VS.sSPUpp = "";
-            this.VS.SetStatus(CommonTools.EnumStatus.SEARCH);
-            this.VS.TabIndex = 13;
-            this.VS.Upp = false;
-            this.VS.Value = null;
             // 
             // CTLM
             // 
@@ -601,10 +553,58 @@
             this.txtTrailerPlate.ReadOnly = true;
             this.txtTrailerPlate.Search = false;
             this.txtTrailerPlate.Size = new System.Drawing.Size(130, 17);
-            this.txtTrailerPlate.SetStatus(CommonTools.EnumStatus.ADDNEW);
+            this.txtTrailerPlate.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtTrailerPlate.TabIndex = 3;
             this.txtTrailerPlate.Upp = false;
             this.txtTrailerPlate.Value = "";
+            // 
+            // VS
+            // 
+            this.VS.Add = false;
+            this.VS.AllowDelete = false;
+            this.VS.AllowInsert = false;
+            this.VS.AllowUpdate = false;
+            this.VS.AllowUserToAddRows = false;
+            this.VS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.VS.Caption = "";
+            this.VS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.VS.Conn = null;
+            this.VS.DBField = null;
+            this.VS.DBFieldType = null;
+            this.VS.DBTable = null;
+            this.VS.DefaultValue = null;
+            this.VS.Del = false;
+            this.VS.DependingRS = null;
+            this.VS.Dirty = false;
+            this.VS.EspackControlParent = null;
+            this.VS.ExtraDataLink = null;
+            this.VS.FilterRow = null;
+            this.VS.FilterRowEnabled = false;
+            this.VS.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.VS.IsCTLMOwned = false;
+            this.VS.IsFilterFocused = false;
+            this.VS.Location = new System.Drawing.Point(9, 231);
+            this.VS.MsgStatusLabel = null;
+            this.VS.Name = "VS";
+            this.VS.NumPages = 0;
+            this.VS.Order = 0;
+            this.VS.Page = 0;
+            this.VS.Paginate = false;
+            this.VS.ParentConn = null;
+            this.VS.ParentDA = null;
+            this.VS.PK = false;
+            this.VS.Protected = false;
+            this.VS.RowHeadersVisible = false;
+            this.VS.Search = false;
+            this.VS.Size = new System.Drawing.Size(696, 286);
+            this.VS.SQL = null;
+            this.VS.sSPAdd = "";
+            this.VS.sSPDel = "";
+            this.VS.sSPUpp = "";
+            this.VS.Status = CommonTools.EnumStatus.SEARCH;
+            this.VS.TabIndex = 58;
+            this.VS.Upp = false;
+            this.VS.Value = null;
             // 
             // fSimpleDeliveriesEPC
             // 
@@ -612,6 +612,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(719, 552);
+            this.Controls.Add(this.VS);
             this.Controls.Add(this.txtTrailerPlate);
             this.Controls.Add(this.cboService);
             this.Controls.Add(this.lstFlags);
@@ -624,7 +625,6 @@
             this.Controls.Add(this.txtResponsible);
             this.Controls.Add(this.cboShift);
             this.Controls.Add(this.txtDeliveryN);
-            this.Controls.Add(this.VS);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.CTLM);
             this.Name = "fSimpleDeliveriesEPC";
@@ -646,7 +646,6 @@
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton btnClose;
         private CTLMantenimientoNet.CTLMantenimientoNet CTLM;
-        private EspackDataGrid.EspackDataGridView VS;
         private EspackFormControls.EspackTextBox txtDeliveryN;
         private EspackFormControls.EspackComboBox cboShift;
         private EspackFormControls.EspackTextBox txtResponsible;
@@ -661,5 +660,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripButton2;
         private System.Windows.Forms.ToolStripButton btnPrint;
         private EspackFormControls.EspackTextBox txtTrailerPlate;
+        private EspackDataGrid.EspackDataGridView VS;
     }
 }
