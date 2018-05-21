@@ -66,12 +66,15 @@ namespace EspackFormControls
             }
             set
             {
+                var oldValue = Value;
                 ClearEspackControl();
                 if (((string)value ?? "") != "")
                 {
                     var ExtraDataArray = (value.ToString().Split('|')).Select(i => i.Split('=')).ToList();
                     ExtraDataArray.ForEach(o => SetExtraDataValue(o[0], o[1]));
                 }
+                if (oldValue != value)
+                    OnValueChanged(new ValueChangedEventArgs(oldValue, value));
             }
         }
 
@@ -87,6 +90,7 @@ namespace EspackFormControls
         public Type DBFieldType { get; set; }
 
         public event EventHandler TextChanged;
+        public event EventHandler<ValueChangedEventArgs> ValueChanged;
 
         public void UpdateEspackControl()
         {
@@ -96,6 +100,12 @@ namespace EspackFormControls
         {
             LinkedItems.ForEach(i => i.Value = "");
         }
+
+        public void OnValueChanged(ValueChangedEventArgs e)
+        {
+            ValueChanged?.Invoke(this, e);
+        }
+
         public EspackLabel CaptionLabel { get; set; }
         public DA ParentDA { get; set; }
         public string Caption { get; set; }

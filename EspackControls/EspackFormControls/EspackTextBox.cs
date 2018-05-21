@@ -16,6 +16,9 @@ namespace EspackFormControls
         public cAccesoDatosNet ParentConn { get; set; }
         private EnumStatus mStatus;
         private DynamicRS mDependingRS;
+
+        public event EventHandler<ValueChangedEventArgs> ValueChanged;
+
         public bool Protected { get; set; }
         //private Padding _margin;
         //private Size _size;
@@ -127,6 +130,20 @@ namespace EspackFormControls
             BackColor = ReadOnly ? SystemColors.ButtonFace : Color.White;
             ForeColor = ReadOnly ? Color.Gray : Color.Black;
 
+        }
+        public override string Text
+        {
+            get => base.Text;
+            set
+            {
+                if (value != base.Text)
+                {
+                    //raise the value change event
+                    var oldValue = base.Text;
+                    base.Text = value;
+                    OnValueChanged(new ValueChangedEventArgs(oldValue, value));
+                }
+            }
         }
 
         public object Value
@@ -263,6 +280,14 @@ namespace EspackFormControls
         public void ClearEspackControl()
         {
             Text = "";
+        }
+
+        public void OnValueChanged(ValueChangedEventArgs e)
+        {
+            // Make a temporary copy of the event to avoid possibility of
+            // a race condition if the last subscriber unsubscribes
+            // immediately after the null check and before the event is raised.
+            ValueChanged?.Invoke(this, e);
         }
     }
 

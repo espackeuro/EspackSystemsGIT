@@ -607,10 +607,16 @@ namespace EspackDataGrid
         }
         public void AddFilterCell(EspackCellTypes type, int column, string sqlSource = "")
         {
-            var col = (EspackDataGridViewColumn)Columns[column];
-            this[column, 0] = new EspackDataGridViewCell(type, col.AutoCompleteMode, col.AutoCompleteSource, col.AutoCompleteQuery);
-            FilterCells.Add((EspackDataGridViewCell)this[column, 0]);
-            this[column, 0].ReadOnly = false;
+            if (FilterRowEnabled)
+            {
+                var col = (EspackDataGridViewColumn)Columns[column];
+                this[column, 0] = new EspackDataGridViewCell(type, AutoCompleteMode.SuggestAppend, AutoCompleteSource.CustomSource, sqlSource) { SqlSource = sqlSource};
+                FilterCells.Add((EspackDataGridViewCell)this[column, 0]);
+                this[column, 0].ReadOnly = false;
+            } else
+            {
+                throw new Exception("Enable Filter Row first");
+            }
         }
 
         #endregion
