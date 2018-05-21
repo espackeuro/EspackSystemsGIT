@@ -57,6 +57,7 @@ namespace EspackFormControls
             }
             set
             {
+                var oldValue = Value;
                 if (value == null || value.ToString() == "")
                 {
                     _nochangeevent = true;
@@ -81,6 +82,8 @@ namespace EspackFormControls
                     _nochangeevent = false;
                     Checked = true;
                 }
+                if (oldValue != value)
+                    OnValueChanged(new ValueChangedEventArgs(oldValue, value));
             }
         }
 
@@ -169,6 +172,8 @@ namespace EspackFormControls
             EspackTheme.changeControlFormat(this);
             CheckedChanged += EspackDateTimePicker_CheckedChanged;
         }
+
+        public event EventHandler<ValueChangedEventArgs> ValueChanged;
 
         private void EspackDateTimePicker_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
@@ -261,6 +266,10 @@ namespace EspackFormControls
             base.OnEnter(e);
         }
 
+        public void OnValueChanged(ValueChangedEventArgs e)
+        {
+            ValueChanged?.Invoke(this, e);
+        }
 
         [Category("Appearance")]
         public Color BorderColor
