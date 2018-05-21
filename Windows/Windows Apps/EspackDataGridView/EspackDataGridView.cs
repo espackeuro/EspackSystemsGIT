@@ -94,7 +94,8 @@ namespace EspackDataGrid
                 }
                 else
                 {
-                    Rows.RemoveAt(0);
+                    if (Rows?.Count != 0)
+                        Rows?.RemoveAt(0);
                     FilterRow = null;
                     FilterCells = null;
                 }
