@@ -15,7 +15,7 @@ namespace EspackDataGrid
     public class EspackEditControlTextBox : EspackTextBox, IEspackEditControl
     {
         protected int rowIndex;
-        public EspackControl Control { get => this; }
+        public EspackFormControl Control { get => this; }
         //private FilterCellTypes _type;
         private string _sqlSource;
         //public object Value { get => Control.Value; set => Control.Value = value; }

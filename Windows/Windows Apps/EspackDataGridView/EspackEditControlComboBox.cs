@@ -14,7 +14,7 @@ namespace EspackDataGrid
 
 
         protected int rowIndex;
-        public EspackControl Control { get => this; }
+        public EspackFormControl Control { get => this; }
         //private FilterCellTypes _type;
         private string _sqlSource;
 

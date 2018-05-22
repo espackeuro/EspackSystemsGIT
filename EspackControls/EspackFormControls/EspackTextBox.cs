@@ -131,20 +131,7 @@ namespace EspackFormControls
             ForeColor = ReadOnly ? Color.Gray : Color.Black;
 
         }
-        public override string Text
-        {
-            get => base.Text;
-            set
-            {
-                if (value != base.Text)
-                {
-                    //raise the value change event
-                    var oldValue = base.Text;
-                    base.Text = value;
-                    OnValueChanged(new ValueChangedEventArgs(oldValue, value));
-                }
-            }
-        }
+
 
         public object Value
         {
@@ -154,10 +141,11 @@ namespace EspackFormControls
             }
             set
             {
+                oldText = Value.ToString();
                 Text = value.ToString();
             }
         }
-
+        private string oldText;
         public string DBField { get; set; }
         public bool Add { get; set; }
         public bool Upp { get; set; }
@@ -237,6 +225,15 @@ namespace EspackFormControls
             //base.Margin = _m;
             //Margin = _m;
             EspackTheme.changeControlFormat(this);
+            this.Validated += EspackTextBox_Validated;
+            oldText = "";
+        }
+
+        private void EspackTextBox_Validated(object sender, EventArgs e)
+        {
+                if (oldText != Text)
+                OnValueChanged(new ValueChangedEventArgs(oldText, Text));
+            oldText = Text;
         }
 
         ~EspackTextBox()

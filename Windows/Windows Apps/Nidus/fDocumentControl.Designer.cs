@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fDocumentControl));
             this.VS = new EspackDataGrid.EspackDataGridView();
+            this.txtTest = new EspackFormControls.EspackTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,22 +82,55 @@
             this.VS.Upp = false;
             this.VS.Value = null;
             // 
+            // txtTest
+            // 
+            this.txtTest.Add = false;
+            this.txtTest.BackColor = System.Drawing.Color.White;
+            this.txtTest.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTest.Caption = "";
+            this.txtTest.DBField = null;
+            this.txtTest.DBFieldType = null;
+            this.txtTest.DefaultValue = null;
+            this.txtTest.Del = false;
+            this.txtTest.DependingRS = null;
+            this.txtTest.ExtraDataLink = null;
+            this.txtTest.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtTest.ForeColor = System.Drawing.Color.Black;
+            this.txtTest.IsCTLMOwned = false;
+            this.txtTest.Location = new System.Drawing.Point(58, 523);
+            this.txtTest.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtTest.Name = "txtTest";
+            this.txtTest.Order = 0;
+            this.txtTest.ParentConn = null;
+            this.txtTest.ParentDA = null;
+            this.txtTest.PK = false;
+            this.txtTest.Protected = false;
+            this.txtTest.Search = false;
+            this.txtTest.Size = new System.Drawing.Size(100, 17);
+            this.txtTest.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtTest.TabIndex = 6;
+            this.txtTest.Upp = false;
+            this.txtTest.Value = "";
+            // 
             // fDocumentControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(547, 562);
+            this.Controls.Add(this.txtTest);
             this.Controls.Add(this.VS);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fDocumentControl";
             this.Text = "Document Control";
             ((System.ComponentModel.ISupportInitialize)(this.VS)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private EspackDataGrid.EspackDataGridView VS;
+        private EspackFormControls.EspackTextBox txtTest;
     }
 }

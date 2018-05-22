@@ -12,8 +12,8 @@ namespace EspackFormControls
 {
     public class ValueChangedEventArgs : EventArgs
     {
-        object OldValue { get; set; }
-        object NewValue { get; set; }
+        public object OldValue { get; set; }
+        public object NewValue { get; set; }
         public ValueChangedEventArgs(object oldValue, object newValue)
         {
             OldValue = oldValue;

@@ -1,5 +1,6 @@
 ﻿using AccesoDatosNet;
 using EspackControls;
+using EspackFormControls;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -10,7 +11,7 @@ namespace EspackDataGrid
 
     public interface IEspackEditControl : IDataGridViewEditingControl
     {
-        EspackControl Control { get; }
+        EspackFormControl Control { get; }
         EspackDataGridView ParentDataGrid { get; set; }
         string SqlSource { get; set; }
         object Value { get; set; }
@@ -20,6 +21,19 @@ namespace EspackDataGrid
         
     }
 
+    public class CellValueChangedEventArgs : EventArgs
+    {
+        public int RowIndex { get; set; }
+        public int ColIndex { get; set; }
+        public object OldValue { get; set; }
+        public object NewValue { get; set; }
+        public CellValueChangedEventArgs(EspackDataGridViewCell cell, object oldValue, object newValue) {
+            RowIndex = cell.RowIndex;
+            ColIndex = cell.ColumnIndex;
+            OldValue = oldValue;
+            NewValue = newValue;
+        }
+    }
     
     public class EspackDataGridViewCell : DataGridViewTextBoxCell
     {
@@ -29,7 +43,8 @@ namespace EspackDataGrid
         private AutoCompleteMode? _autoCompleteMode = null;
         private AutoCompleteSource? _autoCompleteSource = null;
         private string _autoCompleteQuery = null;
-
+        public bool IsFilterCell { get; set; }
+        public event EventHandler<CellValueChangedEventArgs> CellValueChanged;
 
         public string AutoCompleteQuery
         {
@@ -172,6 +187,8 @@ namespace EspackDataGrid
             editControl.AutoCompleteMode = AutoCompleteMode;
             editControl.AutoCompleteSource = AutoCompleteSource;
             editControl.AutoCompleteCustomSource = AutoCompleteCustomSource;
+            editControl.Value = Value;
+            editControl.Control.ValueChanged += Control_ValueChanged;
             // Use the default row value when Value property is null.
             if (this.Value == null)
             {
@@ -180,6 +197,17 @@ namespace EspackDataGrid
             else
             {
                 editControl.Value = this.Value;
+            }
+        }
+
+        private object oldValue = null;
+        private void Control_ValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            if (e.NewValue?.ToString() != oldValue?.ToString())
+            {
+                var eventArgs = new CellValueChangedEventArgs(this, oldValue, e.NewValue);
+                OnCellValueChanged(eventArgs);
+                oldValue = e.NewValue;
             }
         }
 
@@ -217,6 +245,11 @@ namespace EspackDataGrid
             {
                 return null;
             }
+        }
+
+        public void OnCellValueChanged(CellValueChangedEventArgs e)
+        {
+            CellValueChanged?.Invoke(this, e);
         }
     }
 }

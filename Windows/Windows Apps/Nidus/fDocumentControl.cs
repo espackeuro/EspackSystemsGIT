@@ -22,9 +22,13 @@ namespace Nidus
             VS.UpdateEspackControl();
             VS.FilterRowEnabled = true;
             this.Load += FDocumentControl_Load;
-            
+            txtTest.ValueChanged += TxtTest_ValueChanged;
         }
 
+        private void TxtTest_ValueChanged(object sender, EspackFormControls.ValueChangedEventArgs e)
+        {
+            Debug.Print("caca");//throw new NotImplementedException();
+        }
 
         private void FDocumentControl_Load(object sender, EventArgs e)
         {

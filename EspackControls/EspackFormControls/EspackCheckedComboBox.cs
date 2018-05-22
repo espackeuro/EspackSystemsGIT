@@ -74,9 +74,9 @@ namespace EspackFormControls
             set
             {
                 var oldValue = Value;
-                if (value != null)
+                if (value != null && !(value is DBNull))
                 {
-                    var _textList = ((string)value).Split('|');
+                    var _textList = value.ToString().Split('|');
                     Items.OfType<DataRowView>().Where(i => _textList.Contains(i[ValueMember].ToString())).ToList().ForEach(c =>
                     {
                         SetItemChecked(Items.IndexOf(c), true);

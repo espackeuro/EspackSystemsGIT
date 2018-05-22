@@ -337,6 +337,11 @@ namespace EspackDataGrid
 
         public EnumStatus Status { get => GetStatus(); set => SetStatus(value); }
 
+        public List<EspackDataGridViewColumn> VisibleColumns
+        {
+            get => Columns.OfType<EspackDataGridViewColumn>().Where(c => c.Visible == true).ToList();
+        }
+
         public EnumStatus GetStatus()
         {
             return mStatus;
@@ -555,33 +560,29 @@ namespace EspackDataGrid
         private void EspackDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             bool commitEdit = false;
-            if (e.ColumnIndex == Columns.OfType<EspackDataGridViewColumn>().Where(c => c.Visible==true).Select(c => c.Index).Max())
+            if (e.ColumnIndex == VisibleColumns.Select(c => c.Index).Max() && !((EspackDataGridViewCell)CurrentCell).IsFilterCell)
                 commitEdit = true;
-            else
-            {
-                do
-                {
-                    //if (Rows[e.RowIndex].Cells[CurrentCell.ColumnIndex + 1].Visible == true)
-                    //{
-                    //    CurrentCell = Rows[e.RowIndex].Cells[CurrentCell.ColumnIndex + 1];
-                    //}
-                    SendKeys.Send("{RIGHT}");
-                }
-                while (CurrentCell.ReadOnly && CurrentCell.ColumnIndex < Columns.Count - 1);
-            }
-            if (CurrentCell.ReadOnly && e.ColumnIndex == Columns.Count - 1)
+            if (CurrentCell.ReadOnly && e.ColumnIndex == VisibleColumns.Select(c => c.Index).Max() && !((EspackDataGridViewCell)CurrentCell).IsFilterCell)
                 commitEdit = true;
             if (commitEdit)
             {
                 if (!ExecuteCommand(true))
-                    cancelSelect=true;
+                    cancelSelect = true;
             }
             oldCurrentCell = (EspackDataGridViewCell)CurrentCell;
+
             //RowEdited = e.RowIndex;
             //RowEditedBool = true;
         }
 
 
+        private EspackDataGridViewCell NextEditableCell(EspackDataGridViewCell fromCell = null)
+        {
+            fromCell = fromCell ?? (EspackDataGridViewCell)CurrentCell;
+            var candidateCell = Rows[fromCell.RowIndex].Cells.OfType<EspackDataGridViewCell>().Where(c => !c.ReadOnly && c.ColumnIndex > fromCell.ColumnIndex).OrderBy(c => c.ColumnIndex).FirstOrDefault();
+            //var Cell = VisibleColumns.Where(c => !c.ReadOnly && c.Index > fromCell.ColumnIndex).OrderBy(c => c.Index).FirstOrDefault()?.Cells[fromCell.RowIndex];
+            return candidateCell ?? fromCell;
+        }
 
         private void EspackDataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -604,11 +605,13 @@ namespace EspackDataGrid
                 if (IsCurrentCellInEditMode)
                 {
                     EndEdit();
-                    SendKeys.Send("{RIGHT}");
+                    CurrentCell = NextEditableCell();
                 }
                 else
                 if (!CurrentCell.ReadOnly)
                     BeginEdit(true);
+                else
+                    SendKeys.Send("{RIGHT}");
                 return true;
             }
             else
@@ -627,14 +630,22 @@ namespace EspackDataGrid
         {
             if (FilterRowEnabled)
             {
-                var col = (EspackDataGridViewColumn)Columns[column];
-                this[column, 0] = new EspackDataGridViewCell(type, AutoCompleteMode.SuggestAppend, AutoCompleteSource.CustomSource, sqlSource) { SqlSource = sqlSource};
+                //var col = (EspackDataGridViewColumn)Columns[column];
+                this[column, 0] = new EspackDataGridViewCell(type, AutoCompleteMode.SuggestAppend, AutoCompleteSource.CustomSource, sqlSource) { SqlSource = sqlSource, IsFilterCell = true };
                 FilterCells.Add((EspackDataGridViewCell)this[column, 0]);
                 this[column, 0].ReadOnly = false;
+                ((EspackDataGridViewCell)this[column, 0]).CellValueChanged += EspackDataGridView_FilterCellValueChanged;
+
+
             } else
             {
                 throw new Exception("Enable Filter Row first");
             }
+        }
+
+        private void EspackDataGridView_FilterCellValueChanged(object sender, CellValueChangedEventArgs e)
+        {
+            ((EspackDataGridViewColumn)Columns[e.ColIndex]).Filter(e.NewValue.ToString(), true);
         }
 
         #endregion

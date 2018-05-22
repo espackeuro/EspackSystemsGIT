@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EspackDataGrid
@@ -162,8 +163,6 @@ namespace EspackDataGrid
             SqlSource = query;
         }
 
-
-
         public override DataGridViewCell CellTemplate
         {
             get
@@ -250,5 +249,15 @@ namespace EspackDataGrid
             }
         }
 
+        public void Filter(string text, bool wildcards)
+        {
+            foreach (DataGridViewRow row in DataGridView.Rows)
+                row.Visible = wildcards ? row.Cells[Index].Value.ToString().Contains(text) : row.Cells[Index].Value.ToString() == text;
+
+            //Cells.ForEach(c =>
+            //{
+            //    Task.Run(() => DataGridView.Rows[c.RowIndex].Visible = wildcards ? c.Value.ToString().Contains(text) : c.Value.ToString() == text);
+            //});
+        }
     }
 }
