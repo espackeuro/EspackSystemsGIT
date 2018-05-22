@@ -186,7 +186,7 @@
             this.lstFlags.ForeColor = System.Drawing.Color.Black;
             this.lstFlags.FormattingEnabled = true;
             this.lstFlags.IsCTLMOwned = false;
-            this.lstFlags.Location = new System.Drawing.Point(12, 133);
+            this.lstFlags.Location = new System.Drawing.Point(12, 140);
             this.lstFlags.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.lstFlags.Name = "lstFlags";
             this.lstFlags.Order = 0;

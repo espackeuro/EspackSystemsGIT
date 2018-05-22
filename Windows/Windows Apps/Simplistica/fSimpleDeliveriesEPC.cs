@@ -18,11 +18,10 @@ using CommonTools;
 using DiverseControls;
 using Simplistica.Properties;
 
-
 namespace Simplistica
 {
 
-    public partial class fSimpleDeliveriesEPC: Form
+    public partial class fSimpleDeliveriesEPC : Form
     {
         private EspackExtraData ExtraData { get; set; } = new EspackExtraData();
 
@@ -39,9 +38,10 @@ namespace Simplistica
             CTLM.DBTable = "(Select v.* from vSimpleDeliveriesCab v inner join Servicios s on s.codigo=v.service where s.cod3='" + Values.COD3 + "' and dbo.CheckFlag(s.flags,'SIMPLE')=1) a";
 
             //Header
+            CTLM.AddItem(ExtraData, "ExtraData", true, true, false, 0, false, false);
             CTLM.AddItem(txtDeliveryN, "DeliveryNumber", false, true, true, 1, true, true);
             CTLM.AddItem(cboService, "Service", true, true, true, 0, false, true);
-            CTLM.AddItem(txtTruckPlate, "TruckPlate", true, true, false, 0, false,true);
+            CTLM.AddItem(txtTruckPlate, "TruckPlate", true, true, false, 0, false, true);
             CTLM.AddItem(txtTrailerPlate, "TrailerPlate", true, true, false, 0, false, true);
             CTLM.AddItem(cboDock, "Dock", true, true, false, 0, false, true);
             CTLM.AddItem(cboShift, "Shift", true, true, false, 0, false, true);
@@ -51,7 +51,7 @@ namespace Simplistica
             CTLM.AddItem(dateStart, "StartDate", false, false, false, 0, false, false);
             CTLM.AddItem(dateEnd, "EndDate", false, false, false, 0, false, false);
             CTLM.AddItem(lstFlags, "flags", false, false, false, 0, false, false);
-            CTLM.AddItem(ExtraData, "ExtraData", true, true, false, 0, false, false);
+
 
             //fields
             cboService.Source("Select Codigo from Servicios where dbo.CheckFlag(flags,'SIMPLE')=1 and cod3='" + Values.COD3 + "' order by codigo");
@@ -67,18 +67,18 @@ namespace Simplistica
             VS.DBTable = "vSimpleDeliveriesDet";
 
             //VS Details
-            VS.AddColumn("DeliveryNumber", txtDeliveryN, "@DeliveryNumber", "@DeliveryNumber", "@DeliveryNumber",pVisible:false);
+            VS.AddColumn("DeliveryNumber", txtDeliveryN, "@DeliveryNumber", "@DeliveryNumber", "@DeliveryNumber", pVisible: false);
             VS.AddColumn("Service", cboService, "@Service", "@Service", "@Service", pVisible: false);
-            VS.AddColumn("Line", "Line","","@Line", "@Line",pSortable:true,pLocked:true,pPK:true);
+            VS.AddColumn("Line", "Line", "", "@Line", "@Line", pSortable: true, pLocked: true, pPK: true);
             VS.AddColumn("PartNumber", "partnumber", "@partnumber", pSortable: true, pWidth: 100, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: string.Format("select partnumber from referencias where servicio='{0}' order by partnumber", cboService.Value));
-            VS.AddColumn("Description","Description", pWidth: 160);
-            VS.AddColumn("Destination", "Destination", "@Destination","@Destination", pWidth:200, pQuery: string.Format("select Destination=planta+' ('+Descripcion2+') '+Descripcion1 from servicios_destinos where servicio='{0}'", cboService.Value), pSortable: true); //, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: string.Format("select partnumber from servicio_destinos where servicio='{0}'", cboService.Value));
+            VS.AddColumn("Description", "Description", pWidth: 160);
+            VS.AddColumn("Destination", "Destination", "@Destination", "@Destination", pWidth: 200, pQuery: string.Format("select Destination=planta+' ('+Descripcion2+') '+Descripcion1 from servicios_destinos where servicio='{0}'", cboService.Value), pSortable: true); //, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: string.Format("select partnumber from servicio_destinos where servicio='{0}'", cboService.Value));
             VS.AddColumn("OrderedQty", "OrderedQty", "@OrderedQty", "@OrderedQty", pWidth: 90);
             VS.AddColumn("SentQty", "SentQty", "@SentQty", "@SentQty", pWidth: 90);
 
             VS.CellBeginEdit += VS_CellBeginEdit;
             VS.CellEndEdit += VS_CellEndEdit; //VS_CellValidating; ; ;
-            VS.DataError += VS_DataError; 
+            VS.DataError += VS_DataError;
             //Various
             CTLM.ReQuery = true;
             CTLM.AddDefaultStatusStrip();
@@ -133,8 +133,8 @@ namespace Simplistica
 
         private void VS_DataError(object sender, DataGridViewDataErrorEventArgs anError)
         {
-            
-            
+
+
             MessageBox.Show("Error happened " + anError.Context.ToString());
 
             if (anError.Context == DataGridViewDataErrorContexts.Commit)
@@ -166,12 +166,12 @@ namespace Simplistica
 
         private void CboService_SelectedValueChanged(object sender, EventArgs e)
         {
-            ((EspackDataGridViewColumn)VS.Columns["Partnumber"]).AutoCompleteQuery=string.Format("select partnumber from referencias where servicio='{0}' order by partnumber", cboService.Value);
+            ((EspackDataGridViewColumn)VS.Columns["Partnumber"]).AutoCompleteQuery = string.Format("select partnumber from referencias where servicio='{0}' order by partnumber", cboService.Value);
         }
 
         private void VS_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == (VS.Columns["PartNumber"].Index)) 
+            if (e.ColumnIndex == (VS.Columns["PartNumber"].Index))
             {
                 if (VS[e.ColumnIndex, e.RowIndex].Value.ToString() != "")
                 {
@@ -200,7 +200,7 @@ namespace Simplistica
                     VS[VS.Columns["Description"].Index, e.RowIndex].Value = "";
                     VS[VS.Columns["Destination"].Index, e.RowIndex].Value = "";
                 }
-                
+
 
             }
         }
@@ -214,8 +214,8 @@ namespace Simplistica
                 bool _closed = lstFlags.itemStatus("CLOSED");
 
                 _sp.AddParameterValue("@DeliveryNumber", txtDeliveryN.Text);
-                _sp.AddParameterValue("@Service",cboService.Value.ToString());
-                _sp.AddParameterValue("@Action", _closed ? "OPEN":"CLOSE");
+                _sp.AddParameterValue("@Service", cboService.Value.ToString());
+                _sp.AddParameterValue("@Action", _closed ? "OPEN" : "CLOSE");
                 try
                 {
                     _sp.Execute();
@@ -230,10 +230,10 @@ namespace Simplistica
                     MsgError(_sp.LastMsg);
                     return;
                 }
-                
+
                 CTLM.Button_Click("btnCancel");
                 ChangeButtonsStatus();
-                MessageBox.Show(string.Format("Delivery {0} OK.",_closed?"opened":"closed"), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(string.Format("Delivery {0} OK.", _closed ? "opened" : "closed"), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -252,8 +252,8 @@ namespace Simplistica
                         _printIt.Service = cboService.Value.ToString();
                         _printIt.TruckPlate = txtTruckPlate.Text;
                         _printIt.TrailerPlate = txtTrailerPlate.Text;
-                        _printIt.Dock= cboDock.Text;
-                        _printIt.EndDate = (dateEnd.Value==null?"< NONE >": dateEnd.Text.Substring(0,10));
+                        _printIt.Dock = cboDock.Text;
+                        _printIt.EndDate = (dateEnd.Value == null ? "< NONE >" : dateEnd.Text.Substring(0, 10));
                         _pd.Document = _printIt;
                         _printIt.Print();
                     }
@@ -382,6 +382,6 @@ namespace Simplistica
             }
         }
 
-        
+
     }
 }
