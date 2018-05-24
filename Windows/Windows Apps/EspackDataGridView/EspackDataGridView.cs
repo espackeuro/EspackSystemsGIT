@@ -708,10 +708,24 @@ namespace EspackDataGrid
         {
             SP lCommand;
             string lMsg = "";
-            if (GetStatus() != EnumStatus.ADDGRIDLINE && GetStatus() != EnumStatus.EDITGRIDLINE && GetStatus() != EnumStatus.EDIT && GetStatus() != EnumStatus.ADDNEW && !(FilterCells.Contains(CurrentCell)))
+
+            // 20180524 [dvalles] wrong use of null exception when clearing (ESC key) due to the null value in FilterCells
+            //if (GetStatus() != EnumStatus.ADDGRIDLINE && GetStatus() != EnumStatus.EDITGRIDLINE && GetStatus() != EnumStatus.EDIT && GetStatus() != EnumStatus.ADDNEW && !(FilterCells.Contains(CurrentCell)))
+            if (GetStatus() != EnumStatus.ADDGRIDLINE && GetStatus() != EnumStatus.EDITGRIDLINE && GetStatus() != EnumStatus.EDIT && GetStatus() != EnumStatus.ADDNEW)
             {
-                CancelEdit();
-                return;
+                bool lCancel = true;
+
+                if (FilterCells != null)
+                {
+                    if (FilterCells.Contains(CurrentCell))
+                        lCancel=false;
+                }
+
+                if (lCancel)
+                {
+                    CancelEdit();
+                    return;
+                }
             }
 
             switch (e.KeyCode)
