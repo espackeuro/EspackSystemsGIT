@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMainRepairs));
-            this.espackMenu1 = new EspackMenuNS.EspackMenu();
-            this.movementsToolStripMenuItem = new EspackMenuNS.EspackToolStripItem();
-            this.espackToolStripItem1 = new EspackMenuNS.EspackToolStripItem();
-            this.espackToolStripItem3 = new EspackMenuNS.EspackToolStripItem();
-            this.espackToolStripItem4 = new EspackMenuNS.EspackToolStripItem();
-            this.espackToolStripItem5 = new EspackMenuNS.EspackToolStripItem();
-            this.espackToolStripItem6 = new EspackMenuNS.EspackToolStripItem();
-            this.espackToolStripItem8 = new EspackMenuNS.EspackToolStripItem();
-            this.espackToolStripItem7 = new EspackMenuNS.EspackToolStripItem();
+            this.espackMenu1 = new EspackFormControls.EspackMenu();
+            this.movementsToolStripMenuItem = new EspackFormControls.EspackToolStripItem();
+            this.espackToolStripItem1 = new EspackFormControls.EspackToolStripItem();
+            this.espackToolStripItem3 = new EspackFormControls.EspackToolStripItem();
+            this.espackToolStripItem4 = new EspackFormControls.EspackToolStripItem();
+            this.espackToolStripItem5 = new EspackFormControls.EspackToolStripItem();
+            this.espackToolStripItem6 = new EspackFormControls.EspackToolStripItem();
+            this.espackToolStripItem8 = new EspackFormControls.EspackToolStripItem();
+            this.espackToolStripItem7 = new EspackFormControls.EspackToolStripItem();
             this.espackMenu1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -135,14 +135,14 @@
 
         #endregion
 
-        private EspackMenuNS.EspackMenu espackMenu1;
-        private EspackMenuNS.EspackToolStripItem espackToolStripItem1;
-        private EspackMenuNS.EspackToolStripItem movementsToolStripMenuItem;
-        private EspackMenuNS.EspackToolStripItem espackToolStripItem3;
-        private EspackMenuNS.EspackToolStripItem espackToolStripItem4;
-        private EspackMenuNS.EspackToolStripItem espackToolStripItem5;
-        private EspackMenuNS.EspackToolStripItem espackToolStripItem6;
-        private EspackMenuNS.EspackToolStripItem espackToolStripItem7;
-        private EspackMenuNS.EspackToolStripItem espackToolStripItem8;
+        private EspackFormControls.EspackMenu espackMenu1;
+        private EspackFormControls.EspackToolStripItem espackToolStripItem1;
+        private EspackFormControls.EspackToolStripItem movementsToolStripMenuItem;
+        private EspackFormControls.EspackToolStripItem espackToolStripItem3;
+        private EspackFormControls.EspackToolStripItem espackToolStripItem4;
+        private EspackFormControls.EspackToolStripItem espackToolStripItem5;
+        private EspackFormControls.EspackToolStripItem espackToolStripItem6;
+        private EspackFormControls.EspackToolStripItem espackToolStripItem7;
+        private EspackFormControls.EspackToolStripItem espackToolStripItem8;
     }
 }
