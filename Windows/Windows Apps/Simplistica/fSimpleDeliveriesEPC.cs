@@ -134,26 +134,37 @@ namespace Simplistica
         private void VS_DataError(object sender, DataGridViewDataErrorEventArgs anError)
         {
 
+            if (anError.Context == DataGridViewDataErrorContexts.Parsing || anError.Context.ToString().IndexOf("Parsing")!=-1)
+            {
+                if (anError.ColumnIndex == VS.Columns["SentQty"].Index)
+                {
+                    MessageBox.Show("Wrong value for Sent Qty. Only numeric values allowed.");
+                    anError.ThrowException = false;
+                    return;
+                }
 
-            MessageBox.Show("Error happened " + anError.Context.ToString());
+            }
+            
+            /*
+                        MessageBox.Show("Error happened " + anError.Context.ToString());
 
-            if (anError.Context == DataGridViewDataErrorContexts.Commit)
-            {
-                MessageBox.Show("Commit error");
-            }
-            if (anError.Context == DataGridViewDataErrorContexts.CurrentCellChange)
-            {
-                MessageBox.Show("Cell change");
-            }
-            if (anError.Context == DataGridViewDataErrorContexts.Parsing)
-            {
-                MessageBox.Show("parsing error");
-            }
-            if (anError.Context == DataGridViewDataErrorContexts.LeaveControl)
-            {
-                MessageBox.Show("leave control error");
-            }
-
+                        if (anError.Context == DataGridViewDataErrorContexts.Commit)
+                        {
+                            MessageBox.Show("Commit error");
+                        }
+                        if (anError.Context == DataGridViewDataErrorContexts.CurrentCellChange)
+                        {
+                            MessageBox.Show("Cell change");
+                        }
+                        if (anError.Context == DataGridViewDataErrorContexts.Parsing)
+                        {
+                            MessageBox.Show("parsing error");
+                        }
+                        if (anError.Context == DataGridViewDataErrorContexts.LeaveControl)
+                        {
+                            MessageBox.Show("leave control error");
+                        }
+                        */
             if ((anError.Exception) is ConstraintException)
             {
                 DataGridView view = (DataGridView)sender;
