@@ -249,15 +249,16 @@ namespace EspackDataGrid
             }
         }
 
-        public void Filter(string text, bool wildcards)
-        {
-            foreach (DataGridViewRow row in DataGridView.Rows)
-                row.Visible = wildcards ? row.Cells[Index].Value.ToString().Contains(text) : row.Cells[Index].Value.ToString() == text;
+        //public void Filter(string text, bool wildcards)
+        //{
+            
+        //    foreach (DataGridViewRow row in DataGridView.Rows)
+        //        row.Visible = wildcards ? row.Cells[Index].Value.ToString().Contains(text) : row.Cells[Index].Value.ToString() == text;
 
-            //Cells.ForEach(c =>
-            //{
-            //    Task.Run(() => DataGridView.Rows[c.RowIndex].Visible = wildcards ? c.Value.ToString().Contains(text) : c.Value.ToString() == text);
-            //});
-        }
+        //    //Cells.ForEach(c =>
+        //    //{
+        //    //    Task.Run(() => DataGridView.Rows[c.RowIndex].Visible = wildcards ? c.Value.ToString().Contains(text) : c.Value.ToString() == text);
+        //    //});
+        //}
     }
 }

@@ -23,7 +23,7 @@ namespace EspackDataGrid
             Enabled = true;
             FlatStyle = FlatStyle.Flat;
             KeyDown += FilterCellComboBox_KeyDown;
-            SelectedValueChanged += FilterCellComboBox_SelectedValueChanged;
+            //SelectedValueChanged += FilterCellComboBox_SelectedValueChanged;
             //this.GotFocus += Control_GotFocus;
             //this.LostFocus += Control_LostFocus;
         }
@@ -106,12 +106,15 @@ namespace EspackDataGrid
             }
         }
 
-        private void FilterCellComboBox_SelectedValueChanged(object sender, EventArgs e)
+        protected override void OnSelectedValueChanged(EventArgs e)
         {
+            
             // Notify the DataGridView that the contents of the cell
             // have changed.
             EditingControlValueChanged = true;
             this.EditingControlDataGridView.NotifyCurrentCellDirty(true);
+            //base.OnValueChanged(e);
+            base.OnSelectedValueChanged(e);
         }
 
         // Implements the IDataGridViewEditingControl

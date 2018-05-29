@@ -142,7 +142,7 @@ namespace EspackFormControls
             set
             {
                 oldText = Value.ToString();
-                Text = value.ToString();
+                Text = value?.ToString();
             }
         }
         private string oldText;

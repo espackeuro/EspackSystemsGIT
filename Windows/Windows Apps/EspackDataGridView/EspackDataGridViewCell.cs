@@ -187,17 +187,18 @@ namespace EspackDataGrid
             editControl.AutoCompleteMode = AutoCompleteMode;
             editControl.AutoCompleteSource = AutoCompleteSource;
             editControl.AutoCompleteCustomSource = AutoCompleteCustomSource;
+            editControl.Control.ValueChanged -= Control_ValueChanged;
             editControl.Value = Value;
             editControl.Control.ValueChanged += Control_ValueChanged;
             // Use the default row value when Value property is null.
-            if (this.Value == null)
-            {
-                editControl.Value = "";
-            }
-            else
-            {
-                editControl.Value = this.Value;
-            }
+            //if (this.Value == null)
+            //{
+            //    editControl.Value = "";
+            //}
+            //else
+            //{
+            //    editControl.Value = this.Value;
+            //}
         }
 
         private object oldValue = null;
@@ -206,6 +207,7 @@ namespace EspackDataGrid
             if (e.NewValue?.ToString() != oldValue?.ToString())
             {
                 var eventArgs = new CellValueChangedEventArgs(this, oldValue, e.NewValue);
+                DataGridView.EndEdit();
                 OnCellValueChanged(eventArgs);
                 oldValue = e.NewValue;
             }

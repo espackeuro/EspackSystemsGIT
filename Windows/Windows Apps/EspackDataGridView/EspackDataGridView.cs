@@ -101,6 +101,7 @@ namespace EspackDataGrid
                 }
             }
         }
+        public EspackDataGridView FilterDataGrid { get; set; }
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<EspackDataGridViewCell> FilterCells { get; set; } = null;
         //EspackFormControl properties
@@ -206,6 +207,7 @@ namespace EspackDataGrid
 
         public cAccesoDatosNet Conn { get => mDA.Conn; set => mDA.Conn = value; }
 
+        private string BaseSQL;
         public string SQL
         {
             get
@@ -422,7 +424,7 @@ namespace EspackDataGrid
             }
             if (FilterRowEnabled)
             {
-                FilterRow.Cells.OfType<EspackDataGridViewCell>().ToList().ForEach(c => c.ReadOnly = false);
+                FilterDataGrid.Rows[0].Cells.OfType<EspackDataGridViewCell>().ToList().ForEach(c => c.ReadOnly = false);
             }
         }
 
@@ -488,6 +490,7 @@ namespace EspackDataGrid
             KeyDown += CtlVSGrid_KeyDown;
             CellEnter += EspackDataGridView_CellEnter; ;
             SelectionChanged += EspackDataGridView_SelectionChanged;
+            ColumnWidthChanged += EspackDataGridView_ColumnWidthChanged;
             //CurrentCellChanged += EspackDataGridView_CurrentCellChanged;
             //this.RowEnter += EspackDataGridView_RowEnter;
             Dirty = false;
@@ -495,6 +498,12 @@ namespace EspackDataGrid
             AllowUserToAddRows = false;
             CaptionLabel = new EspackLabel("", this) { AutoSize = true };
             EspackTheme.changeControlFormat(this);
+        }
+
+        private void EspackDataGridView_ColumnWidthChanged(object sender, DataGridViewColumnEventArgs e)
+        {
+            if (FilterRowEnabled)
+                FilterDataGrid.Columns.OfType<DataGridViewColumn>().Where(c => c.Tag.ToInt() == e.Column.Index).First().Width = e.Column.Width;
         }
 
         private void EspackDataGridView_CurrentCellDirtyStateChanged(object sender, EventArgs e)
@@ -586,8 +595,10 @@ namespace EspackDataGrid
 
         private void EspackDataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (!this[e.ColumnIndex, e.RowIndex].ReadOnly)
+            if (!this[e.ColumnIndex, e.RowIndex].ReadOnly && !IsCurrentCellInEditMode)
+            {
                 BeginEdit(true);
+            }
         }
 
         ~EspackDataGridView()
@@ -621,20 +632,40 @@ namespace EspackDataGrid
         #region FilterMethods
         private void AddFilterRow()
         {
-            var _row = mDA.Table.NewRow();
-            mDA.Table.Rows.InsertAt(_row, 0);
-            FilterRow = Rows[0];
-            //FilterRow.Cells.OfType<FilterCell>().ToList().ForEach(c => c.ReadOnly = false);
+            FilterDataGrid = new EspackDataGridView();
+            FilterDataGrid.Conn = Conn;
+            FilterDataGrid.Location = Location;
+            FilterDataGrid.Height = 2 * Rows[0].Height;
+            FilterDataGrid.Width = Width;
+            Location = new Point(Location.X, Location.Y + 2 * Rows[0].Height);
+            Height = Height - 2 * Rows[0].Height;
+            Parent.Controls.Add(FilterDataGrid);
+            Columns.OfType<EspackDataGridViewColumn>().Where(c => c.Visible == true).ToList().ForEach(c =>
+             {
+                 var column = new EspackDataGridViewColumn();
+                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                 column.Width = c.Width;
+                 column.Tag = c.Index;
+                 column.HeaderText = c.HeaderText;
+                 column.Name = c.Name;
+                 column.DBField = c.DBField;
+                 FilterDataGrid.Columns.Add(column);
+             });
+            this.RowHeadersVisible = false;
+            FilterRow = new DataGridViewRow();
+            FilterDataGrid.Rows.Add(FilterRow);
+            Refresh();
+            //FilterRow = FilterDataGrid.Rows[0];
         }
         public void AddFilterCell(EspackCellTypes type, int column, string sqlSource = "")
         {
             if (FilterRowEnabled)
             {
                 //var col = (EspackDataGridViewColumn)Columns[column];
-                this[column, 0] = new EspackDataGridViewCell(type, AutoCompleteMode.SuggestAppend, AutoCompleteSource.CustomSource, sqlSource) { SqlSource = sqlSource, IsFilterCell = true };
-                FilterCells.Add((EspackDataGridViewCell)this[column, 0]);
-                this[column, 0].ReadOnly = false;
-                ((EspackDataGridViewCell)this[column, 0]).CellValueChanged += EspackDataGridView_FilterCellValueChanged;
+                FilterDataGrid[column, 0] = new EspackDataGridViewCell(type, AutoCompleteMode.SuggestAppend, AutoCompleteSource.CustomSource, sqlSource) { SqlSource = sqlSource, IsFilterCell = true };
+                FilterCells.Add((EspackDataGridViewCell)FilterDataGrid[column, 0]);
+                FilterDataGrid[column, 0].ReadOnly = false;
+                ((EspackDataGridViewCell)FilterDataGrid[column, 0]).CellValueChanged += EspackDataGridView_FilterCellValueChanged;
 
 
             } else
@@ -645,7 +676,27 @@ namespace EspackDataGrid
 
         private void EspackDataGridView_FilterCellValueChanged(object sender, CellValueChangedEventArgs e)
         {
-            ((EspackDataGridViewColumn)Columns[e.ColIndex]).Filter(e.NewValue.ToString(), true);
+            //for (int i = 1; i < Rows.Count; i++)
+            //    mDA.Table.Rows.RemoveAt(i);
+
+            List<string> whereList = new List<string>();
+            //Dictionary<int, string> valueList = new Dictionary<int, string>();
+            foreach(EspackDataGridViewCell c in FilterDataGrid.Rows[0].Cells)
+            {
+                //valueList.Add(c.ColumnIndex, c.Value.ToString());
+                if (c.Value?.ToString()!=null && c.Value?.ToString() != "")
+                {
+                    whereList.Add(string.Format("{0} like '%{1}%'", c.Column.DBField, c.Value.ToString()));
+                }
+            }
+            BaseSQL = BaseSQL ?? SQL;
+            Refresh();
+            DA _da = new DA(Conn);
+            _da.SQL = whereList.Count > 0 ? string.Format("Select * from ({0}) a where {1}", BaseSQL, string.Join(" and ", whereList)) : BaseSQL;
+            _da.Open();
+
+            
+            //((EspackDataGridViewColumn)Columns[e.ColIndex]).Filter(e.NewValue.ToString(), true);
         }
 
         #endregion
@@ -716,19 +767,19 @@ namespace EspackDataGrid
 
             switch (e.KeyCode)
             {
-                case Keys.Enter:
-                    {
-                        //do
-                        //{
-                        //    CurrentCell = Rows[CurrentCell.RowIndex].Cells[CurrentCell.ColumnIndex + 1];
-                        //    //SendKeys.Send("{RIGHT}");
-                        //}
-                        //while (CurrentCell.ReadOnly && CurrentCell.ColumnIndex < Columns.Count - 1);
-                        //SendKeys.Send("{RIGHT}");
-                        BeginEdit(true);
-                        e.Handled = true;
-                        break;
-                    }
+                //case Keys.Enter:
+                //    {
+                //        //do
+                //        //{
+                //        //    CurrentCell = Rows[CurrentCell.RowIndex].Cells[CurrentCell.ColumnIndex + 1];
+                //        //    //SendKeys.Send("{RIGHT}");
+                //        //}
+                //        //while (CurrentCell.ReadOnly && CurrentCell.ColumnIndex < Columns.Count - 1);
+                //        //SendKeys.Send("{RIGHT}");
+                //        BeginEdit(true);
+                //        e.Handled = true;
+                //        break;
+                //    }
                 case Keys.Delete:
                 case Keys.Insert:
                     {
@@ -879,7 +930,9 @@ namespace EspackDataGrid
             }
             else
             {
+                
                 SQL = Query;
+                BaseSQL = SQL;
                 foreach (EspackDataGridViewColumn Col in Columns)
                 {
                     if (Col.LinkedControl != null)

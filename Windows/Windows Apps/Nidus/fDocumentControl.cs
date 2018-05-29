@@ -19,6 +19,8 @@ namespace Nidus
             VS.Conn = Values.gDatos;
             VS.SQL = "Select Area,UserCode,Domain from Users ";
             VS.Start();
+
+
             VS.UpdateEspackControl();
             VS.FilterRowEnabled = true;
             this.Load += FDocumentControl_Load;

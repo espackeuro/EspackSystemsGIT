@@ -215,9 +215,10 @@ namespace EspackFormControls
                 if (value != base.Text)
                 {
                     //raise the value change event
-                    var oldValue = base.Text;
+                    oldText = base.Text;
                     base.Text = value;
-                    OnValueChanged(new ValueChangedEventArgs(oldValue, value));
+                    OnValueChanged(new ValueChangedEventArgs(oldText, value));
+                    oldText = value;
                 }
             }
         }
@@ -230,7 +231,7 @@ namespace EspackFormControls
         public bool Search { get; set; }
         public object DefaultValue { get; set; }
         public Type DBFieldType { get; set; }
-
+        private string oldText;
         public string Caption
         {
             get
@@ -266,22 +267,28 @@ namespace EspackFormControls
             base.Margin = _m;
             AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             AutoCompleteSource = AutoCompleteSource.ListItems;
-            this.SelectedValueChanged += delegate
-            {
-                if (TBDescription!= null)
-                {
-                    if (ValueMember!= null && SelectedValue!=null)
-                    {
-                        TBDescription.Text = SelectedValue.ToString();
-                    }
-                    else
-                    {
-                        TBDescription.Text = "";
-                    }
-                }
-            };
+            this.SelectedValueChanged += EspackComboBox_SelectedValueChanged;
             this.FlatStyle = FlatStyle.Flat;
             EspackTheme.changeControlFormat(this);
+            oldText = "";
+        }
+
+        private void EspackComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (oldText != Text)
+                OnValueChanged(new ValueChangedEventArgs(oldText, Text));
+            oldText = Value.ToString();
+            if (TBDescription != null)
+            {
+                if (ValueMember != null && SelectedValue != null)
+                {
+                    TBDescription.Text = SelectedValue.ToString();
+                }
+                else
+                {
+                    TBDescription.Text = "";
+                }
+            }
         }
 
         public void Source(string pSQL, cAccesoDatosNet pConn)
