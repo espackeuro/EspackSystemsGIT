@@ -46,12 +46,14 @@ namespace Simplistica
             CTLM.AddItem(cboDock, "Dock", true, true, false, 0, false, true);
             CTLM.AddItem(cboShift, "Shift", true, true, false, 0, false, true);
             CTLM.AddItem(txtResponsible, "UserProc", true, true, false, 0, false, true);
-            CTLM.AddItem(dateCheckPoint, "DateCheckPoint", pExtraDataLink: ExtraData);
-            CTLM.AddItem(dateEPC, "DateEPC", pExtraDataLink: ExtraData);
+            CTLM.AddItem(dateParking, "ParkingDate", pExtraDataLink: ExtraData);
+            CTLM.AddItem(dateGate2, "Gate2Date", pExtraDataLink: ExtraData);
+            CTLM.AddItem(dateDriverShiftLeader, "Driver2ShiftLeaderDate", pExtraDataLink: ExtraData);
             CTLM.AddItem(dateStart, "StartDate", false, false, false, 0, false, false);
             CTLM.AddItem(dateEnd, "EndDate", false, false, false, 0, false, false);
             CTLM.AddItem(lstFlags, "flags", false, false, false, 0, false, false);
 
+            dateDriverShiftLeader.Protected = true;
 
             //fields
             cboService.Source("Select Codigo from Servicios where dbo.CheckFlag(flags,'SIMPLE')=1 and cod3='" + Values.COD3 + "' order by codigo");
@@ -302,12 +304,12 @@ namespace Simplistica
 
                     // Define the Body columns
                     NewLine(false, EnumDocumentParts.BODY);
-                    Add($"{"LINE",5} {"PARTNUMBER",-20} {"DESCRIPTION",-30} {"ORDERED",7} {"SENT",6}", new Font("Courier New", 10, FontStyle.Bold));
+                    Add($"{"LN",2} {"PARTNUMBER",-18} {"DESCRIPTION",-30} {"DESTINATION",-30} {"ORD.",5} {"SENT",5}", new Font("Courier New", 8, FontStyle.Bold));
 
 
                     // Change the font and run the query for the Body data
-                    this.CurrentFont = new Font("Courier New", 10);
-                    using (var _rs = new StaticRS(string.Format("Select Line,Partnumber,Description,OrderedQty,SentQty from vSimpleDeliveriesDet where DeliveryNumber='{0}' and Service='{1}'", DeliveryNumber, Service), Values.gDatos))
+                    this.CurrentFont = new Font("Courier New", 8);
+                    using (var _rs = new StaticRS(string.Format("Select Line,Partnumber,Description,Destination=isnull((select top 1 s.planta+' ('+s.Descripcion2+') '+s.Descripcion1 from servicios_destinos s inner join referencias_destinos rd on rd.servicio=s.servicio and rd.ruta=s.ruta where rd.servicio=v.service and rd.partnumber=v.partnumber order by s.planta),''),OrderedQty,SentQty from vSimpleDeliveriesDet v where DeliveryNumber='{0}' and Service='{1}'", DeliveryNumber, Service), Values.gDatos))
                     {
                         _rs.Open();
 
@@ -322,7 +324,7 @@ namespace Simplistica
                                 //for (int i = 1; i < 25; i++)
                                 //{
                                 NewLine(true);
-                                Add(string.Format("{0,5} {1,-20} {2,-30} {3,7} {4,6}", _rs["Line"], _rs["Partnumber"], _rs["Description"].ToString().Length > 30 ? _rs["Description"].ToString().Substring(0, 30) : _rs["Description"], _rs["OrderedQty"], _rs["SentQty"]));
+                                Add(string.Format("{0,2} {1,-18} {2,-30} {3,-30} {4,5} {5,5}", _rs["Line"], _rs["Partnumber"], _rs["Description"].ToString().Length > 30 ? _rs["Description"].ToString().Substring(0, 30) : _rs["Description"], _rs["Destination"].ToString().Length > 30 ? _rs["Destination"].ToString().Substring(0, 30) : _rs["Destination"], _rs["OrderedQty"], _rs["SentQty"]));
                                 //    Add(string.Format("{0,5} {1,-20} {2,-30} {3,7} {4,6}", i, _rs["Partnumber"], _rs["Description"].ToString().Length > 30 ? _rs["Description"].ToString().Substring(0, 30) : _rs["Description"], _rs["OrderedQty"], _rs["SentQty"]));
                                 //}
                                 _rs.MoveNext();
@@ -372,11 +374,11 @@ namespace Simplistica
 
                 this.CurrentFont = new Font("Courier New", 12, FontStyle.Bold);
                 NewLine(false, EnumDocumentParts.HEADER);
-                Add(string.Format("{0,12}DELIVERY: {1,-22} SERVICE: {2,-10}", "", DeliveryNumber, Service));
+                Add(string.Format("{0,12}DELIVERY : {1,-22} SERVICE: {2,-10}", "", DeliveryNumber, Service));
                 NewLine(false, EnumDocumentParts.HEADER);
-                Add(string.Format("{0,12}PLATE   : {1,-22} DATE   : {2,-10}", "", _plates.Length > 22 ? _plates.Substring(0, 22) : _plates, EndDate));
+                Add(string.Format("{0,12}PLATE    : {1,-22}", "", _plates.Length > 22 ? _plates.Substring(0, 22) : _plates));
                 NewLine(false, EnumDocumentParts.HEADER);
-                Add(string.Format("{0,12}DEST.   : {1}", "", _destination));
+                Add(string.Format("{0,12}LOAD DATE: {1}", "", EndDate));
                 NewLine(false, EnumDocumentParts.HEADER);
             }
 
