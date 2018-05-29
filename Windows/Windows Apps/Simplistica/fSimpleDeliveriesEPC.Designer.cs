@@ -42,8 +42,8 @@
             this.lstFlags = new EspackFormControls.EspackCheckedListBox();
             this.dateEnd = new EspackFormControls.EspackDateTimePicker();
             this.dateStart = new EspackFormControls.EspackDateTimePicker();
-            this.dateEPC = new EspackFormControls.EspackDateTimePicker();
-            this.dateCheckPoint = new EspackFormControls.EspackDateTimePicker();
+            this.dateGate2 = new EspackFormControls.EspackDateTimePicker();
+            this.dateParking = new EspackFormControls.EspackDateTimePicker();
             this.txtTruckPlate = new EspackFormControls.EspackTextBox();
             this.cboDock = new EspackFormControls.EspackComboBox();
             this.txtResponsible = new EspackFormControls.EspackTextBox();
@@ -52,6 +52,7 @@
             this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
             this.txtTrailerPlate = new EspackFormControls.EspackTextBox();
             this.VS = new EspackDataGrid.EspackDataGridView();
+            this.dateDriverShiftLeader = new EspackFormControls.EspackDateTimePicker();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
             this.SuspendLayout();
@@ -195,7 +196,7 @@
             this.lstFlags.PK = false;
             this.lstFlags.Protected = false;
             this.lstFlags.Search = false;
-            this.lstFlags.Size = new System.Drawing.Size(535, 76);
+            this.lstFlags.Size = new System.Drawing.Size(535, 95);
             this.lstFlags.Status = CommonTools.EnumStatus.ADDNEW;
             this.lstFlags.TabIndex = 12;
             this.lstFlags.Upp = false;
@@ -220,7 +221,7 @@
             this.dateEnd.ForeColor = System.Drawing.Color.Black;
             this.dateEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateEnd.IsCTLMOwned = false;
-            this.dateEnd.Location = new System.Drawing.Point(553, 183);
+            this.dateEnd.Location = new System.Drawing.Point(553, 226);
             this.dateEnd.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.dateEnd.Name = "dateEnd";
             this.dateEnd.Nullable = true;
@@ -255,7 +256,7 @@
             this.dateStart.ForeColor = System.Drawing.Color.Black;
             this.dateStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateStart.IsCTLMOwned = false;
-            this.dateStart.Location = new System.Drawing.Point(553, 140);
+            this.dateStart.Location = new System.Drawing.Point(553, 183);
             this.dateStart.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.dateStart.Name = "dateStart";
             this.dateStart.Nullable = true;
@@ -271,76 +272,76 @@
             this.dateStart.Upp = false;
             this.dateStart.Value = null;
             // 
-            // dateEPC
+            // dateGate2
             // 
-            this.dateEPC.Add = false;
-            this.dateEPC.BackColor = System.Drawing.Color.White;
-            this.dateEPC.BorderColor = System.Drawing.Color.White;
-            this.dateEPC.BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-            this.dateEPC.Caption = "EPC Entry Date";
-            this.dateEPC.Checked = false;
-            this.dateEPC.CustomFormat = " ";
-            this.dateEPC.DBField = null;
-            this.dateEPC.DBFieldType = null;
-            this.dateEPC.DefaultValue = null;
-            this.dateEPC.Del = false;
-            this.dateEPC.DependingRS = null;
-            this.dateEPC.Enabled = false;
-            this.dateEPC.ExtraDataLink = null;
-            this.dateEPC.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.dateEPC.ForeColor = System.Drawing.Color.Black;
-            this.dateEPC.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateEPC.IsCTLMOwned = false;
-            this.dateEPC.Location = new System.Drawing.Point(553, 97);
-            this.dateEPC.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
-            this.dateEPC.Name = "dateEPC";
-            this.dateEPC.Nullable = true;
-            this.dateEPC.Order = 0;
-            this.dateEPC.ParentConn = null;
-            this.dateEPC.ParentDA = null;
-            this.dateEPC.PK = false;
-            this.dateEPC.Protected = false;
-            this.dateEPC.Search = false;
-            this.dateEPC.ShowCheckBox = true;
-            this.dateEPC.Size = new System.Drawing.Size(152, 24);
-            this.dateEPC.TabIndex = 9;
-            this.dateEPC.Upp = false;
-            this.dateEPC.Value = null;
+            this.dateGate2.Add = false;
+            this.dateGate2.BackColor = System.Drawing.Color.White;
+            this.dateGate2.BorderColor = System.Drawing.Color.White;
+            this.dateGate2.BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+            this.dateGate2.Caption = "Gate 2";
+            this.dateGate2.Checked = false;
+            this.dateGate2.CustomFormat = " ";
+            this.dateGate2.DBField = null;
+            this.dateGate2.DBFieldType = null;
+            this.dateGate2.DefaultValue = null;
+            this.dateGate2.Del = false;
+            this.dateGate2.DependingRS = null;
+            this.dateGate2.Enabled = false;
+            this.dateGate2.ExtraDataLink = null;
+            this.dateGate2.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.dateGate2.ForeColor = System.Drawing.Color.Black;
+            this.dateGate2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateGate2.IsCTLMOwned = false;
+            this.dateGate2.Location = new System.Drawing.Point(553, 97);
+            this.dateGate2.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.dateGate2.Name = "dateGate2";
+            this.dateGate2.Nullable = true;
+            this.dateGate2.Order = 0;
+            this.dateGate2.ParentConn = null;
+            this.dateGate2.ParentDA = null;
+            this.dateGate2.PK = false;
+            this.dateGate2.Protected = false;
+            this.dateGate2.Search = false;
+            this.dateGate2.ShowCheckBox = true;
+            this.dateGate2.Size = new System.Drawing.Size(152, 24);
+            this.dateGate2.TabIndex = 9;
+            this.dateGate2.Upp = false;
+            this.dateGate2.Value = null;
             // 
-            // dateCheckPoint
+            // dateParking
             // 
-            this.dateCheckPoint.Add = false;
-            this.dateCheckPoint.BackColor = System.Drawing.Color.White;
-            this.dateCheckPoint.BorderColor = System.Drawing.Color.White;
-            this.dateCheckPoint.BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-            this.dateCheckPoint.Caption = "CheckPoint Date";
-            this.dateCheckPoint.Checked = false;
-            this.dateCheckPoint.CustomFormat = " ";
-            this.dateCheckPoint.DBField = null;
-            this.dateCheckPoint.DBFieldType = null;
-            this.dateCheckPoint.DefaultValue = null;
-            this.dateCheckPoint.Del = false;
-            this.dateCheckPoint.DependingRS = null;
-            this.dateCheckPoint.ExtraDataLink = null;
-            this.dateCheckPoint.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.dateCheckPoint.ForeColor = System.Drawing.Color.Black;
-            this.dateCheckPoint.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateCheckPoint.IsCTLMOwned = false;
-            this.dateCheckPoint.Location = new System.Drawing.Point(553, 54);
-            this.dateCheckPoint.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
-            this.dateCheckPoint.Name = "dateCheckPoint";
-            this.dateCheckPoint.Nullable = true;
-            this.dateCheckPoint.Order = 0;
-            this.dateCheckPoint.ParentConn = null;
-            this.dateCheckPoint.ParentDA = null;
-            this.dateCheckPoint.PK = false;
-            this.dateCheckPoint.Protected = false;
-            this.dateCheckPoint.Search = false;
-            this.dateCheckPoint.ShowCheckBox = true;
-            this.dateCheckPoint.Size = new System.Drawing.Size(152, 24);
-            this.dateCheckPoint.TabIndex = 8;
-            this.dateCheckPoint.Upp = false;
-            this.dateCheckPoint.Value = null;
+            this.dateParking.Add = false;
+            this.dateParking.BackColor = System.Drawing.Color.White;
+            this.dateParking.BorderColor = System.Drawing.Color.White;
+            this.dateParking.BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+            this.dateParking.Caption = "Parking";
+            this.dateParking.Checked = false;
+            this.dateParking.CustomFormat = " ";
+            this.dateParking.DBField = null;
+            this.dateParking.DBFieldType = null;
+            this.dateParking.DefaultValue = null;
+            this.dateParking.Del = false;
+            this.dateParking.DependingRS = null;
+            this.dateParking.ExtraDataLink = null;
+            this.dateParking.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.dateParking.ForeColor = System.Drawing.Color.Black;
+            this.dateParking.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateParking.IsCTLMOwned = false;
+            this.dateParking.Location = new System.Drawing.Point(553, 54);
+            this.dateParking.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.dateParking.Name = "dateParking";
+            this.dateParking.Nullable = true;
+            this.dateParking.Order = 0;
+            this.dateParking.ParentConn = null;
+            this.dateParking.ParentDA = null;
+            this.dateParking.PK = false;
+            this.dateParking.Protected = false;
+            this.dateParking.Search = false;
+            this.dateParking.ShowCheckBox = true;
+            this.dateParking.Size = new System.Drawing.Size(152, 24);
+            this.dateParking.TabIndex = 8;
+            this.dateParking.Upp = false;
+            this.dateParking.Value = null;
             // 
             // txtTruckPlate
             // 
@@ -583,7 +584,7 @@
             this.VS.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.VS.IsCTLMOwned = false;
             this.VS.IsFilterFocused = false;
-            this.VS.Location = new System.Drawing.Point(9, 231);
+            this.VS.Location = new System.Drawing.Point(12, 268);
             this.VS.MsgStatusLabel = null;
             this.VS.Name = "VS";
             this.VS.NumPages = 0;
@@ -606,20 +607,56 @@
             this.VS.Upp = false;
             this.VS.Value = null;
             // 
+            // dateDriverShiftLeader
+            // 
+            this.dateDriverShiftLeader.Add = false;
+            this.dateDriverShiftLeader.BackColor = System.Drawing.Color.White;
+            this.dateDriverShiftLeader.BorderColor = System.Drawing.Color.White;
+            this.dateDriverShiftLeader.BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+            this.dateDriverShiftLeader.Caption = "Driver To Shift Leader";
+            this.dateDriverShiftLeader.Checked = false;
+            this.dateDriverShiftLeader.CustomFormat = " ";
+            this.dateDriverShiftLeader.DBField = null;
+            this.dateDriverShiftLeader.DBFieldType = null;
+            this.dateDriverShiftLeader.DefaultValue = null;
+            this.dateDriverShiftLeader.Del = false;
+            this.dateDriverShiftLeader.DependingRS = null;
+            this.dateDriverShiftLeader.ExtraDataLink = null;
+            this.dateDriverShiftLeader.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.dateDriverShiftLeader.ForeColor = System.Drawing.Color.Black;
+            this.dateDriverShiftLeader.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateDriverShiftLeader.IsCTLMOwned = false;
+            this.dateDriverShiftLeader.Location = new System.Drawing.Point(553, 140);
+            this.dateDriverShiftLeader.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.dateDriverShiftLeader.Name = "dateDriverShiftLeader";
+            this.dateDriverShiftLeader.Nullable = true;
+            this.dateDriverShiftLeader.Order = 0;
+            this.dateDriverShiftLeader.ParentConn = null;
+            this.dateDriverShiftLeader.ParentDA = null;
+            this.dateDriverShiftLeader.PK = false;
+            this.dateDriverShiftLeader.Protected = false;
+            this.dateDriverShiftLeader.Search = false;
+            this.dateDriverShiftLeader.ShowCheckBox = true;
+            this.dateDriverShiftLeader.Size = new System.Drawing.Size(152, 24);
+            this.dateDriverShiftLeader.TabIndex = 72;
+            this.dateDriverShiftLeader.Upp = false;
+            this.dateDriverShiftLeader.Value = null;
+            // 
             // fSimpleDeliveriesEPC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(719, 552);
+            this.ClientSize = new System.Drawing.Size(719, 566);
+            this.Controls.Add(this.dateDriverShiftLeader);
             this.Controls.Add(this.VS);
             this.Controls.Add(this.txtTrailerPlate);
             this.Controls.Add(this.cboService);
             this.Controls.Add(this.lstFlags);
             this.Controls.Add(this.dateEnd);
             this.Controls.Add(this.dateStart);
-            this.Controls.Add(this.dateEPC);
-            this.Controls.Add(this.dateCheckPoint);
+            this.Controls.Add(this.dateGate2);
+            this.Controls.Add(this.dateParking);
             this.Controls.Add(this.txtTruckPlate);
             this.Controls.Add(this.cboDock);
             this.Controls.Add(this.txtResponsible);
@@ -651,8 +688,8 @@
         private EspackFormControls.EspackTextBox txtResponsible;
         private EspackFormControls.EspackComboBox cboDock;
         private EspackFormControls.EspackTextBox txtTruckPlate;
-        private EspackFormControls.EspackDateTimePicker dateCheckPoint;
-        private EspackFormControls.EspackDateTimePicker dateEPC;
+        private EspackFormControls.EspackDateTimePicker dateParking;
+        private EspackFormControls.EspackDateTimePicker dateGate2;
         private EspackFormControls.EspackDateTimePicker dateStart;
         private EspackFormControls.EspackDateTimePicker dateEnd;
         private EspackFormControls.EspackCheckedListBox lstFlags;
@@ -661,5 +698,6 @@
         private System.Windows.Forms.ToolStripButton btnPrint;
         private EspackFormControls.EspackTextBox txtTrailerPlate;
         private EspackDataGrid.EspackDataGridView VS;
+        private EspackFormControls.EspackDateTimePicker dateDriverShiftLeader;
     }
 }

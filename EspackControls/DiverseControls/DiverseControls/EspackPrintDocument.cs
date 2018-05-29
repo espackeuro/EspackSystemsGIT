@@ -808,8 +808,8 @@ namespace DiverseControls
         // Add the results of a query to the current area
         public void AddQuery(string pSQL, cAccesoDatosNet pConn, EspackFont pFont=null, bool pHideTitles=false)
         {
-            if (CurrentArea != null)
-            {
+            //if (CurrentArea != null)
+            //{
                 using (var _rs = new DynamicRS(pSQL, pConn))
                 {
                     _rs.Open();
@@ -877,11 +877,11 @@ namespace DiverseControls
                         //});
                     }
                 }
-            }
-            else
-            {
-                MessageBox.Show("There is not current Area defined.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("There is not current Area defined.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
 

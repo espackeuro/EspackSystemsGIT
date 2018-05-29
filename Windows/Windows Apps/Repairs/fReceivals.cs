@@ -163,12 +163,9 @@ namespace Repairs
                         _pollo.AddText("HOLA1");
                         _pollo.AddText("HOLA2",true);
                         _pollo.AddText("ADIOS", new EspackFont("Tahoma", 6F)); ;
-                        _pollo.AddText("ADIOS");
-                        _pollo.AddText("ADIOS");
                         _pollo.AddText("ADIOS",true);
                         _pollo.AddText("P", new EspackFont("Tahoma", 2F));
                         _pollo.AddText("TARDO");
-                        _pollo.AddText(" CON CHORIZOS");
                         _pollo.AddArea(EnumDocumentZones.FOOTER, new EspackFont("Tahoma",5.4F)); //, new Font(fontFamily, 10, FontStyle.Bold), new SolidBrush(Color.Black));
                         _pollo.AddText("YUHU!!");
                         _pollo.AddText("YUPI!!");
@@ -176,7 +173,7 @@ namespace Repairs
                         _pollo.AddText("YUHU!!", new EspackFont("Comic Sans MS", 4F));
                         _pollo.AddText("YUPI!!");
                         //_pollo.AddArea(EnumDocumentZones.BODY, new EspackFont("Tahoma", 3F),pDocking:EnumZoneDocking.DOWNWARDS);
-                        _pollo.AddQuery("select top 60 Usuario,tipo,descripcion from GENERAL..usuarios_web",Values.gDatos, new EspackFont("Tahoma", 2F));
+                        _pollo.AddQuery("select Usuario,tipo,descripcion from GENERAL..usuarios_web",Values.gDatos, new EspackFont("Tahoma", 2F));
 
                         _pollo.Print();
                     }
