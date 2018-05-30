@@ -63,17 +63,8 @@ namespace EspackDataGrid
         public DataGridView EditingControlDataGridView { get => ParentDataGrid; set => ParentDataGrid = (EspackDataGridView)value; }
 
         //
-        public object EditingControlFormattedValue
-        {
-            get
-            {
-                return Value.ToString().Replace("|", ", ");
-            }
-            set
-            {
-                Value = value.ToString();
-            }
-        }
+        public object EditingControlFormattedValue { get => Value.ToString(); set => Value = value; }
+
 
 
         // Implements the IDataGridViewEditingControl.EditingControlRowIndex 

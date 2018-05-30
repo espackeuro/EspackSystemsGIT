@@ -157,10 +157,13 @@ namespace EspackDataGrid
             //AutoCompleteCustomSource = autoCompleteCustomSource;
             Parent = (EspackDataGridView)DataGridView;
             Type = type;
-            AutoSizeMode = width == 0 ? DataGridViewAutoSizeColumnMode.AllCells : DataGridViewAutoSizeColumnMode.None;
+            //AutoSizeMode = width == 0 ? DataGridViewAutoSizeColumnMode.AllCells : DataGridViewAutoSizeColumnMode.None;
             DataPropertyName = DBField;
             Visible = visible;
             SqlSource = query;
+            Resizable = DataGridViewTriState.True;
+            Sortable = true;
+            SortMode = DataGridViewColumnSortMode.Automatic;
         }
 
         public override DataGridViewCell CellTemplate

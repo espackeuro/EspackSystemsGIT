@@ -89,7 +89,7 @@ namespace EspackDataGrid
                 mFilterRowEnabled = value;
                 if (value == true)
                 {
-                    FilterCells = new List<EspackDataGridViewCell>();
+                    //FilterCells = new List<EspackDataGridViewCell>();
                     AddFilterRow();
                 }
                 else
@@ -97,13 +97,13 @@ namespace EspackDataGrid
                     if (Rows?.Count != 0)
                         Rows?.RemoveAt(0);
                     FilterRow = null;
-                    FilterCells = null;
+                    //FilterCells = null;
                 }
             }
         }
         public EspackDataGridView FilterDataGrid { get; set; }
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public List<EspackDataGridViewCell> FilterCells { get; set; } = null;
+        public List<EspackDataGridViewCell> FilterCells { get => FilterDataGrid?.Rows[0].Cells.OfType<EspackDataGridViewCell>().ToList(); }
         //EspackFormControl properties
         public EspackLabel CaptionLabel { get; set; }
         public string Caption
@@ -472,32 +472,69 @@ namespace EspackDataGrid
         public string DBTable { get; set; }
         private EspackDataGridViewCell oldCurrentCell; //{ get; set; }
         public bool Dirty { get; set; }
+        private EspackDataGridView DataDataGridView;
         //private int RowEdited;
         //private bool RowEditedBool = false;
         #endregion
-        public EspackDataGridView()
+        public EspackDataGridView(bool isFilterGrid = false, EspackDataGridView dataDataGV=null)
         {
             AllowDelete = false;
             AllowInsert = false;
             AllowUpdate = false;
             RowHeadersVisible = false;
-            GridColor = SystemColors.ButtonFace;
-            AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            CellBeginEdit += VSCellBeginEdit;
-            CellEndEdit += EspackDataGridView_CellEndEdit;
-            CurrentCellDirtyStateChanged += EspackDataGridView_CurrentCellDirtyStateChanged;
-            Resize += CtlVSGrid_Resize;
-            KeyDown += CtlVSGrid_KeyDown;
-            CellEnter += EspackDataGridView_CellEnter; ;
-            SelectionChanged += EspackDataGridView_SelectionChanged;
-            ColumnWidthChanged += EspackDataGridView_ColumnWidthChanged;
-            //CurrentCellChanged += EspackDataGridView_CurrentCellChanged;
-            //this.RowEnter += EspackDataGridView_RowEnter;
-            Dirty = false;
+            CellEnter += EspackDataGridView_CellEnter;
+            if (!isFilterGrid)
+            {
+                GridColor = SystemColors.ButtonFace;
+                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                AllowUserToResizeColumns = true;
+                CellBeginEdit += VSCellBeginEdit;
+                CellEndEdit += EspackDataGridView_CellEndEdit;
+                CurrentCellDirtyStateChanged += EspackDataGridView_CurrentCellDirtyStateChanged;
+                Resize += CtlVSGrid_Resize;
+                KeyDown += CtlVSGrid_KeyDown;
+                
+                SelectionChanged += EspackDataGridView_SelectionChanged;
+                ColumnWidthChanged += EspackDataGridView_ColumnWidthChanged;
+                //CurrentCellChanged += EspackDataGridView_CurrentCellChanged;
+                //this.RowEnter += EspackDataGridView_RowEnter;
+                Dirty = false;
+
+            } else
+            {
+                Sorted += EspackDataGridView_Sorted;
+                DataDataGridView = dataDataGV;
+                DataDataGridView.Scroll += DataDataGridView_Scroll;
+                DataDataGridView.VerticalScrollBar.VisibleChanged += VerticalScrollBar_VisibleChanged;
+            }
             SetStatus(EnumStatus.SEARCH);
             AllowUserToAddRows = false;
             CaptionLabel = new EspackLabel("", this) { AutoSize = true };
             EspackTheme.changeControlFormat(this);
+
+        }
+
+        private void VerticalScrollBar_VisibleChanged(object sender, EventArgs e)
+        {
+            if (DataDataGridView.VerticalScrollBar.Visible)
+            {
+                Width = DataDataGridView.Width - DataDataGridView.VerticalScrollBar.Width;
+            } else
+            {
+                Width = DataDataGridView.Width;
+            }
+            Refresh();
+            HorizontalScrollingOffset = DataDataGridView.HorizontalScrollingOffset;
+        }
+
+        private void DataDataGridView_Scroll(object sender, ScrollEventArgs e)
+        {
+            HorizontalScrollingOffset = DataDataGridView.HorizontalScrollingOffset;
+        }
+
+        private void EspackDataGridView_Sorted(object sender, EventArgs e)
+        {
+            DataDataGridView.Sort(DataDataGridView.Columns[SortedColumn.Index], SortOrder == SortOrder.Ascending ? ListSortDirection.Ascending : ListSortDirection.Descending);
         }
 
         private void EspackDataGridView_ColumnWidthChanged(object sender, DataGridViewColumnEventArgs e)
@@ -569,14 +606,17 @@ namespace EspackDataGrid
         private void EspackDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             bool commitEdit = false;
-            if (e.ColumnIndex == VisibleColumns.Select(c => c.Index).Max() && !((EspackDataGridViewCell)CurrentCell).IsFilterCell)
+            if (e.ColumnIndex == VisibleColumns.Select(c => c.Index).Max())
                 commitEdit = true;
-            if (CurrentCell.ReadOnly && e.ColumnIndex == VisibleColumns.Select(c => c.Index).Max() && !((EspackDataGridViewCell)CurrentCell).IsFilterCell)
+            if (CurrentCell.ReadOnly && e.ColumnIndex == VisibleColumns.Select(c => c.Index).Max())
                 commitEdit = true;
             if (commitEdit)
             {
                 if (!ExecuteCommand(true))
                     cancelSelect = true;
+            } else
+            {
+                CurrentCell = NextEditableCell();
             }
             oldCurrentCell = (EspackDataGridViewCell)CurrentCell;
 
@@ -608,15 +648,16 @@ namespace EspackDataGrid
             CaptionLabel = null;
         }
 
-
+        private bool endEditing = false;
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if ((keyData == Keys.Enter))
             {
                 if (IsCurrentCellInEditMode)
                 {
+                    endEditing = true;
                     EndEdit();
-                    CurrentCell = NextEditableCell();
+                    endEditing = false;
                 }
                 else
                 if (!CurrentCell.ReadOnly)
@@ -632,31 +673,44 @@ namespace EspackDataGrid
         #region FilterMethods
         private void AddFilterRow()
         {
-            FilterDataGrid = new EspackDataGridView();
+            FilterDataGrid = new EspackDataGridView(true, this);
+            //FilterDataGrid.CellEnter += EspackDataGridView_CellEnter;
+            FilterDataGrid.ColumnWidthChanged += FilterDataGrid_ColumnWidthChanged;
+            FilterDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            FilterDataGrid.AllowUserToResizeColumns = true;
             FilterDataGrid.Conn = Conn;
             FilterDataGrid.Location = Location;
             FilterDataGrid.Height = 2 * Rows[0].Height;
             FilterDataGrid.Width = Width;
+            FilterDataGrid.ScrollBars = ScrollBars.None;
             Location = new Point(Location.X, Location.Y + 2 * Rows[0].Height);
             Height = Height - 2 * Rows[0].Height;
             Parent.Controls.Add(FilterDataGrid);
             Columns.OfType<EspackDataGridViewColumn>().Where(c => c.Visible == true).ToList().ForEach(c =>
              {
-                 var column = new EspackDataGridViewColumn();
-                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                 column.Width = c.Width;
-                 column.Tag = c.Index;
-                 column.HeaderText = c.HeaderText;
-                 column.Name = c.Name;
-                 column.DBField = c.DBField;
+                 var column = new EspackDataGridViewColumn
+                 {
+                     AutoSizeMode = DataGridViewAutoSizeColumnMode.None,
+                     Width = c.Width,
+                     Tag = c.Index,
+                     HeaderText = c.HeaderText,
+                     Name = c.Name,
+                     DBField = c.DBField
+                 };
                  FilterDataGrid.Columns.Add(column);
              });
-            this.RowHeadersVisible = false;
+            ColumnHeadersVisible = false;
             FilterRow = new DataGridViewRow();
             FilterDataGrid.Rows.Add(FilterRow);
-            Refresh();
+            //Refresh();
             //FilterRow = FilterDataGrid.Rows[0];
         }
+
+        private void FilterDataGrid_ColumnWidthChanged(object sender, DataGridViewColumnEventArgs e)
+        {
+            Columns.OfType<DataGridViewColumn>().Where(c => c.Index == e.Column.Tag.ToInt()).First().Width = e.Column.Width;
+        }
+
         public void AddFilterCell(EspackCellTypes type, int column, string sqlSource = "")
         {
             if (FilterRowEnabled)
@@ -678,24 +732,31 @@ namespace EspackDataGrid
         {
             //for (int i = 1; i < Rows.Count; i++)
             //    mDA.Table.Rows.RemoveAt(i);
-
+            if (FilterDataGrid.IsCurrentCellInEditMode && !FilterDataGrid.endEditing)
+                FilterDataGrid.EndEdit();
             List<string> whereList = new List<string>();
             //Dictionary<int, string> valueList = new Dictionary<int, string>();
-            foreach(EspackDataGridViewCell c in FilterDataGrid.Rows[0].Cells)
+            foreach(EspackDataGridViewCell c in FilterCells)
             {
                 //valueList.Add(c.ColumnIndex, c.Value.ToString());
                 if (c.Value?.ToString()!=null && c.Value?.ToString() != "")
                 {
-                    whereList.Add(string.Format("{0} like '%{1}%'", c.Column.DBField, c.Value.ToString()));
+                    if (c.Type == EspackCellTypes.CHECKEDCOMBO)
+                    {
+                        var values = string.Format("'{0}'", c.Value.ToString().Replace("|", "','"));
+                        whereList.Add(string.Format("{0} in ({1})", c.Column.DBField, values));
+                    }
+                    else
+                        whereList.Add(string.Format("{0} like '%{1}%'", c.Column.DBField, c.Value.ToString()));
                 }
             }
             BaseSQL = BaseSQL ?? SQL;
-            Refresh();
+            //Refresh();
             DA _da = new DA(Conn);
             _da.SQL = whereList.Count > 0 ? string.Format("Select * from ({0}) a where {1}", BaseSQL, string.Join(" and ", whereList)) : BaseSQL;
             _da.Open();
-
-            
+            DataSource = _da.Table;
+            Refresh();
             //((EspackDataGridViewColumn)Columns[e.ColIndex]).Filter(e.NewValue.ToString(), true);
         }
 
@@ -893,6 +954,7 @@ namespace EspackDataGrid
                 return false;
             }
             StatusMsg(lMsg);
+            Application.DoEvents();
             //RowEditedBool = false;
             UpdateEspackControl();
             if (EspackControlParent != null && !lCommand.Equals(mDA.DeleteCommand))
@@ -1039,7 +1101,9 @@ namespace EspackDataGrid
             }
             SelectionChanged -= EspackDataGridView_SelectionChanged;
             DataSource = mDA.Table;
+            AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             Refresh();
+            AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             SelectionChanged += EspackDataGridView_SelectionChanged;
             Dirty = false;
             SetStatus(mStatus);

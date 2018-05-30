@@ -111,7 +111,7 @@ namespace CheckedComboBoxNS
             // Keeps track of whether checked item(s) changed, hence the value of the CheckedComboBox as a whole changed.
             // This is simply done via maintaining the old string-representation of the value(s) and the new one and comparing them!
             private string oldStrValue = "";
-            public bool ValueChanged
+            public bool ChangedValue
             {
                 get
                 {
@@ -149,7 +149,9 @@ namespace CheckedComboBoxNS
                 this.ShowInTaskbar = false;
                 // Add a handler to notify our parent of ItemCheck events.
                 this.cclb.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.cclb_ItemCheck);
+                //this.Leave += System.Windows.Forms.leaveevent;
             }
+
 
             // ********************************************* Methods *********************************************
 
@@ -330,9 +332,9 @@ namespace CheckedComboBoxNS
             get { return dropdown.InternalCheckedListBox.CheckedIndices; }
         }
 
-        public bool ValueChanged
+        public bool ChangedValue
         {
-            get { return dropdown.ValueChanged; }
+            get { return dropdown.ChangedValue; }
         }
 
         // Event handler for when an item check state changes.

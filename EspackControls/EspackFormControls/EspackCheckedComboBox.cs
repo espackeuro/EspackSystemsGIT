@@ -143,36 +143,30 @@ namespace EspackFormControls
             base.Margin = _m;
             EspackTheme.changeControlFormat(this);
             ItemCheck += EspackCheckedComboBox_ItemCheck;
+            DropDownClosed += EspackCheckedComboBox_DropDownClosed;
         }
+
+        private void EspackCheckedComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+            if (oldValue != Value)
+                OnValueChanged(new ValueChangedEventArgs(oldValue, Value));
+        }
+
 
         public event EventHandler<ValueChangedEventArgs> ValueChanged;
 
-
+        private object oldValue;
         private void EspackCheckedComboBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             if (noChange)
                 return;
             noChange = true;
-            var _old = Value;
             //noChange = true;
             var handler = ValueChanged;
-            if (handler != null)
-            {
-                Delegate[] invocationList = ValueChanged.GetInvocationList();
-                foreach (var receiver in invocationList)
-                {
-                    ValueChanged -= (EventHandler<ValueChangedEventArgs>)receiver;
-                }
-                var oldValue = Value;
-                SetItemCheckState(e.Index, e.NewValue);
-                if (oldValue != Value)
-                    OnValueChanged(new ValueChangedEventArgs(oldValue, Value));
-                foreach (var receiver in invocationList)
-                {
-                    ValueChanged += (EventHandler<ValueChangedEventArgs>)receiver;
-                }
-            }
-            var ex = new AfterItemCheckEventArgs(e.Index, e.CurrentValue, e.NewValue) { ListCurrentValue = _old.ToString(), ListNewValue = Value.ToString() };
+
+            oldValue = Value;
+            SetItemCheckState(e.Index, e.NewValue);
+            var ex = new AfterItemCheckEventArgs(e.Index, e.CurrentValue, e.NewValue) { ListCurrentValue = oldValue.ToString(), ListNewValue = Value.ToString() };
             OnAfterItemCheck(ex);
             noChange = false;
         }

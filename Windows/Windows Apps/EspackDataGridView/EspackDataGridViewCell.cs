@@ -183,11 +183,12 @@ namespace EspackDataGrid
                     editControl = DataGridView.EditingControl as EspackEditControlTextBox;
                     break;
             }
+            editControl.Control.ValueChanged -= Control_ValueChanged;
             editControl.SqlSource = SqlSource;
             editControl.AutoCompleteMode = AutoCompleteMode;
             editControl.AutoCompleteSource = AutoCompleteSource;
             editControl.AutoCompleteCustomSource = AutoCompleteCustomSource;
-            editControl.Control.ValueChanged -= Control_ValueChanged;
+            oldValue = Value;
             editControl.Value = Value;
             editControl.Control.ValueChanged += Control_ValueChanged;
             // Use the default row value when Value property is null.
@@ -204,13 +205,17 @@ namespace EspackDataGrid
         private object oldValue = null;
         private void Control_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            if (e.NewValue?.ToString() != oldValue?.ToString())
-            {
-                var eventArgs = new CellValueChangedEventArgs(this, oldValue, e.NewValue);
-                DataGridView.EndEdit();
-                OnCellValueChanged(eventArgs);
-                oldValue = e.NewValue;
-            }
+            if (DataGridView?.CurrentCell == this)
+                if (e.NewValue != null && e.NewValue?.ToString() != oldValue?.ToString())
+                {
+                    var eventArgs = new CellValueChangedEventArgs(this, oldValue, e.NewValue);
+                    //if (DataGridView.Focus())
+                    //    DataGridView.EndEdit();
+                    Value = e.NewValue;
+                    OnCellValueChanged(eventArgs);
+                    //editControl.Control.ValueChanged -= Control_ValueChanged;
+                    oldValue = e.NewValue;
+                }
         }
 
         public override Type EditType
