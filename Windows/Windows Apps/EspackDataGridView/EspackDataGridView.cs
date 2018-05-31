@@ -50,7 +50,7 @@ namespace EspackDataGrid
         public int NumPages { get; set; }
         public EspackControl EspackControlParent { get; set; }
         //public Dictionary<string,Control> VSPrimaryKey { get; set; }
-        
+
         public string DBField { get; set; }
         public bool Add { get; set; }
         public bool Upp { get; set; }
@@ -365,7 +365,7 @@ namespace EspackDataGrid
                 case EnumStatus.EDIT:
                     {
 
-                        
+
                         if (RowCount == 0 && DataSource == null)
                         {
                             Rows.Add();
@@ -476,6 +476,9 @@ namespace EspackDataGrid
         //private int RowEdited;
         //private bool RowEditedBool = false;
         #endregion
+        public EspackDataGridView() :
+            this(false, null) {}
+
         public EspackDataGridView(bool isFilterGrid = false, EspackDataGridView dataDataGV=null)
         {
             AllowDelete = false;
