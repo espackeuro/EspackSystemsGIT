@@ -202,7 +202,7 @@ namespace Simplistica
                         else
                         {
                             VS[VS.Columns["Description"].Index, e.RowIndex].Value = _rs["Descripcion"].ToString();
-                            VS.CurrentCell = VS[VS.Columns["Description"].Index, e.RowIndex];
+                            //VS.CurrentCell = VS[VS.Columns["Description"].Index, e.RowIndex];
                             VS[VS.Columns["Destination"].Index, e.RowIndex].Value = _rs["Destination"].ToString(); ;
                         }
                     }
