@@ -11,6 +11,7 @@ using System.IO;
 using System.IO.IsolatedStorage;
 using System.Xml;
 using CommonToolsWin;
+using static Simplistica.Program;
 
 namespace Simplistica
 {
@@ -35,6 +36,7 @@ namespace Simplistica
             cboWarehouse.Source("select cod3,Descripcion from general..sedes_servicios S inner join general..Sedes se on se.Codigo = S.CodigoSede where codigoServicio = 'LOGISTICA' order by Descripcion",Values.gDatos);
             cboWarehouse.Value = cSettings.readSetting("COD3");
             Values.COD3 = cboWarehouse.Value.ToString();
+
             cboWarehouse.SelectedIndexChanged += CboWarehouse_SelectedIndexChanged;
         }
 
@@ -42,6 +44,7 @@ namespace Simplistica
         {
             cSettings.writeSetting("COD3", cboWarehouse.Value.ToString());
             Values.COD3 = cboWarehouse.Value.ToString();
+            fMain.Text = string.Format("{0} - {1} Warehouse", VersionNumber, Values.COD3);
         }
 
         private void CboPrinters_SelectedIndexChanged(object sender, EventArgs e)

@@ -61,9 +61,9 @@ namespace Simplistica
 
             //VS Details
             VS.AddColumn("Entrada", txtEntrada, "@entrada", "", "@entrada", pVisible: false);
-            VS.AddColumn("Linea", "linea", "", "", "@linea", pSortable: true);
+            VS.AddColumn("Line", "linea", "", "", "@linea", pSortable: true);
             VS.AddColumn("PartNumber", "partnumber", "@partnumber", pSortable: true, pWidth: 90, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: string.Format("select partnumber from referencias where servicio='{0}'", cboServicio.Value));
-            VS.AddColumn("Descripcion", "descripcion", "@descripcion", pSortable: true, pWidth: 200, pLocked:true);
+            VS.AddColumn("Description", "descripcion", "@descripcion", pSortable: true, pWidth: 200, pLocked:true);
             VS.AddColumn("Qty", "Qty", "@qty", pWidth: 90);
             VS.CellEndEdit += VS_CellEndEdit; //VS_CellValidating; ; ;
 
@@ -79,7 +79,11 @@ namespace Simplistica
         {
             btnACheck.Enabled = lstFlags["PALETAGS"] == false && lstFlags["RECEIVED"] == true && ServiceFlags.Contains("AUTOCHECK");
             btnReceived.Enabled = lstFlags["RECEIVED"] == false && txtEntrada.ToString() != "";
-            btnLabelCMs.Enabled = !ServiceFlags.Contains("AUTOCHECK");
+
+            if (ServiceFlags != null)
+                btnLabelCMs.Enabled = !ServiceFlags.Contains("AUTOCHECK");
+            else
+                btnLabelCMs.Enabled = false;
         }
 
         private void CboServicio_SelectedValueChanged(object sender, EventArgs e)
@@ -104,24 +108,31 @@ namespace Simplistica
 
         private void VS_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 2)
+            if (e.ColumnIndex == VS.Columns["Partnumber"].Index)
             {
-                using (var _rs = new StaticRS(string.Format("Select Descripcion from Referencias where partnumber='{0}' and Servicio='{1}'", VS[e.ColumnIndex, e.RowIndex].Value, cboServicio.Value), Values.gDatos))
+                if (VS[e.ColumnIndex, e.RowIndex].Value.ToString()!="")
                 {
-                    _rs.Open();
-                    if (_rs.RecordCount == 0)
+                    using (var _rs = new StaticRS(string.Format("Select Descripcion from Referencias where partnumber='{0}' and Servicio='{1}'", VS[e.ColumnIndex, e.RowIndex].Value, cboServicio.Value), Values.gDatos))
                     {
-                        CTWin.MsgError("Wrong partnumber");
-                        VS[e.ColumnIndex, e.RowIndex].Value = "";
-                        VS[e.ColumnIndex + 1, e.RowIndex].Value = "";
-                        //VS.CurrentCell = VS[e.ColumnIndex, e.RowIndex];
-                        //e.Cancel = true;
+                        _rs.Open();
+                        if (_rs.RecordCount == 0)
+                        {
+                            CTWin.MsgError("Wrong partnumber");
+                            VS[e.ColumnIndex, e.RowIndex].Value = "";
+                            VS[VS.Columns["Description"].Index, e.RowIndex].Value = "";
+                            //VS.CurrentCell = VS[e.ColumnIndex, e.RowIndex];
+                            //e.Cancel = true;
+                        }
+                        else
+                        {
+                            VS[VS.Columns["Description"].Index, e.RowIndex].Value = _rs["Descripcion"].ToString();
+                            //VS.CurrentCell = VS[e.ColumnIndex + 2, e.RowIndex];
+                        }
                     }
-                    else
-                    {
-                        VS[e.ColumnIndex + 1, e.RowIndex].Value = _rs["Descripcion"].ToString();
-                        //VS.CurrentCell = VS[e.ColumnIndex + 2, e.RowIndex];
-                    }
+                }
+                else
+                {
+                    VS[VS.Columns["Description"].Index, e.RowIndex].Value = "";
                 }
 
             }

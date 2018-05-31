@@ -366,14 +366,15 @@ namespace EspackDataGrid
                     {
 
 
-                        if (RowCount == 0 && DataSource == null)
+                        if (RowCount == 0 && DataSource == null && AllowInsert)
                         {
                             Rows.Add();
                         }
                         else
                         {
                             DataRow newRow = mDA.Table.NewRow();
-                            mDA.Table.Rows.Add(newRow);
+                            if (AllowInsert)
+                                mDA.Table.Rows.Add(newRow);
                         }
                         Refresh();
                         break;
@@ -408,7 +409,7 @@ namespace EspackDataGrid
                 }
                 foreach (EspackDataGridViewCell lCell in Rows[RowCount - 1].Cells)
                 {
-                    lCell.ReadOnly = !((EspackDataGridViewColumn)Columns[lCell.ColumnIndex]).Add || ((EspackDataGridViewColumn)Columns[lCell.ColumnIndex]).Locked;
+                    lCell.ReadOnly = !((EspackDataGridViewColumn)Columns[lCell.ColumnIndex]).Add || ((EspackDataGridViewColumn)Columns[lCell.ColumnIndex]).Locked || !AllowInsert;
                     //if (lCell.ReadOnly)
                     //{
                     //    lCell.Style.BackColor = Colors.CELLLOCKEDBACKCOLOR;
@@ -420,7 +421,8 @@ namespace EspackDataGrid
                     //    lCell.Style.ForeColor = Colors.CELLFORECOLOR;
                     //}
                 }
-                this.CurrentCell = Rows[RowCount - 1].Cells.Cast<DataGridViewCell>().First(x => x.ReadOnly == false && x.Visible == true);
+                var _candidate = Rows[RowCount - 1].Cells.Cast<DataGridViewCell>().FirstOrDefault(x => x.ReadOnly == false && x.Visible == true);
+                this.CurrentCell = _candidate ?? this[0, 0];
             }
             if (FilterRowEnabled)
             {
@@ -498,6 +500,7 @@ namespace EspackDataGrid
                 KeyDown += CtlVSGrid_KeyDown;
                 SelectionChanged += EspackDataGridView_SelectionChanged;
                 ColumnWidthChanged += EspackDataGridView_ColumnWidthChanged;
+                CellLeave += EspackDataGridView_CellLeave;
                 //CurrentCellChanged += EspackDataGridView_CurrentCellChanged;
                 //this.RowEnter += EspackDataGridView_RowEnter;
                 Dirty = false;
@@ -514,6 +517,11 @@ namespace EspackDataGrid
             CaptionLabel = new EspackLabel("", this) { AutoSize = true };
             EspackTheme.changeControlFormat(this);
 
+        }
+
+        private void EspackDataGridView_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            oldCurrentCell = (EspackDataGridViewCell)this[e.ColumnIndex, e.RowIndex];
         }
 
         private void VerticalScrollBar_VisibleChanged(object sender, EventArgs e)
@@ -581,7 +589,7 @@ namespace EspackDataGrid
                         SelectionChanged += EspackDataGridView_SelectionChanged;
                     }
             }
-            oldCurrentCell = (EspackDataGridViewCell)CurrentCell;
+            //oldCurrentCell = (EspackDataGridViewCell)CurrentCell; /*/
         }
 
         //private void EspackDataGridView_CurrentCellChanged(object sender, EventArgs e)
@@ -602,11 +610,13 @@ namespace EspackDataGrid
         //    }
         //}
         private bool cancelSelect = false;
+        private bool executed = false;
 
         public event EventHandler<ValueChangedEventArgs> ValueChanged;
 
         private void EspackDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            executed = false;
             if (endEditing)
                 return;
             endEditing = true;
@@ -617,8 +627,8 @@ namespace EspackDataGrid
                 commitEdit = true;
             if (commitEdit)
             {
-                if (!ExecuteCommand(true))
-                    cancelSelect = true;
+                executed = true;
+                cancelSelect = !ExecuteCommand(true);
             }
             //else
             //{
@@ -671,7 +681,8 @@ namespace EspackDataGrid
                 if (IsCurrentCellInEditMode)
                 {
                     EndEdit();
-                    CurrentCell = NextEditableCell();
+                    if (!cancelSelect && !executed)
+                        CurrentCell = NextEditableCell();
                 }
                 else
                 if (!CurrentCell.ReadOnly)
