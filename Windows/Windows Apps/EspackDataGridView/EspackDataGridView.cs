@@ -365,7 +365,7 @@ namespace EspackDataGrid
                 case EnumStatus.EDIT:
                     {
 
-
+                        
                         if (RowCount == 0 && DataSource == null)
                         {
                             Rows.Add();
@@ -488,12 +488,11 @@ namespace EspackDataGrid
                 GridColor = SystemColors.ButtonFace;
                 AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 AllowUserToResizeColumns = true;
-                CellBeginEdit += VSCellBeginEdit;
+                CellBeginEdit += EspackDataGridView_CellBeginEdit;
                 CellEndEdit += EspackDataGridView_CellEndEdit;
                 CurrentCellDirtyStateChanged += EspackDataGridView_CurrentCellDirtyStateChanged;
                 Resize += CtlVSGrid_Resize;
                 KeyDown += CtlVSGrid_KeyDown;
-                
                 SelectionChanged += EspackDataGridView_SelectionChanged;
                 ColumnWidthChanged += EspackDataGridView_ColumnWidthChanged;
                 //CurrentCellChanged += EspackDataGridView_CurrentCellChanged;
@@ -560,7 +559,7 @@ namespace EspackDataGrid
                 cancelSelect = false;
                 return;
             }
-            if (oldCurrentCell != null && CurrentCell.RowIndex != oldCurrentCell.RowIndex)
+            if (oldCurrentCell != null && CurrentCell?.RowIndex != oldCurrentCell.RowIndex)
             {
                 if (oldCurrentCell.RowIndex == RowCount - 1 && AllowInsert && Dirty)
                 {
@@ -605,6 +604,9 @@ namespace EspackDataGrid
 
         private void EspackDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            if (endEditing)
+                return;
+            endEditing = true;
             bool commitEdit = false;
             if (e.ColumnIndex == VisibleColumns.Select(c => c.Index).Max())
                 commitEdit = true;
@@ -614,12 +616,15 @@ namespace EspackDataGrid
             {
                 if (!ExecuteCommand(true))
                     cancelSelect = true;
-            } else
-            {
-                CurrentCell = NextEditableCell();
             }
-            oldCurrentCell = (EspackDataGridViewCell)CurrentCell;
-
+            //else
+            //{
+            //    cancelSelect = true;
+            //    var laCell = NextEditableCell();
+            //    CurrentCell = laCell;
+            //}
+            //oldCurrentCell = (EspackDataGridViewCell)CurrentCell;
+            endEditing = false;
             //RowEdited = e.RowIndex;
             //RowEditedBool = true;
         }
@@ -635,10 +640,17 @@ namespace EspackDataGrid
 
         private void EspackDataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (!this[e.ColumnIndex, e.RowIndex].ReadOnly && !IsCurrentCellInEditMode)
+            if (!this[e.ColumnIndex, e.RowIndex].ReadOnly)
             {
-                BeginEdit(true);
-            }
+                if (!IsCurrentCellInEditMode)
+                {
+                    BeginEdit(true);
+                }
+            }// else
+            //{
+            //    if (e.ColumnIndex < VisibleColumns.Select(c => c.Index).Max())
+            //        SendKeys.Send("{RIGHT}");
+            //}
         }
 
         ~EspackDataGridView()
@@ -651,13 +663,12 @@ namespace EspackDataGrid
         private bool endEditing = false;
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if ((keyData == Keys.Enter))
+            if ((keyData == Keys.Enter || keyData == Keys.Tab))
             {
                 if (IsCurrentCellInEditMode)
                 {
-                    endEditing = true;
                     EndEdit();
-                    endEditing = false;
+                    CurrentCell = NextEditableCell();
                 }
                 else
                 if (!CurrentCell.ReadOnly)
@@ -971,7 +982,7 @@ namespace EspackDataGrid
             base.OnMove(e);
         }
 
-        private void VSCellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        private void EspackDataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             if (CurrentCell.ReadOnly)
             {

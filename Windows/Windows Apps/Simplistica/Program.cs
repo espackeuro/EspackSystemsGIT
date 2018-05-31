@@ -15,6 +15,7 @@ namespace Simplistica
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             new frmSplash(args).ShowDialog();
+
             Application.Run(new fMainSimplistica(args));
         }
     }

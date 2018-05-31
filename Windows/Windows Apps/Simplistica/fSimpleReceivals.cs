@@ -61,7 +61,7 @@ namespace Simplistica
 
             //VS Details
             VS.AddColumn("Entrada", txtEntrada, "@entrada", "", "@entrada", pVisible: false);
-            VS.AddColumn("Linea", "linea", "", "", "@linea");
+            VS.AddColumn("Linea", "linea", "", "", "@linea", pSortable: true);
             VS.AddColumn("PartNumber", "partnumber", "@partnumber", pSortable: true, pWidth: 90, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: string.Format("select partnumber from referencias where servicio='{0}'", cboServicio.Value));
             VS.AddColumn("Descripcion", "descripcion", "@descripcion", pSortable: true, pWidth: 200, pLocked:true);
             VS.AddColumn("Qty", "Qty", "@qty", pWidth: 90);

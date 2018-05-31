@@ -28,9 +28,19 @@ namespace EspackDataGrid
         {
             return status;
         }
-
+        private bool oldSortable;
         public void SetStatus(EnumStatus value)
         {
+            if (value == EnumStatus.ADDNEW || value == EnumStatus.EDIT)
+            {
+                Sortable = false;
+                SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+            else
+            {
+                Sortable = oldSortable;
+                SortMode = Sortable ? DataGridViewColumnSortMode.Automatic : DataGridViewColumnSortMode.NotSortable;
+            }
             status = value;
         }
 
@@ -150,6 +160,7 @@ namespace EspackDataGrid
             LinkedControl = linkedControl;
             DBFieldType = dBFieldType;
             DBField = dBField == "" ? name : dBField;
+            oldSortable = sortable;
             Sortable = sortable;
             AutoCompleteMode = autoCompleteMode;
             AutoCompleteSource = autoCompleteSource;
@@ -162,8 +173,8 @@ namespace EspackDataGrid
             Visible = visible;
             SqlSource = query;
             Resizable = DataGridViewTriState.True;
-            Sortable = true;
-            SortMode = DataGridViewColumnSortMode.Automatic;
+            //Sortable = true;
+            SortMode = Sortable ? DataGridViewColumnSortMode.Automatic : DataGridViewColumnSortMode.NotSortable;
         }
 
         public override DataGridViewCell CellTemplate
