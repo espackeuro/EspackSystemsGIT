@@ -98,7 +98,7 @@ namespace Simplistica
                         ServiceFlags = _RS["flags"].ToString().Split('|');
                         btnLabelCMs.Enabled = !ServiceFlags.Contains("AUTOCHECK");
                         btnACheck.Enabled = ServiceFlags.Contains("AUTOCHECK");
-                        ((EspackDataGridViewColumn)VS.Columns["PartNumber"]).AutoCompleteQuery = string.Format("select partnumber from referencias where servicio='{0}'", cboServicio.Value);
+                        ((EspackDataGridViewColumn)VS.Columns["PartNumber"]).AutoCompleteQuery = string.Format("select partnumber from referencias where servicio='{0}' order by partnumber", cboServicio.Value);
                         //((EspackDataGridViewColumn)VS.Columns["PartNumber"]).ReQuery();
                     }
                 }
@@ -119,7 +119,6 @@ namespace Simplistica
                         {
                             CTWin.MsgError("Wrong partnumber");
                             VS[e.ColumnIndex, e.RowIndex].Value = "";
-                            VS[VS.Columns["Description"].Index, e.RowIndex].Value = "";
                             //VS.CurrentCell = VS[e.ColumnIndex, e.RowIndex];
                             //e.Cancel = true;
                         }
@@ -130,10 +129,8 @@ namespace Simplistica
                         }
                     }
                 }
-                else
-                {
+                if (VS[e.ColumnIndex, e.RowIndex].Value.ToString() == "")
                     VS[VS.Columns["Description"].Index, e.RowIndex].Value = "";
-                }
 
             }
         }

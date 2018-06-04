@@ -12,6 +12,7 @@ using System.IO.IsolatedStorage;
 using System.Xml;
 using CommonToolsWin;
 using static Simplistica.Program;
+using static CommonToolsWin.CTWin;
 
 namespace Simplistica
 {
@@ -45,6 +46,8 @@ namespace Simplistica
             cSettings.writeSetting("COD3", cboWarehouse.Value.ToString());
             Values.COD3 = cboWarehouse.Value.ToString();
             fMain.Text = string.Format("{0} - {1} Warehouse", VersionNumber, Values.COD3);
+
+            CloseFormsByName(eCloseFormsMethod.ALLEXCEPT,"fMainSimplistica|fSettings");
         }
 
         private void CboPrinters_SelectedIndexChanged(object sender, EventArgs e)

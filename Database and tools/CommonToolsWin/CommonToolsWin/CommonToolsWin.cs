@@ -11,6 +11,8 @@ namespace CommonToolsWin
 {
     public static class CTWin
     {
+        public enum eCloseFormsMethod { ALL, ALLEXCEPT, LIST };
+
         public static DialogResult InputBox(string title, string promptText, ref string value, bool Password = false)
         {
             Form form = new Form();
@@ -62,6 +64,19 @@ namespace CommonToolsWin
         public static void MsgError(string pMsg)
         {
             MessageBox.Show(pMsg, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public static void CloseFormsByName(eCloseFormsMethod eClose = eCloseFormsMethod.ALL, string pFormNames = "")
+        {
+            if (pFormNames != "")
+                pFormNames = pFormNames + (pFormNames.Substring(pFormNames.Length - 1, 1) != "|" ? "|" : "");
+
+            Form[] forms = Application.OpenForms.Cast<Form>().ToArray();
+            foreach (Form thisForm in forms)
+            {
+                if (eClose == eCloseFormsMethod.ALL || eClose == eCloseFormsMethod.ALLEXCEPT && pFormNames.IndexOf(thisForm.Name+"|")==-1 || eClose == eCloseFormsMethod.LIST && pFormNames.IndexOf(thisForm.Name + "|") != -1)
+                    thisForm.Close();
+            }
         }
     }
 

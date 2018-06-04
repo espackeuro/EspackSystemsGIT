@@ -86,14 +86,8 @@ namespace Simplistica
             CTLM.AddDefaultStatusStrip();
             CTLM.AddItem(VS);
             CTLM.Start();
-            CTLM.BeforeButtonClick += CTLM_BeforeButtonClick; ;
             CTLM.AfterButtonClick += CTLM_AfterButtonClick;
             toolStrip.Enabled = false;
-        }
-
-        private void CTLM_BeforeButtonClick(object sender, CTLMEventArgs e)
-        {
-            //var p = 1;
         }
 
         private void VS_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
@@ -196,8 +190,6 @@ namespace Simplistica
                         {
                             MsgError("Wrong partnumber");
                             VS[e.ColumnIndex, e.RowIndex].Value = "";
-                            VS[VS.Columns["Description"].Index, e.RowIndex].Value = "";
-                            VS[VS.Columns["Destination"].Index, e.RowIndex].Value = "";
                         }
                         else
                         {
@@ -207,12 +199,10 @@ namespace Simplistica
                         }
                     }
                 }
-                else
-                {
-                    VS[e.ColumnIndex, e.RowIndex].Value = "";
+
+                if(VS[e.ColumnIndex, e.RowIndex].Value.ToString() == "")
                     VS[VS.Columns["Description"].Index, e.RowIndex].Value = "";
-                    VS[VS.Columns["Destination"].Index, e.RowIndex].Value = "";
-                }
+
 
 
             }
