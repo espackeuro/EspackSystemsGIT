@@ -667,10 +667,10 @@ namespace DiverseControls
                                 _currentItem.Brush = _currentItem.Brush ?? (Brush)Font.Brush.Clone();
                             }
          
-                            if (_currentItem.X + _currentItem.Width > Width)
-                                Width = _currentItem.X + _currentItem.Width;
-                            if (_currentItem.Y + _currentItem.Height > Height)
-                                Height = _currentItem.Y + _currentItem.Height;
+                            if (_currentItem.X - X + _currentItem.Width > Width)
+                                Width = _currentItem.X - X + _currentItem.Width;
+                            if (_currentItem.Y - Y + _currentItem.Height > Height)
+                                Height = _currentItem.Y - Y + _currentItem.Height;
 
                             _currentItem.PrintMe = true;
                         }
@@ -706,6 +706,7 @@ namespace DiverseControls
         public string Format { get; set; }
         public int Counter { get; set; }
         public int Total { get; set; }
+        public int Rows { get; set; }
         public HorizontalAlignment Alignment { get; set; }
         public float X { get; set; }
         public float Y { get; set; }
@@ -808,80 +809,51 @@ namespace DiverseControls
         // Add the results of a query to the current area
         public void AddQuery(string pSQL, cAccesoDatosNet pConn, EspackFont pFont=null, bool pHideTitles=false)
         {
-            //if (CurrentArea != null)
-            //{
-                using (var _rs = new DynamicRS(pSQL, pConn))
+
+            using (var _rs = new DynamicRS(pSQL, pConn))
+            {
+                _rs.Open();
+                if (_rs.RecordCount == 0)
                 {
-                    _rs.Open();
-                    if (_rs.RecordCount == 0)
+                    MessageBox.Show("The query returned no data.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+
+                    Dictionary<string, List<string>> _matrix = new Dictionary<string, List<string>>();
+
+                    foreach (var _item in _rs.Fields)
                     {
-                        MessageBox.Show("The query returned no data.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                        _matrix[_item.ToString().Trim()] = new List<string>();
                     }
-                    else
+
+                    int _col;
+
+                    _rs.ToList().ForEach(_row =>
                     {
-
-                        Dictionary<string, List<string>> _matrix = new Dictionary<string, List<string>>();
-
-                        foreach (var _item in _rs.Fields)
+                        _col = 0;
+                        _row.ItemArray.ToList().ForEach(_column =>
                         {
-                            _matrix[_item.ToString().Trim()] = new List<string>();
-                        }
-
-                        int _col;
-
-                        _rs.ToList().ForEach(_row =>
-                        {
-                            _col = 0;
-                            _row.ItemArray.ToList().ForEach(_column =>
-                            {
-                                _matrix[_matrix.Keys.ToList()[_col]].Add(_column.ToString().Trim());
-                                _col++;
-                            });
+                            _matrix[_matrix.Keys.ToList()[_col]].Add(_column.ToString().Trim());
+                            _col++;
                         });
+                    });
 
-                        foreach (var _key in _matrix.Keys)
-                        {
-                            //EspackPrintingArea _a;
-                            Areas.Add(CurrentArea = new EspackPrintingArea(EnumDocumentZones.BODY,pFont, pDocking: EnumZoneDocking.RIGHTWARDS));
-                            foreach (var _item in _matrix[_key])
-                            {
-                                AddText(_item.ToString());
-                                NewLine();
-                            }
-                        }
+                    foreach (var _key in _matrix.Keys)
+                    {
+                        Areas.Add(CurrentArea = new EspackPrintingArea(EnumDocumentZones.BODY, pFont, pDocking: EnumZoneDocking.RIGHTWARDS));
 
-                        //if (!pHideTitles)
+                        // Add current column title
+                        if (!pHideTitles)
+                            AddText(true, _key.ToString(), true);
 
-                        //{
-                        //    EspackPrintingArea _a;
-                        //    //Areas.Add(_a = new EspackPrintingArea(EnumDocumentZones.BODY, pDocking: EnumZoneDocking.RIGHTWARDS));
-                        //    foreach (var _item in _rs.Fields)
-                        //    {
-                        //        Areas.Add(_a = new EspackPrintingArea(EnumDocumentZones.BODY, pDocking: EnumZoneDocking.RIGHTWARDS));
-                        //        _a.AddText(_item.ToString());
-                        //        //AddText(true,_item.ToString());
-                        //    }
-                        //    //NewLine();
-                        //}
-                        
-                        //List<string> _theList = new List<string>();
-                        //_rs.ToList().ForEach(_row => 
-                        //{ 
-                        //   _row.ItemArray.ToList().ForEach(_column =>
-                        //   {
-                        //       _theList.Add( _column.ToString());
-                        //       AddText(_column.ToString());
-                        //   });
-                        //   NewLine();
-                        //});
+                        // Add data for current column
+                        foreach (var _item in _matrix[_key])
+                            AddText(_item.ToString(), true);
                     }
                 }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("There is not current Area defined.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            }
         }
 
 
@@ -914,8 +886,7 @@ namespace DiverseControls
                 Areas.Where(_item => (_item.Zone == EnumDocumentZones.HEADER)).ToList().ForEach(_item =>
                 {
                     _item.ArrangeItems(_g, HardMargins, _previousArea);
-                    _minBodyY = (_minBodyY <  _item.Height) ?  _item.Height : _minBodyY;
-                    //_minBodyY = (_minBodyY < _item.Y + _item.Height) ? _item.Y + _item.Height : _minBodyY;
+                    _minBodyY = (_minBodyY < _item.Y + _item.Height) ? _item.Y + _item.Height : _minBodyY;
                     _previousArea = _item;
                 });
 
@@ -924,8 +895,7 @@ namespace DiverseControls
                 Areas.Where(_item => (_item.Zone == EnumDocumentZones.FOOTER)).ToList().ForEach(_item =>
                 {
                     _item.ArrangeItems(_g, HardMargins, _previousArea);
-                    _maxBodyY = (_maxBodyY < _item.Height) ?  _item.Height : _maxBodyY;
-                    //_maxBodyY = (_maxBodyY < _item.Y + _item.Height) ? _item.Y + _item.Height : _maxBodyY;
+                    _maxBodyY = (_maxBodyY < _item.Y + _item.Height) ? _item.Y + _item.Height : _maxBodyY;
                     _previousArea = _item;
                 });
 
@@ -951,9 +921,10 @@ namespace DiverseControls
                 {
                     _item.Y = _minBodyY;
                     _item.MaxHeight = _maxBodyY;
-                    Pager.Total = Pager.Total < _item.Items.Count ? _item.Items.Count : Pager.Total;
+                    Pager.Rows = Pager.Rows < _item.Items.Count ? _item.Items.Count : Pager.Rows;
                 });
                 Pager.Counter = 1;
+                Pager.Total = 1;
             }
 
             _previousArea = null;
@@ -970,9 +941,9 @@ namespace DiverseControls
             Areas.ForEach(_item =>
             {
                 _item.Draw(_g);
-                if (_item.Zone == EnumDocumentZones.BODY && Pager.Counter==1)
+                if (_item.Zone == EnumDocumentZones.BODY && Pager.Counter==1 && Pager.Total == 1 )
                 {
-                    Pager.Total = (int)Math.Ceiling((Pager.Total + 0.0) / (Pager.Total - _item.Items.Count + 0.0));
+                    Pager.Total = (int)Math.Ceiling((Pager.Rows + 0.0) / (Pager.Rows - _item.Items.Count + 0.0));
                 }
             });
 
