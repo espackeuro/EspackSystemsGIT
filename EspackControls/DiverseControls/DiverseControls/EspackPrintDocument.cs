@@ -352,7 +352,6 @@ namespace DiverseControls
 
 
 
-
     /* -----------------------------------------------------------------------------------------------
      *  NEW ESPACK PRINTING CLASSES
      * ----------------------------------------------------------------------------------------------- */
@@ -365,6 +364,7 @@ namespace DiverseControls
     {
         float X { get; set; }
         float Y { get; set; }
+        bool EOL { get; set; }
         Graphics Graphics { get; set; }
         float Height { get; }
         float Width { get; }
@@ -410,7 +410,7 @@ namespace DiverseControls
         {
             get
             {
-                return Image != null ? Image.Size.Height : 0;
+                return Image != null ? Image.Size.Height * 25.4F / Image.VerticalResolution : 0;
             }
         }
 
@@ -419,13 +419,44 @@ namespace DiverseControls
         {
             get
             {
-                return Image != null ? Image.Size.Height : 0;
+                return Image != null ? Image.Size.Width * 25.4F / Image.HorizontalResolution : 0;
             }
         }
 
-        public EspackPrintingImage(Image pImage,float pX=-1,float pY=-1,bool pEOL=false)
+        public EspackPrintingImage(Image pImage,float pX=-1,float pY=-1,float pWidth=-1,float pHeight=-1, bool pEOL=false)
         {
-            Image = pImage;
+            float percentWidth = 0;
+            float percentHeight = 0;
+
+            if (pWidth!=-1 || pHeight!=-1)
+            {
+                if (pWidth!=-1)
+                    percentWidth = pWidth / pImage.Width;
+
+                if (pHeight != -1)
+                    percentHeight = pHeight / pImage.Height;
+
+                percentWidth = (percentWidth != 0 ? percentWidth : percentHeight);
+                percentHeight = (percentHeight != 0 ? percentHeight : percentWidth);
+
+                int _newWidth = (int)(pImage.Size.Width * percentWidth);
+                int _newHeight = (int)(pImage.Size.Height * percentHeight);
+
+                Image = new Bitmap(_newWidth, _newHeight);
+
+                using (Graphics graphicsHandle = Graphics.FromImage(Image))
+                {
+                    graphicsHandle.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+                    graphicsHandle.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                    graphicsHandle.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                    graphicsHandle.DrawImage(pImage, 0, 0, _newWidth, _newHeight);
+                }
+            }
+            else
+            { 
+                Image = pImage;
+            }
+            
             X = pX;
             Y = pY;
             EOL = pEOL;
@@ -638,10 +669,10 @@ namespace DiverseControls
         }
 
         // Add an image to the list
-        public void AddImage(Image pImage,float pX = -1, float pY = -1, bool pEOL = false)
+        public void AddImage(Image pImage,float pX = -1, float pY = -1, float pWidth=-1,float pHeight=-1,bool pEOL = false)
         {
             // Create and add the object to the list
-            Items.Add(new EspackPrintingImage(pImage,pX,pY,pEOL));
+            Items.Add(new EspackPrintingImage(pImage,pX,pY,pWidth,pHeight,pEOL));
         }
 
         // Move all X,Y units
@@ -655,10 +686,8 @@ namespace DiverseControls
         }
 
         // Convert all relative positions to absolute
-        public void ArrangeItems(Graphics pGraphics,PointF HardMargins, EspackPrintingArea pPreviousArea)
+        public void ArrangeItems(Graphics pGraphics, PointF HardMargins, EspackPrintingArea pPreviousArea)
         {
-
-            EspackPrintingText _previousText = null;
 
             if (pPreviousArea != null)
             {
@@ -699,84 +728,244 @@ namespace DiverseControls
             }
 
             // Calculate the X and Y for each item when they are not defined
-            
-            foreach(var x in Items)
+            IEspackPrintingItem _previousItem = null;
+            EspackPrintingText _previousText = null;
+
+            foreach (var _item in Items)
             {
-                // Text items
-                if (x.GetType().Name == "EspackPrintingText")
+                // Cast _item as IEspackPrintingItem
+                var _currentItem = (IEspackPrintingItem)_item;
+                _currentItem.Graphics = pGraphics;
+
+                // If not ready to be printed, it needs to be arranged
+                if (!_currentItem.PrintMe)
                 {
-                    ((IEspackPrintingItem)x).Graphics = pGraphics;
-
-                    using (var _currentItem = ((EspackPrintingText)x))
+                    if (_previousItem != null)
                     {
-                        // It has not arranged yet: when arranged, the items get true on PrintMe property
-                        if (!_currentItem.PrintMe)
+                        // Previous item exists
+                        if (_currentItem.X == -1 && _currentItem.Y == -1)
                         {
-                            if (_previousText != null)
+                            // X and Y not set. Set them depending of EOL value
+                            if (!_previousItem.EOL)
                             {
-                                // Previous item exists
-                                if (_currentItem.X == -1 && _currentItem.Y == -1)
-                                {
-                                    // X and Y not set. Set them depending of EOL value
-                                    if (!_previousText.EOL)
-                                    {
-                                        _currentItem.X = _previousText.X + _previousText.Width;
-                                        _currentItem.Y = _previousText.Y;
-                                    }
-                                    else
-                                    {
-                                        if (Zone == EnumDocumentZones.BODY && _previousText.Y + _previousText.Height > MaxHeight)
-                                        {
-                                            break;
-                                        }
-                                        _currentItem.X = X; // LEFT MARGIN
-                                        _currentItem.Y = _previousText.Y + _previousText.Height;
-                                    }
-                                }
-                                if (_currentItem.Font == null)
-                                {
-                                    Font _f= _previousText.Font ?? (Font)Font.Font.Clone();
-
-                                    if (_previousText.ForcedBold && !_currentItem.Title)
-                                        _f = new Font(_f.Name, _f.Size);
-
-                                    _currentItem.Font = _f;
-                                    //_currentItem.ForcedBold= _currentItem.Title &&  (_previousText.Font!=null?_previousText.ForcedBold:false);
-                                }
-                                if (_currentItem.Brush == null)
-                                    _currentItem.Brush = _previousText.Brush ?? (Brush)Font.Brush.Clone();
-
+                                _currentItem.X = _previousItem.X + _previousItem.Width;
+                                _currentItem.Y = _previousItem.Y;
                             }
                             else
                             {
-                                // First element: set defaults if not passed
-                                _currentItem.X = _currentItem.X == -1 ? X : X + _currentItem.X; // LEFT MARGIN
-                                _currentItem.Y = _currentItem.Y == -1 ? Y : Y + _currentItem.Y; // TOP MARGIN
-                                _currentItem.Font = _currentItem.Font ?? (Font)Font.Font.Clone();
-                                _currentItem.Brush = _currentItem.Brush ?? (Brush)Font.Brush.Clone();
+                                if (Zone == EnumDocumentZones.BODY && _previousItem.Y + _previousItem.Height > MaxHeight)
+                                {
+                                    break;
+                                }
+                                _currentItem.X = X; // LEFT MARGIN
+                                _currentItem.Y = _previousItem.Y + _previousItem.Height;
                             }
-
-                            if (_currentItem.Title && !_currentItem.Font.Bold)
-                            {
-                                _currentItem.Font = new Font(_currentItem.Font.Name, _currentItem.Font.SizeInPoints, FontStyle.Bold);
-                                _currentItem.ForcedBold = true;
-                            }
-
-                            if (_currentItem.X - X + _currentItem.Width > Width)
-                                Width = _currentItem.X - X + _currentItem.Width;
-                            if (_currentItem.Y - Y + _currentItem.Height > Height)
-                                Height = _currentItem.Y - Y + _currentItem.Height;
-
-                            _currentItem.PrintMe = true;
                         }
-                        _previousText = _currentItem;
+                    }
+                    else
+                    {
+                        // First element: set defaults if not passed
+                        _currentItem.X = _currentItem.X == -1 ? X : X + _currentItem.X; // LEFT MARGIN
+                        _currentItem.Y = _currentItem.Y == -1 ? Y : Y + _currentItem.Y; // TOP MARGIN
                     }
 
-                }
-                
-            }
+                    // Only for text objects
+                    if (_currentItem.GetType().Name == "EspackPrintingText")
+                    {
+                        // Cast it to EspackPrintingText
+                        using (var _currentText = (EspackPrintingText)_currentItem)
+                        {
+                            if (_previousText != null)
+                            {
+                                // Not the first text object
+                                if (_currentText.Font == null)
+                                {
+                                    // Get the font from the previous object if set
+                                    Font _f = _previousText.Font ?? (Font)Font.Font.Clone();
 
+                                    // Disable the auto bold when the previous text was bold-forced and current is not a title
+                                    if (_previousText.ForcedBold && !_currentText.Title)
+                                        _f = new Font(_f.Name, _f.Size);
+
+                                    // Set current font
+                                    _currentText.Font = _f;
+                                }
+
+                                // Set current brush
+                                if (_currentText.Brush == null)
+                                    _currentText.Brush = _previousText.Brush ?? (Brush)Font.Brush.Clone();
+                            }
+                            else
+                            {
+                                // First text object: set font / brush
+                                _currentText.Font = _currentText.Font ?? (Font)Font.Font.Clone();
+                                _currentText.Brush = _currentText.Brush ?? (Brush)Font.Brush.Clone();
+                            }
+
+                            // Force bold if current text is a title (and font was not bold)
+                            if (_currentText.Title && !_currentText.Font.Bold)
+                            {
+                                _currentText.Font = new Font(_currentText.Font.Name, _currentText.Font.SizeInPoints, FontStyle.Bold);
+                                _currentText.ForcedBold = true;
+                            }
+                            _previousText = _currentText;
+                        }
+                    }
+
+                    // Calculate the Height / Width of current area
+                    if (_currentItem.X - X + _currentItem.Width > Width)
+                        Width = _currentItem.X - X + _currentItem.Width;
+                    if (_currentItem.Y - Y + _currentItem.Height > Height)
+                        Height = _currentItem.Y - Y + _currentItem.Height;
+
+                    // Set current item as ready to be printed
+                    _currentItem.PrintMe = true;
+                }
+                _previousItem = _currentItem;
+            }
         }
+
+//            // Convert all relative positions to absolute
+//        public void ArrangeItems_OLD(Graphics pGraphics,PointF HardMargins, EspackPrintingArea pPreviousArea)
+//        {
+
+//            EspackPrintingText _previousText = null;
+
+//            if (pPreviousArea != null)
+//            {
+//                bool _setCoords = true;
+
+//                if (Docking != EnumZoneDocking.NONE)
+//                {
+//                    switch (pPreviousArea.Docking)
+//                    {
+//                        case EnumZoneDocking.RIGHTWARDS:
+//                            if (X == -1) X = pPreviousArea.X + pPreviousArea.Width + 2;
+//                            if (Y == -1) Y = pPreviousArea.Y;
+//                            _setCoords = false;
+//                            break;
+//                        case EnumZoneDocking.DOWNWARDS:
+//                            if (X == -1) X = pPreviousArea.X;
+//                            if (Y == -1) Y = pPreviousArea.Y + pPreviousArea.Height;
+//                            _setCoords = false;
+//                            break;
+//                    }
+//                }
+
+//                if (_setCoords)
+//                {
+//                    if (X == -1) X = HardMargins.X;
+//                    if (Y == -1) Y = pPreviousArea.Y + pPreviousArea.Height;
+//                }
+
+//                if (Font == null)
+//                    Font = pPreviousArea.Font;
+//            }
+//            else
+//            {
+//                // Set the min visible coordinates as default
+//                if (X == -1) X = HardMargins.X;
+//                if (Y == -1) Y = HardMargins.Y;
+//                Font = Font ?? new EspackFont();
+//            }
+
+//            // Calculate the X and Y for each item when they are not defined
+            
+//            foreach(var x in Items)
+//            {
+//                ((IEspackPrintingItem)x).Graphics = pGraphics;
+                
+//                switch (x.GetType().Name)
+
+//                {
+//                    // Text items
+//                    case "EspackPrintingText":
+
+////                        ((IEspackPrintingItem)x).Graphics = pGraphics;
+
+//                        using (var _currentItem = ((EspackPrintingText)x))
+//                        {
+//                            // It has not arranged yet: when arranged, the items get true on PrintMe property
+//                            if (!_currentItem.PrintMe)
+//                            {
+//                                if (_previousText != null)
+//                                {
+//                                    // Previous item exists
+//                                    if (_currentItem.X == -1 && _currentItem.Y == -1)
+//                                    {
+//                                        // X and Y not set. Set them depending of EOL value
+//                                        if (!_previousText.EOL)
+//                                        {
+//                                            _currentItem.X = _previousText.X + _previousText.Width;
+//                                            _currentItem.Y = _previousText.Y;
+//                                        }
+//                                        else
+//                                        {
+//                                            if (Zone == EnumDocumentZones.BODY && _previousText.Y + _previousText.Height > MaxHeight)
+//                                            {
+//                                                break;
+//                                            }
+//                                            _currentItem.X = X; // LEFT MARGIN
+//                                            _currentItem.Y = _previousText.Y + _previousText.Height;
+//                                        }
+//                                    }
+//                                    if (_currentItem.Font == null)
+//                                    {
+//                                        Font _f = _previousText.Font ?? (Font)Font.Font.Clone();
+
+//                                        if (_previousText.ForcedBold && !_currentItem.Title)
+//                                            _f = new Font(_f.Name, _f.Size);
+
+//                                        _currentItem.Font = _f;
+//                                        //_currentItem.ForcedBold= _currentItem.Title &&  (_previousText.Font!=null?_previousText.ForcedBold:false);
+//                                    }
+//                                    if (_currentItem.Brush == null)
+//                                        _currentItem.Brush = _previousText.Brush ?? (Brush)Font.Brush.Clone();
+
+//                                }
+//                                else
+//                                {
+//                                    // First element: set defaults if not passed
+//                                    _currentItem.X = _currentItem.X == -1 ? X : X + _currentItem.X; // LEFT MARGIN
+//                                    _currentItem.Y = _currentItem.Y == -1 ? Y : Y + _currentItem.Y; // TOP MARGIN
+//                                    _currentItem.Font = _currentItem.Font ?? (Font)Font.Font.Clone();
+//                                    _currentItem.Brush = _currentItem.Brush ?? (Brush)Font.Brush.Clone();
+//                                }
+
+//                                if (_currentItem.Title && !_currentItem.Font.Bold)
+//                                {
+//                                    _currentItem.Font = new Font(_currentItem.Font.Name, _currentItem.Font.SizeInPoints, FontStyle.Bold);
+//                                    _currentItem.ForcedBold = true;
+//                                }
+
+//                                if (_currentItem.X - X + _currentItem.Width > Width)
+//                                    Width = _currentItem.X - X + _currentItem.Width;
+//                                if (_currentItem.Y - Y + _currentItem.Height > Height)
+//                                    Height = _currentItem.Y - Y + _currentItem.Height;
+
+//                                _currentItem.PrintMe = true;
+//                            }
+//                            _previousText = _currentItem;
+//                        }
+//                        break;
+
+//                    case "EspackPrintingImage":
+
+//                        ((IEspackPrintingItem)x).Graphics = pGraphics;
+
+//                        using (var _currentItem = ((EspackPrintingText)x))
+//                        {
+//                            // It has not arranged yet: when arranged, the items get true on PrintMe property
+//                            //if (!_currentItem.PrintMe)
+//                        }
+//                        break;
+
+
+                
+//                }
+//            }
+
+//        }
 
         // Draw all the items in the area
         public void Draw(Graphics pGraphics)
@@ -866,11 +1055,11 @@ namespace DiverseControls
         }
 
         // Add a text item to the current area
-        public void AddImage(Image pImage, float pX = -1, float pY = -1, bool pEOL = false)
+        public void AddImage(Image pImage, float pX = -1, float pY = -1, float pWidth=-1,float pHeight=-1, bool pEOL = false)
         {
             if (CurrentArea != null)
             {
-                CurrentArea.AddImage(pImage, pX, pY, pEOL);
+                CurrentArea.AddImage(pImage, pX, pY, pWidth,pHeight, pEOL);
             }
             else
             {
@@ -974,10 +1163,6 @@ namespace DiverseControls
             return true;
         }
 
-
-
-
-
         // OnPrintPage event, triggered on each new page
         protected override void OnPrintPage(PrintPageEventArgs e)
         {
@@ -985,10 +1170,7 @@ namespace DiverseControls
 
             var _g = e.Graphics;
             _g.PageUnit = GraphicsUnit.Millimeter;
-            //_g.VisibleClipBounds
-
-            //potas(e);
-           
+            
 
             if (Pager.Counter==0)
             {
@@ -1076,34 +1258,4 @@ namespace DiverseControls
 
     }
 }
-/*
-private void potas(PrintPageEventArgs e)
-{
-    Graphics g = e.Graphics;
-    g.PageUnit = GraphicsUnit.Millimeter;
-
-    Image img = new Bitmap(@"c:\Sunset.jpg");
-    Graphics gg = Graphics.FromImage(img);
-
-
-    RectangleF marginBounds = e.MarginBounds;
-    if (!PrintController.IsPreview)
-        marginBounds.Offset(-e.PageSettings.HardMarginX,
-                        -e.PageSettings.HardMarginY);
-
-    float x = marginBounds.X / 100f +
-                    (marginBounds.Width / 100f -
-                        (float)img.Width / gg.DpiX) / 2f;
-    float y = marginBounds.Y / 100f +
-                    (marginBounds.Height / 100f -
-                        (float)img.Height / gg.DpiY) / 2f;
-
-
-
-    g.DrawImage(img, x, y);
-
-    //Don't call g.Dispose(). Operating System will do this job.
-    gg.Dispose();//You should call it to release graphics object immediately.
-}
-*/
 

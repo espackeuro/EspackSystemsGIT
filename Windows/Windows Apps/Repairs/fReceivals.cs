@@ -156,7 +156,7 @@ namespace Repairs
 
                             // Define the header
                             _recDoc.AddArea(EnumDocumentZones.HEADER, new EspackFont("Tahoma", 3.5F),EnumZoneDocking.RIGHTWARDS);
-                            _recDoc.AddImage(Properties.Resources.Logo_Espack_transparente);
+                            _recDoc.AddImage(Properties.Resources.Logo_Espack_transparente, pWidth: 200F);
 
                             _recDoc.AddArea(EnumDocumentZones.HEADER, EnumZoneDocking.RIGHTWARDS);
                             _recDoc.AddText(true,"REC.NUMBER:",true);
