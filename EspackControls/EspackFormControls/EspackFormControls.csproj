@@ -64,6 +64,15 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="EspackExtraData.cs" />
+    <Compile Include="EspackFileStream2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EspackFileStream2.Designer.cs">
+      <DependentUpon>EspackFileStream2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EspackFormControlCommon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="EspackFormControls.cs" />
     <Compile Include="EspackLabel.cs">
       <SubType>Component</SubType>
@@ -73,6 +82,9 @@
     </Compile>
     <Compile Include="EspackMenu.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EspackDataContainer.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="EspackString.cs" />
     <Compile Include="EspackTextBox.cs">
@@ -112,6 +124,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="EspackDataContainer.resx">
+      <DependentUpon>EspackDataContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EspackFileStream2.resx">
+      <DependentUpon>EspackFileStream2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EspackFormControlCommon.resx">
+      <DependentUpon>EspackFormControlCommon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EspackFormControls.resx">
       <DependentUpon>EspackFormControls.cs</DependentUpon>
       <SubType>Designer</SubType>

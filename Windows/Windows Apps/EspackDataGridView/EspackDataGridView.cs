@@ -780,14 +780,14 @@ namespace EspackDataGrid
         {
             if (this.Size.Height % RowTemplate.Height != 0)
             {
-                if (this.Size.Height % RowTemplate.Height > RowTemplate.Height / 2)
-                {
-                    this.Size = new Size(this.Size.Width, RowTemplate.Height * ((int)(this.Size.Height / RowTemplate.Height) + 1));
-                }
-                else
-                {
-                    this.Size = new Size(this.Size.Width, RowTemplate.Height * (int)(this.Size.Height / RowTemplate.Height));
-                }
+                //if (this.Size.Height % RowTemplate.Height > RowTemplate.Height / 2)
+                //{
+                //    this.Size = new Size(this.Size.Width, RowTemplate.Height * ((int)(this.Size.Height / RowTemplate.Height) + 1));
+                //}
+                //else
+                //{
+                this.Size = new Size(this.Size.Width, RowTemplate.Height * (int)(this.Size.Height / RowTemplate.Height));
+                //}
             }
         }
 
