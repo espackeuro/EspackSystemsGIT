@@ -67,7 +67,7 @@ namespace Repairs
             CTLM.AddItem(VS);
             CTLM.Start();
             //CTLM.AfterButtonClick += CTLM_AfterButtonClick;
-            CTLM.BeforeButtonClick += CTLM_BeforeButtonClick;
+            //CTLM.BeforeButtonClick += CTLM_BeforeButtonClick;
             //toolStrip.Enabled = false;
             
          
@@ -103,11 +103,6 @@ namespace Repairs
                     VS[VS.Columns["Description"].Index, e.RowIndex].Value = "";
                 }
             }
-        }
-
-        private void CTLM_BeforeButtonClick(object sender, CTLMEventArgs e)
-        {
-            int p=1;
         }
 
         private void CboService_SelectedValueChanged(object sender, EventArgs e)
@@ -146,36 +141,51 @@ namespace Repairs
 
         private void toolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-
-
-            using (var _pd = new PrintDialog())
+            if (txtReceivalNumber.Text != "")
             {
-                if (_pd.ShowDialog() == DialogResult.OK)
+                using (var _pd = new PrintDialog())
                 {
-                    using (var _pollo = new EspackPrinting())
+                    if (_pd.ShowDialog() == DialogResult.OK)
                     {
-                        _pollo.PrinterSettings = _pd.PrinterSettings;
-                        _pd.Document = _pollo;
+                        using (var _recDoc = new EspackPrinting())
+                        {
+                            _recDoc.PrinterSettings = _pd.PrinterSettings;
+                            _pd.Document = _recDoc;
 
-                        EspackFont pFont= new EspackFont("Arial",10F,pBrush:new SolidBrush(Color.Blue));
+                            //EspackFont pFont = new EspackFont("Arial", 10F, pBrush: new SolidBrush(Color.Blue));
 
-                        _pollo.AddArea(EnumDocumentZones.HEADER, new EspackFont("Arial",10F,FontStyle.Underline, new SolidBrush(Color.Red)));
-                        _pollo.AddText("HOLA1");
-                        _pollo.AddText("HOLA2",true);
-                        _pollo.AddText("ADIOS", new EspackFont("Tahoma", 6F)); ;
-                        _pollo.AddText("ADIOS",true);
-                        _pollo.AddText("P", new EspackFont("Tahoma", 2F));
-                        _pollo.AddText("TARDO");
-                        _pollo.AddArea(EnumDocumentZones.FOOTER, new EspackFont("Tahoma",5.4F)); //, new Font(fontFamily, 10, FontStyle.Bold), new SolidBrush(Color.Black));
-                        _pollo.AddText("YUHU!!");
-                        _pollo.AddText("YUPI!!");
-                        _pollo.AddText("OLE!!",true);
-                        _pollo.AddText("YUHU!!", new EspackFont("Comic Sans MS", 4F));
-                        _pollo.AddText("YUPI!!");
-                        //_pollo.AddArea(EnumDocumentZones.BODY, new EspackFont("Tahoma", 3F),pDocking:EnumZoneDocking.DOWNWARDS);
-                        _pollo.AddQuery("select Usuario,tipo,descripcion from GENERAL..usuarios_web",Values.gDatos, new EspackFont("Tahoma", 2F));
+                            // Define the header
+                            _recDoc.AddArea(EnumDocumentZones.HEADER, new EspackFont("Tahoma", 3.5F),EnumZoneDocking.RIGHTWARDS);
+                            _recDoc.AddImage(Properties.Resources.Logo_Espack_transparente);
 
-                        _pollo.Print();
+                            _recDoc.AddArea(EnumDocumentZones.HEADER, EnumZoneDocking.RIGHTWARDS);
+                            _recDoc.AddText(true,"REC.NUMBER:",true);
+                            _recDoc.AddText(true, "SUPPLIER DOC:");
+
+                            _recDoc.AddArea(EnumDocumentZones.HEADER,EnumZoneDocking.RIGHTWARDS);
+                            _recDoc.AddText(txtReceivalNumber.Text,true);
+                            _recDoc.AddText(txtSupplierDoc.Text);
+
+                            _recDoc.AddArea(EnumDocumentZones.HEADER, EnumZoneDocking.RIGHTWARDS);
+                            _recDoc.AddText(true,"SERVICE: ");
+                            _recDoc.AddText(cboService.Text);
+
+                            _recDoc.AddArea(EnumDocumentZones.HEADER, EnumZoneDocking.RIGHTWARDS);
+                            _recDoc.AddText(true,"DATE: ");
+                            _recDoc.AddText(txtDate.Text, true);
+
+
+                            // Define the footer
+                            _recDoc.AddArea(EnumDocumentZones.FOOTER, new EspackFont("Tahoma", 3F)); //, new Font(fontFamily, 10, FontStyle.Bold), new SolidBrush(Color.Black));
+                            _recDoc.AddText("Sign");
+
+                            // Define the body
+                            if (!_recDoc.AddQuery(string.Format("select UnitNumber,Reference from PackReceivalsDet where RecNumber='{0}' order by UnitNumber", txtReceivalNumber.Text), Values.gDatos, new EspackFont("Tahoma", 2.5F)))
+                                return;
+
+                            // Print that
+                            _recDoc.Print();
+                        }
                     }
                 }
             }

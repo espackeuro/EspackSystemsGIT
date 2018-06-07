@@ -368,8 +368,8 @@ namespace DiverseControls
         Graphics Graphics { get; set; }
         float Height { get; }
         float Width { get; }
-        bool Persistent { get; set; }
         bool PrintMe { get; set;  }
+        bool Persistent { get; set; }
         void Draw(Graphics pGraphics);
     }
 
@@ -394,6 +394,87 @@ namespace DiverseControls
         }
     }
 
+    // Image items class
+    public class EspackPrintingImage : IEspackPrintingItem, IDisposable
+    {
+        public float X { get; set; }
+        public float Y { get; set; }
+        public Graphics Graphics { get; set; }
+        public bool EOL { get; set; }
+        public bool PrintMe { get; set; }
+        public bool Persistent { get; set; }
+        public Image Image { get; set; }
+
+        // Get the height for current text
+        public float Height
+        {
+            get
+            {
+                return Image != null ? Image.Size.Height : 0;
+            }
+        }
+
+        // Get the width for current text
+        public float Width
+        {
+            get
+            {
+                return Image != null ? Image.Size.Height : 0;
+            }
+        }
+
+        public EspackPrintingImage(Image pImage,float pX=-1,float pY=-1,bool pEOL=false)
+        {
+            Image = pImage;
+            X = pX;
+            Y = pY;
+            EOL = pEOL;
+        }
+
+        public void Draw(Graphics pGraphics)
+        {
+            if (pGraphics!=null)
+                pGraphics.DrawImage(Image, X, Y);
+        }
+
+        // --------- IDisposable stuff ---------
+        #region IDisposable Support
+        private bool disposedValue = false; // To detect redundant calls
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    // TODO: dispose managed state (managed objects).
+                }
+
+                // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
+                // TODO: set large fields to null.
+
+                disposedValue = true;
+            }
+        }
+
+        // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
+        // ~EspackPrintingText() {
+        //   // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+        //   Dispose(false);
+        // }
+
+        // This code added to correctly implement the disposable pattern.
+        public void Dispose()
+        {
+            // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+            Dispose(true);
+            // TODO: uncomment the following line if the finalizer is overridden above.
+            // GC.SuppressFinalize(this);
+        }
+        #endregion
+        // --------- until here ---------
+    }
+
     // Text items class
     public class EspackPrintingText : IEspackPrintingItem, IDisposable
     {
@@ -405,6 +486,8 @@ namespace DiverseControls
         public Brush Brush { get; set; }
         public Graphics Graphics { get; set; }
         public bool Persistent { get; set; }
+        public bool Title { get; set; }
+        public bool ForcedBold { get; set; }
         public bool PrintMe { get; set; }
 
         // Get the height for current text
@@ -425,16 +508,7 @@ namespace DiverseControls
             {
                 if (Graphics != null)
                 {
-                    Font _f;
-                    if (Persistent && !Font.Bold)
-                    {
-                        _f= new Font(Font.Name,Font.Size,FontStyle.Bold);
-                    }
-                    else
-                    {
-                        _f = Font;
-                    }
-                    return Graphics.MeasureString(Text != "" ? Text : "@", _f).Width - Graphics.MeasureString(" ", _f).Width;
+                    return Graphics.MeasureString(Text != "" ? Text : "@", Font).Width - Graphics.MeasureString(" ", Font).Width;
                 }
                 else return 0;
             }
@@ -449,7 +523,6 @@ namespace DiverseControls
             }
         }
 
-
         // Constructor.
         public EspackPrintingText(string pText, EspackFont pFont=null, float pX=-1, float pY=-1, bool pEOL=false, bool pTitle=false)
         {
@@ -459,6 +532,7 @@ namespace DiverseControls
             X = pX;
             Y = pY;
             EOL = pEOL;
+            Title = pTitle;
             Persistent = pTitle;
         }
 
@@ -466,20 +540,7 @@ namespace DiverseControls
         public void Draw(Graphics pGraphics)
         {
             if (Graphics != null)
-            {
-                Font _f;
-                if (Persistent && !Font.Bold)
-
-
-                {
-                    _f = new Font(Font.Name, Font.SizeInPoints, FontStyle.Bold);
-                }
-                else
-                {
-                    _f = Font;
-                }
-                pGraphics.DrawString(Text, _f, Brush, X, Y);
-            }
+                pGraphics.DrawString(Text, Font, Brush, X, Y);
         }
 
         // --------- IDisposable stuff ---------
@@ -532,6 +593,8 @@ namespace DiverseControls
         public float Height { get; set; }
         public float MaxHeight { get; set; }
         public RectangleF RectangleF { get; set; }
+        public int DataRows { get; set; } = 0;
+        public int PermanentRows { get; set; } = 0;
 
         private EspackFont Font;
         //private Brush Brush;
@@ -571,7 +634,14 @@ namespace DiverseControls
         public void AddText(string pText, EspackFont pFont = null, float pX = -1, float pY = -1,bool pEOL=false,bool pTitle=false)
         {
             // Create and add the object to the list
-            Items.Add(new EspackPrintingText(pText, pFont, pX, pY, pEOL,pTitle));
+            Items.Add(new EspackPrintingText(pText, pFont, pX, pY, pEOL, pTitle));
+        }
+
+        // Add an image to the list
+        public void AddImage(Image pImage,float pX = -1, float pY = -1, bool pEOL = false)
+        {
+            // Create and add the object to the list
+            Items.Add(new EspackPrintingImage(pImage,pX,pY,pEOL));
         }
 
         // Move all X,Y units
@@ -587,26 +657,36 @@ namespace DiverseControls
         // Convert all relative positions to absolute
         public void ArrangeItems(Graphics pGraphics,PointF HardMargins, EspackPrintingArea pPreviousArea)
         {
-    
+
             EspackPrintingText _previousText = null;
 
             if (pPreviousArea != null)
             {
-                switch (Docking)
+                bool _setCoords = true;
+
+                if (Docking != EnumZoneDocking.NONE)
                 {
-                    case EnumZoneDocking.RIGHTWARDS:
-                        if (X == -1) X = pPreviousArea.X + pPreviousArea.Width;
-                        if (Y == -1) Y = pPreviousArea.Y;
-                        break;
-                    case EnumZoneDocking.DOWNWARDS:
-                        if (X == -1) X = pPreviousArea.X;
-                        if (Y == -1) Y = pPreviousArea.Y + pPreviousArea.Height;
-                        break;
-                    default:
-                        if (X == -1) X = HardMargins.X;
-                        if (Y == -1) Y = pPreviousArea.Y + pPreviousArea.Height;
-                        break;
+                    switch (pPreviousArea.Docking)
+                    {
+                        case EnumZoneDocking.RIGHTWARDS:
+                            if (X == -1) X = pPreviousArea.X + pPreviousArea.Width + 2;
+                            if (Y == -1) Y = pPreviousArea.Y;
+                            _setCoords = false;
+                            break;
+                        case EnumZoneDocking.DOWNWARDS:
+                            if (X == -1) X = pPreviousArea.X;
+                            if (Y == -1) Y = pPreviousArea.Y + pPreviousArea.Height;
+                            _setCoords = false;
+                            break;
+                    }
                 }
+
+                if (_setCoords)
+                {
+                    if (X == -1) X = HardMargins.X;
+                    if (Y == -1) Y = pPreviousArea.Y + pPreviousArea.Height;
+                }
+
                 if (Font == null)
                     Font = pPreviousArea.Font;
             }
@@ -654,9 +734,18 @@ namespace DiverseControls
                                     }
                                 }
                                 if (_currentItem.Font == null)
-                                    _currentItem.Font = _previousText.Font ?? (Font)Font.Font.Clone();
+                                {
+                                    Font _f= _previousText.Font ?? (Font)Font.Font.Clone();
+
+                                    if (_previousText.ForcedBold && !_currentItem.Title)
+                                        _f = new Font(_f.Name, _f.Size);
+
+                                    _currentItem.Font = _f;
+                                    //_currentItem.ForcedBold= _currentItem.Title &&  (_previousText.Font!=null?_previousText.ForcedBold:false);
+                                }
                                 if (_currentItem.Brush == null)
                                     _currentItem.Brush = _previousText.Brush ?? (Brush)Font.Brush.Clone();
+
                             }
                             else
                             {
@@ -666,11 +755,17 @@ namespace DiverseControls
                                 _currentItem.Font = _currentItem.Font ?? (Font)Font.Font.Clone();
                                 _currentItem.Brush = _currentItem.Brush ?? (Brush)Font.Brush.Clone();
                             }
-         
-                            if (_currentItem.X + _currentItem.Width > Width)
-                                Width = _currentItem.X + _currentItem.Width;
-                            if (_currentItem.Y + _currentItem.Height > Height)
-                                Height = _currentItem.Y + _currentItem.Height;
+
+                            if (_currentItem.Title && !_currentItem.Font.Bold)
+                            {
+                                _currentItem.Font = new Font(_currentItem.Font.Name, _currentItem.Font.SizeInPoints, FontStyle.Bold);
+                                _currentItem.ForcedBold = true;
+                            }
+
+                            if (_currentItem.X - X + _currentItem.Width > Width)
+                                Width = _currentItem.X - X + _currentItem.Width;
+                            if (_currentItem.Y - Y + _currentItem.Height > Height)
+                                Height = _currentItem.Y - Y + _currentItem.Height;
 
                             _currentItem.PrintMe = true;
                         }
@@ -706,6 +801,7 @@ namespace DiverseControls
         public string Format { get; set; }
         public int Counter { get; set; }
         public int Total { get; set; }
+        public int Rows { get; set; }
         public HorizontalAlignment Alignment { get; set; }
         public float X { get; set; }
         public float Y { get; set; }
@@ -759,11 +855,28 @@ namespace DiverseControls
         }
 
         // Add a new area and set it as current
-        public void AddArea(EnumDocumentZones pZone,EspackFont pFont=null, EnumZoneDocking pDocking=EnumZoneDocking.NONE)
+        public void AddArea(EnumDocumentZones pZone, EspackFont pFont = null, EnumZoneDocking pDocking = EnumZoneDocking.NONE)
         {
             CurrentArea = new EspackPrintingArea(pZone, pFont, pDocking);
             Areas.Add(CurrentArea);
         }
+        public void AddArea(EnumDocumentZones pZone, EnumZoneDocking pDocking)
+        {
+            AddArea(pZone, null, pDocking);
+        }
+
+        // Add a text item to the current area
+        public void AddImage(Image pImage, float pX = -1, float pY = -1, bool pEOL = false)
+        {
+            if (CurrentArea != null)
+            {
+                CurrentArea.AddImage(pImage, pX, pY, pEOL);
+            }
+            else
+            {
+                MessageBox.Show("There is not current Area defined.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        } 
 
         // Add a text item to the current area
         public void AddText(string pText)
@@ -806,82 +919,59 @@ namespace DiverseControls
         }
 
         // Add the results of a query to the current area
-        public void AddQuery(string pSQL, cAccesoDatosNet pConn, EspackFont pFont=null, bool pHideTitles=false)
+        public bool AddQuery(string pSQL, cAccesoDatosNet pConn, EspackFont pFont=null, bool pHideTitles=false)
         {
-            //if (CurrentArea != null)
-            //{
-                using (var _rs = new DynamicRS(pSQL, pConn))
+
+            using (var _rs = new DynamicRS(pSQL, pConn))
+            {
+                _rs.Open();
+                if (_rs.RecordCount == 0)
                 {
-                    _rs.Open();
-                    if (_rs.RecordCount == 0)
+                    MessageBox.Show("The query returned no data.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                else
+                {
+
+                    Dictionary<string, List<string>> _matrix = new Dictionary<string, List<string>>();
+
+                    foreach (var _item in _rs.Fields)
                     {
-                        MessageBox.Show("The query returned no data.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                        _matrix[_item.ToString()] = new List<string>();
                     }
-                    else
+
+                    int _col;
+
+                    _rs.ToList().ForEach(_row =>
                     {
-
-                        Dictionary<string, List<string>> _matrix = new Dictionary<string, List<string>>();
-
-                        foreach (var _item in _rs.Fields)
+                        _col = 0;
+                        _row.ItemArray.ToList().ForEach(_column =>
                         {
-                            _matrix[_item.ToString().Trim()] = new List<string>();
-                        }
-
-                        int _col;
-
-                        _rs.ToList().ForEach(_row =>
-                        {
-                            _col = 0;
-                            _row.ItemArray.ToList().ForEach(_column =>
-                            {
-                                _matrix[_matrix.Keys.ToList()[_col]].Add(_column.ToString().Trim());
-                                _col++;
-                            });
+                            _matrix[_matrix.Keys.ToList()[_col]].Add(_column.ToString());
+                            _col++;
                         });
+                    });
 
-                        foreach (var _key in _matrix.Keys)
+                    foreach (var _key in _matrix.Keys)
+                    {
+                        Areas.Add(CurrentArea = new EspackPrintingArea(EnumDocumentZones.BODY, pFont, pDocking: EnumZoneDocking.RIGHTWARDS));
+
+                        // Add current column title
+                        if (!pHideTitles)
                         {
-                            //EspackPrintingArea _a;
-                            Areas.Add(CurrentArea = new EspackPrintingArea(EnumDocumentZones.BODY,pFont, pDocking: EnumZoneDocking.RIGHTWARDS));
-                            foreach (var _item in _matrix[_key])
-                            {
-                                AddText(_item.ToString());
-                                NewLine();
-                            }
+                            AddText(true, _key.ToString(), true);
+                            CurrentArea.PermanentRows++;
                         }
-
-                        //if (!pHideTitles)
-
-                        //{
-                        //    EspackPrintingArea _a;
-                        //    //Areas.Add(_a = new EspackPrintingArea(EnumDocumentZones.BODY, pDocking: EnumZoneDocking.RIGHTWARDS));
-                        //    foreach (var _item in _rs.Fields)
-                        //    {
-                        //        Areas.Add(_a = new EspackPrintingArea(EnumDocumentZones.BODY, pDocking: EnumZoneDocking.RIGHTWARDS));
-                        //        _a.AddText(_item.ToString());
-                        //        //AddText(true,_item.ToString());
-                        //    }
-                        //    //NewLine();
-                        //}
-                        
-                        //List<string> _theList = new List<string>();
-                        //_rs.ToList().ForEach(_row => 
-                        //{ 
-                        //   _row.ItemArray.ToList().ForEach(_column =>
-                        //   {
-                        //       _theList.Add( _column.ToString());
-                        //       AddText(_column.ToString());
-                        //   });
-                        //   NewLine();
-                        //});
+                        // Add data for current column
+                        foreach (var _item in _matrix[_key])
+                        {
+                            AddText(_item.ToString(), true);
+                            CurrentArea.DataRows++;
+                        }
                     }
                 }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("There is not current Area defined.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            }
+            return true;
         }
 
 
@@ -914,8 +1004,7 @@ namespace DiverseControls
                 Areas.Where(_item => (_item.Zone == EnumDocumentZones.HEADER)).ToList().ForEach(_item =>
                 {
                     _item.ArrangeItems(_g, HardMargins, _previousArea);
-                    _minBodyY = (_minBodyY <  _item.Height) ?  _item.Height : _minBodyY;
-                    //_minBodyY = (_minBodyY < _item.Y + _item.Height) ? _item.Y + _item.Height : _minBodyY;
+                    _minBodyY = (_minBodyY < _item.Y + _item.Height) ? _item.Y + _item.Height : _minBodyY;
                     _previousArea = _item;
                 });
 
@@ -924,8 +1013,7 @@ namespace DiverseControls
                 Areas.Where(_item => (_item.Zone == EnumDocumentZones.FOOTER)).ToList().ForEach(_item =>
                 {
                     _item.ArrangeItems(_g, HardMargins, _previousArea);
-                    _maxBodyY = (_maxBodyY < _item.Height) ?  _item.Height : _maxBodyY;
-                    //_maxBodyY = (_maxBodyY < _item.Y + _item.Height) ? _item.Y + _item.Height : _maxBodyY;
+                    _maxBodyY = (_maxBodyY < _item.Y + _item.Height) ? _item.Y + _item.Height : _maxBodyY;
                     _previousArea = _item;
                 });
 
@@ -951,9 +1039,10 @@ namespace DiverseControls
                 {
                     _item.Y = _minBodyY;
                     _item.MaxHeight = _maxBodyY;
-                    Pager.Total = Pager.Total < _item.Items.Count ? _item.Items.Count : Pager.Total;
+                    Pager.Rows = Pager.Rows < _item.Items.Count ? _item.Items.Count : Pager.Rows;
                 });
                 Pager.Counter = 1;
+                Pager.Total = 1;
             }
 
             _previousArea = null;
@@ -970,10 +1059,8 @@ namespace DiverseControls
             Areas.ForEach(_item =>
             {
                 _item.Draw(_g);
-                if (_item.Zone == EnumDocumentZones.BODY && Pager.Counter==1)
-                {
-                    Pager.Total = (int)Math.Ceiling((Pager.Total + 0.0) / (Pager.Total - _item.Items.Count + 0.0));
-                }
+                if (_item.Zone == EnumDocumentZones.BODY && Pager.Counter==1 && Pager.Total == 1 )
+                    Pager.Total = (int)Math.Ceiling((_item.DataRows + 0.0) / (_item.DataRows - (_item.Items.Count - _item.PermanentRows)));
             });
 
             // paging

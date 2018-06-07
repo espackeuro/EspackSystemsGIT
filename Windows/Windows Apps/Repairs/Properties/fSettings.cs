@@ -11,7 +11,6 @@ using System.IO;
 using System.IO.IsolatedStorage;
 using System.Xml;
 using CommonToolsWin;
-using static Repairs.Program;
 using static CommonToolsWin.CTWin;
 
 namespace Repairs
@@ -44,9 +43,7 @@ namespace Repairs
         {
             cSettings.writeSetting("COD3", cboWarehouse.Value.ToString());
             Values.COD3 = cboWarehouse.Value.ToString();
-            fMain.Text = string.Format("{0} - {1} Warehouse", VersionNumber, Values.COD3);
-
-            CloseFormsByName(eCloseFormsMethod.ALLEXCEPT, "fMainRepairs|fSettings");
+//            CloseFormsByName(eCloseFormsMethod.ALLEXCEPT, "fMainRepairs|fSettings");
         }
 
         private void CboPrinters_SelectedIndexChanged(object sender, EventArgs e)

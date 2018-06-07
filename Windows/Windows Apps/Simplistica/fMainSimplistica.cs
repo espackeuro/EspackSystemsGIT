@@ -18,6 +18,7 @@ namespace Simplistica
 {
     public partial class fMainSimplistica : Form
     {
+            
         public fMainSimplistica(string[] args)
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace Simplistica
             Values.gDatos.User = espackArgs.User;
             Values.gDatos.Password = espackArgs.Password;
 
-            this.Text = string.Format("{0} Build {1} - ({2:yyyyMMdd})*", Values.ProjectName, Assembly.GetExecutingAssembly().GetName().Version.ToString(), CT.GetBuildDateTime(Assembly.GetExecutingAssembly()));
+    
             try
             {
                 Values.gDatos.Connect();
@@ -52,6 +53,7 @@ namespace Simplistica
             }
             Values.LabelPrinterAddress = cSettings.readSetting("labelPrinter");
             Values.COD3 = cSettings.readSetting("COD3");
+            Text = string.Format("{0} - {1} Warehouse", Program.VersionNumber, Values.COD3);
         }
 
         private void simpleReceivalsToolStripMenuItem_Click(object sender, EventArgs e)

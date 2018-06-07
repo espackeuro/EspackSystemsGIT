@@ -169,7 +169,7 @@ namespace EspackDataGrid
             Parent = (EspackDataGridView)DataGridView;
             Type = type;
             //AutoSizeMode = width == 0 ? DataGridViewAutoSizeColumnMode.AllCells : DataGridViewAutoSizeColumnMode.None;
-            DataPropertyName = DBField;
+            DataPropertyName = Name; //DBField;
             Visible = visible;
             SqlSource = query;
             Resizable = DataGridViewTriState.True;
