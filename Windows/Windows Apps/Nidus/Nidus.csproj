@@ -109,10 +109,6 @@
       <Project>{3569913e-7914-44d8-b6e6-9b72164c6580}</Project>
       <Name>CTLMantenimientoNet</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\EspackControls\CtlVSGrid\CtlVSGrid.csproj">
-      <Project>{6e156f1f-61f2-402b-a942-356427642a52}</Project>
-      <Name>CtlVSGrid</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\EspackControls\EspackControls\EspackControls.csproj">
       <Project>{ECE9AA32-F756-4BE3-A926-B0771E69066B}</Project>
       <Name>EspackControls</Name>
@@ -129,6 +125,52 @@
       <Project>{8404fc85-7941-4884-9db7-82a621e0bf97}</Project>
       <Name>EspackDataGridView</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EspackFileStream\EspackFileStream.csproj">
+      <Project>{4e249b95-f917-4ac3-8a42-0972131fd357}</Project>
+      <Name>EspackFileStream</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MicrosoftOfficeTools\MicrosoftOfficeTools.csproj">
+      <Project>{a00cdece-db1d-4481-8209-248bfcb9230e}</Project>
+      <Name>MicrosoftOfficeTools</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -20,85 +20,6 @@ namespace EspackFormControls
         public event EventHandler<ValueChangedEventArgs> ValueChanged;
 
         public bool Protected { get; set; }
-        //private Padding _margin;
-        //private Size _size;
-
-        //public new Size Size
-        //{
-        //    get
-        //    {
-        //        return _size;
-        //    }
-        //    set
-        //    {
-        //        _size = value;
-        //        base.Height = value.Height-CaptionLabel.Height;
-        //        base.Width = value.Width;
-        //    }
-        //}
-        //public new Point Location
-        //{
-        //    get
-        //    {
-        //        if (CaptionLabel != null)
-        //        {
-        //            var _l = new Point();
-        //            _l.X = base.Location.X;
-        //            _l.Y = base.Location.Y - CaptionLabel.Height;
-        //            return _l;
-        //        }
-        //        else return base.Location;
-        //    }
-        //    set
-        //    {
-        //        var gap = 0;
-        //        if (CaptionLabel != null)
-        //        {
-        //            CaptionLabel.Location = value;
-        //            gap = CaptionLabel.Height;
-        //        }
-
-        //        var _l = new Point();
-        //        _l.X = value.X;
-        //        _l.Y = value.Y + gap;
-        //        base.Location = _l;
-
-        //    }
-        //}
-        ////[DefaultValue(typeof(Padding), "3, 3, 3, 3")]
-        //public new Padding Margin
-        //{
-        //    get
-        //    {
-        //        return _margin;
-        //    }
-        //    set
-        //    {
-
-        //        var gap = 0;
-        //        if (CaptionLabel != null)
-        //            gap = CaptionLabel.Height;
-        //        var _m = new Padding();
-        //        _margin = value;
-        //        _m = _margin;
-        //        _m.Top += gap;
-        //        BaseMargin = _m;
-        //    }
-        //}
-
-        //[Category("Layout")]
-        //[DefaultValue(typeof(Padding), "3, 16, 3, 3")]
-        //public Padding BaseMargin
-        //{
-        //    get
-        //    {
-        //        return base.Margin;
-        //    }
-        //    set
-        //    {
-        //        base.Margin = value;
-        //    }
-        //}
 
         public new bool Visible
         {
@@ -235,12 +156,28 @@ namespace EspackFormControls
                 OnValueChanged(new ValueChangedEventArgs(oldText, Text));
             oldText = Text;
         }
-
-        ~EspackTextBox()
+        // Public implementation of Dispose pattern callable by consumers.
+        public new void Dispose()
         {
-            if (CaptionLabel!= null)
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        bool disposed = false;
+        protected override void Dispose(bool disposing)
+        {
+            if (disposed)
+                return;
+            if (disposing)
+            {
                 CaptionLabel.Dispose();
-            CaptionLabel = null;
+                base.Dispose(true);
+                // Free any other managed objects here.
+                //
+            }
+
+            // Free any unmanaged objects here.
+            //
+            disposed = true;
         }
         protected override void OnParentChanged(EventArgs e)
         {
