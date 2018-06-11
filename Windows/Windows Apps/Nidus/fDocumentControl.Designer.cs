@@ -40,6 +40,7 @@
             this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
             this.VS = new EspackDataGrid.EspackDataGridView();
             this.fsFileData = new EspackFileStream.EspackFileStream();
+            this.wbViewer = new System.Windows.Forms.WebBrowser();
             ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -323,6 +324,7 @@
             this.VS.Del = false;
             this.VS.DependingRS = null;
             this.VS.Dirty = false;
+            this.VS.Dock = System.Windows.Forms.DockStyle.Left;
             this.VS.EspackControlParent = null;
             this.VS.ExtraDataLink = null;
             this.VS.FilterDataGrid = null;
@@ -331,7 +333,7 @@
             this.VS.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.VS.IsCTLMOwned = false;
             this.VS.IsFilterFocused = false;
-            this.VS.Location = new System.Drawing.Point(3, 3);
+            this.VS.Location = new System.Drawing.Point(0, 0);
             this.VS.MsgStatusLabel = null;
             this.VS.Name = "VS";
             this.VS.NumPages = 0;
@@ -365,10 +367,13 @@
             this.fsFileData.DBFieldType = null;
             this.fsFileData.DBFileCode = null;
             this.fsFileData.DBFileDataField = null;
+            this.fsFileData.DBPDFFileCode = null;
+            this.fsFileData.DBPDFFileDataField = null;
             this.fsFileData.DefaultValue = null;
             this.fsFileData.Del = false;
             this.fsFileData.DependingRS = null;
             this.fsFileData.ExtraDataLink = null;
+            this.fsFileData.FileName = "";
             this.fsFileData.ForeColor = System.Drawing.Color.Black;
             this.fsFileData.IsCTLMOwned = false;
             this.fsFileData.Location = new System.Drawing.Point(885, 61);
@@ -388,11 +393,20 @@
             this.fsFileData.Upp = false;
             this.fsFileData.Value = null;
             // 
+            // wbViewer
+            // 
+            this.wbViewer.Location = new System.Drawing.Point(1191, 114);
+            this.wbViewer.MinimumSize = new System.Drawing.Size(20, 20);
+            this.wbViewer.Name = "wbViewer";
+            this.wbViewer.Size = new System.Drawing.Size(524, 741);
+            this.wbViewer.TabIndex = 51;
+            // 
             // fDocumentControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1891, 1082);
+            this.Controls.Add(this.wbViewer);
             this.Controls.Add(this.fsFileData);
             this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.lstFlags);
@@ -426,5 +440,6 @@
         private EspackFormControls.EspackCheckedListBox lstFlags;
         private EspackFormControls.EspackTextBox txtStatus;
         private EspackFileStream.EspackFileStream fsFileData;
+        private System.Windows.Forms.WebBrowser wbViewer;
     }
 }

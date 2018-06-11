@@ -5,22 +5,23 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static CommonTools.CT;
 
 namespace MicrosoftOfficeTools
 {
     public static class MSTools
     {
-
+        private static Application wordApp;
         public static string ConvertWordToPDF(string filePath)
         {
             try
             {
-                var app = new Microsoft.Office.Interop.Word.Application();
-                var doc = app.Documents.Open(filePath, ReadOnly: true);
+                //var app = new Microsoft.Office.Interop.Word.Application();
+                var doc = wordApp.Documents.Open(filePath, ReadOnly: true);
                 string pdfDocName = string.Format(@"{0}\{1}.pdf", Path.GetDirectoryName(filePath),Path.GetFileNameWithoutExtension(filePath));
                 doc.ExportAsFixedFormat(pdfDocName, WdExportFormat.wdExportFormatPDF);
                 doc.Close(WdSaveOptions.wdDoNotSaveChanges);
-                app.Quit();
+                //app.Quit();
                 return pdfDocName;
             }
             catch (Exception ex)
@@ -29,23 +30,25 @@ namespace MicrosoftOfficeTools
             }
         }
 
+
+
         public static byte[] ConvertWordToPDF(byte[] wordDocData)
         {
             byte[] _result;
-            var tempWordFilePath = string.Format(@"{0}{1}", Path.GetTempPath(), Path.GetRandomFileName());
-            using (var fileStream = File.Create(tempWordFilePath))
-            {
-                fileStream.Write(wordDocData, 0, wordDocData.Length);
-            }
+            var tempWordFilePath = ByteArrayToFile(wordDocData);
             var tempPDFFilePath = ConvertWordToPDF(tempWordFilePath);
-            using (var fileStream = File.OpenRead(tempPDFFilePath))
-            {
-                _result = (new BinaryReader(fileStream)).ReadBytes((int)fileStream.Length);
-            }
+            _result = FileToByteArray(tempPDFFilePath);
             File.Delete(tempWordFilePath);
             File.Delete(tempPDFFilePath);
             return _result;
         }
-
+        static MSTools()
+        {
+            wordApp = new Microsoft.Office.Interop.Word.Application();
+        }
+        //static ~MSTools()
+        //{
+        //    app.Quit();
+        //}
     }
 }

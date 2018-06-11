@@ -755,7 +755,7 @@ namespace CTLMantenimientoNet
                         {
                             ClearValues(true);
                             SetStatus(EnumStatus.SEARCH);
-                            Click_OK(pButtonName); ;
+                            Click_OK(pButtonName);
                         }
 
                         if (VsGrids.Count != 0)
