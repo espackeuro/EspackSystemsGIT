@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Shapes;
 using AccesoDatos;
 using AccesoDatosNet;
 
@@ -358,6 +359,7 @@ namespace DiverseControls
 
     public enum EnumDocumentZones { HEADER, BODY, FOOTER, NONE }
     public enum EnumZoneDocking { ALLOWED, RIGHTWARDS, DOWNWARDS, NONE }
+    public enum EnumDrawingType { LINE, RECTANGLE, ELLIPSE }
 
     // Interface
     public interface IEspackPrintingItem
@@ -392,6 +394,89 @@ namespace DiverseControls
             Font = new Font(pFamily, pSize, pStyle, GraphicsUnit.Millimeter);
             Brush = pBrush ?? new SolidBrush(Color.Black);
         }
+    }
+
+    // Image items class
+    public class EspackPrintingDrawing : IEspackPrintingItem, IDisposable
+    {
+        public float X { get; set; }
+        public float Y { get; set; }
+        public Graphics Graphics { get; set; }
+        public bool EOL { get; set; }
+        public bool PrintMe { get; set; }
+        public bool Persistent { get; set; }
+        public Shape Shape { get; set; }
+        public Brush Brush { get; set; }
+        public float Height { get; set; }
+        public float Width { get; set; }
+        public EnumDrawingType DrawingType { get; set; }
+        
+        public EspackPrintingDrawing(EnumDrawingType pDrawType , float pX, float pY, float pWidth, float pHeight,Brush pBrush=null)
+        {
+            DrawingType = pDrawType;
+            X = pX;
+            Y = pY;
+            Width = pWidth;
+            Height = pHeight;
+            Brush = pBrush;
+        }
+
+        public void Draw(Graphics pGraphics)
+        {
+            if (pGraphics != null)
+            {
+                switch (DrawingType)
+                {
+                    case EnumDrawingType.LINE:
+                        pGraphics.DrawLine(new Pen(Brush), X, Y, X + Width, Y + Height);
+                        break;
+                    case EnumDrawingType.RECTANGLE:
+                        pGraphics.DrawRectangle(new Pen(Brush), X, Y, Width, Height);
+                        break;
+                    case EnumDrawingType.ELLIPSE:
+                        pGraphics.DrawEllipse(new Pen(Brush), X, Y, Width, Height);
+                        break;
+                }
+
+            }
+        }
+
+        // --------- IDisposable stuff ---------
+        #region IDisposable Support
+        private bool disposedValue = false; // To detect redundant calls
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    // TODO: dispose managed state (managed objects).
+                }
+
+                // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
+                // TODO: set large fields to null.
+
+                disposedValue = true;
+            }
+        }
+
+        // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
+        // ~EspackPrintingText() {
+        //   // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+        //   Dispose(false);
+        // }
+
+        // This code added to correctly implement the disposable pattern.
+        public void Dispose()
+        {
+            // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+            Dispose(true);
+            // TODO: uncomment the following line if the finalizer is overridden above.
+            // GC.SuppressFinalize(this);
+        }
+        #endregion
+        // --------- until here ---------
     }
 
     // Image items class
@@ -675,6 +760,11 @@ namespace DiverseControls
             Items.Add(new EspackPrintingImage(pImage,pX,pY,pWidth,pHeight,pEOL));
         }
 
+        public void AddDrawing(EnumDrawingType pDrawType,float pX,float pY,float pWidth, float pHeight, Brush pBrush=null)
+        {
+            // Create and add the object to the list
+            Items.Add(new EspackPrintingDrawing(pDrawType, pX, pY, pWidth, pHeight, pBrush));
+        }
         // Move all X,Y units
         public void Move(float pX=0,float pY = 0)
         {
@@ -770,7 +860,7 @@ namespace DiverseControls
                     }
 
                     // Only for text objects
-                    if (_currentItem.GetType().Name == "EspackPrintingText")
+                    if (_currentItem.GetType().Name == "EspackPrintingText" )
                     {
                         // Cast it to EspackPrintingText
                         using (var _currentText = (EspackPrintingText)_currentItem)
@@ -1054,7 +1144,21 @@ namespace DiverseControls
             AddArea(pZone, null, pDocking);
         }
 
+
         // Add a text item to the current area
+        public void AddDrawing(float pX1, float pY1, float pX2, float pY2, EnumDrawingType pDrawType= EnumDrawingType.LINE, Brush pBrush=null)
+        {
+            if (CurrentArea != null)
+            {
+                CurrentArea.AddDrawing(pDrawType, pX1, pY1, pX2-pX1,pY2-pY1, pBrush);
+            }
+            else
+            {
+                MessageBox.Show("There is not current Area defined.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Add a  item to the current area
         public void AddImage(Image pImage, float pX = -1, float pY = -1, float pWidth=-1,float pHeight=-1, bool pEOL = false)
         {
             if (CurrentArea != null)
