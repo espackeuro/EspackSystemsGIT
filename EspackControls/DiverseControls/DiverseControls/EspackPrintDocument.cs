@@ -406,19 +406,19 @@ namespace DiverseControls
         public bool PrintMe { get; set; }
         public bool Persistent { get; set; }
         public Shape Shape { get; set; }
-        public Brush Brush { get; set; }
+        public Pen Pen { get; set; }
         public float Height { get; set; }
         public float Width { get; set; }
         public EnumDrawingType DrawingType { get; set; }
         
-        public EspackPrintingDrawing(EnumDrawingType pDrawType , float pX, float pY, float pWidth, float pHeight,Brush pBrush=null)
+        public EspackPrintingDrawing(EnumDrawingType pDrawType , float pX, float pY, float pWidth, float pHeight,Pen pPen=null)
         {
             DrawingType = pDrawType;
             X = pX;
             Y = pY;
             Width = pWidth;
             Height = pHeight;
-            Brush = pBrush;
+            Pen = pPen;
         }
 
         public void Draw(Graphics pGraphics)
@@ -428,13 +428,13 @@ namespace DiverseControls
                 switch (DrawingType)
                 {
                     case EnumDrawingType.LINE:
-                        pGraphics.DrawLine(new Pen(Brush), X, Y, X + Width, Y + Height);
+                        pGraphics.DrawLine(Pen, X, Y, X + Width, Y + Height);
                         break;
                     case EnumDrawingType.RECTANGLE:
-                        pGraphics.DrawRectangle(new Pen(Brush), X, Y, Width, Height);
+                        pGraphics.DrawRectangle(Pen, X, Y, Width, Height);
                         break;
                     case EnumDrawingType.ELLIPSE:
-                        pGraphics.DrawEllipse(new Pen(Brush), X, Y, Width, Height);
+                        pGraphics.DrawEllipse(Pen, X, Y, Width, Height);
                         break;
                 }
 
@@ -604,6 +604,7 @@ namespace DiverseControls
         public bool Persistent { get; set; }
         public bool Title { get; set; }
         public bool ForcedBold { get; set; }
+        public bool ForcedUnderline { get; set; }
         public bool PrintMe { get; set; }
 
         // Get the height for current text
@@ -713,6 +714,8 @@ namespace DiverseControls
         public int PermanentRows { get; set; } = 0;
 
         private EspackFont Font;
+        private Pen Pen;
+
         //private Brush Brush;
 
         public List<object> Items { get; set; } = new List<object>();
@@ -760,10 +763,10 @@ namespace DiverseControls
             Items.Add(new EspackPrintingImage(pImage,pX,pY,pWidth,pHeight,pEOL));
         }
 
-        public void AddDrawing(EnumDrawingType pDrawType,float pX,float pY,float pWidth, float pHeight, Brush pBrush=null)
+        public void AddDrawing(EnumDrawingType pDrawType,float pX,float pY,float pWidth, float pHeight, Pen pPen=null)
         {
             // Create and add the object to the list
-            Items.Add(new EspackPrintingDrawing(pDrawType, pX, pY, pWidth, pHeight, pBrush));
+            Items.Add(new EspackPrintingDrawing(pDrawType, pX, pY, pWidth, pHeight, pPen));
         }
         // Move all X,Y units
         public void Move(float pX=0,float pY = 0)
@@ -820,6 +823,8 @@ namespace DiverseControls
             // Calculate the X and Y for each item when they are not defined
             IEspackPrintingItem _previousItem = null;
             EspackPrintingText _previousText = null;
+            Brush _previousBrush = null;
+            Pen _previousPen = null;
 
             foreach (var _item in Items)
             {
@@ -830,83 +835,100 @@ namespace DiverseControls
                 // If not ready to be printed, it needs to be arranged
                 if (!_currentItem.PrintMe)
                 {
-                    if (_previousItem != null)
+                    if (_currentItem.GetType().Name != "EspackPrintingDrawing")
                     {
-                        // Previous item exists
-                        if (_currentItem.X == -1 && _currentItem.Y == -1)
+                        if (_previousItem != null)
                         {
-                            // X and Y not set. Set them depending of EOL value
-                            if (!_previousItem.EOL)
+                            // Previous item exists
+                            if (_currentItem.X == -1 && _currentItem.Y == -1)
                             {
-                                _currentItem.X = _previousItem.X + _previousItem.Width;
-                                _currentItem.Y = _previousItem.Y;
-                            }
-                            else
-                            {
-                                if (Zone == EnumDocumentZones.BODY && _previousItem.Y + _previousItem.Height > MaxHeight)
+                                // X and Y not set. Set them depending of EOL value
+                                if (!_previousItem.EOL)
                                 {
-                                    break;
+                                    _currentItem.X = _previousItem.X + _previousItem.Width;
+                                    _currentItem.Y = _previousItem.Y;
                                 }
-                                _currentItem.X = X; // LEFT MARGIN
-                                _currentItem.Y = _previousItem.Y + _previousItem.Height;
+                                else
+                                {
+                                    if (Zone == EnumDocumentZones.BODY && _previousItem.Y + _previousItem.Height > MaxHeight)
+                                    {
+                                        break;
+                                    }
+                                    _currentItem.X = X; // LEFT MARGIN
+                                    _currentItem.Y = _previousItem.Y + _previousItem.Height;
+                                }
                             }
                         }
-                    }
-                    else
-                    {
-                        // First element: set defaults if not passed
-                        _currentItem.X = _currentItem.X == -1 ? X : X + _currentItem.X; // LEFT MARGIN
-                        _currentItem.Y = _currentItem.Y == -1 ? Y : Y + _currentItem.Y; // TOP MARGIN
-                    }
-
-                    // Only for text objects
-                    if (_currentItem.GetType().Name == "EspackPrintingText" )
-                    {
-                        // Cast it to EspackPrintingText
-                        using (var _currentText = (EspackPrintingText)_currentItem)
+                        else
                         {
-                            if (_previousText != null)
+                            // First element: set defaults if not passed
+                            _currentItem.X = _currentItem.X == -1 ? X : X + _currentItem.X; // LEFT MARGIN
+                            _currentItem.Y = _currentItem.Y == -1 ? Y : Y + _currentItem.Y; // TOP MARGIN
+                        }
+                        // Only for text objects
+
+                        if (_currentItem.GetType().Name == "EspackPrintingText")
+                        {
+                            // Cast it to EspackPrintingText
+                            using (var _currentText = (EspackPrintingText)_currentItem)
                             {
-                                // Not the first text object
-                                if (_currentText.Font == null)
+                                if (_previousText != null)
                                 {
-                                    // Get the font from the previous object if set
-                                    Font _f = _previousText.Font ?? (Font)Font.Font.Clone();
+                                    // Not the first text object
+                                    if (_currentText.Font == null)
+                                    {
+                                        // Get the font from the previous object if set
+                                        Font _f = _previousText.Font ?? (Font)Font.Font.Clone();
 
-                                    // Disable the auto bold when the previous text was bold-forced and current is not a title
-                                    if (_previousText.ForcedBold && !_currentText.Title)
-                                        _f = new Font(_f.Name, _f.Size);
+                                        // Disable the auto bold when the previous text was bold-forced and current is not a title
+                                        if ((_previousText.ForcedBold || _previousText.ForcedUnderline) && !_currentText.Title)
+                                            _f = new Font(_f.Name, _f.Size, _f.Style & (_previousText.ForcedBold?~FontStyle.Bold: _f.Style) & (_previousText.ForcedUnderline && Zone==EnumDocumentZones.BODY ? ~FontStyle.Underline : _f.Style));
 
-                                    // Set current font
-                                    _currentText.Font = _f;
+                                        // Set current font
+                                        _currentText.Font = _f;
+                                    }
+
+                                    // Set current brush
+                                    if (_currentText.Brush == null)
+                                        _currentText.Brush = _previousBrush ?? (Brush)Font.Brush.Clone();
+                                }
+                                else
+                                {
+                                    // First text object: set font / brush
+                                    _currentText.Font = _currentText.Font ?? (Font)Font.Font.Clone();
+                                    _currentText.Brush = _currentText.Brush ?? (Brush)Font.Brush.Clone();
                                 }
 
-                                // Set current brush
-                                if (_currentText.Brush == null)
-                                    _currentText.Brush = _previousText.Brush ?? (Brush)Font.Brush.Clone();
+                                // Force bold if current text is a title (and font was not bold)
+                                if (_currentText.Title && !(_currentText.Font.Bold && _currentText.Font.Underline))
+                                {
+                                    _currentText.ForcedBold = !_currentText.Font.Bold;
+                                    if (Zone==EnumDocumentZones.BODY)
+                                        _currentText.ForcedUnderline = !_currentText.Font.Underline;
+                                    _currentText.Font = new Font(_currentText.Font.Name, _currentText.Font.SizeInPoints, _currentText.Font.Style | FontStyle.Bold | (Zone == EnumDocumentZones.BODY?FontStyle.Underline:0));
+                                }
+                                _previousText = _currentText;
+                                _previousBrush = _currentText.Brush;
                             }
-                            else
-                            {
-                                // First text object: set font / brush
-                                _currentText.Font = _currentText.Font ?? (Font)Font.Font.Clone();
-                                _currentText.Brush = _currentText.Brush ?? (Brush)Font.Brush.Clone();
-                            }
-
-                            // Force bold if current text is a title (and font was not bold)
-                            if (_currentText.Title && !_currentText.Font.Bold)
-                            {
-                                _currentText.Font = new Font(_currentText.Font.Name, _currentText.Font.SizeInPoints, FontStyle.Bold);
-                                _currentText.ForcedBold = true;
-                            }
-                            _previousText = _currentText;
                         }
-                    }
 
-                    // Calculate the Height / Width of current area
-                    if (_currentItem.X - X + _currentItem.Width > Width)
-                        Width = _currentItem.X - X + _currentItem.Width;
-                    if (_currentItem.Y - Y + _currentItem.Height > Height)
-                        Height = _currentItem.Y - Y + _currentItem.Height;
+                        // Calculate the Height / Width of current area
+                        if (_currentItem.X - X + _currentItem.Width > Width)
+                            Width = _currentItem.X - X + _currentItem.Width;
+                        if (_currentItem.Y - Y + _currentItem.Height > Height)
+                            Height = _currentItem.Y - Y + _currentItem.Height;
+                    }
+                    // Only for drawing objects (totally independent to the area)
+                    else if (_currentItem.GetType().Name == "EspackPrintingDrawing")
+                    {
+                        if (((EspackPrintingDrawing)_currentItem).Pen==null)
+                        {
+                            ((EspackPrintingDrawing)_currentItem).Pen = _previousPen ?? (Pen)Pen.Clone();
+                            ((EspackPrintingDrawing)_currentItem).Pen.Brush = _previousBrush ?? (Brush)Font.Brush.Clone();
+                        }
+                        _previousBrush = ((EspackPrintingDrawing)_currentItem).Pen.Brush;
+                        _previousPen = ((EspackPrintingDrawing)_currentItem).Pen;
+                    }
 
                     // Set current item as ready to be printed
                     _currentItem.PrintMe = true;
@@ -914,148 +936,6 @@ namespace DiverseControls
                 _previousItem = _currentItem;
             }
         }
-
-//            // Convert all relative positions to absolute
-//        public void ArrangeItems_OLD(Graphics pGraphics,PointF HardMargins, EspackPrintingArea pPreviousArea)
-//        {
-
-//            EspackPrintingText _previousText = null;
-
-//            if (pPreviousArea != null)
-//            {
-//                bool _setCoords = true;
-
-//                if (Docking != EnumZoneDocking.NONE)
-//                {
-//                    switch (pPreviousArea.Docking)
-//                    {
-//                        case EnumZoneDocking.RIGHTWARDS:
-//                            if (X == -1) X = pPreviousArea.X + pPreviousArea.Width + 2;
-//                            if (Y == -1) Y = pPreviousArea.Y;
-//                            _setCoords = false;
-//                            break;
-//                        case EnumZoneDocking.DOWNWARDS:
-//                            if (X == -1) X = pPreviousArea.X;
-//                            if (Y == -1) Y = pPreviousArea.Y + pPreviousArea.Height;
-//                            _setCoords = false;
-//                            break;
-//                    }
-//                }
-
-//                if (_setCoords)
-//                {
-//                    if (X == -1) X = HardMargins.X;
-//                    if (Y == -1) Y = pPreviousArea.Y + pPreviousArea.Height;
-//                }
-
-//                if (Font == null)
-//                    Font = pPreviousArea.Font;
-//            }
-//            else
-//            {
-//                // Set the min visible coordinates as default
-//                if (X == -1) X = HardMargins.X;
-//                if (Y == -1) Y = HardMargins.Y;
-//                Font = Font ?? new EspackFont();
-//            }
-
-//            // Calculate the X and Y for each item when they are not defined
-            
-//            foreach(var x in Items)
-//            {
-//                ((IEspackPrintingItem)x).Graphics = pGraphics;
-                
-//                switch (x.GetType().Name)
-
-//                {
-//                    // Text items
-//                    case "EspackPrintingText":
-
-////                        ((IEspackPrintingItem)x).Graphics = pGraphics;
-
-//                        using (var _currentItem = ((EspackPrintingText)x))
-//                        {
-//                            // It has not arranged yet: when arranged, the items get true on PrintMe property
-//                            if (!_currentItem.PrintMe)
-//                            {
-//                                if (_previousText != null)
-//                                {
-//                                    // Previous item exists
-//                                    if (_currentItem.X == -1 && _currentItem.Y == -1)
-//                                    {
-//                                        // X and Y not set. Set them depending of EOL value
-//                                        if (!_previousText.EOL)
-//                                        {
-//                                            _currentItem.X = _previousText.X + _previousText.Width;
-//                                            _currentItem.Y = _previousText.Y;
-//                                        }
-//                                        else
-//                                        {
-//                                            if (Zone == EnumDocumentZones.BODY && _previousText.Y + _previousText.Height > MaxHeight)
-//                                            {
-//                                                break;
-//                                            }
-//                                            _currentItem.X = X; // LEFT MARGIN
-//                                            _currentItem.Y = _previousText.Y + _previousText.Height;
-//                                        }
-//                                    }
-//                                    if (_currentItem.Font == null)
-//                                    {
-//                                        Font _f = _previousText.Font ?? (Font)Font.Font.Clone();
-
-//                                        if (_previousText.ForcedBold && !_currentItem.Title)
-//                                            _f = new Font(_f.Name, _f.Size);
-
-//                                        _currentItem.Font = _f;
-//                                        //_currentItem.ForcedBold= _currentItem.Title &&  (_previousText.Font!=null?_previousText.ForcedBold:false);
-//                                    }
-//                                    if (_currentItem.Brush == null)
-//                                        _currentItem.Brush = _previousText.Brush ?? (Brush)Font.Brush.Clone();
-
-//                                }
-//                                else
-//                                {
-//                                    // First element: set defaults if not passed
-//                                    _currentItem.X = _currentItem.X == -1 ? X : X + _currentItem.X; // LEFT MARGIN
-//                                    _currentItem.Y = _currentItem.Y == -1 ? Y : Y + _currentItem.Y; // TOP MARGIN
-//                                    _currentItem.Font = _currentItem.Font ?? (Font)Font.Font.Clone();
-//                                    _currentItem.Brush = _currentItem.Brush ?? (Brush)Font.Brush.Clone();
-//                                }
-
-//                                if (_currentItem.Title && !_currentItem.Font.Bold)
-//                                {
-//                                    _currentItem.Font = new Font(_currentItem.Font.Name, _currentItem.Font.SizeInPoints, FontStyle.Bold);
-//                                    _currentItem.ForcedBold = true;
-//                                }
-
-//                                if (_currentItem.X - X + _currentItem.Width > Width)
-//                                    Width = _currentItem.X - X + _currentItem.Width;
-//                                if (_currentItem.Y - Y + _currentItem.Height > Height)
-//                                    Height = _currentItem.Y - Y + _currentItem.Height;
-
-//                                _currentItem.PrintMe = true;
-//                            }
-//                            _previousText = _currentItem;
-//                        }
-//                        break;
-
-//                    case "EspackPrintingImage":
-
-//                        ((IEspackPrintingItem)x).Graphics = pGraphics;
-
-//                        using (var _currentItem = ((EspackPrintingText)x))
-//                        {
-//                            // It has not arranged yet: when arranged, the items get true on PrintMe property
-//                            //if (!_currentItem.PrintMe)
-//                        }
-//                        break;
-
-
-                
-//                }
-//            }
-
-//        }
 
         // Draw all the items in the area
         public void Draw(Graphics pGraphics)
@@ -1146,11 +1026,11 @@ namespace DiverseControls
 
 
         // Add a text item to the current area
-        public void AddDrawing(float pX1, float pY1, float pX2, float pY2, EnumDrawingType pDrawType= EnumDrawingType.LINE, Brush pBrush=null)
+        public void AddDrawing(float pX1, float pY1, float pX2, float pY2, EnumDrawingType pDrawType= EnumDrawingType.LINE, Pen pPen=null)
         {
             if (CurrentArea != null)
             {
-                CurrentArea.AddDrawing(pDrawType, pX1, pY1, pX2-pX1,pY2-pY1, pBrush);
+                CurrentArea.AddDrawing(pDrawType, pX1, pY1, pX2-pX1,pY2-pY1, pPen);
             }
             else
             {

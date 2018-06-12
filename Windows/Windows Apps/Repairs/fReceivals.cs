@@ -156,11 +156,13 @@ namespace Repairs
 
                             // Define the header
                             _recDoc.AddArea(EnumDocumentZones.HEADER, new EspackFont("Tahoma", 3.5F),EnumZoneDocking.RIGHTWARDS);
-                            _recDoc.AddImage(Properties.Resources.Logo_Espack_transparente, pWidth: 200F);
-
+                            _recDoc.AddImage(Properties.Resources.Logo_Espack_transparente, pHeight: 36F);
+                            _recDoc.AddDrawing(8F, 8F,( _pd.Document.DefaultPageSettings.PaperSize.Width / 3.937F ) -8F, 20F, EnumDrawingType.RECTANGLE,new Pen(Color.Black,0.1F));
+                            
                             _recDoc.AddArea(EnumDocumentZones.HEADER, EnumZoneDocking.RIGHTWARDS);
                             _recDoc.AddText(true,"REC.NUMBER:",true);
-                            _recDoc.AddText(true, "SUPPLIER DOC:");
+                            _recDoc.AddText(true, "SUPPLIER DOC:", true);
+                            _recDoc.AddText( "");
 
                             _recDoc.AddArea(EnumDocumentZones.HEADER,EnumZoneDocking.RIGHTWARDS);
                             _recDoc.AddText(txtReceivalNumber.Text,true);
@@ -180,7 +182,7 @@ namespace Repairs
                             _recDoc.AddText("Sign");
 
                             // Define the body
-                            if (!_recDoc.AddQuery(string.Format("select UnitNumber,Reference from PackReceivalsDet where RecNumber='{0}' order by UnitNumber", txtReceivalNumber.Text), Values.gDatos, new EspackFont("Tahoma", 2.5F)))
+                            if (!_recDoc.AddQuery(string.Format("select UNITNUMBER,REFERENCE,DESCRIPTION from vPackReceivalsDet where RecNumber='{0}' order by UnitNumber", txtReceivalNumber.Text), Values.gDatos, new EspackFont("Tahoma", 2.5F)))
                                 return;
 
                             // Print that
