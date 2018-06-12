@@ -31,6 +31,30 @@ namespace CommonTools
 
     public static class CT
     {
+        public static string ByteArrayToFile(byte[] data, string extension = "")
+        {
+            var tempFilePath = string.Format(@"{0}{1}", Path.GetTempPath(), Path.GetRandomFileName());
+            if (data[0] == 25 && data[1] == 50 && data[2] == 44 && data[3] == 46) // %PDF
+                extension = ".pdf";
+            if (extension != "")
+                tempFilePath = tempFilePath.Replace(Path.GetExtension(tempFilePath), extension);
+            using (var fileStream = File.Create(tempFilePath))
+            {
+                fileStream.Write(data, 0, data.Length);
+            }
+            return tempFilePath;
+        }
+
+        public static byte[] FileToByteArray(string filePath)
+        {
+            byte[] _result;
+            using (var fileStream = File.OpenRead(filePath))
+            {
+                _result = (new BinaryReader(fileStream)).ReadBytes((int)fileStream.Length);
+            }
+            return _result;
+        }
+
         public static string GeneratePassword(int lenght)
         {
             Random _rnd = new Random();

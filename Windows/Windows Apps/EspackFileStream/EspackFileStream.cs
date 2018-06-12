@@ -17,8 +17,8 @@ namespace EspackFileStream
     {
         //private FileStream fileStream;// = new FileStream();
         public EspackTextBox TbFileName { get; }
-        public EspackDataContainer FileData { get; }
-        public EspackDataContainer PDFFileData { get; }
+        public EspackFileDataContainer FileData { get; }
+        public EspackFileDataContainer PDFFileData { get; }
         //public byte[] FileData { get; set; }
         public Button BtnSearch { get; set; }
         // File name and type properties
@@ -70,8 +70,8 @@ namespace EspackFileStream
         {
             TbFileName = new EspackTextBox() { Size = new Size(200, 17), Location = new System.Drawing.Point(0, 9) };
             BtnSearch = new Button() { Text = "...", Size = new Size(30, 19), Location = new System.Drawing.Point(200, 7) };
-            FileData = new EspackDataContainer();
-            PDFFileData = new EspackDataContainer();
+            FileData = new EspackFileDataContainer();
+            PDFFileData = new EspackFileDataContainer();
             SuspendLayout();
             CaptionLabel = TbFileName.CaptionLabel;
             CaptionLabel.ForeColor = Color.Black;

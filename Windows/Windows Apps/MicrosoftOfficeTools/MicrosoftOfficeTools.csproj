@@ -83,5 +83,11 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Database and tools\CommonTools\CommonTools.csproj">
+      <Project>{9148f7e6-31f6-4f96-b7dc-afea449998c7}</Project>
+      <Name>CommonTools</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
