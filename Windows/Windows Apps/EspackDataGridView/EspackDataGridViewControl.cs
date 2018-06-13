@@ -13,94 +13,85 @@ using CommonTools;
 using System;
 using DiverseControls;
 
-
 namespace EspackDataGrid
 {
-    public enum AggregateOperations { COUNT, MIN, MAX, SUM, AVERAGE, NONE }
-    public enum EspackCellTypes { COMBO, CHECKEDCOMBO, TEXT, WILDCARDTEXT }
-    public static class Colors
-    {
-        public static Color CELLLOCKEDBACKCOLOR = Color.LightGray;
-        public static Color CELLLOCKEDFORECOLOR = Color.Black;
-        public static Color CELLBACKCOLOR = Color.Beige;
-        public static Color CELLFORECOLOR = Color.Black;
-        public static Color CELLFILTERBACKCOLOR = Color.Beige;
-        public static Color CELLFILTERFORECOLOR = Color.Red;
-    }
-    public class AggregateItemList
-    {
-        public List<AggregateItem> Items = new List<AggregateItem>();
-        public int LenghtTitle
-        {
-            get
-            {
-                return Items.Max(x => x.Title.Length);
-            }
-        }
-        public int LenghtValue
-        {
-            get
-            {
-                return Items.Max(x => x.StringValue.Length);
-            }
-        }
-    }
-    public class AggregateItem
-    {
-        public AggregateOperations Aggregate;
-        public string FieldName;
-        public float Value;
-        public string Title
-        {
-            get
-            {
-                return string.Format("{0}({1})", Aggregate, FieldName);
-            }
-        }
-        public string StringValue
-        {
-            get
-            {
-                return Value.ToString();
-            }
-        }
-
-    }
-    public partial class EspackDataGridView : DataGridView, EspackFormControl
+    public partial class EspackDataGridViewControl : EspackFormControlCommon
     {
         #region Properties
-        public bool IsCTLMOwned { get; set; } = false;
-        public EspackControl ExtraDataLink { get; set; } = null;
-        public EspackControlTypeEnum EspackControlType { get; set; }
+        //public bool IsCTLMOwned { get; set; } = false;
+        //public EspackControl ExtraDataLink { get; set; } = null;
+        //public EspackControlTypeEnum EspackControlType { get; set; }
         //private string mDBTable;
         private DA mDA = new DA();
-        private EnumStatus mStatus;
+        //private EnumStatus mStatus;
         //private string mWhereString;
         private bool mPaginate;
         private int mPageSize;
         private ToolStrip mNavigationBar;
         private EnumStatus mPreviousParentStatus;
-        public bool Protected { get; set; }
+        //public bool Protected { get; set; }
         //Properties
         public bool AllowInsert { get; set; }
         public bool AllowUpdate { get; set; }
         public bool AllowDelete { get; set; }
         public int NumPages { get; set; }
         public EspackControl EspackControlParent { get; set; }
+
+        //public DataGridView DataGridView { get; set; } = new DataGridView();
+        public DataGridViewCell CurrentCell { get => DataGridView.CurrentCell; set => DataGridView.CurrentCell = value; }
+        public DataGridViewRowCollection Rows { get => DataGridView.Rows; }
+        public DataGridViewColumnCollection Columns { get => DataGridView.Columns; }
+        public DataGridViewRow CurrentRow { get => DataGridView.CurrentRow; }
+        public DataGridViewCell this[int col, int row]
+        {
+            get => DataGridView[col, row];
+        }
+        public DataGridViewRow RowTemplate { get => DataGridView.RowTemplate; set => DataGridView.RowTemplate = value; }
+        public int RowCount { get => DataGridView.RowCount; set => DataGridView.RowCount = value; }
+        public object DataSource { get => DataGridView.DataSource; set => DataGridView.DataSource = value; }
+        public bool RowHeadersVisible { get => DataGridView.RowHeadersVisible; set => DataGridView.RowHeadersVisible = value; }
+        public bool ColumnHeadersVisible { get => DataGridView.ColumnHeadersVisible; set => DataGridView.ColumnHeadersVisible = value; }
+        public Color GridColor { get => DataGridView.GridColor; set => DataGridView.GridColor = value; }
+        public DataGridViewAutoSizeColumnsMode AutoSizeColumnsMode { get => DataGridView.AutoSizeColumnsMode; set => DataGridView.AutoSizeColumnsMode = value; }
+        public bool AllowUserToResizeColumns { get => DataGridView.AllowUserToResizeColumns; set => DataGridView.AllowUserToResizeColumns = value; }
+        public ScrollBar VerticalScrollBar { get => DataGridView.Controls.OfType<VScrollBar>().FirstOrDefault(); }
+        public ScrollBar HorizontalScrollBar { get => DataGridView.Controls.OfType<HScrollBar>().FirstOrDefault(); }
+        public bool AllowUserToAddRows { get => DataGridView.AllowUserToAddRows; set => DataGridView.AllowUserToAddRows = value; }
+        public int HorizontalScrollingOffset { get => DataGridView.HorizontalScrollingOffset; set => DataGridView.HorizontalScrollingOffset = value; }
+
+        public void Sort(DataGridViewColumn dataGridViewColumn, ListSortDirection direction)
+        {
+            DataGridView.Sort(dataGridViewColumn, direction);
+        }
+        public DataGridViewColumn SortedColumn { get => DataGridView.SortedColumn; }
+        public SortOrder SortOrder { get => DataGridView.SortOrder; }
+        public bool IsCurrentCellInEditMode { get => DataGridView.IsCurrentCellInEditMode; }
+        public bool BeginEdit(bool selectAll)
+        {
+            return DataGridView.BeginEdit(selectAll);
+        }
+        public bool EndEdit()
+        {
+            return DataGridView.EndEdit();
+        }
+        public bool CancelEdit()
+        {
+            return DataGridView.CancelEdit();
+        }
         //public Dictionary<string,Control> VSPrimaryKey { get; set; }
 
-        public string DBField { get; set; }
-        public bool Add { get; set; }
-        public bool Upp { get; set; }
-        public bool Del { get; set; }
-        public int Order { get; set; }
-        public bool PK { get; set; }
-        public bool Search { get; set; }
-        public object DefaultValue { get; set; }
-        public Type DBFieldType { get; set; }
+        //public string DBField { get; set; }
+        //public bool Add { get; set; }
+        //public bool Upp { get; set; }
+        //public bool Del { get; set; }
+        //public int Order { get; set; }
+        //public bool PK { get; set; }
+        //public bool Search { get; set; }
+        //public object DefaultValue { get; set; }
+        //public Type DBFieldType { get; set; }
 
         //private object _value;
-        public object Value
+        public override object Value
         {
             get => CurrentCell?.Value;
             set
@@ -139,12 +130,12 @@ namespace EspackDataGrid
                 }
             }
         }
-        public EspackDataGridView FilterDataGrid { get; set; }
+        public DataGridView FilterDataGrid { get; set; }
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<EspackDataGridViewCell> FilterCells { get => FilterDataGrid?.Rows[0].Cells.OfType<EspackDataGridViewCell>().ToList(); }
         //EspackFormControl properties
-        public EspackLabel CaptionLabel { get; set; }
-        public string Caption
+        //public EspackLabel CaptionLabel { get; set; }
+        public override string Caption
         {
             get
             {
@@ -165,9 +156,10 @@ namespace EspackDataGrid
                 CaptionLabel.Location = new Point(base.Location.X, base.Location.Y - CaptionLabel.PreferredHeight - 5);
             }
         }
-        public DA ParentDA { get; set; }
-        public cAccesoDatosNet ParentConn { get; set; }
-        public DynamicRS DependingRS { get; set; }
+        public override bool ReadOnly { get => DataGridView.ReadOnly; set => DataGridView.ReadOnly = value; }
+        //public DA ParentDA { get; set; }
+        //public cAccesoDatosNet ParentConn { get; set; }
+        //public DynamicRS DependingRS { get; set; }
 
         public object this[string ColumnName]
         {
@@ -336,12 +328,12 @@ namespace EspackDataGrid
                         mNavigationBar.Items.Add(new ToolStripButton()
                         {
                             Name = "btnFirst",
-                            Image = (System.Drawing.Image)Properties.Resources.first16
+                            Image = (System.Drawing.Image)EspackDataGrid.Properties.Resources.first16
                         });
                         mNavigationBar.Items.Add(new ToolStripButton()
                         {
                             Name = "btnPrev",
-                            Image = (System.Drawing.Image)Properties.Resources.prev16
+                            Image = (System.Drawing.Image)EspackDataGrid.Properties.Resources.prev16
                         });
                         mNavigationBar.Items.Add(new ToolStripLabel()
                         {
@@ -351,12 +343,12 @@ namespace EspackDataGrid
                         mNavigationBar.Items.Add(new ToolStripButton()
                         {
                             Name = "btnNext",
-                            Image = (System.Drawing.Image)Properties.Resources.next16
+                            Image = (System.Drawing.Image)EspackDataGrid.Properties.Resources.next16
                         });
                         mNavigationBar.Items.Add(new ToolStripButton()
                         {
                             Name = "btnLast",
-                            Image = (System.Drawing.Image)Properties.Resources.last16
+                            Image = (System.Drawing.Image)EspackDataGrid.Properties.Resources.last16
                         });
                         mNavigationBar.ItemClicked += mNavigationBar_ItemClicked;
                         mPageSize = this.Size.Height / this.RowTemplate.Height - 3;
@@ -382,12 +374,12 @@ namespace EspackDataGrid
             get => Columns.OfType<EspackDataGridViewColumn>().Where(c => c.Visible == true).ToList();
         }
 
-        public EnumStatus GetStatus()
-        {
-            return mStatus;
-        }
+        //public override EnumStatus GetStatus()
+        //{
+        //    return mStatus;
+        //}
 
-        public void SetStatus(EnumStatus value)
+        public override void SetStatus(EnumStatus value)
         {
             foreach (EspackDataGridViewColumn Col in Columns)
             {
@@ -512,40 +504,43 @@ namespace EspackDataGrid
         public string DBTable { get; set; }
         private EspackDataGridViewCell oldCurrentCell; //{ get; set; }
         public bool Dirty { get; set; }
-        private EspackDataGridView DataDataGridView;
+        private EspackDataGridViewControl DataDataGridView;
         //private int RowEdited;
         //private bool RowEditedBool = false;
         #endregion
-        public EspackDataGridView() :
-            this(false, null) {}
+        public EspackDataGridViewControl() :
+            this(false, null)
+        { }
 
-        public EspackDataGridView(bool isFilterGrid = false, EspackDataGridView dataDataGV=null)
+        public EspackDataGridViewControl(bool isFilterGrid = false, EspackDataGridViewControl dataDataGV = null)
         {
+            InitializeComponent();
             AllowDelete = false;
             AllowInsert = false;
             AllowUpdate = false;
             RowHeadersVisible = false;
-            CellEnter += EspackDataGridView_CellEnter;
+            DataGridView.CellEnter += EspackDataGridView_CellEnter;
             if (!isFilterGrid)
             {
                 GridColor = SystemColors.ButtonFace;
                 AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 AllowUserToResizeColumns = true;
-                CellBeginEdit += EspackDataGridView_CellBeginEdit;
-                CellEndEdit += EspackDataGridView_CellEndEdit;
-                CurrentCellDirtyStateChanged += EspackDataGridView_CurrentCellDirtyStateChanged;
+                DataGridView.CellBeginEdit += EspackDataGridView_CellBeginEdit;
+                DataGridView.CellEndEdit += EspackDataGridView_CellEndEdit;
+                DataGridView.CurrentCellDirtyStateChanged += EspackDataGridView_CurrentCellDirtyStateChanged;
                 Resize += CtlVSGrid_Resize;
                 KeyDown += CtlVSGrid_KeyDown;
-                SelectionChanged += EspackDataGridView_SelectionChanged;
-                ColumnWidthChanged += EspackDataGridView_ColumnWidthChanged;
-                CellLeave += EspackDataGridView_CellLeave;
+                DataGridView.SelectionChanged += EspackDataGridView_SelectionChanged;
+                DataGridView.ColumnWidthChanged += EspackDataGridView_ColumnWidthChanged;
+                DataGridView.CellLeave += EspackDataGridView_CellLeave;
                 //CurrentCellChanged += EspackDataGridView_CurrentCellChanged;
                 //this.RowEnter += EspackDataGridView_RowEnter;
                 Dirty = false;
 
-            } else
+            }
+            else
             {
-                Sorted += EspackDataGridView_Sorted;
+                DataGridView.Sorted += EspackDataGridView_Sorted;
                 DataDataGridView = dataDataGV;
                 DataDataGridView.Scroll += DataDataGridView_Scroll;
                 DataDataGridView.VerticalScrollBar.VisibleChanged += VerticalScrollBar_VisibleChanged;
@@ -567,7 +562,8 @@ namespace EspackDataGrid
             if (DataDataGridView.VerticalScrollBar.Visible)
             {
                 Width = DataDataGridView.Width - DataDataGridView.VerticalScrollBar.Width;
-            } else
+            }
+            else
             {
                 Width = DataDataGridView.Width;
             }
@@ -602,9 +598,9 @@ namespace EspackDataGrid
             //var destinationCell = SelectedCells.Cast<EspackDataGridViewCell>().FirstOrDefault();
             if (cancelSelect)
             {
-                SelectionChanged -= EspackDataGridView_SelectionChanged;
+                DataGridView.SelectionChanged -= EspackDataGridView_SelectionChanged;
                 CurrentCell = oldCurrentCell;
-                SelectionChanged += EspackDataGridView_SelectionChanged;
+                DataGridView.SelectionChanged += EspackDataGridView_SelectionChanged;
                 cancelSelect = false;
                 return;
             }
@@ -614,17 +610,17 @@ namespace EspackDataGrid
                 {
                     if (MessageBox.Show("The current line is not yet inserted. Are you sure?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                     {
-                        SelectionChanged -= EspackDataGridView_SelectionChanged;
+                        DataGridView.SelectionChanged -= EspackDataGridView_SelectionChanged;
                         CurrentCell = oldCurrentCell;
-                        SelectionChanged += EspackDataGridView_SelectionChanged;
+                        DataGridView.SelectionChanged += EspackDataGridView_SelectionChanged;
                     }
                 }
                 else if (AllowUpdate && Dirty)
                     if (MessageBox.Show("The current line is not yet updated. Are you sure?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                     {
-                        SelectionChanged -= EspackDataGridView_SelectionChanged;
+                        DataGridView.SelectionChanged -= EspackDataGridView_SelectionChanged;
                         CurrentCell = oldCurrentCell;
-                        SelectionChanged += EspackDataGridView_SelectionChanged;
+                        DataGridView.SelectionChanged += EspackDataGridView_SelectionChanged;
                     }
             }
             //oldCurrentCell = (EspackDataGridViewCell)CurrentCell; /*/
@@ -650,7 +646,7 @@ namespace EspackDataGrid
         private bool cancelSelect = false;
         private bool executed = false;
 
-        public event EventHandler<ValueChangedEventArgs> ValueChanged;
+        //public event EventHandler<ValueChangedEventArgs> ValueChanged;
 
         private void EspackDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
@@ -698,13 +694,13 @@ namespace EspackDataGrid
                     BeginEdit(true);
                 }
             }// else
-            //{
-            //    if (e.ColumnIndex < VisibleColumns.Select(c => c.Index).Max())
-            //        SendKeys.Send("{RIGHT}");
-            //}
+             //{
+             //    if (e.ColumnIndex < VisibleColumns.Select(c => c.Index).Max())
+             //        SendKeys.Send("{RIGHT}");
+             //}
         }
 
-        ~EspackDataGridView()
+        ~EspackDataGridViewControl()
         {
             if (CaptionLabel != null)
                 CaptionLabel.Dispose();
@@ -736,12 +732,12 @@ namespace EspackDataGrid
         #region FilterMethods
         private void AddFilterRow()
         {
-            FilterDataGrid = new EspackDataGridView(true, this);
+            FilterDataGrid = new DataGridView();
             //FilterDataGrid.CellEnter += EspackDataGridView_CellEnter;
             FilterDataGrid.ColumnWidthChanged += FilterDataGrid_ColumnWidthChanged;
             FilterDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             FilterDataGrid.AllowUserToResizeColumns = true;
-            FilterDataGrid.Conn = Conn;
+            //FilterDataGrid.Conn = Conn;
             FilterDataGrid.Location = Location;
             FilterDataGrid.Height = 2 * Rows[0].Height;
             FilterDataGrid.Width = Width;
@@ -750,18 +746,18 @@ namespace EspackDataGrid
             Height = Height - 2 * Rows[0].Height;
             Parent.Controls.Add(FilterDataGrid);
             Columns.OfType<EspackDataGridViewColumn>().Where(c => c.Visible == true).ToList().ForEach(c =>
-             {
-                 var column = new EspackDataGridViewColumn
-                 {
-                     AutoSizeMode = DataGridViewAutoSizeColumnMode.None,
-                     Width = c.Width,
-                     Tag = c.Index,
-                     HeaderText = c.HeaderText,
-                     Name = c.Name,
-                     DBField = c.DBField
-                 };
-                 FilterDataGrid.Columns.Add(column);
-             });
+            {
+                var column = new EspackDataGridViewColumn
+                {
+                    AutoSizeMode = DataGridViewAutoSizeColumnMode.None,
+                    Width = c.Width,
+                    Tag = c.Index,
+                    HeaderText = c.HeaderText,
+                    Name = c.Name,
+                    DBField = c.DBField
+                };
+                FilterDataGrid.Columns.Add(column);
+            });
             ColumnHeadersVisible = false;
             FilterRow = new DataGridViewRow();
             FilterDataGrid.Rows.Add(FilterRow);
@@ -785,7 +781,8 @@ namespace EspackDataGrid
                 ((EspackDataGridViewCell)FilterDataGrid[column, 0]).CellValueChanged += EspackDataGridView_FilterCellValueChanged;
 
 
-            } else
+            }
+            else
             {
                 throw new Exception("Enable Filter Row first");
             }
@@ -795,14 +792,14 @@ namespace EspackDataGrid
         {
             //for (int i = 1; i < Rows.Count; i++)
             //    mDA.Table.Rows.RemoveAt(i);
-            if (FilterDataGrid.IsCurrentCellInEditMode && !FilterDataGrid.endEditing)
+            if (FilterDataGrid.IsCurrentCellInEditMode /*&& !FilterDataGrid.endEditing*/)
                 FilterDataGrid.EndEdit();
             List<string> whereList = new List<string>();
             //Dictionary<int, string> valueList = new Dictionary<int, string>();
-            foreach(EspackDataGridViewCell c in FilterCells)
+            foreach (EspackDataGridViewCell c in FilterCells)
             {
                 //valueList.Add(c.ColumnIndex, c.Value.ToString());
-                if (c.Value?.ToString()!=null && c.Value?.ToString() != "")
+                if (c.Value?.ToString() != null && c.Value?.ToString() != "")
                 {
                     if (c.Type == EspackCellTypes.CHECKEDCOMBO)
                     {
@@ -893,7 +890,7 @@ namespace EspackDataGrid
                 if (FilterCells != null)
                 {
                     if (FilterCells.Contains(CurrentCell))
-                        lCancel=false;
+                        lCancel = false;
                 }
 
                 if (lCancel)
@@ -946,7 +943,7 @@ namespace EspackDataGrid
                                 MessageBox.Show("ERROR:" + lCommand.LastMsg, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 lMsg = "ERROR:" + lCommand.LastMsg;
                                 StatusMsg(lMsg);
-                                return ;
+                                return;
                             }
                             StatusMsg(lMsg);
                             UpdateEspackControl();
@@ -954,15 +951,15 @@ namespace EspackDataGrid
                             {
                                 EspackControlParent.SetStatus(mPreviousParentStatus);
                             }
-                            return ;
+                            return;
                         }
                         ExecuteCommand();
                         break;
                     }
-            
+
             }
         }
-        private bool ExecuteCommand(bool warning=false)
+        private bool ExecuteCommand(bool warning = false)
         {
             SP lCommand;
             string lMsg = "";
@@ -998,7 +995,7 @@ namespace EspackDataGrid
                     //Dirty = false;
                     return true;
                 }
-                    
+
             }
             lCommand.Execute();
             if (lCommand.LastMsg.Substring(0, 2) != "OK")
@@ -1056,7 +1053,7 @@ namespace EspackDataGrid
         }
         public void Start()
         {
-            this.AutoGenerateColumns = false;
+            DataGridView.AutoGenerateColumns = false;
             if (SQL != null)
             {
                 CtlQuery = CT.SimpleParseSQL(SQL);
@@ -1069,7 +1066,7 @@ namespace EspackDataGrid
             }
             else
             {
-                
+
                 SQL = Query;
                 BaseSQL = SQL;
                 foreach (EspackDataGridViewColumn Col in Columns)
@@ -1101,8 +1098,8 @@ namespace EspackDataGrid
         }
 
         public void AddColumn(string pName, string pDBFieldName = "", string pSPAdd = "", string pSPUpp = "", string pSPDel = "", bool pSortable = false,
-                    bool pIsFlag = false, bool pLocked = false, string pQuery = "", int pWidth = 0, string pAlignment = "", string pAttr = "", 
-                    AutoCompleteMode aMode = AutoCompleteMode.None, AutoCompleteSource aSource = AutoCompleteSource.None, string aQuery = "", 
+                    bool pIsFlag = false, bool pLocked = false, string pQuery = "", int pWidth = 0, string pAlignment = "", string pAttr = "",
+                    AutoCompleteMode aMode = AutoCompleteMode.None, AutoCompleteSource aSource = AutoCompleteSource.None, string aQuery = "",
                     bool pPrint = false, bool pVisible = true, bool pPK = false)
         {
             EspackCellTypes type;
@@ -1118,8 +1115,8 @@ namespace EspackDataGrid
             Columns.Add(_Col);
         }
 
-        public void AddColumn(string pName, EspackFormControl pLinkedControl, string pSPAdd = "", string pSPUpp = "", string pSPDel = "", 
-                    AutoCompleteMode aMode = AutoCompleteMode.None, AutoCompleteSource aSource = AutoCompleteSource.None, string aQuery = "", 
+        public void AddColumn(string pName, EspackFormControl pLinkedControl, string pSPAdd = "", string pSPUpp = "", string pSPDel = "",
+                    AutoCompleteMode aMode = AutoCompleteMode.None, AutoCompleteSource aSource = AutoCompleteSource.None, string aQuery = "",
                     bool pPrint = false, bool pVisible = true, bool pPK = false)
         {
             var _Col = new EspackDataGridViewColumn(name: pName, dBField: pName, sPAddParamName: pSPAdd,
@@ -1133,16 +1130,16 @@ namespace EspackDataGrid
             if (MsgStatusLabel != null) MsgStatusLabel.Text = lMsg;
         }
 
-        public void UpdateEspackControl()
+        public override void UpdateEspackControl()
         {
             string lSql;
             int mNumRecords = 0;
             Page = 1;
             //mDA.SelectRS=new DynamicRS();
             mDA.SelectRS.DS.Dispose();
-            SelectionChanged -= EspackDataGridView_SelectionChanged;
+            DataGridView.SelectionChanged -= EspackDataGridView_SelectionChanged;
             DataSource = null;
-            SelectionChanged += EspackDataGridView_SelectionChanged;
+            DataGridView.SelectionChanged += EspackDataGridView_SelectionChanged;
             if (Paginate)
             {
                 mDA.Open((Page - 1) * mPageSize, mPageSize);
@@ -1162,16 +1159,16 @@ namespace EspackDataGrid
             {
                 mDA.Open();
             }
-            SelectionChanged -= EspackDataGridView_SelectionChanged;
+            DataGridView.SelectionChanged -= EspackDataGridView_SelectionChanged;
             DataSource = mDA.Table;
             AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             Refresh();
             AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-            SelectionChanged += EspackDataGridView_SelectionChanged;
+            DataGridView.SelectionChanged += EspackDataGridView_SelectionChanged;
             Dirty = false;
             SetStatus(mStatus);
         }
-        public void ClearEspackControl()
+        public override void ClearEspackControl()
         {
             //RowEditedBool = false;
             this.DataSource = null;
@@ -1231,7 +1228,8 @@ namespace EspackDataGrid
             //p.Add(string.Format("{0}({1}) = {2}", x.Aggregate.ToString(), ((DataGridViewColumn)x).HeaderCell.Value.ToString(), x.AggregateValue));
             //    p.NewLine(true);
             //});
-            _aggregateList.Items.ForEach(a => {
+            _aggregateList.Items.ForEach(a =>
+            {
                 p.Add(a.Title.PadLeft(_aggregateList.LenghtTitle));
                 p.Add("=");
                 p.Add(a.StringValue.PadLeft(_aggregateList.LenghtValue));
@@ -1239,13 +1237,6 @@ namespace EspackDataGrid
             });
             p.CurrentFont = _font;
         }
-
-        public void OnValueChanged(ValueChangedEventArgs e)
-        {
-            ValueChanged?.Invoke(this, e);
-        }
-
-
 
 
     }

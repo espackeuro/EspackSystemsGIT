@@ -33,8 +33,11 @@ namespace CommonTools
     {
         public static string ByteArrayToFile(byte[] data, string extension = "")
         {
-            var tempFilePath = string.Format(@"{0}{1}", Path.GetTempPath(), Path.GetRandomFileName());
-            if (data[0] == 25 && data[1] == 50 && data[2] == 44 && data[3] == 46) // %PDF
+
+            var tempFilePath = string.Format(@"{0}{1}", Path.GetTempPath(), "EspackSystems");
+            Directory.CreateDirectory(tempFilePath);
+            tempFilePath = string.Format(@"{0}\{1}", tempFilePath, Path.GetRandomFileName());
+            if (data[0] == 37 && data[1] == 80 && data[2] == 68 && data[3] == 70) // %PDF 37 80 68 70
                 extension = ".pdf";
             if (extension != "")
                 tempFilePath = tempFilePath.Replace(Path.GetExtension(tempFilePath), extension);

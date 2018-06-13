@@ -192,9 +192,10 @@ namespace EspackFormControls
             _RS.Open();
             DataSource = null;
             DataSource = _RS.DataObject;
-            DisplayMember = _RS.Fields[1];
+            
             if (_RS.FieldCount > 1)
-                ValueMember = _RS.Fields[0];
+                DisplayMember = _RS.Fields[1];
+            ValueMember = _RS.Fields[0];
             SelectedItem = null;
             noChange = false;
         }

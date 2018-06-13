@@ -30,7 +30,7 @@ namespace EspackFormControls
 
         public bool IsCTLMOwned { get; set; } = false;
         public EspackControl ExtraDataLink { get; set; } = null;
-        public EspackControlTypeEnum EspackControlType { get; set; }
+        public virtual EspackControlTypeEnum EspackControlType { get; set; }
         public EspackLabel CaptionLabel { get; set; }
         public cAccesoDatosNet ParentConn { get; set; }
         protected EnumStatus mStatus;
@@ -47,24 +47,35 @@ namespace EspackFormControls
             return mStatus;
         }
 
-        public virtual void SetStatus(EnumStatus value) { }
+        public abstract bool ReadOnly { get; set; }
+
+        public virtual void SetStatus(EnumStatus value)
+        {
+            mStatus = value;
+            Enabled = !Protected;
+            if (IsCTLMOwned)
+                ReadOnly = !((Add && GetStatus() == EnumStatus.ADDNEW) || (Upp && GetStatus() == EnumStatus.EDIT && !PK) || (Del && GetStatus() == EnumStatus.DELETE) || (Search && GetStatus() == EnumStatus.SEARCH)) || Protected;
+            BackColor = ReadOnly ? SystemColors.ButtonFace : Color.White;
+            ForeColor = ReadOnly ? Color.Gray : Color.Black;
+
+        }
 
 
 
         public abstract object Value { get; set; }
 
-        public string DBField { get; set; }
-        public bool Add { get; set; }
-        public bool Upp { get; set; }
-        public bool Del { get; set; }
-        public int Order { get; set; }
-        public bool PK { get; set; }
-        public bool Search { get; set; }
-        public object DefaultValue { get; set; }
-        public Type DBFieldType { get; set; }
-        public DA ParentDA { get; set; }
+        public virtual string DBField { get; set; }
+        public virtual bool Add { get; set; }
+        public virtual bool Upp { get; set; }
+        public virtual bool Del { get; set; }
+        public virtual int Order { get; set; }
+        public virtual bool PK { get; set; }
+        public virtual bool Search { get; set; }
+        public virtual object DefaultValue { get; set; }
+        public virtual Type DBFieldType { get; set; }
+        public virtual DA ParentDA { get; set; }
         public virtual DynamicRS DependingRS { get => mDependingRS; set => mDependingRS = value; }
-
+        //public override 
 
         public abstract string Caption { get; set; }
 

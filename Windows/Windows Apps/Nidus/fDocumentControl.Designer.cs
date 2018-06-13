@@ -38,9 +38,9 @@
             this.txtEdition = new EspackFormControls.EspackTextBox();
             this.txtDocumentCode = new EspackFormControls.EspackTextBox();
             this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
-            this.VS = new EspackDataGrid.EspackDataGridView();
+            this.VS = new EspackDataGrid.EspackDataGridViewControl();
+            this.FdcPDFData = new EspackFileStream.EspackFileDataContainerPreview();
             this.fsFileData = new EspackFileStream.EspackFileStream();
-            this.wbViewer = new System.Windows.Forms.WebBrowser();
             ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -356,6 +356,34 @@
             this.VS.Upp = false;
             this.VS.Value = null;
             // 
+            // FdcPDFData
+            // 
+            this.FdcPDFData.Add = false;
+            this.FdcPDFData.Caption = null;
+            this.FdcPDFData.CaptionLabel = null;
+            this.FdcPDFData.DBField = null;
+            this.FdcPDFData.DBFieldType = null;
+            this.FdcPDFData.DefaultValue = null;
+            this.FdcPDFData.Del = false;
+            this.FdcPDFData.DependingRS = null;
+            this.FdcPDFData.ExtraDataLink = null;
+            this.FdcPDFData.FileName = "";
+            this.FdcPDFData.IsCTLMOwned = false;
+            this.FdcPDFData.Location = new System.Drawing.Point(1190, 114);
+            this.FdcPDFData.Name = "FdcPDFData";
+            this.FdcPDFData.Order = 0;
+            this.FdcPDFData.ParentConn = null;
+            this.FdcPDFData.ParentDA = null;
+            this.FdcPDFData.PK = false;
+            this.FdcPDFData.Protected = false;
+            this.FdcPDFData.ReadOnly = false;
+            this.FdcPDFData.Search = false;
+            this.FdcPDFData.Size = new System.Drawing.Size(525, 709);
+            this.FdcPDFData.Status = CommonTools.EnumStatus.ADDNEW;
+            this.FdcPDFData.TabIndex = 51;
+            this.FdcPDFData.Upp = false;
+            this.FdcPDFData.Value = null;
+            // 
             // fsFileData
             // 
             this.fsFileData.Add = false;
@@ -365,14 +393,11 @@
             this.fsFileData.Caption = "File Name";
             this.fsFileData.DBField = null;
             this.fsFileData.DBFieldType = null;
-            this.fsFileData.DBFileCode = null;
-            this.fsFileData.DBFileDataField = null;
-            this.fsFileData.DBPDFFileCode = null;
-            this.fsFileData.DBPDFFileDataField = null;
             this.fsFileData.DefaultValue = null;
             this.fsFileData.Del = false;
             this.fsFileData.DependingRS = null;
             this.fsFileData.ExtraDataLink = null;
+            this.fsFileData.FileData = null;
             this.fsFileData.FileName = "";
             this.fsFileData.ForeColor = System.Drawing.Color.Black;
             this.fsFileData.IsCTLMOwned = false;
@@ -382,6 +407,7 @@
             this.fsFileData.Order = 0;
             this.fsFileData.ParentConn = null;
             this.fsFileData.ParentDA = null;
+            this.fsFileData.PDFFileData = null;
             this.fsFileData.PK = false;
             this.fsFileData.Protected = false;
             this.fsFileData.ReadOnly = false;
@@ -391,22 +417,14 @@
             this.fsFileData.TabIndex = 42;
             this.fsFileData.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.fsFileData.Upp = false;
-            this.fsFileData.Value = null;
-            // 
-            // wbViewer
-            // 
-            this.wbViewer.Location = new System.Drawing.Point(1191, 114);
-            this.wbViewer.MinimumSize = new System.Drawing.Size(20, 20);
-            this.wbViewer.Name = "wbViewer";
-            this.wbViewer.Size = new System.Drawing.Size(524, 741);
-            this.wbViewer.TabIndex = 51;
+            this.fsFileData.Value = "";
             // 
             // fDocumentControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1891, 1082);
-            this.Controls.Add(this.wbViewer);
+            this.Controls.Add(this.FdcPDFData);
             this.Controls.Add(this.fsFileData);
             this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.lstFlags);
@@ -429,7 +447,7 @@
 
         #endregion
 
-        private EspackDataGrid.EspackDataGridView VS;
+        private EspackDataGrid.EspackDataGridViewControl VS;
         private CTLMantenimientoNet.CTLMantenimientoNet CTLM;
         private EspackFormControls.EspackTextBox txtDocumentCode;
         private EspackFormControls.EspackTextBox txtEdition;
@@ -440,6 +458,6 @@
         private EspackFormControls.EspackCheckedListBox lstFlags;
         private EspackFormControls.EspackTextBox txtStatus;
         private EspackFileStream.EspackFileStream fsFileData;
-        private System.Windows.Forms.WebBrowser wbViewer;
+        private EspackFileStream.EspackFileDataContainerPreview FdcPDFData;
     }
 }

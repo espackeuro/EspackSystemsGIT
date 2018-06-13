@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{8404FC85-7941-4884-9DB7-82A621E0BF97}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>EspackDataGrid</RootNamespace>
+    <RootNamespace>EspackDataGridView</RootNamespace>
     <AssemblyName>EspackDataGridView</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -47,9 +47,6 @@
     <Compile Include="EspackDataGridView.cs" />
     <Compile Include="EspackDataGridViewControl.cs">
       <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="EspackDataGridViewControl.Designer.cs">
-      <DependentUpon>EspackDataGridViewControl.cs</DependentUpon>
     </Compile>
     <Compile Include="EspackEditControlCheckedComboBox.cs">
       <SubType>Component</SubType>

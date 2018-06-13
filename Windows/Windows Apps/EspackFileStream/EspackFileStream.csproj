@@ -41,6 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EspackFileDataContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EspackFileDataContainerPreview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="EspackFileStream.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -87,6 +93,11 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EspackFileDataContainerPreview.resx">
+      <DependentUpon>EspackFileDataContainerPreview.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
