@@ -847,7 +847,7 @@ namespace CTLMantenimientoNet
                         SetStatus( EnumStatus.EDIT);
                         break;
                     case "btnDel":
-                        if (MessageBox.Show("This will delete the actual record. Are you sure?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        if (MessageBox.Show("This will delete the actual record. Are you sure?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
                             SetStatus( EnumStatus.DELETE);
                             Click_OK(pButtonName);

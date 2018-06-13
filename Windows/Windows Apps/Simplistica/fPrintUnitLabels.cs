@@ -40,7 +40,7 @@ namespace Simplistica
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(string.Format("This will print {0} unit labels. Are you sure?",txtQty.Text), "SIMPLISTICA", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(string.Format("This will print {0} unit labels. Are you sure?",txtQty.Text), "SIMPLISTICA", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 int _labelInit = 0;
                 using (var _conn = new cAccesoDatosNet(Values.gDatos.Server, "REPAIRS", Values.gDatos.User, Values.gDatos.Password))
