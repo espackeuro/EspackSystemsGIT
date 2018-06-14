@@ -24,7 +24,7 @@ namespace Simplistica
 
             //Header
             CTLM.AddItem(txtReference, "base", true, true, true, 1, true, true);
-            CTLM.AddItem(cboServicio, "Servicio", true, true, false, 0, false, true);
+            CTLM.AddItem(cboServicio, "Servicio", true, true, true, 0, true, true);
             CTLM.AddItem(txtDescription, "descripcion", true, true, false, 0, false, true);
             CTLM.AddItem(txtFase4, "fase4", true, true, false, 0, false, false, 1);
             CTLM.AddItem(txtPrice, "precio", true, true, false, 0, false, false, 0);
@@ -33,6 +33,7 @@ namespace Simplistica
             CTLM.AddItem(txtMax, "PU_Max", true, true, false, 0, false, false, 0);
             CTLM.AddItem(txtNotes, "Notas", true, true, false, 0, false, false, "");
             CTLM.AddItem(lstFlags, "Flags", true, true, false, 0, false, true);
+            CTLM.AddItem(txtSupplier, "proveedor", true, true, false, 0, false, true,pDefValue:"0");
 
             //empty header values
             CTLM.AddItem("", "prefix", true, true, true, 0, true, pDefValue:"");
@@ -45,7 +46,7 @@ namespace Simplistica
             CTLM.AddItem("1", "qty_pzas_call", true, true, false, pDefValue: "1");
             CTLM.AddItem("", "loc2", true, true, false, pDefValue: "");
             CTLM.AddItem("", "muelle", true, true, false, pDefValue: "");
-            CTLM.AddItem("0", "proveedor", true, true, false, pDefValue: "0");
+            //CTLM.AddItem("0", "proveedor", true, true, false, pDefValue: "0");
             CTLM.AddItem("0", "precio_trasvase", true, true, false, pDefValue: "0");
             CTLM.AddItem("", "prefix_serv", true, true, false, pDefValue: "");
             CTLM.AddItem("", "base_serv", true, true, false, pDefValue: "");
