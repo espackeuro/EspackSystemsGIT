@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewRow dataGridViewRow1 = new System.Windows.Forms.DataGridViewRow();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fDocumentControl));
             this.txtStatus = new EspackFormControls.EspackTextBox();
             this.lstFlags = new EspackFormControls.EspackCheckedListBox();
@@ -41,7 +42,6 @@
             this.VS = new EspackDataGrid.EspackDataGridViewControl();
             this.FdcPDFData = new EspackFileStream.EspackFileDataContainerPreview();
             this.fsFileData = new EspackFileStream.EspackFileStream();
-            ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
             this.SuspendLayout();
             // 
             // txtStatus
@@ -313,10 +313,14 @@
             this.VS.AllowInsert = false;
             this.VS.AllowUpdate = false;
             this.VS.AllowUserToAddRows = false;
+            this.VS.AllowUserToResizeColumns = true;
             this.VS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.VS.Caption = "Test VS";
             this.VS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.VS.ColumnHeadersVisible = true;
             this.VS.Conn = null;
+            this.VS.CurrentCell = null;
+            this.VS.DataSource = null;
             this.VS.DBField = null;
             this.VS.DBFieldType = null;
             this.VS.DBTable = null;
@@ -331,6 +335,7 @@
             this.VS.FilterRow = null;
             this.VS.FilterRowEnabled = false;
             this.VS.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.VS.HorizontalScrollingOffset = 0;
             this.VS.IsCTLMOwned = false;
             this.VS.IsFilterFocused = false;
             this.VS.Location = new System.Drawing.Point(0, 0);
@@ -344,7 +349,10 @@
             this.VS.ParentDA = null;
             this.VS.PK = false;
             this.VS.Protected = false;
+            this.VS.ReadOnly = false;
+            this.VS.RowCount = 0;
             this.VS.RowHeadersVisible = false;
+            this.VS.RowTemplate = dataGridViewRow1;
             this.VS.Search = false;
             this.VS.Size = new System.Drawing.Size(439, 1078);
             this.VS.SQL = null;
@@ -439,7 +447,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fDocumentControl";
             this.Text = "Document Control";
-            ((System.ComponentModel.ISupportInitialize)(this.VS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

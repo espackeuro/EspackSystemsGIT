@@ -779,7 +779,7 @@ namespace EspackDataGrid
             if (FilterRowEnabled)
             {
                 //var col = (EspackDataGridViewColumn)Columns[column];
-                FilterDataGrid[column, 0] = new EspackDataGridViewCell(type, AutoCompleteMode.SuggestAppend, AutoCompleteSource.CustomSource, sqlSource) { SqlSource = sqlSource, IsFilterCell = true };
+                FilterDataGrid[column, 0] = new EspackDataGridViewCell(type, AutoCompleteMode.SuggestAppend, AutoCompleteSource.CustomSource, sqlSource, Conn) { SqlSource = sqlSource, IsFilterCell = true };
                 FilterCells.Add((EspackDataGridViewCell)FilterDataGrid[column, 0]);
                 FilterDataGrid[column, 0].ReadOnly = false;
                 ((EspackDataGridViewCell)FilterDataGrid[column, 0]).CellValueChanged += EspackDataGridView_FilterCellValueChanged;

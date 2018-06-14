@@ -1,4 +1,5 @@
-﻿using CommonTools;
+﻿using AccesoDatosNet;
+using CommonTools;
 using EspackControls;
 using EspackFormControls;
 using System;
@@ -19,7 +20,7 @@ namespace EspackDataGrid
         public string SPAddParamName { get;set;}
         public string SPUppParamName { get; set; }
         public string SPDelParamName { get; set; }
-
+        public cAccesoDatosNet Conn { get; set; }
         private EnumStatus status;
 
         public event EventHandler TextChanged;
@@ -74,7 +75,7 @@ namespace EspackDataGrid
         public bool Sortable { get; set; }
         public AutoCompleteMode AutoCompleteMode { get; set; }
         public AutoCompleteSource AutoCompleteSource { get; set; }
-        public EspackDataGridView Parent { get; set; }
+        public DataGridView Parent { get; set; }
         public string AutoCompleteQuery { get; set; }
         public string SqlSource { get; set; }
         public EspackCellTypes Type { get; set; }
@@ -143,8 +144,8 @@ namespace EspackDataGrid
         }
         public EspackDataGridViewColumn(string name="", bool pK = false, string sPAddParamName="", string sPUppParamName="", string sPDelParamName="", bool locked=false, 
             EspackFormControl linkedControl=null, Type dBFieldType=null, string dBField="", bool sortable=false, AutoCompleteMode autoCompleteMode= AutoCompleteMode.None, AutoCompleteSource autoCompleteSource= AutoCompleteSource.None, 
-            string autoCompleteQuery = "", EspackCellTypes type= EspackCellTypes.TEXT, int width=0, bool visible = true, string query="")
-            :base(new EspackDataGridViewCell(type, autoCompleteMode, autoCompleteSource, autoCompleteQuery, locked))
+            string autoCompleteQuery = "", EspackCellTypes type= EspackCellTypes.TEXT, int width=0, bool visible = true, string query="", cAccesoDatosNet conn=null)
+            :base(new EspackDataGridViewCell(type, autoCompleteMode, autoCompleteSource, autoCompleteQuery, conn, locked))
         {
             Name = name;
             HeaderText = name;
@@ -166,7 +167,7 @@ namespace EspackDataGrid
             AutoCompleteSource = autoCompleteSource;
             AutoCompleteQuery = autoCompleteQuery;
             //AutoCompleteCustomSource = autoCompleteCustomSource;
-            Parent = (EspackDataGridView)DataGridView;
+            Parent = DataGridView;
             Type = type;
             //AutoSizeMode = width == 0 ? DataGridViewAutoSizeColumnMode.AllCells : DataGridViewAutoSizeColumnMode.None;
             DataPropertyName = Name; //DBField;
@@ -175,6 +176,7 @@ namespace EspackDataGrid
             Resizable = DataGridViewTriState.True;
             //Sortable = true;
             SortMode = Sortable ? DataGridViewColumnSortMode.Automatic : DataGridViewColumnSortMode.NotSortable;
+            Conn = conn;
         }
 
         public override DataGridViewCell CellTemplate

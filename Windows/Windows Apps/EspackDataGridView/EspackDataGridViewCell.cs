@@ -12,13 +12,13 @@ namespace EspackDataGrid
     public interface IEspackEditControl : IDataGridViewEditingControl
     {
         EspackFormControl Control { get; }
-        EspackDataGridView ParentDataGrid { get; set; }
+        DataGridView ParentDataGrid { get; set; }
         string SqlSource { get; set; }
         object Value { get; set; }
         AutoCompleteMode AutoCompleteMode { get; set; }
         AutoCompleteSource AutoCompleteSource { get; set; }
         AutoCompleteStringCollection AutoCompleteCustomSource { get; set; }
-        
+        cAccesoDatosNet Conn { get; set; }
     }
 
     public class CellValueChangedEventArgs : EventArgs
@@ -27,6 +27,7 @@ namespace EspackDataGrid
         public int ColIndex { get; set; }
         public object OldValue { get; set; }
         public object NewValue { get; set; }
+        
         public CellValueChangedEventArgs(EspackDataGridViewCell cell, object oldValue, object newValue) {
             RowIndex = cell.RowIndex;
             ColIndex = cell.ColumnIndex;
@@ -44,6 +45,7 @@ namespace EspackDataGrid
         private AutoCompleteSource? _autoCompleteSource = null;
         private string _autoCompleteQuery = null;
         public bool IsFilterCell { get; set; }
+        public cAccesoDatosNet Conn { get; set; }
         public event EventHandler<CellValueChangedEventArgs> CellValueChanged;
 
         public string AutoCompleteQuery
@@ -55,7 +57,7 @@ namespace EspackDataGrid
             }
             set => _autoCompleteQuery = value;
         }
-        public EspackDataGridView Parent { get => (EspackDataGridView)DataGridView; }
+        public DataGridView Parent { get => DataGridView; }
 
         public AutoCompleteMode AutoCompleteMode
         {
@@ -118,7 +120,7 @@ namespace EspackDataGrid
                 ReadOnly = Column.Locked;
             }
         }
-        public EspackDataGridViewCell(EspackCellTypes type, AutoCompleteMode autoCompleteMode, AutoCompleteSource autoCompleteSource, string autoCompleteQuery, bool locked=false)
+        public EspackDataGridViewCell(EspackCellTypes type, AutoCompleteMode autoCompleteMode, AutoCompleteSource autoCompleteSource, string autoCompleteQuery, cAccesoDatosNet conn, bool locked=false)
         {
             Type = type;
             AutoCompleteMode = autoCompleteMode;
@@ -130,6 +132,7 @@ namespace EspackDataGrid
             };
             Style.BackColor = Colors.CELLLOCKEDBACKCOLOR;
             Style.ForeColor = Colors.CELLLOCKEDFORECOLOR;
+            Conn = conn;
             //Parent = (EspackDataGridView)DataGridView;
             //Style.BackColor = Colors.CELLFILTERBACKCOLOR;
             //Style.ForeColor = Colors.CELLFILTERFORECOLOR;
@@ -142,7 +145,7 @@ namespace EspackDataGrid
             if (AutoCompleteQuery != "" && Parent != null)
             {
                 var autoCompleteCustomSource = new AutoCompleteStringCollection();
-                using (DynamicRS rs = new DynamicRS(AutoCompleteQuery, Parent.Conn))
+                using (DynamicRS rs = new DynamicRS(AutoCompleteQuery, Conn))
                 {
                     rs.Open();
                     rs.ToList().ForEach(r => autoCompleteCustomSource.Add(r[0].ToString()));
@@ -157,6 +160,7 @@ namespace EspackDataGrid
             var clone = (EspackDataGridViewCell)base.Clone();
             clone.SqlSource = SqlSource;
             clone.Type = Type;
+            clone.Conn = Conn;
             //clone.AutoCompleteQuery = AutoCompleteQuery;
             //clone.AutoCompleteSource = AutoCompleteSource;
             //clone.AutoCompleteMode = AutoCompleteMode;
@@ -183,6 +187,7 @@ namespace EspackDataGrid
                     editControl = DataGridView.EditingControl as EspackEditControlTextBox;
                     break;
             }
+            editControl.Conn = Conn;
             editControl.Control.ValueChanged -= Control_ValueChanged;
             editControl.SqlSource = SqlSource;
             editControl.AutoCompleteMode = AutoCompleteMode;

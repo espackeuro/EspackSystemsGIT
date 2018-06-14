@@ -169,7 +169,13 @@ namespace CTLMantenimientoNet
                 return mListItems.Where(x => x is EspackDataGridView).ToList();
             }
         }
-
+        public List<EspackControl> EDGVCs
+        {
+            get
+            {
+                return mListItems.Where(x => x is EspackDataGridViewControl).ToList();
+            }
+        }
         //ItemsDBField list of items with DBField
         public List<EspackControl> ItemsDBField
         {
@@ -478,6 +484,11 @@ namespace CTLMantenimientoNet
                 ((EspackDataGridView)EDGV).MsgStatusLabel = MsgStatusInfoLabel;
                 ((EspackDataGridView)EDGV).Start();
             }
+            foreach (EspackControl EDGVC in EDGVCs)
+            {
+                ((EspackDataGridViewControl)EDGVC).MsgStatusLabel = MsgStatusInfoLabel;
+                ((EspackDataGridViewControl)EDGVC).Start();
+            }
             SetStatus(EnumStatus.SEARCH);
 
         }
@@ -768,6 +779,12 @@ namespace CTLMantenimientoNet
                         {
                             SetStatus(EnumStatus.EDIT);
                             ((Control)EDGVs[0]).Focus();
+                        }
+
+                        if (EDGVCs.Count != 0)
+                        {
+                            SetStatus(EnumStatus.EDIT);
+                            ((Control)EDGVCs[0]).Focus();
                         }
                         else
                             SetStatus(EnumStatus.SEARCH);

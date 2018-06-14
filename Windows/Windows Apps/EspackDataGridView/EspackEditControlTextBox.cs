@@ -18,6 +18,7 @@ namespace EspackDataGrid
         public EspackFormControl Control { get => this; }
         //private FilterCellTypes _type;
         private string _sqlSource;
+        public cAccesoDatosNet Conn { get; set; }
         //public object Value { get => Control.Value; set => Control.Value = value; }
         public EspackEditControlTextBox()
         {
@@ -33,7 +34,7 @@ namespace EspackDataGrid
 
         //public string DataSource { get; set; }
 
-        public EspackDataGridView ParentDataGrid { get; set; }
+        public DataGridView ParentDataGrid { get; set; }
 
         public void SendKeyToControl(Keys keyData)
         {
@@ -52,7 +53,7 @@ namespace EspackDataGrid
 
         // Implements the IDataGridViewEditingControl
         // .EditingControlDataGridView property.
-        public DataGridView EditingControlDataGridView { get => ParentDataGrid; set => ParentDataGrid=(EspackDataGridView)value; }
+        public DataGridView EditingControlDataGridView { get => ParentDataGrid; set => ParentDataGrid=value; }
 
         //
         public object EditingControlFormattedValue

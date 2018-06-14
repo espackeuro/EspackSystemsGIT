@@ -17,7 +17,7 @@ namespace EspackDataGrid
         public EspackFormControl Control { get => this; }
         //private FilterCellTypes _type;
         private string _sqlSource;
-
+        public cAccesoDatosNet Conn { get; set; }
         public EspackEditControlComboBox()
         {
             Enabled = true;
@@ -38,7 +38,7 @@ namespace EspackDataGrid
                     ParentDataGrid.EndEdit();
         }
 
-        public EspackDataGridView ParentDataGrid { get; set; }
+        public DataGridView ParentDataGrid { get; set; }
 
         public void SendKeyToControl(Keys keyData)
         {
@@ -53,7 +53,7 @@ namespace EspackDataGrid
             set
             {
                 _sqlSource = value;
-                Source(_sqlSource, ParentDataGrid.Conn);
+                Source(_sqlSource, Conn);
                 if (((DataTable)DataSource).Rows.Count == 1)
                     Text = ((DataTable)DataSource).Rows[0].ItemArray[0].ToString();
             }

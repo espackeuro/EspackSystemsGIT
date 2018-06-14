@@ -65,7 +65,7 @@ namespace Simplistica
             VS.AddColumn("PartNumber", "partnumber", "@partnumber", pSortable: true, pWidth: 90, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: string.Format("select partnumber from referencias where servicio='{0}'", cboServicio.Value));
             VS.AddColumn("Description", "descripcion", "@descripcion", pSortable: true, pWidth: 200, pLocked:true);
             VS.AddColumn("Qty", "Qty", "@qty", pWidth: 90);
-            VS.CellEndEdit += VS_CellEndEdit; //VS_CellValidating; ; ;
+            VS.DataGridView.CellEndEdit += VS_CellEndEdit; //VS_CellValidating; ; ;
 
             //Various
             CTLM.AddDefaultStatusStrip();

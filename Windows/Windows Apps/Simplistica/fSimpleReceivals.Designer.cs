@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fSimpleReceivals));
+            System.Windows.Forms.DataGridViewRow dataGridViewRow1 = new System.Windows.Forms.DataGridViewRow();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.btnReceived = new System.Windows.Forms.ToolStripButton();
             this.btnLabelCMs = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnACheck = new System.Windows.Forms.ToolStripButton();
             this.lstFlags = new EspackFormControls.EspackCheckedListBox();
-            this.VS = new EspackDataGrid.EspackDataGridView();
             this.txtDesServicio = new EspackFormControls.EspackTextBox();
             this.cboServicio = new EspackFormControls.EspackComboBox();
             this.txtNotes = new EspackFormControls.EspackTextBox();
@@ -43,8 +43,8 @@
             this.txtFecha = new EspackFormControls.EspackDateTimePicker();
             this.txtEntrada = new EspackFormControls.EspackTextBox();
             this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
+            this.VS = new EspackDataGrid.EspackDataGridViewControl();
             this.toolStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip
@@ -127,55 +127,6 @@
             this.lstFlags.TabIndex = 31;
             this.lstFlags.Upp = false;
             this.lstFlags.Value = "";
-            // 
-            // VS
-            // 
-            this.VS.Add = false;
-            this.VS.AllowDelete = false;
-            this.VS.AllowInsert = false;
-            this.VS.AllowUpdate = false;
-            this.VS.AllowUserToAddRows = false;
-            this.VS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.VS.Caption = "";
-            this.VS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.VS.Conn = null;
-            this.VS.DBField = null;
-            this.VS.DBFieldType = null;
-            this.VS.DBTable = null;
-            this.VS.DefaultValue = null;
-            this.VS.Del = false;
-            this.VS.DependingRS = null;
-            this.VS.Dirty = false;
-            this.VS.EspackControlParent = null;
-            this.VS.ExtraDataLink = null;
-            this.VS.FilterDataGrid = null;
-            this.VS.FilterRow = null;
-            this.VS.FilterRowEnabled = false;
-            this.VS.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.VS.IsCTLMOwned = false;
-            this.VS.IsFilterFocused = false;
-            this.VS.Location = new System.Drawing.Point(15, 304);
-            this.VS.MsgStatusLabel = null;
-            this.VS.Name = "VS";
-            this.VS.NumPages = 0;
-            this.VS.Order = 0;
-            this.VS.Page = 0;
-            this.VS.Paginate = false;
-            this.VS.ParentConn = null;
-            this.VS.ParentDA = null;
-            this.VS.PK = false;
-            this.VS.Protected = false;
-            this.VS.RowHeadersVisible = false;
-            this.VS.Search = false;
-            this.VS.Size = new System.Drawing.Size(536, 308);
-            this.VS.SQL = null;
-            this.VS.sSPAdd = "";
-            this.VS.sSPDel = "";
-            this.VS.sSPUpp = "";
-            this.VS.Status = CommonTools.EnumStatus.SEARCH;
-            this.VS.TabIndex = 23;
-            this.VS.Upp = false;
-            this.VS.Value = null;
             // 
             // txtDesServicio
             // 
@@ -387,14 +338,71 @@
             this.CTLM.TabIndex = 0;
             this.CTLM.Text = "ctlMantenimientoNet1";
             // 
+            // VS
+            // 
+            this.VS.Add = false;
+            this.VS.AllowDelete = false;
+            this.VS.AllowInsert = false;
+            this.VS.AllowUpdate = false;
+            this.VS.AllowUserToAddRows = false;
+            this.VS.AllowUserToResizeColumns = true;
+            this.VS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.VS.Caption = "";
+            this.VS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.VS.ColumnHeadersVisible = true;
+            this.VS.Conn = null;
+            this.VS.CurrentCell = null;
+            this.VS.DataSource = null;
+            this.VS.DBField = null;
+            this.VS.DBFieldType = null;
+            this.VS.DBTable = null;
+            this.VS.DefaultValue = null;
+            this.VS.Del = false;
+            this.VS.DependingRS = null;
+            this.VS.Dirty = false;
+            this.VS.EspackControlParent = null;
+            this.VS.ExtraDataLink = null;
+            this.VS.FilterDataGrid = null;
+            this.VS.FilterRow = null;
+            this.VS.FilterRowEnabled = false;
+            this.VS.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.VS.HorizontalScrollingOffset = 0;
+            this.VS.IsCTLMOwned = false;
+            this.VS.IsFilterFocused = false;
+            this.VS.Location = new System.Drawing.Point(12, 305);
+            this.VS.MsgStatusLabel = null;
+            this.VS.Name = "VS";
+            this.VS.NumPages = 0;
+            this.VS.Order = 0;
+            this.VS.Page = 0;
+            this.VS.Paginate = false;
+            this.VS.ParentConn = null;
+            this.VS.ParentDA = null;
+            this.VS.PK = false;
+            this.VS.Protected = false;
+            this.VS.ReadOnly = false;
+            this.VS.RowCount = 0;
+            this.VS.RowHeadersVisible = false;
+            this.VS.RowTemplate = dataGridViewRow1;
+            this.VS.Search = false;
+            this.VS.Size = new System.Drawing.Size(538, 308);
+            this.VS.SQL = null;
+            this.VS.sSPAdd = "";
+            this.VS.sSPDel = "";
+            this.VS.sSPUpp = "";
+            this.VS.Status = CommonTools.EnumStatus.SEARCH;
+            this.VS.TabIndex = 39;
+            this.VS.Upp = false;
+            this.VS.Value = null;
+            // 
             // fSimpleReceivals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(575, 650);
+            this.Controls.Add(this.VS);
             this.Controls.Add(this.lstFlags);
             this.Controls.Add(this.toolStrip);
-            this.Controls.Add(this.VS);
             this.Controls.Add(this.txtDesServicio);
             this.Controls.Add(this.cboServicio);
             this.Controls.Add(this.txtNotes);
@@ -407,7 +415,6 @@
             this.Text = "Receivals";
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.VS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -422,12 +429,12 @@
         private EspackFormControls.EspackTextBox txtNotes;
         private EspackFormControls.EspackComboBox cboServicio;
         private EspackFormControls.EspackTextBox txtDesServicio;
-        private EspackDataGrid.EspackDataGridView VS;
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton btnLabelCMs;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton btnReceived;
         private EspackFormControls.EspackCheckedListBox lstFlags;
         private System.Windows.Forms.ToolStripButton btnACheck;
+        private EspackDataGrid.EspackDataGridViewControl VS;
     }
 }

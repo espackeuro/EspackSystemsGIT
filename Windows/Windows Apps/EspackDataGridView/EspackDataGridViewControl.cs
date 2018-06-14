@@ -42,9 +42,9 @@ namespace EspackDataGrid
         public DataGridViewRowCollection Rows { get => DataGridView.Rows; }
         public DataGridViewColumnCollection Columns { get => DataGridView.Columns; }
         public DataGridViewRow CurrentRow { get => DataGridView.CurrentRow; }
-        public DataGridViewCell this[int col, int row]
+        public EspackDataGridViewCell this[int col, int row]
         {
-            get => DataGridView[col, row];
+            get => (EspackDataGridViewCell)DataGridView[col, row];
         }
         public DataGridViewRow RowTemplate { get => DataGridView.RowTemplate; set => DataGridView.RowTemplate = value; }
         public int RowCount { get => DataGridView.RowCount; set => DataGridView.RowCount = value; }
@@ -58,6 +58,7 @@ namespace EspackDataGrid
         public ScrollBar HorizontalScrollBar { get => DataGridView.Controls.OfType<HScrollBar>().FirstOrDefault(); }
         public bool AllowUserToAddRows { get => DataGridView.AllowUserToAddRows; set => DataGridView.AllowUserToAddRows = value; }
         public int HorizontalScrollingOffset { get => DataGridView.HorizontalScrollingOffset; set => DataGridView.HorizontalScrollingOffset = value; }
+        public DataGridViewColumnHeadersHeightSizeMode ColumnHeadersHeightSizeMode { get => DataGridView.ColumnHeadersHeightSizeMode; set => DataGridView.ColumnHeadersHeightSizeMode = value; }
 
         public void Sort(DataGridViewColumn dataGridViewColumn, ListSortDirection direction)
         {
@@ -406,7 +407,7 @@ namespace EspackDataGrid
                             if (AllowInsert)
                                 mDA.Table.Rows.Add(newRow);
                         }
-                        Refresh();
+                        DataGridView.Refresh();
                         break;
                     }
                 case EnumStatus.DELETE:
@@ -452,7 +453,8 @@ namespace EspackDataGrid
                     //}
                 }
                 var _candidate = Rows[RowCount - 1].Cells.Cast<DataGridViewCell>().FirstOrDefault(x => x.ReadOnly == false && x.Visible == true);
-                this.CurrentCell = _candidate ?? this[0, 0];
+                var c = _candidate ?? this[0, 0];
+                DataGridView.CurrentCell = c;
             }
             if (FilterRowEnabled)
             {
@@ -554,7 +556,7 @@ namespace EspackDataGrid
 
         private void EspackDataGridView_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
-            oldCurrentCell = (EspackDataGridViewCell)this[e.ColumnIndex, e.RowIndex];
+            oldCurrentCell = this[e.ColumnIndex, e.RowIndex];
         }
 
         private void VerticalScrollBar_VisibleChanged(object sender, EventArgs e)
@@ -691,6 +693,7 @@ namespace EspackDataGrid
             {
                 if (!IsCurrentCellInEditMode)
                 {
+                    ((EspackDataGridViewCell)CurrentCell).Conn= Conn;
                     BeginEdit(true);
                 }
             }// else
@@ -742,9 +745,12 @@ namespace EspackDataGrid
             FilterDataGrid.Height = 2 * Rows[0].Height;
             FilterDataGrid.Width = Width;
             FilterDataGrid.ScrollBars = ScrollBars.None;
-            Location = new Point(Location.X, Location.Y + 2 * Rows[0].Height);
-            Height = Height - 2 * Rows[0].Height;
-            Parent.Controls.Add(FilterDataGrid);
+            FilterDataGrid.RowHeadersVisible = false;
+            DataGridView.Dock = DockStyle.None;
+            DataGridView.Location = new Point(DataGridView.Location.X, DataGridView.Location.Y + 2 * Rows[0].Height);
+            DataGridView.Height = Height - 2 * Rows[0].Height;
+            DataGridView.Width = Width;
+            this.Controls.Add(FilterDataGrid);
             Columns.OfType<EspackDataGridViewColumn>().Where(c => c.Visible == true).ToList().ForEach(c =>
             {
                 var column = new EspackDataGridViewColumn
@@ -775,7 +781,7 @@ namespace EspackDataGrid
             if (FilterRowEnabled)
             {
                 //var col = (EspackDataGridViewColumn)Columns[column];
-                FilterDataGrid[column, 0] = new EspackDataGridViewCell(type, AutoCompleteMode.SuggestAppend, AutoCompleteSource.CustomSource, sqlSource) { SqlSource = sqlSource, IsFilterCell = true };
+                FilterDataGrid[column, 0] = new EspackDataGridViewCell(type, AutoCompleteMode.SuggestAppend, AutoCompleteSource.CustomSource, sqlSource, Conn) { SqlSource = sqlSource, IsFilterCell = true };
                 FilterCells.Add((EspackDataGridViewCell)FilterDataGrid[column, 0]);
                 FilterDataGrid[column, 0].ReadOnly = false;
                 ((EspackDataGridViewCell)FilterDataGrid[column, 0]).CellValueChanged += EspackDataGridView_FilterCellValueChanged;
@@ -1136,7 +1142,7 @@ namespace EspackDataGrid
             int mNumRecords = 0;
             Page = 1;
             //mDA.SelectRS=new DynamicRS();
-            mDA.SelectRS.DS.Dispose();
+            mDA.SelectRS.DS?.Dispose();
             DataGridView.SelectionChanged -= EspackDataGridView_SelectionChanged;
             DataSource = null;
             DataGridView.SelectionChanged += EspackDataGridView_SelectionChanged;

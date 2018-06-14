@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using AccesoDatosNet;
 using EspackControls;
 //using Microsoft.Data.Schema.ScriptDom;
 //using Microsoft.Data.Schema.ScriptDom.Sql;
@@ -14,7 +15,7 @@ namespace EspackDataGrid
         protected int rowIndex;
         public EspackFormControl Control { get => this; }
         private string _sqlSource;
-
+        public cAccesoDatosNet Conn { get; set; }
         public EspackEditControlCheckedComboBox()
         {
             Enabled = true;
@@ -33,7 +34,7 @@ namespace EspackDataGrid
         }
 
 
-        public EspackDataGridView ParentDataGrid { get; set; }
+        public DataGridView ParentDataGrid { get; set; }
 
         public void SendKeyToControl(Keys keyData)
         {
@@ -48,7 +49,7 @@ namespace EspackDataGrid
             set
             {
                 _sqlSource = value;
-                Source(_sqlSource, ParentDataGrid.Conn);
+                Source(_sqlSource,Conn);
                 
             }
 
@@ -60,7 +61,7 @@ namespace EspackDataGrid
 
         // Implements the IDataGridViewEditingControl
         // .EditingControlDataGridView property.
-        public DataGridView EditingControlDataGridView { get => ParentDataGrid; set => ParentDataGrid = (EspackDataGridView)value; }
+        public DataGridView EditingControlDataGridView { get => ParentDataGrid; set => ParentDataGrid = (DataGridView)value; }
 
         //
         public object EditingControlFormattedValue { get => Value.ToString(); set => Value = value; }
