@@ -69,7 +69,7 @@ namespace LogOn
             }
         }
 
-        private bool isEspackIP(ref string COD3)
+        private bool IsEspackIP(ref string COD3)
         {
             //#if DEBUG
             //            COD3 = "OUT";
@@ -203,7 +203,7 @@ namespace LogOn
                 // tries to check if we are inside of Espack
                 // only updates if in Espack
 
-                _update = isEspackIP(ref _cod3) && !External;
+                _update = IsEspackIP(ref _cod3) && !External;
                 if (!_update)
                 {
                     MessageBox.Show("This location does not allow application updates.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
