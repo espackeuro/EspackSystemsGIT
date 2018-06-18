@@ -53,6 +53,7 @@
             this.txtTrailerPlate = new EspackFormControls.EspackTextBox();
             this.VS = new EspackDataGrid.EspackDataGridView();
             this.dateDriverShiftLeader = new EspackFormControls.EspackDateTimePicker();
+            this.txtObservations = new EspackFormControls.EspackTextBox();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
             this.SuspendLayout();
@@ -187,7 +188,7 @@
             this.lstFlags.ForeColor = System.Drawing.Color.Black;
             this.lstFlags.FormattingEnabled = true;
             this.lstFlags.IsCTLMOwned = false;
-            this.lstFlags.Location = new System.Drawing.Point(12, 140);
+            this.lstFlags.Location = new System.Drawing.Point(12, 206);
             this.lstFlags.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.lstFlags.Name = "lstFlags";
             this.lstFlags.Order = 0;
@@ -196,7 +197,7 @@
             this.lstFlags.PK = false;
             this.lstFlags.Protected = false;
             this.lstFlags.Search = false;
-            this.lstFlags.Size = new System.Drawing.Size(535, 95);
+            this.lstFlags.Size = new System.Drawing.Size(535, 38);
             this.lstFlags.Status = CommonTools.EnumStatus.ADDNEW;
             this.lstFlags.TabIndex = 12;
             this.lstFlags.Upp = false;
@@ -579,12 +580,13 @@
             this.VS.Dirty = false;
             this.VS.EspackControlParent = null;
             this.VS.ExtraDataLink = null;
+            this.VS.FilterDataGrid = null;
             this.VS.FilterRow = null;
             this.VS.FilterRowEnabled = false;
             this.VS.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.VS.IsCTLMOwned = false;
             this.VS.IsFilterFocused = false;
-            this.VS.Location = new System.Drawing.Point(12, 268);
+            this.VS.Location = new System.Drawing.Point(12, 256);
             this.VS.MsgStatusLabel = null;
             this.VS.Name = "VS";
             this.VS.NumPages = 0;
@@ -642,12 +644,44 @@
             this.dateDriverShiftLeader.Upp = false;
             this.dateDriverShiftLeader.Value = null;
             // 
+            // txtObservations
+            // 
+            this.txtObservations.Add = false;
+            this.txtObservations.BackColor = System.Drawing.Color.White;
+            this.txtObservations.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtObservations.Caption = "Observations";
+            this.txtObservations.DBField = null;
+            this.txtObservations.DBFieldType = null;
+            this.txtObservations.DefaultValue = null;
+            this.txtObservations.Del = false;
+            this.txtObservations.DependingRS = null;
+            this.txtObservations.ExtraDataLink = null;
+            this.txtObservations.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtObservations.ForeColor = System.Drawing.Color.Black;
+            this.txtObservations.IsCTLMOwned = false;
+            this.txtObservations.Location = new System.Drawing.Point(12, 140);
+            this.txtObservations.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtObservations.Multiline = true;
+            this.txtObservations.Name = "txtObservations";
+            this.txtObservations.Order = 0;
+            this.txtObservations.ParentConn = null;
+            this.txtObservations.ParentDA = null;
+            this.txtObservations.PK = false;
+            this.txtObservations.Protected = false;
+            this.txtObservations.Search = false;
+            this.txtObservations.Size = new System.Drawing.Size(535, 47);
+            this.txtObservations.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtObservations.TabIndex = 86;
+            this.txtObservations.Upp = false;
+            this.txtObservations.Value = "";
+            // 
             // fSimpleDeliveriesEPC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(719, 566);
+            this.ClientSize = new System.Drawing.Size(723, 558);
+            this.Controls.Add(this.txtObservations);
             this.Controls.Add(this.dateDriverShiftLeader);
             this.Controls.Add(this.VS);
             this.Controls.Add(this.txtTrailerPlate);
@@ -699,5 +733,6 @@
         private EspackFormControls.EspackTextBox txtTrailerPlate;
         private EspackDataGrid.EspackDataGridView VS;
         private EspackFormControls.EspackDateTimePicker dateDriverShiftLeader;
+        private EspackFormControls.EspackTextBox txtObservations;
     }
 }
