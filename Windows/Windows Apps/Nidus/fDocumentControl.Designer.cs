@@ -327,10 +327,12 @@
             this.VS.DefaultValue = null;
             this.VS.Del = false;
             this.VS.DependingRS = null;
+            this.VS.DGFocused = false;
             this.VS.Dirty = false;
             this.VS.Dock = System.Windows.Forms.DockStyle.Left;
             this.VS.EspackControlParent = null;
             this.VS.ExtraDataLink = null;
+            this.VS.FGFocused = false;
             this.VS.FilterDataGrid = null;
             this.VS.FilterRow = null;
             this.VS.FilterRowEnabled = false;

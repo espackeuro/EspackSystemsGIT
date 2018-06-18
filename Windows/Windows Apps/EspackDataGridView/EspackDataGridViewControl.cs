@@ -38,7 +38,19 @@ namespace EspackDataGrid
         public EspackControl EspackControlParent { get; set; }
 
         //public DataGridView DataGridView { get; set; } = new DataGridView();
-        public DataGridViewCell CurrentCell { get => DataGridView.CurrentCell; set => DataGridView.CurrentCell = value; }
+        public DataGridViewCell CurrentCell
+        {
+            get => DGFocused ? DataGridView.CurrentCell : FGFocused ? FilterDataGrid.CurrentCell : null; 
+            set
+            {
+                if (FGFocused)
+                {
+                    FilterDataGrid.CurrentCell = value;
+                    return;
+                }
+                DataGridView.CurrentCell = value;
+            }
+        }
         public DataGridViewRowCollection Rows { get => DataGridView.Rows; }
         public DataGridViewColumnCollection Columns { get => DataGridView.Columns; }
         public DataGridViewRow CurrentRow { get => DataGridView.CurrentRow; }
@@ -66,7 +78,12 @@ namespace EspackDataGrid
         }
         public DataGridViewColumn SortedColumn { get => DataGridView.SortedColumn; }
         public SortOrder SortOrder { get => DataGridView.SortOrder; }
-        public bool IsCurrentCellInEditMode { get => DataGridView.IsCurrentCellInEditMode; }
+        public bool IsCurrentCellInEditMode { get => DataGridView.IsCurrentCellInEditMode || (FilterDataGrid?.IsCurrentCellInEditMode ?? false); }
+        public bool DGFocused { get; set; }
+        public bool FGFocused { get; set; }
+
+
+        //end properties
         public bool BeginEdit(bool selectAll)
         {
             return DataGridView.BeginEdit(selectAll);
@@ -382,6 +399,8 @@ namespace EspackDataGrid
 
         public override void SetStatus(EnumStatus value)
         {
+            this.Enabled = true;
+            //this.ReadOnly 
             foreach (EspackDataGridViewColumn Col in Columns)
             {
                 Col.SetStatus(value);
@@ -522,6 +541,8 @@ namespace EspackDataGrid
             AllowUpdate = false;
             RowHeadersVisible = false;
             DataGridView.CellEnter += EspackDataGridView_CellEnter;
+            DataGridView.GotFocus += DataGridView_GotFocus;
+            DataGridView.LostFocus += DataGridView_LostFocus;
             if (!isFilterGrid)
             {
                 GridColor = SystemColors.ButtonFace;
@@ -678,6 +699,17 @@ namespace EspackDataGrid
             //RowEditedBool = true;
         }
 
+        private void DataGridView_LostFocus(object sender, EventArgs e)
+        {
+            DGFocused = false;
+        }
+
+        
+        private void DataGridView_GotFocus(object sender, EventArgs e)
+        {
+            DGFocused = true;
+        }
+
 
         private EspackDataGridViewCell NextEditableCell(EspackDataGridViewCell fromCell = null)
         {
@@ -738,6 +770,9 @@ namespace EspackDataGrid
             FilterDataGrid = new DataGridView();
             //FilterDataGrid.CellEnter += EspackDataGridView_CellEnter;
             FilterDataGrid.ColumnWidthChanged += FilterDataGrid_ColumnWidthChanged;
+            FilterDataGrid.GotFocus += FilterDataGrid_GotFocus;
+            FilterDataGrid.LostFocus += FilterDataGrid_LostFocus;
+            FilterDataGrid.CellBeginEdit += FilterDataGrid_CellBeginEdit;
             FilterDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             FilterDataGrid.AllowUserToResizeColumns = true;
             //FilterDataGrid.Conn = Conn;
@@ -769,6 +804,21 @@ namespace EspackDataGrid
             FilterDataGrid.Rows.Add(FilterRow);
             //Refresh();
             //FilterRow = FilterDataGrid.Rows[0];
+        }
+
+        private void FilterDataGrid_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            FGFocused = true;
+        }
+
+        private void FilterDataGrid_LostFocus(object sender, EventArgs e)
+        {
+             FGFocused = false;
+        }
+
+        private void FilterDataGrid_GotFocus(object sender, EventArgs e)
+        {
+            FGFocused = true;
         }
 
         private void FilterDataGrid_ColumnWidthChanged(object sender, DataGridViewColumnEventArgs e)
