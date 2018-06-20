@@ -14,6 +14,9 @@ using EspackDataGrid;
 using EspackFormControls;
 using static MicrosoftOfficeTools.MSTools;
 using EspackFileStream;
+using System.Collections.ObjectModel;
+using CTLMantenimientoNet;
+
 
 namespace Nidus
 {
@@ -54,19 +57,36 @@ namespace Nidus
             VS.Conn = Values.gDatos;
             VS.SQL = "Select TypeCode,SectionCode,Title from DocumentsCab ";
             VS.Start();
+            
             //Resize += FDocumentControl_Resize;
 
             VS.UpdateEspackControl();
-            CTLM.AddItem(VS);
+            //CTLM.AddItem(VS);
             //start
             CTLM.ReQuery = true;
             CTLM.AddDefaultStatusStrip();
             CTLM.Start();
             VS.FilterRowEnabled = true;
             this.Load += FDocumentControl_Load;
-
+            var c = VS.DataCellCollection;
             //AcroPDFLib.AcroPDF acroPDF = new AcroPDFLib.AcroPDFClass();
 
+        }
+        private bool changing = false;
+        private void DataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (VS.DataGridView.CurrentCell != null && !changing)
+            {
+                changing = true;
+                CTLM.ClearValues();
+                VS.DataGridView.Rows[VS.DataGridView.CurrentCell?.RowIndex ?? 0].Selected = true;
+                CTLM.SetStatus(CommonTools.EnumStatus.SEARCH);
+                txtTypeCode.Text = VS.CurrentRow.Cells[0].Value.ToString();
+                txtSection.Text = VS.CurrentRow.Cells[1].Value.ToString();
+                txtTitle.Text = VS.CurrentRow.Cells[2].Value.ToString();
+                CTLM.Button_Click(CTLMButtonsEnum.btnOk);
+                changing = false;
+            }
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)
@@ -85,6 +105,7 @@ namespace Nidus
             VS.AddFilterCell(EspackCellTypes.CHECKEDCOMBO, 0, "Select distinct Type=TypeCode,TypeCode from DocumentsCab");
             VS.AddFilterCell(EspackCellTypes.CHECKEDCOMBO, 1, "Select distinct Section=SectionCode,SectionCode from DocumentsCab");
             VS.AddFilterCell(EspackCellTypes.TEXT, 2, "Select distinct Title from DocumentsCab");
+            VS.DataGridView.SelectionChanged += DataGridView_SelectionChanged;
         }
 
     }

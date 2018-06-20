@@ -20,6 +20,7 @@ using EspackDataGrid;
 
 namespace CTLMantenimientoNet
 {
+    public enum CTLMButtonsEnum { btnAdd, btnUpp, btnDel, btnSearch, btnCancel, btnOk, btnNext, btnPrev, btnFirst, btnLast }
     public partial class CTLMantenimientoNet : ToolStrip
     {
         //private variables
@@ -713,6 +714,10 @@ namespace CTLMantenimientoNet
         //What happens when you click OK
         private void Click_OK(string pButtonName = "btnOk")
         {
+            Click_OK((CTLMButtonsEnum)Enum.Parse(typeof(CTLMButtonsEnum), pButtonName));
+        }
+        private void Click_OK(CTLMButtonsEnum pButtonName = CTLMButtonsEnum.btnOk)
+        {
             switch (Status)
             {
                 case EnumStatus.SEARCH:
@@ -844,8 +849,11 @@ namespace CTLMantenimientoNet
                 if (MsgStatusInfoLabel != null) MsgStatusInfoLabel.Text = lMsg;
             }
         }
-
-        public void Button_Click(string pButtonName) //lauched when clicked any button
+        public void Button_Click(string pButtonName)
+        {
+            Button_Click((CTLMButtonsEnum)Enum.Parse(typeof(CTLMButtonsEnum), pButtonName));
+        }
+        public void Button_Click(CTLMButtonsEnum pButtonName) //lauched when clicked any button
         {
             try
             {
@@ -854,35 +862,35 @@ namespace CTLMantenimientoNet
                 if (lCTLMEventArgs.Cancel) { return; }
                 switch (pButtonName)
                 {
-                    case "btnAdd":
+                    case CTLMButtonsEnum.btnAdd:
                         OnAfterButtonClick(new CTLMEventArgs(pButtonName)); //Launched AfterButtonClick Event
                         SetStatus( EnumStatus.ADDNEW);
                         CTLMItems.Where(x => x.DefaultValue != null).ToList().ForEach(x => x.Value = x.DefaultValue);
                         break;
-                    case "btnUpp":
+                    case CTLMButtonsEnum.btnUpp:
                         OnAfterButtonClick(new CTLMEventArgs(pButtonName)); //Launched AfterButtonClick Event
                         SetStatus( EnumStatus.EDIT);
                         break;
-                    case "btnDel":
+                    case CTLMButtonsEnum.btnDel:
                         if (MessageBox.Show("This will delete the actual record. Are you sure?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
                             SetStatus( EnumStatus.DELETE);
                             Click_OK(pButtonName);
                         }
                         break;
-                    case "btnSearch":
+                    case CTLMButtonsEnum.btnSearch:
                         OnAfterButtonClick(new CTLMEventArgs(pButtonName));
                         SetStatus( EnumStatus.SEARCH);
                         break;
-                    case "btnCancel":
+                    case CTLMButtonsEnum.btnCancel:
                         ClearValues();
                         OnAfterButtonClick(new CTLMEventArgs(pButtonName));
                         SetStatus( EnumStatus.SEARCH);
                         break;
-                    case "btnOk":
+                    case CTLMButtonsEnum.btnOk:
                         Click_OK(pButtonName);
                         break;
-                    case "btnNext":
+                    case CTLMButtonsEnum.btnNext:
                         if (mDA.SelectRS.State == RSState.Open)
                         {
                             try
@@ -896,7 +904,7 @@ namespace CTLMantenimientoNet
                         }
                         OnAfterButtonClick(new CTLMEventArgs(pButtonName));
                         break;
-                    case "btnPrev":
+                    case CTLMButtonsEnum.btnPrev:
                         if (mDA.SelectRS.State == RSState.Open)
                         {
                             try
@@ -911,7 +919,7 @@ namespace CTLMantenimientoNet
                         }
                         OnAfterButtonClick(new CTLMEventArgs(pButtonName));
                         break;
-                    case "btnFirst":
+                    case CTLMButtonsEnum.btnFirst:
                         if (mDA.SelectRS.State == RSState.Open)
                         {
                             try
@@ -926,7 +934,7 @@ namespace CTLMantenimientoNet
                         }
                         OnAfterButtonClick(new CTLMEventArgs(pButtonName));
                         break;
-                    case "btnLast":
+                    case CTLMButtonsEnum.btnLast:
                         if (mDA.SelectRS.State == RSState.Open)
                         {
                             try
@@ -961,19 +969,25 @@ namespace CTLMantenimientoNet
     //Events for the control
     public class CTLMEventArgs : EventArgs
     {
-        private string mButtonClick;
+        private CTLMButtonsEnum mButtonClick;
         public string ButtonClick
         {
             get
             {
-                return mButtonClick;
+                return mButtonClick.ToString();
             }
         }
         public bool Cancel { get; set; }
         public CTLMEventArgs(string pButtonClick)
         {
+            mButtonClick = (CTLMButtonsEnum)Enum.Parse(typeof(CTLMButtonsEnum), pButtonClick);
+            Cancel = false;
+        }
+        public CTLMEventArgs(CTLMButtonsEnum pButtonClick)
+        {
             mButtonClick = pButtonClick;
             Cancel = false;
         }
+
     }
 }
