@@ -66,11 +66,11 @@ namespace ExcelExtensions
                         */
             //UInt32Value fontBodyId = 0;
 
-            if (showColumnNames)
+            if (!showColumnNames)
             {
-                Font _fontTitle = new Font(new Bold(), new FontSize() { Val = 12 },new Color() { Rgb=new HexBinaryValue() { Value="000000" } }, new FontName() { Val="Tahoma" });
-                stylesPart.Stylesheet.Fonts.Append(_fontTitle);
-                UInt32Value fontTitleId = 0;// Convert.ToUInt32(stylesPart.Stylesheet.Fonts.ChildElements.Count - 1);
+                Font _fontTitle = new Font(new Bold(), new FontSize() { Val = 12 },new Color() { Rgb=new HexBinaryValue() { Value="FF0000" } }, new FontName() { Val="Tahoma" });
+                stylesPart.Stylesheet.Fonts.InsertBefore(_fontTitle,null);
+                UInt32Value fontTitleId = Convert.ToUInt32(stylesPart.Stylesheet.Fonts.ChildElements.Count - 1);
                // stylesPart.Stylesheet.CellFormats.Append(new CellFormat() { FontId = fontTitleId, FillId = 0, BorderId = 0, ApplyFont = true });
 
                 _excelRow = new Row();
