@@ -340,11 +340,12 @@ namespace AccesoDatosNet
             }
         }
 
+        private List<string> fieldList;
         public override List<string> Fields
         {
             get
             {
-                return mDR.GetSchemaTable().Rows.OfType<DataRow>().Select(r => r["ColumnName"].ToString()).ToList();
+                return fieldList; //mDR.GetSchemaTable().Rows.OfType<DataRow>().Select(r => r["ColumnName"].ToString()).ToList();
             }
         }
 
@@ -376,6 +377,7 @@ namespace AccesoDatosNet
             try
             {
                 mDR = Cmd.ExecuteReader();
+                fieldList = mDR.GetSchemaTable().Rows.OfType<DataRow>().Select(r => r["ColumnName"].ToString()).ToList();
                 //EOF = ! mDR.Read();
                 var _dt = new DataTable();
                 _dt.Load(mDR);
@@ -386,7 +388,6 @@ namespace AccesoDatosNet
             {
                 Console.WriteLine(ex.Message);
             }
-            
 
             mState = RSState.Open;
             if (prevState != ConnectionState.Open)
@@ -407,6 +408,7 @@ namespace AccesoDatosNet
             try
             {
                 mDR = await Cmd.ExecuteReaderAsync();
+                fieldList = mDR.GetSchemaTable().Rows.OfType<DataRow>().Select(r => r["ColumnName"].ToString()).ToList();
                 var _dt = new DataTable();
                 await Task.Run(() => _dt.Load(mDR));
                 Result = _dt.Rows.OfType<DataRow>().ToList();

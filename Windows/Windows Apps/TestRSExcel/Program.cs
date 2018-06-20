@@ -23,7 +23,7 @@ namespace TestRSExcel
                 using (var _rs = new StaticRS("select UserCode,Name,Surname1,Surname2,EmailAddress from Users",_conn))
                 {
                     _rs.Open();
-                    _rs.CreateExcelFile(@"D:\text.xlsx");
+                    _rs.SaveExcelFile(@"D:\text.xlsx");
                 }
             }
         }
