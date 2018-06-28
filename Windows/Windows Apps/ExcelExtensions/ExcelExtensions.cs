@@ -35,37 +35,71 @@ namespace ExcelExtensions
             */
         }
 
-        //
-        public static bool CreateExcelFile(this RSFrame rs, string filePath, string sheetName="Sheet 1")
+        // Create an excel file with a sheet named [sheetName] and current data the of recordset
+        public static bool SaveExcelFile(this RSFrame rs, string filePath, string sheetName="Sheet 1",bool showColumnNames=true)
         {
             // Initialize vars
             int _row = 1;
             int _col = 1;
 
-            // Create the excel file and get some objects from it
+            // Create an empty excel file and get some objects from it
             SpreadsheetDocument _excelDoc = Create(filePath,sheetName);
             WorkbookPart _wbPart = _excelDoc.WorkbookPart;
-            Sheet _sheet = _wbPart.Workbook.Descendants<Sheet>().Where(
-                           (s) => s.Name == sheetName).FirstOrDefault();
-
+            Sheet _sheet = _wbPart.Workbook.Descendants<Sheet>().Where((s) => s.Name == sheetName).FirstOrDefault();
             Worksheet _ws = ((WorksheetPart)(_wbPart.GetPartById(_sheet.Id))).Worksheet;
+            SharedStringTablePart _stringTablePart = _wbPart.GetPartsOfType<SharedStringTablePart>().FirstOrDefault();
+            SheetData _sheetData = _ws.GetFirstChild<SheetData>();
+            Row _excelRow;
 
-            //Worksheet _worksheet = ((WorksheetPart)(_wbPart.GetPartById(_sheet.Id))).Worksheet;
+            _excelDoc.WorkbookPart.AddNewPart<WorkbookStylesPart>();
+            WorkbookStylesPart stylesPart = _excelDoc.WorkbookPart.WorkbookStylesPart;
 
-            // Meter row.Append aquí, y quitar los getRow y compañia.
+            stylesPart.Stylesheet = new Stylesheet();
+            stylesPart.Stylesheet.Fonts = new Fonts();
+
+            Font _fontBody = new Font(new FontSize() { Val = 12 }, new Color() { Rgb = new HexBinaryValue() { Value = "000000" } }, new FontName() { Val = "Tahoma" });
+
+            stylesPart.Stylesheet.Fonts.Append(_fontBody);
+                        UInt32Value fontBodyId = Convert.ToUInt32(stylesPart.Stylesheet.Fonts.ChildElements.Count - 1);
+/*                        stylesPart.Stylesheet.CellFormats = new CellFormats();
+                        stylesPart.Stylesheet.CellFormats.Append(new CellFormat() { FontId = fontBodyId, FillId = 0, BorderId = 0, ApplyFont = true });
+                        */
+            //UInt32Value fontBodyId = 0;
+
+            if (!showColumnNames)
+            {
+                Font _fontTitle = new Font(new Bold(), new FontSize() { Val = 12 },new Color() { Rgb=new HexBinaryValue() { Value="FF0000" } }, new FontName() { Val="Tahoma" });
+                stylesPart.Stylesheet.Fonts.InsertBefore(_fontTitle,null);
+                UInt32Value fontTitleId = Convert.ToUInt32(stylesPart.Stylesheet.Fonts.ChildElements.Count - 1);
+               // stylesPart.Stylesheet.CellFormats.Append(new CellFormat() { FontId = fontTitleId, FillId = 0, BorderId = 0, ApplyFont = true });
+
+                _excelRow = new Row();
+                _excelRow.RowIndex = (uint)_row;
+                _sheetData.Append(_excelRow);
+
+
+                rs.Fields.ToList().ForEach(_field =>
+                {
+                    AddCell(_sheetData, _stringTablePart, _ws, _wbPart, _excelRow, _col, _field.ToString(), fontTitleId, true);
+                    _col++;
+                });
+                _row++;
+            }
 
             // Go over the recordset to fill the excel cells
             rs.ToList().ForEach(_rowdata =>
             {
+                _col = 1;
+                _excelRow = new Row();
+                _excelRow.RowIndex = (uint)_row;
+                _sheetData.Append(_excelRow);
                 _rowdata.ItemArray.ToList().ForEach(_columndata =>
                 {
-                    AddCell(_ws,_wbPart, IntToLetters(_col) + _row.ToString(), _columndata.ToString(), 0, true);
+                    AddCell(_sheetData,_stringTablePart, _ws, _wbPart, _excelRow, _col, _columndata.ToString(),fontBodyId, true);
                     _col++;
                 });
                 _row++;
-                _col = 1;
             });
-
 
             //// Save and close the document
             _excelDoc.WorkbookPart.Workbook.Save();
@@ -74,7 +108,7 @@ namespace ExcelExtensions
         }
 
         // Create an empty excel file
-        public static SpreadsheetDocument Create(string filepath, string sheetName)
+        private static SpreadsheetDocument Create(string filepath, string sheetName)
         {
             // Create a spreadsheet document by supplying the filepath.
             // By default, AutoSave = true, Editable = true, and Type = xlsx.
@@ -103,34 +137,27 @@ namespace ExcelExtensions
             sheets.Append(sheet);
 
             // Add the table part for the shared strings table
-            var stringTablePart = workbookpart.GetPartsOfType<SharedStringTablePart>().FirstOrDefault();
-            if (stringTablePart == null)
-            {
-                // Create it.
-                stringTablePart = workbookpart.AddNewPart<SharedStringTablePart>();
-            }
+            SharedStringTablePart stringTablePart = workbookpart.AddNewPart<SharedStringTablePart>();
             stringTablePart.SharedStringTable = new SharedStringTable();
 
             return spreadsheetDocument;
         }
 
         // Add a new cell
-        public static bool AddCell(Worksheet ws, WorkbookPart wbPart, string addressName, string value,UInt32Value styleIndex, bool isString)
+        //public static bool AddCell(SharedStringTablePart stringTablePart, Worksheet ws, WorkbookPart wbPart, string addressName, string value, UInt32Value styleIndex, bool isString)
+        public static bool AddCell(SheetData sheetData,SharedStringTablePart stringTablePart, Worksheet ws, WorkbookPart wbPart, Row theRow, int col,string value, UInt32Value styleIndex, bool isString)
         {
-            SheetData _sheetData = ws.GetFirstChild<SheetData>();
-            UInt32 _rowNumber = GetRowIndex(addressName);
-            Row row = GetRow(_sheetData, _rowNumber);
-
+            // Add a new cell to theRow
             Cell _cell = new Cell();
-            _cell.CellReference = addressName;
-            row.InsertBefore(_cell, null);
+            _cell.CellReference = theRow.RowIndex.ToString()+IntToLetters(col);
+            theRow.InsertBefore(_cell, null);
 
             if (isString)
             {
                 // Either retrieve the index of an existing string,
                 // or insert the string into the shared string table
                 // and get the index of the new item.
-                int stringIndex = InsertSharedStringItem(wbPart, value);
+                int stringIndex = InsertSharedStringItem(stringTablePart.SharedStringTable,wbPart, value);
 
                 _cell.CellValue = new CellValue(stringIndex.ToString());
                 _cell.DataType = new EnumValue<CellValues>(CellValues.SharedString);
@@ -140,302 +167,36 @@ namespace ExcelExtensions
                 _cell.CellValue = new CellValue(value);
                 _cell.DataType = new EnumValue<CellValues>(CellValues.Number);
             }
-
+            _cell.StyleIndex = styleIndex;
             return true;
         }
 
-
-
-
-        // Return the row at the specified rowIndex located within
-        // the sheet data passed in via wsData. If the row does not
-        // exist, create it.
-        private static Row GetRow(SheetData wsData, UInt32 rowIndex)
-        {
-            var row = wsData.Elements<Row>().
-            Where(r => r.RowIndex.Value == rowIndex).FirstOrDefault();
-            if (row == null)
-            {
-                row = new Row();
-                row.RowIndex = rowIndex;
-                wsData.Append(row);
-            }
-            return row;
-        }
-
-        // Given an Excel address such as E5 or AB128, GetRowIndex
-        // parses the address and returns the row index.
-        private static UInt32 GetRowIndex(string address)
-        {
-            string rowPart;
-            UInt32 l;
-            UInt32 result = 0;
-
-            for (int i = 0; i < address.Length; i++)
-            {
-                if (UInt32.TryParse(address.Substring(i, 1), out l))
-                {
-                    rowPart = address.Substring(i, address.Length - i);
-                    if (UInt32.TryParse(rowPart, out l))
-                    {
-                        result = l;
-                        break;
-                    }
-                }
-            }
-            return result;
-        }
-
         // Given the main workbook part, and a text value, insert the text into 
-        // the shared string table. Create the table if necessary. If the value 
-        // already exists, return its index. If it doesn't exist, insert it and 
-        // return its new index.
-        private static int InsertSharedStringItem(WorkbookPart wbPart, string value)
+        // the shared string table.
+        private static int InsertSharedStringItem(SharedStringTable stringTable, WorkbookPart wbPart, string value)
         {
-            int index = 0;
-            bool found = false;
-            var stringTablePart = wbPart
-                .GetPartsOfType<SharedStringTablePart>().FirstOrDefault();
+            int _index = 0;
+            bool _found = false;
 
-            // If the shared string table is missing, something's wrong.
-            // Just return the index that you found in the cell.
-            // Otherwise, look up the correct text in the table.
-            if (stringTablePart == null)
-            {
-                // Create it.
-                stringTablePart = wbPart.AddNewPart<SharedStringTablePart>();
-            }
-
-            var stringTable = stringTablePart.SharedStringTable;
-            if (stringTable == null)
-            {
-                stringTable = new SharedStringTable();
-            }
-
+  
             // Iterate through all the items in the SharedStringTable. 
             // If the text already exists, return its index.
-            foreach (SharedStringItem item in stringTable.Elements<SharedStringItem>())
+            foreach (SharedStringItem _item in stringTable.Elements<SharedStringItem>())
             {
-                if (item.InnerText == value)
+                if (_item.InnerText == value)
                 {
-                    found = true;
+                    _found = true;
                     break;
                 }
-                index += 1;
+                _index++;
             }
 
-            if (!found)
-            {
+            if (!_found)
                 stringTable.AppendChild(new SharedStringItem(new Text(value)));
-                //stringTable.Save();
-            }
 
-            return index;
+            return _index;
         }
 
-        /********************************************************************************************************************************/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*
-        public static SpreadsheetDocument Create(string filepath,string sheet1)
-                {
-                    // Create a spreadsheet document by supplying the filepath.
-                    // By default, AutoSave = true, Editable = true, and Type = xlsx.
-                    SpreadsheetDocument spreadsheetDocument = SpreadsheetDocument.
-                        Create(filepath, SpreadsheetDocumentType.Workbook);
-
-                    // Add a WorkbookPart to the document.
-                    WorkbookPart workbookpart = spreadsheetDocument.AddWorkbookPart();
-                    workbookpart.Workbook = new Workbook();
-
-                    // Add a WorksheetPart to the WorkbookPart.
-                    WorksheetPart worksheetPart = workbookpart.AddNewPart<WorksheetPart>();
-                    worksheetPart.Worksheet = new Worksheet(new SheetData());
-
-                    // Add Sheets to the Workbook.
-                    Sheets sheets = spreadsheetDocument.WorkbookPart.Workbook.
-                        AppendChild<Sheets>(new Sheets());
-
-                    // Append a new worksheet and associate it with the workbook.
-                    Sheet sheet = new Sheet()
-                    {
-                        Id = spreadsheetDocument.WorkbookPart.GetIdOfPart(worksheetPart),
-                        SheetId = 1,
-                        Name = sheet1
-                    };
-                    sheets.Append(sheet);
-
-
-                    workbookpart.Workbook.Save();
-
-                    // Close the document.
-                    spreadsheetDocument.Close();
-
-                                return spreadsheetDocument;
-                }
-
-      
-
-                // Given a Worksheet and an address (like "AZ254"), either return a 
-                // cell reference, or create the cell reference and return it.
-                private static Cell InsertCellInWorksheet(Worksheet ws, WorkbookPart wbPart, string addressName, string value)
-                {
-                    SheetData sheetData = ws.GetFirstChild<SheetData>();
-                    Cell cell = null;
-
-                    UInt32 rowNumber = GetRowIndex(addressName);
-                    Row row = GetRow(sheetData, rowNumber);
-
-                    // If the cell you need already exists, return it.
-                    // If there is not a cell with the specified column name, insert one.  
-                    Cell refCell = row.Elements<Cell>().
-                        Where(c => c.CellReference.Value == addressName).FirstOrDefault();
-                    if (refCell != null)
-                    {
-                        cell = refCell;
-                    }
-                    else
-                    {
-                        cell = CreateCell(row, addressName);
-                    }
-
-                    int stringIndex = InsertSharedStringItem(wbPart, value);
-                    cell.CellValue = new CellValue(value);
-                    cell.DataType = new EnumValue<CellValues>(CellValues.SharedString);
-                    return cell;
-                }
-
-                // Add a cell with the specified address to a row.
-                private static Cell CreateCell(Row row, String address)
-                {
-                    Cell cellResult;
-                    Cell refCell = null;
-
-                    // Cells must be in sequential order according to CellReference. 
-                    // Determine where to insert the new cell.
-                    foreach (Cell cell in row.Elements<Cell>())
-                    {
-                        if (string.Compare(cell.CellReference.Value, address, true) > 0)
-                        {
-                            refCell = cell;
-                            break;
-                        }
-                    }
-
-                    cellResult = new Cell();
-                    cellResult.CellReference = address;
-
-                    row.InsertBefore(cellResult, refCell);
-                    return cellResult;
-                }
-
-                // Return the row at the specified rowIndex located within
-                // the sheet data passed in via wsData. If the row does not
-                // exist, create it.
-                private static Row GetRow(SheetData wsData, UInt32 rowIndex)
-                {
-                    var row = wsData.Elements<Row>().
-                    Where(r => r.RowIndex.Value == rowIndex).FirstOrDefault();
-                    if (row == null)
-                    {
-                        row = new Row();
-                        row.RowIndex = rowIndex;
-                        wsData.Append(row);
-                    }
-                    return row;
-                }
-
-                // Given an Excel address such as E5 or AB128, GetRowIndex
-                // parses the address and returns the row index.
-                private static UInt32 GetRowIndex(string address)
-                {
-                    string rowPart;
-                    UInt32 l;
-                    UInt32 result = 0;
-
-                    for (int i = 0; i < address.Length; i++)
-                    {
-                        if (UInt32.TryParse(address.Substring(i, 1), out l))
-                        {
-                            rowPart = address.Substring(i, address.Length - i);
-                            if (UInt32.TryParse(rowPart, out l))
-                            {
-                                result = l;
-                                break;
-                            }
-                        }
-                    }
-                    return result;
-                }
-
-                // Given the main workbook part, and a text value, insert the text into 
-                // the shared string table. Create the table if necessary. If the value 
-                // already exists, return its index. If it doesn't exist, insert it and 
-                // return its new index.
-                private static int InsertSharedStringItem(WorkbookPart wbPart, string value)
-                {
-                    int index = 0;
-                    bool found = false;
-                    var stringTablePart = wbPart
-                        .GetPartsOfType<SharedStringTablePart>().FirstOrDefault();
-
-                    // If the shared string table is missing, something's wrong.
-                    // Just return the index that you found in the cell.
-                    // Otherwise, look up the correct text in the table.
-                    if (stringTablePart == null)
-                    {
-                        // Create it.
-                        stringTablePart = wbPart.AddNewPart<SharedStringTablePart>();
-                    }
-
-                    var stringTable = stringTablePart.SharedStringTable;
-                    if (stringTable == null)
-                    {
-                        stringTable = new SharedStringTable();
-                    }
-
-                    // Iterate through all the items in the SharedStringTable. 
-                    // If the text already exists, return its index.
-                    foreach (SharedStringItem item in stringTable.Elements<SharedStringItem>())
-                    {
-                        if (item.InnerText == value)
-                        {
-                            found = true;
-                            break;
-                        }
-                        index += 1;
-                    }
-
-                    if (!found)
-                    {
-                        stringTable.AppendChild(new SharedStringItem(new Text(value)));
-                       // stringTable.Save();
-                    }
-
-                    return index;
-                }
-        */
     }
 
 
