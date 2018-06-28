@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using AccesoDatosNet;
 using CommonTools;
 using EspackControls;
-using EspackFormControls;
+using EspackFormControlsNS;
 
 namespace VSGrid
 {

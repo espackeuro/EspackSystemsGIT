@@ -1,7 +1,7 @@
 ﻿using AccesoDatosNet;
 using CommonTools;
 using EspackControls;
-using EspackFormControls;
+using EspackFormControlsNS;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -14,7 +14,11 @@ using static MicrosoftOfficeTools.MSTools;
 
 namespace EspackFileStream
 {
+#if DEBUG
+    public class EspackFileStream : EspackFormControlCommonMiddle
+#else
     public class EspackFileStream : EspackFormControlCommon
+#endif
     {
         //private FileStream fileStream;// = new FileStream();
         public EspackTextBox TbFileName { get; set; }

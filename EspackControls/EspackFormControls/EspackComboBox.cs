@@ -21,19 +21,7 @@ namespace EspackFormControls
         public EspackTextBox TBDescription { get; set; }
         public bool Protected { get; set; }
 
-        public new bool Visible
-        {
-            get
-            {
-                return base.Visible;
-            }
-            set
-            {
-                base.Visible = value;
-                if (CaptionLabel != null)
-                    CaptionLabel.Visible = value;
-            }
-        }
+
 
         private Size _size;
 

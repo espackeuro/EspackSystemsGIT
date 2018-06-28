@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtCode = new EspackFormControls.EspackTextBox();
-            this.txtSubNet = new EspackFormControls.EspackMaskedTextBox();
-            this.txtMask = new EspackFormControls.EspackMaskedTextBox();
+            this.txtCode = new EspackFormControlsNS.EspackTextBox();
+            this.txtSubNet = new EspackFormControlsNS.EspackMaskedTextBox();
+            this.txtMask = new EspackFormControlsNS.EspackMaskedTextBox();
             this.txtSubnet1 = new System.Windows.Forms.MaskedTextBox();
             this.txtSubnet2 = new System.Windows.Forms.MaskedTextBox();
             this.txtMask3 = new System.Windows.Forms.MaskedTextBox();
@@ -240,9 +240,9 @@
         #endregion
 
         private CTLMantenimientoNet.CTLMantenimientoNet CTLM;
-        private EspackFormControls.EspackTextBox txtCode;
-        private EspackFormControls.EspackMaskedTextBox txtSubNet;
-        private EspackFormControls.EspackMaskedTextBox txtMask;
+        private EspackFormControlsNS.EspackTextBox txtCode;
+        private EspackFormControlsNS.EspackMaskedTextBox txtSubNet;
+        private EspackFormControlsNS.EspackMaskedTextBox txtMask;
         private System.Windows.Forms.MaskedTextBox txtSubnet1;
         private System.Windows.Forms.MaskedTextBox txtSubnet2;
         private System.Windows.Forms.MaskedTextBox txtMask3;

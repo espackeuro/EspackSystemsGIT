@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FF2EFEF1-A838-438A-88BD-BC5F0F8D6F15}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EspackFormControlsNS</RootNamespace>
+    <AssemblyName>EspackTextBoxControls</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EspackCheckedListBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EspackCheckedListBox.Designer.cs">
+      <DependentUpon>EspackCheckedListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EspackCheckedComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EspackCheckedComboBox.Designer.cs">
+      <DependentUpon>EspackCheckedComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EspackComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EspackComboBox.Designer.cs">
+      <DependentUpon>EspackComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EspackDataContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EspackDateTimePicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EspackDateTimePicker.Designer.cs">
+      <DependentUpon>EspackDateTimePicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EspackExtraData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EspackMaskedTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EspackMaskedTextBox.Designer.cs">
+      <DependentUpon>EspackMaskedTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EspackNumericTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EspackString.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EspackTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Database and tools\cAccesoDatos.NET\cAccesoDatosNet.csproj">
+      <Project>{D3E453AA-39B7-480F-8917-6D7F5076C3ED}</Project>
+      <Name>cAccesoDatosNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Database and tools\CommonTools\CommonTools.csproj">
+      <Project>{9148F7E6-31F6-4F96-B7DC-AFEA449998C7}</Project>
+      <Name>CommonTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\EspackControls\EspackControls\EspackControls.csproj">
+      <Project>{ECE9AA32-F756-4BE3-A926-B0771E69066B}</Project>
+      <Name>EspackControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cAccesoDatos\cAccesoDatos.csproj">
+      <Project>{5DA9CB0B-9007-40F1-8086-1B0303D8271F}</Project>
+      <Name>cAccesoDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CheckedComboBox\CheckedComboBox.csproj">
+      <Project>{00CFB81E-5B4B-46FC-89DA-43F2E9A4B5A9}</Project>
+      <Name>CheckedComboBox</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EspackFormControlsCommon\EspackFormControlsCommon.csproj">
+      <Project>{e73bea4d-371e-413f-9316-4b53e4a935a3}</Project>
+      <Name>EspackFormControlsCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EspackCheckedComboBox.resx">
+      <DependentUpon>EspackCheckedComboBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EspackCheckedListBox.resx">
+      <DependentUpon>EspackCheckedListBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EspackDataContainer.resx">
+      <DependentUpon>EspackDataContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EspackDateTimePicker.resx">
+      <DependentUpon>EspackDateTimePicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EspackMaskedTextBox.resx">
+      <DependentUpon>EspackMaskedTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EspackNumericTextBox.resx">
+      <DependentUpon>EspackNumericTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EspackTextBox.resx">
+      <DependentUpon>EspackTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

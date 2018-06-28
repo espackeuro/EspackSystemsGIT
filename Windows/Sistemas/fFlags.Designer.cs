@@ -30,15 +30,15 @@
         {
             this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cboTable = new EspackFormControls.EspackComboBox();
-            this.txtCode = new EspackFormControls.EspackTextBox();
-            this.txtLetter = new EspackFormControls.EspackTextBox();
-            this.txtIdReg = new EspackFormControls.EspackTextBox();
+            this.cboTable = new EspackFormControlsNS.EspackComboBox();
+            this.txtCode = new EspackFormControlsNS.EspackTextBox();
+            this.txtLetter = new EspackFormControlsNS.EspackTextBox();
+            this.txtIdReg = new EspackFormControlsNS.EspackTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtDesFlagEng = new EspackFormControls.EspackTextBox();
-            this.txtDescFlag = new EspackFormControls.EspackTextBox();
+            this.txtDesFlagEng = new EspackFormControlsNS.EspackTextBox();
+            this.txtDescFlag = new EspackFormControlsNS.EspackTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lstServices = new EspackFormControls.EspackCheckedListBox();
+            this.lstServices = new EspackFormControlsNS.EspackCheckedListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -338,14 +338,14 @@
 
         private CTLMantenimientoNet.CTLMantenimientoNet CTLM;
         private System.Windows.Forms.GroupBox groupBox1;
-        private EspackFormControls.EspackComboBox cboTable;
-        private EspackFormControls.EspackTextBox txtIdReg;
-        private EspackFormControls.EspackTextBox txtCode;
-        private EspackFormControls.EspackTextBox txtLetter;
+        private EspackFormControlsNS.EspackComboBox cboTable;
+        private EspackFormControlsNS.EspackTextBox txtIdReg;
+        private EspackFormControlsNS.EspackTextBox txtCode;
+        private EspackFormControlsNS.EspackTextBox txtLetter;
         private System.Windows.Forms.GroupBox groupBox2;
-        private EspackFormControls.EspackTextBox txtDesFlagEng;
-        private EspackFormControls.EspackTextBox txtDescFlag;
+        private EspackFormControlsNS.EspackTextBox txtDesFlagEng;
+        private EspackFormControlsNS.EspackTextBox txtDescFlag;
         private System.Windows.Forms.GroupBox groupBox3;
-        private EspackFormControls.EspackCheckedListBox lstServices;
+        private EspackFormControlsNS.EspackCheckedListBox lstServices;
     }
 }

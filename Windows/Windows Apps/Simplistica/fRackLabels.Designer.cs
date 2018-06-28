@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.btnPrint = new System.Windows.Forms.Button();
-            this.txtCOD3 = new EspackFormControls.EspackTextBox();
-            this.cboCOD3 = new EspackFormControls.EspackComboBox();
-            this.txtLOCATION = new EspackFormControls.EspackTextBox();
-            this.txtAISLE = new EspackFormControls.EspackTextBox();
+            this.txtCOD3 = new EspackFormControlsNS.EspackTextBox();
+            this.cboCOD3 = new EspackFormControlsNS.EspackComboBox();
+            this.txtLOCATION = new EspackFormControlsNS.EspackTextBox();
+            this.txtAISLE = new EspackFormControlsNS.EspackTextBox();
             this.SuspendLayout();
             // 
             // btnPrint
@@ -179,10 +179,10 @@
 
         #endregion
 
-        private EspackFormControls.EspackTextBox txtAISLE;
-        private EspackFormControls.EspackTextBox txtLOCATION;
-        private EspackFormControls.EspackComboBox cboCOD3;
+        private EspackFormControlsNS.EspackTextBox txtAISLE;
+        private EspackFormControlsNS.EspackTextBox txtLOCATION;
+        private EspackFormControlsNS.EspackComboBox cboCOD3;
         private System.Windows.Forms.Button btnPrint;
-        private EspackFormControls.EspackTextBox txtCOD3;
+        private EspackFormControlsNS.EspackTextBox txtCOD3;
     }
 }

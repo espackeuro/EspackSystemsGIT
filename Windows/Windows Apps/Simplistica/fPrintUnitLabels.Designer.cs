@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtQty = new EspackFormControls.NumericTextBox();
-            this.cboService = new EspackFormControls.EspackComboBox();
+            this.txtQty = new EspackFormControlsNS.NumericTextBox();
+            this.cboService = new EspackFormControlsNS.EspackComboBox();
             this.btnPrint = new System.Windows.Forms.Button();
-            this.txtDesService = new EspackFormControls.EspackTextBox();
-            this.txtQtyLabel = new EspackFormControls.NumericTextBox();
+            this.txtDesService = new EspackFormControlsNS.EspackTextBox();
+            this.txtQtyLabel = new EspackFormControlsNS.NumericTextBox();
             this.SuspendLayout();
             // 
             // txtQty
@@ -200,10 +200,10 @@
         }
 
         #endregion
-        private EspackFormControls.EspackComboBox cboService;
+        private EspackFormControlsNS.EspackComboBox cboService;
         private System.Windows.Forms.Button btnPrint;
-        private EspackFormControls.EspackTextBox txtDesService;
-        private EspackFormControls.NumericTextBox txtQty;
-        private EspackFormControls.NumericTextBox txtQtyLabel;
+        private EspackFormControlsNS.EspackTextBox txtDesService;
+        private EspackFormControlsNS.NumericTextBox txtQty;
+        private EspackFormControlsNS.NumericTextBox txtQtyLabel;
     }
 }

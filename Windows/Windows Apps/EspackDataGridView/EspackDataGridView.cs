@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using EspackFormControls;
+using EspackFormControlsNS;
 using EspackControls;
 using AccesoDatosNet;
 using CommonTools;

@@ -12,7 +12,7 @@ using AccesoDatosNet;
 using static CommonToolsWin.CTWin;
 using EspackDataGrid;
 using CTLMantenimientoNet;
-using EspackFormControls;
+using EspackFormControlsNS;
 using static CommonTools.CT;
 using CommonTools;
 using DiverseControls;

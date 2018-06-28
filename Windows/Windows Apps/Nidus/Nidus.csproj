@@ -90,6 +90,12 @@
     <Compile Include="fMainNidus.Designer.cs">
       <DependentUpon>fMainNidus.cs</DependentUpon>
     </Compile>
+    <Compile Include="fUserAdministration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fUserAdministration.Designer.cs">
+      <DependentUpon>fUserAdministration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fDocumentControl.resx">

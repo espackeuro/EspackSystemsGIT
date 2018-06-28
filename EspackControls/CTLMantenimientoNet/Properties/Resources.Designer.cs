@@ -19,7 +19,7 @@ namespace CTLMantenimientoNet.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -63,9 +63,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap add16 {
+        internal static System.Drawing.Bitmap add161 {
             get {
-                object obj = ResourceManager.GetObject("add16", resourceCulture);
+                object obj = ResourceManager.GetObject("add161", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap add22 {
+        internal static System.Drawing.Bitmap add221 {
             get {
-                object obj = ResourceManager.GetObject("add22", resourceCulture);
+                object obj = ResourceManager.GetObject("add221", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap add32 {
+        internal static System.Drawing.Bitmap add321 {
             get {
-                object obj = ResourceManager.GetObject("add32", resourceCulture);
+                object obj = ResourceManager.GetObject("add321", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap add32off {
+        internal static System.Drawing.Bitmap add32off1 {
             get {
-                object obj = ResourceManager.GetObject("add32off", resourceCulture);
+                object obj = ResourceManager.GetObject("add32off1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap add48 {
+        internal static System.Drawing.Bitmap add481 {
             get {
-                object obj = ResourceManager.GetObject("add48", resourceCulture);
+                object obj = ResourceManager.GetObject("add481", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cancel {
+        internal static System.Drawing.Bitmap cancel1 {
             get {
-                object obj = ResourceManager.GetObject("cancel", resourceCulture);
+                object obj = ResourceManager.GetObject("cancel1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cancel16 {
+        internal static System.Drawing.Bitmap cancel161 {
             get {
-                object obj = ResourceManager.GetObject("cancel16", resourceCulture);
+                object obj = ResourceManager.GetObject("cancel161", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +143,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cancel22 {
+        internal static System.Drawing.Bitmap cancel221 {
             get {
-                object obj = ResourceManager.GetObject("cancel22", resourceCulture);
+                object obj = ResourceManager.GetObject("cancel221", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +163,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cancel32 {
+        internal static System.Drawing.Bitmap cancel321 {
             get {
-                object obj = ResourceManager.GetObject("cancel32", resourceCulture);
+                object obj = ResourceManager.GetObject("cancel321", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +173,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cancel32off {
+        internal static System.Drawing.Bitmap cancel32off1 {
             get {
-                object obj = ResourceManager.GetObject("cancel32off", resourceCulture);
+                object obj = ResourceManager.GetObject("cancel32off1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +183,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cancel48 {
+        internal static System.Drawing.Bitmap cancel481 {
             get {
-                object obj = ResourceManager.GetObject("cancel48", resourceCulture);
+                object obj = ResourceManager.GetObject("cancel481", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,9 +193,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap del22 {
+        internal static System.Drawing.Bitmap del221 {
             get {
-                object obj = ResourceManager.GetObject("del22", resourceCulture);
+                object obj = ResourceManager.GetObject("del221", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,9 +213,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap del32 {
+        internal static System.Drawing.Bitmap del321 {
             get {
-                object obj = ResourceManager.GetObject("del32", resourceCulture);
+                object obj = ResourceManager.GetObject("del321", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,9 +223,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap del32off {
+        internal static System.Drawing.Bitmap del32off1 {
             get {
-                object obj = ResourceManager.GetObject("del32off", resourceCulture);
+                object obj = ResourceManager.GetObject("del32off1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,9 +233,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap del48 {
+        internal static System.Drawing.Bitmap del481 {
             get {
-                object obj = ResourceManager.GetObject("del48", resourceCulture);
+                object obj = ResourceManager.GetObject("del481", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,9 +243,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap edit16 {
+        internal static System.Drawing.Bitmap edit161 {
             get {
-                object obj = ResourceManager.GetObject("edit16", resourceCulture);
+                object obj = ResourceManager.GetObject("edit161", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,9 +253,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap edit22 {
+        internal static System.Drawing.Bitmap edit221 {
             get {
-                object obj = ResourceManager.GetObject("edit22", resourceCulture);
+                object obj = ResourceManager.GetObject("edit221", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -273,9 +273,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap edit32 {
+        internal static System.Drawing.Bitmap edit321 {
             get {
-                object obj = ResourceManager.GetObject("edit32", resourceCulture);
+                object obj = ResourceManager.GetObject("edit321", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -283,9 +283,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap edit32off {
+        internal static System.Drawing.Bitmap edit32off1 {
             get {
-                object obj = ResourceManager.GetObject("edit32off", resourceCulture);
+                object obj = ResourceManager.GetObject("edit32off1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -293,9 +293,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap edit48 {
+        internal static System.Drawing.Bitmap edit481 {
             get {
-                object obj = ResourceManager.GetObject("edit48", resourceCulture);
+                object obj = ResourceManager.GetObject("edit481", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -303,9 +303,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap first16 {
+        internal static System.Drawing.Bitmap first161 {
             get {
-                object obj = ResourceManager.GetObject("first16", resourceCulture);
+                object obj = ResourceManager.GetObject("first161", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -313,9 +313,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap first22 {
+        internal static System.Drawing.Bitmap first221 {
             get {
-                object obj = ResourceManager.GetObject("first22", resourceCulture);
+                object obj = ResourceManager.GetObject("first221", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -333,9 +333,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap first32 {
+        internal static System.Drawing.Bitmap first321 {
             get {
-                object obj = ResourceManager.GetObject("first32", resourceCulture);
+                object obj = ResourceManager.GetObject("first321", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -343,9 +343,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap first32off {
+        internal static System.Drawing.Bitmap first32off1 {
             get {
-                object obj = ResourceManager.GetObject("first32off", resourceCulture);
+                object obj = ResourceManager.GetObject("first32off1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -353,9 +353,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap first48 {
+        internal static System.Drawing.Bitmap first481 {
             get {
-                object obj = ResourceManager.GetObject("first48", resourceCulture);
+                object obj = ResourceManager.GetObject("first481", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -363,9 +363,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap last16 {
+        internal static System.Drawing.Bitmap last161 {
             get {
-                object obj = ResourceManager.GetObject("last16", resourceCulture);
+                object obj = ResourceManager.GetObject("last161", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -373,9 +373,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap last22 {
+        internal static System.Drawing.Bitmap last221 {
             get {
-                object obj = ResourceManager.GetObject("last22", resourceCulture);
+                object obj = ResourceManager.GetObject("last221", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -393,9 +393,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap last32 {
+        internal static System.Drawing.Bitmap last321 {
             get {
-                object obj = ResourceManager.GetObject("last32", resourceCulture);
+                object obj = ResourceManager.GetObject("last321", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -403,9 +403,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap last32off {
+        internal static System.Drawing.Bitmap last32off1 {
             get {
-                object obj = ResourceManager.GetObject("last32off", resourceCulture);
+                object obj = ResourceManager.GetObject("last32off1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -413,9 +413,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap last48 {
+        internal static System.Drawing.Bitmap last481 {
             get {
-                object obj = ResourceManager.GetObject("last48", resourceCulture);
+                object obj = ResourceManager.GetObject("last481", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -423,9 +423,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap next16 {
+        internal static System.Drawing.Bitmap next161 {
             get {
-                object obj = ResourceManager.GetObject("next16", resourceCulture);
+                object obj = ResourceManager.GetObject("next161", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -433,9 +433,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap next22 {
+        internal static System.Drawing.Bitmap next221 {
             get {
-                object obj = ResourceManager.GetObject("next22", resourceCulture);
+                object obj = ResourceManager.GetObject("next221", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -453,9 +453,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap next32 {
+        internal static System.Drawing.Bitmap next321 {
             get {
-                object obj = ResourceManager.GetObject("next32", resourceCulture);
+                object obj = ResourceManager.GetObject("next321", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -463,9 +463,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap next32off {
+        internal static System.Drawing.Bitmap next32off1 {
             get {
-                object obj = ResourceManager.GetObject("next32off", resourceCulture);
+                object obj = ResourceManager.GetObject("next32off1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -473,9 +473,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap next48 {
+        internal static System.Drawing.Bitmap next481 {
             get {
-                object obj = ResourceManager.GetObject("next48", resourceCulture);
+                object obj = ResourceManager.GetObject("next481", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -483,9 +483,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ok {
+        internal static System.Drawing.Bitmap ok1 {
             get {
-                object obj = ResourceManager.GetObject("ok", resourceCulture);
+                object obj = ResourceManager.GetObject("ok1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -493,9 +493,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ok16 {
+        internal static System.Drawing.Bitmap ok161 {
             get {
-                object obj = ResourceManager.GetObject("ok16", resourceCulture);
+                object obj = ResourceManager.GetObject("ok161", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -503,9 +503,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ok22 {
+        internal static System.Drawing.Bitmap ok221 {
             get {
-                object obj = ResourceManager.GetObject("ok22", resourceCulture);
+                object obj = ResourceManager.GetObject("ok221", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -523,9 +523,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ok32 {
+        internal static System.Drawing.Bitmap ok321 {
             get {
-                object obj = ResourceManager.GetObject("ok32", resourceCulture);
+                object obj = ResourceManager.GetObject("ok321", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -533,9 +533,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ok32off {
+        internal static System.Drawing.Bitmap ok32off1 {
             get {
-                object obj = ResourceManager.GetObject("ok32off", resourceCulture);
+                object obj = ResourceManager.GetObject("ok32off1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -543,9 +543,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ok48 {
+        internal static System.Drawing.Bitmap ok481 {
             get {
-                object obj = ResourceManager.GetObject("ok48", resourceCulture);
+                object obj = ResourceManager.GetObject("ok481", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -553,9 +553,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap prev16 {
+        internal static System.Drawing.Bitmap prev161 {
             get {
-                object obj = ResourceManager.GetObject("prev16", resourceCulture);
+                object obj = ResourceManager.GetObject("prev161", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -563,9 +563,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap prev22 {
+        internal static System.Drawing.Bitmap prev221 {
             get {
-                object obj = ResourceManager.GetObject("prev22", resourceCulture);
+                object obj = ResourceManager.GetObject("prev221", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -583,9 +583,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap prev32 {
+        internal static System.Drawing.Bitmap prev321 {
             get {
-                object obj = ResourceManager.GetObject("prev32", resourceCulture);
+                object obj = ResourceManager.GetObject("prev321", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -593,9 +593,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap prev48 {
+        internal static System.Drawing.Bitmap prev481 {
             get {
-                object obj = ResourceManager.GetObject("prev48", resourceCulture);
+                object obj = ResourceManager.GetObject("prev481", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -603,9 +603,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap search16 {
+        internal static System.Drawing.Bitmap search161 {
             get {
-                object obj = ResourceManager.GetObject("search16", resourceCulture);
+                object obj = ResourceManager.GetObject("search161", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -613,9 +613,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap search22 {
+        internal static System.Drawing.Bitmap search221 {
             get {
-                object obj = ResourceManager.GetObject("search22", resourceCulture);
+                object obj = ResourceManager.GetObject("search221", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -633,9 +633,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap search32off {
+        internal static System.Drawing.Bitmap search32off1 {
             get {
-                object obj = ResourceManager.GetObject("search32off", resourceCulture);
+                object obj = ResourceManager.GetObject("search32off1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -643,9 +643,9 @@ namespace CTLMantenimientoNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap search48 {
+        internal static System.Drawing.Bitmap search481 {
             get {
-                object obj = ResourceManager.GetObject("search48", resourceCulture);
+                object obj = ResourceManager.GetObject("search481", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

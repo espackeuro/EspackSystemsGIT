@@ -315,21 +315,9 @@
       <Project>{9148f7e6-31f6-4f96-b7dc-afea449998c7}</Project>
       <Name>CommonTools</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\EspackControls\CTLMantenimientoNet\CTLMantenimientoNet.csproj">
-      <Project>{3569913e-7914-44d8-b6e6-9b72164c6580}</Project>
-      <Name>CTLMantenimientoNet</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\EspackControls\CtlVSGrid\CtlVSGrid.csproj">
-      <Project>{6e156f1f-61f2-402b-a942-356427642a52}</Project>
-      <Name>CtlVSGrid</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\EspackControls\EspackControls\EspackControls.csproj">
       <Project>{ece9aa32-f756-4be3-a926-b0771e69066b}</Project>
       <Name>EspackControls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\EspackControls\EspackFormControls\EspackFormControls.csproj">
-      <Project>{70432336-f038-4ef1-af04-012ae8e6c009}</Project>
-      <Name>EspackFormControls</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Network Libraries\Renci.SshNet\Renci.SshNet.csproj">
       <Project>{2f5f8c90-0bd1-424f-997c-7bc6280919d1}</Project>
@@ -338,6 +326,18 @@
     <ProjectReference Include="..\Windows Apps\cAccesoDatos\cAccesoDatos.csproj">
       <Project>{5da9cb0b-9007-40f1-8086-1b0303d8271f}</Project>
       <Name>cAccesoDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Windows Apps\CTLMantenimiento\CTLMantenimiento.csproj">
+      <Project>{8c6814fe-bba2-4450-9077-51b2879cc90b}</Project>
+      <Name>CTLMantenimiento</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Windows Apps\EspackFormControlsCommon\EspackFormControlsCommon.csproj">
+      <Project>{E73BEA4D-371E-413F-9316-4B53E4A935A3}</Project>
+      <Name>EspackFormControlsCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Windows Apps\EspackTextBoxControls\EspackFormControls.csproj">
+      <Project>{ff2efef1-a838-438a-88bd-bc5f0f8d6f15}</Project>
+      <Name>EspackFormControls</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

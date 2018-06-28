@@ -11,7 +11,7 @@ using System.IO;
 using AccesoDatosNet;
 using CommonTools;
 using EspackControls;
-using EspackFormControls;
+using EspackFormControlsNS;
 using DiverseControls;
 using System.Drawing.Printing;
 using System.Threading.Tasks;

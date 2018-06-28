@@ -30,14 +30,14 @@
         {
             System.Windows.Forms.DataGridViewRow dataGridViewRow1 = new System.Windows.Forms.DataGridViewRow();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fDocumentControl));
-            this.txtStatus = new EspackFormControls.EspackTextBox();
-            this.lstFlags = new EspackFormControls.EspackCheckedListBox();
-            this.txtTitle = new EspackFormControls.EspackTextBox();
-            this.txtSection = new EspackFormControls.EspackTextBox();
-            this.txtSubtype = new EspackFormControls.EspackTextBox();
-            this.txtTypeCode = new EspackFormControls.EspackTextBox();
-            this.txtEdition = new EspackFormControls.EspackTextBox();
-            this.txtDocumentCode = new EspackFormControls.EspackTextBox();
+            this.txtStatus = new EspackFormControlsNS.EspackTextBox();
+            this.lstFlags = new EspackFormControlsNS.EspackCheckedListBox();
+            this.txtTitle = new EspackFormControlsNS.EspackTextBox();
+            this.txtSection = new EspackFormControlsNS.EspackTextBox();
+            this.txtSubtype = new EspackFormControlsNS.EspackTextBox();
+            this.txtTypeCode = new EspackFormControlsNS.EspackTextBox();
+            this.txtEdition = new EspackFormControlsNS.EspackTextBox();
+            this.txtDocumentCode = new EspackFormControlsNS.EspackTextBox();
             this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
             this.VS = new EspackDataGrid.EspackDataGridViewControl();
             this.FdcPDFData = new EspackFileStream.EspackFileDataContainerPreview();
@@ -59,7 +59,7 @@
             this.txtStatus.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtStatus.ForeColor = System.Drawing.Color.Black;
             this.txtStatus.IsCTLMOwned = false;
-            this.txtStatus.Location = new System.Drawing.Point(1615, 78);
+            this.txtStatus.Location = new System.Drawing.Point(874, 114);
             this.txtStatus.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Order = 0;
@@ -91,7 +91,7 @@
             this.lstFlags.ForeColor = System.Drawing.Color.Black;
             this.lstFlags.FormattingEnabled = true;
             this.lstFlags.IsCTLMOwned = false;
-            this.lstFlags.Location = new System.Drawing.Point(448, 114);
+            this.lstFlags.Location = new System.Drawing.Point(449, 180);
             this.lstFlags.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.lstFlags.Name = "lstFlags";
             this.lstFlags.Order = 0;
@@ -151,7 +151,7 @@
             this.txtSection.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtSection.ForeColor = System.Drawing.Color.Black;
             this.txtSection.IsCTLMOwned = false;
-            this.txtSection.Location = new System.Drawing.Point(1402, 78);
+            this.txtSection.Location = new System.Drawing.Point(661, 114);
             this.txtSection.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtSection.Name = "txtSection";
             this.txtSection.Order = 0;
@@ -181,7 +181,7 @@
             this.txtSubtype.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtSubtype.ForeColor = System.Drawing.Color.Black;
             this.txtSubtype.IsCTLMOwned = false;
-            this.txtSubtype.Location = new System.Drawing.Point(1296, 78);
+            this.txtSubtype.Location = new System.Drawing.Point(555, 114);
             this.txtSubtype.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtSubtype.Name = "txtSubtype";
             this.txtSubtype.Order = 0;
@@ -211,7 +211,7 @@
             this.txtTypeCode.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtTypeCode.ForeColor = System.Drawing.Color.Black;
             this.txtTypeCode.IsCTLMOwned = false;
-            this.txtTypeCode.Location = new System.Drawing.Point(1190, 78);
+            this.txtTypeCode.Location = new System.Drawing.Point(449, 114);
             this.txtTypeCode.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtTypeCode.Name = "txtTypeCode";
             this.txtTypeCode.Order = 0;
@@ -241,7 +241,7 @@
             this.txtEdition.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtEdition.ForeColor = System.Drawing.Color.Black;
             this.txtEdition.IsCTLMOwned = false;
-            this.txtEdition.Location = new System.Drawing.Point(1508, 78);
+            this.txtEdition.Location = new System.Drawing.Point(767, 114);
             this.txtEdition.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtEdition.Name = "txtEdition";
             this.txtEdition.Order = 0;
@@ -379,7 +379,7 @@
             this.FdcPDFData.ExtraDataLink = null;
             this.FdcPDFData.FileName = "";
             this.FdcPDFData.IsCTLMOwned = false;
-            this.FdcPDFData.Location = new System.Drawing.Point(1190, 114);
+            this.FdcPDFData.Location = new System.Drawing.Point(1191, 78);
             this.FdcPDFData.Name = "FdcPDFData";
             this.FdcPDFData.Order = 0;
             this.FdcPDFData.ParentConn = null;
@@ -388,7 +388,7 @@
             this.FdcPDFData.Protected = false;
             this.FdcPDFData.ReadOnly = false;
             this.FdcPDFData.Search = false;
-            this.FdcPDFData.Size = new System.Drawing.Size(525, 709);
+            this.FdcPDFData.Size = new System.Drawing.Size(600, 832);
             this.FdcPDFData.Status = CommonTools.EnumStatus.ADDNEW;
             this.FdcPDFData.TabIndex = 51;
             this.FdcPDFData.Upp = false;
@@ -458,14 +458,14 @@
 
         private EspackDataGrid.EspackDataGridViewControl VS;
         private CTLMantenimientoNet.CTLMantenimientoNet CTLM;
-        private EspackFormControls.EspackTextBox txtDocumentCode;
-        private EspackFormControls.EspackTextBox txtEdition;
-        private EspackFormControls.EspackTextBox txtTypeCode;
-        private EspackFormControls.EspackTextBox txtSubtype;
-        private EspackFormControls.EspackTextBox txtSection;
-        private EspackFormControls.EspackTextBox txtTitle;
-        private EspackFormControls.EspackCheckedListBox lstFlags;
-        private EspackFormControls.EspackTextBox txtStatus;
+        private EspackFormControlsNS.EspackTextBox txtDocumentCode;
+        private EspackFormControlsNS.EspackTextBox txtEdition;
+        private EspackFormControlsNS.EspackTextBox txtTypeCode;
+        private EspackFormControlsNS.EspackTextBox txtSubtype;
+        private EspackFormControlsNS.EspackTextBox txtSection;
+        private EspackFormControlsNS.EspackTextBox txtTitle;
+        private EspackFormControlsNS.EspackCheckedListBox lstFlags;
+        private EspackFormControlsNS.EspackTextBox txtStatus;
         private EspackFileStream.EspackFileStream fsFileData;
         private EspackFileStream.EspackFileDataContainerPreview FdcPDFData;
     }

@@ -31,22 +31,22 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fHSAReceivals));
             this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
-            this.txtReceivalCode = new EspackFormControls.EspackTextBox();
-            this.txtContainer = new EspackFormControls.EspackTextBox();
-            this.cboService = new EspackFormControls.EspackComboBox();
-            this.txtDescService = new EspackFormControls.EspackTextBox();
-            this.lstFlags = new EspackFormControls.EspackCheckedListBox();
-            this.txtArrivalDate = new EspackFormControls.EspackTextBox();
-            this.txtDate = new EspackFormControls.EspackDateTimePicker();
-            this.txtLocation = new EspackFormControls.EspackTextBox();
+            this.txtReceivalCode = new EspackFormControlsNS.EspackTextBox();
+            this.txtContainer = new EspackFormControlsNS.EspackTextBox();
+            this.cboService = new EspackFormControlsNS.EspackComboBox();
+            this.txtDescService = new EspackFormControlsNS.EspackTextBox();
+            this.lstFlags = new EspackFormControlsNS.EspackCheckedListBox();
+            this.txtArrivalDate = new EspackFormControlsNS.EspackTextBox();
+            this.txtDate = new EspackFormControlsNS.EspackDateTimePicker();
+            this.txtLocation = new EspackFormControlsNS.EspackTextBox();
             this.VS = new EspackDataGrid.EspackDataGridView();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.btnRobotProcess = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.txtPackingSlip = new EspackFormControls.EspackTextBox();
+            this.txtPackingSlip = new EspackFormControlsNS.EspackTextBox();
             this.tmrRobot = new System.Windows.Forms.Timer(this.components);
             this.pctRobotStatus = new System.Windows.Forms.PictureBox();
-            this.txtPortDepartureDate = new EspackFormControls.EspackTextBox();
+            this.txtPortDepartureDate = new EspackFormControlsNS.EspackTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctRobotStatus)).BeginInit();
@@ -469,21 +469,21 @@
         #endregion
 
         private CTLMantenimientoNet.CTLMantenimientoNet CTLM;
-        private EspackFormControls.EspackTextBox txtReceivalCode;
-        private EspackFormControls.EspackTextBox txtContainer;
-        private EspackFormControls.EspackComboBox cboService;
-        private EspackFormControls.EspackTextBox txtDescService;
-        private EspackFormControls.EspackCheckedListBox lstFlags;
-        private EspackFormControls.EspackTextBox txtArrivalDate;
-        private EspackFormControls.EspackDateTimePicker txtDate;
-        private EspackFormControls.EspackTextBox txtLocation;
+        private EspackFormControlsNS.EspackTextBox txtReceivalCode;
+        private EspackFormControlsNS.EspackTextBox txtContainer;
+        private EspackFormControlsNS.EspackComboBox cboService;
+        private EspackFormControlsNS.EspackTextBox txtDescService;
+        private EspackFormControlsNS.EspackCheckedListBox lstFlags;
+        private EspackFormControlsNS.EspackTextBox txtArrivalDate;
+        private EspackFormControlsNS.EspackDateTimePicker txtDate;
+        private EspackFormControlsNS.EspackTextBox txtLocation;
         private EspackDataGrid.EspackDataGridView VS;
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton btnRobotProcess;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private EspackFormControls.EspackTextBox txtPackingSlip;
+        private EspackFormControlsNS.EspackTextBox txtPackingSlip;
         private System.Windows.Forms.Timer tmrRobot;
         private System.Windows.Forms.PictureBox pctRobotStatus;
-        private EspackFormControls.EspackTextBox txtPortDepartureDate;
+        private EspackFormControlsNS.EspackTextBox txtPortDepartureDate;
     }
 }

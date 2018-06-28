@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
-            this.txtReference = new EspackFormControls.EspackTextBox();
-            this.txtDescription = new EspackFormControls.EspackTextBox();
-            this.txtFase4 = new EspackFormControls.NumericTextBox();
-            this.txtPrice = new EspackFormControls.NumericTextBox();
-            this.txtPeso = new EspackFormControls.NumericTextBox();
-            this.txtNotes = new EspackFormControls.EspackTextBox();
-            this.cboServicio = new EspackFormControls.EspackComboBox();
-            this.txtDesServicio = new EspackFormControls.EspackTextBox();
-            this.lstFlags = new EspackFormControls.EspackCheckedListBox();
-            this.txtMin = new EspackFormControls.NumericTextBox();
-            this.txtMax = new EspackFormControls.NumericTextBox();
-            this.txtSupplier = new EspackFormControls.EspackTextBox();
+            this.txtReference = new EspackFormControlsNS.EspackTextBox();
+            this.txtDescription = new EspackFormControlsNS.EspackTextBox();
+            this.txtFase4 = new EspackFormControlsNS.NumericTextBox();
+            this.txtPrice = new EspackFormControlsNS.NumericTextBox();
+            this.txtPeso = new EspackFormControlsNS.NumericTextBox();
+            this.txtNotes = new EspackFormControlsNS.EspackTextBox();
+            this.cboServicio = new EspackFormControlsNS.EspackComboBox();
+            this.txtDesServicio = new EspackFormControlsNS.EspackTextBox();
+            this.lstFlags = new EspackFormControlsNS.EspackCheckedListBox();
+            this.txtMin = new EspackFormControlsNS.NumericTextBox();
+            this.txtMax = new EspackFormControlsNS.NumericTextBox();
+            this.txtSupplier = new EspackFormControlsNS.EspackTextBox();
             this.SuspendLayout();
             // 
             // CTLM
@@ -490,17 +490,17 @@
         #endregion
 
         private CTLMantenimientoNet.CTLMantenimientoNet CTLM;
-        private EspackFormControls.EspackTextBox txtReference;
-        private EspackFormControls.EspackTextBox txtDescription;
-        private EspackFormControls.NumericTextBox txtFase4;
-        private EspackFormControls.NumericTextBox txtPrice;
-        private EspackFormControls.NumericTextBox txtPeso;
-        private EspackFormControls.EspackTextBox txtNotes;
-        private EspackFormControls.EspackComboBox cboServicio;
-        private EspackFormControls.EspackTextBox txtDesServicio;
-        private EspackFormControls.EspackCheckedListBox lstFlags;
-        private EspackFormControls.NumericTextBox txtMin;
-        private EspackFormControls.NumericTextBox txtMax;
-        private EspackFormControls.EspackTextBox txtSupplier;
+        private EspackFormControlsNS.EspackTextBox txtReference;
+        private EspackFormControlsNS.EspackTextBox txtDescription;
+        private EspackFormControlsNS.NumericTextBox txtFase4;
+        private EspackFormControlsNS.NumericTextBox txtPrice;
+        private EspackFormControlsNS.NumericTextBox txtPeso;
+        private EspackFormControlsNS.EspackTextBox txtNotes;
+        private EspackFormControlsNS.EspackComboBox cboServicio;
+        private EspackFormControlsNS.EspackTextBox txtDesServicio;
+        private EspackFormControlsNS.EspackCheckedListBox lstFlags;
+        private EspackFormControlsNS.NumericTextBox txtMin;
+        private EspackFormControlsNS.NumericTextBox txtMax;
+        private EspackFormControlsNS.EspackTextBox txtSupplier;
     }
 }

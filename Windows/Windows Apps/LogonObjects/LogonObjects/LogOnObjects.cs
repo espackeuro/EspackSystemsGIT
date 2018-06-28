@@ -34,9 +34,38 @@ namespace LogOnObjects
         public static void FillServers(string pCOD3)
         {
 
-            using (var _RS = new DynamicRS("select COD3,ServerDB,ServerShare,zone,UserShare,PasswordShare,servershareip,ServerDBIP from general..sedes", Values.gDatos))
+            using (var _RS = new StaticRS("select COD3,ServerDB,ServerShare,zone,UserShare,PasswordShare,servershareip,ServerDBIP from general..sedes", Values.gDatos))
             {
                 _RS.Open();
+                _RS.ToList().ForEach(r =>
+                {
+                    Values.DBServerList.Add(new cServer()
+                    {
+                        Resolve = false,
+                        HostName = r[pCOD3 == "OUT" ? "ServerDBIP" : "ServerDB"].ToString(),
+                        IP = IPAddress.Parse(r["ServerDBIP"].ToString()), COD3 = r["COD3"].ToString(),
+                        Type = ServerTypes.DATABASE,
+                        User = Values.User,
+                        Password = Values.Password
+                    });
+                    Values.ShareServerList.Add(new cServer()
+                    {
+                        Resolve = false,
+                        HostName = r[pCOD3 == "OUT" ? "ServerShareIP" : "ServerShare"].ToString(),
+                        IP = IPAddress.Parse(r["ServerShareIP"].ToString()),
+                        COD3 = r["COD3"].ToString(),
+                        Type = ServerTypes.DATABASE,
+                        User = r["UserShare"].ToString(),
+                        Password = r["PasswordShare"].ToString()
+                    });
+                    if (r["COD3"].ToString() == pCOD3)
+                    {
+                        Values.COD3 = r["COD3"].ToString();
+                        Values.DBServerList.Add(new cServer() { HostName = r["ServerDB"].ToString(), COD3 = "LOC", Type = ServerTypes.DATABASE, User = Values.User, Password = Values.Password });
+                        Values.DBServerList.Add(new cServer() { HostName = "DB01.local", COD3 = "OUT", Type = ServerTypes.DATABASE, User = Values.User, Password = Values.Password });
+                    }
+                });
+                /*
                 while (!_RS.EOF)
                 {
                     Values.DBServerList.Add(new cServer() { Resolve=false, HostName = _RS[pCOD3 == "OUT" ? "ServerDBIP" : "ServerDB"].ToString(),IP = IPAddress.Parse(_RS["ServerDBIP"].ToString()), COD3 = _RS["COD3"].ToString(), Type = ServerTypes.DATABASE, User = Values.User, Password = Values.Password });
@@ -57,8 +86,7 @@ namespace LogOnObjects
                         Values.DBServerList.Add(new cServer() { HostName = "DB01.local", COD3 = "OUT", Type = ServerTypes.DATABASE, User = Values.User, Password = Values.Password });
                     }
                     _RS.MoveNext();
-                }
-                
+                }*/                
             }
            
         }

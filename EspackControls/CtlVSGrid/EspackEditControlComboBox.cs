@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using EspackControls;
 //using Microsoft.Data.Schema.ScriptDom;
 //using Microsoft.Data.Schema.ScriptDom.Sql;
-using EspackFormControls;
+using EspackFormControlsNS;
 
 namespace VSGrid
 {

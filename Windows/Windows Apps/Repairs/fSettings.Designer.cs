@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cboPrinters = new EspackFormControls.EspackComboBox();
-            this.cboWarehouse = new EspackFormControls.EspackComboBox();
+            this.cboPrinters = new EspackFormControlsNS.EspackComboBox();
+            this.cboWarehouse = new EspackFormControlsNS.EspackComboBox();
             this.SuspendLayout();
             // 
             // cboPrinters
@@ -113,7 +113,7 @@
 
         #endregion
 
-        private EspackFormControls.EspackComboBox cboPrinters;
-        private EspackFormControls.EspackComboBox cboWarehouse;
+        private EspackFormControlsNS.EspackComboBox cboPrinters;
+        private EspackFormControlsNS.EspackComboBox cboWarehouse;
     }
 }

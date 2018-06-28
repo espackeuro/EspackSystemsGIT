@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtDefaultUserForServers = new EspackFormControls.EspackTextBox();
-            this.txtDefaultPasswordForServers = new EspackFormControls.EspackTextBox();
+            this.txtDefaultUserForServers = new EspackFormControlsNS.EspackTextBox();
+            this.txtDefaultPasswordForServers = new EspackFormControlsNS.EspackTextBox();
             this.SuspendLayout();
             // 
             // txtDefaultUserForServers
@@ -108,7 +108,7 @@
 
         #endregion
 
-        private EspackFormControls.EspackTextBox txtDefaultUserForServers;
-        private EspackFormControls.EspackTextBox txtDefaultPasswordForServers;
+        private EspackFormControlsNS.EspackTextBox txtDefaultUserForServers;
+        private EspackFormControlsNS.EspackTextBox txtDefaultPasswordForServers;
     }
 }

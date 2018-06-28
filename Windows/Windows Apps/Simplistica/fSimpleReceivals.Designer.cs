@@ -35,13 +35,13 @@
             this.btnLabelCMs = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnACheck = new System.Windows.Forms.ToolStripButton();
-            this.lstFlags = new EspackFormControls.EspackCheckedListBox();
-            this.txtDesServicio = new EspackFormControls.EspackTextBox();
-            this.cboServicio = new EspackFormControls.EspackComboBox();
-            this.txtNotes = new EspackFormControls.EspackTextBox();
-            this.txtSuppDoc = new EspackFormControls.EspackTextBox();
-            this.txtFecha = new EspackFormControls.EspackDateTimePicker();
-            this.txtEntrada = new EspackFormControls.EspackTextBox();
+            this.lstFlags = new EspackFormControlsNS.EspackCheckedListBox();
+            this.txtDesServicio = new EspackFormControlsNS.EspackTextBox();
+            this.cboServicio = new EspackFormControlsNS.EspackComboBox();
+            this.txtNotes = new EspackFormControlsNS.EspackTextBox();
+            this.txtSuppDoc = new EspackFormControlsNS.EspackTextBox();
+            this.txtFecha = new EspackFormControlsNS.EspackDateTimePicker();
+            this.txtEntrada = new EspackFormControlsNS.EspackTextBox();
             this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
             this.VS = new EspackDataGrid.EspackDataGridViewControl();
             this.toolStrip.SuspendLayout();
@@ -423,17 +423,17 @@
         #endregion
 
         private CTLMantenimientoNet.CTLMantenimientoNet CTLM;
-        private EspackFormControls.EspackTextBox txtEntrada;
-        private EspackFormControls.EspackDateTimePicker txtFecha;
-        private EspackFormControls.EspackTextBox txtSuppDoc;
-        private EspackFormControls.EspackTextBox txtNotes;
-        private EspackFormControls.EspackComboBox cboServicio;
-        private EspackFormControls.EspackTextBox txtDesServicio;
+        private EspackFormControlsNS.EspackTextBox txtEntrada;
+        private EspackFormControlsNS.EspackDateTimePicker txtFecha;
+        private EspackFormControlsNS.EspackTextBox txtSuppDoc;
+        private EspackFormControlsNS.EspackTextBox txtNotes;
+        private EspackFormControlsNS.EspackComboBox cboServicio;
+        private EspackFormControlsNS.EspackTextBox txtDesServicio;
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton btnLabelCMs;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton btnReceived;
-        private EspackFormControls.EspackCheckedListBox lstFlags;
+        private EspackFormControlsNS.EspackCheckedListBox lstFlags;
         private System.Windows.Forms.ToolStripButton btnACheck;
         private EspackDataGrid.EspackDataGridViewControl VS;
     }

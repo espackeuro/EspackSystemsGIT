@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtServerPwd = new EspackFormControls.EspackTextBox();
-            this.txtServerUser = new EspackFormControls.EspackTextBox();
+            this.txtServerPwd = new EspackFormControlsNS.EspackTextBox();
+            this.txtServerUser = new EspackFormControlsNS.EspackTextBox();
             this.grpServers = new System.Windows.Forms.GroupBox();
             this.chkSelectAll = new System.Windows.Forms.CheckBox();
             this.grpServers.SuspendLayout();
@@ -133,8 +133,8 @@
 
         #endregion
 
-        private EspackFormControls.EspackTextBox txtServerPwd;
-        private EspackFormControls.EspackTextBox txtServerUser;
+        private EspackFormControlsNS.EspackTextBox txtServerPwd;
+        private EspackFormControlsNS.EspackTextBox txtServerUser;
         private System.Windows.Forms.GroupBox grpServers;
         private System.Windows.Forms.CheckBox chkSelectAll;
     }

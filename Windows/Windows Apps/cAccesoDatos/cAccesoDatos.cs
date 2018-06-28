@@ -304,7 +304,7 @@ namespace AccesoDatos
         public abstract int RecordCount { get; }
         public abstract int FieldCount { get; }
 
-        public abstract List<string> Fields { get; }
+        public abstract List<string> Fields { get; protected set;}
         public abstract object this[string Idx]
         {
             get;

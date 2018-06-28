@@ -37,14 +37,14 @@ namespace LogOn
             this.btnCancelChange = new System.Windows.Forms.Button();
             this.btnOKChange = new System.Windows.Forms.Button();
             this.btnChange = new System.Windows.Forms.Button();
-            this.txtNewPINConfirm = new EspackFormControls.EspackMaskedTextBox();
-            this.txtNewPIN = new EspackFormControls.EspackMaskedTextBox();
-            this.txtNewPasswordConfirm = new EspackFormControls.EspackTextBox();
-            this.txtNewPassword = new EspackFormControls.EspackTextBox();
+            this.txtNewPINConfirm = new EspackFormControlsNS.EspackMaskedTextBox();
+            this.txtNewPIN = new EspackFormControlsNS.EspackMaskedTextBox();
+            this.txtNewPasswordConfirm = new EspackFormControlsNS.EspackTextBox();
+            this.txtNewPassword = new EspackFormControlsNS.EspackTextBox();
             this.gbCred = new System.Windows.Forms.GroupBox();
             this.btnOk = new System.Windows.Forms.Button();
-            this.txtPassword = new EspackFormControls.EspackTextBox();
-            this.txtUser = new EspackFormControls.EspackTextBox();
+            this.txtPassword = new EspackFormControlsNS.EspackTextBox();
+            this.txtUser = new EspackFormControlsNS.EspackTextBox();
             this.gbApps = new System.Windows.Forms.GroupBox();
             this.tlpApps = new System.Windows.Forms.TableLayoutPanel();
             this.gbDebug = new System.Windows.Forms.GroupBox();
@@ -424,14 +424,14 @@ namespace LogOn
         private System.Windows.Forms.Button btnCancelChange;
         private System.Windows.Forms.Button btnOKChange;
         private System.Windows.Forms.Button btnChange;
-        private EspackFormControls.EspackMaskedTextBox txtNewPINConfirm;
-        private EspackFormControls.EspackMaskedTextBox txtNewPIN;
-        private EspackFormControls.EspackTextBox txtNewPasswordConfirm;
-        private EspackFormControls.EspackTextBox txtNewPassword;
+        private EspackFormControlsNS.EspackMaskedTextBox txtNewPINConfirm;
+        private EspackFormControlsNS.EspackMaskedTextBox txtNewPIN;
+        private EspackFormControlsNS.EspackTextBox txtNewPasswordConfirm;
+        private EspackFormControlsNS.EspackTextBox txtNewPassword;
         private System.Windows.Forms.GroupBox gbCred;
         private System.Windows.Forms.Button btnOk;
-        private EspackFormControls.EspackTextBox txtPassword;
-        private EspackFormControls.EspackTextBox txtUser;
+        private EspackFormControlsNS.EspackTextBox txtPassword;
+        private EspackFormControlsNS.EspackTextBox txtUser;
         private System.Windows.Forms.CheckBox chkDebug;
     }
 }

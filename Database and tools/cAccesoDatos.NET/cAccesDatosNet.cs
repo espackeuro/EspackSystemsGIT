@@ -289,6 +289,7 @@ namespace AccesoDatosNet
     {
         protected new cAccesoDatosNet mConn = null;
         protected SqlDataReader mDR = null;
+        protected DataTable dT;
         protected List<DataRow> Result = null;
         //private cAccesoDatosNet mConn = null;
         //Events
@@ -312,7 +313,7 @@ namespace AccesoDatosNet
         {
             get
             {
-                return mDR;
+                return dT;
             }
         }
 
@@ -340,13 +341,8 @@ namespace AccesoDatosNet
             }
         }
 
-        public override List<string> Fields
-        {
-            get
-            {
-                return mDR.GetSchemaTable().Rows.OfType<DataRow>().Select(r => r["ColumnName"].ToString()).ToList();
-            }
-        }
+        public override List<string> Fields { get; protected set; }
+
 
         public StaticRS() 
             :base()
@@ -376,10 +372,11 @@ namespace AccesoDatosNet
             try
             {
                 mDR = Cmd.ExecuteReader();
+                Fields = mDR.GetSchemaTable().Rows.OfType<DataRow>().Select(r => r["ColumnName"].ToString()).ToList();
                 //EOF = ! mDR.Read();
-                var _dt = new DataTable();
-                _dt.Load(mDR);
-                Result = _dt.Rows.OfType<DataRow>().ToList();
+                dT = new DataTable();
+                dT.Load(mDR);
+                Result = dT.Rows.OfType<DataRow>().ToList();
                 EOF = Result.Count() == 0;
                 Index = 0;
             } catch (Exception ex)
@@ -537,13 +534,8 @@ namespace AccesoDatosNet
             }
         }
 
-        public override List<string> Fields
-        {
-            get
-            {
-                return mDS.Tables["Result"].Columns.Cast<DataColumn>().Select(x => x.ColumnName).ToList();
-            }
-        }
+        public override List<string> Fields { get; protected set; }
+
 
         public SqlDataAdapter DA
         {
@@ -657,6 +649,7 @@ namespace AccesoDatosNet
             mState = RSState.Executing;
             //mDA.Fill(mDS, "Result");
             mDA.Fill(mDS, "Result");
+            Fields = mDS.Tables["Result"].Columns.Cast<DataColumn>().Select(x => x.ColumnName).ToList();
             //await Task.Run(()=> mDA.Fill(mDS, "Result"));
             MoveFirst();
             mState = RSState.Open;

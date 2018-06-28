@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMainNidus));
-            this.espackMenu1 = new EspackFormControls.EspackMenu();
-            this.espackToolStripItem1 = new EspackFormControls.EspackToolStripItem();
-            this.espackToolStripItem2 = new EspackFormControls.EspackToolStripItem();
+            this.espackMenu1 = new EspackFormControlsNS.EspackMenu();
+            this.espackToolStripItem1 = new EspackFormControlsNS.EspackToolStripItem();
+            this.espackToolStripItem2 = new EspackFormControlsNS.EspackToolStripItem();
             this.espackMenu1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,9 +82,9 @@
 
         #endregion
 
-        private EspackFormControls.EspackMenu espackMenu1;
-        private EspackFormControls.EspackToolStripItem espackToolStripItem1;
-        private EspackFormControls.EspackToolStripItem espackToolStripItem2;
+        private EspackFormControlsNS.EspackMenu espackMenu1;
+        private EspackFormControlsNS.EspackToolStripItem espackToolStripItem1;
+        private EspackFormControlsNS.EspackToolStripItem espackToolStripItem2;
     }
 }
 

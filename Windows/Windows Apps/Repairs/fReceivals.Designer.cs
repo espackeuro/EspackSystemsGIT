@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fReceivals));
             this.VS = new VSGrid.CtlVSGrid();
-            this.lstFlags = new EspackFormControls.EspackCheckedListBox();
-            this.cboService = new EspackFormControls.EspackComboBox();
-            this.txtNotes = new EspackFormControls.EspackTextBox();
+            this.lstFlags = new EspackFormControlsNS.EspackCheckedListBox();
+            this.cboService = new EspackFormControlsNS.EspackComboBox();
+            this.txtNotes = new EspackFormControlsNS.EspackTextBox();
             this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
-            this.txtDescService = new EspackFormControls.EspackTextBox();
-            this.txtDate = new EspackFormControls.EspackDateTimePicker();
-            this.txtReceivalNumber = new EspackFormControls.EspackTextBox();
-            this.txtSupplierDoc = new EspackFormControls.EspackTextBox();
-            this.txtUser = new EspackFormControls.EspackTextBox();
+            this.txtDescService = new EspackFormControlsNS.EspackTextBox();
+            this.txtDate = new EspackFormControlsNS.EspackDateTimePicker();
+            this.txtReceivalNumber = new EspackFormControlsNS.EspackTextBox();
+            this.txtSupplierDoc = new EspackFormControlsNS.EspackTextBox();
+            this.txtUser = new EspackFormControlsNS.EspackTextBox();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.btnPrint = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
@@ -409,15 +409,15 @@
         #endregion
 
         private VSGrid.CtlVSGrid VS;
-        private EspackFormControls.EspackCheckedListBox lstFlags;
-        private EspackFormControls.EspackComboBox cboService;
-        private EspackFormControls.EspackTextBox txtNotes;
+        private EspackFormControlsNS.EspackCheckedListBox lstFlags;
+        private EspackFormControlsNS.EspackComboBox cboService;
+        private EspackFormControlsNS.EspackTextBox txtNotes;
         private CTLMantenimientoNet.CTLMantenimientoNet CTLM;
-        private EspackFormControls.EspackTextBox txtDescService;
-        private EspackFormControls.EspackDateTimePicker txtDate;
-        private EspackFormControls.EspackTextBox txtReceivalNumber;
-        private EspackFormControls.EspackTextBox txtSupplierDoc;
-        private EspackFormControls.EspackTextBox txtUser;
+        private EspackFormControlsNS.EspackTextBox txtDescService;
+        private EspackFormControlsNS.EspackDateTimePicker txtDate;
+        private EspackFormControlsNS.EspackTextBox txtReceivalNumber;
+        private EspackFormControlsNS.EspackTextBox txtSupplierDoc;
+        private EspackFormControlsNS.EspackTextBox txtUser;
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton btnPrint;
     }

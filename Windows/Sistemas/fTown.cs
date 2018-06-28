@@ -10,7 +10,8 @@ using System.Windows.Forms;
 using AccesoDatosNet;
 
 using System.Data.SqlClient;
-using CTLMantenimientoNet;
+using EspackFormControlsNS;
+
 
 namespace Sistemas
 {

@@ -11,7 +11,6 @@ namespace EspackFileStream
 {
     public partial class EspackFileDataContainerPreview : EspackFileDataContainer
     {
-        private PictureBox pbPage;
 
         public override bool ReadOnly { get; set; }
         private GhostscriptViewer _viewer;
@@ -20,7 +19,6 @@ namespace EspackFileStream
         private StringBuilder _stdOut = new StringBuilder();
         private StringBuilder _stdErr = new StringBuilder();
         private Panel panelTop;
-        private Panel panelContent;
         private ToolStrip toolStrip1;
         private ToolStripLabel toolStripLabel1;
         private ToolStripButton tbPageFirst;
@@ -36,10 +34,11 @@ namespace EspackFileStream
         private ToolStripButton tpZoomIn;
         private ToolStripLabel toolStripLabel4;
         private ToolStripSeparator toolStripSeparator2;
+        private Panel panelContent;
+        private PictureBox pbPage;
         private bool _supressPageNumberChangeEvent = false;
         private void InitializeComponent()
         {
-            this.pbPage = new System.Windows.Forms.PictureBox();
             this.panelTop = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -57,19 +56,12 @@ namespace EspackFileStream
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.panelContent = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPage)).BeginInit();
+            this.pbPage = new System.Windows.Forms.PictureBox();
             this.panelTop.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panelContent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPage)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pbPage
-            // 
-            this.pbPage.Location = new System.Drawing.Point(3, 34);
-            this.pbPage.Name = "pbPage";
-            this.pbPage.Size = new System.Drawing.Size(670, 549);
-            this.pbPage.TabIndex = 0;
-            this.pbPage.TabStop = false;
             // 
             // panelTop
             // 
@@ -224,25 +216,36 @@ namespace EspackFileStream
             // 
             // panelContent
             // 
+            this.panelContent.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelContent.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panelContent.Controls.Add(this.pbPage);
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContent.Location = new System.Drawing.Point(0, 0);
+            this.panelContent.Location = new System.Drawing.Point(0, 32);
             this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(919, 735);
-            this.panelContent.TabIndex = 4;
+            this.panelContent.Size = new System.Drawing.Size(919, 703);
+            this.panelContent.TabIndex = 5;
+            // 
+            // pbPage
+            // 
+            this.pbPage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbPage.Location = new System.Drawing.Point(0, 0);
+            this.pbPage.Name = "pbPage";
+            this.pbPage.Size = new System.Drawing.Size(919, 703);
+            this.pbPage.TabIndex = 2;
+            this.pbPage.TabStop = false;
             // 
             // EspackFileDataContainerPreview
             // 
-            this.Controls.Add(this.panelTop);
             this.Controls.Add(this.panelContent);
+            this.Controls.Add(this.panelTop);
             this.Name = "EspackFileDataContainerPreview";
             this.Size = new System.Drawing.Size(919, 735);
-            ((System.ComponentModel.ISupportInitialize)(this.pbPage)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panelContent.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbPage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -270,9 +273,18 @@ namespace EspackFileStream
         public override void ClearEspackControl()
         {
             base.ClearEspackControl();
+            //pbPage.Invalidate();
             _viewer.Close();
-            Application.DoEvents();
-            //Thread.Sleep(1000);
+
+            _stdOut.Clear();
+            _stdErr.Clear();
+
+            pbPage.Image = null;
+            tbPageNumber.Text = string.Empty;
+            tbTotalPages.Text = string.Empty;
+
+            //pbPage.Update();
+            //pbPage = null;
         }
 
         public void LoadPreview()
@@ -286,6 +298,7 @@ namespace EspackFileStream
             {
                 
                 _viewer.Open(TempFileDataPath, _gsVersion, true);
+
                 _viewer.Zoom(1);
                 //wbPreview.Navigate(string.Format(@"file:///{0}", TempFileDataPath));
                 //SpinWait.SpinUntil(() => wbPreview.IsBusy == false);
@@ -301,6 +314,7 @@ namespace EspackFileStream
             _viewer.DisplaySize += new GhostscriptViewerViewEventHandler(_viewer_DisplaySize);
             _viewer.DisplayUpdate += new GhostscriptViewerViewEventHandler(_viewer_DisplayUpdate);
             _viewer.DisplayPage += new GhostscriptViewerViewEventHandler(_viewer_DisplayPage);
+            
         }
 
 

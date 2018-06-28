@@ -11,7 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EspackDataGrid;
-using EspackFormControls;
+using EspackFormControlsNS;
 using static MicrosoftOfficeTools.MSTools;
 using EspackFileStream;
 using System.Collections.ObjectModel;
@@ -20,6 +20,8 @@ using CTLMantenimientoNet;
 
 namespace Nidus
 {
+    public enum NidusPermissions { GLOBAL_SYSTEM_PROC, GLOBAL_SYSTEM_PROC_MANUAL, LOCAL_OPER, GLOBAL_READER, LOCAL_READER, GLOBAL_ADMINISTRATOR, LOCAL_ADMINISTRATOR }
+    public enum NidusDocumentStatus { APPROVED, PENDING_REVISION, PENDING_APPROVAL, OBSOLETE}
     public partial class fDocumentControl : Form
     {
         //public EspackFileDataContainer FdcData { get; set; } = new EspackFileDataContainer();
@@ -95,7 +97,7 @@ namespace Nidus
                 txtTitle.Text = Path.GetFileNameWithoutExtension(fsFileData.FileName);
         }
 
-        private void TxtTest_ValueChanged(object sender, EspackFormControls.ValueChangedEventArgs e)
+        private void TxtTest_ValueChanged(object sender, EspackFormControlsNS.ValueChangedEventArgs e)
         {
             Debug.Print("caca");//throw new NotImplementedException();
         }
@@ -106,6 +108,11 @@ namespace Nidus
             VS.AddFilterCell(EspackCellTypes.CHECKEDCOMBO, 1, "Select distinct Section=SectionCode,SectionCode from DocumentsCab");
             VS.AddFilterCell(EspackCellTypes.TEXT, 2, "Select distinct Title from DocumentsCab");
             VS.DataGridView.SelectionChanged += DataGridView_SelectionChanged;
+        }
+        
+        private List<NidusPermissions> GetUserPermissions(string user)
+        {
+            return new List<NidusPermissions>() { NidusPermissions.GLOBAL_SYSTEM_PROC, NidusPermissions.GLOBAL_SYSTEM_PROC_MANUAL, NidusPermissions.LOCAL_OPER };
         }
 
     }

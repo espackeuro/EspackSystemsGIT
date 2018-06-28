@@ -30,12 +30,12 @@
         {
             this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtDomain = new EspackFormControls.EspackTextBox();
-            this.txtLocalPart = new EspackFormControls.EspackTextBox();
-            this.txtAddress = new EspackFormControls.EspackTextBox();
+            this.txtDomain = new EspackFormControlsNS.EspackTextBox();
+            this.txtLocalPart = new EspackFormControlsNS.EspackTextBox();
+            this.txtAddress = new EspackFormControlsNS.EspackTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lstCOD3 = new EspackFormControls.EspackCheckedListBox();
-            this.lstFlags = new EspackFormControls.EspackCheckedListBox();
+            this.lstCOD3 = new EspackFormControlsNS.EspackCheckedListBox();
+            this.lstFlags = new EspackFormControlsNS.EspackCheckedListBox();
             this.VS = new VSGrid.CtlVSGrid();
             this.VSExceptions = new VSGrid.CtlVSGrid();
             this.groupBox1.SuspendLayout();
@@ -365,13 +365,13 @@
 
         private CTLMantenimientoNet.CTLMantenimientoNet CTLM;
         private System.Windows.Forms.GroupBox groupBox1;
-        private EspackFormControls.EspackTextBox txtAddress;
+        private EspackFormControlsNS.EspackTextBox txtAddress;
         private System.Windows.Forms.GroupBox groupBox2;
-        private EspackFormControls.EspackTextBox txtDomain;
-        private EspackFormControls.EspackTextBox txtLocalPart;
-        private EspackFormControls.EspackCheckedListBox lstFlags;
+        private EspackFormControlsNS.EspackTextBox txtDomain;
+        private EspackFormControlsNS.EspackTextBox txtLocalPart;
+        private EspackFormControlsNS.EspackCheckedListBox lstFlags;
         private VSGrid.CtlVSGrid VS;
-        private EspackFormControls.EspackCheckedListBox lstCOD3;
+        private EspackFormControlsNS.EspackCheckedListBox lstCOD3;
         private VSGrid.CtlVSGrid VSExceptions;
     }
 }

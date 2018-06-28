@@ -29,27 +29,27 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cboMatterDef = new EspackFormControls.EspackComboBox();
-            this.cboServiceDef = new EspackFormControls.EspackComboBox();
-            this.cboPlaceAffectedDef = new EspackFormControls.EspackComboBox();
-            this.cboPlaceAdviseDef = new EspackFormControls.EspackComboBox();
+            this.cboMatterDef = new EspackFormControlsNS.EspackComboBox();
+            this.cboServiceDef = new EspackFormControlsNS.EspackComboBox();
+            this.cboPlaceAffectedDef = new EspackFormControlsNS.EspackComboBox();
+            this.cboPlaceAdviseDef = new EspackFormControlsNS.EspackComboBox();
             this.CalDateDef = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
             this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
-            this.txtIT = new EspackFormControls.EspackTextBox();
-            this.chkFlags = new EspackFormControls.EspackCheckedListBox();
-            this.txtNotes = new EspackFormControls.EspackTextBox();
-            this.txtKm = new EspackFormControls.NumericTextBox();
-            this.dateEnd = new EspackFormControls.EspackDateTimePicker();
-            this.dateStart = new EspackFormControls.EspackDateTimePicker();
-            this.cboMatter = new EspackFormControls.EspackComboBox();
-            this.cboService = new EspackFormControls.EspackComboBox();
-            this.txtPlaceAffected = new EspackFormControls.EspackTextBox();
-            this.cboPlaceAffected = new EspackFormControls.EspackComboBox();
-            this.txtPlaceAdvise = new EspackFormControls.EspackTextBox();
-            this.cboPlaceAdvise = new EspackFormControls.EspackComboBox();
-            this.txtPerson = new EspackFormControls.EspackTextBox();
-            this.txtIdTarea = new EspackFormControls.EspackTextBox();
+            this.txtIT = new EspackFormControlsNS.EspackTextBox();
+            this.chkFlags = new EspackFormControlsNS.EspackCheckedListBox();
+            this.txtNotes = new EspackFormControlsNS.EspackTextBox();
+            this.txtKm = new EspackFormControlsNS.NumericTextBox();
+            this.dateEnd = new EspackFormControlsNS.EspackDateTimePicker();
+            this.dateStart = new EspackFormControlsNS.EspackDateTimePicker();
+            this.cboMatter = new EspackFormControlsNS.EspackComboBox();
+            this.cboService = new EspackFormControlsNS.EspackComboBox();
+            this.txtPlaceAffected = new EspackFormControlsNS.EspackTextBox();
+            this.cboPlaceAffected = new EspackFormControlsNS.EspackComboBox();
+            this.txtPlaceAdvise = new EspackFormControlsNS.EspackTextBox();
+            this.cboPlaceAdvise = new EspackFormControlsNS.EspackComboBox();
+            this.txtPerson = new EspackFormControlsNS.EspackTextBox();
+            this.txtIdTarea = new EspackFormControlsNS.EspackTextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -686,26 +686,26 @@
         #endregion
 
         private CTLMantenimientoNet.CTLMantenimientoNet CTLM;
-        private EspackFormControls.EspackTextBox txtIdTarea;
-        private EspackFormControls.EspackTextBox txtPerson;
-        private EspackFormControls.EspackComboBox cboPlaceAdvise;
-        private EspackFormControls.EspackTextBox txtPlaceAdvise;
-        private EspackFormControls.EspackComboBox cboPlaceAffected;
-        private EspackFormControls.EspackTextBox txtPlaceAffected;
-        private EspackFormControls.EspackComboBox cboService;
-        private EspackFormControls.EspackComboBox cboMatter;
-        private EspackFormControls.EspackDateTimePicker dateStart;
-        private EspackFormControls.EspackDateTimePicker dateEnd;
-        private EspackFormControls.NumericTextBox txtKm;
-        private EspackFormControls.EspackTextBox txtNotes;
-        private EspackFormControls.EspackCheckedListBox chkFlags;
+        private EspackFormControlsNS.EspackTextBox txtIdTarea;
+        private EspackFormControlsNS.EspackTextBox txtPerson;
+        private EspackFormControlsNS.EspackComboBox cboPlaceAdvise;
+        private EspackFormControlsNS.EspackTextBox txtPlaceAdvise;
+        private EspackFormControlsNS.EspackComboBox cboPlaceAffected;
+        private EspackFormControlsNS.EspackTextBox txtPlaceAffected;
+        private EspackFormControlsNS.EspackComboBox cboService;
+        private EspackFormControlsNS.EspackComboBox cboMatter;
+        private EspackFormControlsNS.EspackDateTimePicker dateStart;
+        private EspackFormControlsNS.EspackDateTimePicker dateEnd;
+        private EspackFormControlsNS.NumericTextBox txtKm;
+        private EspackFormControlsNS.EspackTextBox txtNotes;
+        private EspackFormControlsNS.EspackCheckedListBox chkFlags;
         private System.Windows.Forms.GroupBox groupBox1;
-        private EspackFormControls.EspackComboBox cboMatterDef;
-        private EspackFormControls.EspackComboBox cboServiceDef;
-        private EspackFormControls.EspackComboBox cboPlaceAffectedDef;
-        private EspackFormControls.EspackComboBox cboPlaceAdviseDef;
+        private EspackFormControlsNS.EspackComboBox cboMatterDef;
+        private EspackFormControlsNS.EspackComboBox cboServiceDef;
+        private EspackFormControlsNS.EspackComboBox cboPlaceAffectedDef;
+        private EspackFormControlsNS.EspackComboBox cboPlaceAdviseDef;
         private System.Windows.Forms.MonthCalendar CalDateDef;
-        private EspackFormControls.EspackTextBox txtIT;
+        private EspackFormControlsNS.EspackTextBox txtIT;
         private System.Windows.Forms.Label label1;
     }
 }

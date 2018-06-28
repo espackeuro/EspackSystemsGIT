@@ -7,6 +7,23 @@ using AccesoDatosNet;
 
 namespace EspackFormControls
 {
+    public class EspackFormControlCommonMiddle : EspackFormControlCommon
+    {
+        public override bool ReadOnly { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override object Value { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override string Caption { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public override void ClearEspackControl()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void UpdateEspackControl()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
     public abstract class EspackFormControlCommon : UserControl, EspackFormControl
     {
         /// <summary> 

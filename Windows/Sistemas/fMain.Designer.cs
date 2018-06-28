@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMain));
-            this.menuStrip1 = new EspackFormControls.EspackMenu();
+            this.menuStrip1 = new EspackFormControlsNS.EspackMenu();
             this.mnuNetwork = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTowns = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuZones = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,9 +46,9 @@
             this.aliasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.securityProfilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.espackToolStripItem1 = new EspackFormControls.EspackToolStripItem();
+            this.espackToolStripItem1 = new EspackFormControlsNS.EspackToolStripItem();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.espackToolStripItem2 = new EspackFormControls.EspackToolStripItem();
+            this.espackToolStripItem2 = new EspackFormControlsNS.EspackToolStripItem();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -286,8 +286,8 @@
         private System.Windows.Forms.ToolStripMenuItem dNSControlToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem systemsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem windowToolStripMenuItem;
-        private EspackFormControls.EspackToolStripItem espackToolStripItem1;
-        private EspackFormControls.EspackToolStripItem espackToolStripItem2;
+        private EspackFormControlsNS.EspackToolStripItem espackToolStripItem1;
+        private EspackFormControlsNS.EspackToolStripItem espackToolStripItem2;
     }
 }
 

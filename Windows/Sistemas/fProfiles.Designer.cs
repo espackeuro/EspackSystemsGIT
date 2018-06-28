@@ -32,12 +32,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtDescription = new EspackFormControls.EspackTextBox();
-            this.lstCOD3 = new EspackFormControls.EspackCheckedListBox();
-            this.lstFlags = new EspackFormControls.EspackCheckedListBox();
-            this.txtProfileCode = new EspackFormControls.EspackTextBox();
+            this.txtDescription = new EspackFormControlsNS.EspackTextBox();
+            this.lstCOD3 = new EspackFormControlsNS.EspackCheckedListBox();
+            this.lstFlags = new EspackFormControlsNS.EspackCheckedListBox();
+            this.txtProfileCode = new EspackFormControlsNS.EspackTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lstServiceDefaultFlags = new EspackFormControls.EspackCheckedListBox();
+            this.lstServiceDefaultFlags = new EspackFormControlsNS.EspackCheckedListBox();
             this.VS = new VSGrid.CtlVSGrid();
             this.ProfileCode = new VSGrid.CtlVSTextBoxColumn();
             this.Service = new VSGrid.CtlVSTextBoxColumn();
@@ -448,13 +448,13 @@
 
         private CTLMantenimientoNet.CTLMantenimientoNet CTLM;
         private System.Windows.Forms.GroupBox groupBox1;
-        private EspackFormControls.EspackTextBox txtProfileCode;
-        private EspackFormControls.EspackCheckedListBox lstCOD3;
-        private EspackFormControls.EspackCheckedListBox lstFlags;
+        private EspackFormControlsNS.EspackTextBox txtProfileCode;
+        private EspackFormControlsNS.EspackCheckedListBox lstCOD3;
+        private EspackFormControlsNS.EspackCheckedListBox lstFlags;
         private VSGrid.CtlVSGrid VS;
-        private EspackFormControls.EspackTextBox txtDescription;
+        private EspackFormControlsNS.EspackTextBox txtDescription;
         private System.Windows.Forms.GroupBox groupBox2;
-        private EspackFormControls.EspackCheckedListBox lstServiceDefaultFlags;
+        private EspackFormControlsNS.EspackCheckedListBox lstServiceDefaultFlags;
         private VSGrid.CtlVSTextBoxColumn ProfileCode;
         private VSGrid.CtlVSTextBoxColumn Service;
         private VSGrid.CtlVSTextBoxColumn DefaultFlags;

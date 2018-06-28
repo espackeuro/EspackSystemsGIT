@@ -41,6 +41,7 @@ namespace EspackFileStream
         void _viewer_DisplaySize(object sender, GhostscriptViewerViewEventArgs e)
         {
             pbPage.Image = e.Image;
+            _viewer.Dpi = (int)((float)Width * 2.54F / 21F);
         }
 
         void _viewer_DisplayUpdate(object sender, GhostscriptViewerViewEventArgs e)

@@ -32,8 +32,8 @@
             this.btnObtain = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnPrintList = new System.Windows.Forms.Button();
-            this.cboPrinters = new EspackFormControls.EspackComboBox();
-            this.txtCode = new EspackFormControls.EspackTextBox();
+            this.cboPrinters = new EspackFormControlsNS.EspackComboBox();
+            this.txtCode = new EspackFormControlsNS.EspackTextBox();
             this.ctlVSGrid1 = new VSGrid.CtlVSGrid();
             this.vsLabels = new VSGrid.CtlVSGrid();
             this.vsGroups = new VSGrid.CtlVSGrid();
@@ -337,8 +337,8 @@
         }
 
         #endregion
-        private EspackFormControls.EspackTextBox txtCode;
-        private EspackFormControls.EspackComboBox cboPrinters;
+        private EspackFormControlsNS.EspackTextBox txtCode;
+        private EspackFormControlsNS.EspackComboBox cboPrinters;
         public VSGrid.CtlVSGrid vsParameters;
         private VSGrid.CtlVSGrid vsGroups;
         public VSGrid.CtlVSGrid vsLabels;

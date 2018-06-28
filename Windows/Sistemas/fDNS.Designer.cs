@@ -31,9 +31,9 @@
             this.btnProcess = new System.Windows.Forms.Button();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.lblMsg = new System.Windows.Forms.ToolStripStatusLabel();
-            this.txtPassword = new EspackFormControls.EspackTextBox();
-            this.txtUser = new EspackFormControls.EspackTextBox();
-            this.txtServerName = new EspackFormControls.EspackTextBox();
+            this.txtPassword = new EspackFormControlsNS.EspackTextBox();
+            this.txtUser = new EspackFormControlsNS.EspackTextBox();
+            this.txtServerName = new EspackFormControlsNS.EspackTextBox();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -173,8 +173,8 @@
         private System.Windows.Forms.Button btnProcess;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel lblMsg;
-        private EspackFormControls.EspackTextBox txtPassword;
-        private EspackFormControls.EspackTextBox txtUser;
-        private EspackFormControls.EspackTextBox txtServerName;
+        private EspackFormControlsNS.EspackTextBox txtPassword;
+        private EspackFormControlsNS.EspackTextBox txtUser;
+        private EspackFormControlsNS.EspackTextBox txtServerName;
     }
 }
