@@ -31,20 +31,20 @@
             components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ComboBox = new System.Windows.Forms.ComboBox();
-            this.CaptionLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ComboBox
             // 
             this.ComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ComboBox.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ComboBox.Location = new System.Drawing.Point(0, 15);
+            //this.ComboBox.Location = new System.Drawing.Point(0, 15);
             this.ComboBox.Name = "TextBox";
-            this.ComboBox.Size = new System.Drawing.Size(150, 20);
+            //this.ComboBox.Size = new System.Drawing.Size(150, 20);
             this.ComboBox.TabIndex = 0;
             // 
             // EspackTextBox
             // 
+            this.Caption = "Caption";
             this.Controls.Add(this.CaptionLabel);
             this.Controls.Add(this.ComboBox);
             this.Name = "EspackComboBox";

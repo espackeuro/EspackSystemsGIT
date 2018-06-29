@@ -331,6 +331,10 @@
       <Project>{8c6814fe-bba2-4450-9077-51b2879cc90b}</Project>
       <Name>CTLMantenimiento</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Windows Apps\EspackDataGridViewControl\EspackDataGridViewControl.csproj">
+      <Project>{7b49f1dd-dda5-4cc1-95cd-4a6eef81bf0b}</Project>
+      <Name>EspackDataGridViewControl</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Windows Apps\EspackFormControlsCommon\EspackFormControlsCommon.csproj">
       <Project>{E73BEA4D-371E-413F-9316-4B53E4A935A3}</Project>
       <Name>EspackFormControlsCommon</Name>

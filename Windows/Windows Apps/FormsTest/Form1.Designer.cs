@@ -28,46 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listCOD3 = new EspackFormControlsNS.EspackCheckedListBox();
             this.txtUserCode = new EspackFormControlsNS.EspackTextBox();
+            this.txtDesCod3 = new EspackFormControlsNS.EspackTextBox();
+            this.cboMainCOD3 = new EspackFormControlsNS.EspackComboBox();
+            this.txtPwdExp = new EspackFormControlsNS.EspackDateTimePicker();
+            this.lstCOD3 = new EspackFormControlsNS.EspackCheckedListBox();
+            this.txtUserNumber = new EspackFormControlsNS.EspackNumericTextBox();
             this.CTLM = new EspackFormControlsNS.CTLMantenimiento();
             this.SuspendLayout();
-            // 
-            // listCOD3
-            // 
-            this.listCOD3.Add = false;
-            this.listCOD3.Caption = "COD3";
-            this.listCOD3.CheckOnClick = true;
-            this.listCOD3.ColumnWidth = 150;
-            this.listCOD3.DataSource = null;
-            this.listCOD3.DBField = null;
-            this.listCOD3.DBFieldType = null;
-            this.listCOD3.DefaultValue = null;
-            this.listCOD3.Del = false;
-            this.listCOD3.DependingRS = null;
-            this.listCOD3.DisplayMember = "";
-            this.listCOD3.ExtraDataLink = null;
-            this.listCOD3.IsCTLMOwned = false;
-            this.listCOD3.Location = new System.Drawing.Point(12, 102);
-            this.listCOD3.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
-            this.listCOD3.MultiColumn = true;
-            this.listCOD3.Name = "listCOD3";
-            this.listCOD3.Order = 0;
-            this.listCOD3.ParentConn = null;
-            this.listCOD3.ParentDA = null;
-            this.listCOD3.PK = false;
-            this.listCOD3.Protected = false;
-            this.listCOD3.ReadOnly = false;
-            this.listCOD3.Search = false;
-            this.listCOD3.SelectedItem = null;
-            this.listCOD3.SelectedValue = null;
-            this.listCOD3.Size = new System.Drawing.Size(321, 194);
-            this.listCOD3.Status = CommonTools.EnumStatus.ADDNEW;
-            this.listCOD3.TabIndex = 5;
-            this.listCOD3.TBDescription = null;
-            this.listCOD3.Upp = false;
-            this.listCOD3.Value = "";
-            this.listCOD3.ValueMember = "";
             // 
             // txtUserCode
             // 
@@ -92,11 +60,181 @@
             this.txtUserCode.Protected = false;
             this.txtUserCode.ReadOnly = false;
             this.txtUserCode.Search = false;
-            this.txtUserCode.Size = new System.Drawing.Size(154, 39);
+            this.txtUserCode.Size = new System.Drawing.Size(154, 38);
             this.txtUserCode.Status = CommonTools.EnumStatus.ADDNEW;
-            this.txtUserCode.TabIndex = 4;
+            this.txtUserCode.TabIndex = 11;
             this.txtUserCode.Upp = false;
-            this.txtUserCode.Value = "Text";
+            this.txtUserCode.Value = "";
+            // 
+            // txtDesCod3
+            // 
+            this.txtDesCod3.Add = false;
+            this.txtDesCod3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtDesCod3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtDesCod3.Caption = "";
+            this.txtDesCod3.DBField = null;
+            this.txtDesCod3.DBFieldType = null;
+            this.txtDesCod3.DefaultValue = null;
+            this.txtDesCod3.Del = false;
+            this.txtDesCod3.DependingRS = null;
+            this.txtDesCod3.ExtraDataLink = null;
+            this.txtDesCod3.IsCTLMOwned = false;
+            this.txtDesCod3.Location = new System.Drawing.Point(334, 274);
+            this.txtDesCod3.Multiline = false;
+            this.txtDesCod3.Name = "txtDesCod3";
+            this.txtDesCod3.Order = 0;
+            this.txtDesCod3.ParentConn = null;
+            this.txtDesCod3.ParentDA = null;
+            this.txtDesCod3.PK = false;
+            this.txtDesCod3.Protected = false;
+            this.txtDesCod3.ReadOnly = false;
+            this.txtDesCod3.Search = false;
+            this.txtDesCod3.Size = new System.Drawing.Size(154, 38);
+            this.txtDesCod3.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtDesCod3.TabIndex = 10;
+            this.txtDesCod3.Upp = false;
+            this.txtDesCod3.Value = "";
+            // 
+            // cboMainCOD3
+            // 
+            this.cboMainCOD3.Add = false;
+            this.cboMainCOD3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboMainCOD3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboMainCOD3.Caption = "Caption";
+            this.cboMainCOD3.DataSource = null;
+            this.cboMainCOD3.DBField = null;
+            this.cboMainCOD3.DBFieldType = null;
+            this.cboMainCOD3.DefaultValue = null;
+            this.cboMainCOD3.Del = false;
+            this.cboMainCOD3.DependingRS = null;
+            this.cboMainCOD3.DisplayMember = "";
+            this.cboMainCOD3.ExtraDataLink = null;
+            this.cboMainCOD3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboMainCOD3.IsCTLMOwned = false;
+            this.cboMainCOD3.Location = new System.Drawing.Point(13, 273);
+            this.cboMainCOD3.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.cboMainCOD3.Name = "cboMainCOD3";
+            this.cboMainCOD3.Order = 0;
+            this.cboMainCOD3.ParentConn = null;
+            this.cboMainCOD3.ParentDA = null;
+            this.cboMainCOD3.PK = false;
+            this.cboMainCOD3.Protected = false;
+            this.cboMainCOD3.ReadOnly = false;
+            this.cboMainCOD3.Search = false;
+            this.cboMainCOD3.SelectedItem = null;
+            this.cboMainCOD3.SelectedValue = null;
+            this.cboMainCOD3.Size = new System.Drawing.Size(314, 40);
+            this.cboMainCOD3.Status = CommonTools.EnumStatus.ADDNEW;
+            this.cboMainCOD3.TabIndex = 9;
+            this.cboMainCOD3.TBDescription = null;
+            this.cboMainCOD3.Upp = false;
+            this.cboMainCOD3.Value = "";
+            this.cboMainCOD3.ValueMember = "";
+            // 
+            // txtPwdExp
+            // 
+            this.txtPwdExp.Add = false;
+            this.txtPwdExp.BorderColor = System.Drawing.Color.Black;
+            this.txtPwdExp.BorderStyle = System.Windows.Forms.ButtonBorderStyle.None;
+            this.txtPwdExp.Caption = "PWD EXP";
+            this.txtPwdExp.Checked = false;
+            this.txtPwdExp.CustomFormat = " ";
+            this.txtPwdExp.DBField = null;
+            this.txtPwdExp.DBFieldType = null;
+            this.txtPwdExp.DefaultValue = null;
+            this.txtPwdExp.Del = false;
+            this.txtPwdExp.DependingRS = null;
+            this.txtPwdExp.ExtraDataLink = null;
+            this.txtPwdExp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.txtPwdExp.IsCTLMOwned = false;
+            this.txtPwdExp.Location = new System.Drawing.Point(13, 227);
+            this.txtPwdExp.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtPwdExp.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.txtPwdExp.Name = "txtPwdExp";
+            this.txtPwdExp.Nullable = true;
+            this.txtPwdExp.Order = 0;
+            this.txtPwdExp.ParentConn = null;
+            this.txtPwdExp.ParentDA = null;
+            this.txtPwdExp.PK = false;
+            this.txtPwdExp.Protected = false;
+            this.txtPwdExp.ReadOnly = false;
+            this.txtPwdExp.Search = false;
+            this.txtPwdExp.ShowCheckBox = true;
+            this.txtPwdExp.Size = new System.Drawing.Size(314, 39);
+            this.txtPwdExp.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtPwdExp.TabIndex = 8;
+            this.txtPwdExp.Upp = false;
+            this.txtPwdExp.Value = null;
+            // 
+            // lstCOD3
+            // 
+            this.lstCOD3.Add = false;
+            this.lstCOD3.Caption = "COD3";
+            this.lstCOD3.CheckOnClick = true;
+            this.lstCOD3.ColumnWidth = 100;
+            this.lstCOD3.DataSource = null;
+            this.lstCOD3.DBField = null;
+            this.lstCOD3.DBFieldType = null;
+            this.lstCOD3.DefaultValue = null;
+            this.lstCOD3.Del = false;
+            this.lstCOD3.DependingRS = null;
+            this.lstCOD3.DisplayMember = "";
+            this.lstCOD3.ExtraDataLink = null;
+            this.lstCOD3.IsCTLMOwned = false;
+            this.lstCOD3.Location = new System.Drawing.Point(13, 96);
+            this.lstCOD3.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.lstCOD3.MultiColumn = true;
+            this.lstCOD3.Name = "lstCOD3";
+            this.lstCOD3.Order = 0;
+            this.lstCOD3.ParentConn = null;
+            this.lstCOD3.ParentDA = null;
+            this.lstCOD3.PK = false;
+            this.lstCOD3.Protected = false;
+            this.lstCOD3.ReadOnly = false;
+            this.lstCOD3.Search = false;
+            this.lstCOD3.SelectedItem = null;
+            this.lstCOD3.SelectedValue = null;
+            this.lstCOD3.Size = new System.Drawing.Size(314, 124);
+            this.lstCOD3.Status = CommonTools.EnumStatus.ADDNEW;
+            this.lstCOD3.TabIndex = 7;
+            this.lstCOD3.TBDescription = null;
+            this.lstCOD3.Upp = false;
+            this.lstCOD3.Value = "";
+            this.lstCOD3.ValueMember = "";
+            // 
+            // txtUserNumber
+            // 
+            this.txtUserNumber.Add = false;
+            this.txtUserNumber.AllowSpace = false;
+            this.txtUserNumber.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtUserNumber.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtUserNumber.Caption = "User Number";
+            this.txtUserNumber.DBField = null;
+            this.txtUserNumber.DBFieldType = null;
+            this.txtUserNumber.DefaultValue = null;
+            this.txtUserNumber.Del = false;
+            this.txtUserNumber.DependingRS = null;
+            this.txtUserNumber.ExtraDataLink = null;
+            this.txtUserNumber.IsCTLMOwned = false;
+            this.txtUserNumber.Length = 0;
+            this.txtUserNumber.Location = new System.Drawing.Point(173, 51);
+            this.txtUserNumber.Mask = false;
+            this.txtUserNumber.Multiline = false;
+            this.txtUserNumber.Name = "txtUserNumber";
+            this.txtUserNumber.Order = 0;
+            this.txtUserNumber.ParentConn = null;
+            this.txtUserNumber.ParentDA = null;
+            this.txtUserNumber.PK = false;
+            this.txtUserNumber.Precision = 0;
+            this.txtUserNumber.Protected = false;
+            this.txtUserNumber.ReadOnly = false;
+            this.txtUserNumber.Search = false;
+            this.txtUserNumber.Size = new System.Drawing.Size(154, 38);
+            this.txtUserNumber.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtUserNumber.TabIndex = 6;
+            this.txtUserNumber.ThousandsGroup = true;
+            this.txtUserNumber.Upp = false;
+            this.txtUserNumber.Value = null;
             // 
             // CTLM
             // 
@@ -122,8 +260,12 @@
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(584, 396);
-            this.Controls.Add(this.listCOD3);
             this.Controls.Add(this.txtUserCode);
+            this.Controls.Add(this.txtDesCod3);
+            this.Controls.Add(this.cboMainCOD3);
+            this.Controls.Add(this.txtPwdExp);
+            this.Controls.Add(this.lstCOD3);
+            this.Controls.Add(this.txtUserNumber);
             this.Controls.Add(this.CTLM);
             this.Name = "Form1";
             this.ResumeLayout(false);
@@ -135,8 +277,12 @@
 
         private EspackFormControlsNS.EspackTextBox espackTextBox1;
         private EspackFormControlsNS.CTLMantenimiento CTLM;
+        private EspackFormControlsNS.EspackNumericTextBox txtUserNumber;
+        private EspackFormControlsNS.EspackCheckedListBox lstCOD3;
+        private EspackFormControlsNS.EspackDateTimePicker txtPwdExp;
+        private EspackFormControlsNS.EspackComboBox cboMainCOD3;
+        private EspackFormControlsNS.EspackTextBox txtDesCod3;
         private EspackFormControlsNS.EspackTextBox txtUserCode;
-        private EspackFormControlsNS.EspackCheckedListBox listCOD3;
     }
 }
 

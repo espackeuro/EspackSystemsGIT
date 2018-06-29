@@ -28,6 +28,8 @@ namespace EspackFormControlsNS
         public override Font Font { get => CheckedListBox.Font; set => CheckedListBox.Font = value; }
         public bool MultiColumn { get => CheckedListBox.MultiColumn; set => CheckedListBox.MultiColumn = value; }
         public int ColumnWidth { get => CheckedListBox.ColumnWidth; set => CheckedListBox.ColumnWidth = value; }
+        public bool FormattingEnabled { get => CheckedListBox.FormattingEnabled; set => CheckedListBox.FormattingEnabled = value; }
+
         public List<string> CheckedValues
         {
             get
@@ -50,6 +52,12 @@ namespace EspackFormControlsNS
         {
             return;
         }
+
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Bindable(true)]
+        [Category("Appearance")]
         public override string Text
         {
             get => CheckedListBox.Text;
@@ -120,8 +128,11 @@ namespace EspackFormControlsNS
         public override string Caption
         {
             get => CaptionLabel.Text;
-            set => CaptionLabel.Text = value;
-
+            set
+            {
+                CaptionLabel.Text = value;
+                //Name = string.Format("lbl{0}", Caption.Replace(" ", "_"));
+            }
         }
 
 

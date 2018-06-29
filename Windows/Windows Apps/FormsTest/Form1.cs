@@ -19,10 +19,16 @@ namespace FormsTest
             CTLM.Conn = new cAccesoDatosNet("DB01", "SISTEMAS", "sa", "5380");
 
 
-            CTLM.DBTable = "Users";
+            CTLM.DBTable = "vUsers";
             CTLM.AddItem(txtUserCode, "UserCode", CTLMControlTypes.Search);
-            CTLM.AddItem(listCOD3, "COD3", CTLMControlTypes.Search);
-            listCOD3.Source("select n.COD3,Descripcion=n.cod3 from NetworkSedes n inner join general..sedes g on g.cod3=n.COD3 order by n.Cod3");
+            CTLM.AddItem(txtUserNumber, "UserNumber", CTLMControlTypes.Search);
+            CTLM.AddItem(txtPwdExp, "PasswordEXP", CTLMControlTypes.NoSearch);
+            CTLM.AddItem(cboMainCOD3, "MainCOD3", CTLMControlTypes.Search);
+            CTLM.AddItem(lstCOD3, "COD3", CTLMControlTypes.Search);
+            CTLM.AddItem(txtDesCod3,"desCOD3", CTLMControlTypes.NoSearch);
+
+            lstCOD3.Source("select n.COD3,Descripcion=n.cod3 from NetworkSedes n inner join general..sedes g on g.cod3=n.COD3 order by n.Cod3");
+            cboMainCOD3.Source("select n.COD3,g.Descripcion from NetworkSedes n inner join general..sedes g on g.cod3=n.COD3 order by n.Cod3", txtDesCod3);
             CTLM.Start();
 
         }

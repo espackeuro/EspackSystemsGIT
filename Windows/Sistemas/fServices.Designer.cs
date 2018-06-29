@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fServices));
-            this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
+            this.CTLM = new EspackFormControlsNS.CTLMantenimiento();
             this.txtDB = new EspackFormControlsNS.EspackTextBox();
             this.txtLocation = new EspackFormControlsNS.EspackTextBox();
             this.txtApp = new EspackFormControlsNS.EspackTextBox();
@@ -62,7 +62,7 @@
             this.CTLM.Conn = null;
             this.CTLM.DBTable = null;
             this.CTLM.Dock = System.Windows.Forms.DockStyle.None;
-            this.CTLM.ImageScalingSize = new System.Drawing.Size(22, 22);
+            
             this.CTLM.Location = new System.Drawing.Point(0, 0);
             this.CTLM.MsgStatusInfoLabel = null;
             this.CTLM.MsgStatusLabel = null;
@@ -553,7 +553,7 @@
 
         #endregion
 
-        private CTLMantenimientoNet.CTLMantenimientoNet CTLM;
+        private EspackFormControlsNS.CTLMantenimiento CTLM;
         private EspackFormControlsNS.EspackTextBox txtDB;
         private EspackFormControlsNS.EspackTextBox txtLocation;
         private EspackFormControlsNS.EspackTextBox txtApp;

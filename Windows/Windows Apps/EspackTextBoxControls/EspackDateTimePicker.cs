@@ -21,6 +21,7 @@ namespace EspackFormControlsNS
         public string CustomFormat { get => DateTimePicker.CustomFormat; set => DateTimePicker.CustomFormat = value; }
         public DateTimePickerFormat Format { get => DateTimePicker.Format; set => DateTimePicker.Format = value; }
 
+
         private DateTime? _value;
         private bool _nullable;
         private bool _checked;
@@ -48,6 +49,11 @@ namespace EspackFormControlsNS
             }
         }
 
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Bindable(true)]
+        [Category("Appearance")]
         public override string Text
         {
             get => DateTimePicker.Text;
@@ -68,10 +74,10 @@ namespace EspackFormControlsNS
                 {
                     _nochangeevent = true;
                     var _ch = Checked;
-                    base.Value = MinDate;
+                    //base.Value = MinDate;
                     Checked = _ch;
                     CustomFormat = " ";
-                    //Text = "";
+                    DateTimePicker.Value = MinDate;
                     _nochangeevent = false;
                     Checked = false;
                 }
@@ -80,9 +86,9 @@ namespace EspackFormControlsNS
                     var _ch = Checked;
                     _nochangeevent = true;
                     if (value is string)
-                        base.Value = DateTime.Parse((string)value);
+                        DateTimePicker.Value = DateTime.Parse((string)value);
                     else
-                        base.Value = (DateTime)value;
+                        DateTimePicker.Value = (DateTime)value;
                     Checked = _ch; //base.Value assignment always changes Checked to true, we return to the origina value
                     CustomFormat = _customFormat;
                     _nochangeevent = false;
@@ -103,7 +109,7 @@ namespace EspackFormControlsNS
                 OnCheckedChanged(cce);
             }
 
-            _value = DateTimePicker.Value == MinDate ? null : (DateTime?)base.Value;
+            _value = DateTimePicker.Value == MinDate ? null : (DateTime?)DateTimePicker.Value;
 
         }
         public bool Checked
@@ -160,9 +166,9 @@ namespace EspackFormControlsNS
             _customFormat = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern‌ + " " + System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.ShortTimePattern‌;
             Size = new Size(130, 20);
             var _m = new Padding();
-            _m = base.Margin;
+            _m = DateTimePicker.Margin;
             _m.Top = 16;
-            base.Margin = _m;
+            DateTimePicker.Margin = _m;
             CheckedChanged += EspackDateTimePicker_CheckedChanged;
             DateTimePicker.Enter += DateTimePicker_Enter;
         }
@@ -196,7 +202,8 @@ namespace EspackFormControlsNS
 
         public override void ClearEspackControl()
         {
-            Value = DefaultValue;
+            Value = MinDate;
+            Checked = false;
         }
 
         public override void UpdateEspackControl()

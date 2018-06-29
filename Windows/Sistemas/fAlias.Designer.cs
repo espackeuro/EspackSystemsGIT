@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
+            this.CTLM = new EspackFormControlsNS.CTLMantenimiento();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtDomain = new EspackFormControlsNS.EspackTextBox();
             this.txtLocalPart = new EspackFormControlsNS.EspackTextBox();
@@ -36,8 +36,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lstCOD3 = new EspackFormControlsNS.EspackCheckedListBox();
             this.lstFlags = new EspackFormControlsNS.EspackCheckedListBox();
-            this.VS = new VSGrid.CtlVSGrid();
-            this.VSExceptions = new VSGrid.CtlVSGrid();
+            this.VS = new EspackDataGridView.EspackDataGridViewControl();
+            this.VSExceptions = new EspackDataGridView.EspackDataGridViewControl();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
@@ -50,7 +50,7 @@
             this.CTLM.Conn = null;
             this.CTLM.DBTable = null;
             this.CTLM.Dock = System.Windows.Forms.DockStyle.None;
-            this.CTLM.ImageScalingSize = new System.Drawing.Size(22, 22);
+            
             this.CTLM.Location = new System.Drawing.Point(0, 0);
             this.CTLM.MsgStatusInfoLabel = null;
             this.CTLM.MsgStatusLabel = null;
@@ -363,15 +363,15 @@
 
         #endregion
 
-        private CTLMantenimientoNet.CTLMantenimientoNet CTLM;
+        private EspackFormControlsNS.CTLMantenimiento CTLM;
         private System.Windows.Forms.GroupBox groupBox1;
         private EspackFormControlsNS.EspackTextBox txtAddress;
         private System.Windows.Forms.GroupBox groupBox2;
         private EspackFormControlsNS.EspackTextBox txtDomain;
         private EspackFormControlsNS.EspackTextBox txtLocalPart;
         private EspackFormControlsNS.EspackCheckedListBox lstFlags;
-        private VSGrid.CtlVSGrid VS;
+        private EspackDataGridView.EspackDataGridViewControl VS;
         private EspackFormControlsNS.EspackCheckedListBox lstCOD3;
-        private VSGrid.CtlVSGrid VSExceptions;
+        private EspackDataGridView.EspackDataGridViewControl VSExceptions;
     }
 }

@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using EspackControls;
 using CommonTools;
+using System.ComponentModel;
 
 namespace EspackFormControlsNS
 {
@@ -22,6 +23,16 @@ namespace EspackFormControlsNS
         public AutoCompleteStringCollection AutoCompleteCustomSource { get => TextBox.AutoCompleteCustomSource; set => TextBox.AutoCompleteCustomSource = value; }
         public AutoCompleteSource AutoCompleteSource { get => TextBox.AutoCompleteSource; set => TextBox.AutoCompleteSource = value; }
         public AutoCompleteMode AutoCompleteMode { get => TextBox.AutoCompleteMode; set => TextBox.AutoCompleteMode = value; }
+        public HorizontalAlignment TextAlign { get => TextBox.TextAlign; set => TextBox.TextAlign = value; }
+        public CharacterCasing CharacterCasing { get => TextBox.CharacterCasing; set => TextBox.CharacterCasing = value; }
+        public bool UseSystemPasswordChar { get => TextBox.UseSystemPasswordChar; set => TextBox.UseSystemPasswordChar = value; }
+
+
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Bindable(true)]
+        [Category("Appearance")]
         public override string Text
         {
             get => TextBox.Text;
@@ -98,10 +109,11 @@ namespace EspackFormControlsNS
             // 
             this.TextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TextBox.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBox.Location = new System.Drawing.Point(0, 15);
+            //this.TextBox.Location = new System.Drawing.Point(0, 16);
             this.TextBox.Multiline = true;
             this.TextBox.Name = "TextBox";
-            this.TextBox.Size = new System.Drawing.Size(150, 20);
+            //this.TextBox.Size = new System.Drawing.Size(154, 22);
+            this.Text = "";
             this.TextBox.TabIndex = 0;
             // 
             // EspackTextBox

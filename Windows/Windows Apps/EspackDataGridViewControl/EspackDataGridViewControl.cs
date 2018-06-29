@@ -577,13 +577,8 @@ namespace EspackDataGridView
         //private int RowEdited;
         //private bool RowEditedBool = false;
         #endregion
-        public EspackDataGridViewControl() :
-            this(null)
-        {
-            InitializeComponent();
-        }
 
-        public EspackDataGridViewControl(EspackDataGridViewControl dataDataGV = null)
+        public EspackDataGridViewControl()
         {
             InitializeComponent();
             AllowDelete = false;

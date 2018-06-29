@@ -37,9 +37,9 @@ namespace EspackFormControlsNS
             // 
             this.CheckedListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CheckedListBox.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CheckedListBox.Location = new System.Drawing.Point(0, 15);
+            //this.CheckedListBox.Location = new System.Drawing.Point(0, 15);
             this.CheckedListBox.Name = "TextBox";
-            this.CheckedListBox.Size = new System.Drawing.Size(150, 20);
+            //this.CheckedListBox.Size = new System.Drawing.Size(150, 20);
             this.CheckedListBox.TabIndex = 0;
             // 
             // EspackCheckedListBox

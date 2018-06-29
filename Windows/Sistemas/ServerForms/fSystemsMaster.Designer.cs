@@ -48,7 +48,7 @@
             this.cboDatabase = new EspackFormControlsNS.EspackComboBox();
             this.txtDescription = new EspackFormControlsNS.EspackTextBox();
             this.txtSystemCode = new EspackFormControlsNS.EspackTextBox();
-            this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
+            this.CTLM = new EspackFormControlsNS.CTLMantenimiento();
             this.serversList1 = new Sistemas.ServersList();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -480,7 +480,7 @@
             this.CTLM.Conn = null;
             this.CTLM.DBTable = null;
             this.CTLM.Dock = System.Windows.Forms.DockStyle.None;
-            this.CTLM.ImageScalingSize = new System.Drawing.Size(22, 22);
+            
             this.CTLM.Location = new System.Drawing.Point(13, 13);
             this.CTLM.MsgStatusInfoLabel = null;
             this.CTLM.MsgStatusLabel = null;
@@ -535,7 +535,7 @@
 
         #endregion
 
-        private CTLMantenimientoNet.CTLMantenimientoNet CTLM;
+        private EspackFormControlsNS.CTLMantenimiento CTLM;
         private EspackFormControlsNS.EspackTextBox txtSystemCode;
         private EspackFormControlsNS.EspackTextBox txtDescription;
         private EspackFormControlsNS.EspackComboBox cboDatabase;

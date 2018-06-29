@@ -35,11 +35,11 @@
             this.cboPlaceAdviseDef = new EspackFormControlsNS.EspackComboBox();
             this.CalDateDef = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
-            this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
+            this.CTLM = new EspackFormControlsNS.CTLMantenimiento();
             this.txtIT = new EspackFormControlsNS.EspackTextBox();
             this.chkFlags = new EspackFormControlsNS.EspackCheckedListBox();
             this.txtNotes = new EspackFormControlsNS.EspackTextBox();
-            this.txtKm = new EspackFormControlsNS.NumericTextBox();
+            this.txtKm = new EspackFormControlsNS.EspackNumericTextBox();;
             this.dateEnd = new EspackFormControlsNS.EspackDateTimePicker();
             this.dateStart = new EspackFormControlsNS.EspackDateTimePicker();
             this.cboMatter = new EspackFormControlsNS.EspackComboBox();
@@ -212,7 +212,7 @@
             this.CTLM.Conn = null;
             this.CTLM.DBTable = null;
             this.CTLM.Dock = System.Windows.Forms.DockStyle.None;
-            this.CTLM.ImageScalingSize = new System.Drawing.Size(22, 22);
+            
             this.CTLM.Location = new System.Drawing.Point(13, 13);
             this.CTLM.MsgStatusInfoLabel = null;
             this.CTLM.MsgStatusLabel = null;
@@ -685,7 +685,7 @@
 
         #endregion
 
-        private CTLMantenimientoNet.CTLMantenimientoNet CTLM;
+        private EspackFormControlsNS.CTLMantenimiento CTLM;
         private EspackFormControlsNS.EspackTextBox txtIdTarea;
         private EspackFormControlsNS.EspackTextBox txtPerson;
         private EspackFormControlsNS.EspackComboBox cboPlaceAdvise;
@@ -696,7 +696,7 @@
         private EspackFormControlsNS.EspackComboBox cboMatter;
         private EspackFormControlsNS.EspackDateTimePicker dateStart;
         private EspackFormControlsNS.EspackDateTimePicker dateEnd;
-        private EspackFormControlsNS.NumericTextBox txtKm;
+        private EspackFormControlsNS.EspackNumericTextBox txtKm;
         private EspackFormControlsNS.EspackTextBox txtNotes;
         private EspackFormControlsNS.EspackCheckedListBox chkFlags;
         private System.Windows.Forms.GroupBox groupBox1;

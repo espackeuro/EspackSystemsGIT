@@ -36,9 +36,9 @@
             // 
             this.DateTimePicker.BorderStyle = System.Windows.Forms.ButtonBorderStyle.None;
             this.DateTimePicker.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateTimePicker.Location = new System.Drawing.Point(0, 15);
+            //this.DateTimePicker.Location = new System.Drawing.Point(0, 15);
             this.DateTimePicker.Name = "DateTimePicker";
-            this.DateTimePicker.Size = new System.Drawing.Size(150, 20);
+            //this.DateTimePicker.Size = new System.Drawing.Size(150, 20);
             this.DateTimePicker.TabIndex = 0;
             // 
             // EspackTextBox

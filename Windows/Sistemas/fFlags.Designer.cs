@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
+            this.CTLM = new EspackFormControlsNS.CTLMantenimiento();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cboTable = new EspackFormControlsNS.EspackComboBox();
             this.txtCode = new EspackFormControlsNS.EspackTextBox();
@@ -50,7 +50,7 @@
             this.CTLM.Conn = null;
             this.CTLM.DBTable = null;
             this.CTLM.Dock = System.Windows.Forms.DockStyle.None;
-            this.CTLM.ImageScalingSize = new System.Drawing.Size(22, 22);
+            
             this.CTLM.Location = new System.Drawing.Point(0, 0);
             this.CTLM.MsgStatusInfoLabel = null;
             this.CTLM.MsgStatusLabel = null;
@@ -336,7 +336,7 @@
 
         #endregion
 
-        private CTLMantenimientoNet.CTLMantenimientoNet CTLM;
+        private EspackFormControlsNS.CTLMantenimiento CTLM;
         private System.Windows.Forms.GroupBox groupBox1;
         private EspackFormControlsNS.EspackComboBox cboTable;
         private EspackFormControlsNS.EspackTextBox txtIdReg;

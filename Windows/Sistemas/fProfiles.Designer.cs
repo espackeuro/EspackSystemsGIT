@@ -1,4 +1,6 @@
-﻿namespace Sistemas
+﻿using EspackDataGrid;
+
+namespace Sistemas
 {
     partial class fProfiles
     {
@@ -38,11 +40,11 @@
             this.txtProfileCode = new EspackFormControlsNS.EspackTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lstServiceDefaultFlags = new EspackFormControlsNS.EspackCheckedListBox();
-            this.VS = new VSGrid.CtlVSGrid();
-            this.ProfileCode = new VSGrid.CtlVSTextBoxColumn();
-            this.Service = new VSGrid.CtlVSTextBoxColumn();
-            this.DefaultFlags = new VSGrid.CtlVSTextBoxColumn();
-            this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
+            this.VS = new EspackDataGridView.EspackDataGridViewControl();
+            this.ProfileCode = new EspackDataGridView.EspackDataGridViewColumn();
+            this.Service = new EspackDataGridView.EspackDataGridViewColumn();
+            this.DefaultFlags = new EspackDataGridView.EspackDataGridViewColumn();
+            this.CTLM = new EspackFormControlsNS.CTLMantenimiento();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
@@ -233,7 +235,6 @@
             this.VS.AllowUpdate = false;
             this.VS.AllowUserToAddRows = false;
             this.VS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.VS.Caption = "";
             this.VS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.VS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ProfileCode,
@@ -273,18 +274,11 @@
             // ProfileCode
             // 
             this.ProfileCode.Add = true;
-            this.ProfileCode.Aggregate = VSGrid.AggregateOperations.NONE;
-            this.ProfileCode.Alignment = null;
-            this.ProfileCode.Attr = null;
-            this.ProfileCode.AutoCompleteCustomSource = null;
+            this.ProfileCode.Aggregate = EspackDataGridView.AggregateOperations.NONE;
             this.ProfileCode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.ProfileCode.AutoCompleteQuery = null;
             this.ProfileCode.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.ProfileCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ProfileCode.Caption = null;
-            this.ProfileCode.CaptionLabel = null;
-            this.ProfileCode.ChangedCols = null;
-            this.ProfileCode.Colnumber = 0;
             this.ProfileCode.DBField = "ProfileCode";
             this.ProfileCode.DBFieldType = null;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
@@ -293,9 +287,7 @@
             this.ProfileCode.DefaultValue = null;
             this.ProfileCode.Del = true;
             this.ProfileCode.HeaderText = "ProfileCode";
-            this.ProfileCode.IsFlag = false;
             this.ProfileCode.LinkedControl = this.txtProfileCode;
-            this.ProfileCode.Location = new System.Drawing.Point(0, 0);
             this.ProfileCode.Locked = true;
             this.ProfileCode.Name = "ProfileCode";
             this.ProfileCode.Order = 0;
@@ -303,7 +295,6 @@
             this.ProfileCode.PK = false;
             this.ProfileCode.Print = false;
             this.ProfileCode.ReadOnly = true;
-            this.ProfileCode.RowColor = null;
             this.ProfileCode.Search = false;
             this.ProfileCode.Sortable = false;
             this.ProfileCode.SPAddParamName = "@ProfileCode";
@@ -318,17 +309,10 @@
             // Service
             // 
             this.Service.Add = true;
-            this.Service.Aggregate = VSGrid.AggregateOperations.NONE;
-            this.Service.Alignment = null;
-            this.Service.Attr = null;
-            this.Service.AutoCompleteCustomSource = null;
+            this.Service.Aggregate = EspackDataGridView.AggregateOperations.NONE;
             this.Service.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.Service.AutoCompleteQuery = "Select ServiceCode from Services order by ServiceCode";
             this.Service.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.Service.Caption = null;
-            this.Service.CaptionLabel = null;
-            this.Service.ChangedCols = null;
-            this.Service.Colnumber = 0;
             this.Service.DBField = "Service";
             this.Service.DBFieldType = null;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray;
@@ -337,9 +321,7 @@
             this.Service.DefaultValue = null;
             this.Service.Del = true;
             this.Service.HeaderText = "Service";
-            this.Service.IsFlag = false;
             this.Service.LinkedControl = null;
-            this.Service.Location = new System.Drawing.Point(0, 0);
             this.Service.Locked = true;
             this.Service.Name = "Service";
             this.Service.Order = 0;
@@ -347,7 +329,6 @@
             this.Service.PK = false;
             this.Service.Print = false;
             this.Service.ReadOnly = true;
-            this.Service.RowColor = null;
             this.Service.Search = false;
             this.Service.Sortable = false;
             this.Service.SPAddParamName = "@Service";
@@ -362,17 +343,11 @@
             // DefaultFlags
             // 
             this.DefaultFlags.Add = true;
-            this.DefaultFlags.Aggregate = VSGrid.AggregateOperations.NONE;
-            this.DefaultFlags.Alignment = null;
-            this.DefaultFlags.Attr = null;
-            this.DefaultFlags.AutoCompleteCustomSource = null;
+            this.DefaultFlags.Aggregate = EspackDataGridView.AggregateOperations.NONE;
+
             this.DefaultFlags.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.DefaultFlags.AutoCompleteQuery = null;
             this.DefaultFlags.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.DefaultFlags.Caption = null;
-            this.DefaultFlags.CaptionLabel = null;
-            this.DefaultFlags.ChangedCols = null;
-            this.DefaultFlags.Colnumber = 0;
             this.DefaultFlags.DBField = "DefaultFlags";
             this.DefaultFlags.DBFieldType = null;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightGray;
@@ -381,9 +356,7 @@
             this.DefaultFlags.DefaultValue = null;
             this.DefaultFlags.Del = false;
             this.DefaultFlags.HeaderText = "Default Flags";
-            this.DefaultFlags.IsFlag = false;
             this.DefaultFlags.LinkedControl = null;
-            this.DefaultFlags.Location = new System.Drawing.Point(0, 0);
             this.DefaultFlags.Locked = true;
             this.DefaultFlags.Name = "DefaultFlags";
             this.DefaultFlags.Order = 0;
@@ -391,7 +364,6 @@
             this.DefaultFlags.PK = false;
             this.DefaultFlags.Print = false;
             this.DefaultFlags.ReadOnly = true;
-            this.DefaultFlags.RowColor = null;
             this.DefaultFlags.Search = false;
             this.DefaultFlags.Sortable = false;
             this.DefaultFlags.SPAddParamName = "@DefaultFlags";
@@ -409,7 +381,7 @@
             this.CTLM.Conn = null;
             this.CTLM.DBTable = null;
             this.CTLM.Dock = System.Windows.Forms.DockStyle.None;
-            this.CTLM.ImageScalingSize = new System.Drawing.Size(22, 22);
+            
             this.CTLM.Location = new System.Drawing.Point(9, 9);
             this.CTLM.MsgStatusInfoLabel = null;
             this.CTLM.MsgStatusLabel = null;
@@ -446,17 +418,17 @@
 
         #endregion
 
-        private CTLMantenimientoNet.CTLMantenimientoNet CTLM;
+        private EspackFormControlsNS.CTLMantenimiento CTLM;
         private System.Windows.Forms.GroupBox groupBox1;
         private EspackFormControlsNS.EspackTextBox txtProfileCode;
         private EspackFormControlsNS.EspackCheckedListBox lstCOD3;
         private EspackFormControlsNS.EspackCheckedListBox lstFlags;
-        private VSGrid.CtlVSGrid VS;
+        private EspackDataGridView.EspackDataGridViewControl VS;
         private EspackFormControlsNS.EspackTextBox txtDescription;
         private System.Windows.Forms.GroupBox groupBox2;
         private EspackFormControlsNS.EspackCheckedListBox lstServiceDefaultFlags;
-        private VSGrid.CtlVSTextBoxColumn ProfileCode;
-        private VSGrid.CtlVSTextBoxColumn Service;
-        private VSGrid.CtlVSTextBoxColumn DefaultFlags;
+        private EspackDataGridView.EspackDataGridViewColumn ProfileCode;
+        private EspackDataGridView.EspackDataGridViewColumn Service;
+        private EspackDataGridView.EspackDataGridViewColumn DefaultFlags;
     }
 }

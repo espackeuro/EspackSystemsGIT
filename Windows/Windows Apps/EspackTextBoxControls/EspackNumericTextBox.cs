@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -8,12 +9,17 @@ using System.Windows.Forms;
 
 namespace EspackFormControlsNS
 {
-    class EspackNumericTextBox : EspackTextBox
+    public class EspackNumericTextBox : EspackTextBox
     {
+        [Category("Numeric Format")]
         public int Precision { get; set; }
+        [Category("Numeric Format")]
         public int Length { get; set; }
+        [Category("Numeric Format")]
         public bool Mask { get; set; }
+        [Category("Numeric Format")]
         public bool ThousandsGroup { set; get; }
+        [Category("Numeric Format")]
         public bool AllowSpace { set; get; }
 
         public EspackNumericTextBox()
@@ -21,6 +27,13 @@ namespace EspackFormControlsNS
         {
             TextBox.TextAlign = HorizontalAlignment.Right;
             TextBox.KeyPress += TextBox_KeyPress;
+            TextBox.TextChanged += TextBox_TextChanged;
+        }
+
+        private void TextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (ThousandsGroup)
+                Text = double.Parse(this.Text == "." ? "0.0" : this.Text).ToString("N" + Precision.ToString());
         }
 
         private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -115,10 +128,10 @@ namespace EspackFormControlsNS
             // 
             this.TextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TextBox.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBox.Location = new System.Drawing.Point(0, 15);
+            //this.TextBox.Location = new System.Drawing.Point(0, 16);
             this.TextBox.Multiline = true;
             this.TextBox.Name = "TextBox";
-            this.TextBox.Size = new System.Drawing.Size(150, 20);
+            //this.TextBox.Size = new System.Drawing.Size(154, 22);
             this.TextBox.TabIndex = 0;
             this.TextBox.Text = "";
             // 

@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 using EspackControls;
 using CommonTools;
+using System.ComponentModel;
 
 namespace EspackFormControlsNS
 {
@@ -16,16 +15,26 @@ namespace EspackFormControlsNS
     {
         //protected override Label CaptionLabel { get; set; }
         public MaskedTextBox MaskedTextBox;
+
         //public override Label CaptionLabel { get; set; }
 
         public override bool ReadOnly { get => MaskedTextBox.ReadOnly; set => MaskedTextBox.ReadOnly = value; }
-        public bool Multiline { get => MaskedTextBox.Multiline; set => MaskedTextBox.Multiline = value; }
+        //public bool Multiline { get; set; }
+        public string Mask { get => MaskedTextBox.Mask; set => MaskedTextBox.Mask = value; }
+        public HorizontalAlignment TextAlign { get => MaskedTextBox.TextAlign; set => MaskedTextBox.TextAlign = value; }
 
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Bindable(true)]
+        [Category("Appearance")]
         public override string Text
         {
             get => MaskedTextBox.Text;
             set => MaskedTextBox.Text = value;
         }
+        public override Font Font { get => MaskedTextBox.Font; set => MaskedTextBox.Font = value; }
+
         private string oldText;
         public override object Value
         {
@@ -35,7 +44,7 @@ namespace EspackFormControlsNS
             }
             set
             {
-                oldText = Text.ToString();
+                oldText = Text;
                 Text = value?.ToString();
             }
         }
@@ -45,38 +54,33 @@ namespace EspackFormControlsNS
             set => CaptionLabel.Text = value;
 
         }
+
+
         public override void SetStatus(EnumStatus value)
         {
             mStatus = value;
             Enabled = true;
             if (IsCTLMOwned)
                 ReadOnly = !((Add && GetStatus() == EnumStatus.ADDNEW) || (Upp && GetStatus() == EnumStatus.EDIT && !PK) || (Del && GetStatus() == EnumStatus.DELETE) || (Search && GetStatus() == EnumStatus.SEARCH)) || Protected;
-            BackColor = ReadOnly ? SystemColors.ButtonFace : Color.White;
-            ForeColor = ReadOnly ? SystemColors.InactiveCaptionText : SystemColors.ControlText;
+            MaskedTextBox.BackColor = ReadOnly ? SystemColors.ButtonFace : Color.White;
+            MaskedTextBox.ForeColor = ReadOnly ? SystemColors.InactiveCaptionText : SystemColors.ControlText;
         }
+
         public override Control Control { get => MaskedTextBox; }
 
         public EspackMaskedTextBox()
-                : base()
+            : base()
         {
             InitializeComponent();
-            MaskedTextBox.Validated += EspackTextBox_Validated;
+            MaskedTextBox.Validated += EspackMaskedTextBox_Validated;
             oldText = "";
         }
 
-        private void EspackTextBox_Validated(object sender, EventArgs e)
+        private void EspackMaskedTextBox_Validated(object sender, EventArgs e)
         {
             if (oldText != Text)
                 OnValueChanged(new ValueChangedEventArgs(oldText, Text));
             oldText = Text;
-        }
-        protected override void OnParentChanged(EventArgs e)
-        {
-            if (Parent != null)
-            {
-                Parent.Controls.Add(CaptionLabel);
-                base.OnParentChanged(e);
-            }
         }
         public override void ClearEspackControl()
         {
@@ -92,6 +96,6 @@ namespace EspackFormControlsNS
         }
 
 
+
     }
 }
-

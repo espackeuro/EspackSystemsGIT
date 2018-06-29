@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtUserNumber = new EspackFormControlsNS.NumericTextBox();
+            this.txtUserNumber = new EspackFormControlsNS.EspackNumericTextBox();
             this.txtSurname2 = new EspackFormControlsNS.EspackTextBox();
             this.txtSurname1 = new EspackFormControlsNS.EspackTextBox();
             this.txtName = new EspackFormControlsNS.EspackTextBox();
@@ -47,14 +47,14 @@
             this.txtTicketExp = new EspackFormControlsNS.EspackDateTimePicker();
             this.txtTicket = new EspackFormControlsNS.EspackTextBox();
             this.txtEmail = new EspackFormControlsNS.EspackTextBox();
-            this.txtPIN = new EspackFormControlsNS.NumericTextBox();
-            this.txtQuota = new EspackFormControlsNS.NumericTextBox();
+            this.txtPIN = new EspackFormControlsNS.EspackNumericTextBox();
+            this.txtQuota = new EspackFormControlsNS.EspackNumericTextBox();
             this.cboDomain = new EspackFormControlsNS.EspackComboBox();
             this.txtPasswordEXP = new EspackFormControlsNS.EspackDateTimePicker();
             this.lstFlags = new EspackFormControlsNS.EspackCheckedListBox();
             this.txtPWD = new EspackFormControlsNS.EspackTextBox();
             this.lstEmailAliases = new EspackFormControlsNS.EspackCheckedListBox();
-            this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
+            this.CTLM = new EspackFormControlsNS.CTLMantenimiento();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -838,7 +838,7 @@
             this.CTLM.Conn = null;
             this.CTLM.DBTable = null;
             this.CTLM.Dock = System.Windows.Forms.DockStyle.None;
-            this.CTLM.ImageScalingSize = new System.Drawing.Size(22, 22);
+            
             this.CTLM.Location = new System.Drawing.Point(16, 13);
             this.CTLM.MsgStatusInfoLabel = null;
             this.CTLM.MsgStatusLabel = null;
@@ -881,7 +881,7 @@
 
         #endregion
 
-        private CTLMantenimientoNet.CTLMantenimientoNet CTLM;
+        private EspackFormControlsNS.CTLMantenimiento CTLM;
         private System.Windows.Forms.GroupBox groupBox1;
         private EspackFormControlsNS.EspackTextBox txtName;
         private EspackFormControlsNS.EspackTextBox txtUserCode;
@@ -896,9 +896,9 @@
         private EspackFormControlsNS.EspackTextBox txtSurname2;
         private EspackFormControlsNS.EspackTextBox txtSurname1;
         private EspackFormControlsNS.EspackDateTimePicker txtPasswordEXP;
-        private EspackFormControlsNS.NumericTextBox txtUserNumber;
-        private EspackFormControlsNS.NumericTextBox txtPIN;
-        private EspackFormControlsNS.NumericTextBox txtQuota;
+        private EspackFormControlsNS.EspackNumericTextBox txtUserNumber;
+        private EspackFormControlsNS.EspackNumericTextBox txtPIN;
+        private EspackFormControlsNS.EspackNumericTextBox txtQuota;
         private EspackFormControlsNS.EspackComboBox cboDomain;
         private EspackFormControlsNS.EspackTextBox txtEmail;
         private EspackFormControlsNS.EspackCheckedListBox lstEmailAliases;

@@ -98,18 +98,25 @@ namespace EspackFormControlsNS
             {
                 Control.Location = new Point(0, CaptionLabel.Height + 3);
                 Control.Size = new Size(this.Width, this.Height - Control.Top);
-                this.Size = new Size(Control.Width, CaptionLabel.Height + Control.Height + 1);
+                this.Size = new Size(Control.Width, CaptionLabel.Height + Control.Height + 3);
             }
 
 
             Resize += EspackFormControlCaption_Resize;
         }
 
+        private bool _resizing = false;
         private void EspackFormControlCaption_Resize(object sender, EventArgs e)
         {
-            if (Control != null)
+            if (!_resizing)
             {
-                Control.Size = new Size(this.Width, this.Height - Control.Top);
+                _resizing = true;
+                if (Control != null)
+                {
+                    Control.Size = new Size(this.Width, this.Height - Control.Top);
+                    this.Size = new Size(Control.Width, CaptionLabel.Height + Control.Height + 3);
+                }
+                _resizing = false;
             }
         }
     }

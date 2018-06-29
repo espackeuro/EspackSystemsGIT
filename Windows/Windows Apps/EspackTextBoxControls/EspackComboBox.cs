@@ -30,22 +30,27 @@ namespace EspackFormControlsNS
         public object SelectedItem { get => ComboBox.SelectedItem; set => ComboBox.SelectedItem = value; }
         public object DataSource { get => ComboBox.DataSource; set => ComboBox.DataSource = value; }
         public string DisplayMember { get => ComboBox.DisplayMember; set => ComboBox.DisplayMember = value; }
-        
+        public bool FormattingEnabled { get => ComboBox.FormattingEnabled; set => ComboBox.FormattingEnabled = value; }
 
         private string oldText;
         private StaticRS _RS;
         private string _SQL;
 
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Bindable(true)]
+        [Category("Appearance")]
         public override string Text
         {
             get => ComboBox.Text;
             set
             {
-                if (value != base.Text)
+                if (value != ComboBox.Text)
                 {
                     //raise the value change event
-                    oldText = base.Text;
-                    base.Text = value;
+                    oldText = ComboBox.Text;
+                    ComboBox.Text = value;
                     OnValueChanged(new ValueChangedEventArgs(oldText, value));
                     oldText = value;
                 }
@@ -81,6 +86,7 @@ namespace EspackFormControlsNS
             if (IsCTLMOwned)
                 Enabled = ((Add && GetStatus() == EnumStatus.ADDNEW) || (Upp && GetStatus() == EnumStatus.EDIT && !PK) || (Del && GetStatus() == EnumStatus.DELETE) || (Search && GetStatus() == EnumStatus.SEARCH)) && !Protected;
         }
+
         public override Control Control { get => ComboBox; }
 
         public EspackComboBox()
@@ -92,9 +98,9 @@ namespace EspackFormControlsNS
             //CustomFormat = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern‌ + " " + System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.ShortTimePattern‌;
             Size = new Size(130, 20);
             var _m = new Padding();
-            _m = base.Margin;
+            _m = ComboBox.Margin;
             _m.Top = 16;
-            base.Margin = _m;
+            ComboBox.Margin = _m;
             AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             AutoCompleteSource = AutoCompleteSource.ListItems;
             ComboBox.SelectedValueChanged += EspackComboBox_SelectedValueChanged;

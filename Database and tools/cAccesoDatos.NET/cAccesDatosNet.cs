@@ -29,7 +29,7 @@ namespace AccesoDatosNet
         public object Container;
         public SqlParameter Parameter;
     }
-    
+
 
     public class cAccesoDatosNet : cAccesoDatos, IDisposable
     {
@@ -53,10 +53,10 @@ namespace AccesoDatosNet
                 AdoCon.ConnectionString = value;
             }
         }
-           
+
 
         //constructores
-        public cAccesoDatosNet():
+        public cAccesoDatosNet() :
             base()
         {
             AdoCon = new SqlConnection();
@@ -66,7 +66,7 @@ namespace AccesoDatosNet
             if (lIP == null)
                 lIP = ipHostInfo.AddressList.First(x => x.GetAddressBytes()[0] == 192);
             IP = lIP;
-            
+
         }
 
         public cAccesoDatosNet(string pServer, string pDataBase, string pUser, string pPassword)
@@ -89,7 +89,7 @@ namespace AccesoDatosNet
             DataBase = pDataBase;
         }
         public cAccesoDatosNet(cAccesoDatosNet parent)
-            :this()
+            : this()
         {
             Server = parent.Server;
             DataBase = parent.DataBase;
@@ -109,18 +109,18 @@ namespace AccesoDatosNet
         }
         public override DateTime ServerDate()
         {
-                var lRs = new DynamicRS();
-                lRs.Open("Select Date=convert(varchar,Getdate(),120)", this);
-                if (!lRs.HasRows)
-                {
-                    throw new Exception("Server not available");
-                }
-                string[] lDateTot = lRs[0].ToString().Split(' ');
-                lRs.Close();
-                string[] lDate = lDateTot[0].Split('-');
-                string[] lTime = lDateTot[1].Split(':');
-                DateTime lRes = new DateTime(Convert.ToInt32(lDate[0]), Convert.ToInt32(lDate[1]), Convert.ToInt32(lDate[2]), Convert.ToInt32(lTime[0]), Convert.ToInt32(lTime[1]), Convert.ToInt32(lTime[2]));
-                return lRes;
+            var lRs = new DynamicRS();
+            lRs.Open("Select Date=convert(varchar,Getdate(),120)", this);
+            if (!lRs.HasRows)
+            {
+                throw new Exception("Server not available");
+            }
+            string[] lDateTot = lRs[0].ToString().Split(' ');
+            lRs.Close();
+            string[] lDate = lDateTot[0].Split('-');
+            string[] lTime = lDateTot[1].Split(':');
+            DateTime lRes = new DateTime(Convert.ToInt32(lDate[0]), Convert.ToInt32(lDate[1]), Convert.ToInt32(lDate[2]), Convert.ToInt32(lTime[0]), Convert.ToInt32(lTime[1]), Convert.ToInt32(lTime[2]));
+            return lRes;
         }
         public override async Task<DateTime> ServerDateAsync()
         {
@@ -139,15 +139,15 @@ namespace AccesoDatosNet
         }
         public override string HostName()
         {
-                var lRs = new DynamicRS();
-                lRs.Open("Select HostName=host_name()", this);
-                if (lRs.EOF)
-                {
-                    throw new Exception("Server not available");
-                }
-                string lRes = lRs[0].ToString();
-                lRs.Close();
-                return lRes;
+            var lRs = new DynamicRS();
+            lRs.Open("Select HostName=host_name()", this);
+            if (lRs.EOF)
+            {
+                throw new Exception("Server not available");
+            }
+            string lRes = lRs[0].ToString();
+            lRs.Close();
+            return lRes;
         }
         public async override Task<string> HostNameAsync()
         {
@@ -283,9 +283,9 @@ namespace AccesoDatosNet
     }
 
 
-    
 
-    public class StaticRS :RSFrame
+
+    public class StaticRS : RSFrame
     {
         protected new cAccesoDatosNet mConn = null;
         protected SqlDataReader mDR = null;
@@ -294,11 +294,11 @@ namespace AccesoDatosNet
         //private cAccesoDatosNet mConn = null;
         //Events
         //public new event EventHandler<EventArgs> AfterExecution; //launched when the query is executed
-//properties
+        //properties
 
         public SqlCommand Cmd { get; set; }
 
-        public override object this[string Idx] => RecordCount!=0? Result[Index][Idx]:null; //Field<string>(Idx):null;
+        public override object this[string Idx] => RecordCount != 0 ? Result[Index][Idx] : null; //Field<string>(Idx):null;
         public override object this[int Idx] => Result[Idx];
 
         public new bool HasRows
@@ -344,11 +344,11 @@ namespace AccesoDatosNet
         public override List<string> Fields { get; protected set; }
 
 
-        public StaticRS() 
-            :base()
+        public StaticRS()
+            : base()
         {
-            mDR=null;
-            Cmd=new SqlCommand();
+            mDR = null;
+            Cmd = new SqlCommand();
             mState = RSState.Closed;
 
         }
@@ -356,7 +356,7 @@ namespace AccesoDatosNet
         public StaticRS(string Sql, cAccesoDatosNet Conn)
             : base()
         {
-            SQL = Sql; 
+            SQL = Sql;
             mConn = Conn;
             mState = RSState.Closed;
         }
@@ -379,10 +379,12 @@ namespace AccesoDatosNet
                 Result = dT.Rows.OfType<DataRow>().ToList();
                 EOF = Result.Count() == 0;
                 Index = 0;
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+
 
             mState = RSState.Open;
             if (prevState != ConnectionState.Open)
@@ -403,7 +405,6 @@ namespace AccesoDatosNet
             try
             {
                 mDR = await Cmd.ExecuteReaderAsync();
-                fieldList = mDR.GetSchemaTable().Rows.OfType<DataRow>().Select(r => r["ColumnName"].ToString()).ToList();
                 var _dt = new DataTable();
                 await Task.Run(() => _dt.Load(mDR));
                 Result = _dt.Rows.OfType<DataRow>().ToList();
@@ -451,7 +452,7 @@ namespace AccesoDatosNet
         }
         ~StaticRS()
         {
-            if (mDR!= null)
+            if (mDR != null)
                 mDR.Close();
             mDR = null;
             Cmd = null;
@@ -459,7 +460,7 @@ namespace AccesoDatosNet
         }
 
 
-        public override List<DataRow> getList() 
+        public override List<DataRow> getList()
         {
             return Result;
         }
@@ -587,11 +588,12 @@ namespace AccesoDatosNet
                     {
                         var _res = XDocument.Load(reader);
                         return _res;
-                    } catch (Exception ex)
+                    }
+                    catch (Exception ex)
                     {
                         throw ex;
                     }
-                    
+
                 }
             }
         }
@@ -622,18 +624,18 @@ namespace AccesoDatosNet
             : base()
         {
             //mDS = new DataSet();
-            
+
         }
         public DynamicRS(string Sql, cAccesoDatosNet Conn)
             : base()
         {
-            SQL = Sql; 
+            SQL = Sql;
             mConn = Conn;
             //mDS = new DataSet();
             mDA.SelectCommand = new SqlCommand(SQL, mConn.AdoCon);
-            
+
         }
-        
+
         public override void Execute()
         {
             ConnectionState prevState = mConn.State;
@@ -641,7 +643,7 @@ namespace AccesoDatosNet
             {
                 mConn.Open();
             }
-            if (mDA.SelectCommand== null)
+            if (mDA.SelectCommand == null)
             {
                 mDA.SelectCommand = new SqlCommand(SQL, mConn.AdoCon);
             }
@@ -794,16 +796,16 @@ namespace AccesoDatosNet
     }
 
 
-    public class SP:SPFrame
+    public class SP : SPFrame
     {
         private new cAccesoDatosNet mConn;
-        
+
         //public List<ObjectParameter> ObjectParameters { get; set; }
         public new SqlCommand Cmd { get; set; }
 
         public new SqlParameterCollection Parameters
         {
-            get 
+            get
             {
                 return Cmd.Parameters;
             }
@@ -895,11 +897,11 @@ namespace AccesoDatosNet
                 mConn.Close();
             }
         }
-        public SP(cAccesoDatos pConn, string pSPName="")
+        public SP(cAccesoDatos pConn, string pSPName = "")
             : this((cAccesoDatosNet)pConn, pSPName)
         {
         }
-        public override void AddParameterValue(string pParamName, object pValue, string DBFieldName="" )
+        public override void AddParameterValue(string pParamName, object pValue, string DBFieldName = "")
         {
             try
             {
@@ -911,7 +913,7 @@ namespace AccesoDatosNet
                 DateTime res;
                 if (Parameters[pParamName].SqlDbType.IsNumericType())
                 {
-                    if (pValue != null && pValue.ToString()=="")
+                    if (pValue != null && pValue.ToString() == "")
                     {
                         pValue = null;
                     }
@@ -984,7 +986,7 @@ namespace AccesoDatosNet
                 Parameter = lParam,
                 LinkedControl = ParamControl
             });
-            
+
         }
         //public override void AssignOutputParameter(string ParamName, DbParameter pParam)
         //{
@@ -1004,7 +1006,7 @@ namespace AccesoDatosNet
         //    OutputParameters.Add(pParam);
         //}
 
-        public void AssignOutputParameterContainer(string ParamName, out SqlParameter ParamOut, object Value=null)
+        public void AssignOutputParameterContainer(string ParamName, out SqlParameter ParamOut, object Value = null)
         {
             SqlParameter _param;
             if (ParamName.Substring(0, 1) != "@")
@@ -1023,17 +1025,17 @@ namespace AccesoDatosNet
                 };
                 Parameters.Add(_param);
             }
-            if (Value!= null)
+            if (Value != null)
             {
                 AddParameterValue(ParamName, Value);
             }
             ParamOut = _param;
             //ObjectParameters.Add(new ObjectParameter() {Container=Container, Parameter=_param });
-            
+
         }
         public override void AssignValuesParameters()
         {
-            ControlParameters.Where(x => x.LinkedControl is IsValuable && (x.Parameter.Direction == ParameterDirection.InputOutput || x.Parameter.Direction == ParameterDirection.Output)).ToList().ForEach(p => ((IsValuable)p.LinkedControl).Value= p.Parameter.Value);
+            ControlParameters.Where(x => x.LinkedControl is IsValuable && (x.Parameter.Direction == ParameterDirection.InputOutput || x.Parameter.Direction == ParameterDirection.Output)).ToList().ForEach(p => ((IsValuable)p.LinkedControl).Value = p.Parameter.Value);
         }
 
         public override void Execute()
@@ -1058,7 +1060,7 @@ namespace AccesoDatosNet
                 {
                     Conn.Close();
                 }
-                
+
             }
             AssignValuesParameters();
             try
@@ -1144,7 +1146,7 @@ namespace AccesoDatosNet
             get
             {
                 var _x = new XElement("parameters");
-                Parameters.OfType<SqlParameter>().Where(o => o.Direction== ParameterDirection.InputOutput || o.Direction== ParameterDirection.Output).ToList().ForEach(p => {
+                Parameters.OfType<SqlParameter>().Where(o => o.Direction == ParameterDirection.InputOutput || o.Direction == ParameterDirection.Output).ToList().ForEach(p => {
                     var _p = new XElement("parameter");
                     _p.Add(new XElement("Name", p.ParameterName));
                     _p.Add(new XElement("Direction", p.Direction));
@@ -1190,7 +1192,7 @@ namespace AccesoDatosNet
         protected SP mInsertCommand;
         protected SP mUpdateCommand;
         protected SP mDeleteCommand;
-        public cAccesoDatosNet Conn { get;set; }
+        public cAccesoDatosNet Conn { get; set; }
 
 
         public virtual DynamicRS SelectRS
@@ -1199,9 +1201,9 @@ namespace AccesoDatosNet
             {
                 return mSelectRS;
             }
-            set 
+            set
             {
-                mSelectRS=value;
+                mSelectRS = value;
                 mDA.SelectCommand = value.Cmd;
             }
         }
@@ -1311,18 +1313,18 @@ namespace AccesoDatosNet
                 return (SqlParameterCollection)SelectRS.Parameters;
             }
         }
-        
+
         public DataColumnCollection Schema
         {
             get
             {
-                if (mSelectRS.DS == null || mSelectRS.DS.Tables["Table"]==null) 
+                if (mSelectRS.DS == null || mSelectRS.DS.Tables["Table"] == null)
                 {
                     try
                     {
                         FillSchema();
                     }
-                    catch 
+                    catch
                     {
                         return null;
                     }
@@ -1334,7 +1336,7 @@ namespace AccesoDatosNet
 
         public void Update()
         {
-            mDA.Update(SelectRS.DS,"Result");
+            mDA.Update(SelectRS.DS, "Result");
         }
 
         public void Open()

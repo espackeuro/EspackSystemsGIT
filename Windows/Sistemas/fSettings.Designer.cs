@@ -35,58 +35,63 @@
             // txtDefaultUserForServers
             // 
             this.txtDefaultUserForServers.Add = false;
-            this.txtDefaultUserForServers.BackColor = System.Drawing.Color.White;
-            this.txtDefaultUserForServers.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDefaultUserForServers.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtDefaultUserForServers.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtDefaultUserForServers.Caption = "Default User for Servers";
+            this.txtDefaultUserForServers.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtDefaultUserForServers.DBField = null;
             this.txtDefaultUserForServers.DBFieldType = null;
             this.txtDefaultUserForServers.DefaultValue = null;
             this.txtDefaultUserForServers.Del = false;
             this.txtDefaultUserForServers.DependingRS = null;
             this.txtDefaultUserForServers.ExtraDataLink = null;
-            this.txtDefaultUserForServers.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtDefaultUserForServers.ForeColor = System.Drawing.Color.Black;
-            this.txtDefaultUserForServers.Location = new System.Drawing.Point(12, 35);
-            this.txtDefaultUserForServers.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtDefaultUserForServers.IsCTLMOwned = false;
+            this.txtDefaultUserForServers.Location = new System.Drawing.Point(12, 13);
+            this.txtDefaultUserForServers.Multiline = false;
             this.txtDefaultUserForServers.Name = "txtDefaultUserForServers";
             this.txtDefaultUserForServers.Order = 0;
             this.txtDefaultUserForServers.ParentConn = null;
             this.txtDefaultUserForServers.ParentDA = null;
             this.txtDefaultUserForServers.PK = false;
             this.txtDefaultUserForServers.Protected = false;
+            this.txtDefaultUserForServers.ReadOnly = false;
             this.txtDefaultUserForServers.Search = false;
-            this.txtDefaultUserForServers.Size = new System.Drawing.Size(224, 17);
-            this.txtDefaultUserForServers.SetStatus(CommonTools.EnumStatus.ADDNEW);
-            this.txtDefaultUserForServers.TabIndex = 4;
+            this.txtDefaultUserForServers.Size = new System.Drawing.Size(260, 38);
+            this.txtDefaultUserForServers.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtDefaultUserForServers.TabIndex = 8;
+            this.txtDefaultUserForServers.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDefaultUserForServers.Upp = false;
+            this.txtDefaultUserForServers.UseSystemPasswordChar = false;
             this.txtDefaultUserForServers.Value = "";
             // 
             // txtDefaultPasswordForServers
             // 
             this.txtDefaultPasswordForServers.Add = false;
-            this.txtDefaultPasswordForServers.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtDefaultPasswordForServers.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDefaultPasswordForServers.Caption = "Default Password for Servers";
+            this.txtDefaultPasswordForServers.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtDefaultPasswordForServers.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtDefaultPasswordForServers.Caption = "Default Password For Servers";
+            this.txtDefaultPasswordForServers.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtDefaultPasswordForServers.DBField = null;
             this.txtDefaultPasswordForServers.DBFieldType = null;
             this.txtDefaultPasswordForServers.DefaultValue = null;
             this.txtDefaultPasswordForServers.Del = false;
             this.txtDefaultPasswordForServers.DependingRS = null;
             this.txtDefaultPasswordForServers.ExtraDataLink = null;
-            this.txtDefaultPasswordForServers.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtDefaultPasswordForServers.ForeColor = System.Drawing.Color.Gray;
-            this.txtDefaultPasswordForServers.Location = new System.Drawing.Point(12, 71);
-            this.txtDefaultPasswordForServers.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtDefaultPasswordForServers.IsCTLMOwned = false;
+            this.txtDefaultPasswordForServers.Location = new System.Drawing.Point(12, 57);
+            this.txtDefaultPasswordForServers.Multiline = false;
             this.txtDefaultPasswordForServers.Name = "txtDefaultPasswordForServers";
             this.txtDefaultPasswordForServers.Order = 0;
             this.txtDefaultPasswordForServers.ParentConn = null;
             this.txtDefaultPasswordForServers.ParentDA = null;
             this.txtDefaultPasswordForServers.PK = false;
             this.txtDefaultPasswordForServers.Protected = false;
+            this.txtDefaultPasswordForServers.ReadOnly = false;
             this.txtDefaultPasswordForServers.Search = false;
-            this.txtDefaultPasswordForServers.Size = new System.Drawing.Size(224, 17);
-            this.txtDefaultPasswordForServers.SetStatus(CommonTools.EnumStatus.ADDNEW);
-            this.txtDefaultPasswordForServers.TabIndex = 7;
+            this.txtDefaultPasswordForServers.Size = new System.Drawing.Size(260, 38);
+            this.txtDefaultPasswordForServers.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtDefaultPasswordForServers.TabIndex = 9;
+            this.txtDefaultPasswordForServers.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDefaultPasswordForServers.Upp = false;
             this.txtDefaultPasswordForServers.UseSystemPasswordChar = true;
             this.txtDefaultPasswordForServers.Value = "";
@@ -102,12 +107,10 @@
             this.ShowIcon = false;
             this.Text = "fSettings";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
         private EspackFormControlsNS.EspackTextBox txtDefaultUserForServers;
         private EspackFormControlsNS.EspackTextBox txtDefaultPasswordForServers;
     }

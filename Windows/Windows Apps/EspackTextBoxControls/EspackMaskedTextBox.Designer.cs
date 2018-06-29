@@ -34,12 +34,11 @@
             // MaskedTextBox
             // 
             this.MaskedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.MaskedTextBox.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //this.MaskedTextBox.Location = new System.Drawing.Point(3, 16);
             this.MaskedTextBox.Name = "MaskedTextBox";
-            this.MaskedTextBox.Location = new System.Drawing.Point(0, 15);
-            this.MaskedTextBox.Multiline = true;
-            this.MaskedTextBox.Size = new System.Drawing.Size(150, 20);
+            //this.MaskedTextBox.Size = new System.Drawing.Size(154, 22);
             this.MaskedTextBox.TabIndex = 0;
-            this.MaskedTextBox.Text = "";
             // 
             // EspackMaskedTextBox
             // 

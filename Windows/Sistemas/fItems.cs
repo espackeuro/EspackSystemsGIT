@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using AccesoDatosNet;
 using CommonTools;
-
+using EspackFormControlsNS;
 
 namespace Sistemas
 {
@@ -22,10 +22,10 @@ namespace Sistemas
             CTLM.AddItem(txtName, "Name", true, true, false, 0, false, true);
             CTLM.AddItem(txtDescription, "Description", true, true, false, 0, false, true);
             CTLM.AddItem(cboCOD3, "MainCOD3", true, true, false, 1,false, true);
-            CTLM.AddItem(txtDesCod3, "DesCOD3");
+            CTLM.AddItem(txtDesCod3, "DesCOD3", CTLMControlTypes.NoSearch);
             CTLM.AddItem(listCOD3, "COD3", true, true, false, 1, false, true);
             CTLM.AddItem(cboType,"Type",true,true,false,0,false,true);
-            CTLM.AddItem(txtDesType, "DesType");
+            CTLM.AddItem(txtDesType, "DesType", CTLMControlTypes.NoSearch);
             CTLM.AddItem(cboZone, "Zone", true, true, false, 1, false, true);
             CTLM.AddItem(txtSerial, "Serial", true, true, false, 0, false, true);
             CTLM.AddItem(txtInvoice, "Invoice", true, true, false, 0, false, true);
@@ -55,13 +55,13 @@ namespace Sistemas
             CTLM.AddItem(VS);
             CTLM.Start();
             _prevStatus = listCOD3.Text;
-            cboCOD3.SelectedValueChanged += delegate
+            cboCOD3.ComboBox.SelectedValueChanged += delegate
             {
                 if (cboCOD3.SelectedValue != null)
                     listCOD3.CheckItem(cboCOD3.Text);
             };
             
-            listCOD3.ItemCheck += delegate (object sender, ItemCheckEventArgs e)
+            listCOD3.CheckedListBox.ItemCheck += delegate (object sender, ItemCheckEventArgs e)
             {
                 if ((e.NewValue==CheckState.Unchecked) && (listCOD3.keyItem(e.Index)==cboCOD3.Text) && (CTLM.Status==EnumStatus.EDIT || CTLM.Status==EnumStatus.ADDNEW))
                 {

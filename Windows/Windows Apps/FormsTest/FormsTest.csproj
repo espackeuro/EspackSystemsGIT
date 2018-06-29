@@ -90,10 +90,6 @@
       <Project>{ece9aa32-f756-4be3-a926-b0771e69066b}</Project>
       <Name>EspackControls</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Controls\EspackMenu\EspackMenu.csproj">
-      <Project>{3a19fe5e-96c7-48bf-9973-be208dbfec8f}</Project>
-      <Name>EspackMenu</Name>
-    </ProjectReference>
     <ProjectReference Include="..\cAccesoDatos\cAccesoDatos.csproj">
       <Project>{5da9cb0b-9007-40f1-8086-1b0303d8271f}</Project>
       <Name>cAccesoDatos</Name>
