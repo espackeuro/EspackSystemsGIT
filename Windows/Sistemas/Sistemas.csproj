@@ -339,6 +339,10 @@
       <Project>{E73BEA4D-371E-413F-9316-4B53E4A935A3}</Project>
       <Name>EspackFormControlsCommon</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Windows Apps\EspackMenu\EspackMenu.csproj">
+      <Project>{f58c64dc-f90a-4732-8afa-24db566247f9}</Project>
+      <Name>EspackMenu</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Windows Apps\EspackTextBoxControls\EspackFormControls.csproj">
       <Project>{ff2efef1-a838-438a-88bd-bc5f0f8d6f15}</Project>
       <Name>EspackFormControls</Name>

@@ -17,8 +17,19 @@ namespace FormsTest
         {
             InitializeComponent();
             CTLM.Conn = new cAccesoDatosNet("DB01", "SISTEMAS", "sa", "5380");
-
-
+            txtUserCode.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtUserCode.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            //txtUserCode.TextBox.Multiline = false;
+            var autoCompleteCustomSource = new AutoCompleteStringCollection();
+            txtText.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtText.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            using (DynamicRS rs = new DynamicRS("Select UserCode from Users", CTLM.Conn))
+            {
+                rs.Open();
+                rs.ToList().ForEach(r => autoCompleteCustomSource.Add(r[0].ToString()));
+            }
+            txtUserCode.AutoCompleteCustomSource = autoCompleteCustomSource;
+            txtText.AutoCompleteCustomSource = autoCompleteCustomSource;
             CTLM.DBTable = "vUsers";
             CTLM.AddItem(txtUserCode, "UserCode", CTLMControlTypes.Search);
             CTLM.AddItem(txtUserNumber, "UserNumber", CTLMControlTypes.Search);
@@ -31,6 +42,8 @@ namespace FormsTest
             cboMainCOD3.Source("select n.COD3,g.Descripcion from NetworkSedes n inner join general..sedes g on g.cod3=n.COD3 order by n.Cod3", txtDesCod3);
             CTLM.Start();
 
+
         }
+
     }
 }

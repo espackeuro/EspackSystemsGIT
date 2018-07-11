@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CTLMantenimiento;
-
+using EspackFormControlsNS;
 namespace Sistemas
 {
     public partial class fZones : Form

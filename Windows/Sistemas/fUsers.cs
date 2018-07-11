@@ -16,7 +16,6 @@ namespace Sistemas
 {
     public partial class fUsers : Form
     {
-        private List<Task> _backgroundTasks = new List<Task>();
         private string _prevStatus;
         public fUsers()
         {
@@ -35,7 +34,7 @@ namespace Sistemas
             CTLM.AddItem(txtUserNumber, "UserNumber", false, true, false, 0, false, true);
             //Where
             CTLM.AddItem(cboCOD3, "MainCOD3", true, true, false, 1,false, true);
-            CTLM.AddItem(txtDesCod3, "desCOD3");
+            CTLM.AddItem(txtDesCod3, "desCOD3", CTLMControlTypes.NoSearch);
             CTLM.AddItem(listCOD3, "COD3", true, true, false, 1, false, true);
             CTLM.AddItem(cboPosition, "Position", true, true, false, 1, false, true);
             CTLM.AddItem(cboPositionLevel, "PositionLevel", false, true, false, 0, false, true);
@@ -49,15 +48,15 @@ namespace Sistemas
             CTLM.AddItem(txtEmail, "emailAddress", false, false, false, 0, false, true);
             CTLM.AddItem(txtQuota, "EmailQuota", false, true, false, 0, false, false);
             CTLM.AddItem(lstFlags, "Flags", true, true, false, 0, false, true);
-            CTLM.AddItem(txtTicket, "Ticket");
-            CTLM.AddItem(txtTicketExp, "TicketExp");
+            CTLM.AddItem(txtTicket, "Ticket", CTLMControlTypes.NoSearch);
+            CTLM.AddItem(txtTicketExp, "TicketExp", CTLMControlTypes.NoSearch);
             CTLM.AddItem(lstEmailAliases, "Aliases",true,true,false,0,false,false,pSPAddParamName: "alias", pSPUppParamName: "alias");
             CTLM.AddDefaultStatusStrip();
             CTLM.DBTable = string.Format("(Select * from vUsers where isnull(PositionLevel,50)>={0}) B", SecurityLevel);
             CTLM.ReQuery = true;
             cboCOD3.Source("select n.COD3,g.Descripcion from NetworkSedes n inner join general..sedes g on g.cod3=n.COD3 order by n.Cod3", txtDesCod3);
             listCOD3.Source("select n.COD3,g.Descripcion from NetworkSedes n inner join general..sedes g on g.cod3=n.COD3 order by n.Cod3");
-            listCOD3.Changed += ListCOD3_Changed;
+            listCOD3.ValueChanged += ListCOD3_Changed;
             cboDomain.Source("Select domain from domain where domain<>'ALL' order by domain");
             cboPosition.Source(string.Format("select PositionCode,PositionDescription from MasterUserPositions where MinSecurityLevel>={0} order by MinSecurityLevel", SecurityLevel), txtPosition);
             cboPositionLevel.Source(string.Format("select SecurityLevel from MasterSecurityLevels where SecurityLevel>={0} order by SecurityLevel", SecurityLevel));
@@ -67,13 +66,13 @@ namespace Sistemas
             CTLM.AfterButtonClick += CTLM_AfterButtonClick;
             CTLM.Start();
             _prevStatus = listCOD3.Text;
-            cboCOD3.SelectedValueChanged += delegate
+            cboCOD3.ComboBox.SelectedValueChanged += delegate
             {
                 if (cboCOD3.SelectedValue != null && (CTLM.Status==EnumStatus.EDIT || CTLM.Status==EnumStatus.ADDNEW))
                     listCOD3.CheckItem(cboCOD3.Text);
             };
             
-            listCOD3.ItemCheck += delegate (object sender, ItemCheckEventArgs e)
+            listCOD3.CheckedListBox.ItemCheck += delegate (object sender, ItemCheckEventArgs e)
             {
                 if ((e.NewValue==CheckState.Unchecked) && (listCOD3.keyItem(e.Index)==cboCOD3.Text) && (CTLM.Status==EnumStatus.EDIT || CTLM.Status==EnumStatus.ADDNEW))
                 {
@@ -89,26 +88,15 @@ namespace Sistemas
             //this.FormClosed += FUsers_FormClosed;
         }
 
-        private void ListCOD3_Changed(object sender, ChangeEventArgs e)
+        private bool changeAliases = false;
+        private void ListCOD3_Changed(object sender, ValueChangedEventArgs e)
         {
-            if (e.NewValue != "")
+            if (e.NewValue.ToString() != "")
             {
-                //var _old = listCOD3.Value;
-                lstEmailAliases.Source("select Address,a2=Address from mail..aliasCAB a where exists( select 0 from dbo.Split(a.COD3,'|') where valor in (select valor from dbo.Split('" + listCOD3.Value + "','|'))) and dbo.CheckFlag(a.flags,'STATIC')=0 order by address");
-                //listCOD3.Value = _old;
-                lstEmailAliases.UpdateEspackControl();
+                changeAliases = true;
             }
-                
-            else
-                lstEmailAliases.Source("Select 0,0 where 0=1");
-            //lstEmailAliases.Value = _alias;
         }
 
-        protected override void OnFormClosed(FormClosedEventArgs e)
-        {
-            Task.WaitAll(_backgroundTasks.Where(p => !p.IsCompleted).ToArray(), 30000);
-            base.OnFormClosed(e);
-        }
 
         private void TxtSurname1_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -138,11 +126,23 @@ namespace Sistemas
             };
         }
 
-        private void CTLM_AfterButtonClick(object sender, CTLMantenimientoNet.CTLMEventArgs e)
+        private void CTLM_AfterButtonClick(object sender, CTLMEventArgs e)
         {
-            if (lstFlags.Value.ToString().IndexOf("|EMAIL|") == -1)
+            Application.DoEvents();
+            if (lstFlags.Text.Split('|').Contains("EMAIL"))
             {
-                lstEmailAliases.Source("Select 0,0 where 0=1");
+                if (changeAliases)
+                {
+                    lstEmailAliases.Source("select Address,a2=Address from mail..aliasCAB a where exists( select 0 from dbo.Split(a.COD3,'|') where valor in (select valor from dbo.Split('" + listCOD3.Value + "','|'))) and dbo.CheckFlag(a.flags,'STATIC')=0 order by address");
+                    lstEmailAliases.UpdateEspackControl();
+                    Application.DoEvents();
+                    changeAliases = false;
+                }
+            }
+            else
+            {
+                lstEmailAliases.DataSource = null;
+                changeAliases = true;
             }
         }
     }

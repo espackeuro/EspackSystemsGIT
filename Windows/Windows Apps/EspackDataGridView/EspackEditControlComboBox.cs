@@ -5,7 +5,7 @@ using AccesoDatosNet;
 using EspackControls;
 //using Microsoft.Data.Schema.ScriptDom;
 //using Microsoft.Data.Schema.ScriptDom.Sql;
-using EspackFormControlsNS;
+using EspackFormControls;
 
 namespace EspackDataGrid
 {

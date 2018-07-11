@@ -52,7 +52,7 @@
             this.Controls.Add(this.CaptionLabel);
             this.Controls.Add(this.CheckedComboBox);
             this.Name = "EspackCheckedComboBox";
-            this.Size = new System.Drawing.Size(204, 38);
+            this.Size = new System.Drawing.Size(204, 25);
             this.Controls.SetChildIndex(this.CheckedComboBox, 0);
             this.Controls.SetChildIndex(this.CaptionLabel, 0);
             this.ResumeLayout(false);

@@ -46,11 +46,13 @@
             this.Controls.Add(this.CaptionLabel);
             this.Controls.Add(this.DateTimePicker);
             this.Name = "EspackDateTimePicker";
-            this.Size = new System.Drawing.Size(154, 38);
+            this.Size = new System.Drawing.Size(154, 25);
             this.Controls.SetChildIndex(this.DateTimePicker, 0);
             this.Controls.SetChildIndex(this.CaptionLabel, 0);
+            this.Checked = false;
             this.ResumeLayout(false);
             this.PerformLayout();
+            
         }
 
         #endregion

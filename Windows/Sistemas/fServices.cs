@@ -6,6 +6,7 @@ using System.Security;
 using System;
 using System.Drawing;
 using CommonTools;
+using EspackFormControlsNS;
 
 namespace Sistemas
 {
@@ -43,7 +44,7 @@ namespace Sistemas
             CTLM.BeforeButtonClick += CTLM_BeforeButtonClick;
         }
 
-        private void CTLM_BeforeButtonClick(object sender, CTLMantenimientoNet.CTLMEventArgs e)
+        private void CTLM_BeforeButtonClick(object sender, CTLMEventArgs e)
         {
             switch (CTLM.Status)
             {
@@ -59,7 +60,7 @@ namespace Sistemas
             }
         }
 
-        private void CTLM_AfterButtonClick(object sender, CTLMantenimientoNet.CTLMEventArgs e)
+        private void CTLM_AfterButtonClick(object sender, CTLMEventArgs e)
         {
             string _COD3="";
             FileVersionInfo _localFileVersion;

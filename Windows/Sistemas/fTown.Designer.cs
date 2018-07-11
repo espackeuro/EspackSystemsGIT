@@ -34,7 +34,6 @@
             this.cboCOD3 = new EspackFormControlsNS.EspackComboBox();
             this.CTLM = new EspackFormControlsNS.CTLMantenimiento();
             this.txtExternalIP = new EspackFormControlsNS.EspackTextBox();
-
             this.SuspendLayout();
             // 
             // txtMask
@@ -42,15 +41,14 @@
             this.txtMask.Add = false;
             this.txtMask.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtMask.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txtMask.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtMask.Caption = "Mask";
+            this.txtMask.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtMask.DBField = null;
             this.txtMask.DBFieldType = null;
             this.txtMask.DefaultValue = null;
             this.txtMask.Del = false;
             this.txtMask.DependingRS = null;
             this.txtMask.ExtraDataLink = null;
-            this.txtMask.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtMask.ForeColor = System.Drawing.Color.Gray;
             this.txtMask.IsCTLMOwned = false;
             this.txtMask.Location = new System.Drawing.Point(58, 157);
@@ -60,14 +58,17 @@
             this.txtMask.Order = 0;
             this.txtMask.ParentConn = null;
             this.txtMask.ParentDA = null;
+            this.txtMask.PasswordChar = '\0';
             this.txtMask.PK = false;
             this.txtMask.Protected = false;
             this.txtMask.ReadOnly = true;
             this.txtMask.Search = false;
-            this.txtMask.Size = new System.Drawing.Size(130, 17);
+            this.txtMask.Size = new System.Drawing.Size(154, 38);
             this.txtMask.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtMask.TabIndex = 10;
+            this.txtMask.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtMask.Upp = false;
+            this.txtMask.UseSystemPasswordChar = false;
             this.txtMask.Value = "";
             // 
             // txtSubNet
@@ -75,15 +76,14 @@
             this.txtSubNet.Add = false;
             this.txtSubNet.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtSubNet.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txtSubNet.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtSubNet.Caption = "SubNet";
+            this.txtSubNet.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtSubNet.DBField = null;
             this.txtSubNet.DBFieldType = null;
             this.txtSubNet.DefaultValue = null;
             this.txtSubNet.Del = false;
             this.txtSubNet.DependingRS = null;
             this.txtSubNet.ExtraDataLink = null;
-            this.txtSubNet.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtSubNet.ForeColor = System.Drawing.Color.Gray;
             this.txtSubNet.IsCTLMOwned = false;
             this.txtSubNet.Location = new System.Drawing.Point(58, 114);
@@ -93,14 +93,17 @@
             this.txtSubNet.Order = 0;
             this.txtSubNet.ParentConn = null;
             this.txtSubNet.ParentDA = null;
+            this.txtSubNet.PasswordChar = '\0';
             this.txtSubNet.PK = false;
             this.txtSubNet.Protected = false;
             this.txtSubNet.ReadOnly = true;
             this.txtSubNet.Search = false;
-            this.txtSubNet.Size = new System.Drawing.Size(130, 17);
+            this.txtSubNet.Size = new System.Drawing.Size(154, 38);
             this.txtSubNet.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtSubNet.TabIndex = 7;
+            this.txtSubNet.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtSubNet.Upp = false;
+            this.txtSubNet.UseSystemPasswordChar = false;
             this.txtSubNet.Value = "";
             // 
             // txtCOD3Name
@@ -108,32 +111,34 @@
             this.txtCOD3Name.Add = false;
             this.txtCOD3Name.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtCOD3Name.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txtCOD3Name.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtCOD3Name.Caption = "";
+            this.txtCOD3Name.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtCOD3Name.DBField = null;
             this.txtCOD3Name.DBFieldType = null;
             this.txtCOD3Name.DefaultValue = null;
             this.txtCOD3Name.Del = false;
             this.txtCOD3Name.DependingRS = null;
             this.txtCOD3Name.ExtraDataLink = null;
-            this.txtCOD3Name.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtCOD3Name.ForeColor = System.Drawing.Color.Gray;
             this.txtCOD3Name.IsCTLMOwned = false;
-            this.txtCOD3Name.Location = new System.Drawing.Point(206, 72);
+            this.txtCOD3Name.Location = new System.Drawing.Point(218, 86);
             this.txtCOD3Name.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtCOD3Name.Multiline = false;
             this.txtCOD3Name.Name = "txtCOD3Name";
             this.txtCOD3Name.Order = 0;
             this.txtCOD3Name.ParentConn = null;
             this.txtCOD3Name.ParentDA = null;
+            this.txtCOD3Name.PasswordChar = '\0';
             this.txtCOD3Name.PK = false;
             this.txtCOD3Name.Protected = false;
             this.txtCOD3Name.ReadOnly = true;
             this.txtCOD3Name.Search = false;
-            this.txtCOD3Name.Size = new System.Drawing.Size(204, 17);
+            this.txtCOD3Name.Size = new System.Drawing.Size(154, 25);
             this.txtCOD3Name.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtCOD3Name.TabIndex = 5;
+            this.txtCOD3Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtCOD3Name.Upp = false;
+            this.txtCOD3Name.UseSystemPasswordChar = false;
             this.txtCOD3Name.Value = "";
             // 
             // cboCOD3
@@ -141,7 +146,6 @@
             this.cboCOD3.Add = false;
             this.cboCOD3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboCOD3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboCOD3.BackColor = System.Drawing.Color.White;
             this.cboCOD3.Caption = "COD3";
             this.cboCOD3.DataSource = null;
             this.cboCOD3.DBField = null;
@@ -154,6 +158,7 @@
             this.cboCOD3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboCOD3.Font = new System.Drawing.Font("Tahoma", 10F);
             this.cboCOD3.ForeColor = System.Drawing.Color.Black;
+            this.cboCOD3.FormattingEnabled = false;
             this.cboCOD3.IsCTLMOwned = false;
             this.cboCOD3.Location = new System.Drawing.Point(58, 71);
             this.cboCOD3.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
@@ -167,7 +172,7 @@
             this.cboCOD3.Search = false;
             this.cboCOD3.SelectedItem = null;
             this.cboCOD3.SelectedValue = null;
-            this.cboCOD3.Size = new System.Drawing.Size(130, 24);
+            this.cboCOD3.Size = new System.Drawing.Size(154, 40);
             this.cboCOD3.Status = CommonTools.EnumStatus.ADDNEW;
             this.cboCOD3.TabIndex = 3;
             this.cboCOD3.TBDescription = null;
@@ -177,6 +182,10 @@
             // 
             // CTLM
             // 
+            this.CTLM.AutoSize = true;
+            this.CTLM.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CTLM.BackColor = System.Drawing.Color.Transparent;
+            this.CTLM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CTLM.Clear = false;
             this.CTLM.Conn = null;
             this.CTLM.DBTable = null;
@@ -185,7 +194,7 @@
             this.CTLM.MsgStatusLabel = null;
             this.CTLM.Name = "CTLM";
             this.CTLM.ReQuery = false;
-            this.CTLM.Size = new System.Drawing.Size(315, 28);
+            this.CTLM.Size = new System.Drawing.Size(300, 31);
             this.CTLM.sSPAdd = "";
             this.CTLM.sSPDel = "";
             this.CTLM.sSPUpp = "";
@@ -198,13 +207,13 @@
             this.txtExternalIP.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtExternalIP.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtExternalIP.Caption = "External IP";
+            this.txtExternalIP.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtExternalIP.DBField = null;
             this.txtExternalIP.DBFieldType = null;
             this.txtExternalIP.DefaultValue = null;
             this.txtExternalIP.Del = false;
             this.txtExternalIP.DependingRS = null;
             this.txtExternalIP.ExtraDataLink = null;
-            this.txtExternalIP.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtExternalIP.IsCTLMOwned = false;
             this.txtExternalIP.Location = new System.Drawing.Point(58, 212);
             this.txtExternalIP.Multiline = false;
@@ -212,14 +221,17 @@
             this.txtExternalIP.Order = 0;
             this.txtExternalIP.ParentConn = null;
             this.txtExternalIP.ParentDA = null;
+            this.txtExternalIP.PasswordChar = '\0';
             this.txtExternalIP.PK = false;
             this.txtExternalIP.Protected = false;
             this.txtExternalIP.ReadOnly = false;
             this.txtExternalIP.Search = false;
-            this.txtExternalIP.Size = new System.Drawing.Size(315, 35);
+            this.txtExternalIP.Size = new System.Drawing.Size(154, 38);
             this.txtExternalIP.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtExternalIP.TabIndex = 17;
+            this.txtExternalIP.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtExternalIP.Upp = false;
+            this.txtExternalIP.UseSystemPasswordChar = false;
             this.txtExternalIP.Value = "";
             // 
             // fTown
@@ -237,6 +249,7 @@
             this.ShowIcon = false;
             this.Text = "Towns";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

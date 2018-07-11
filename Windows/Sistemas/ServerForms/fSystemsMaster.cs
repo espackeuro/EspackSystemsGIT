@@ -19,6 +19,7 @@ using SharpSvn.UI;
 using static Sistemas.Values;
 using Renci.SshNet;
 using System.Threading;
+using EspackFormControlsNS;
 
 namespace Sistemas
 {
@@ -72,7 +73,7 @@ namespace Sistemas
             serversList1.Password = Values.DefaultPasswordForServers;
             serversList1.Start("APPServer","~/checkout.sh", btnServerCheckout);
         }
-        private void CTLM_BeforeButtonClick(object sender, CTLMantenimientoNet.CTLMEventArgs e)
+        private void CTLM_BeforeButtonClick(object sender, CTLMEventArgs e)
         {
             switch (CTLM.Status)
             {
@@ -87,7 +88,7 @@ namespace Sistemas
                     break;
             }
         }
-        private void CTLM_AfterButtonClick(object sender, CTLMantenimientoNet.CTLMEventArgs e)
+        private void CTLM_AfterButtonClick(object sender, CTLMEventArgs e)
         {
             string _COD3 = "";
             FileVersionInfo _localFileVersion;

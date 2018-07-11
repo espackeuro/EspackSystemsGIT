@@ -11,7 +11,7 @@ namespace EspackDataGridView
 
     public interface IEspackEditControl : IDataGridViewEditingControl
     {
-        EspackFormControlCommon Control { get; }
+        EspackFormControlCommon EspackControl { get; }
         DataGridView ParentDataGrid { get; set; }
         string SqlSource { get; set; }
         object Value { get; set; }
@@ -188,14 +188,15 @@ namespace EspackDataGridView
                     break;
             }
             editControl.Conn = Conn;
-            editControl.Control.ValueChanged -= Control_ValueChanged;
-            editControl.SqlSource = SqlSource;
+            editControl.EspackControl.ValueChanged -= Control_ValueChanged;
+            editControl.SqlSource = Column.SqlSource;
             editControl.AutoCompleteMode = AutoCompleteMode;
             editControl.AutoCompleteSource = AutoCompleteSource;
             editControl.AutoCompleteCustomSource = AutoCompleteCustomSource;
+            
             oldValue = Value;
             editControl.Value = Value;
-            editControl.Control.ValueChanged += Control_ValueChanged;
+            editControl.EspackControl.ValueChanged += Control_ValueChanged;
             // Use the default row value when Value property is null.
             //if (this.Value == null)
             //{

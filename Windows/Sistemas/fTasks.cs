@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EspackFormControlsNS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,9 +26,9 @@ namespace Sistemas
             CTLM.AddItem(txtIT, "ITWorker", true, true, false, 0, false, true);
             CTLM.AddItem(txtPerson, "Person", true, true, false, 0, false, true);
             CTLM.AddItem(cboPlaceAdvise, "PlaceAdvise", true, true, false, 0, false, true);
-            CTLM.AddItem(txtPlaceAdvise, "DesPlaceAdvise");
+            CTLM.AddItem(txtPlaceAdvise, "DesPlaceAdvise",CTLMControlTypes.NoSearch);
             CTLM.AddItem(cboPlaceAffected, "PlaceAffected", true, true, false, 0, false, true);
-            CTLM.AddItem(txtPlaceAffected, "DesPlaceAffected");
+            CTLM.AddItem(txtPlaceAffected, "DesPlaceAffected",CTLMControlTypes.NoSearch);
             CTLM.AddItem(cboService, "ServiceAffected", true, true, false, 0, false, true);
             CTLM.AddItem(cboMatter, "Matter", true, true, false, 0, false, true);
             //CTLM.AddItem(txt, "DesPlaceAffected");
@@ -40,7 +41,7 @@ namespace Sistemas
             //combo definitions
             cboPlaceAdvise.Source("Select cod3,Nombre from vSedes", txtPlaceAdvise);
             cboPlaceAffected.Source("Select cod3,Nombre from vSedes", txtPlaceAffected);
-            cboPlaceAffected.SelectedValueChanged += delegate
+            cboPlaceAffected.ComboBox.SelectedValueChanged += delegate
             {
                 cboService.Source("Select codigoservicio from vServiciosSedes where cod3 = '" + cboPlaceAffected.Value + "'");
             };
@@ -52,7 +53,7 @@ namespace Sistemas
             //Defaults
             cboPlaceAdviseDef.Source("Select cod3 from vSedes", Values.gDatos);
             cboPlaceAffectedDef.Source("Select cod3 from vSedes", Values.gDatos);
-            cboPlaceAffectedDef.SelectedValueChanged += delegate
+            cboPlaceAffectedDef.ComboBox.SelectedValueChanged += delegate
             {
                 cboServiceDef.Source("Select codigoservicio from vServiciosSedes where cod3 = '" + cboPlaceAffectedDef.Value + "'", Values.gDatos);
             };
@@ -71,7 +72,7 @@ namespace Sistemas
 
         }
 
-        private void CTLM_AfterButtonClick(object sender, CTLMantenimientoNet.CTLMEventArgs e)
+        private void CTLM_AfterButtonClick(object sender, CTLMEventArgs e)
         {
             switch (e.ButtonClick)
             {

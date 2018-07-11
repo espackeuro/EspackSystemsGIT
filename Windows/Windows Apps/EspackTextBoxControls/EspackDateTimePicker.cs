@@ -54,13 +54,13 @@ namespace EspackFormControlsNS
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Bindable(true)]
         [Category("Appearance")]
+        [DefaultValue("")]
         public override string Text
         {
             get => DateTimePicker.Text;
-            set => DateTimePicker.Text = value;
+            set => Value = value;
         }
 
-        
         public override object Value
         {
             get
@@ -86,7 +86,18 @@ namespace EspackFormControlsNS
                     var _ch = Checked;
                     _nochangeevent = true;
                     if (value is string)
-                        DateTimePicker.Value = DateTime.Parse((string)value);
+                    {
+                        DateTime _result ;
+                        if (DateTime.TryParse((string)value, out _result))
+                        {
+                            DateTimePicker.Value = _result;
+                        }
+                        else
+                        {
+                            Checked = false;
+                            Value = null;
+                        }
+                    }
                     else
                         DateTimePicker.Value = (DateTime)value;
                     Checked = _ch; //base.Value assignment always changes Checked to true, we return to the origina value
@@ -141,12 +152,6 @@ namespace EspackFormControlsNS
         }
         public delegate void CheckedChangedEventHandler(object sender, CheckedChangedEventArgs e);
         public event CheckedChangedEventHandler CheckedChanged;
-        public override string Caption
-        {
-            get => CaptionLabel.Text;
-            set => CaptionLabel.Text = value;
-
-        }
 
 
         public override void SetStatus(EnumStatus value)

@@ -48,12 +48,6 @@ namespace EspackFormControlsNS
                 Text = value?.ToString();
             }
         }
-        public override string Caption
-        {
-            get => CaptionLabel.Text;
-            set => CaptionLabel.Text = value;
-
-        }
 
 
         public override void SetStatus(EnumStatus value)

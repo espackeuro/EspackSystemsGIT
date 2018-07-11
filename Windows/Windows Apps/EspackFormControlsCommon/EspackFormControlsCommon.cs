@@ -3,6 +3,7 @@ using CommonTools;
 using EspackControls;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -59,7 +60,6 @@ namespace EspackFormControlsNS
         protected Label CaptionLabel;
         public override bool ReadOnly { get; set; }
         public override object Value { get; set; }
-        public virtual string Caption { get; set; }
         public virtual Control Control { get; }
         public override void ClearEspackControl()
         {
@@ -82,23 +82,71 @@ namespace EspackFormControlsNS
             this.CaptionLabel.Name = "CaptionLabel";
             this.CaptionLabel.Size = new System.Drawing.Size(50, 13);
             this.CaptionLabel.TabIndex = 1;
-            this.CaptionLabel.Text = "Caption";
+            this.CaptionLabel.Text = "";
 
             
 
             this.ResumeLayout(false);
             Load += EspackFormControlCaption_Load;
+            this.Invalidated += EspackFormControlCaption_Invalidated;
             this.PerformLayout();
             
         }
 
-        private void EspackFormControlCaption_Load(object sender, EventArgs e)
+        private void EspackFormControlCaption_Invalidated(object sender, InvalidateEventArgs e)
         {
+            _resizing = true;
+            var _labelHeight = CaptionLabel.Text == "" ? 0 : CaptionLabel.Height + 3;
             if (Control != null)
             {
-                Control.Location = new Point(0, CaptionLabel.Height + 3);
-                Control.Size = new Size(this.Width, this.Height - Control.Top);
-                this.Size = new Size(Control.Width, CaptionLabel.Height + Control.Height + 3);
+                this.Size = new Size(this.Width, _labelHeight + Control.Height);
+                //Control.Size = new Size(this.Width, this.Height - _labelHeight);
+                Control.Location = new Point(0, _labelHeight);
+            }
+            _resizing = false;
+        }
+
+        public virtual string Caption
+        {
+            get => CaptionLabel.Text;
+            set
+            {
+                //if (value == "")
+                //    CaptionLabel.Size = new Size(0, 0);
+                //else
+                //    CaptionLabel.Size= new System.Drawing.Size(50, 13);
+                CaptionLabel.Text = value;
+                Invalidate();
+            }
+
+        }
+
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Bindable(true)]
+        [Category("Appearance")]
+        [DefaultValue("")]
+        public override string Text
+        {
+            get => Control.Text;
+            set
+            {
+                if (this.DesignMode && (Environment.StackTrace.Contains("System.Windows.Forms.Design.ControlDesigner.InitializeNewComponent")))
+                    return;
+                Control.Text = value;
+                Invalidate();
+            }
+        }
+
+        private void EspackFormControlCaption_Load(object sender, EventArgs e)
+        {
+            var _labelHeight = CaptionLabel.Text == "" ? 0 : CaptionLabel.Height + 3;
+            if (Control != null)
+            {
+                Control.Size = new Size(this.Width, this.Height - _labelHeight);
+                Control.Location = new Point(0, _labelHeight);
+                this.Size = new Size(Control.Width, _labelHeight + Control.Height);
             }
 
 
@@ -111,10 +159,12 @@ namespace EspackFormControlsNS
             if (!_resizing)
             {
                 _resizing = true;
+                var _labelHeight = CaptionLabel.Text == "" ? 0 : CaptionLabel.Height + 3;
                 if (Control != null)
                 {
                     Control.Size = new Size(this.Width, this.Height - Control.Top);
-                    this.Size = new Size(Control.Width, CaptionLabel.Height + Control.Height + 3);
+                    Control.Location = new Point(0, _labelHeight);
+                    this.Size = new Size(Control.Width, _labelHeight + Control.Height);
                 }
                 _resizing = false;
             }

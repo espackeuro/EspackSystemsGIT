@@ -35,6 +35,7 @@
             this.lstCOD3 = new EspackFormControlsNS.EspackCheckedListBox();
             this.txtUserNumber = new EspackFormControlsNS.EspackNumericTextBox();
             this.CTLM = new EspackFormControlsNS.CTLMantenimiento();
+            this.txtText = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtUserCode
@@ -43,6 +44,7 @@
             this.txtUserCode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtUserCode.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtUserCode.Caption = "UserCode";
+            this.txtUserCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtUserCode.DBField = null;
             this.txtUserCode.DBFieldType = null;
             this.txtUserCode.DefaultValue = null;
@@ -56,6 +58,7 @@
             this.txtUserCode.Order = 0;
             this.txtUserCode.ParentConn = null;
             this.txtUserCode.ParentDA = null;
+            this.txtUserCode.PasswordChar = '\0';
             this.txtUserCode.PK = false;
             this.txtUserCode.Protected = false;
             this.txtUserCode.ReadOnly = false;
@@ -63,7 +66,9 @@
             this.txtUserCode.Size = new System.Drawing.Size(154, 38);
             this.txtUserCode.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtUserCode.TabIndex = 11;
+            this.txtUserCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtUserCode.Upp = false;
+            this.txtUserCode.UseSystemPasswordChar = false;
             this.txtUserCode.Value = "";
             // 
             // txtDesCod3
@@ -72,6 +77,7 @@
             this.txtDesCod3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtDesCod3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtDesCod3.Caption = "";
+            this.txtDesCod3.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtDesCod3.DBField = null;
             this.txtDesCod3.DBFieldType = null;
             this.txtDesCod3.DefaultValue = null;
@@ -85,6 +91,7 @@
             this.txtDesCod3.Order = 0;
             this.txtDesCod3.ParentConn = null;
             this.txtDesCod3.ParentDA = null;
+            this.txtDesCod3.PasswordChar = '\0';
             this.txtDesCod3.PK = false;
             this.txtDesCod3.Protected = false;
             this.txtDesCod3.ReadOnly = false;
@@ -92,7 +99,9 @@
             this.txtDesCod3.Size = new System.Drawing.Size(154, 38);
             this.txtDesCod3.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtDesCod3.TabIndex = 10;
+            this.txtDesCod3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDesCod3.Upp = false;
+            this.txtDesCod3.UseSystemPasswordChar = false;
             this.txtDesCod3.Value = "";
             // 
             // cboMainCOD3
@@ -110,6 +119,7 @@
             this.cboMainCOD3.DisplayMember = "";
             this.cboMainCOD3.ExtraDataLink = null;
             this.cboMainCOD3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboMainCOD3.FormattingEnabled = false;
             this.cboMainCOD3.IsCTLMOwned = false;
             this.cboMainCOD3.Location = new System.Drawing.Point(13, 273);
             this.cboMainCOD3.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
@@ -137,8 +147,8 @@
             this.txtPwdExp.BorderColor = System.Drawing.Color.Black;
             this.txtPwdExp.BorderStyle = System.Windows.Forms.ButtonBorderStyle.None;
             this.txtPwdExp.Caption = "PWD EXP";
-            this.txtPwdExp.Checked = false;
-            this.txtPwdExp.CustomFormat = " ";
+            this.txtPwdExp.Checked = true;
+            this.txtPwdExp.CustomFormat = "dd/MM/yyyy H:mm";
             this.txtPwdExp.DBField = null;
             this.txtPwdExp.DBFieldType = null;
             this.txtPwdExp.DefaultValue = null;
@@ -163,8 +173,9 @@
             this.txtPwdExp.Size = new System.Drawing.Size(314, 39);
             this.txtPwdExp.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtPwdExp.TabIndex = 8;
+            this.txtPwdExp.Text = "11/07/2018 15:24";
             this.txtPwdExp.Upp = false;
-            this.txtPwdExp.Value = null;
+            this.txtPwdExp.Value = new System.DateTime(2018, 7, 11, 15, 24, 16, 882);
             // 
             // lstCOD3
             // 
@@ -180,6 +191,7 @@
             this.lstCOD3.DependingRS = null;
             this.lstCOD3.DisplayMember = "";
             this.lstCOD3.ExtraDataLink = null;
+            this.lstCOD3.FormattingEnabled = false;
             this.lstCOD3.IsCTLMOwned = false;
             this.lstCOD3.Location = new System.Drawing.Point(13, 96);
             this.lstCOD3.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
@@ -209,6 +221,7 @@
             this.txtUserNumber.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtUserNumber.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtUserNumber.Caption = "User Number";
+            this.txtUserNumber.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtUserNumber.DBField = null;
             this.txtUserNumber.DBFieldType = null;
             this.txtUserNumber.DefaultValue = null;
@@ -224,6 +237,7 @@
             this.txtUserNumber.Order = 0;
             this.txtUserNumber.ParentConn = null;
             this.txtUserNumber.ParentDA = null;
+            this.txtUserNumber.PasswordChar = '\0';
             this.txtUserNumber.PK = false;
             this.txtUserNumber.Precision = 0;
             this.txtUserNumber.Protected = false;
@@ -232,8 +246,10 @@
             this.txtUserNumber.Size = new System.Drawing.Size(154, 38);
             this.txtUserNumber.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtUserNumber.TabIndex = 6;
+            this.txtUserNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtUserNumber.ThousandsGroup = true;
             this.txtUserNumber.Upp = false;
+            this.txtUserNumber.UseSystemPasswordChar = false;
             this.txtUserNumber.Value = null;
             // 
             // CTLM
@@ -257,9 +273,17 @@
             this.CTLM.StatusBarProgress = null;
             this.CTLM.TabIndex = 3;
             // 
+            // txtText
+            // 
+            this.txtText.Location = new System.Drawing.Point(362, 68);
+            this.txtText.Name = "txtText";
+            this.txtText.Size = new System.Drawing.Size(100, 20);
+            this.txtText.TabIndex = 12;
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(584, 396);
+            this.Controls.Add(this.txtText);
             this.Controls.Add(this.txtUserCode);
             this.Controls.Add(this.txtDesCod3);
             this.Controls.Add(this.cboMainCOD3);
@@ -283,6 +307,7 @@
         private EspackFormControlsNS.EspackComboBox cboMainCOD3;
         private EspackFormControlsNS.EspackTextBox txtDesCod3;
         private EspackFormControlsNS.EspackTextBox txtUserCode;
+        private System.Windows.Forms.TextBox txtText;
     }
 }
 

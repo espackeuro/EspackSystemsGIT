@@ -106,7 +106,7 @@ namespace EspackFormControlsNS
                 }
                 else
                 {
-                    return Int32.Parse(this.Text == "." ? "0.0" : this.Text);
+                    return Int64.Parse(this.Text == "." ? "0.0" : this.Text);
                 }
 
             }
@@ -117,6 +117,7 @@ namespace EspackFormControlsNS
         }
         public override void ClearEspackControl()
         {
+            Text = "";
             Value = 0;
         }
 

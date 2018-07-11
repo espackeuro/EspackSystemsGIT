@@ -15,7 +15,7 @@ namespace EspackDataGridView
     public class EspackEditControlTextBox : EspackTextBox, IEspackEditControl
     {
         protected int rowIndex;
-        public EspackFormControlCommon Control { get => this; }
+        public EspackFormControlCommon EspackControl { get => this; }
         //private FilterCellTypes _type;
         private string _sqlSource;
         public cAccesoDatosNet Conn { get; set; }
@@ -26,7 +26,7 @@ namespace EspackDataGridView
             ReadOnly = false;
             Multiline = true;
             BorderStyle = BorderStyle.None;
-            
+            Caption = "";
             //this.GotFocus += Control_GotFocus;
             //this.LostFocus += Control_LostFocus;
         }

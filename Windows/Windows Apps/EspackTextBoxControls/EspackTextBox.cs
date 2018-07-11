@@ -22,22 +22,23 @@ namespace EspackFormControlsNS
         public bool Multiline { get; set; }
         public AutoCompleteStringCollection AutoCompleteCustomSource { get => TextBox.AutoCompleteCustomSource; set => TextBox.AutoCompleteCustomSource = value; }
         public AutoCompleteSource AutoCompleteSource { get => TextBox.AutoCompleteSource; set => TextBox.AutoCompleteSource = value; }
-        public AutoCompleteMode AutoCompleteMode { get => TextBox.AutoCompleteMode; set => TextBox.AutoCompleteMode = value; }
+        public AutoCompleteMode AutoCompleteMode
+        {
+            get => TextBox.AutoCompleteMode;
+            set
+            {
+                if (value != AutoCompleteMode.None)
+                    TextBox.Multiline = false;
+                TextBox.AutoCompleteMode = value;
+            }
+        }
         public HorizontalAlignment TextAlign { get => TextBox.TextAlign; set => TextBox.TextAlign = value; }
         public CharacterCasing CharacterCasing { get => TextBox.CharacterCasing; set => TextBox.CharacterCasing = value; }
         public bool UseSystemPasswordChar { get => TextBox.UseSystemPasswordChar; set => TextBox.UseSystemPasswordChar = value; }
+        public char PasswordChar { get => TextBox.PasswordChar; set => TextBox.PasswordChar = value; }
 
 
-        [Browsable(true)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        [EditorBrowsable(EditorBrowsableState.Always)]
-        [Bindable(true)]
-        [Category("Appearance")]
-        public override string Text
-        {
-            get => TextBox.Text;
-            set => TextBox.Text = value;
-        }
+    
         public override Font Font { get => TextBox.Font; set => TextBox.Font = value; }
 
         private string oldText;
@@ -53,13 +54,6 @@ namespace EspackFormControlsNS
                 Text = value?.ToString();
             }
         }
-        public override string Caption
-        {
-            get => CaptionLabel.Text;
-            set => CaptionLabel.Text = value;
-
-        }
-
 
         public override void SetStatus(EnumStatus value)
         {
@@ -78,6 +72,7 @@ namespace EspackFormControlsNS
         {
             InitializeComponent();
             TextBox.Validated += EspackTextBox_Validated;
+            Text = "";
             oldText = "";
         }
 
@@ -113,18 +108,18 @@ namespace EspackFormControlsNS
             this.TextBox.Multiline = true;
             this.TextBox.Name = "TextBox";
             //this.TextBox.Size = new System.Drawing.Size(154, 22);
-            this.Text = "";
             this.TextBox.TabIndex = 0;
             // 
             // EspackTextBox
             // 
-            this.Caption = "Caption";
+            this.Caption = "";
             this.Controls.Add(this.CaptionLabel);
             this.Controls.Add(this.TextBox);
             this.Name = "EspackTextBox";
-            this.Size = new System.Drawing.Size(154, 38);
+            this.Size = new System.Drawing.Size(154, 25);
             this.Controls.SetChildIndex(this.TextBox, 0);
             this.Controls.SetChildIndex(this.CaptionLabel, 0);
+            this.Text = "";
             this.ResumeLayout(false);
             this.PerformLayout();
 

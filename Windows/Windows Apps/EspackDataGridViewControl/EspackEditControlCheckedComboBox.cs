@@ -13,7 +13,7 @@ namespace EspackDataGridView
 
         //private DataGridCell _parentCell;
         protected int rowIndex;
-        public EspackFormControlCommon Control { get => this; }
+        public EspackFormControlCommon EspackControl { get => this; }
         private string _sqlSource;
         public cAccesoDatosNet Conn { get; set; }
         public EspackEditControlCheckedComboBox()

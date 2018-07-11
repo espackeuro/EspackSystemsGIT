@@ -14,7 +14,7 @@ namespace EspackDataGridView
 
 
         protected int rowIndex;
-        public EspackFormControlCommon Control { get => this; }
+        public EspackFormControlCommon EspackControl { get => this; }
         //private FilterCellTypes _type;
         private string _sqlSource;
         public cAccesoDatosNet Conn { get; set; }
@@ -24,6 +24,7 @@ namespace EspackDataGridView
             FlatStyle = FlatStyle.Flat;
             KeyDown += FilterCellComboBox_KeyDown;
             ComboBox.SelectedValueChanged += ComboBox_SelectedValueChanged;
+            Caption = "";
             //SelectedValueChanged += FilterCellComboBox_SelectedValueChanged;
             //this.GotFocus += Control_GotFocus;
             //this.LostFocus += Control_LostFocus;

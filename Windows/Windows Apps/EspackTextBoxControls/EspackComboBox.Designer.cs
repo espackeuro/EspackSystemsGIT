@@ -44,11 +44,10 @@
             // 
             // EspackTextBox
             // 
-            this.Caption = "Caption";
             this.Controls.Add(this.CaptionLabel);
             this.Controls.Add(this.ComboBox);
             this.Name = "EspackComboBox";
-            this.Size = new System.Drawing.Size(409, 35);
+            this.Size = new System.Drawing.Size(409, 22);
             this.ResumeLayout(false);
             this.PerformLayout();
         }

@@ -572,6 +572,16 @@ namespace EspackFormControlsNS
         }
 
         //AddControl: adds a Control to the Control collection
+
+        public void AddItem(object pDataContainer, string pDBField = "")
+        {
+            AddItem(pDataContainer, pDBField, CTLMControlTypes.NoSearch);
+        }
+        public void AddItem(EspackDataGridViewControl VS)
+        {
+            AddItem(VS, "", CTLMControlTypes.NoSearch);
+        }
+
         public void AddItem(object pDataContainer, string pDBField = "", bool pAdd = false, bool pUpp = false, bool pDel = false, int pOrder = 0, bool pPK = false,
             bool pSearch = false, object pDefValue = null, string pSPAddParamName = "", string pSPUppParamName = "", string pSPDelParamName = "", EspackExtraData pExtraDataLink = null)
         {
@@ -734,12 +744,25 @@ namespace EspackFormControlsNS
             if (PK)
                 CTLMItemsNotLinked.Where(r => r.PK == false).ToList().ForEach(i =>
                 {
-                    i.ClearEspackControl();
+                    try
+                    {
+                        i.ClearEspackControl();
+                    } catch (Exception ex)
+                    {
+                        throw ex;
+                    }
                 });
             else
                 CTLMItemsNotLinked.ForEach(i =>
                 {
-                    i.ClearEspackControl();
+                    try
+                    {
+                        i.ClearEspackControl();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
                 });
             if (MsgStatusInfoLabel != null) MsgStatusInfoLabel.Text = "";
 

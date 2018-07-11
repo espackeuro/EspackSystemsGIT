@@ -42,7 +42,7 @@ namespace EspackFormControlsNS
         public CheckedListBox.CheckedItemCollection CheckedItems { get => CheckedListBox.CheckedItems; }
         public CheckedListBox.ObjectCollection Items { get => CheckedListBox.Items; }
         private string oldText;
-        private StaticRS _RS;
+        private DynamicRS _RS;
         private string _SQL;
         private bool noChange = false;
 
@@ -107,6 +107,7 @@ namespace EspackFormControlsNS
                 }
                 if (oldValue != Value)
                     OnValueChanged(new ValueChangedEventArgs(oldValue, value));
+                Text = value.ToString();
             }
         }
         public void SetItemChecked(int index, bool value)
@@ -124,15 +125,6 @@ namespace EspackFormControlsNS
         public void ClearSelected()
         {
             CheckedListBox.ClearSelected();
-        }
-        public override string Caption
-        {
-            get => CaptionLabel.Text;
-            set
-            {
-                CaptionLabel.Text = value;
-                //Name = string.Format("lbl{0}", Caption.Replace(" ", "_"));
-            }
         }
 
 
@@ -212,11 +204,9 @@ namespace EspackFormControlsNS
         {
             noChange = true;
             _SQL = pSQL;
-            _RS = new StaticRS(_SQL, pConn);
+            _RS = new DynamicRS(_SQL, pConn);
             _RS.Open();
-            DataSource = null;
             DataSource = _RS.DataObject;
-
             if (_RS.FieldCount > 1)
                 CheckedListBox.DisplayMember = _RS.Fields[1];
             CheckedListBox.ValueMember = _RS.Fields[0];

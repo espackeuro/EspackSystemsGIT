@@ -15,11 +15,9 @@ using DiverseControls;
 
 namespace EspackDataGridView
 {
-#if DEBUG
-    public partial class EspackDataGridViewControl : EspackFormControlCommonMiddle
-#else
-    public partial class EspackDataGridViewControl: EspackFormControlCommon
-#endif
+
+    public partial class EspackDataGridViewControl : EspackFormControlCaption
+
     {
         #region Properties
         //public bool IsCTLMOwned { get; set; } = false;
@@ -142,6 +140,15 @@ namespace EspackDataGridView
             }
         }
 
+        public virtual bool ValidateRow()
+        {
+            if (Status == EnumStatus.ADDNEW || Status == EnumStatus.EDIT)
+            {
+                if (CurrentRow.Cells.OfType<EspackDataGridViewCell>().Where(o => o.Value.ToString() != "").Count() == 0)
+                    return false;
+            }
+            return true;
+        }
 
         //end properties
         public bool BeginEdit(bool selectAll)
@@ -444,10 +451,11 @@ namespace EspackDataGridView
         //{
         //    return mStatus;
         //}
-
+        private bool changingStatus = false;
         public override void SetStatus(EnumStatus value)
         {
             this.Enabled = true;
+            changingStatus = true;
             //this.ReadOnly 
             foreach (EspackDataGridViewColumn Col in Columns)
             {
@@ -527,8 +535,9 @@ namespace EspackDataGridView
             {
                 FilterDataGrid.Rows[0].Cells.OfType<EspackDataGridViewCell>().ToList().ForEach(c => c.ReadOnly = false);
             }
+            changingStatus = false;
         }
-
+        public override Control Control { get => DataGridView; }
         public string Query { get => GetQuery(); }
 
         public string GetQuery()
@@ -595,7 +604,7 @@ namespace EspackDataGridView
             DataGridView.CellEndEdit += EspackDataGridView_CellEndEdit;
             DataGridView.CurrentCellDirtyStateChanged += EspackDataGridView_CurrentCellDirtyStateChanged;
             Resize += CtlVSGrid_Resize;
-            KeyDown += CtlVSGrid_KeyDown;
+            DataGridView.KeyDown += CtlVSGrid_KeyDown;
             DataGridView.SelectionChanged += EspackDataGridView_SelectionChanged;
             DataGridView.ColumnWidthChanged += EspackDataGridView_ColumnWidthChanged;
             DataGridView.CellLeave += EspackDataGridView_CellLeave;
@@ -718,7 +727,7 @@ namespace EspackDataGridView
         private void EspackDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             executed = false;
-            if (endEditing)
+            if (endEditing || changingStatus)
                 return;
             endEditing = true;
             bool commitEdit = false;
@@ -726,7 +735,7 @@ namespace EspackDataGridView
                 commitEdit = true;
             if (CurrentCell.ReadOnly && e.ColumnIndex == VisibleColumns.Select(c => c.Index).Max())
                 commitEdit = true;
-            if (commitEdit)
+            if (commitEdit && ValidateRow())
             {
                 executed = true;
                 cancelSelect = !ExecuteCommand(true);
@@ -1339,9 +1348,9 @@ namespace EspackDataGridView
     {
         public static Color CELLLOCKEDBACKCOLOR = Color.LightGray;
         public static Color CELLLOCKEDFORECOLOR = Color.Black;
-        public static Color CELLBACKCOLOR = Color.Beige;
+        public static Color CELLBACKCOLOR = Color.White;
         public static Color CELLFORECOLOR = Color.Black;
-        public static Color CELLFILTERBACKCOLOR = Color.Beige;
+        public static Color CELLFILTERBACKCOLOR = Color.White;
         public static Color CELLFILTERFORECOLOR = Color.Red;
     }
     public class AggregateItemList

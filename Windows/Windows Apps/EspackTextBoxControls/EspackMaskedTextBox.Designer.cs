@@ -46,7 +46,7 @@
             this.Controls.Add(this.CaptionLabel);
             this.Controls.Add(this.MaskedTextBox);
             this.Name = "EspackMaskedTextBox";
-            this.Size = new System.Drawing.Size(154, 38);
+            this.Size = new System.Drawing.Size(154, 25);
             this.Controls.SetChildIndex(this.MaskedTextBox, 0);
             this.Controls.SetChildIndex(this.CaptionLabel, 0);
             this.ResumeLayout(false);

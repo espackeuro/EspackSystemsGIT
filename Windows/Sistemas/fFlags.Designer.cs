@@ -46,23 +46,24 @@
             // 
             // CTLM
             // 
+            this.CTLM.AutoSize = true;
+            this.CTLM.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CTLM.BackColor = System.Drawing.Color.Transparent;
+            this.CTLM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CTLM.Clear = false;
             this.CTLM.Conn = null;
             this.CTLM.DBTable = null;
-            this.CTLM.Dock = System.Windows.Forms.DockStyle.None;
-            
             this.CTLM.Location = new System.Drawing.Point(0, 0);
             this.CTLM.MsgStatusInfoLabel = null;
             this.CTLM.MsgStatusLabel = null;
             this.CTLM.Name = "CTLM";
             this.CTLM.ReQuery = false;
-            this.CTLM.Size = new System.Drawing.Size(290, 29);
+            this.CTLM.Size = new System.Drawing.Size(300, 31);
             this.CTLM.sSPAdd = "";
             this.CTLM.sSPDel = "";
             this.CTLM.sSPUpp = "";
             this.CTLM.StatusBarProgress = null;
             this.CTLM.TabIndex = 0;
-            this.CTLM.Text = "ctlMantenimientoNet1";
             // 
             // groupBox1
             // 
@@ -84,17 +85,20 @@
             this.cboTable.Add = false;
             this.cboTable.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboTable.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboTable.BackColor = System.Drawing.Color.White;
             this.cboTable.Caption = "Table";
+            this.cboTable.DataSource = null;
             this.cboTable.DBField = null;
             this.cboTable.DBFieldType = null;
             this.cboTable.DefaultValue = null;
             this.cboTable.Del = false;
             this.cboTable.DependingRS = null;
+            this.cboTable.DisplayMember = "";
+            this.cboTable.ExtraDataLink = null;
             this.cboTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboTable.Font = new System.Drawing.Font("Tahoma", 10F);
             this.cboTable.ForeColor = System.Drawing.Color.Black;
             this.cboTable.FormattingEnabled = true;
+            this.cboTable.IsCTLMOwned = false;
             this.cboTable.Location = new System.Drawing.Point(177, 32);
             this.cboTable.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.cboTable.Name = "cboTable";
@@ -102,27 +106,34 @@
             this.cboTable.ParentConn = null;
             this.cboTable.ParentDA = null;
             this.cboTable.PK = false;
+            this.cboTable.Protected = false;
+            this.cboTable.ReadOnly = false;
             this.cboTable.Search = false;
-            this.cboTable.Size = new System.Drawing.Size(250, 24);
-            this.cboTable.SetStatus(CommonTools.EnumStatus.ADDNEW);
+            this.cboTable.SelectedItem = null;
+            this.cboTable.SelectedValue = null;
+            this.cboTable.Size = new System.Drawing.Size(250, 40);
+            this.cboTable.Status = CommonTools.EnumStatus.ADDNEW;
             this.cboTable.TabIndex = 11;
             this.cboTable.TBDescription = null;
             this.cboTable.Upp = false;
             this.cboTable.Value = "";
+            this.cboTable.ValueMember = "";
             // 
             // txtCode
             // 
             this.txtCode.Add = false;
-            this.txtCode.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtCode.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtCode.Caption = "Code";
+            this.txtCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtCode.DBField = null;
             this.txtCode.DBFieldType = null;
             this.txtCode.DefaultValue = null;
             this.txtCode.Del = false;
             this.txtCode.DependingRS = null;
-            this.txtCode.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtCode.ExtraDataLink = null;
             this.txtCode.ForeColor = System.Drawing.Color.Gray;
+            this.txtCode.IsCTLMOwned = false;
             this.txtCode.Location = new System.Drawing.Point(564, 32);
             this.txtCode.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtCode.Multiline = true;
@@ -130,28 +141,34 @@
             this.txtCode.Order = 0;
             this.txtCode.ParentConn = null;
             this.txtCode.ParentDA = null;
+            this.txtCode.PasswordChar = '\0';
             this.txtCode.PK = false;
+            this.txtCode.Protected = false;
             this.txtCode.ReadOnly = true;
             this.txtCode.Search = false;
-            this.txtCode.Size = new System.Drawing.Size(125, 24);
-            this.txtCode.SetStatus(CommonTools.EnumStatus.ADDNEW);
+            this.txtCode.Size = new System.Drawing.Size(125, 40);
+            this.txtCode.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtCode.TabIndex = 15;
+            this.txtCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtCode.Upp = false;
+            this.txtCode.UseSystemPasswordChar = false;
             this.txtCode.Value = "";
             // 
             // txtLetter
             // 
             this.txtLetter.Add = false;
-            this.txtLetter.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtLetter.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtLetter.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtLetter.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtLetter.Caption = "Letter";
+            this.txtLetter.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtLetter.DBField = null;
             this.txtLetter.DBFieldType = null;
             this.txtLetter.DefaultValue = null;
             this.txtLetter.Del = false;
             this.txtLetter.DependingRS = null;
-            this.txtLetter.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtLetter.ExtraDataLink = null;
             this.txtLetter.ForeColor = System.Drawing.Color.Gray;
+            this.txtLetter.IsCTLMOwned = false;
             this.txtLetter.Location = new System.Drawing.Point(464, 32);
             this.txtLetter.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtLetter.Multiline = true;
@@ -159,28 +176,34 @@
             this.txtLetter.Order = 0;
             this.txtLetter.ParentConn = null;
             this.txtLetter.ParentDA = null;
+            this.txtLetter.PasswordChar = '\0';
             this.txtLetter.PK = false;
+            this.txtLetter.Protected = false;
             this.txtLetter.ReadOnly = true;
             this.txtLetter.Search = false;
-            this.txtLetter.Size = new System.Drawing.Size(55, 24);
-            this.txtLetter.SetStatus(CommonTools.EnumStatus.ADDNEW);
+            this.txtLetter.Size = new System.Drawing.Size(55, 40);
+            this.txtLetter.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtLetter.TabIndex = 13;
+            this.txtLetter.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtLetter.Upp = false;
+            this.txtLetter.UseSystemPasswordChar = false;
             this.txtLetter.Value = "";
             // 
             // txtIdReg
             // 
             this.txtIdReg.Add = false;
-            this.txtIdReg.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtIdReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtIdReg.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtIdReg.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtIdReg.Caption = "IdReg";
+            this.txtIdReg.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtIdReg.DBField = null;
             this.txtIdReg.DBFieldType = null;
             this.txtIdReg.DefaultValue = null;
             this.txtIdReg.Del = false;
             this.txtIdReg.DependingRS = null;
-            this.txtIdReg.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtIdReg.ExtraDataLink = null;
             this.txtIdReg.ForeColor = System.Drawing.Color.Gray;
+            this.txtIdReg.IsCTLMOwned = false;
             this.txtIdReg.Location = new System.Drawing.Point(17, 32);
             this.txtIdReg.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtIdReg.Multiline = true;
@@ -188,13 +211,17 @@
             this.txtIdReg.Order = 0;
             this.txtIdReg.ParentConn = null;
             this.txtIdReg.ParentDA = null;
+            this.txtIdReg.PasswordChar = '\0';
             this.txtIdReg.PK = false;
+            this.txtIdReg.Protected = false;
             this.txtIdReg.ReadOnly = true;
             this.txtIdReg.Search = false;
-            this.txtIdReg.Size = new System.Drawing.Size(125, 24);
-            this.txtIdReg.SetStatus(CommonTools.EnumStatus.ADDNEW);
+            this.txtIdReg.Size = new System.Drawing.Size(125, 40);
+            this.txtIdReg.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtIdReg.TabIndex = 9;
+            this.txtIdReg.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtIdReg.Upp = false;
+            this.txtIdReg.UseSystemPasswordChar = false;
             this.txtIdReg.Value = "";
             // 
             // groupBox2
@@ -213,16 +240,18 @@
             // txtDesFlagEng
             // 
             this.txtDesFlagEng.Add = false;
-            this.txtDesFlagEng.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtDesFlagEng.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDesFlagEng.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtDesFlagEng.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtDesFlagEng.Caption = "DescFlagEng";
+            this.txtDesFlagEng.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtDesFlagEng.DBField = null;
             this.txtDesFlagEng.DBFieldType = null;
             this.txtDesFlagEng.DefaultValue = null;
             this.txtDesFlagEng.Del = false;
             this.txtDesFlagEng.DependingRS = null;
-            this.txtDesFlagEng.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtDesFlagEng.ExtraDataLink = null;
             this.txtDesFlagEng.ForeColor = System.Drawing.Color.Gray;
+            this.txtDesFlagEng.IsCTLMOwned = false;
             this.txtDesFlagEng.Location = new System.Drawing.Point(499, 32);
             this.txtDesFlagEng.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtDesFlagEng.Multiline = true;
@@ -230,28 +259,34 @@
             this.txtDesFlagEng.Order = 0;
             this.txtDesFlagEng.ParentConn = null;
             this.txtDesFlagEng.ParentDA = null;
+            this.txtDesFlagEng.PasswordChar = '\0';
             this.txtDesFlagEng.PK = false;
+            this.txtDesFlagEng.Protected = false;
             this.txtDesFlagEng.ReadOnly = true;
             this.txtDesFlagEng.Search = false;
-            this.txtDesFlagEng.Size = new System.Drawing.Size(190, 24);
-            this.txtDesFlagEng.SetStatus(CommonTools.EnumStatus.ADDNEW);
+            this.txtDesFlagEng.Size = new System.Drawing.Size(190, 40);
+            this.txtDesFlagEng.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtDesFlagEng.TabIndex = 2;
+            this.txtDesFlagEng.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDesFlagEng.Upp = false;
+            this.txtDesFlagEng.UseSystemPasswordChar = false;
             this.txtDesFlagEng.Value = "";
             // 
             // txtDescFlag
             // 
             this.txtDescFlag.Add = false;
-            this.txtDescFlag.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtDescFlag.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDescFlag.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtDescFlag.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtDescFlag.Caption = "DescFlag";
+            this.txtDescFlag.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtDescFlag.DBField = null;
             this.txtDescFlag.DBFieldType = null;
             this.txtDescFlag.DefaultValue = null;
             this.txtDescFlag.Del = false;
             this.txtDescFlag.DependingRS = null;
-            this.txtDescFlag.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtDescFlag.ExtraDataLink = null;
             this.txtDescFlag.ForeColor = System.Drawing.Color.Gray;
+            this.txtDescFlag.IsCTLMOwned = false;
             this.txtDescFlag.Location = new System.Drawing.Point(17, 32);
             this.txtDescFlag.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtDescFlag.Multiline = true;
@@ -259,13 +294,17 @@
             this.txtDescFlag.Order = 0;
             this.txtDescFlag.ParentConn = null;
             this.txtDescFlag.ParentDA = null;
+            this.txtDescFlag.PasswordChar = '\0';
             this.txtDescFlag.PK = false;
+            this.txtDescFlag.Protected = false;
             this.txtDescFlag.ReadOnly = true;
             this.txtDescFlag.Search = false;
-            this.txtDescFlag.Size = new System.Drawing.Size(190, 24);
-            this.txtDescFlag.SetStatus(CommonTools.EnumStatus.ADDNEW);
+            this.txtDescFlag.Size = new System.Drawing.Size(190, 40);
+            this.txtDescFlag.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtDescFlag.TabIndex = 0;
+            this.txtDescFlag.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDescFlag.Upp = false;
+            this.txtDescFlag.UseSystemPasswordChar = false;
             this.txtDescFlag.Value = "";
             // 
             // groupBox3
@@ -283,19 +322,20 @@
             // lstServices
             // 
             this.lstServices.Add = false;
-            this.lstServices.BackColor = System.Drawing.Color.White;
-            this.lstServices.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lstServices.Caption = "";
             this.lstServices.CheckOnClick = true;
             this.lstServices.ColumnWidth = 225;
+            this.lstServices.DataSource = null;
             this.lstServices.DBField = null;
             this.lstServices.DBFieldType = null;
             this.lstServices.DefaultValue = null;
             this.lstServices.Del = false;
             this.lstServices.DependingRS = null;
-            this.lstServices.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lstServices.DisplayMember = "";
+            this.lstServices.ExtraDataLink = null;
             this.lstServices.ForeColor = System.Drawing.Color.Black;
             this.lstServices.FormattingEnabled = true;
+            this.lstServices.IsCTLMOwned = false;
             this.lstServices.Location = new System.Drawing.Point(14, 21);
             this.lstServices.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.lstServices.MultiColumn = true;
@@ -304,12 +344,18 @@
             this.lstServices.ParentConn = null;
             this.lstServices.ParentDA = null;
             this.lstServices.PK = false;
+            this.lstServices.Protected = false;
+            this.lstServices.ReadOnly = false;
             this.lstServices.Search = false;
+            this.lstServices.SelectedItem = null;
+            this.lstServices.SelectedValue = null;
             this.lstServices.Size = new System.Drawing.Size(675, 285);
-            this.lstServices.SetStatus(CommonTools.EnumStatus.ADDNEW);
+            this.lstServices.Status = CommonTools.EnumStatus.ADDNEW;
             this.lstServices.TabIndex = 0;
+            this.lstServices.TBDescription = null;
             this.lstServices.Upp = false;
             this.lstServices.Value = "";
+            this.lstServices.ValueMember = "";
             // 
             // fFlags
             // 
@@ -324,11 +370,8 @@
             this.ShowIcon = false;
             this.Text = "Flags";
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

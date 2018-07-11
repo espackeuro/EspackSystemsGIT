@@ -121,12 +121,7 @@ namespace EspackFormControlsNS
         {
             CheckedComboBox.ClearSelected();
         }
-        public override string Caption
-        {
-            get => CaptionLabel.Text;
-            set => CaptionLabel.Text = value;
 
-        }
 
 
         public override void SetStatus(EnumStatus value)
