@@ -90,7 +90,7 @@
             this.txtDesType.Order = 0;
             this.txtDesType.ParentConn = null;
             this.txtDesType.ParentDA = null;
-            this.txtDesType.PasswordChar = '\0';
+            
             this.txtDesType.PK = false;
             this.txtDesType.Protected = false;
             this.txtDesType.ReadOnly = false;
@@ -100,7 +100,7 @@
             this.txtDesType.TabIndex = 10;
             this.txtDesType.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDesType.Upp = false;
-            this.txtDesType.UseSystemPasswordChar = false;
+            
             this.txtDesType.Value = "";
             // 
             // cboType
@@ -159,7 +159,7 @@
             this.txtDescription.Order = 0;
             this.txtDescription.ParentConn = null;
             this.txtDescription.ParentDA = null;
-            this.txtDescription.PasswordChar = '\0';
+            
             this.txtDescription.PK = false;
             this.txtDescription.Protected = false;
             this.txtDescription.ReadOnly = false;
@@ -169,7 +169,7 @@
             this.txtDescription.TabIndex = 8;
             this.txtDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDescription.Upp = false;
-            this.txtDescription.UseSystemPasswordChar = false;
+            
             this.txtDescription.Value = "";
             // 
             // txtName
@@ -192,7 +192,7 @@
             this.txtName.Order = 0;
             this.txtName.ParentConn = null;
             this.txtName.ParentDA = null;
-            this.txtName.PasswordChar = '\0';
+            
             this.txtName.PK = false;
             this.txtName.Protected = false;
             this.txtName.ReadOnly = false;
@@ -202,7 +202,7 @@
             this.txtName.TabIndex = 7;
             this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtName.Upp = false;
-            this.txtName.UseSystemPasswordChar = false;
+            
             this.txtName.Value = "";
             // 
             // txtCode
@@ -225,7 +225,7 @@
             this.txtCode.Order = 0;
             this.txtCode.ParentConn = null;
             this.txtCode.ParentDA = null;
-            this.txtCode.PasswordChar = '\0';
+            
             this.txtCode.PK = false;
             this.txtCode.Protected = false;
             this.txtCode.ReadOnly = false;
@@ -235,7 +235,7 @@
             this.txtCode.TabIndex = 6;
             this.txtCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtCode.Upp = false;
-            this.txtCode.UseSystemPasswordChar = false;
+            
             this.txtCode.Value = "";
             // 
             // groupBox2
@@ -347,7 +347,7 @@
             this.txtDesCod3.Order = 0;
             this.txtDesCod3.ParentConn = null;
             this.txtDesCod3.ParentDA = null;
-            this.txtDesCod3.PasswordChar = '\0';
+            
             this.txtDesCod3.PK = false;
             this.txtDesCod3.Protected = false;
             this.txtDesCod3.ReadOnly = false;
@@ -357,7 +357,7 @@
             this.txtDesCod3.TabIndex = 118;
             this.txtDesCod3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDesCod3.Upp = false;
-            this.txtDesCod3.UseSystemPasswordChar = false;
+            
             this.txtDesCod3.Value = "";
             // 
             // cboCOD3
@@ -505,7 +505,7 @@
             this.txtInvoice.Order = 0;
             this.txtInvoice.ParentConn = null;
             this.txtInvoice.ParentDA = null;
-            this.txtInvoice.PasswordChar = '\0';
+            
             this.txtInvoice.PK = false;
             this.txtInvoice.Protected = false;
             this.txtInvoice.ReadOnly = false;
@@ -515,7 +515,7 @@
             this.txtInvoice.TabIndex = 16;
             this.txtInvoice.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtInvoice.Upp = false;
-            this.txtInvoice.UseSystemPasswordChar = false;
+            
             this.txtInvoice.Value = "";
             // 
             // txtCM
@@ -538,7 +538,7 @@
             this.txtCM.Order = 0;
             this.txtCM.ParentConn = null;
             this.txtCM.ParentDA = null;
-            this.txtCM.PasswordChar = '\0';
+            
             this.txtCM.PK = false;
             this.txtCM.Protected = false;
             this.txtCM.ReadOnly = false;
@@ -548,7 +548,7 @@
             this.txtCM.TabIndex = 15;
             this.txtCM.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtCM.Upp = false;
-            this.txtCM.UseSystemPasswordChar = false;
+            
             this.txtCM.Value = "";
             // 
             // txtSerial
@@ -571,7 +571,7 @@
             this.txtSerial.Order = 0;
             this.txtSerial.ParentConn = null;
             this.txtSerial.ParentDA = null;
-            this.txtSerial.PasswordChar = '\0';
+            
             this.txtSerial.PK = false;
             this.txtSerial.Protected = false;
             this.txtSerial.ReadOnly = false;
@@ -581,7 +581,7 @@
             this.txtSerial.TabIndex = 14;
             this.txtSerial.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtSerial.Upp = false;
-            this.txtSerial.UseSystemPasswordChar = false;
+            
             this.txtSerial.Value = "";
             // 
             // VS

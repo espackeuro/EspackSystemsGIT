@@ -121,6 +121,7 @@ namespace EspackFormControlsNS
 
         }
 
+
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         [EditorBrowsable(EditorBrowsableState.Always)]
@@ -129,7 +130,12 @@ namespace EspackFormControlsNS
         [DefaultValue("")]
         public override string Text
         {
-            get => Control.Text;
+            get
+            {
+                if (this.DesignMode && (Environment.StackTrace.Contains("System.Windows.Forms.Design.ControlDesigner.InitializeNewComponent")))
+                    return "";
+                return Control?.Text ?? "";
+            }
             set
             {
                 if (this.DesignMode && (Environment.StackTrace.Contains("System.Windows.Forms.Design.ControlDesigner.InitializeNewComponent")))

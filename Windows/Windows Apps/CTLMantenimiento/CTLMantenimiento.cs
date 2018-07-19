@@ -16,7 +16,7 @@ using System.Windows.Forms;
 
 namespace EspackFormControlsNS
 {
-    public enum CTLMControlTypes { PK, AddUppSearch, AddUppNoSearch, AddSearch, AddNoSearch, UppSearch, UppNoSearch, Search, NoSearch}
+    public enum CTLMControlTypes { PK, NoAddPK, AddUppSearch, AddUppNoSearch, AddSearch, AddNoSearch, UppSearch, UppNoSearch, Search, NoSearch}
     public enum CTLMButtonsEnum { btnAdd, btnUpp, btnDel, btnSearch, btnCancel, btnOk, btnNext, btnPrev, btnFirst, btnLast }
     public partial class CTLMantenimiento : UserControl
     {
@@ -135,6 +135,10 @@ namespace EspackFormControlsNS
                 return mDA.DeleteCommand;
             }
         }
+
+        public bool ADD { get => sSPAdd != ""; }
+        public bool UPP { get => sSPUpp != ""; }
+        public bool DEL { get => sSPDel != ""; }
         //Property which holds the table name.
         public string DBTable { set; get; } //property to assign table name
 
@@ -542,19 +546,22 @@ namespace EspackFormControlsNS
             switch (pControType)
             {
                 case CTLMControlTypes.PK:
-                    AddItem(pDataContainer, pDBField, false, true, true, pOrder, true, true, pDefValue, pSPAddParamName, pSPUppParamName, pSPDelParamName, pExtraDataLink);
+                    AddItem(pDataContainer, pDBField, ADD, UPP, DEL, pOrder, true, true, pDefValue, pSPAddParamName, pSPUppParamName, pSPDelParamName, pExtraDataLink);
+                    break;
+                case CTLMControlTypes.NoAddPK:
+                    AddItem(pDataContainer, pDBField, false, UPP, DEL, pOrder, true, true, pDefValue, pSPAddParamName, pSPUppParamName, pSPDelParamName, pExtraDataLink);
                     break;
                 case CTLMControlTypes.AddUppNoSearch:
-                    AddItem(pDataContainer, pDBField, true, true, false, pOrder, false, false, pDefValue, pSPAddParamName, pSPUppParamName, pSPDelParamName, pExtraDataLink);
+                    AddItem(pDataContainer, pDBField, ADD, UPP, false, pOrder, false, false, pDefValue, pSPAddParamName, pSPUppParamName, pSPDelParamName, pExtraDataLink);
                     break;
                 case CTLMControlTypes.AddUppSearch:
-                    AddItem(pDataContainer, pDBField, true, true, false, pOrder, false, true, pDefValue, pSPAddParamName, pSPUppParamName, pSPDelParamName, pExtraDataLink);
+                    AddItem(pDataContainer, pDBField, ADD, UPP, false, pOrder, false, true, pDefValue, pSPAddParamName, pSPUppParamName, pSPDelParamName, pExtraDataLink);
                     break;
                 case CTLMControlTypes.AddNoSearch:
-                    AddItem(pDataContainer, pDBField, true, false, false, pOrder, false, false, pDefValue, pSPAddParamName, pSPUppParamName, pSPDelParamName, pExtraDataLink);
+                    AddItem(pDataContainer, pDBField, ADD, false, false, pOrder, false, false, pDefValue, pSPAddParamName, pSPUppParamName, pSPDelParamName, pExtraDataLink);
                     break;
                 case CTLMControlTypes.AddSearch:
-                    AddItem(pDataContainer, pDBField, true, false, false, pOrder, false, true, pDefValue, pSPAddParamName, pSPUppParamName, pSPDelParamName, pExtraDataLink);
+                    AddItem(pDataContainer, pDBField, ADD, false, false, pOrder, false, true, pDefValue, pSPAddParamName, pSPUppParamName, pSPDelParamName, pExtraDataLink);
                     break;
                 case CTLMControlTypes.UppNoSearch:
                     AddItem(pDataContainer, pDBField, false, false, true, pOrder, false, false, pDefValue, pSPAddParamName, pSPUppParamName, pSPDelParamName, pExtraDataLink);

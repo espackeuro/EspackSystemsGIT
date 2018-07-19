@@ -38,65 +38,73 @@
             // txtServerPwd
             // 
             this.txtServerPwd.Add = false;
-            this.txtServerPwd.BackColor = System.Drawing.Color.White;
-            this.txtServerPwd.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtServerPwd.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtServerPwd.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtServerPwd.Caption = "Password";
+            this.txtServerPwd.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtServerPwd.DBField = null;
             this.txtServerPwd.DBFieldType = null;
             this.txtServerPwd.DefaultValue = null;
             this.txtServerPwd.Del = false;
             this.txtServerPwd.DependingRS = null;
             this.txtServerPwd.ExtraDataLink = null;
-            this.txtServerPwd.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtServerPwd.ForeColor = System.Drawing.Color.Black;
-            this.txtServerPwd.Location = new System.Drawing.Point(167, 22);
+            this.txtServerPwd.IsCTLMOwned = false;
+            this.txtServerPwd.IsPassword = true;
+            this.txtServerPwd.Location = new System.Drawing.Point(167, 16);
             this.txtServerPwd.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtServerPwd.Multiline = false;
             this.txtServerPwd.Name = "txtServerPwd";
             this.txtServerPwd.Order = 0;
             this.txtServerPwd.ParentConn = null;
             this.txtServerPwd.ParentDA = null;
             this.txtServerPwd.PK = false;
             this.txtServerPwd.Protected = false;
+            this.txtServerPwd.ReadOnly = false;
             this.txtServerPwd.Search = false;
-            this.txtServerPwd.Size = new System.Drawing.Size(130, 17);
-            this.txtServerPwd.SetStatus(CommonTools.EnumStatus.EDIT);
+            this.txtServerPwd.Size = new System.Drawing.Size(130, 38);
+            this.txtServerPwd.Status = CommonTools.EnumStatus.EDIT;
             this.txtServerPwd.TabIndex = 90;
+            this.txtServerPwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtServerPwd.Upp = true;
-            this.txtServerPwd.UseSystemPasswordChar = true;
             this.txtServerPwd.Value = "";
             // 
             // txtServerUser
             // 
             this.txtServerUser.Add = false;
-            this.txtServerUser.BackColor = System.Drawing.Color.White;
-            this.txtServerUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtServerUser.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtServerUser.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtServerUser.Caption = "Server User";
+            this.txtServerUser.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtServerUser.DBField = null;
             this.txtServerUser.DBFieldType = null;
             this.txtServerUser.DefaultValue = null;
             this.txtServerUser.Del = false;
             this.txtServerUser.DependingRS = null;
             this.txtServerUser.ExtraDataLink = null;
-            this.txtServerUser.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtServerUser.ForeColor = System.Drawing.Color.Black;
-            this.txtServerUser.Location = new System.Drawing.Point(17, 22);
+            this.txtServerUser.IsCTLMOwned = false;
+            this.txtServerUser.IsPassword = false;
+            this.txtServerUser.Location = new System.Drawing.Point(17, 16);
             this.txtServerUser.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtServerUser.Multiline = false;
             this.txtServerUser.Name = "txtServerUser";
             this.txtServerUser.Order = 0;
             this.txtServerUser.ParentConn = null;
             this.txtServerUser.ParentDA = null;
             this.txtServerUser.PK = false;
             this.txtServerUser.Protected = false;
+            this.txtServerUser.ReadOnly = false;
             this.txtServerUser.Search = false;
-            this.txtServerUser.Size = new System.Drawing.Size(144, 17);
-            this.txtServerUser.SetStatus(CommonTools.EnumStatus.EDIT);
+            this.txtServerUser.Size = new System.Drawing.Size(130, 38);
+            this.txtServerUser.Status = CommonTools.EnumStatus.EDIT;
             this.txtServerUser.TabIndex = 89;
+            this.txtServerUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtServerUser.Upp = true;
             this.txtServerUser.Value = "";
             // 
             // grpServers
             // 
-            this.grpServers.BackColor = System.Drawing.SystemColors.Control;
             this.grpServers.Controls.Add(this.chkSelectAll);
             this.grpServers.Location = new System.Drawing.Point(17, 55);
             this.grpServers.Name = "grpServers";
@@ -127,7 +135,6 @@
             this.grpServers.ResumeLayout(false);
             this.grpServers.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

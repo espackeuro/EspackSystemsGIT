@@ -42,6 +42,12 @@ namespace Nidus
             Values.gDatos.Close();
 
         }
+
+        private void docsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fDocumentControl fdoc = new fDocumentControl();
+            fdoc.Show();
+        }
     }
     public static class Values
     {

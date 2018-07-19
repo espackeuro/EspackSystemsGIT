@@ -81,7 +81,7 @@ namespace Sistemas
             this.txtDescription.Order = 0;
             this.txtDescription.ParentConn = null;
             this.txtDescription.ParentDA = null;
-            this.txtDescription.PasswordChar = '\0';
+            
             this.txtDescription.PK = false;
             this.txtDescription.Protected = false;
             this.txtDescription.ReadOnly = true;
@@ -91,7 +91,7 @@ namespace Sistemas
             this.txtDescription.TabIndex = 29;
             this.txtDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDescription.Upp = false;
-            this.txtDescription.UseSystemPasswordChar = false;
+            
             this.txtDescription.Value = "";
             // 
             // lstCOD3
@@ -192,7 +192,7 @@ namespace Sistemas
             this.txtProfileCode.Order = 0;
             this.txtProfileCode.ParentConn = null;
             this.txtProfileCode.ParentDA = null;
-            this.txtProfileCode.PasswordChar = '\0';
+            
             this.txtProfileCode.PK = false;
             this.txtProfileCode.Protected = false;
             this.txtProfileCode.ReadOnly = true;
@@ -202,7 +202,7 @@ namespace Sistemas
             this.txtProfileCode.TabIndex = 0;
             this.txtProfileCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtProfileCode.Upp = false;
-            this.txtProfileCode.UseSystemPasswordChar = false;
+            
             this.txtProfileCode.Value = "";
             // 
             // groupBox2

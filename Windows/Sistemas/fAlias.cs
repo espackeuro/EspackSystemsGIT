@@ -38,7 +38,7 @@ namespace Sistemas
             VS.sSPUpp = "";
             VS.sSPDel = "MAIL..pDelAliasDet";
             VS.DBTable = "MAIL..aliasDET";
-
+            VS.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             //Details
             VS.AddColumn("Address", txtAddress, "@Address", "", "@Address",pVisible: false);
             VS.AddColumn("Destinations", "gotoAddress", "@gotoAddress", "", "@gotoAddress", false, false, false, pWidth: 200, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: "select email from mail..vEmailListAll order by email");
@@ -51,7 +51,7 @@ namespace Sistemas
             VSExceptions.sSPUpp = "";
             VSExceptions.sSPDel = "MAIL..pDelAliasExceptionsDet";
             VSExceptions.DBTable = "MAIL..aliasExceptionsDET";
-
+            VSExceptions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             //Details
             VSExceptions.AddColumn("Address", txtAddress, "@Address", "", "@Address", pVisible: false);
             VSExceptions.AddColumn("Exceptions", "gotoAddress", "@gotoAddress", "", "@gotoAddress", false, false, false, pWidth: 200, aMode: AutoCompleteMode.SuggestAppend, aSource: AutoCompleteSource.CustomSource, aQuery: "select email from mail..vEmailListAll order by email");

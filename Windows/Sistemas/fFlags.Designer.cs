@@ -141,7 +141,7 @@
             this.txtCode.Order = 0;
             this.txtCode.ParentConn = null;
             this.txtCode.ParentDA = null;
-            this.txtCode.PasswordChar = '\0';
+            
             this.txtCode.PK = false;
             this.txtCode.Protected = false;
             this.txtCode.ReadOnly = true;
@@ -151,7 +151,7 @@
             this.txtCode.TabIndex = 15;
             this.txtCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtCode.Upp = false;
-            this.txtCode.UseSystemPasswordChar = false;
+            
             this.txtCode.Value = "";
             // 
             // txtLetter
@@ -176,7 +176,7 @@
             this.txtLetter.Order = 0;
             this.txtLetter.ParentConn = null;
             this.txtLetter.ParentDA = null;
-            this.txtLetter.PasswordChar = '\0';
+            
             this.txtLetter.PK = false;
             this.txtLetter.Protected = false;
             this.txtLetter.ReadOnly = true;
@@ -186,7 +186,7 @@
             this.txtLetter.TabIndex = 13;
             this.txtLetter.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtLetter.Upp = false;
-            this.txtLetter.UseSystemPasswordChar = false;
+            
             this.txtLetter.Value = "";
             // 
             // txtIdReg
@@ -211,7 +211,7 @@
             this.txtIdReg.Order = 0;
             this.txtIdReg.ParentConn = null;
             this.txtIdReg.ParentDA = null;
-            this.txtIdReg.PasswordChar = '\0';
+            
             this.txtIdReg.PK = false;
             this.txtIdReg.Protected = false;
             this.txtIdReg.ReadOnly = true;
@@ -221,7 +221,7 @@
             this.txtIdReg.TabIndex = 9;
             this.txtIdReg.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtIdReg.Upp = false;
-            this.txtIdReg.UseSystemPasswordChar = false;
+            
             this.txtIdReg.Value = "";
             // 
             // groupBox2
@@ -259,7 +259,7 @@
             this.txtDesFlagEng.Order = 0;
             this.txtDesFlagEng.ParentConn = null;
             this.txtDesFlagEng.ParentDA = null;
-            this.txtDesFlagEng.PasswordChar = '\0';
+            
             this.txtDesFlagEng.PK = false;
             this.txtDesFlagEng.Protected = false;
             this.txtDesFlagEng.ReadOnly = true;
@@ -269,7 +269,7 @@
             this.txtDesFlagEng.TabIndex = 2;
             this.txtDesFlagEng.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDesFlagEng.Upp = false;
-            this.txtDesFlagEng.UseSystemPasswordChar = false;
+            
             this.txtDesFlagEng.Value = "";
             // 
             // txtDescFlag
@@ -294,7 +294,7 @@
             this.txtDescFlag.Order = 0;
             this.txtDescFlag.ParentConn = null;
             this.txtDescFlag.ParentDA = null;
-            this.txtDescFlag.PasswordChar = '\0';
+            
             this.txtDescFlag.PK = false;
             this.txtDescFlag.Protected = false;
             this.txtDescFlag.ReadOnly = true;
@@ -304,7 +304,7 @@
             this.txtDescFlag.TabIndex = 0;
             this.txtDescFlag.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDescFlag.Upp = false;
-            this.txtDescFlag.UseSystemPasswordChar = false;
+            
             this.txtDescFlag.Value = "";
             // 
             // groupBox3

@@ -101,7 +101,7 @@
             this.txtDomain.Order = 0;
             this.txtDomain.ParentConn = null;
             this.txtDomain.ParentDA = null;
-            this.txtDomain.PasswordChar = '\0';
+            
             this.txtDomain.PK = false;
             this.txtDomain.Protected = false;
             this.txtDomain.ReadOnly = true;
@@ -111,7 +111,7 @@
             this.txtDomain.TabIndex = 18;
             this.txtDomain.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDomain.Upp = false;
-            this.txtDomain.UseSystemPasswordChar = false;
+            
             this.txtDomain.Value = "";
             // 
             // txtLocalPart
@@ -136,7 +136,7 @@
             this.txtLocalPart.Order = 0;
             this.txtLocalPart.ParentConn = null;
             this.txtLocalPart.ParentDA = null;
-            this.txtLocalPart.PasswordChar = '\0';
+            
             this.txtLocalPart.PK = false;
             this.txtLocalPart.Protected = false;
             this.txtLocalPart.ReadOnly = true;
@@ -146,7 +146,7 @@
             this.txtLocalPart.TabIndex = 16;
             this.txtLocalPart.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtLocalPart.Upp = false;
-            this.txtLocalPart.UseSystemPasswordChar = false;
+            
             this.txtLocalPart.Value = "";
             // 
             // txtAddress
@@ -171,7 +171,7 @@
             this.txtAddress.Order = 0;
             this.txtAddress.ParentConn = null;
             this.txtAddress.ParentDA = null;
-            this.txtAddress.PasswordChar = '\0';
+            
             this.txtAddress.PK = false;
             this.txtAddress.Protected = false;
             this.txtAddress.ReadOnly = true;
@@ -181,7 +181,7 @@
             this.txtAddress.TabIndex = 0;
             this.txtAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtAddress.Upp = false;
-            this.txtAddress.UseSystemPasswordChar = false;
+            
             this.txtAddress.Value = "";
             // 
             // groupBox2
@@ -227,7 +227,7 @@
             this.lstCOD3.Search = false;
             this.lstCOD3.SelectedItem = null;
             this.lstCOD3.SelectedValue = null;
-            this.lstCOD3.Size = new System.Drawing.Size(540, 92);
+            this.lstCOD3.Size = new System.Drawing.Size(540, 88);
             this.lstCOD3.Status = CommonTools.EnumStatus.ADDNEW;
             this.lstCOD3.TabIndex = 2;
             this.lstCOD3.TBDescription = null;
@@ -265,7 +265,7 @@
             this.lstFlags.Search = false;
             this.lstFlags.SelectedItem = null;
             this.lstFlags.SelectedValue = null;
-            this.lstFlags.Size = new System.Drawing.Size(540, 73);
+            this.lstFlags.Size = new System.Drawing.Size(540, 70);
             this.lstFlags.Status = CommonTools.EnumStatus.ADDNEW;
             this.lstFlags.TabIndex = 0;
             this.lstFlags.TBDescription = null;

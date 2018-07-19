@@ -58,7 +58,7 @@
             this.txtMask.Order = 0;
             this.txtMask.ParentConn = null;
             this.txtMask.ParentDA = null;
-            this.txtMask.PasswordChar = '\0';
+            
             this.txtMask.PK = false;
             this.txtMask.Protected = false;
             this.txtMask.ReadOnly = true;
@@ -68,7 +68,7 @@
             this.txtMask.TabIndex = 10;
             this.txtMask.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtMask.Upp = false;
-            this.txtMask.UseSystemPasswordChar = false;
+            
             this.txtMask.Value = "";
             // 
             // txtSubNet
@@ -93,7 +93,7 @@
             this.txtSubNet.Order = 0;
             this.txtSubNet.ParentConn = null;
             this.txtSubNet.ParentDA = null;
-            this.txtSubNet.PasswordChar = '\0';
+            
             this.txtSubNet.PK = false;
             this.txtSubNet.Protected = false;
             this.txtSubNet.ReadOnly = true;
@@ -103,7 +103,7 @@
             this.txtSubNet.TabIndex = 7;
             this.txtSubNet.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtSubNet.Upp = false;
-            this.txtSubNet.UseSystemPasswordChar = false;
+            
             this.txtSubNet.Value = "";
             // 
             // txtCOD3Name
@@ -128,7 +128,7 @@
             this.txtCOD3Name.Order = 0;
             this.txtCOD3Name.ParentConn = null;
             this.txtCOD3Name.ParentDA = null;
-            this.txtCOD3Name.PasswordChar = '\0';
+            
             this.txtCOD3Name.PK = false;
             this.txtCOD3Name.Protected = false;
             this.txtCOD3Name.ReadOnly = true;
@@ -138,7 +138,7 @@
             this.txtCOD3Name.TabIndex = 5;
             this.txtCOD3Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtCOD3Name.Upp = false;
-            this.txtCOD3Name.UseSystemPasswordChar = false;
+            
             this.txtCOD3Name.Value = "";
             // 
             // cboCOD3
@@ -221,7 +221,7 @@
             this.txtExternalIP.Order = 0;
             this.txtExternalIP.ParentConn = null;
             this.txtExternalIP.ParentDA = null;
-            this.txtExternalIP.PasswordChar = '\0';
+            
             this.txtExternalIP.PK = false;
             this.txtExternalIP.Protected = false;
             this.txtExternalIP.ReadOnly = false;
@@ -231,7 +231,7 @@
             this.txtExternalIP.TabIndex = 17;
             this.txtExternalIP.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtExternalIP.Upp = false;
-            this.txtExternalIP.UseSystemPasswordChar = false;
+            
             this.txtExternalIP.Value = "";
             // 
             // fTown

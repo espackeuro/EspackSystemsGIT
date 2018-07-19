@@ -7,7 +7,7 @@ using CommonTools;
 using Ghostscript.NET;
 using Ghostscript.NET.Viewer;
 
-namespace EspackFileStream
+namespace EspackFormControlsNS
 {
     public partial class EspackFileDataContainerPreview : EspackFileDataContainer
     {
@@ -109,7 +109,8 @@ namespace EspackFileStream
             // tbPageFirst
             // 
             this.tbPageFirst.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbPageFirst.Image = global::EspackFileStreamControl.Properties.Resources.tb_first;
+            this.tbPageFirst.Image = EspackFormControlsNS.Properties.Resources.tb_first;
+            //var a = global::EspackFormControlsNS.EspackFileStreamControl.Resources.tb_first
             this.tbPageFirst.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tbPageFirst.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tbPageFirst.Name = "tbPageFirst";
@@ -121,7 +122,7 @@ namespace EspackFileStream
             // tbPagePrevious
             // 
             this.tbPagePrevious.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbPagePrevious.Image = global::EspackFileStreamControl.Properties.Resources.tb_previous;
+            this.tbPagePrevious.Image = global::EspackFormControlsNS.Properties.Resources.tb_previous;
             this.tbPagePrevious.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tbPagePrevious.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tbPagePrevious.Name = "tbPagePrevious";
@@ -143,7 +144,7 @@ namespace EspackFileStream
             // tbPageNext
             // 
             this.tbPageNext.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbPageNext.Image = global::EspackFileStreamControl.Properties.Resources.tb_next;
+            this.tbPageNext.Image = global::EspackFormControlsNS.Properties.Resources.tb_next;
             this.tbPageNext.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tbPageNext.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tbPageNext.Name = "tbPageNext";
@@ -155,7 +156,7 @@ namespace EspackFileStream
             // tbPageLast
             // 
             this.tbPageLast.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbPageLast.Image = global::EspackFileStreamControl.Properties.Resources.tb_last;
+            this.tbPageLast.Image = global::EspackFormControlsNS.Properties.Resources.tb_last;
             this.tbPageLast.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tbPageLast.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tbPageLast.Name = "tbPageLast";
@@ -184,7 +185,7 @@ namespace EspackFileStream
             // tpZoomOut
             // 
             this.tpZoomOut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tpZoomOut.Image = global::EspackFileStreamControl.Properties.Resources.tb_zoom_out;
+            this.tpZoomOut.Image = global::EspackFormControlsNS.Properties.Resources.tb_zoom_out;
             this.tpZoomOut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tpZoomOut.Name = "tpZoomOut";
             this.tpZoomOut.Size = new System.Drawing.Size(23, 28);
@@ -195,7 +196,7 @@ namespace EspackFileStream
             // tpZoomIn
             // 
             this.tpZoomIn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tpZoomIn.Image = global::EspackFileStreamControl.Properties.Resources.tb_zoom_in;
+            this.tpZoomIn.Image = global::EspackFormControlsNS.Properties.Resources.tb_zoom_in;
             this.tpZoomIn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tpZoomIn.Name = "tpZoomIn";
             this.tpZoomIn.Size = new System.Drawing.Size(23, 28);

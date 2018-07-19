@@ -60,11 +60,12 @@ namespace EspackMenuNS
             {
                 try
                 {
-                    _Form = (Form)Activator.CreateInstance(Type.GetType(string.Format("{0}.{1},{0}", ProjectName, pFormName)));
+                    var _type = Type.GetType(string.Format("{0}.{1},{0}", ProjectName, pFormName));
+                    _Form = (Form)Activator.CreateInstance(_type);
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show(string.Format("Form '{0}' doesn't exist yet.", pFormName), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(string.Format("Form '{0}' doesn't exist yet. {1}", pFormName, ex.Message), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return null;
                 }
                 //_Form =(Form)(Assembly.GetEntryAssembly().CreateInstance(pFormName));

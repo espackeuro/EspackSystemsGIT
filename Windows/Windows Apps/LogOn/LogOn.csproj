@@ -152,10 +152,6 @@
       <Project>{9148f7e6-31f6-4f96-b7dc-afea449998c7}</Project>
       <Name>CommonTools</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\EspackControls\CtlVSGrid\CtlVSGrid.csproj">
-      <Project>{6e156f1f-61f2-402b-a942-356427642a52}</Project>
-      <Name>CtlVSGrid</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\EspackControls\DiverseControls\DiverseControls\DiverseControls.csproj">
       <Project>{005bd28a-42c7-4785-9eb1-bd6f2b7564c3}</Project>
       <Name>DiverseControls</Name>
@@ -163,10 +159,6 @@
     <ProjectReference Include="..\..\..\EspackControls\EspackControls\EspackControls.csproj">
       <Project>{ece9aa32-f756-4be3-a926-b0771e69066b}</Project>
       <Name>EspackControls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\EspackControls\EspackFormControls\EspackFormControls.csproj">
-      <Project>{70432336-f038-4ef1-af04-012ae8e6c009}</Project>
-      <Name>EspackFormControls</Name>
     </ProjectReference>
     <ProjectReference Include="..\cAccesoDatos\cAccesoDatos.csproj">
       <Project>{5da9cb0b-9007-40f1-8086-1b0303d8271f}</Project>

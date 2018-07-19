@@ -29,16 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMainNidus));
-            this.espackMenu1 = new EspackFormControlsNS.EspackMenu();
-            this.espackToolStripItem1 = new EspackFormControlsNS.EspackToolStripItem();
-            this.espackToolStripItem2 = new EspackFormControlsNS.EspackToolStripItem();
+            this.espackMenu1 = new EspackMenuNS.EspackMenu();
+            this.espackToolStripItem1 = new EspackMenuNS.EspackToolStripItem();
+            this.espackToolStripItem2 = new EspackMenuNS.EspackToolStripItem();
+            this.docsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.espackMenu1.SuspendLayout();
             this.SuspendLayout();
             // 
             // espackMenu1
             // 
             this.espackMenu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.espackToolStripItem1});
+            this.espackToolStripItem1,
+            this.docsToolStripMenuItem});
             this.espackMenu1.Location = new System.Drawing.Point(0, 0);
             this.espackMenu1.Name = "espackMenu1";
             this.espackMenu1.Size = new System.Drawing.Size(855, 24);
@@ -57,9 +59,16 @@
             // espackToolStripItem2
             // 
             this.espackToolStripItem2.Name = "espackToolStripItem2";
-            this.espackToolStripItem2.Size = new System.Drawing.Size(152, 22);
+            this.espackToolStripItem2.Size = new System.Drawing.Size(145, 22);
             this.espackToolStripItem2.Tag = "fDocumentControl";
             this.espackToolStripItem2.Text = "Management";
+            // 
+            // docsToolStripMenuItem
+            // 
+            this.docsToolStripMenuItem.Name = "docsToolStripMenuItem";
+            this.docsToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.docsToolStripMenuItem.Text = "Docs";
+            this.docsToolStripMenuItem.Click += new System.EventHandler(this.docsToolStripMenuItem_Click);
             // 
             // fMainNidus
             // 
@@ -82,9 +91,10 @@
 
         #endregion
 
-        private EspackFormControlsNS.EspackMenu espackMenu1;
-        private EspackFormControlsNS.EspackToolStripItem espackToolStripItem1;
-        private EspackFormControlsNS.EspackToolStripItem espackToolStripItem2;
+        private EspackMenuNS.EspackMenu espackMenu1;
+        private EspackMenuNS.EspackToolStripItem espackToolStripItem1;
+        private EspackMenuNS.EspackToolStripItem espackToolStripItem2;
+        private System.Windows.Forms.ToolStripMenuItem docsToolStripMenuItem;
     }
 }
 

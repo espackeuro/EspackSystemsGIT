@@ -58,7 +58,6 @@
             this.txtUserCode.Order = 0;
             this.txtUserCode.ParentConn = null;
             this.txtUserCode.ParentDA = null;
-            this.txtUserCode.PasswordChar = '\0';
             this.txtUserCode.PK = false;
             this.txtUserCode.Protected = false;
             this.txtUserCode.ReadOnly = false;
@@ -68,7 +67,6 @@
             this.txtUserCode.TabIndex = 11;
             this.txtUserCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtUserCode.Upp = false;
-            this.txtUserCode.UseSystemPasswordChar = false;
             this.txtUserCode.Value = "";
             // 
             // txtDesCod3
@@ -91,7 +89,6 @@
             this.txtDesCod3.Order = 0;
             this.txtDesCod3.ParentConn = null;
             this.txtDesCod3.ParentDA = null;
-            this.txtDesCod3.PasswordChar = '\0';
             this.txtDesCod3.PK = false;
             this.txtDesCod3.Protected = false;
             this.txtDesCod3.ReadOnly = false;
@@ -101,7 +98,6 @@
             this.txtDesCod3.TabIndex = 10;
             this.txtDesCod3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDesCod3.Upp = false;
-            this.txtDesCod3.UseSystemPasswordChar = false;
             this.txtDesCod3.Value = "";
             // 
             // cboMainCOD3
@@ -237,7 +233,6 @@
             this.txtUserNumber.Order = 0;
             this.txtUserNumber.ParentConn = null;
             this.txtUserNumber.ParentDA = null;
-            this.txtUserNumber.PasswordChar = '\0';
             this.txtUserNumber.PK = false;
             this.txtUserNumber.Precision = 0;
             this.txtUserNumber.Protected = false;
@@ -249,7 +244,6 @@
             this.txtUserNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtUserNumber.ThousandsGroup = true;
             this.txtUserNumber.Upp = false;
-            this.txtUserNumber.UseSystemPasswordChar = false;
             this.txtUserNumber.Value = null;
             // 
             // CTLM

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EspackFileStreamControl.Properties {
+namespace EspackFormControlsNS.Properties {
     using System;
     
     

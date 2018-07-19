@@ -10,12 +10,10 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using EspackDataGrid;
+using EspackDataGridView;
 using EspackFormControlsNS;
 using static MicrosoftOfficeTools.MSTools;
-using EspackFileStream;
 using System.Collections.ObjectModel;
-using CTLMantenimientoNet;
 
 
 namespace Nidus
@@ -29,49 +27,54 @@ namespace Nidus
         public fDocumentControl()
         {
             InitializeComponent();
+            //try
+            //{
+                //CTLM definitions
+                CTLM.Conn = Values.gDatos;
+                CTLM.sSPAdd = "pDocumentsCabAdd";
+                CTLM.DBTable = "vDocumentControl";
 
-            //CTLM definitions
-            CTLM.Conn = Values.gDatos;
-            CTLM.sSPAdd = "pDocumentsCabAdd";
-            CTLM.DBTable = "vDocumentControl";
+                //var txtFileName = (EspackTextBox)fsFileData;
+                var FdcData = new EspackFileDataContainer();
+                //file containers
+                fsFileData.FileData = FdcData;
+                fsFileData.PDFFileData = FdcPDFData;
+                //Header
+                CTLM.AddItem(txtDocumentCode, "DocumentCode", CTLMControlTypes.NoAddPK);
+                CTLM.AddItem(txtTypeCode, "TypeCode", CTLMControlTypes.AddSearch);
+                CTLM.AddItem(txtSubtype, "SubTypeCode", CTLMControlTypes.AddSearch);
+                CTLM.AddItem(txtSection, "SectionCode", CTLMControlTypes.AddSearch);
+                CTLM.AddItem(txtTitle, "Title", CTLMControlTypes.AddSearch);
+                CTLM.AddItem(fsFileData, "DocumentFileName", CTLMControlTypes.AddSearch);
+                CTLM.AddItem(FdcData, "DATA", CTLMControlTypes.AddNoSearch);
+                CTLM.AddItem(FdcPDFData, "PDFDATA", CTLMControlTypes.AddNoSearch);
+                CTLM.AddItem(txtEdition, "Edition", CTLMControlTypes.Search);
+                CTLM.AddItem(txtStatus, "Status", CTLMControlTypes.Search);
+                CTLM.AddItem(lstFlags, "flags", CTLMControlTypes.AddSearch);
 
-            //var txtFileName = (EspackTextBox)fsFileData;
-            var FdcData = new EspackFileDataContainer();
-            //file containers
-            fsFileData.FileData = FdcData;
-            fsFileData.PDFFileData = FdcPDFData;
-            //Header
-            CTLM.AddItem(txtDocumentCode, "DocumentCode",false,false,false,1,true,true);
-            CTLM.AddItem(txtTypeCode, "TypeCode", true, false, false, 2, false, true);
-            CTLM.AddItem(txtSubtype, "SubTypeCode", true, false, false, 2, false, true);
-            CTLM.AddItem(txtSection, "SectionCode", true, false, false, 2, false, true);
-            CTLM.AddItem(txtTitle, "Title", true, false, false, 2, false, true);
-            CTLM.AddItem(fsFileData, "DocumentFileName", true, false, false, 0, false, true);
-            CTLM.AddItem(FdcData, "DATA", true, false, false, 2, false, false);
-            CTLM.AddItem(FdcPDFData, "PDFDATA", true, false, false, 2, false, false);
-            CTLM.AddItem(txtEdition, "Edition", false, false, false, 2, false, true);
-            CTLM.AddItem(txtStatus, "Status", false, false, false, 2, false, true);
-            CTLM.AddItem(lstFlags, "flags", true, false, false, 0, false, true);
+                //Fields
+                lstFlags.Source("Select codigo,DescFlagEng from flags where Tabla='DocumentsCab'");
+                fsFileData.Click += BtnSearch_Click;
+                VS.Conn = Values.gDatos;
+                VS.SQL = "Select TypeCode,SectionCode,Title from DocumentsCab ";
+                VS.Start();
 
-            //Fields
-            lstFlags.Source("Select codigo,DescFlagEng from flags where Tabla='DocumentsCab'");
-            fsFileData.BtnSearch.Click += BtnSearch_Click;
-            VS.Conn = Values.gDatos;
-            VS.SQL = "Select TypeCode,SectionCode,Title from DocumentsCab ";
-            VS.Start();
-            
-            //Resize += FDocumentControl_Resize;
+                //Resize += FDocumentControl_Resize;
 
-            VS.UpdateEspackControl();
-            //CTLM.AddItem(VS);
-            //start
-            CTLM.ReQuery = true;
-            CTLM.AddDefaultStatusStrip();
-            CTLM.Start();
-            VS.FilterRowEnabled = true;
-            this.Load += FDocumentControl_Load;
-            var c = VS.DataCellCollection;
-            //AcroPDFLib.AcroPDF acroPDF = new AcroPDFLib.AcroPDFClass();
+                VS.UpdateEspackControl();
+                //CTLM.AddItem(VS);
+                //start
+                CTLM.ReQuery = true;
+                CTLM.AddDefaultStatusStrip();
+                CTLM.Start();
+                VS.FilterRowEnabled = true;
+                this.Load += FDocumentControl_Load;
+                var c = VS.DataCellCollection;
+                //AcroPDFLib.AcroPDF acroPDF = new AcroPDFLib.AcroPDFClass();
+            //} catch (Exception ex)
+            //{
+            //    CommonToolsWin.CTWin.MsgError(String.Format("Error 1: {0}\nError 2: {1}",ex.Message, ex.InnerException?.Message?? ""));
+            //}
 
         }
         private bool changing = false;

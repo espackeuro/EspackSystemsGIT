@@ -85,7 +85,7 @@
             this.txtPassword.Order = 0;
             this.txtPassword.ParentConn = null;
             this.txtPassword.ParentDA = null;
-            this.txtPassword.PasswordChar = '·';
+            this.txtPassword.IsPassword = true;
             this.txtPassword.PK = false;
             this.txtPassword.Protected = false;
             this.txtPassword.ReadOnly = false;
@@ -95,7 +95,7 @@
             this.txtPassword.TabIndex = 15;
             this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtPassword.Upp = true;
-            this.txtPassword.UseSystemPasswordChar = false;
+            
             this.txtPassword.Value = "";
             // 
             // txtUser
@@ -120,7 +120,7 @@
             this.txtUser.Order = 0;
             this.txtUser.ParentConn = null;
             this.txtUser.ParentDA = null;
-            this.txtUser.PasswordChar = '\0';
+            
             this.txtUser.PK = false;
             this.txtUser.Protected = false;
             this.txtUser.ReadOnly = false;
@@ -130,7 +130,7 @@
             this.txtUser.TabIndex = 14;
             this.txtUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtUser.Upp = true;
-            this.txtUser.UseSystemPasswordChar = false;
+            
             this.txtUser.Value = "";
             // 
             // txtServerName
@@ -155,7 +155,7 @@
             this.txtServerName.Order = 0;
             this.txtServerName.ParentConn = null;
             this.txtServerName.ParentDA = null;
-            this.txtServerName.PasswordChar = '\0';
+            
             this.txtServerName.PK = false;
             this.txtServerName.Protected = false;
             this.txtServerName.ReadOnly = false;
@@ -165,7 +165,7 @@
             this.txtServerName.TabIndex = 13;
             this.txtServerName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtServerName.Upp = true;
-            this.txtServerName.UseSystemPasswordChar = false;
+            
             this.txtServerName.Value = "";
             // 
             // fDNS

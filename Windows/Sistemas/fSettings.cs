@@ -19,21 +19,16 @@ namespace Sistemas
         public fSettings()
         {
             InitializeComponent();
-            txtDefaultPasswordForServers.TextChanged += TxtDefaultPasswordForServers_TextChanged;
-            txtDefaultUserForServers.TextChanged += TxtDefaultUserForServers_TextChanged;
             txtDefaultPasswordForServers.Text = Values.DefaultPasswordForServers;
             txtDefaultUserForServers.Text = Values.DefaultUserForServers;
+            this.FormClosed += FSettings_FormClosed;
         }
 
-        private void TxtDefaultUserForServers_TextChanged(object sender, EventArgs e)
+        private void FSettings_FormClosed(object sender, FormClosedEventArgs e)
         {
             cSettings.writeSetting("DefaultUserForServers", txtDefaultUserForServers.Text);
             Values.DefaultUserForServers = txtDefaultUserForServers.Text;
-        }
-
-        private void TxtDefaultPasswordForServers_TextChanged(object sender, EventArgs e)
-        {
-            cSettings.writeSetting("DefaultPasswordForServers", txtDefaultUserForServers.Text);
+            cSettings.writeSetting("DefaultPasswordForServers", txtDefaultPasswordForServers.Text);
             Values.DefaultPasswordForServers = txtDefaultPasswordForServers.Text;
         }
 

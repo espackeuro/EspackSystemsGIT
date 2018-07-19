@@ -598,7 +598,7 @@ namespace EspackDataGridView
             DataGridView.GotFocus += DataGridView_GotFocus;
             DataGridView.LostFocus += DataGridView_LostFocus;
             GridColor = SystemColors.ButtonFace;
-            DataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //DataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             DataGridView.AllowUserToResizeColumns = true;
             DataGridView.CellBeginEdit += EspackDataGridView_CellBeginEdit;
             DataGridView.CellEndEdit += EspackDataGridView_CellEndEdit;
@@ -820,7 +820,7 @@ namespace EspackDataGridView
             FilterDataGrid.GotFocus += FilterDataGrid_GotFocus;
             FilterDataGrid.LostFocus += FilterDataGrid_LostFocus;
             FilterDataGrid.CellBeginEdit += FilterDataGrid_CellBeginEdit;
-            FilterDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            //FilterDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             FilterDataGrid.AllowUserToResizeColumns = true;
             //FilterDataGrid.Conn = Conn;
             FilterDataGrid.Location = Location;
@@ -840,7 +840,7 @@ namespace EspackDataGridView
             {
                 var column = new EspackDataGridViewColumn
                 {
-                    AutoSizeMode = DataGridViewAutoSizeColumnMode.None,
+                    //AutoSizeMode = this.AutoSizeMode,
                     Width = c.Width,
                     Tag = c.Index,
                     HeaderText = c.HeaderText,
@@ -1261,9 +1261,9 @@ namespace EspackDataGridView
             }
             DataGridView.SelectionChanged -= EspackDataGridView_SelectionChanged;
             DataGridView.DataSource = mDA.Table;
-            DataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //DataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             Refresh();
-            DataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            //DataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             DataGridView.SelectionChanged += EspackDataGridView_SelectionChanged;
             Dirty = false;
             SetStatus(mStatus);

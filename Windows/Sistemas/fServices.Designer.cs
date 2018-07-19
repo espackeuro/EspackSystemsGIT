@@ -99,7 +99,7 @@
             this.txtDB.Order = 0;
             this.txtDB.ParentConn = null;
             this.txtDB.ParentDA = null;
-            this.txtDB.PasswordChar = '\0';
+            
             this.txtDB.PK = false;
             this.txtDB.Protected = false;
             this.txtDB.ReadOnly = true;
@@ -109,7 +109,7 @@
             this.txtDB.TabIndex = 13;
             this.txtDB.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDB.Upp = false;
-            this.txtDB.UseSystemPasswordChar = false;
+            
             this.txtDB.Value = "";
             // 
             // txtLocation
@@ -134,7 +134,7 @@
             this.txtLocation.Order = 0;
             this.txtLocation.ParentConn = null;
             this.txtLocation.ParentDA = null;
-            this.txtLocation.PasswordChar = '\0';
+            
             this.txtLocation.PK = false;
             this.txtLocation.Protected = false;
             this.txtLocation.ReadOnly = true;
@@ -144,7 +144,7 @@
             this.txtLocation.TabIndex = 15;
             this.txtLocation.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtLocation.Upp = false;
-            this.txtLocation.UseSystemPasswordChar = false;
+            
             this.txtLocation.Value = "";
             // 
             // txtApp
@@ -169,7 +169,7 @@
             this.txtApp.Order = 0;
             this.txtApp.ParentConn = null;
             this.txtApp.ParentDA = null;
-            this.txtApp.PasswordChar = '\0';
+            
             this.txtApp.PK = false;
             this.txtApp.Protected = false;
             this.txtApp.ReadOnly = true;
@@ -179,7 +179,7 @@
             this.txtApp.TabIndex = 17;
             this.txtApp.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtApp.Upp = false;
-            this.txtApp.UseSystemPasswordChar = false;
+            
             this.txtApp.Value = "";
             // 
             // txtServer1
@@ -204,7 +204,7 @@
             this.txtServer1.Order = 0;
             this.txtServer1.ParentConn = null;
             this.txtServer1.ParentDA = null;
-            this.txtServer1.PasswordChar = '\0';
+            
             this.txtServer1.PK = false;
             this.txtServer1.Protected = false;
             this.txtServer1.ReadOnly = true;
@@ -214,7 +214,7 @@
             this.txtServer1.TabIndex = 21;
             this.txtServer1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtServer1.Upp = false;
-            this.txtServer1.UseSystemPasswordChar = false;
+            
             this.txtServer1.Value = "";
             // 
             // txtServer2
@@ -239,7 +239,7 @@
             this.txtServer2.Order = 0;
             this.txtServer2.ParentConn = null;
             this.txtServer2.ParentDA = null;
-            this.txtServer2.PasswordChar = '\0';
+            
             this.txtServer2.PK = false;
             this.txtServer2.Protected = false;
             this.txtServer2.ReadOnly = true;
@@ -249,7 +249,7 @@
             this.txtServer2.TabIndex = 23;
             this.txtServer2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtServer2.Upp = false;
-            this.txtServer2.UseSystemPasswordChar = false;
+            
             this.txtServer2.Value = "";
             // 
             // txtActiveServer
@@ -274,7 +274,7 @@
             this.txtActiveServer.Order = 0;
             this.txtActiveServer.ParentConn = null;
             this.txtActiveServer.ParentDA = null;
-            this.txtActiveServer.PasswordChar = '\0';
+            
             this.txtActiveServer.PK = false;
             this.txtActiveServer.Protected = false;
             this.txtActiveServer.ReadOnly = true;
@@ -284,7 +284,7 @@
             this.txtActiveServer.TabIndex = 25;
             this.txtActiveServer.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtActiveServer.Upp = false;
-            this.txtActiveServer.UseSystemPasswordChar = false;
+            
             this.txtActiveServer.Value = "";
             // 
             // lstFlags
@@ -385,7 +385,7 @@
             this.txtDescription.Order = 0;
             this.txtDescription.ParentConn = null;
             this.txtDescription.ParentDA = null;
-            this.txtDescription.PasswordChar = '\0';
+            
             this.txtDescription.PK = false;
             this.txtDescription.Protected = false;
             this.txtDescription.ReadOnly = true;
@@ -395,7 +395,7 @@
             this.txtDescription.TabIndex = 11;
             this.txtDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDescription.Upp = false;
-            this.txtDescription.UseSystemPasswordChar = false;
+            
             this.txtDescription.Value = "";
             // 
             // txtServiceCode
@@ -420,7 +420,7 @@
             this.txtServiceCode.Order = 0;
             this.txtServiceCode.ParentConn = null;
             this.txtServiceCode.ParentDA = null;
-            this.txtServiceCode.PasswordChar = '\0';
+            
             this.txtServiceCode.PK = false;
             this.txtServiceCode.Protected = false;
             this.txtServiceCode.ReadOnly = true;
@@ -430,7 +430,7 @@
             this.txtServiceCode.TabIndex = 7;
             this.txtServiceCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtServiceCode.Upp = false;
-            this.txtServiceCode.UseSystemPasswordChar = false;
+            
             this.txtServiceCode.Value = "";
             // 
             // grpID
@@ -469,7 +469,7 @@
             this.txtNetVersion.Order = 0;
             this.txtNetVersion.ParentConn = null;
             this.txtNetVersion.ParentDA = null;
-            this.txtNetVersion.PasswordChar = '\0';
+            
             this.txtNetVersion.PK = false;
             this.txtNetVersion.Protected = false;
             this.txtNetVersion.ReadOnly = true;
@@ -479,7 +479,7 @@
             this.txtNetVersion.TabIndex = 18;
             this.txtNetVersion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtNetVersion.Upp = false;
-            this.txtNetVersion.UseSystemPasswordChar = false;
+            
             this.txtNetVersion.Value = "";
             // 
             // txtVersion
@@ -504,7 +504,7 @@
             this.txtVersion.Order = 0;
             this.txtVersion.ParentConn = null;
             this.txtVersion.ParentDA = null;
-            this.txtVersion.PasswordChar = '\0';
+            
             this.txtVersion.PK = false;
             this.txtVersion.Protected = false;
             this.txtVersion.ReadOnly = true;
@@ -514,7 +514,7 @@
             this.txtVersion.TabIndex = 13;
             this.txtVersion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtVersion.Upp = false;
-            this.txtVersion.UseSystemPasswordChar = false;
+            
             this.txtVersion.Value = "";
             // 
             // grpSystem

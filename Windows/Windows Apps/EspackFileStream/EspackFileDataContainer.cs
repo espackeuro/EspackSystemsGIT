@@ -5,7 +5,7 @@ using static CommonTools.CT;
 using EspackFormControlsNS;
 using System.Timers;
 
-namespace EspackFileStream
+namespace EspackFormControlsNS
 {
     public class EspackFileDataContainer : EspackDataContainer
     {

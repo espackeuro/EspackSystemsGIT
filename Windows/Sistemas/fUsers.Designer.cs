@@ -102,7 +102,7 @@
             this.txtUserNumber.Order = 0;
             this.txtUserNumber.ParentConn = null;
             this.txtUserNumber.ParentDA = null;
-            this.txtUserNumber.PasswordChar = '\0';
+            
             this.txtUserNumber.PK = false;
             this.txtUserNumber.Precision = 0;
             this.txtUserNumber.Protected = false;
@@ -114,7 +114,7 @@
             this.txtUserNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtUserNumber.ThousandsGroup = false;
             this.txtUserNumber.Upp = false;
-            this.txtUserNumber.UseSystemPasswordChar = false;
+            
             this.txtUserNumber.Value = null;
             // 
             // txtSurname2
@@ -139,7 +139,7 @@
             this.txtSurname2.Order = 0;
             this.txtSurname2.ParentConn = null;
             this.txtSurname2.ParentDA = null;
-            this.txtSurname2.PasswordChar = '\0';
+            
             this.txtSurname2.PK = false;
             this.txtSurname2.Protected = false;
             this.txtSurname2.ReadOnly = true;
@@ -149,7 +149,7 @@
             this.txtSurname2.TabIndex = 5;
             this.txtSurname2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtSurname2.Upp = false;
-            this.txtSurname2.UseSystemPasswordChar = false;
+            
             this.txtSurname2.Value = "";
             // 
             // txtSurname1
@@ -174,7 +174,7 @@
             this.txtSurname1.Order = 0;
             this.txtSurname1.ParentConn = null;
             this.txtSurname1.ParentDA = null;
-            this.txtSurname1.PasswordChar = '\0';
+            
             this.txtSurname1.PK = false;
             this.txtSurname1.Protected = false;
             this.txtSurname1.ReadOnly = true;
@@ -184,7 +184,7 @@
             this.txtSurname1.TabIndex = 4;
             this.txtSurname1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtSurname1.Upp = false;
-            this.txtSurname1.UseSystemPasswordChar = false;
+            
             this.txtSurname1.Value = "";
             // 
             // txtName
@@ -209,7 +209,7 @@
             this.txtName.Order = 0;
             this.txtName.ParentConn = null;
             this.txtName.ParentDA = null;
-            this.txtName.PasswordChar = '\0';
+            
             this.txtName.PK = false;
             this.txtName.Protected = false;
             this.txtName.ReadOnly = true;
@@ -219,7 +219,7 @@
             this.txtName.TabIndex = 3;
             this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtName.Upp = false;
-            this.txtName.UseSystemPasswordChar = false;
+            
             this.txtName.Value = "";
             // 
             // txtUserCode
@@ -244,7 +244,7 @@
             this.txtUserCode.Order = 0;
             this.txtUserCode.ParentConn = null;
             this.txtUserCode.ParentDA = null;
-            this.txtUserCode.PasswordChar = '\0';
+            
             this.txtUserCode.PK = false;
             this.txtUserCode.Protected = false;
             this.txtUserCode.ReadOnly = true;
@@ -254,7 +254,7 @@
             this.txtUserCode.TabIndex = 1;
             this.txtUserCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtUserCode.Upp = false;
-            this.txtUserCode.UseSystemPasswordChar = false;
+            
             this.txtUserCode.Value = "";
             // 
             // groupBox2
@@ -376,7 +376,7 @@
             this.txtPosition.Order = 0;
             this.txtPosition.ParentConn = null;
             this.txtPosition.ParentDA = null;
-            this.txtPosition.PasswordChar = '\0';
+            
             this.txtPosition.PK = false;
             this.txtPosition.Protected = false;
             this.txtPosition.ReadOnly = true;
@@ -387,7 +387,7 @@
             this.txtPosition.TabStop = false;
             this.txtPosition.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtPosition.Upp = false;
-            this.txtPosition.UseSystemPasswordChar = false;
+            
             this.txtPosition.Value = "";
             // 
             // cboSecurityLevel
@@ -451,7 +451,7 @@
             this.txtDesCod3.Order = 0;
             this.txtDesCod3.ParentConn = null;
             this.txtDesCod3.ParentDA = null;
-            this.txtDesCod3.PasswordChar = '\0';
+            
             this.txtDesCod3.PK = false;
             this.txtDesCod3.Protected = false;
             this.txtDesCod3.ReadOnly = true;
@@ -462,7 +462,7 @@
             this.txtDesCod3.TabStop = false;
             this.txtDesCod3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDesCod3.Upp = false;
-            this.txtDesCod3.UseSystemPasswordChar = false;
+            
             this.txtDesCod3.Value = "";
             // 
             // cboCOD3
@@ -661,7 +661,7 @@
             this.txtTicket.Order = 0;
             this.txtTicket.ParentConn = null;
             this.txtTicket.ParentDA = null;
-            this.txtTicket.PasswordChar = '\0';
+            
             this.txtTicket.PK = false;
             this.txtTicket.Protected = false;
             this.txtTicket.ReadOnly = true;
@@ -671,7 +671,7 @@
             this.txtTicket.TabIndex = 23;
             this.txtTicket.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtTicket.Upp = false;
-            this.txtTicket.UseSystemPasswordChar = false;
+            
             this.txtTicket.Value = "";
             // 
             // txtEmail
@@ -696,7 +696,7 @@
             this.txtEmail.Order = 0;
             this.txtEmail.ParentConn = null;
             this.txtEmail.ParentDA = null;
-            this.txtEmail.PasswordChar = '\0';
+            
             this.txtEmail.PK = false;
             this.txtEmail.Protected = false;
             this.txtEmail.ReadOnly = true;
@@ -706,7 +706,7 @@
             this.txtEmail.TabIndex = 12;
             this.txtEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtEmail.Upp = false;
-            this.txtEmail.UseSystemPasswordChar = false;
+            
             this.txtEmail.Value = "";
             // 
             // txtPIN
@@ -734,7 +734,7 @@
             this.txtPIN.Order = 0;
             this.txtPIN.ParentConn = null;
             this.txtPIN.ParentDA = null;
-            this.txtPIN.PasswordChar = '\0';
+            
             this.txtPIN.PK = false;
             this.txtPIN.Precision = 0;
             this.txtPIN.Protected = false;
@@ -746,7 +746,7 @@
             this.txtPIN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtPIN.ThousandsGroup = false;
             this.txtPIN.Upp = false;
-            this.txtPIN.UseSystemPasswordChar = false;
+            
             this.txtPIN.Value = null;
             // 
             // txtQuota
@@ -774,7 +774,7 @@
             this.txtQuota.Order = 0;
             this.txtQuota.ParentConn = null;
             this.txtQuota.ParentDA = null;
-            this.txtQuota.PasswordChar = '\0';
+            
             this.txtQuota.PK = false;
             this.txtQuota.Precision = 0;
             this.txtQuota.Protected = false;
@@ -786,7 +786,7 @@
             this.txtQuota.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtQuota.ThousandsGroup = false;
             this.txtQuota.Upp = false;
-            this.txtQuota.UseSystemPasswordChar = false;
+            
             this.txtQuota.Value = null;
             // 
             // cboDomain
@@ -926,7 +926,7 @@
             this.txtPWD.Order = 0;
             this.txtPWD.ParentConn = null;
             this.txtPWD.ParentDA = null;
-            this.txtPWD.PasswordChar = '\0';
+            
             this.txtPWD.PK = false;
             this.txtPWD.Protected = false;
             this.txtPWD.ReadOnly = true;
@@ -936,7 +936,7 @@
             this.txtPWD.TabIndex = 9;
             this.txtPWD.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtPWD.Upp = false;
-            this.txtPWD.UseSystemPasswordChar = false;
+            
             this.txtPWD.Value = "";
             // 
             // lstEmailAliases

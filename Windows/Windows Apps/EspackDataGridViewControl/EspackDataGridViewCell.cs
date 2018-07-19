@@ -193,7 +193,7 @@ namespace EspackDataGridView
             editControl.AutoCompleteMode = AutoCompleteMode;
             editControl.AutoCompleteSource = AutoCompleteSource;
             editControl.AutoCompleteCustomSource = AutoCompleteCustomSource;
-            
+            editControl.EspackControl.Font = this.Parent.Font;
             oldValue = Value;
             editControl.Value = Value;
             editControl.EspackControl.ValueChanged += Control_ValueChanged;

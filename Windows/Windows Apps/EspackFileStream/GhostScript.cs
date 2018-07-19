@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Ghostscript.NET;
 using Ghostscript.NET.Viewer;
 
-namespace EspackFileStream
+namespace EspackFormControlsNS
 {
     public class GhostscriptStdIOHandler : GhostscriptStdIO
     {

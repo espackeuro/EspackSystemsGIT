@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -144,29 +159,37 @@
       <Project>{9148F7E6-31F6-4F96-B7DC-AFEA449998C7}</Project>
       <Name>CommonTools</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\EspackControls\CTLMantenimientoNet\CTLMantenimientoNet.csproj">
-      <Project>{3569913e-7914-44d8-b6e6-9b72164c6580}</Project>
-      <Name>CTLMantenimientoNet</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\EspackControls\EspackControls\EspackControls.csproj">
       <Project>{ECE9AA32-F756-4BE3-A926-B0771E69066B}</Project>
       <Name>EspackControls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\EspackControls\EspackFormControls\EspackFormControls.csproj">
-      <Project>{70432336-f038-4ef1-af04-012ae8e6c009}</Project>
-      <Name>EspackFormControls</Name>
     </ProjectReference>
     <ProjectReference Include="..\cAccesoDatos\cAccesoDatos.csproj">
       <Project>{5da9cb0b-9007-40f1-8086-1b0303d8271f}</Project>
       <Name>cAccesoDatos</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EspackDataGridView\EspackDataGridView.csproj">
-      <Project>{8404fc85-7941-4884-9db7-82a621e0bf97}</Project>
-      <Name>EspackDataGridView</Name>
+    <ProjectReference Include="..\CTLMantenimiento\CTLMantenimiento.csproj">
+      <Project>{8c6814fe-bba2-4450-9077-51b2879cc90b}</Project>
+      <Name>CTLMantenimiento</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EspackDataGridViewControl\EspackDataGridViewControl.csproj">
+      <Project>{7b49f1dd-dda5-4cc1-95cd-4a6eef81bf0b}</Project>
+      <Name>EspackDataGridViewControl</Name>
     </ProjectReference>
     <ProjectReference Include="..\EspackFileStream\EspackFileStream.csproj">
       <Project>{4e249b95-f917-4ac3-8a42-0972131fd357}</Project>
       <Name>EspackFileStream</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EspackFormControlsCommon\EspackFormControlsCommon.csproj">
+      <Project>{e73bea4d-371e-413f-9316-4b53e4a935a3}</Project>
+      <Name>EspackFormControlsCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EspackMenu\EspackMenu.csproj">
+      <Project>{f58c64dc-f90a-4732-8afa-24db566247f9}</Project>
+      <Name>EspackMenu</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EspackTextBoxControls\EspackFormControls.csproj">
+      <Project>{ff2efef1-a838-438a-88bd-bc5f0f8d6f15}</Project>
+      <Name>EspackFormControls</Name>
     </ProjectReference>
     <ProjectReference Include="..\MicrosoftOfficeTools\MicrosoftOfficeTools.csproj">
       <Project>{a00cdece-db1d-4481-8209-248bfcb9230e}</Project>
@@ -210,6 +233,13 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

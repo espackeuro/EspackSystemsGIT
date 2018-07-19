@@ -14,7 +14,7 @@ namespace EspackFormControlsNS
     public class EspackTextBox : EspackFormControlCaption
     {
         //protected override Label CaptionLabel { get; set; }
-        public TextBox TextBox;
+        //public TextBox TextBox { get; set; }
 
         //public override Label CaptionLabel { get; set; }
 
@@ -34,9 +34,36 @@ namespace EspackFormControlsNS
         }
         public HorizontalAlignment TextAlign { get => TextBox.TextAlign; set => TextBox.TextAlign = value; }
         public CharacterCasing CharacterCasing { get => TextBox.CharacterCasing; set => TextBox.CharacterCasing = value; }
-        public bool UseSystemPasswordChar { get => TextBox.UseSystemPasswordChar; set => TextBox.UseSystemPasswordChar = value; }
-        public char PasswordChar { get => TextBox.PasswordChar; set => TextBox.PasswordChar = value; }
+        // public bool UseSystemPasswordChar { get => TextBox.UseSystemPasswordChar; set => TextBox.UseSystemPasswordChar = value; }
+        // public char PasswordChar { get => TextBox.PasswordChar; set => TextBox.PasswordChar = value; }
+        private bool _isPassword = false;
+        public TextBox TextBox;
+        
 
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Bindable(true)]
+        [Category("Appearance")]
+        public bool IsPassword
+        {
+            get
+            {
+                return _isPassword;
+            }
+            set
+            {
+                _isPassword = value;
+                if (value)
+                {
+                    TextBox.PasswordChar = '•';
+                }
+                else
+                {
+                    TextBox.PasswordChar = '\0';
+                }
+            }
+        }
 
     
         public override Font Font { get => TextBox.Font; set => TextBox.Font = value; }
@@ -95,31 +122,33 @@ namespace EspackFormControlsNS
             }
         }
 
+
         private void InitializeComponent()
         {
             this.TextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
+            // CaptionLabel
+            // 
+            this.CaptionLabel.Size = new System.Drawing.Size(0, 13);
+            // 
             // TextBox
             // 
+            this.TextBox.Location = new System.Drawing.Point(0, 0);
+            this.TextBox.Name = "TextBox";
+            this.TextBox.Size = new System.Drawing.Size(100, 20);
+            this.TextBox.TabIndex = 2;
             this.TextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TextBox.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //this.TextBox.Location = new System.Drawing.Point(0, 16);
-            this.TextBox.Multiline = true;
-            this.TextBox.Name = "TextBox";
-            //this.TextBox.Size = new System.Drawing.Size(154, 22);
-            this.TextBox.TabIndex = 0;
             // 
             // EspackTextBox
             // 
-            this.Caption = "";
-            this.Controls.Add(this.CaptionLabel);
             this.Controls.Add(this.TextBox);
+            this.Controls.Add(this.CaptionLabel);
             this.Name = "EspackTextBox";
             this.Size = new System.Drawing.Size(154, 25);
-            this.Controls.SetChildIndex(this.TextBox, 0);
             this.Controls.SetChildIndex(this.CaptionLabel, 0);
-            this.Text = "";
+            this.Controls.SetChildIndex(this.TextBox, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
