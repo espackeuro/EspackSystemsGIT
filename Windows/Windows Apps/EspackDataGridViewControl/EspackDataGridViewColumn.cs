@@ -89,6 +89,14 @@ namespace EspackDataGridView
                 return DataGridView != null ? DataGridView.Rows.OfType<DataGridViewRow>().Select(x => (EspackDataGridViewCell)x.Cells[Index]).ToList(): new List<EspackDataGridViewCell>() ;
             }
         }
+
+        public List<string> DistinctValues
+        {
+            get
+            {
+                return Cells.Select(v => v.Value.ToString()).Distinct().OrderBy(e => e).ToList();
+            }
+        }
         #region unused interface items
         public EspackControlTypeEnum EspackControlType { get; set; }
         public EspackControl ExtraDataLink { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }

@@ -2,6 +2,8 @@
 using EspackControls;
 using EspackFormControlsNS;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -137,11 +139,29 @@ namespace EspackDataGridView
             //Style.BackColor = Colors.CELLFILTERBACKCOLOR;
             //Style.ForeColor = Colors.CELLFILTERFORECOLOR;
         }
-
+        private AutoCompleteStringCollection _localStringCollection;
+        public EspackDataGridViewCell(EspackCellTypes type, AutoCompleteMode autoCompleteMode, AutoCompleteSource autoCompleteSource, string[] autoCompleteCustomSource, bool locked = false)
+        {
+            Type = type;
+            AutoCompleteMode = autoCompleteMode;
+            AutoCompleteSource = autoCompleteSource;
+            _localStringCollection = new AutoCompleteStringCollection();
+            _localStringCollection.AddRange(autoCompleteCustomSource);
+            if (Column != null)
+            {
+                ReadOnly = locked;
+            };
+            Style.BackColor = Colors.CELLLOCKEDBACKCOLOR;
+            Style.ForeColor = Colors.CELLLOCKEDFORECOLOR;
+            //Parent = (EspackDataGridView)DataGridView;
+            //Style.BackColor = Colors.CELLFILTERBACKCOLOR;
+            //Style.ForeColor = Colors.CELLFILTERFORECOLOR;
+        }
         public AutoCompleteStringCollection AutoCompleteCustomSource { get => GetAutoCompleteCustomSource(); }
 
         public AutoCompleteStringCollection GetAutoCompleteCustomSource()
         {
+
             if (AutoCompleteQuery != "" && Parent != null)
             {
                 var autoCompleteCustomSource = new AutoCompleteStringCollection();
@@ -151,6 +171,10 @@ namespace EspackDataGridView
                     rs.ToList().ForEach(r => autoCompleteCustomSource.Add(r[0].ToString()));
                 }
                 return autoCompleteCustomSource;
+            } else
+            {
+                if (_localStringCollection != null)
+                    return _localStringCollection;
             }
             return null;
         }

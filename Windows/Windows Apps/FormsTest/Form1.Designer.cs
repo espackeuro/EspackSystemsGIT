@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewRow dataGridViewRow1 = new System.Windows.Forms.DataGridViewRow();
             this.txtUserCode = new EspackFormControlsNS.EspackTextBox();
             this.txtDesCod3 = new EspackFormControlsNS.EspackTextBox();
             this.cboMainCOD3 = new EspackFormControlsNS.EspackComboBox();
@@ -36,6 +37,8 @@
             this.txtUserNumber = new EspackFormControlsNS.EspackNumericTextBox();
             this.CTLM = new EspackFormControlsNS.CTLMantenimiento();
             this.txtText = new System.Windows.Forms.TextBox();
+            this.VS = new EspackDataGridView.EspackDataGridViewControl();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtUserCode
@@ -52,6 +55,7 @@
             this.txtUserCode.DependingRS = null;
             this.txtUserCode.ExtraDataLink = null;
             this.txtUserCode.IsCTLMOwned = false;
+            this.txtUserCode.IsPassword = false;
             this.txtUserCode.Location = new System.Drawing.Point(13, 51);
             this.txtUserCode.Multiline = false;
             this.txtUserCode.Name = "txtUserCode";
@@ -62,7 +66,7 @@
             this.txtUserCode.Protected = false;
             this.txtUserCode.ReadOnly = false;
             this.txtUserCode.Search = false;
-            this.txtUserCode.Size = new System.Drawing.Size(154, 38);
+            this.txtUserCode.Size = new System.Drawing.Size(154, 32);
             this.txtUserCode.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtUserCode.TabIndex = 11;
             this.txtUserCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -83,6 +87,7 @@
             this.txtDesCod3.DependingRS = null;
             this.txtDesCod3.ExtraDataLink = null;
             this.txtDesCod3.IsCTLMOwned = false;
+            this.txtDesCod3.IsPassword = false;
             this.txtDesCod3.Location = new System.Drawing.Point(334, 274);
             this.txtDesCod3.Multiline = false;
             this.txtDesCod3.Name = "txtDesCod3";
@@ -93,7 +98,7 @@
             this.txtDesCod3.Protected = false;
             this.txtDesCod3.ReadOnly = false;
             this.txtDesCod3.Search = false;
-            this.txtDesCod3.Size = new System.Drawing.Size(154, 38);
+            this.txtDesCod3.Size = new System.Drawing.Size(154, 16);
             this.txtDesCod3.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtDesCod3.TabIndex = 10;
             this.txtDesCod3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -225,6 +230,7 @@
             this.txtUserNumber.DependingRS = null;
             this.txtUserNumber.ExtraDataLink = null;
             this.txtUserNumber.IsCTLMOwned = false;
+            this.txtUserNumber.IsPassword = false;
             this.txtUserNumber.Length = 0;
             this.txtUserNumber.Location = new System.Drawing.Point(173, 51);
             this.txtUserNumber.Mask = false;
@@ -238,7 +244,7 @@
             this.txtUserNumber.Protected = false;
             this.txtUserNumber.ReadOnly = false;
             this.txtUserNumber.Search = false;
-            this.txtUserNumber.Size = new System.Drawing.Size(154, 38);
+            this.txtUserNumber.Size = new System.Drawing.Size(154, 32);
             this.txtUserNumber.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtUserNumber.TabIndex = 6;
             this.txtUserNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -274,9 +280,79 @@
             this.txtText.Size = new System.Drawing.Size(100, 20);
             this.txtText.TabIndex = 12;
             // 
+            // VS
+            // 
+            this.VS.Add = false;
+            this.VS.AllowDelete = false;
+            this.VS.AllowInsert = false;
+            this.VS.AllowUpdate = false;
+            this.VS.AllowUserToAddRows = false;
+            this.VS.AllowUserToResizeColumns = true;
+            this.VS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
+            this.VS.Caption = "";
+            this.VS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.VS.ColumnHeadersVisible = true;
+            this.VS.Conn = null;
+            this.VS.CurrentCell = null;
+            this.VS.DataSource = null;
+            this.VS.DBField = null;
+            this.VS.DBFieldType = null;
+            this.VS.DBTable = null;
+            this.VS.DefaultValue = null;
+            this.VS.Del = false;
+            this.VS.DependingRS = null;
+            this.VS.DGFocused = false;
+            this.VS.Dirty = false;
+            this.VS.EspackControlParent = null;
+            this.VS.ExtraDataLink = null;
+            this.VS.FGFocused = false;
+            this.VS.FilterRow = null;
+            this.VS.FilterRowEnabled = false;
+            this.VS.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.VS.HorizontalScrollingOffset = 0;
+            this.VS.IsCTLMOwned = false;
+            this.VS.IsFilterFocused = false;
+            this.VS.Location = new System.Drawing.Point(494, 32);
+            this.VS.MsgStatusLabel = null;
+            this.VS.Name = "VS";
+            this.VS.NumPages = 0;
+            this.VS.Order = 0;
+            this.VS.Page = 0;
+            this.VS.Paginate = false;
+            this.VS.ParentConn = null;
+            this.VS.ParentDA = null;
+            this.VS.PK = false;
+            this.VS.Protected = false;
+            this.VS.ReadOnly = false;
+            this.VS.RowCount = 0;
+            this.VS.RowHeadersVisible = false;
+            this.VS.RowTemplate = dataGridViewRow1;
+            this.VS.Search = false;
+            this.VS.Size = new System.Drawing.Size(531, 528);
+            this.VS.SQL = null;
+            this.VS.sSPAdd = "";
+            this.VS.sSPDel = "";
+            this.VS.sSPUpp = "";
+            this.VS.Status = CommonTools.EnumStatus.SEARCH;
+            this.VS.TabIndex = 13;
+            this.VS.Upp = false;
+            this.VS.Value = null;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(203, 429);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(584, 396);
+            this.ClientSize = new System.Drawing.Size(1050, 574);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.VS);
             this.Controls.Add(this.txtText);
             this.Controls.Add(this.txtUserCode);
             this.Controls.Add(this.txtDesCod3);
@@ -302,6 +378,8 @@
         private EspackFormControlsNS.EspackTextBox txtDesCod3;
         private EspackFormControlsNS.EspackTextBox txtUserCode;
         private System.Windows.Forms.TextBox txtText;
+        private EspackDataGridView.EspackDataGridViewControl VS;
+        private System.Windows.Forms.Button button1;
     }
 }
 

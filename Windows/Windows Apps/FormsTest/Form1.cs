@@ -42,8 +42,17 @@ namespace FormsTest
             cboMainCOD3.Source("select n.COD3,g.Descripcion from NetworkSedes n inner join general..sedes g on g.cod3=n.COD3 order by n.Cod3", txtDesCod3);
             CTLM.Start();
 
+            VS.Conn = CTLM.Conn;
+            VS.SQL = "Select UserCode, Area, COD3 from Users where usercode!='' order by UserCode";
+            VS.Start();
+            VS.UpdateEspackControl();
 
+            //VS.FilterRowEnabled = true;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            VS.FilterRowEnabled = !VS.FilterRowEnabled;
+        }
     }
 }
