@@ -35,7 +35,6 @@
             this.txtCounty = new EspackFormControlsNS.EspackTextBox();
             this.txtVATNumber = new EspackFormControlsNS.EspackTextBox();
             this.txtPaymentCode = new EspackFormControlsNS.EspackTextBox();
-            this.txtIBAN = new EspackFormControlsNS.EspackTextBox();
             this.txtCurrencyDescription = new EspackFormControlsNS.EspackTextBox();
             this.txtSupplierDescription = new EspackFormControlsNS.EspackTextBox();
             this.CTLM = new EspackFormControlsNS.CTLMantenimiento();
@@ -269,38 +268,6 @@
             this.txtPaymentCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtPaymentCode.Upp = false;
             this.txtPaymentCode.Value = "";
-            // 
-            // txtIBAN
-            // 
-            this.txtIBAN.Add = false;
-            this.txtIBAN.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.txtIBAN.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txtIBAN.Caption = "IBAN";
-            this.txtIBAN.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtIBAN.DBField = null;
-            this.txtIBAN.DBFieldType = null;
-            this.txtIBAN.DefaultValue = null;
-            this.txtIBAN.Del = false;
-            this.txtIBAN.DependingRS = null;
-            this.txtIBAN.ExtraDataLink = null;
-            this.txtIBAN.IsCTLMOwned = false;
-            this.txtIBAN.IsPassword = false;
-            this.txtIBAN.Location = new System.Drawing.Point(12, 372);
-            this.txtIBAN.Multiline = false;
-            this.txtIBAN.Name = "txtIBAN";
-            this.txtIBAN.Order = 0;
-            this.txtIBAN.ParentConn = null;
-            this.txtIBAN.ParentDA = null;
-            this.txtIBAN.PK = false;
-            this.txtIBAN.Protected = false;
-            this.txtIBAN.ReadOnly = false;
-            this.txtIBAN.Search = false;
-            this.txtIBAN.Size = new System.Drawing.Size(474, 40);
-            this.txtIBAN.Status = CommonTools.EnumStatus.ADDNEW;
-            this.txtIBAN.TabIndex = 13;
-            this.txtIBAN.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtIBAN.Upp = false;
-            this.txtIBAN.Value = "";
             // 
             // txtCurrencyDescription
             // 
@@ -586,7 +553,6 @@
             this.Controls.Add(this.CTLM);
             this.Controls.Add(this.txtSupplierDescription);
             this.Controls.Add(this.txtCurrencyDescription);
-            this.Controls.Add(this.txtIBAN);
             this.Controls.Add(this.txtPaymentCode);
             this.Controls.Add(this.txtVATNumber);
             this.Controls.Add(this.txtCounty);
@@ -609,7 +575,6 @@
         private EspackFormControlsNS.EspackTextBox txtCounty;
         private EspackFormControlsNS.EspackTextBox txtVATNumber;
         private EspackFormControlsNS.EspackTextBox txtPaymentCode;
-        private EspackFormControlsNS.EspackTextBox txtIBAN;
         private EspackFormControlsNS.EspackTextBox txtCurrencyDescription;
         private EspackFormControlsNS.EspackTextBox txtSupplierDescription;
         private EspackFormControlsNS.CTLMantenimiento CTLM;

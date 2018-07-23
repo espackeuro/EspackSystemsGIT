@@ -35,13 +35,12 @@ namespace Invoicing
             CTLM.AddItem(cboSupplierCode, "SupCod", CTLMControlTypes.AddUppSearch);
             CTLM.AddItem(txtVAT, "IVA", CTLMControlTypes.AddUppNoSearch);
             CTLM.AddItem(cboCurrencyCode, "Cod_Divisa", CTLMControlTypes.AddUppSearch);
-            CTLM.AddItem(txtIBAN, "IBAN", CTLMControlTypes.AddUppSearch);
 
             CTLM.AddDefaultStatusStrip();
             CTLM.DBTable = "vClientes";
             CTLM.ReQuery = true;
 
-            cboSupplierCode.Source("select SupplierCode,Name from SupplierCodes order by SupplierCode", txtSupplierDescription);
+            cboSupplierCode.Source("select SupplierCode,Description from Suppliers order by SupplierCode", txtSupplierDescription);
             cboCurrencyCode.Source("select Codigo,Descripcion from Divisas order by Codigo", txtCurrencyDescription);
             CTLM.Start();
 
