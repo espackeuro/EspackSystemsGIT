@@ -140,6 +140,8 @@ namespace EspackFormControlsNS
             this.TextBox.TabIndex = 2;
             this.TextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TextBox.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBox.Multiline = true;
+
             // 
             // EspackTextBox
             // 

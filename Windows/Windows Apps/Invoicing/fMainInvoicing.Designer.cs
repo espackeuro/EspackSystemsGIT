@@ -42,16 +42,18 @@
             this.mnuCustomers = new EspackMenuNS.EspackToolStripItem();
             this.mnuServices = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCurrencies = new System.Windows.Forms.ToolStripMenuItem();
-            this.supplierCodesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.invoicingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuPurchaseOrders = new EspackMenuNS.EspackToolStripItem();
             this.espackMenu1.SuspendLayout();
             this.SuspendLayout();
             // 
             // espackMenu1
             // 
             this.espackMenu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.invoicingToolStripMenuItem,
+            this.mastersToolStripMenuItem,
             this.toolsToolStripMenuItem,
-            this.helpToolStripMenuItem,
-            this.mastersToolStripMenuItem});
+            this.helpToolStripMenuItem});
             this.espackMenu1.Location = new System.Drawing.Point(0, 0);
             this.espackMenu1.Name = "espackMenu1";
             this.espackMenu1.Size = new System.Drawing.Size(800, 24);
@@ -152,11 +154,20 @@
             this.mnuCurrencies.Tag = "fCurrencies";
             this.mnuCurrencies.Text = "Currencies";
             // 
-            // supplierCodesToolStripMenuItem
+            // invoicingToolStripMenuItem
             // 
-            this.supplierCodesToolStripMenuItem.Name = "supplierCodesToolStripMenuItem";
-            this.supplierCodesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.supplierCodesToolStripMenuItem.Text = "Supplier Codes";
+            this.invoicingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuPurchaseOrders});
+            this.invoicingToolStripMenuItem.Name = "invoicingToolStripMenuItem";
+            this.invoicingToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.invoicingToolStripMenuItem.Text = "Invoicing";
+            // 
+            // mnuPurchaseOrders
+            // 
+            this.mnuPurchaseOrders.Name = "mnuPurchaseOrders";
+            this.mnuPurchaseOrders.Size = new System.Drawing.Size(180, 22);
+            this.mnuPurchaseOrders.Tag = "fPurchaseOrders";
+            this.mnuPurchaseOrders.Text = "Purchase Orders";
             // 
             // fMainInvoicing
             // 
@@ -191,7 +202,8 @@
         private EspackMenuNS.EspackToolStripItem mnuCustomers;
         private System.Windows.Forms.ToolStripMenuItem mnuServices;
         private System.Windows.Forms.ToolStripMenuItem mnuCurrencies;
-        private System.Windows.Forms.ToolStripMenuItem supplierCodesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem invoicingToolStripMenuItem;
+        private EspackMenuNS.EspackToolStripItem mnuPurchaseOrders;
     }
 }
 
