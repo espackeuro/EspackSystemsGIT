@@ -35,7 +35,7 @@ namespace Invoicing
             CTLM.AddItem(cboSupplierCode, "SupCod", CTLMControlTypes.AddUppSearch);
             CTLM.AddItem(txtVAT, "IVA", CTLMControlTypes.AddUppNoSearch);
             CTLM.AddItem(cboCurrencyCode, "Cod_Divisa", CTLMControlTypes.AddUppSearch);
-
+         
             CTLM.AddDefaultStatusStrip();
             CTLM.DBTable = "vClientes";
             CTLM.ReQuery = true;

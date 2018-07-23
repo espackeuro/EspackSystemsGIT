@@ -292,7 +292,7 @@
             this.txtCurrencyDescription.ParentDA = null;
             this.txtCurrencyDescription.PK = false;
             this.txtCurrencyDescription.Protected = false;
-            this.txtCurrencyDescription.ReadOnly = false;
+            this.txtCurrencyDescription.ReadOnly = true;
             this.txtCurrencyDescription.Search = false;
             this.txtCurrencyDescription.Size = new System.Drawing.Size(314, 24);
             this.txtCurrencyDescription.Status = CommonTools.EnumStatus.ADDNEW;
@@ -324,7 +324,7 @@
             this.txtSupplierDescription.ParentDA = null;
             this.txtSupplierDescription.PK = false;
             this.txtSupplierDescription.Protected = false;
-            this.txtSupplierDescription.ReadOnly = false;
+            this.txtSupplierDescription.ReadOnly = true;
             this.txtSupplierDescription.Search = false;
             this.txtSupplierDescription.Size = new System.Drawing.Size(314, 24);
             this.txtSupplierDescription.Status = CommonTools.EnumStatus.ADDNEW;
