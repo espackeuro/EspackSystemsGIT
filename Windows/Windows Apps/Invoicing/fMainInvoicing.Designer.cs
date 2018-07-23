@@ -42,6 +42,7 @@
             this.mnuCustomers = new EspackMenuNS.EspackToolStripItem();
             this.mnuServices = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCurrencies = new System.Windows.Forms.ToolStripMenuItem();
+            this.supplierCodesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.espackMenu1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,13 +70,13 @@
             // customizeToolStripMenuItem
             // 
             this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.customizeToolStripMenuItem.Text = "&Customize";
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.optionsToolStripMenuItem.Text = "&Options";
             // 
             // helpToolStripMenuItem
@@ -124,7 +125,8 @@
             this.mastersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuCustomers,
             this.mnuServices,
-            this.mnuCurrencies});
+            this.mnuCurrencies,
+            this.supplierCodesToolStripMenuItem});
             this.mastersToolStripMenuItem.Name = "mastersToolStripMenuItem";
             this.mastersToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.mastersToolStripMenuItem.Text = "Masters";
@@ -149,6 +151,12 @@
             this.mnuCurrencies.Size = new System.Drawing.Size(180, 22);
             this.mnuCurrencies.Tag = "fCurrencies";
             this.mnuCurrencies.Text = "Currencies";
+            // 
+            // supplierCodesToolStripMenuItem
+            // 
+            this.supplierCodesToolStripMenuItem.Name = "supplierCodesToolStripMenuItem";
+            this.supplierCodesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.supplierCodesToolStripMenuItem.Text = "Supplier Codes";
             // 
             // fMainInvoicing
             // 
@@ -183,6 +191,7 @@
         private EspackMenuNS.EspackToolStripItem mnuCustomers;
         private System.Windows.Forms.ToolStripMenuItem mnuServices;
         private System.Windows.Forms.ToolStripMenuItem mnuCurrencies;
+        private System.Windows.Forms.ToolStripMenuItem supplierCodesToolStripMenuItem;
     }
 }
 
