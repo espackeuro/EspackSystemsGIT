@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CTLMantenimientoNet">
+      <HintPath>..\..\..\EspackControls\CTLMantenimientoNet\obj\Debug\CTLMantenimientoNet.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -59,6 +62,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="fCustomers.resx">
+      <DependentUpon>fCustomers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fMainInvoicing.resx">
       <DependentUpon>fMainInvoicing.cs</DependentUpon>
     </EmbeddedResource>
