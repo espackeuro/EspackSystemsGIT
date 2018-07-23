@@ -32,29 +32,17 @@ namespace Invoicing
             CTLM.AddItem(txtVATNumber, "Cif", CTLMControlTypes.AddUppSearch);
             CTLM.AddItem(txtPaymentCode, "CPago", CTLMControlTypes.AddUppSearch);
             CTLM.AddItem(txtDueDays, "Dias_Vto", CTLMControlTypes.AddUppNoSearch);
-            CTLM.AddItem(txtSupplierCode, "SupCod", CTLMControlTypes.AddUppSearch);
+            CTLM.AddItem(cboSupplierCode, "SupCod", CTLMControlTypes.AddUppSearch);
             CTLM.AddItem(txtVAT, "IVA", CTLMControlTypes.AddUppNoSearch);
-            CTLM.AddItem(txtCurrencyCode, "Cod_Divisa", CTLMControlTypes.AddUppSearch);
+            CTLM.AddItem(cboCurrencyCode, "Cod_Divisa", CTLMControlTypes.AddUppSearch);
             CTLM.AddItem(txtIBAN, "IBAN", CTLMControlTypes.AddUppSearch);
 
-
-
             CTLM.AddDefaultStatusStrip();
-            CTLM.DBTable = string.Format("(Select * from vUsers where isnull(PositionLevel,50)>={0}) B", SecurityLevel);
+            CTLM.DBTable = "vClientes";
             CTLM.ReQuery = true;
 
-
-
-            cboCOD3.Source("select n.COD3,g.Descripcion from NetworkSedes n inner join general..sedes g on g.cod3=n.COD3 order by n.Cod3", txtDesCod3);
-            listCOD3.Source("select n.COD3,g.Descripcion from NetworkSedes n inner join general..sedes g on g.cod3=n.COD3 order by n.Cod3");
-            listCOD3.ValueChanged += ListCOD3_Changed;
-            cboDomain.Source("Select domain from domain where domain<>'ALL' order by domain");
-            cboPosition.Source(string.Format("select PositionCode,PositionDescription from MasterUserPositions where MinSecurityLevel>={0} order by MinSecurityLevel", SecurityLevel), txtPosition);
-            cboPositionLevel.Source(string.Format("select SecurityLevel from MasterSecurityLevels where SecurityLevel>={0} order by SecurityLevel", SecurityLevel));
-            cboSecurityLevel.Source(string.Format("select SecurityLevel from MasterSecurityLevels where SecurityLevel>={0} order by SecurityLevel", SecurityLevel));
-            cboArea.Source(string.Format("select idArea from MasterAreas order by idArea", SecurityLevel));
-            lstFlags.Source("Select codigo,DescFlagEng from flags where Tabla='Users'");
-            CTLM.AfterButtonClick += CTLM_AfterButtonClick;
+            cboSupplierCode.Source("select SupplierCode,Name from SupplierCodes order by SupplierCode", txtSupplierDescription);
+            cboCurrencyCode.Source("select Codigo,Descripcion from Divisas order by Codigo", txtCurrencyDescription);
             CTLM.Start();
 
         }
