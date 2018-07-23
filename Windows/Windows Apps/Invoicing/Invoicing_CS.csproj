@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3DE1B79D-E614-4CCC-89E2-D62DB86A4377}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Invoicing</RootNamespace>
+    <AssemblyName>Invoicing_cs</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="fMainInvoicing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fMainInvoicing.Designer.cs">
+      <DependentUpon>fMainInvoicing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="fMainInvoicing.resx">
+      <DependentUpon>fMainInvoicing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Database and tools\cAccesoDatos.NET\cAccesoDatosNet.csproj">
+      <Project>{d3e453aa-39b7-480f-8917-6d7f5076c3ed}</Project>
+      <Name>cAccesoDatosNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Database and tools\CommonToolsWin\CommonToolsWin\CommonToolsWin.csproj">
+      <Project>{de462c35-3e22-4a1f-a3a0-1ba33173c623}</Project>
+      <Name>CommonToolsWin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Database and tools\CommonTools\CommonTools.csproj">
+      <Project>{9148f7e6-31f6-4f96-b7dc-afea449998c7}</Project>
+      <Name>CommonTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\EspackControls\DiverseControls\DiverseControls\DiverseControls.csproj">
+      <Project>{005bd28a-42c7-4785-9eb1-bd6f2b7564c3}</Project>
+      <Name>DiverseControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\EspackControls\EspackControls\EspackControls.csproj">
+      <Project>{ece9aa32-f756-4be3-a926-b0771e69066b}</Project>
+      <Name>EspackControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cAccesoDatos\cAccesoDatos.csproj">
+      <Project>{5da9cb0b-9007-40f1-8086-1b0303d8271f}</Project>
+      <Name>cAccesoDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CTLMantenimiento\CTLMantenimiento.csproj">
+      <Project>{8c6814fe-bba2-4450-9077-51b2879cc90b}</Project>
+      <Name>CTLMantenimiento</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EspackDataGridViewControl\EspackDataGridViewControl.csproj">
+      <Project>{7b49f1dd-dda5-4cc1-95cd-4a6eef81bf0b}</Project>
+      <Name>EspackDataGridViewControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EspackFileStream\EspackFileStream.csproj">
+      <Project>{4e249b95-f917-4ac3-8a42-0972131fd357}</Project>
+      <Name>EspackFileStream</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EspackFormControlsCommon\EspackFormControlsCommon.csproj">
+      <Project>{e73bea4d-371e-413f-9316-4b53e4a935a3}</Project>
+      <Name>EspackFormControlsCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EspackMenu\EspackMenu.csproj">
+      <Project>{f58c64dc-f90a-4732-8afa-24db566247f9}</Project>
+      <Name>EspackMenu</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EspackTextBoxControls\EspackFormControls.csproj">
+      <Project>{ff2efef1-a838-438a-88bd-bc5f0f8d6f15}</Project>
+      <Name>EspackFormControls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
