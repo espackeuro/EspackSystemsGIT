@@ -65,7 +65,7 @@ namespace EspackMenuNS
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(string.Format("Form '{0}' doesn't exist yet. {1}", pFormName, ex.Message), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(string.Format("Form '{0}' load error: {1}", pFormName, ex.Message), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return null;
                 }
                 //_Form =(Form)(Assembly.GetEntryAssembly().CreateInstance(pFormName));

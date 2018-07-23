@@ -127,8 +127,7 @@
             this.mastersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuCustomers,
             this.mnuServices,
-            this.mnuCurrencies,
-            this.supplierCodesToolStripMenuItem});
+            this.mnuCurrencies});
             this.mastersToolStripMenuItem.Name = "mastersToolStripMenuItem";
             this.mastersToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.mastersToolStripMenuItem.Text = "Masters";
