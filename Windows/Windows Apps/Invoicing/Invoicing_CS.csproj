@@ -54,6 +54,12 @@
     <Compile Include="fMainInvoicing.Designer.cs">
       <DependentUpon>fMainInvoicing.cs</DependentUpon>
     </Compile>
+    <Compile Include="fPurchaseOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fPurchaseOrders.Designer.cs">
+      <DependentUpon>fPurchaseOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fCustomers.resx">
