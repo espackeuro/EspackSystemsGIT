@@ -538,7 +538,7 @@ namespace EspackDataGridView
             }
             changingStatus = false;
         }
-        public override Control Control { get => DataGridView; }
+        public override Control Control { get => panel; }
         public string Query { get => GetQuery(); }
 
         public string GetQuery()
