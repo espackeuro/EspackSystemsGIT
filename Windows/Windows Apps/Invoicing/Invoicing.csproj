@@ -7,7 +7,7 @@
     <ProjectGuid>{3DE1B79D-E614-4CCC-89E2-D62DB86A4377}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Invoicing</RootNamespace>
-    <AssemblyName>Invoicing_cs</AssemblyName>
+    <AssemblyName>Invoicing</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

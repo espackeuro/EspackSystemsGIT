@@ -141,7 +141,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EspackDataGridViewControl",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EspackMenu", "EspackMenu\EspackMenu.csproj", "{F58C64DC-F90A-4732-8AFA-24DB566247F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoicing_CS", "Invoicing\Invoicing_CS.csproj", "{3DE1B79D-E614-4CCC-89E2-D62DB86A4377}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoicing", "Invoicing\Invoicing.csproj", "{3DE1B79D-E614-4CCC-89E2-D62DB86A4377}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
