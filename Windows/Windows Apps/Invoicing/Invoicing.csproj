@@ -60,23 +60,11 @@
     <Compile Include="fMainInvoicing.Designer.cs">
       <DependentUpon>fMainInvoicing.cs</DependentUpon>
     </Compile>
-    <Compile Include="fInternalCompanies.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fInternalCompanies.Designer.cs">
-      <DependentUpon>fInternalCompanies.cs</DependentUpon>
-    </Compile>
     <Compile Include="fPurchaseOrders.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fPurchaseOrders.Designer.cs">
       <DependentUpon>fPurchaseOrders.cs</DependentUpon>
-    </Compile>
-    <Compile Include="fSuppliers.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fSuppliers.Designer.cs">
-      <DependentUpon>fSuppliers.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,11 +74,8 @@
     <EmbeddedResource Include="fMainInvoicing.resx">
       <DependentUpon>fMainInvoicing.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fInternalCompanies.resx">
-      <DependentUpon>fInternalCompanies.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="fSuppliers.resx">
-      <DependentUpon>fSuppliers.cs</DependentUpon>
+    <EmbeddedResource Include="fPurchaseOrders.resx">
+      <DependentUpon>fPurchaseOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
