@@ -27,11 +27,11 @@ namespace Invoicing
             Values.gDatos.Password = espackArgs.Password;
         }
 
-        private void kkToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var p = new fCustomers();
-            p.Show();
-        }
+        //private void kkToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    var p = new fCustomers();
+        //    p.Show();
+        //}
     }
 
     public static class Values

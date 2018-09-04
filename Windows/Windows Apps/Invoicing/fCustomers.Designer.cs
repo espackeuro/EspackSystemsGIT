@@ -990,7 +990,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1004, 571);
+            this.ClientSize = new System.Drawing.Size(1004, 587);
             this.Controls.Add(this.txtShipCountryCodeDescription);
             this.Controls.Add(this.cboShipCountryCode);
             this.Controls.Add(this.txtIBAN);
@@ -1019,7 +1019,10 @@
             this.Controls.Add(this.txtTown);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.txtName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.KeyPreview = true;
             this.Name = "fCustomers";
+            this.ShowIcon = false;
             this.Text = "Customers";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -306,7 +306,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(503, 291);
+            this.ClientSize = new System.Drawing.Size(503, 305);
             this.Controls.Add(this.txtInternalCompanyDescription);
             this.Controls.Add(this.cboInternalCompanyCode);
             this.Controls.Add(this.txtCOD3Description);
@@ -315,7 +315,10 @@
             this.Controls.Add(this.txtCode);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.CTLM);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.KeyPreview = true;
             this.Name = "fSuppliers";
+            this.ShowIcon = false;
             this.Text = "Suppliers";
             this.ResumeLayout(false);
             this.PerformLayout();

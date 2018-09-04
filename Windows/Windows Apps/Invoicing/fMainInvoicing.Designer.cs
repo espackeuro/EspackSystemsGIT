@@ -31,10 +31,11 @@
             this.espackMenu1 = new EspackMenuNS.EspackMenu();
             this.invoicingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPurchaseOrders = new EspackMenuNS.EspackToolStripItem();
-            this.mastersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mastersToolStripMenuItem = new EspackMenuNS.EspackToolStripItem();
             this.mnuCustomers = new EspackMenuNS.EspackToolStripItem();
-            this.mnuServices = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuCurrencies = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuServices = new EspackMenuNS.EspackToolStripItem();
+            this.mnuCurrencies = new EspackMenuNS.EspackToolStripItem();
+            this.mnuSuppliers = new EspackMenuNS.EspackToolStripItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,6 +46,7 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.espackToolStripItem1 = new EspackMenuNS.EspackToolStripItem();
             this.espackMenu1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +57,8 @@
             this.mastersToolStripMenuItem,
             this.toolsToolStripMenuItem,
             this.helpToolStripMenuItem,
-            this.kkToolStripMenuItem});
+            this.kkToolStripMenuItem,
+            this.espackToolStripItem1});
             this.espackMenu1.Location = new System.Drawing.Point(0, 0);
             this.espackMenu1.Name = "espackMenu1";
             this.espackMenu1.Size = new System.Drawing.Size(800, 24);
@@ -73,7 +76,7 @@
             // mnuPurchaseOrders
             // 
             this.mnuPurchaseOrders.Name = "mnuPurchaseOrders";
-            this.mnuPurchaseOrders.Size = new System.Drawing.Size(160, 22);
+            this.mnuPurchaseOrders.Size = new System.Drawing.Size(180, 22);
             this.mnuPurchaseOrders.Tag = "fPurchaseOrders";
             this.mnuPurchaseOrders.Text = "Purchase Orders";
             // 
@@ -82,31 +85,40 @@
             this.mastersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuCustomers,
             this.mnuServices,
-            this.mnuCurrencies});
+            this.mnuCurrencies,
+            this.mnuSuppliers});
             this.mastersToolStripMenuItem.Name = "mastersToolStripMenuItem";
             this.mastersToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.mastersToolStripMenuItem.Tag = "-";
             this.mastersToolStripMenuItem.Text = "Masters";
             // 
             // mnuCustomers
             // 
             this.mnuCustomers.Name = "mnuCustomers";
-            this.mnuCustomers.Size = new System.Drawing.Size(131, 22);
+            this.mnuCustomers.Size = new System.Drawing.Size(180, 22);
             this.mnuCustomers.Tag = "fCustomers";
             this.mnuCustomers.Text = "Customers";
             // 
             // mnuServices
             // 
             this.mnuServices.Name = "mnuServices";
-            this.mnuServices.Size = new System.Drawing.Size(131, 22);
+            this.mnuServices.Size = new System.Drawing.Size(180, 22);
             this.mnuServices.Tag = "fServices";
             this.mnuServices.Text = "Services";
             // 
             // mnuCurrencies
             // 
             this.mnuCurrencies.Name = "mnuCurrencies";
-            this.mnuCurrencies.Size = new System.Drawing.Size(131, 22);
+            this.mnuCurrencies.Size = new System.Drawing.Size(180, 22);
             this.mnuCurrencies.Tag = "fCurrencies";
             this.mnuCurrencies.Text = "Currencies";
+            // 
+            // mnuSuppliers
+            // 
+            this.mnuSuppliers.Name = "mnuSuppliers";
+            this.mnuSuppliers.Size = new System.Drawing.Size(180, 22);
+            this.mnuSuppliers.Tag = "fSuppliers";
+            this.mnuSuppliers.Text = "Suppliers";
             // 
             // toolsToolStripMenuItem
             // 
@@ -120,13 +132,13 @@
             // customizeToolStripMenuItem
             // 
             this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.customizeToolStripMenuItem.Text = "&Customize";
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.optionsToolStripMenuItem.Text = "&Options";
             // 
             // helpToolStripMenuItem
@@ -144,30 +156,30 @@
             // contentsToolStripMenuItem
             // 
             this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
-            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.contentsToolStripMenuItem.Text = "&Contents";
             // 
             // indexToolStripMenuItem
             // 
             this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.indexToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.indexToolStripMenuItem.Text = "&Index";
             // 
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.searchToolStripMenuItem.Text = "&Search";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(119, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "&About...";
             // 
             // kkToolStripMenuItem
@@ -175,7 +187,12 @@
             this.kkToolStripMenuItem.Name = "kkToolStripMenuItem";
             this.kkToolStripMenuItem.Size = new System.Drawing.Size(31, 20);
             this.kkToolStripMenuItem.Text = "kk";
-            this.kkToolStripMenuItem.Click += new System.EventHandler(this.kkToolStripMenuItem_Click);
+            // 
+            // espackToolStripItem1
+            // 
+            this.espackToolStripItem1.Name = "espackToolStripItem1";
+            this.espackToolStripItem1.Size = new System.Drawing.Size(132, 20);
+            this.espackToolStripItem1.Text = "espackToolStripItem1";
             // 
             // fMainInvoicing
             // 
@@ -187,6 +204,7 @@
             this.MainMenuStrip = this.espackMenu1;
             this.Name = "fMainInvoicing";
             this.Text = "Invoicing";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.espackMenu1.ResumeLayout(false);
             this.espackMenu1.PerformLayout();
             this.ResumeLayout(false);
@@ -206,13 +224,15 @@
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mastersToolStripMenuItem;
         private EspackMenuNS.EspackToolStripItem mnuCustomers;
         private System.Windows.Forms.ToolStripMenuItem mnuServices;
         private System.Windows.Forms.ToolStripMenuItem mnuCurrencies;
         private System.Windows.Forms.ToolStripMenuItem invoicingToolStripMenuItem;
         private EspackMenuNS.EspackToolStripItem mnuPurchaseOrders;
         private System.Windows.Forms.ToolStripMenuItem kkToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuSuppliers;
+        private EspackMenuNS.EspackToolStripItem espackToolStripItem1;
+        private EspackMenuNS.EspackToolStripItem mastersToolStripMenuItem;
     }
 }
 
