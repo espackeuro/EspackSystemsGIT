@@ -28,7 +28,6 @@ namespace Invoicing
             CTLM.AddItem(cboInternalCompanyCode, "InternalCompanyCode", CTLMControlTypes.AddUppSearch);
             CTLM.AddItem(cboCOD3, "Cod3", CTLMControlTypes.AddUppSearch);
             CTLM.AddItem(lstFlags, "Flags", CTLMControlTypes.AddUppNoSearch);
-            //CTLM.AddItem("", "ExtraData", CTLMControlTypes.AddUppNoSearch);
 
             CTLM.AddDefaultStatusStrip();
             CTLM.DBTable = "MasterSuppliers";
@@ -36,15 +35,17 @@ namespace Invoicing
 
             lstFlags.Source("Select codigo,DescFlagEng from flags where Tabla='MasterCustomers'");
             cboInternalCompanyCode.Source("select InternalCompanyCode,Name from InternalCompanies order by InternalCompanyCode", txtInternalCompanyDescription);
-            cboInternalCompanyCode.ValueChanged += CboInternalCompanyCode_ValueChanged; ;
-            cboCOD3.Source(string.Format("select Cod3,BranchName from InternalCompanyBranches where InternalCompanyCode='{0}' order by InternalCompanyCode,Cod3",cboInternalCompanyCode), txtInternalCompanyDescription);
+            cboInternalCompanyCode.ValueChanged += CboInternalCompanyCode_ValueChanged;
+            cboCOD3.Source(string.Format("select distinct MainCod3,BranchName from InternalCompanyBranches where InternalCompanyCode='{0}' order by MainCod3",cboInternalCompanyCode.Value), txtCOD3Description);
 
             CTLM.Start();
         }
 
         private void CboInternalCompanyCode_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            cboCOD3.Source(string.Format("select Cod3,BranchName from InternalCompanyBranches where InternalCompanyCode='{0}' order by InternalCopanyCode,Cod3", cboInternalCompanyCode), txtInternalCompanyDescription);
+            cboCOD3.Text = "";
+            txtCOD3Description.Text = "";
+            cboCOD3.Source(string.Format("select distinct MainCod3,BranchName from InternalCompanyBranches where InternalCompanyCode='{0}' order by MainCod3", cboInternalCompanyCode.Value), txtCOD3Description);
         }
 
     }
