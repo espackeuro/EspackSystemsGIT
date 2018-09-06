@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using EspackFormControlsNS;
 using static Invoicing.Values;
 
+
 namespace Invoicing
 {
     public partial class fSuppliers : Form
