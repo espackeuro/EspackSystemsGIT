@@ -63,6 +63,7 @@ namespace LogOnObjects
                         Values.COD3 = r["COD3"].ToString();
                         Values.DBServerList.Add(new cServer() { HostName = r["ServerDB"].ToString(), COD3 = "LOC", Type = ServerTypes.DATABASE, User = Values.User, Password = Values.Password });
                         Values.DBServerList.Add(new cServer() { HostName = "DB01.local", COD3 = "OUT", Type = ServerTypes.DATABASE, User = Values.User, Password = Values.Password });
+                        Values.DBServerList.Add(new cServer() { HostName = "MASTERDB.local", COD3 = "GLO", Type = ServerTypes.DATABASE, User = Values.User, Password = Values.Password });
                     }
                 });
                 /*

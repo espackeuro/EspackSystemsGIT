@@ -168,6 +168,14 @@
       <Project>{04d920d4-f298-4006-9c6a-da56130e8bdb}</Project>
       <Name>cFTP</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EspackFormControlsCommon\EspackFormControlsCommon.csproj">
+      <Project>{e73bea4d-371e-413f-9316-4b53e4a935a3}</Project>
+      <Name>EspackFormControlsCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EspackTextBoxControls\EspackFormControls.csproj">
+      <Project>{ff2efef1-a838-438a-88bd-bc5f0f8d6f15}</Project>
+      <Name>EspackFormControls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LogonObjects\LogonObjects\LogOnObjects.csproj">
       <Project>{5f489d49-0a82-42e5-af0f-3b2c580fb746}</Project>
       <Name>LogOnObjects</Name>

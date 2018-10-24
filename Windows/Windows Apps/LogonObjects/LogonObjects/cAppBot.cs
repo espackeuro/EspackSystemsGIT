@@ -31,7 +31,7 @@ namespace LogOnObjects
         public cServer ShareServer { get; set; }
         private string ExeName { get; set; }
         private cAccesoDatosNet Conn { get; set; }
-        public GroupBox grpApp { get; set; }
+        public MyPanel grpApp { get; set; }
         public Button pctApp { get; set; }
         public ProgressBar prgApp { get; set; }
         public Label lblDescriptionApp { get; set; }
@@ -230,7 +230,7 @@ namespace LogOnObjects
         // Constructor (without args) -> Creates the Button, the ProgressBar, the Label and a GroupBox that will contain them. 
         public cAppBot()
         {
-            grpApp = new GroupBox() { Size = new Size(GROUP_WIDTH, GROUP_HEIGHT), Location = new Point(0, 0) };
+            grpApp = new MyPanel() { Size = new Size(GROUP_WIDTH, GROUP_HEIGHT), Location = new Point(0, 0), BorderStyle = BorderStyle.None};
             pctApp = new Button();
             prgApp = new ProgressBar()
             {
@@ -859,6 +859,21 @@ namespace LogOnObjects
         #endregion
     }
 
+    [System.ComponentModel.DesignerCategory("Code")]
+    public class MyPanel : Panel
+    {
+        public MyPanel()
+        {
+            SetStyle(ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.DoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
+        }
 
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            using (SolidBrush brush = new SolidBrush(BackColor))
+                e.Graphics.FillRectangle(brush, ClientRectangle);
+            e.Graphics.DrawRectangle(Pens.White, 0, 0, ClientSize.Width - 1, ClientSize.Height - 1);
+        }
+
+    }
 
 }

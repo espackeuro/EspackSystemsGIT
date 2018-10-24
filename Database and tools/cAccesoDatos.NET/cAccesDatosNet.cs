@@ -401,6 +401,7 @@ namespace AccesoDatosNet
                 await mConn.OpenAsync();
             }
             Cmd = new SqlCommand(SQL, mConn.AdoCon);
+            Cmd.CommandTimeout = 300;
             mState = RSState.Executing;
             try
             {

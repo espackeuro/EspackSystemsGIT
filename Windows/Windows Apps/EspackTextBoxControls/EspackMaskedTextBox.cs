@@ -22,6 +22,10 @@ namespace EspackFormControlsNS
         //public bool Multiline { get; set; }
         public string Mask { get => MaskedTextBox.Mask; set => MaskedTextBox.Mask = value; }
         public HorizontalAlignment TextAlign { get => MaskedTextBox.TextAlign; set => MaskedTextBox.TextAlign = value; }
+        public char PasswordChar { get => MaskedTextBox.PasswordChar; set => MaskedTextBox.PasswordChar = value; }
+        public bool UseSystemPasswordChar { get => MaskedTextBox.UseSystemPasswordChar; set => MaskedTextBox.UseSystemPasswordChar = value; }
+        public char PromptChar { get => MaskedTextBox.PromptChar; set => MaskedTextBox.PromptChar = value; }
+        public bool Multiline { get; set; }
 
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]

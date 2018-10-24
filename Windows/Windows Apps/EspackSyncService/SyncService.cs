@@ -213,7 +213,7 @@ namespace EspackSyncService
             //now lets sync the groups
             Values.gDatos.DataBase = "MAIL";
             Values.gDatos.Connect();
-            using (var _RS = new DynamicRS("Select local_part,address,flags from aliasCAB where dbo.CheckFlag(flags,'CHANGED')=1", Values.gDatos))
+            using (var _RS = new DynamicRS("Select local_part,address,flags from aliasCAB where dbo.CheckFlag(flags,'CHANGED')=1 and local_part!=''", Values.gDatos))
             {
                 try
                 {
@@ -232,7 +232,7 @@ namespace EspackSyncService
                     var _flags = r["flags"].ToString().Split('|');
                     int _error = 0;
                     //lets get the group members
-                    using (var _aliases = new DynamicRS(string.Format("select * from dbo.fExpandAlias('{0}') where gotoAddress not in (select gotoAddress from dbo.fExpandAliasExceptions('{0}'))", r["address"].ToString()), Values.gDatos))
+                    using (var _aliases = new StaticRS(string.Format("select * from dbo.fExpandAlias('{0}') where gotoAddress not in (select gotoAddress from dbo.fExpandAliasExceptions('{0}'))", r["address"].ToString()), Values.gDatos))
                     {
                         try
                         {

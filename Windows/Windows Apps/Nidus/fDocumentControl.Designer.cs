@@ -92,7 +92,6 @@
             this.VS.EspackControlParent = null;
             this.VS.ExtraDataLink = null;
             this.VS.FGFocused = false;
-            this.VS.FilterDataGrid = null;
             this.VS.FilterRow = null;
             this.VS.FilterRowEnabled = false;
             this.VS.GridColor = System.Drawing.SystemColors.ButtonFace;

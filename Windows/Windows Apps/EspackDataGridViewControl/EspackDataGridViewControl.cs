@@ -15,7 +15,6 @@ using DiverseControls;
 
 namespace EspackDataGridView
 {
-
     public partial class EspackDataGridViewControl : EspackFormControlCaption
 
     {
@@ -160,10 +159,11 @@ namespace EspackDataGridView
         }
         public bool EndEdit()
         {
-            if (FGFocused)
-                return FilterDataGrid.EndEdit();
-            else
-                return DataGridView.EndEdit();
+            if (FGFocused && FilterDataGrid.IsCurrentCellInEditMode)
+                return FilterDataGrid.EndEditControlled();
+            else if (DataGridView.IsCurrentCellInEditMode)
+                return DataGridView.EndEditControlled();
+            else return false;
         }
         public bool CancelEdit()
         {
@@ -752,9 +752,9 @@ namespace EspackDataGridView
         private void EspackDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             executed = false;
-            if (endEditing || changingStatus)
+            if (DataGridView.EndEditing || changingStatus)
                 return;
-            endEditing = true;
+            //endEditing = true;
             bool commitEdit = false;
             if (e.ColumnIndex == VisibleColumns.Select(c => c.Index).Max())
                 commitEdit = true;
@@ -772,7 +772,7 @@ namespace EspackDataGridView
             //    CurrentCell = laCell;
             //}
             //oldCurrentCell = (EspackDataGridViewCell)CurrentCell;
-            endEditing = false;
+            //endEditing = false;
             //RowEdited = e.RowIndex;
             //RowEditedBool = true;
         }
@@ -788,13 +788,13 @@ namespace EspackDataGridView
             DGFocused = true;
         }
 
-        private EspackDataGridViewCell NextEditableCell(EspackDataGridViewCell fromCell = null)
-        {
-            fromCell = fromCell ?? (EspackDataGridViewCell)CurrentCell;
-            var candidateCell = Rows[fromCell.RowIndex].Cells.OfType<EspackDataGridViewCell>().Where(c => !c.ReadOnly && c.ColumnIndex > fromCell.ColumnIndex).OrderBy(c => c.ColumnIndex).FirstOrDefault();
-            //var Cell = VisibleColumns.Where(c => !c.ReadOnly && c.Index > fromCell.ColumnIndex).OrderBy(c => c.Index).FirstOrDefault()?.Cells[fromCell.RowIndex];
-            return candidateCell ?? fromCell;
-        }
+        //private EspackDataGridViewCell NextEditableCell(EspackDataGridViewCell fromCell = null)
+        //{
+        //    fromCell = fromCell ?? (EspackDataGridViewCell)CurrentCell;
+        //    var candidateCell = Rows[fromCell.RowIndex].Cells.OfType<EspackDataGridViewCell>().Where(c => !c.ReadOnly && c.ColumnIndex > fromCell.ColumnIndex).OrderBy(c => c.ColumnIndex).FirstOrDefault();
+        //    //var Cell = VisibleColumns.Where(c => !c.ReadOnly && c.Index > fromCell.ColumnIndex).OrderBy(c => c.Index).FirstOrDefault()?.Cells[fromCell.RowIndex];
+        //    return candidateCell ?? fromCell;
+        //}
 
         private void EspackDataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -813,23 +813,22 @@ namespace EspackDataGridView
         }
 
 
-        private bool endEditing = false;
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if ((keyData == Keys.Enter || keyData == Keys.Tab))
             {
                 DGFocused = DataGridView.IsCurrentCellInEditMode;
                 FGFocused = FilterDataGrid.IsCurrentCellInEditMode;
-                    
-                if (IsCurrentCellInEditMode)
+                var currentGrid = FGFocused ? FilterDataGrid : DataGridView;                    
+                if (currentGrid.IsCurrentCellInEditMode)
                 {
-                    EndEdit();
+                    currentGrid.EndEditControlled();
                     if (!cancelSelect && !executed)
-                        CurrentCell = NextEditableCell();
+                        currentGrid.CurrentCell = currentGrid.NextEditableCell();
                 }
                 else
-                if (!CurrentCell.ReadOnly)
-                    BeginEdit(true);
+                if (!currentGrid.CurrentCell.ReadOnly)
+                    currentGrid.BeginEdit(true);
                 else
                     SendKeys.Send("{RIGHT}");
                 return true;
@@ -917,7 +916,7 @@ namespace EspackDataGridView
             //for (int i = 1; i < Rows.Count; i++)
             //    mDA.Table.Rows.RemoveAt(i);
             if (FilterDataGrid.IsCurrentCellInEditMode /*&& !FilterDataGrid.endEditing*/)
-                FilterDataGrid.EndEdit();
+                FilterDataGrid.EndEditControlled();
             List<string> whereList = new List<string>();
             //Dictionary<int, string> valueList = new Dictionary<int, string>();
             foreach (EspackDataGridViewCell c in FilterCells)

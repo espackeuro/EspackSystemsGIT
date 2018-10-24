@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel = new System.Windows.Forms.Panel();
-            this.FilterDataGrid = new System.Windows.Forms.DataGridView();
-            this.DataGridView = new System.Windows.Forms.DataGridView();
+            this.FilterDataGrid = new DataGridViewExtended();
+            this.DataGridView = new DataGridViewExtended();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FilterDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
@@ -82,7 +82,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel;
-        public System.Windows.Forms.DataGridView DataGridView;
-        public System.Windows.Forms.DataGridView FilterDataGrid;
+        public DataGridViewExtended DataGridView;
+        public DataGridViewExtended FilterDataGrid;
     }
 }

@@ -212,7 +212,8 @@ namespace EspackDataGridView
                     break;
             }
             editControl.Conn = Conn;
-            editControl.EspackControl.ValueChanged -= Control_ValueChanged;
+            //editControl.EspackControl.ValueChanged -= Control_ValueChanged;
+            this.DataGridView.CellEndEdit -= DataGridView_CellEndEdit;
             editControl.SqlSource = Column.SqlSource;
             editControl.AutoCompleteMode = AutoCompleteMode;
             editControl.AutoCompleteSource = AutoCompleteSource;
@@ -220,7 +221,8 @@ namespace EspackDataGridView
             editControl.EspackControl.Font = this.Parent.Font;
             oldValue = Value;
             editControl.Value = Value;
-            editControl.EspackControl.ValueChanged += Control_ValueChanged;
+            //editControl.EspackControl.ValueChanged += Control_ValueChanged;
+            this.DataGridView.CellEndEdit += DataGridView_CellEndEdit;
             // Use the default row value when Value property is null.
             //if (this.Value == null)
             //{
@@ -230,6 +232,21 @@ namespace EspackDataGridView
             //{
             //    editControl.Value = this.Value;
             //}
+        }
+
+        private void DataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DataGridView?.CurrentCell == this)
+                if (editControl.Value != null && editControl.Value?.ToString() != oldValue?.ToString())
+                {
+                    var eventArgs = new CellValueChangedEventArgs(this, oldValue, editControl.Value);
+                    //if (DataGridView.Focus())
+                    //    DataGridView.EndEdit();
+                    Value = editControl.Value;
+                    OnCellValueChanged(eventArgs);
+                    //editControl.Control.ValueChanged -= Control_ValueChanged;
+                    oldValue = Value;
+                }
         }
 
         private object oldValue = null;

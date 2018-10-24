@@ -20,7 +20,7 @@ namespace EspackDataGridView
         private string _sqlSource;
         public cAccesoDatosNet Conn { get; set; }
         //public object Value { get => Control.Value; set => Control.Value = value; }
-        public EspackEditControlTextBox()
+        public EspackEditControlTextBox(): base()
         {
             Enabled = true;
             ReadOnly = false;

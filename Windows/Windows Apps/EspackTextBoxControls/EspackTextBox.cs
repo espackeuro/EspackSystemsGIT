@@ -22,6 +22,10 @@ namespace EspackFormControlsNS
         public bool Multiline { get; set; }
         public AutoCompleteStringCollection AutoCompleteCustomSource { get => TextBox.AutoCompleteCustomSource; set => TextBox.AutoCompleteCustomSource = value; }
         public AutoCompleteSource AutoCompleteSource { get => TextBox.AutoCompleteSource; set => TextBox.AutoCompleteSource = value; }
+        //public char PasswordChar { get => TextBox.PasswordChar; set => TextBox.PasswordChar = value; }
+        //public bool UseSystemPasswordChar { get => TextBox.UseSystemPasswordChar; set => TextBox.UseSystemPasswordChar = value; }
+        public bool WordWrap { get => TextBox.WordWrap; set => TextBox.WordWrap = value; }
+
         public AutoCompleteMode AutoCompleteMode
         {
             get => TextBox.AutoCompleteMode;

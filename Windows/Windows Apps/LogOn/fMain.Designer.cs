@@ -31,9 +31,9 @@ namespace LogOn
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMain));
-            this.gbCredentials = new System.Windows.Forms.GroupBox();
+            this.gbCredentials = new System.Windows.Forms.Panel();
             this.chkDebug = new System.Windows.Forms.CheckBox();
-            this.gbChangePassword = new System.Windows.Forms.GroupBox();
+            this.gbChangePassword = new System.Windows.Forms.Panel();
             this.btnCancelChange = new System.Windows.Forms.Button();
             this.btnOKChange = new System.Windows.Forms.Button();
             this.btnChange = new System.Windows.Forms.Button();
@@ -41,13 +41,13 @@ namespace LogOn
             this.txtNewPIN = new EspackFormControlsNS.EspackMaskedTextBox();
             this.txtNewPasswordConfirm = new EspackFormControlsNS.EspackTextBox();
             this.txtNewPassword = new EspackFormControlsNS.EspackTextBox();
-            this.gbCred = new System.Windows.Forms.GroupBox();
+            this.gbCred = new System.Windows.Forms.Panel();
             this.btnOk = new System.Windows.Forms.Button();
             this.txtPassword = new EspackFormControlsNS.EspackTextBox();
             this.txtUser = new EspackFormControlsNS.EspackTextBox();
-            this.gbApps = new System.Windows.Forms.GroupBox();
+            this.gbApps = new System.Windows.Forms.Panel();
             this.tlpApps = new System.Windows.Forms.TableLayoutPanel();
-            this.gbDebug = new System.Windows.Forms.GroupBox();
+            this.gbDebug = new System.Windows.Forms.Panel();
             this.gbCredentials.SuspendLayout();
             this.gbChangePassword.SuspendLayout();
             this.gbCred.SuspendLayout();
@@ -58,7 +58,7 @@ namespace LogOn
             // 
             this.gbCredentials.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbCredentials.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.gbCredentials.BackColor = System.Drawing.Color.Transparent;
             this.gbCredentials.Controls.Add(this.chkDebug);
             this.gbCredentials.Controls.Add(this.gbChangePassword);
             this.gbCredentials.Controls.Add(this.gbCred);
@@ -66,7 +66,6 @@ namespace LogOn
             this.gbCredentials.Name = "gbCredentials";
             this.gbCredentials.Size = new System.Drawing.Size(1686, 55);
             this.gbCredentials.TabIndex = 0;
-            this.gbCredentials.TabStop = false;
             // 
             // chkDebug
             // 
@@ -91,13 +90,12 @@ namespace LogOn
             this.gbChangePassword.Controls.Add(this.txtNewPassword);
             this.gbChangePassword.Location = new System.Drawing.Point(319, 8);
             this.gbChangePassword.Name = "gbChangePassword";
-            this.gbChangePassword.Size = new System.Drawing.Size(693, 41);
+            this.gbChangePassword.Size = new System.Drawing.Size(739, 41);
             this.gbChangePassword.TabIndex = 35;
-            this.gbChangePassword.TabStop = false;
             // 
             // btnCancelChange
             // 
-            this.btnCancelChange.Location = new System.Drawing.Point(604, 8);
+            this.btnCancelChange.Location = new System.Drawing.Point(624, 11);
             this.btnCancelChange.Name = "btnCancelChange";
             this.btnCancelChange.Size = new System.Drawing.Size(75, 27);
             this.btnCancelChange.TabIndex = 41;
@@ -108,7 +106,7 @@ namespace LogOn
             // 
             // btnOKChange
             // 
-            this.btnOKChange.Location = new System.Drawing.Point(523, 8);
+            this.btnOKChange.Location = new System.Drawing.Point(543, 11);
             this.btnOKChange.Name = "btnOKChange";
             this.btnOKChange.Size = new System.Drawing.Size(75, 27);
             this.btnOKChange.TabIndex = 40;
@@ -119,7 +117,7 @@ namespace LogOn
             // 
             // btnChange
             // 
-            this.btnChange.Location = new System.Drawing.Point(6, 8);
+            this.btnChange.Location = new System.Drawing.Point(3, 12);
             this.btnChange.Name = "btnChange";
             this.btnChange.Size = new System.Drawing.Size(75, 27);
             this.btnChange.TabIndex = 39;
@@ -132,7 +130,6 @@ namespace LogOn
             // 
             this.txtNewPINConfirm.Add = false;
             this.txtNewPINConfirm.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtNewPINConfirm.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNewPINConfirm.Caption = "Confirm";
             this.txtNewPINConfirm.DBField = null;
             this.txtNewPINConfirm.DBFieldType = null;
@@ -140,22 +137,24 @@ namespace LogOn
             this.txtNewPINConfirm.Del = false;
             this.txtNewPINConfirm.DependingRS = null;
             this.txtNewPINConfirm.ExtraDataLink = null;
-            this.txtNewPINConfirm.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtNewPINConfirm.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.txtNewPINConfirm.Location = new System.Drawing.Point(417, 13);
+            this.txtNewPINConfirm.IsCTLMOwned = false;
+            this.txtNewPINConfirm.Location = new System.Drawing.Point(426, -2);
             this.txtNewPINConfirm.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtNewPINConfirm.Mask = "9999";
+            this.txtNewPINConfirm.Multiline = false;
             this.txtNewPINConfirm.Name = "txtNewPINConfirm";
             this.txtNewPINConfirm.Order = 0;
             this.txtNewPINConfirm.ParentConn = null;
             this.txtNewPINConfirm.ParentDA = null;
-            this.txtNewPINConfirm.PasswordChar = '*';
+            this.txtNewPINConfirm.PasswordChar = '●';
             this.txtNewPINConfirm.PK = false;
             this.txtNewPINConfirm.PromptChar = ' ';
             this.txtNewPINConfirm.Protected = false;
+            this.txtNewPINConfirm.ReadOnly = false;
             this.txtNewPINConfirm.Search = false;
-            this.txtNewPINConfirm.Size = new System.Drawing.Size(100, 17);
-            this.txtNewPINConfirm.SetStatus(CommonTools.EnumStatus.ADDNEW);
+            this.txtNewPINConfirm.Size = new System.Drawing.Size(108, 32);
+            this.txtNewPINConfirm.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtNewPINConfirm.TabIndex = 38;
             this.txtNewPINConfirm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtNewPINConfirm.Upp = true;
@@ -167,7 +166,6 @@ namespace LogOn
             // 
             this.txtNewPIN.Add = false;
             this.txtNewPIN.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtNewPIN.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNewPIN.Caption = "PIN";
             this.txtNewPIN.DBField = null;
             this.txtNewPIN.DBFieldType = null;
@@ -175,22 +173,24 @@ namespace LogOn
             this.txtNewPIN.Del = false;
             this.txtNewPIN.DependingRS = null;
             this.txtNewPIN.ExtraDataLink = null;
-            this.txtNewPIN.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtNewPIN.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.txtNewPIN.Location = new System.Drawing.Point(311, 13);
+            this.txtNewPIN.IsCTLMOwned = false;
+            this.txtNewPIN.Location = new System.Drawing.Point(312, -2);
             this.txtNewPIN.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtNewPIN.Mask = "9999";
+            this.txtNewPIN.Multiline = false;
             this.txtNewPIN.Name = "txtNewPIN";
             this.txtNewPIN.Order = 0;
             this.txtNewPIN.ParentConn = null;
             this.txtNewPIN.ParentDA = null;
-            this.txtNewPIN.PasswordChar = '*';
+            this.txtNewPIN.PasswordChar = '●';
             this.txtNewPIN.PK = false;
             this.txtNewPIN.PromptChar = ' ';
             this.txtNewPIN.Protected = false;
+            this.txtNewPIN.ReadOnly = false;
             this.txtNewPIN.Search = false;
-            this.txtNewPIN.Size = new System.Drawing.Size(100, 17);
-            this.txtNewPIN.SetStatus(CommonTools.EnumStatus.ADDNEW);
+            this.txtNewPIN.Size = new System.Drawing.Size(108, 32);
+            this.txtNewPIN.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtNewPIN.TabIndex = 37;
             this.txtNewPIN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtNewPIN.Upp = true;
@@ -201,18 +201,21 @@ namespace LogOn
             // txtNewPasswordConfirm
             // 
             this.txtNewPasswordConfirm.Add = false;
+            this.txtNewPasswordConfirm.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtNewPasswordConfirm.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtNewPasswordConfirm.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtNewPasswordConfirm.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNewPasswordConfirm.Caption = "Confirm";
+            this.txtNewPasswordConfirm.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtNewPasswordConfirm.DBField = null;
             this.txtNewPasswordConfirm.DBFieldType = null;
             this.txtNewPasswordConfirm.DefaultValue = null;
             this.txtNewPasswordConfirm.Del = false;
             this.txtNewPasswordConfirm.DependingRS = null;
             this.txtNewPasswordConfirm.ExtraDataLink = null;
-            this.txtNewPasswordConfirm.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtNewPasswordConfirm.ForeColor = System.Drawing.Color.Gray;
-            this.txtNewPasswordConfirm.Location = new System.Drawing.Point(193, 13);
+            this.txtNewPasswordConfirm.IsCTLMOwned = false;
+            this.txtNewPasswordConfirm.IsPassword = true;
+            this.txtNewPasswordConfirm.Location = new System.Drawing.Point(198, -2);
             this.txtNewPasswordConfirm.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtNewPasswordConfirm.Multiline = true;
             this.txtNewPasswordConfirm.Name = "txtNewPasswordConfirm";
@@ -221,30 +224,35 @@ namespace LogOn
             this.txtNewPasswordConfirm.ParentDA = null;
             this.txtNewPasswordConfirm.PK = false;
             this.txtNewPasswordConfirm.Protected = false;
+            this.txtNewPasswordConfirm.ReadOnly = false;
             this.txtNewPasswordConfirm.Search = false;
-            this.txtNewPasswordConfirm.Size = new System.Drawing.Size(100, 17);
-            this.txtNewPasswordConfirm.SetStatus(CommonTools.EnumStatus.EDIT);
+            this.txtNewPasswordConfirm.Size = new System.Drawing.Size(108, 46);
+            this.txtNewPasswordConfirm.Status = CommonTools.EnumStatus.EDIT;
             this.txtNewPasswordConfirm.TabIndex = 36;
+            this.txtNewPasswordConfirm.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtNewPasswordConfirm.Upp = true;
-            this.txtNewPasswordConfirm.UseSystemPasswordChar = true;
             this.txtNewPasswordConfirm.Value = "";
             this.txtNewPasswordConfirm.Visible = false;
+            this.txtNewPasswordConfirm.WordWrap = true;
             // 
             // txtNewPassword
             // 
             this.txtNewPassword.Add = false;
+            this.txtNewPassword.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtNewPassword.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtNewPassword.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtNewPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNewPassword.Caption = "New Password";
+            this.txtNewPassword.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtNewPassword.DBField = null;
             this.txtNewPassword.DBFieldType = null;
             this.txtNewPassword.DefaultValue = null;
             this.txtNewPassword.Del = false;
             this.txtNewPassword.DependingRS = null;
             this.txtNewPassword.ExtraDataLink = null;
-            this.txtNewPassword.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtNewPassword.ForeColor = System.Drawing.Color.Gray;
-            this.txtNewPassword.Location = new System.Drawing.Point(87, 13);
+            this.txtNewPassword.IsCTLMOwned = false;
+            this.txtNewPassword.IsPassword = true;
+            this.txtNewPassword.Location = new System.Drawing.Point(84, -2);
             this.txtNewPassword.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtNewPassword.Multiline = true;
             this.txtNewPassword.Name = "txtNewPassword";
@@ -253,14 +261,16 @@ namespace LogOn
             this.txtNewPassword.ParentDA = null;
             this.txtNewPassword.PK = false;
             this.txtNewPassword.Protected = false;
+            this.txtNewPassword.ReadOnly = false;
             this.txtNewPassword.Search = false;
-            this.txtNewPassword.Size = new System.Drawing.Size(100, 17);
-            this.txtNewPassword.SetStatus(CommonTools.EnumStatus.EDIT);
+            this.txtNewPassword.Size = new System.Drawing.Size(108, 46);
+            this.txtNewPassword.Status = CommonTools.EnumStatus.EDIT;
             this.txtNewPassword.TabIndex = 35;
+            this.txtNewPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtNewPassword.Upp = true;
-            this.txtNewPassword.UseSystemPasswordChar = true;
             this.txtNewPassword.Value = "";
             this.txtNewPassword.Visible = false;
+            this.txtNewPassword.WordWrap = true;
             // 
             // gbCred
             // 
@@ -271,14 +281,12 @@ namespace LogOn
             this.gbCred.Location = new System.Drawing.Point(6, 8);
             this.gbCred.Margin = new System.Windows.Forms.Padding(0);
             this.gbCred.Name = "gbCred";
-            this.gbCred.Padding = new System.Windows.Forms.Padding(0);
             this.gbCred.Size = new System.Drawing.Size(310, 41);
             this.gbCred.TabIndex = 34;
-            this.gbCred.TabStop = false;
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(226, 8);
+            this.btnOk.Location = new System.Drawing.Point(228, 12);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 27);
             this.btnOk.TabIndex = 4;
@@ -289,18 +297,21 @@ namespace LogOn
             // txtPassword
             // 
             this.txtPassword.Add = false;
+            this.txtPassword.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtPassword.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtPassword.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Caption = "Password";
+            this.txtPassword.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtPassword.DBField = null;
             this.txtPassword.DBFieldType = null;
             this.txtPassword.DefaultValue = null;
             this.txtPassword.Del = false;
             this.txtPassword.DependingRS = null;
             this.txtPassword.ExtraDataLink = null;
-            this.txtPassword.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtPassword.ForeColor = System.Drawing.Color.Gray;
-            this.txtPassword.Location = new System.Drawing.Point(120, 14);
+            this.txtPassword.IsCTLMOwned = false;
+            this.txtPassword.IsPassword = true;
+            this.txtPassword.Location = new System.Drawing.Point(114, 0);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
@@ -309,29 +320,34 @@ namespace LogOn
             this.txtPassword.ParentDA = null;
             this.txtPassword.PK = false;
             this.txtPassword.Protected = false;
+            this.txtPassword.ReadOnly = false;
             this.txtPassword.Search = false;
-            this.txtPassword.Size = new System.Drawing.Size(100, 17);
-            this.txtPassword.SetStatus(CommonTools.EnumStatus.EDIT);
+            this.txtPassword.Size = new System.Drawing.Size(108, 46);
+            this.txtPassword.Status = CommonTools.EnumStatus.EDIT;
             this.txtPassword.TabIndex = 2;
+            this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtPassword.Upp = true;
-            this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.Value = "";
+            this.txtPassword.WordWrap = true;
             // 
             // txtUser
             // 
             this.txtUser.Add = false;
+            this.txtUser.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtUser.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtUser.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUser.Caption = "User";
+            this.txtUser.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtUser.DBField = null;
             this.txtUser.DBFieldType = null;
             this.txtUser.DefaultValue = null;
             this.txtUser.Del = false;
             this.txtUser.DependingRS = null;
             this.txtUser.ExtraDataLink = null;
-            this.txtUser.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtUser.ForeColor = System.Drawing.Color.Gray;
-            this.txtUser.Location = new System.Drawing.Point(6, 14);
+            this.txtUser.IsCTLMOwned = false;
+            this.txtUser.IsPassword = false;
+            this.txtUser.Location = new System.Drawing.Point(0, 0);
             this.txtUser.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtUser.Multiline = true;
             this.txtUser.Name = "txtUser";
@@ -340,10 +356,12 @@ namespace LogOn
             this.txtUser.ParentDA = null;
             this.txtUser.PK = false;
             this.txtUser.Protected = false;
+            this.txtUser.ReadOnly = false;
             this.txtUser.Search = false;
-            this.txtUser.Size = new System.Drawing.Size(108, 17);
-            this.txtUser.SetStatus(CommonTools.EnumStatus.EDIT);
+            this.txtUser.Size = new System.Drawing.Size(108, 46);
+            this.txtUser.Status = CommonTools.EnumStatus.EDIT;
             this.txtUser.TabIndex = 0;
+            this.txtUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtUser.Upp = true;
             this.txtUser.Value = "";
             this.txtUser.WordWrap = false;
@@ -353,13 +371,12 @@ namespace LogOn
             this.gbApps.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbApps.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.gbApps.BackColor = System.Drawing.Color.Transparent;
             this.gbApps.Controls.Add(this.tlpApps);
             this.gbApps.Location = new System.Drawing.Point(12, 74);
             this.gbApps.Name = "gbApps";
             this.gbApps.Size = new System.Drawing.Size(1686, 539);
             this.gbApps.TabIndex = 1;
-            this.gbApps.TabStop = false;
             // 
             // tlpApps
             // 
@@ -368,7 +385,7 @@ namespace LogOn
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpApps.AutoScroll = true;
             this.tlpApps.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tlpApps.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tlpApps.BackColor = System.Drawing.Color.Transparent;
             this.tlpApps.ColumnCount = 1;
             this.tlpApps.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1687F));
             this.tlpApps.Location = new System.Drawing.Point(0, 0);
@@ -382,17 +399,18 @@ namespace LogOn
             // 
             this.gbDebug.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbDebug.BackColor = System.Drawing.Color.Transparent;
             this.gbDebug.Location = new System.Drawing.Point(12, 619);
             this.gbDebug.Name = "gbDebug";
             this.gbDebug.Size = new System.Drawing.Size(1683, 132);
             this.gbDebug.TabIndex = 3;
-            this.gbDebug.TabStop = false;
             this.gbDebug.Text = "Debug";
             // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1710, 783);
             this.Controls.Add(this.gbDebug);
             this.Controls.Add(this.gbApps);
@@ -404,9 +422,7 @@ namespace LogOn
             this.gbCredentials.ResumeLayout(false);
             this.gbCredentials.PerformLayout();
             this.gbChangePassword.ResumeLayout(false);
-            this.gbChangePassword.PerformLayout();
             this.gbCred.ResumeLayout(false);
-            this.gbCred.PerformLayout();
             this.gbApps.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -414,13 +430,13 @@ namespace LogOn
 
         #endregion
 
-        private System.Windows.Forms.GroupBox gbCredentials;
-        private System.Windows.Forms.GroupBox gbApps;
+        private System.Windows.Forms.Panel gbCredentials;
+        private System.Windows.Forms.Panel gbApps;
         private LogOnObjects.cAppBot cAppBot1;
         private System.Windows.Forms.TableLayoutPanel tlpApps;
         private System.Windows.Forms.TextBox txtDebug1;
-        private System.Windows.Forms.GroupBox gbDebug;
-        private System.Windows.Forms.GroupBox gbChangePassword;
+        private System.Windows.Forms.Panel gbDebug;
+        private System.Windows.Forms.Panel gbChangePassword;
         private System.Windows.Forms.Button btnCancelChange;
         private System.Windows.Forms.Button btnOKChange;
         private System.Windows.Forms.Button btnChange;
@@ -428,7 +444,7 @@ namespace LogOn
         private EspackFormControlsNS.EspackMaskedTextBox txtNewPIN;
         private EspackFormControlsNS.EspackTextBox txtNewPasswordConfirm;
         private EspackFormControlsNS.EspackTextBox txtNewPassword;
-        private System.Windows.Forms.GroupBox gbCred;
+        private System.Windows.Forms.Panel gbCred;
         private System.Windows.Forms.Button btnOk;
         private EspackFormControlsNS.EspackTextBox txtPassword;
         private EspackFormControlsNS.EspackTextBox txtUser;

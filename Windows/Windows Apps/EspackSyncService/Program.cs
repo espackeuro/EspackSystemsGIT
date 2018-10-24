@@ -45,6 +45,7 @@ namespace EspackSyncService
             });
             Values.gDatos.Server = Values.Servers["DATABASE"];
             Values.gDatos.context_info = MasterPassword.MasterBytes;
+            Values.gDatos.TimeOut = 300;
             Values.gDatos.Connect();
             using (var _domains = new StaticRS("select domain from MAIL..domain where dbo.CheckFlag(flags,'FORWARD')=1 ", Values.gDatos))
             {

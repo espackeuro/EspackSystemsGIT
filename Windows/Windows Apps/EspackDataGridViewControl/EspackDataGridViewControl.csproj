@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataGridViewExtensions.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="EspackDataGridViewCell.cs" />
     <Compile Include="EspackDataGridViewColumn.cs" />
     <Compile Include="EspackDataGridViewControl.cs">
