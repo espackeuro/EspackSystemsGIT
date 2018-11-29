@@ -35,7 +35,7 @@ namespace EspackSyncService
         static void Main(string[] args)
         {
             if (args.Count() == 0)
-                args = new string[] { /*"NEXTCLOUD=nextcloud.espackeuro.com", */"DOMAIN=sauron.systems.espackeuro.com", "DATABASE=DB01.local" };
+                args = new string[] { /*"NEXTCLOUD=nextcloud.espackeuro.com", */"DOMAIN=sauron.systems.espackeuro.com", "DATABASE=DB01B.local" };
 
 
             args.ToList().ForEach(server =>

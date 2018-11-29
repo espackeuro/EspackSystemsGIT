@@ -781,6 +781,10 @@ namespace AccesoDatosXML
             {
                 return mDS.Tables["Result"].Columns.Cast<DataColumn>().Select(x => x.ColumnName).ToList();
             }
+            protected set
+            {
+                //base.Fields = value;
+            }
         }
 
         public DataSet DS
@@ -880,6 +884,8 @@ namespace AccesoDatosXML
                 return mDS.Tables["Result"].Rows.OfType<DataRow>().ToList();
             }
         }
+
+        //public override List<string> Fields { protected set => throw new NotImplementedException(); }
 
         public override void Execute()
         {

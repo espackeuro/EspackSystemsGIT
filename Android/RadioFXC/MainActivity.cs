@@ -72,7 +72,7 @@ namespace RadioFXC
                     Values.gDatos.Server = "net.espackeuro.com";
 
 #if DEBUG
-            Values.gDatos.Server = "VA2DB";
+            //Values.gDatos.Server = "VA2DB";
 #endif
 
                     Values.gDatos.User = LogonDetails.User;
