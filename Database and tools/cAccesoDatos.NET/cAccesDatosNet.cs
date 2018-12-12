@@ -337,7 +337,7 @@ namespace AccesoDatosNet
         {
             get
             {
-                return Fields.Count;
+                return Fields?.Count ?? 0;
             }
         }
 

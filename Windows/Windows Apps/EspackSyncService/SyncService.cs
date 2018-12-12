@@ -72,7 +72,7 @@ namespace EspackSyncService
 
 
             // Timer creation
-            EventLog.WriteEntry("Service Espack Sync Started.");
+            EventLog.WriteEntry(string.Format("Service Espack Sync Started on database server {0}",Values.gDatos.Server));
             // Set up a timer to trigger every minute.  
             timer = new System.Timers.Timer();
             timer.Interval = Values.PollingTime * 1000;

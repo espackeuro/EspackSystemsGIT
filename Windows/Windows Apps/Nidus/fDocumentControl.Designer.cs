@@ -217,6 +217,7 @@
             this.txtStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtStatus.Upp = false;
             this.txtStatus.Value = "";
+            this.txtStatus.WordWrap = true;
             // 
             // lstFlags
             // 
@@ -290,6 +291,7 @@
             this.txtTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtTitle.Upp = false;
             this.txtTitle.Value = "";
+            this.txtTitle.WordWrap = true;
             // 
             // txtSection
             // 
@@ -324,6 +326,7 @@
             this.txtSection.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtSection.Upp = false;
             this.txtSection.Value = "";
+            this.txtSection.WordWrap = true;
             // 
             // txtSubtype
             // 
@@ -358,6 +361,7 @@
             this.txtSubtype.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtSubtype.Upp = false;
             this.txtSubtype.Value = "";
+            this.txtSubtype.WordWrap = true;
             // 
             // txtTypeCode
             // 
@@ -392,6 +396,7 @@
             this.txtTypeCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtTypeCode.Upp = false;
             this.txtTypeCode.Value = "";
+            this.txtTypeCode.WordWrap = true;
             // 
             // txtEdition
             // 
@@ -426,6 +431,7 @@
             this.txtEdition.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtEdition.Upp = false;
             this.txtEdition.Value = "";
+            this.txtEdition.WordWrap = true;
             // 
             // txtDocumentCode
             // 
@@ -460,6 +466,7 @@
             this.txtDocumentCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDocumentCode.Upp = false;
             this.txtDocumentCode.Value = "";
+            this.txtDocumentCode.WordWrap = true;
             // 
             // fDocumentControl
             // 

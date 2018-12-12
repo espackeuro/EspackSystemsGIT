@@ -68,7 +68,7 @@ namespace Nidus
             CTLM.AddDefaultStatusStrip();
             CTLM.Start();
             VS.FilterRowEnabled = true;
-            VS.AddFilterCell(EspackCellTypes.WILDCARDTEXT, 0, "Select distinct TypeCode from DocumentsCab order by TypeCode");
+            //VS.AddFilterCell(EspackCellTypes.WILDCARDTEXT, 0, "Select distinct TypeCode from DocumentsCab order by TypeCode");
             this.Load += FDocumentControl_Load;
             var c = VS.DataCellCollection;
             //AcroPDFLib.AcroPDF acroPDF = new AcroPDFLib.AcroPDFClass();

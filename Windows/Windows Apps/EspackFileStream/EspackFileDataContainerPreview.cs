@@ -15,7 +15,7 @@ namespace EspackFormControlsNS
         public override bool ReadOnly { get; set; }
         private GhostscriptViewer _viewer;
         //private GhostscriptVersionInfo _gsVersion = GhostscriptVersionInfo.GetLastInstalledVersion();
-        private GhostscriptVersionInfo _gsVersion = new GhostscriptVersionInfo(string.Format(@"D:\Users\Rafa\Downloads\Ghostscript.NET-master\Ghostscript.NET.Viewer\bin\Debug\{0}", Environment.Is64BitProcess ? "gsdll64.dll" : "gsdll32.dll"));
+        private GhostscriptVersionInfo _gsVersion = new GhostscriptVersionInfo(string.Format(@"C:\ESPACK_CS\tools\GhostScriptDLLs\{0}", Environment.Is64BitProcess ? "gsdll64.dll" : "gsdll32.dll"));
         private StringBuilder _stdOut = new StringBuilder();
         private StringBuilder _stdErr = new StringBuilder();
         private Panel panelTop;
@@ -122,7 +122,7 @@ namespace EspackFormControlsNS
             // tbPagePrevious
             // 
             this.tbPagePrevious.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbPagePrevious.Image = global::EspackFormControlsNS.Properties.Resources.tb_previous;
+            this.tbPagePrevious.Image = Properties.Resources.tb_previous;
             this.tbPagePrevious.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tbPagePrevious.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tbPagePrevious.Name = "tbPagePrevious";

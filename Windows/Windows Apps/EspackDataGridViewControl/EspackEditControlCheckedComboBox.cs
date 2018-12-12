@@ -49,7 +49,8 @@ namespace EspackDataGridView
             set
             {
                 _sqlSource = value;
-                Source(_sqlSource,Conn);
+                if (_sqlSource!="")
+                    Source(_sqlSource,Conn);
                 
             }
 

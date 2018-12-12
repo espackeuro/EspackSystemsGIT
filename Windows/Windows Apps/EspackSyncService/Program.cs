@@ -14,7 +14,7 @@ namespace EspackSyncService
     {
         public static cAccesoDatosNet gDatos = new cAccesoDatosNet()
         {
-            User = "SSPI",
+            User = "procesos",
             Password = "*seso69*",
             DataBase = "SISTEMAS"
         };
