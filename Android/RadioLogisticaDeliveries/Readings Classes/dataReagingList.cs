@@ -58,7 +58,7 @@ namespace RadioLogisticaDeliveries
 
 
             // CHECKING
-            if ((reading.IsNumeric() && reading.Length == 9) || (reading.Substring(0,1)=="S" && reading.Substring(1,9).IsNumeric())) //checking
+            if ((reading.IsNumeric() && reading.Length == 9) || (reading.Length>9 &&  reading.Substring(0,1)=="S" && reading.Substring(1,9).IsNumeric())) //checking
             {
                 if (reading.Substring(0, 1) == "S" && reading.Substring(1, 9).IsNumeric())
                     reading = reading.Substring(1, 9);

@@ -31,7 +31,6 @@ namespace LogonScreen
         private TextInputEditText cPassword;
         private TextView cMsgText;
         private TextView cPackageInfoText;
-        private Button cLoginButton;
         private cAccesoDatos gDatos;
         private string typeofCaller;
         private string version;
@@ -43,15 +42,16 @@ namespace LogonScreen
             //get the layout from Resources
             SetContentView(Resource.Layout.LogonScreen);
             //Form Elements
-            cLoginButton = FindViewById<Button>(Resource.Id.btnLogin);
             cUser = FindViewById<TextInputEditText>(Resource.Id.User);
+            cUser.SetSingleLine();
+            cUser.EditorAction += CUser_EditorAction; ;
             //cUser.Text = "REJ";
             cPassword = FindViewById<TextInputEditText>(Resource.Id.Password);
+            cPassword.EditorAction += CPassword_EditorAction;
             //cPassword.Text = "5380";
             cMsgText = FindViewById<TextView>(Resource.Id.msgText);
             cPackageInfoText = FindViewById<TextView>(Resource.Id.msgPkgInfo);
             //Button event
-            cLoginButton.Click += CLoginButton_Click;
             typeofCaller = Intent.GetStringExtra("ConnectionType") ?? "Net";
             version = Intent.GetStringExtra("Version");
             packageName = Intent.GetStringExtra("PackageName");
@@ -77,6 +77,22 @@ namespace LogonScreen
 
         }
 
+        private async void CPassword_EditorAction(object sender, TextView.EditorActionEventArgs e)
+        {
+            if (e.ActionId == Android.Views.InputMethods.ImeAction.Done)
+            {
+                await DoThings();
+            }
+        }
+
+        private void CUser_EditorAction(object sender, TextView.EditorActionEventArgs e)
+        {
+            if (e.ActionId == Android.Views.InputMethods.ImeAction.Next)
+            {
+                cPassword.RequestFocus();
+            }
+        }
+
         protected override void OnStart()
         {
             base.OnStart();
@@ -98,7 +114,7 @@ namespace LogonScreen
                 ;
         }
 
-        private async void CLoginButton_Click(object sender, EventArgs e)
+        private async Task DoThings()
         {
 
             if (cUser.Text == "" || cPassword.Text == "")
@@ -108,7 +124,6 @@ namespace LogonScreen
             {
                 this.RunOnUiThread(() =>
                 {
-                    cLoginButton.Enabled = false;
                     cUser.Enabled = false;
                     cPassword.Enabled = false;
                 });
@@ -204,7 +219,6 @@ namespace LogonScreen
                 }
                 this.RunOnUiThread(() =>
                 {
-                    cLoginButton.Enabled = true;
                     cUser.Enabled = true;
                     cPassword.Enabled = true;
                 });

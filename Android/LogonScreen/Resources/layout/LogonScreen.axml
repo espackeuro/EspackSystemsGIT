@@ -9,7 +9,7 @@
         android:scaleType="centerInside"
         android:layout_height="0dp"
         android:layout_width="match_parent"
-        android:layout_weight="5"
+        android:layout_weight="4"
         android:layout_margin="10dp"
         android:src="@drawable/Logo_Espack_Sistemas_vertical" />
     <TextView
@@ -29,6 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:hint="Username"
+			android:imeOptions="actionNext"
             android:textSize="20sp" />
     </android.support.design.widget.TextInputLayout>
   <android.support.design.widget.TextInputLayout
@@ -43,15 +44,9 @@
             android:singleLine="true"
             android:text=""
             android:hint="Password"
+			android:imeOptions="actionDone"
             android:textSize="20sp" />
     </android.support.design.widget.TextInputLayout>
-    <Button
-        android:text="Login"
-        android:layout_height="0dp"
-        android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:onClick="CLoginButton_Click"
-        android:id="@+id/btnLogin" />
     <TextView
         android:text="Please enter your User and Password."
         android:textAppearance="?android:attr/textAppearanceMedium"
