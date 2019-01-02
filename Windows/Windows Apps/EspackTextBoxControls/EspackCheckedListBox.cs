@@ -230,7 +230,7 @@ namespace EspackFormControlsNS
             noChange = true;
             ClearSelected();
             if (ParentDA != null)
-                Text = ParentDA.SelectRS[DBField.ToString()].ToString();
+                Text = ParentDA.SelectRS[DBField?.ToString()]?.ToString() ?? "";
             Value = Text;
             //for (var i = 0; i < Items.Count; i++)
             //{

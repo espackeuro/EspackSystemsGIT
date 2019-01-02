@@ -510,7 +510,7 @@ namespace AccesoDatosNet
         {
             get
             {
-                return mDS.Tables["Result"].Rows.Count;
+                return mDS.Tables?["Result"].Rows.Count ?? 0;
             }
         }
 
@@ -518,21 +518,21 @@ namespace AccesoDatosNet
         {
             get
             {
-                return mDS.Tables["Result"].Rows[Index][Idx];
+                return mDS?.Tables?["Result"].Rows[Index][Idx];
             }
         }
         public override object this[int Idx]
         {
             get
             {
-                return mDS.Tables["Result"].Rows[Index][Idx];
+                return mDS.Tables?["Result"].Rows[Index][Idx];
             }
         }
         public override int FieldCount
         {
             get
             {
-                return mDS.Tables["Result"].Columns.Count;
+                return mDS.Tables?["Result"].Columns.Count ?? 0;
             }
         }
 

@@ -217,11 +217,14 @@ namespace EspackDataGridView
                 }
                 else
                 {
-                    FilterDataGrid.Columns.OfType<DataGridViewColumn>().ToList().ForEach(c => FilterDataGrid.Columns.RemoveAt(c.Index));
-                    FilterDataGrid.Rows.OfType<DataGridViewRow>().ToList().ForEach(r => FilterDataGrid.Rows.RemoveAt(r.Index));
-                    FilterDataGrid.Visible = false;
-                    DataGridView.ColumnHeadersVisible = true;
-                    //FilterCells = null;
+                    if (FilterDataGrid != null)
+                    {
+                        FilterDataGrid.Columns.OfType<DataGridViewColumn>().ToList().ForEach(c => FilterDataGrid.Columns.RemoveAt(c.Index));
+                        FilterDataGrid.Rows.OfType<DataGridViewRow>().ToList().ForEach(r => FilterDataGrid.Rows.RemoveAt(r.Index));
+                        FilterDataGrid.Visible = false;
+                        DataGridView.ColumnHeadersVisible = true;
+                        //FilterCells = null;
+                    }
                 }
             }
         }
@@ -1219,7 +1222,7 @@ namespace EspackDataGridView
         public void AddColumn(string pName, string pDBFieldName = "", string pSPAdd = "", string pSPUpp = "", string pSPDel = "", bool pSortable = false,
                     bool pIsFlag = false, bool pLocked = false, string pQuery = "", int pWidth = 0, string pAlignment = "", string pAttr = "",
                     AutoCompleteMode aMode = AutoCompleteMode.None, AutoCompleteSource aSource = AutoCompleteSource.None, string aQuery = "",
-                    bool pPrint = false, bool pVisible = true, bool pPK = false)
+                    bool pPrint = false, bool pVisible = true, bool pPK = false, DataGridViewAutoSizeColumnMode pAutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells)
         {
             EspackCellTypes type;
 
@@ -1228,9 +1231,11 @@ namespace EspackDataGridView
             else if (pQuery == "")
                 type = EspackCellTypes.TEXT;
             else type = EspackCellTypes.COMBO;
+            //if (pWidth != 0)
+            //    pAutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             var _Col = new EspackDataGridViewColumn(name: pName, dBField: pDBFieldName == "" ? pName : pDBFieldName, sPAddParamName: pSPAdd,
                             sPDelParamName: pSPDel, sPUppParamName: pSPUpp, locked: pLocked, width: pWidth, sortable: pSortable, linkedControl: null,
-                            autoCompleteMode: aMode, autoCompleteSource: aSource, autoCompleteQuery: aQuery, visible: pVisible, pK: pPK, query: pQuery, type: type);
+                            autoCompleteMode: aMode, autoCompleteSource: aSource, autoCompleteQuery: aQuery, visible: pVisible, pK: pPK, query: pQuery, type: type, autoSizeMode: pAutoSizeMode);
             Columns.Add(_Col);
         }
 

@@ -32,6 +32,9 @@ namespace Sistemas
             CTLM.AddItem(txtInvoiceDate, "InvoiceDate", true, true, false, 0, false, false);
             CTLM.AddItem(txtCM, "CM", true, false, false, 0, false, true);
             CTLM.AddItem(lstFlags, "Flags", true, true, false, 0, false, false);
+            CTLM.AddItem(lstSectionFlags, "TypeFlags", CTLMControlTypes.AddUppNoSearch);
+
+            CTLM.AfterButtonClick += CTLM_AfterButtonClick;
 
             CTLM.AddDefaultStatusStrip();
             CTLM.DBTable = "vItemsCab";
@@ -44,10 +47,11 @@ namespace Sistemas
             VS.Conn = Values.gDatos;
             VS.AddColumn("Code", txtCode,"@Code","@Code","@Code");
             VS.AddColumn("Line","Line","@Line", "@Line", "@Line", true,false,true, pWidth:100);
-            VS.AddColumn("Type", "Type", "@Type", "", "",true,false,false,"Select Code from ItemTypes order by Code",100);
+            VS.AddColumn("Type", "Type", "@Type", "", "",true,false,false,"Select Code from ItemTypes order by Code", pWidth: 200);
             VS.AddColumn("Description", "Description", "@Description", "@Description",pWidth : 100);
             VS.AddColumn("Value1", "Value1", "@Value1", "@Value1", "",pWidth : 100);
-            VS.AddColumn("Value2", "Value2", "@Value2", "@Value2", "", pWidth: 200);
+            VS.AddColumn("Value2", "Value2", "@Value2", "@Value2", "", pAutoSizeMode : DataGridViewAutoSizeColumnMode.Fill);
+            //VS.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             VS.DBTable = "ItemsDet";
             VS.sSPAdd = "pAddItemsDet";
             VS.sSPUpp = "pUppItemsDet";
@@ -69,6 +73,7 @@ namespace Sistemas
                     e.NewValue = CheckState.Checked;
                 }
             };
+            cboType.ComboBox.SelectedValueChanged += ComboBox_SelectedValueChanged;
             //cboCOD3.SelectedValue = "";
             //CTLM.AfterButtonClick += delegate (object source, CTLMEventArgs e)
             //{
@@ -83,6 +88,19 @@ namespace Sistemas
             // };
         }
 
-  
+        private void CTLM_AfterButtonClick(object sender, CTLMEventArgs e)
+        {
+            lstSectionFlags.Source(string.Format("Select codigo,DescFlagEng from vFlags where Tabla='ItemsCab' and Section='{0}' and Section!=''", cboType.Value));
+            lstSectionFlags.UpdateEspackControl();
+        }
+
+        private void ComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            lstSectionFlags.Source(string.Format("Select codigo,DescFlagEng from vFlags where Tabla='ItemsCab' and Section='{0}' and Section!=''", cboType.Value));
+            lstSectionFlags.UpdateEspackControl();
+            Application.DoEvents();
+        }
+
+
     }
 }

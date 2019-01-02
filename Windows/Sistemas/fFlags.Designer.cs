@@ -39,6 +39,9 @@
             this.txtDescFlag = new EspackFormControlsNS.EspackTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lstServices = new EspackFormControlsNS.EspackCheckedListBox();
+            this.txtSection = new EspackFormControlsNS.EspackTextBox();
+            this.lstRequired = new EspackFormControlsNS.EspackCheckedListBox();
+            this.lstIncompatible = new EspackFormControlsNS.EspackCheckedListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -68,6 +71,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox1.Controls.Add(this.txtSection);
             this.groupBox1.Controls.Add(this.cboTable);
             this.groupBox1.Controls.Add(this.txtCode);
             this.groupBox1.Controls.Add(this.txtLetter);
@@ -99,7 +103,7 @@
             this.cboTable.ForeColor = System.Drawing.Color.Black;
             this.cboTable.FormattingEnabled = true;
             this.cboTable.IsCTLMOwned = false;
-            this.cboTable.Location = new System.Drawing.Point(177, 32);
+            this.cboTable.Location = new System.Drawing.Point(148, 33);
             this.cboTable.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.cboTable.Name = "cboTable";
             this.cboTable.Order = 0;
@@ -134,6 +138,7 @@
             this.txtCode.ExtraDataLink = null;
             this.txtCode.ForeColor = System.Drawing.Color.Gray;
             this.txtCode.IsCTLMOwned = false;
+            this.txtCode.IsPassword = false;
             this.txtCode.Location = new System.Drawing.Point(564, 32);
             this.txtCode.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtCode.Multiline = true;
@@ -141,7 +146,6 @@
             this.txtCode.Order = 0;
             this.txtCode.ParentConn = null;
             this.txtCode.ParentDA = null;
-            
             this.txtCode.PK = false;
             this.txtCode.Protected = false;
             this.txtCode.ReadOnly = true;
@@ -151,8 +155,8 @@
             this.txtCode.TabIndex = 15;
             this.txtCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtCode.Upp = false;
-            
             this.txtCode.Value = "";
+            this.txtCode.WordWrap = true;
             // 
             // txtLetter
             // 
@@ -169,14 +173,14 @@
             this.txtLetter.ExtraDataLink = null;
             this.txtLetter.ForeColor = System.Drawing.Color.Gray;
             this.txtLetter.IsCTLMOwned = false;
-            this.txtLetter.Location = new System.Drawing.Point(464, 32);
+            this.txtLetter.IsPassword = false;
+            this.txtLetter.Location = new System.Drawing.Point(500, 32);
             this.txtLetter.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtLetter.Multiline = true;
             this.txtLetter.Name = "txtLetter";
             this.txtLetter.Order = 0;
             this.txtLetter.ParentConn = null;
             this.txtLetter.ParentDA = null;
-            
             this.txtLetter.PK = false;
             this.txtLetter.Protected = false;
             this.txtLetter.ReadOnly = true;
@@ -186,8 +190,8 @@
             this.txtLetter.TabIndex = 13;
             this.txtLetter.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtLetter.Upp = false;
-            
             this.txtLetter.Value = "";
+            this.txtLetter.WordWrap = true;
             // 
             // txtIdReg
             // 
@@ -204,6 +208,7 @@
             this.txtIdReg.ExtraDataLink = null;
             this.txtIdReg.ForeColor = System.Drawing.Color.Gray;
             this.txtIdReg.IsCTLMOwned = false;
+            this.txtIdReg.IsPassword = false;
             this.txtIdReg.Location = new System.Drawing.Point(17, 32);
             this.txtIdReg.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtIdReg.Multiline = true;
@@ -211,7 +216,6 @@
             this.txtIdReg.Order = 0;
             this.txtIdReg.ParentConn = null;
             this.txtIdReg.ParentDA = null;
-            
             this.txtIdReg.PK = false;
             this.txtIdReg.Protected = false;
             this.txtIdReg.ReadOnly = true;
@@ -221,8 +225,8 @@
             this.txtIdReg.TabIndex = 9;
             this.txtIdReg.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtIdReg.Upp = false;
-            
             this.txtIdReg.Value = "";
+            this.txtIdReg.WordWrap = true;
             // 
             // groupBox2
             // 
@@ -252,6 +256,7 @@
             this.txtDesFlagEng.ExtraDataLink = null;
             this.txtDesFlagEng.ForeColor = System.Drawing.Color.Gray;
             this.txtDesFlagEng.IsCTLMOwned = false;
+            this.txtDesFlagEng.IsPassword = false;
             this.txtDesFlagEng.Location = new System.Drawing.Point(499, 32);
             this.txtDesFlagEng.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtDesFlagEng.Multiline = true;
@@ -259,7 +264,6 @@
             this.txtDesFlagEng.Order = 0;
             this.txtDesFlagEng.ParentConn = null;
             this.txtDesFlagEng.ParentDA = null;
-            
             this.txtDesFlagEng.PK = false;
             this.txtDesFlagEng.Protected = false;
             this.txtDesFlagEng.ReadOnly = true;
@@ -269,8 +273,8 @@
             this.txtDesFlagEng.TabIndex = 2;
             this.txtDesFlagEng.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDesFlagEng.Upp = false;
-            
             this.txtDesFlagEng.Value = "";
+            this.txtDesFlagEng.WordWrap = true;
             // 
             // txtDescFlag
             // 
@@ -287,6 +291,7 @@
             this.txtDescFlag.ExtraDataLink = null;
             this.txtDescFlag.ForeColor = System.Drawing.Color.Gray;
             this.txtDescFlag.IsCTLMOwned = false;
+            this.txtDescFlag.IsPassword = false;
             this.txtDescFlag.Location = new System.Drawing.Point(17, 32);
             this.txtDescFlag.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtDescFlag.Multiline = true;
@@ -294,7 +299,6 @@
             this.txtDescFlag.Order = 0;
             this.txtDescFlag.ParentConn = null;
             this.txtDescFlag.ParentDA = null;
-            
             this.txtDescFlag.PK = false;
             this.txtDescFlag.Protected = false;
             this.txtDescFlag.ReadOnly = true;
@@ -304,17 +308,19 @@
             this.txtDescFlag.TabIndex = 0;
             this.txtDescFlag.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDescFlag.Upp = false;
-            
             this.txtDescFlag.Value = "";
+            this.txtDescFlag.WordWrap = true;
             // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox3.Controls.Add(this.lstIncompatible);
+            this.groupBox3.Controls.Add(this.lstRequired);
             this.groupBox3.Controls.Add(this.lstServices);
             this.groupBox3.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.groupBox3.Location = new System.Drawing.Point(12, 197);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(703, 326);
+            this.groupBox3.Size = new System.Drawing.Size(703, 622);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Services";
@@ -349,7 +355,7 @@
             this.lstServices.Search = false;
             this.lstServices.SelectedItem = null;
             this.lstServices.SelectedValue = null;
-            this.lstServices.Size = new System.Drawing.Size(675, 285);
+            this.lstServices.Size = new System.Drawing.Size(675, 216);
             this.lstServices.Status = CommonTools.EnumStatus.ADDNEW;
             this.lstServices.TabIndex = 0;
             this.lstServices.TBDescription = null;
@@ -357,11 +363,119 @@
             this.lstServices.Value = "";
             this.lstServices.ValueMember = "";
             // 
+            // txtSection
+            // 
+            this.txtSection.Add = false;
+            this.txtSection.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtSection.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtSection.Caption = "Section";
+            this.txtSection.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtSection.DBField = null;
+            this.txtSection.DBFieldType = null;
+            this.txtSection.DefaultValue = null;
+            this.txtSection.Del = false;
+            this.txtSection.DependingRS = null;
+            this.txtSection.ExtraDataLink = null;
+            this.txtSection.IsCTLMOwned = false;
+            this.txtSection.IsPassword = false;
+            this.txtSection.Location = new System.Drawing.Point(409, 33);
+            this.txtSection.Multiline = false;
+            this.txtSection.Name = "txtSection";
+            this.txtSection.Order = 0;
+            this.txtSection.ParentConn = null;
+            this.txtSection.ParentDA = null;
+            this.txtSection.PK = false;
+            this.txtSection.Protected = false;
+            this.txtSection.ReadOnly = false;
+            this.txtSection.Search = false;
+            this.txtSection.Size = new System.Drawing.Size(85, 56);
+            this.txtSection.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtSection.TabIndex = 16;
+            this.txtSection.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtSection.Upp = false;
+            this.txtSection.Value = "";
+            this.txtSection.WordWrap = true;
+            // 
+            // lstRequired
+            // 
+            this.lstRequired.Add = false;
+            this.lstRequired.Caption = "Required Flags";
+            this.lstRequired.CheckOnClick = true;
+            this.lstRequired.ColumnWidth = 225;
+            this.lstRequired.DataSource = null;
+            this.lstRequired.DBField = null;
+            this.lstRequired.DBFieldType = null;
+            this.lstRequired.DefaultValue = null;
+            this.lstRequired.Del = false;
+            this.lstRequired.DependingRS = null;
+            this.lstRequired.DisplayMember = "";
+            this.lstRequired.ExtraDataLink = null;
+            this.lstRequired.FormattingEnabled = false;
+            this.lstRequired.IsCTLMOwned = false;
+            this.lstRequired.Location = new System.Drawing.Point(14, 256);
+            this.lstRequired.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.lstRequired.MultiColumn = true;
+            this.lstRequired.Name = "lstRequired";
+            this.lstRequired.Order = 0;
+            this.lstRequired.ParentConn = null;
+            this.lstRequired.ParentDA = null;
+            this.lstRequired.PK = false;
+            this.lstRequired.Protected = false;
+            this.lstRequired.ReadOnly = false;
+            this.lstRequired.Search = false;
+            this.lstRequired.SelectedItem = null;
+            this.lstRequired.SelectedValue = null;
+            this.lstRequired.Size = new System.Drawing.Size(676, 160);
+            this.lstRequired.Status = CommonTools.EnumStatus.ADDNEW;
+            this.lstRequired.TabIndex = 1;
+            this.lstRequired.TBDescription = null;
+            this.lstRequired.Text = "espackCheckedListBox1";
+            this.lstRequired.Upp = false;
+            this.lstRequired.Value = "";
+            this.lstRequired.ValueMember = "";
+            // 
+            // lstIncompatible
+            // 
+            this.lstIncompatible.Add = false;
+            this.lstIncompatible.Caption = "Incompatible Flags";
+            this.lstIncompatible.CheckOnClick = true;
+            this.lstIncompatible.ColumnWidth = 225;
+            this.lstIncompatible.DataSource = null;
+            this.lstIncompatible.DBField = null;
+            this.lstIncompatible.DBFieldType = null;
+            this.lstIncompatible.DefaultValue = null;
+            this.lstIncompatible.Del = false;
+            this.lstIncompatible.DependingRS = null;
+            this.lstIncompatible.DisplayMember = "";
+            this.lstIncompatible.ExtraDataLink = null;
+            this.lstIncompatible.FormattingEnabled = false;
+            this.lstIncompatible.IsCTLMOwned = false;
+            this.lstIncompatible.Location = new System.Drawing.Point(13, 435);
+            this.lstIncompatible.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.lstIncompatible.MultiColumn = true;
+            this.lstIncompatible.Name = "lstIncompatible";
+            this.lstIncompatible.Order = 0;
+            this.lstIncompatible.ParentConn = null;
+            this.lstIncompatible.ParentDA = null;
+            this.lstIncompatible.PK = false;
+            this.lstIncompatible.Protected = false;
+            this.lstIncompatible.ReadOnly = false;
+            this.lstIncompatible.Search = false;
+            this.lstIncompatible.SelectedItem = null;
+            this.lstIncompatible.SelectedValue = null;
+            this.lstIncompatible.Size = new System.Drawing.Size(676, 160);
+            this.lstIncompatible.Status = CommonTools.EnumStatus.ADDNEW;
+            this.lstIncompatible.TabIndex = 2;
+            this.lstIncompatible.TBDescription = null;
+            this.lstIncompatible.Upp = false;
+            this.lstIncompatible.Value = "";
+            this.lstIncompatible.ValueMember = "";
+            // 
             // fFlags
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(728, 586);
+            this.ClientSize = new System.Drawing.Size(728, 894);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.CTLM);
@@ -390,5 +504,8 @@
         private EspackFormControlsNS.EspackTextBox txtDescFlag;
         private System.Windows.Forms.GroupBox groupBox3;
         private EspackFormControlsNS.EspackCheckedListBox lstServices;
+        private EspackFormControlsNS.EspackTextBox txtSection;
+        private EspackFormControlsNS.EspackCheckedListBox lstIncompatible;
+        private EspackFormControlsNS.EspackCheckedListBox lstRequired;
     }
 }

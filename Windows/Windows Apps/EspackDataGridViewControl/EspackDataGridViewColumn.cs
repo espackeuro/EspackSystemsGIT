@@ -152,7 +152,7 @@ namespace EspackDataGridView
         }
         public EspackDataGridViewColumn(string name="", bool pK = false, string sPAddParamName="", string sPUppParamName="", string sPDelParamName="", bool locked=false, 
             EspackFormControlCommon linkedControl=null, Type dBFieldType=null, string dBField="", bool sortable=false, AutoCompleteMode autoCompleteMode= AutoCompleteMode.None, AutoCompleteSource autoCompleteSource= AutoCompleteSource.None, 
-            string autoCompleteQuery = "", EspackCellTypes type= EspackCellTypes.TEXT, int width=0, bool visible = true, string query="", cAccesoDatosNet conn=null)
+            string autoCompleteQuery = "", EspackCellTypes type= EspackCellTypes.TEXT, int width = 0, bool visible = true, string query="", cAccesoDatosNet conn=null, DataGridViewAutoSizeColumnMode autoSizeMode = DataGridViewAutoSizeColumnMode.AllCells)
             :base(new EspackDataGridViewCell(type, autoCompleteMode, autoCompleteSource, autoCompleteQuery, conn, locked))
         {
             Name = name;
@@ -174,10 +174,13 @@ namespace EspackDataGridView
             AutoCompleteMode = autoCompleteMode;
             AutoCompleteSource = autoCompleteSource;
             AutoCompleteQuery = autoCompleteQuery;
+            Width = width;
+            if (width != 0)
+                MinimumWidth = width;
             //AutoCompleteCustomSource = autoCompleteCustomSource;
             Parent = DataGridView;
             Type = type;
-            //AutoSizeMode = width == 0 ? DataGridViewAutoSizeColumnMode.AllCells : DataGridViewAutoSizeColumnMode.None;
+            AutoSizeMode = autoSizeMode;
             DataPropertyName = Name; //DBField;
             Visible = visible;
             SqlSource = query;

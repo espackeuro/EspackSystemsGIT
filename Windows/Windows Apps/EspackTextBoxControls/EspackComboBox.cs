@@ -157,7 +157,12 @@ namespace EspackFormControlsNS
             {
                 TBDescription.Text = "";
             }
-            SelectedItem = null;
+            ComboBox.SelectedIndex = -1;
+            ComboBox.SelectedIndex = -1;
+            ComboBox.Text = "";
+            //SelectedItem = -1;
+            //ResetText();
+            //Value = "";
         }
 
 
