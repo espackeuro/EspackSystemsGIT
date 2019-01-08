@@ -688,7 +688,9 @@ namespace EspackDataGridView
         private void EspackDataGridView_ColumnWidthChanged(object sender, DataGridViewColumnEventArgs e)
         {
             if (FilterRowEnabled)
-                FilterDataGrid.Columns.OfType<DataGridViewColumn>().Where(c => c.Tag.ToInt() == e.Column.Index).First().Width = e.Column.Width;
+                if (e.Column.Width != FilterDataGrid.Columns[e.Column.Index].Width)
+                    FilterDataGrid.Columns[e.Column.Index].Width = e.Column.Width;
+                //FilterDataGrid.Columns.OfType<DataGridViewColumn>().Where(c => c.Tag.ToInt() == e.Column.Index).First().Width = e.Column.Width;
         }
 
         private void EspackDataGridView_CurrentCellDirtyStateChanged(object sender, EventArgs e)
@@ -891,7 +893,8 @@ namespace EspackDataGridView
         private void FilterDataGrid_ColumnWidthChanged(object sender, DataGridViewColumnEventArgs e)
         {
             if (!_disableFilterEvents)
-                Columns.OfType<DataGridViewColumn>().Where(c => c.Index == e.Column.Tag.ToInt()).First().Width = e.Column.Width;
+                if (e.Column.Width != Columns[e.Column.Index].Width)
+                    Columns[e.Column.Index].Width = e.Column.Width;
         }
 
         public void AddFilterCell(EspackCellTypes type, int column, string sqlSource = "")

@@ -151,7 +151,7 @@
             this.fsFileData.Protected = false;
             this.fsFileData.ReadOnly = false;
             this.fsFileData.Search = false;
-            this.fsFileData.Size = new System.Drawing.Size(144, 37);
+            this.fsFileData.Size = new System.Drawing.Size(144, 41);
             this.fsFileData.Status = CommonTools.EnumStatus.ADDNEW;
             this.fsFileData.TabIndex = 53;
             this.fsFileData.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
