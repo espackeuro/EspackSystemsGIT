@@ -689,7 +689,12 @@ namespace EspackDataGridView
         {
             if (FilterRowEnabled)
                 if (e.Column.Width != FilterDataGrid.Columns[e.Column.Index].Width)
+                {
+                    var dis = _disableFilterEvents;
+                    _disableFilterEvents = true;
                     FilterDataGrid.Columns[e.Column.Index].Width = e.Column.Width;
+                    _disableFilterEvents = dis;
+                }
                 //FilterDataGrid.Columns.OfType<DataGridViewColumn>().Where(c => c.Tag.ToInt() == e.Column.Index).First().Width = e.Column.Width;
         }
 
