@@ -270,8 +270,8 @@ namespace LogOn
 
                 //#endif
 
-                KeyDown += restartTimer;
-                MouseClick += restartTimer;
+                KeyPress += FMain_KeyPress;
+                MouseClick += FMain_MouseClick; ;
             }
             catch (Exception ex)
             {
@@ -280,6 +280,7 @@ namespace LogOn
             }
             //check Autologon with windows credentials
             var _enviromentUser = Environment.UserName;
+#if !DEBUG
             using (var _rs = new StaticRS(string.Format("Select flags,Password from vUsers where UserCode='{0}'", _enviromentUser), Values.gDatos))
             {
                 Values.gDatos.context_info = MasterPassword.MasterBytes;
@@ -297,7 +298,55 @@ namespace LogOn
                 }
 
             };
+#endif
          
+        }
+
+
+
+
+        private void FMain_MouseClick(object sender, MouseEventArgs e)
+        {
+            restartTimer();
+        }
+
+        private void FMain_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            restartTimer();
+            // ENTER Key
+            if (e.KeyChar == (char)13) 
+            {
+                e.Handled = true;
+                // Focus on Password Textbox -> Press OK button
+                if (txtPassword.ContainsFocus)
+                {
+
+                    btnOk.PerformClick();
+                }
+                // Focus on PINConfirm Textbox -> Press OKChange button
+                else if (txtNewPINConfirm.ContainsFocus)
+                {
+                    btnOKChange.PerformClick();
+                }
+                // Focus on any other control in gbCred or gbChangePassword -> Send TAB Key
+                else if (gbCred.ContainsFocus || gbChangePassword.ContainsFocus)
+                {
+                    SendKeys.Send("{tab}");
+                }
+                // Any other case -> Do base OnKeyDown
+            }
+
+            // ESC Key
+            if (e.KeyChar == (char)27)
+            {
+                e.Handled = true;
+                // Focus on gbCred controls (when not connected) -> Clean the credentials fields (done in LogOnStatus.INIT)
+                if (Status == LogOnStatus.INIT && gbCred.ContainsFocus)
+                    LogOnChangeStatus(LogOnStatus.INIT);
+                // Focus on gbChangePassword controls -> Cancel the ChangePassword status
+                else if (gbChangePassword.ContainsFocus)
+                    LogOnChangeStatus(LogOnStatus.CONNECTED);
+            }
         }
 
         private void _timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -521,7 +570,7 @@ namespace LogOn
                     .ForEach(x =>
                 {
                     var _app = new cAppBot(x["Code"].ToString(), x["Description"].ToString(), x["DB"].ToString(), x["ExeName"].ToString(), x["Zone"].ToString(), Values.DBServerList[x["Zone"].ToString()], Values.ShareServerList[Values.COD3], x["ServiceCode"].ToString(),pVersion: x["version"].ToString());
-                    _app.AfterLaunch += restartTimer;
+                    _app.AfterLaunch += _app_AfterLaunch; ;
                     Values.AppList.Add(_app);
                 });
             }
@@ -529,7 +578,12 @@ namespace LogOn
             //Values.AppList.Add(new cAppBot("lib", "lib", "", "", "", null, Values.ShareServerList[Values.COD3], true));
         }
 
-        private void restartTimer(object sender, EventArgs e)
+        private void _app_AfterLaunch(object sender, EventArgs e)
+        {
+            restartTimer();
+        }
+
+        private void restartTimer()
         {
             _time=MAXTIMER;
         }
@@ -835,50 +889,6 @@ namespace LogOn
         {
             LogOnChangeStatus(previousStatus);
             //LogOnChangeStatus(LogOnStatus.CONNECTED);
-        }
-        protected override void OnMouseClick(MouseEventArgs e)
-        {
-            _time = MAXTIMER;
-            base.OnMouseClick(e);
-        }
-        // Capture some pressed key
-        protected override void OnKeyDown(KeyEventArgs e)
-        {
-            _time = MAXTIMER;
-            // ENTER Key
-            if (e.KeyCode == Keys.Enter)
-            {
-                // Focus on Password Textbox -> Press OK button
-                if (txtPassword.ContainsFocus)
-                {
-                    btnOk.PerformClick();
-                }
-                // Focus on PINConfirm Textbox -> Press OKChange button
-                else if (txtNewPINConfirm.ContainsFocus)
-                {
-                    btnOKChange.PerformClick();
-                }
-                // Focus on any other control in gbCred or gbChangePassword -> Send TAB Key
-                else if (gbCred.ContainsFocus || gbChangePassword.ContainsFocus)
-                {
-                    SendKeys.Send("{tab}");
-                }
-                // Any other case -> Do base OnKeyDown
-                else
-                    base.OnKeyDown(e);
-            }
-
-            // ESC Key
-            if (e.KeyCode == Keys.Escape)
-            {
-                // Focus on gbCred controls (when not connected) -> Clean the credentials fields (done in LogOnStatus.INIT)
-                if (Status==LogOnStatus.INIT && gbCred.ContainsFocus)
-                    LogOnChangeStatus(LogOnStatus.INIT);
-                // Focus on gbChangePassword controls -> Cancel the ChangePassword status
-                else if (gbChangePassword.ContainsFocus)
-                    LogOnChangeStatus(LogOnStatus.CONNECTED);
-            }
-
         }
 
         private void chkDebug_CheckedChanged(object sender, EventArgs e)

@@ -97,32 +97,89 @@ namespace Test1
         public DataView SearchResultsView { get; set; }
         public DataSet DS { get; set; }
         public DataTable DT { get; set; }
+        public SqlConnection Conn { get; set; }
         public SqlDataAdapter DA { get; set; }
         public int RecordCount { get => DT.Rows.Count; }
         public Collection<CTLRObject> CTLRObjects { get; set; } = new Collection<CTLRObject>();
-
-
-
-        public DataRow CurrentRow
-        {
-            get => DT.Rows.OfType<DataRow>().FirstOrDefault(o => (bool)(o["Shown"] is Boolean ? o["Shown"] : false) == true);
-        }
-        public int RecordIndex
+        public long PageSize { get; set; }
+        public string OrderPage { get; set; }
+        public string SQL { get; set; }
+        public long PageNumber { get; set; } = 0;
+        public long NumRecords { get; private set; }
+        public string CurrentFilter { get; set; }
+        public long NumPages { get; private set; }
+        public DataRowView CurrentRow
         {
             get
             {
-                return DT.Rows.IndexOf(CurrentRow);
+                return SearchResultsView.OfType<DataRowView>().FirstOrDefault(r => (long)r["k"]==NumRecord);
+            }
+        }
+        //public DataRow CurrentRow
+        //{
+        //    get => DT.Rows.OfType<DataRow>().FirstOrDefault(o => (bool)(o["Shown"] is Boolean ? o["Shown"] : false) == true);
+        //}
+        public long RecordIndex
+        {
+            get
+            {
+                return DT.Rows.IndexOf(CurrentRow.Row);
+            }
+        }
+
+        public long NumRecord
+        {
+            get
+            {
+                if (CurrentView != null)
+                    return (long)CurrentView[0]["k"];
+                else
+                    return -1;
             }
             set
             {
-                var _i = RecordIndex;
-                DT.Rows[value]["Shown"] = true;
-                DT.Rows[_i]["Shown"] = false;
-                CurrentRow.AcceptChanges();
+                CurrentView.RowFilter = string.Format("k = {0}", value);
             }
         }
 
 
+
+        public async Task GetTotals()
+        {
+            SqlCommand sc = new SqlCommand(string.Format("Select count(*) from ({0}) b", SQL), Conn);
+            if (Conn.State == ConnectionState.Closed)
+                Conn.Open();
+
+            SqlDataReader dr = await sc.ExecuteReaderAsync();
+            if (dr.Read())
+            {
+                NumRecords = (int)dr[0];
+                NumPages = (NumRecords - 1) / PageSize + 1;
+            }
+            dr.Close();
+            Conn.Close();
+        }
+
+        public string PagingSQL(string sql, long pagesize, long page, string keyField, bool requeryTotal = false)
+        {
+            string _result = string.Format(@";WITH x AS (SELECT *, k = ROW_NUMBER() OVER (ORDER BY {3}) FROM ({0}) b)
+SELECT *{4}
+FROM x 
+WHERE x.k BETWEEN((({1} - 1) * {2}) + 1) AND {1} * {2}
+ORDER BY {3}; ", sql, page, pagesize, keyField, requeryTotal ? ", TotalRows = (Select max(k) from x)":"");
+            return _result;
+        }
+
+        private async Task GetPage(long numPage)
+        {
+            PageNumber = numPage;
+            DA.SelectCommand.CommandText = PagingSQL(SQL, PageSize, PageNumber, OrderPage);
+            DS.Dispose();
+            DS = null;
+            DS = new DataSet();
+            await Task.Run(() => DA.Fill(DS));
+            DT = DS.Tables[0];
+        }
 
         public MainWindow()
         {
@@ -134,17 +191,24 @@ namespace Test1
             CTLRObjects.Add(new CTLRObject(txtElCampo1, "elCampo1", add: true, upp: true, search: true));
             CTLRObjects.Add(new CTLRObject(txtElCampo2, "elCampo2", add: true, upp: true, search: true));
 
+            OrderPage = "idreg";
+            PageSize = 10;
+            PageNumber = 1;
+            SQL = "Select * from TestTable";
 
-            var Conn = new SqlConnection("Data Source=DB01;Initial Catalog=TEST;Integrated Security=True");
+            
+
+
+
+            Conn = new SqlConnection("Data Source=DB01;Initial Catalog=TEST;Integrated Security=True");
             DA.SelectCommand = new SqlCommand()
             {
                 Connection = Conn,
-                CommandText = "Select * from TestTable",
+                //CommandText = PagingSQL(SQL,PageSize,PageNumber,OrderPage),
                 CommandType = CommandType.Text
             };
-            DA.Fill(DS);
-            DT = DS.Tables[0];
-            DT.Columns.Add(new DataColumn() { ColumnName = "Shown", DataType = System.Type.GetType("System.Boolean") });
+            //DA.Fill(DS);
+
             Conn.Open();
             DA.InsertCommand = new SqlCommand()
             {
@@ -178,7 +242,7 @@ namespace Test1
 
 
 
-            CurrentView = DT.DefaultView;
+            
 
 
 
@@ -219,20 +283,13 @@ namespace Test1
             DA.Update(DS);
         }
 
-        private void cleanShown()
-        {
-            CurrentView[0]["Shown"] = false;
-        }
 
         private void CmdAddNew_Click(object sender, RoutedEventArgs e)
         {
 
             var row = CurrentView.AddNew();
-            row["Shown"] = true;
-            row.EndEdit();
-            var row0 = CurrentView[0];
-            row0["Shown"] = false;
-            row0.EndEdit();
+            //CurrentView[0]["k"]
+            //CurrentRow = row;
             DoBind();
             //DV.RowFilter = "Shown = true";
 
@@ -259,38 +316,72 @@ namespace Test1
         //    }
         //}
 
-        private void CmdPrev_Click(object sender, RoutedEventArgs e)
+        private async void CmdPrev_Click(object sender, RoutedEventArgs e)
         {
             if (RecordIndex > 0)
             {
-                if (CurrentRow.RowState == DataRowState.Modified || CurrentRow.RowState == DataRowState.Deleted)
+                if (CurrentRow.Row.RowState == DataRowState.Modified || CurrentRow.Row.RowState == DataRowState.Deleted)
                 {
-                    CurrentRow.RejectChanges();
+                    CurrentRow.Row.RejectChanges();
 
                 }
-                RecordIndex--;
+                NumRecord--;
+            } else
+            {
+                if (PageNumber > 1)
+                {
+                    DoUnBind();
+                    var _n = NumRecord;
+                    await GetPage(--PageNumber);
+                    SearchResultsView = DT.DefaultView;
+                    SearchResultsView.RowFilter = CurrentFilter;
+                    CurrentView = SearchResultsView.ToTable().DefaultView;
+                    NumRecord = _n - 1;
+                    DoBind();
+                }
             }
 
         }
 
-        private void CmdNext_Click(object sender, RoutedEventArgs e)
+        private async void CmdNext_Click(object sender, RoutedEventArgs e)
         {
             if (RecordIndex < RecordCount - 1)
             {
-                if (CurrentRow.RowState == DataRowState.Modified || CurrentRow.RowState == DataRowState.Deleted)
+                if (CurrentRow.Row.RowState == DataRowState.Modified || CurrentRow.Row.RowState == DataRowState.Deleted)
                 {
-                    var _r = CurrentRow;
+                    var _r = CurrentRow.Row;
                     _r.RejectChanges();
                     //_r["Shown"] = true;
 
                 }
-                RecordIndex++;
+                NumRecord++;
+            }
+            else
+            {
+                if (PageNumber < NumPages)
+                {
+                    DoUnBind();
+                    var _n = NumRecord;
+                    await GetPage(++PageNumber);
+                    SearchResultsView = DT.DefaultView;
+                    SearchResultsView.RowFilter = CurrentFilter;
+                    CurrentView = SearchResultsView.ToTable().DefaultView;
+                    NumRecord = _n + 1;
+                    DoBind();
+                }
             }
 
         }
 
-        private void CmdSearch_Click(object sender, RoutedEventArgs e)
+        private async void CmdSearch_Click(object sender, RoutedEventArgs e)
         {
+            DoUnBind();
+            if (DT == null)
+            {
+                await GetTotals();
+                await GetPage(NumPages);
+                //NumRecord = (long)DT.Rows[RecordCount - 1]["k"];
+            }
             SearchResultsView = DT.DefaultView;
             string filter = "";
             //lets construct the filter
@@ -307,25 +398,15 @@ namespace Test1
                     partial = string.Format("{0} like '%{1}%'", o.DBTableField, o.Value);
                 filter += string.Format("{0}{1}", filter != "" ? " and " : "", partial);
             }
+            CurrentFilter = filter;
             SearchResultsView.RowFilter = filter;
-
-            //clear all shown records
-            foreach (var r in SearchResultsView.ToTable().Rows.OfType<DataRow>().Where(r => (bool)(r["Shown"] is Boolean ? r["Shown"] : false) == true))
-                r["Shown"] = false;
-            //set shown to the first record of the search results
-            if (SearchResultsView.Count != 0)
-            {
-                SearchResultsView[0]["Shown"] = true;
-                CurrentView.RowFilter = "Shown = true";
-                CurrentRow.AcceptChanges();
-                //DoBind();
-            }
+            CurrentView = SearchResultsView.ToTable().DefaultView;
+            NumRecord = (long)DT.Rows[RecordCount - 1]["k"];
             DoBind();
         }
 
         private void CmdClear_Click(object sender, RoutedEventArgs e)
         {
-            cleanShown();
             foreach (var o in CTLRObjects.Where(o => o.TheControl != null))
             {
                 o.Clear();

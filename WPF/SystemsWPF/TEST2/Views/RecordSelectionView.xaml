@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="TEST2.Views.RecordSelectionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TEST2.Views"
+             xmlns:vm="clr-namespace:TEST2.ViewModel"
+             xmlns:foundation="clr-namespace:MvvmFoundation.Wpf"
+             mc:Ignorable="d" Height="Auto" Width="Auto">
+    <Grid Margin="0,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        
+        <Button x:Name="cmdAddNew" Content="New" Margin="0,0,0,0" VerticalAlignment="Top" Command="{Binding AddCommand}" Height="20" HorizontalAlignment="Left" Width="75" Grid.Column="0" />
+        <Button x:Name="cmdEdit" Content="Edit" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Command="{Binding ClearCommand}" Height="20" Grid.Column="1" />
+        <Button x:Name="cmdDelete" Content="Delete" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Command="{Binding DeleteCommand}" Height="20" Grid.Column="2" />
+        <Button x:Name="cmdFirst" Content="First" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Command="{Binding FirstCommand}" Height="20" Grid.Column="3"/>
+        <Button x:Name="cmdPrev" Content="Prev" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Command="{Binding PrevCommand}" Height="20" Grid.Column="4"/>
+        <Button x:Name="cmdNext" Content="Next" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Command="{Binding NextCommand}" Height="20" Grid.Column="5"/>
+        <Button x:Name="cmdLast" Content="Last" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Command="{Binding LastCommand}" Height="20" Grid.Column="6"/>
+        <Button x:Name="cmdSearch" Content="Search" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Command="{Binding SearchCommand}" Height="20" Grid.Column="7"/>
+        <Button x:Name="cmdClear" Content="Clear" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Command="{Binding ClearCommand}" Grid.Column="8" Height="20"/>
+        <Button x:Name="cmdCommit" Content="Commit" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Command="{Binding CommitCommand}" Grid.Column="9" Height="20"/>
+
+    </Grid>
+</UserControl>
