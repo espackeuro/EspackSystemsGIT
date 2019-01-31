@@ -32,8 +32,21 @@ namespace ADControl
                 return new WSManConnectionInfo(false, ServerName, 5985, "/wsman", shellUri, Credentials);
             }
         }
+        public WSManConnectionInfo WSManExchange
+        {
+            get
+            {
+                string shellUri = "http://schemas.microsoft.com/powershell/Microsoft.Exchange";
+                var ws = new WSManConnectionInfo(new Uri(string.Format("http://{0}/PowerShell",ServerName)), shellUri, Credentials);
+                ws.AuthenticationMechanism = AuthenticationMechanism.Kerberos;
+                return ws;
+            }
+        }
     }
 
+
+
+    //public class PowerShellExchangeCommand
     public class PowerShellCommand
     {
         public EspackDomainConnection EC { get; set; }
@@ -59,6 +72,32 @@ namespace ADControl
                     powershell.Runspace = runspace;
                     powershell.AddScript(Command);
 
+                    Results = await Task.Factory.FromAsync(powershell.BeginInvoke(), pResult => powershell.EndInvoke(pResult));
+                    if (powershell.HadErrors)
+                    {
+                        throw powershell.Streams.Error[0].Exception;
+                    }
+                    return true;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                //return false;
+                throw ex;
+            }
+        }
+        public async Task<bool> InvokeAsyncExchange()
+        {
+            //PSSnapInException psException;
+            try
+            {
+                using (var runspace = RunspaceFactory.CreateRunspace(EC.WSManExchange))
+                using (var powershell = PowerShell.Create())
+                {
+                    runspace.Open();
+                    powershell.Runspace = runspace;
+                    powershell.AddScript(Command);
                     Results = await Task.Factory.FromAsync(powershell.BeginInvoke(), pResult => powershell.EndInvoke(pResult));
                     if (powershell.HadErrors)
                     {
@@ -109,6 +148,7 @@ namespace ADControl
             Results = command.SResults;
             return _res;
         }
+
 
         public static async Task<bool> UpdateUser(string Name, string Surname, string UserCode, string Password, string EmailAddress, string COD3)
         {
@@ -169,7 +209,7 @@ Get-ADUser -Identity '{0}' | Set-ADAccountPassword -Reset -NewPassword (ConvertT
             var command = new PowerShellCommand()
             {
                 EC = EC,
-                Command = string.Format(@"New-ADGroup -Name '{1}' -SamAccountName '{0}' -GroupCategory {2} -GroupScope Global -DisplayName '{1}' -Path '{3}'", GroupCode, GroupName,GroupCategory,Path)
+                Command = string.Format(@"New-ADGroup -Name '{1}' -SamAccountName '{0}' -GroupCategory {2} -GroupScope Universal -DisplayName '{1}' -Path '{3}'", GroupCode, GroupName,GroupCategory,Path)
             };
             var _res = await command.InvokeAsync();
 

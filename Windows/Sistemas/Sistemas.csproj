@@ -76,6 +76,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\Windows Apps\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
     <Reference Include="SharpSvn, Version=1.9007.3987.251, Culture=neutral, PublicKeyToken=d729672594885a28, processorArchitecture=AMD64">
       <HintPath>..\Windows Apps\packages\SharpSvn.1.9-x64.1.9007.3987.251\lib\net40\SharpSvn.dll</HintPath>
     </Reference>
@@ -319,10 +322,6 @@
       <Project>{ece9aa32-f756-4be3-a926-b0771e69066b}</Project>
       <Name>EspackControls</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Network Libraries\Renci.SshNet\Renci.SshNet.csproj">
-      <Project>{2f5f8c90-0bd1-424f-997c-7bc6280919d1}</Project>
-      <Name>Renci.SshNet</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Windows Apps\cAccesoDatos\cAccesoDatos.csproj">
       <Project>{5da9cb0b-9007-40f1-8086-1b0303d8271f}</Project>
       <Name>cAccesoDatos</Name>
@@ -346,6 +345,10 @@
     <ProjectReference Include="..\Windows Apps\EspackTextBoxControls\EspackFormControls.csproj">
       <Project>{ff2efef1-a838-438a-88bd-bc5f0f8d6f15}</Project>
       <Name>EspackFormControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Windows Apps\PowerShell\ADControl.csproj">
+      <Project>{b4c5fc29-42a5-410e-a09d-bf68f2519bbc}</Project>
+      <Name>ADControl</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using AccesoDatosNet;
 using System.IO;
-using Renci.SshNet;
+
 
 namespace Sistemas
 {

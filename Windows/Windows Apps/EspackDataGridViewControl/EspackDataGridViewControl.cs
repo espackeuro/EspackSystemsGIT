@@ -43,18 +43,13 @@ namespace EspackDataGridView
         //public DataGridView DataGridView { get; set; } = new DataGridView();
         public DataGridViewCell CurrentCell
         {
-            get => FGFocused ? FilterDataGrid.CurrentCell : DataGridView.CurrentCell;
+            get => DataGridView.CurrentCell;
             set
             {
-                if (FGFocused)
-                {
-                    FilterDataGrid.CurrentCell = value;
-                    return;
-                }
                 DataGridView.CurrentCell = value;
             }
         }
-        public DataGridViewRowCollection Rows { get => FGFocused ? FilterDataGrid?.Rows : DataGridView?.Rows; }
+        public DataGridViewRowCollection Rows { get => DataGridView?.Rows; }
         public DataGridViewColumnCollection Columns { get => DataGridView.Columns; }
         public DataGridViewRow CurrentRow { get => DataGridView.CurrentRow; }
         public EspackDataGridViewCell this[int col, int row]
@@ -70,8 +65,6 @@ namespace EspackDataGridView
             set
             {
                 DataGridView.RowHeadersVisible = value;
-                if (FilterDataGrid != null)
-                    FilterDataGrid.RowHeadersVisible = value;
             }
         }
         public bool ColumnHeadersVisible { get => DataGridView.ColumnHeadersVisible; set => DataGridView.ColumnHeadersVisible = value; }
@@ -82,8 +75,6 @@ namespace EspackDataGridView
             set
             {
                 DataGridView.AutoSizeColumnsMode = value;
-                if (FilterDataGrid != null)
-                    FilterDataGrid.AutoSizeColumnsMode = value;
             }
         }
         public bool AllowUserToResizeColumns
@@ -92,8 +83,6 @@ namespace EspackDataGridView
             set
             {
                 DataGridView.AllowUserToResizeColumns = value;
-                if (FilterDataGrid != null)
-                    FilterDataGrid.AllowUserToResizeColumns = value;
             }
         }
         public ScrollBar VerticalScrollBar { get => DataGridView.Controls.OfType<VScrollBar>().FirstOrDefault(); }
@@ -114,13 +103,10 @@ namespace EspackDataGridView
             {
                 if (DGFocused)
                     return DataGridView.IsCurrentCellInEditMode;
-                if (FGFocused)
-                    return FilterDataGrid.IsCurrentCellInEditMode;
                 return false;
             }
         }
         public bool DGFocused { get; set; }
-        public bool FGFocused { get; set; }
 
         public IEnumerable<EspackDataGridViewCell> DataCellCollection
         {
@@ -130,14 +116,7 @@ namespace EspackDataGridView
                 return _result;
             }
         }
-        public IEnumerable<EspackDataGridViewCell> FilterCellCollection
-        {
-            get
-            {
-                var _result = FilterDataGrid?.Rows.OfType<DataGridViewRow>().SelectMany(r => r.Cells.OfType<EspackDataGridViewCell>().Select(c => c));
-                return _result;
-            }
-        }
+
 
         public virtual bool ValidateRow()
         {
@@ -152,25 +131,17 @@ namespace EspackDataGridView
         //end properties
         public bool BeginEdit(bool selectAll)
         {
-            if (FGFocused)
-                return FilterDataGrid.BeginEdit(selectAll);
-            else
                 return DataGridView.BeginEdit(selectAll);
         }
         public bool EndEdit()
         {
-            if (FGFocused && FilterDataGrid.IsCurrentCellInEditMode)
-                return FilterDataGrid.EndEditControlled();
-            else if (DataGridView.IsCurrentCellInEditMode)
+            if (DataGridView.IsCurrentCellInEditMode)
                 return DataGridView.EndEditControlled();
             else return false;
         }
         public bool CancelEdit()
         {
-            if (FGFocused)
-                return FilterDataGrid.CancelEdit();
-            else
-                return DataGridView.CancelEdit();
+            return DataGridView.CancelEdit();
         }
         //public Dictionary<string,Control> VSPrimaryKey { get; set; }
 
@@ -200,37 +171,9 @@ namespace EspackDataGridView
         }
 
 
-        //filter props
-        private bool mFilterRowEnabled;
-        public bool IsFilterFocused { get; set; }
-        public DataGridViewRow FilterRow { get; set; }
-        public bool FilterRowEnabled
-        {
-            get => mFilterRowEnabled;
-            set
-            {
-                mFilterRowEnabled = value;
-                if (value == true)
-                {
-                    //FilterCells = new List<EspackDataGridViewCell>();
-                    AddFilterRow();
-                }
-                else
-                {
-                    if (FilterDataGrid != null)
-                    {
-                        FilterDataGrid.Columns.OfType<DataGridViewColumn>().ToList().ForEach(c => FilterDataGrid.Columns.RemoveAt(c.Index));
-                        FilterDataGrid.Rows.OfType<DataGridViewRow>().ToList().ForEach(r => FilterDataGrid.Rows.RemoveAt(r.Index));
-                        FilterDataGrid.Visible = false;
-                        DataGridView.ColumnHeadersVisible = true;
-                        //FilterCells = null;
-                    }
-                }
-            }
-        }
         //public DataGridView FilterDataGrid { get; set; }
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public List<EspackDataGridViewCell> FilterCells { get => FilterDataGrid?.Rows[0].Cells.OfType<EspackDataGridViewCell>().ToList(); }
+
         //EspackFormControl properties
         //public EspackLabel CaptionLabel { get; set; }
         public override bool ReadOnly { get => DataGridView.ReadOnly; set => DataGridView.ReadOnly = value; }
@@ -535,10 +478,6 @@ namespace EspackDataGridView
                 var c = _candidate ?? this[0, 0];
                 DataGridView.CurrentCell = c;
             }
-            if (FilterRowEnabled)
-            {
-                FilterDataGrid.Rows[0].Cells.OfType<EspackDataGridViewCell>().ToList().ForEach(c => c.ReadOnly = false);
-            }
             changingStatus = false;
         }
         public override Control Control { get => panel; }
@@ -611,23 +550,12 @@ namespace EspackDataGridView
             Resize += CtlVSGrid_Resize;
             DataGridView.KeyDown += CtlVSGrid_KeyDown;
             DataGridView.SelectionChanged += EspackDataGridView_SelectionChanged;
-            DataGridView.ColumnWidthChanged += EspackDataGridView_ColumnWidthChanged;
             DataGridView.CellLeave += EspackDataGridView_CellLeave;
             //
-            FilterDataGrid.ColumnWidthChanged += FilterDataGrid_ColumnWidthChanged;
-            FilterDataGrid.GotFocus += FilterDataGrid_GotFocus;
-            FilterDataGrid.LostFocus += FilterDataGrid_LostFocus;
-            FilterDataGrid.CellBeginEdit += FilterDataGrid_CellBeginEdit;
-            FilterDataGrid.ColumnHeadersVisible = true;
-            FilterDataGrid.AllowUserToResizeColumns = true;
-            FilterDataGrid.Width = Width;
-            FilterDataGrid.ScrollBars = ScrollBars.None;
-            FilterDataGrid.RowHeadersVisible = false;
-            FilterDataGrid.CellEnter += FilterDataGrid_CellEnter;
             DataGridView.Sorted += EspackDataGridView_Sorted;
             DataGridView.Scroll += DataGridView_Scroll;
             VerticalScrollBar.VisibleChanged += VerticalScrollBar_VisibleChanged;
-            this.Controls.Add(FilterDataGrid);
+            
             //
             Dirty = false;
 
@@ -647,14 +575,6 @@ namespace EspackDataGridView
 
         }
 
-        private void FilterDataGrid_CellEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            if (!FilterDataGrid.IsCurrentCellInEditMode && !_disableFilterEvents)
-            {
-                ((EspackDataGridViewCell)CurrentCell).Conn = Conn;
-                FilterDataGrid.BeginEdit(true);
-            }
-        }
 
         private void EspackDataGridView_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
@@ -685,18 +605,6 @@ namespace EspackDataGridView
             DataGridView.Sort(DataGridView.Columns[SortedColumn.Index], SortOrder == SortOrder.Ascending ? ListSortDirection.Ascending : ListSortDirection.Descending);
         }
 
-        private void EspackDataGridView_ColumnWidthChanged(object sender, DataGridViewColumnEventArgs e)
-        {
-            if (FilterRowEnabled)
-                if (e.Column.Width != FilterDataGrid.Columns[e.Column.Index].Width)
-                {
-                    var dis = _disableFilterEvents;
-                    _disableFilterEvents = true;
-                    FilterDataGrid.Columns[e.Column.Index].Width = e.Column.Width;
-                    _disableFilterEvents = dis;
-                }
-                //FilterDataGrid.Columns.OfType<DataGridViewColumn>().Where(c => c.Tag.ToInt() == e.Column.Index).First().Width = e.Column.Width;
-        }
 
         private void EspackDataGridView_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
@@ -828,8 +736,7 @@ namespace EspackDataGridView
             if ((keyData == Keys.Enter || keyData == Keys.Tab))
             {
                 DGFocused = DataGridView.IsCurrentCellInEditMode;
-                FGFocused = FilterDataGrid.IsCurrentCellInEditMode;
-                var currentGrid = FGFocused ? FilterDataGrid : DataGridView;                    
+                var currentGrid = DataGridView;                    
                 if (currentGrid.IsCurrentCellInEditMode)
                 {
                     currentGrid.EndEditControlled();
@@ -846,117 +753,6 @@ namespace EspackDataGridView
             else
                 return base.ProcessCmdKey(ref msg, keyData);
         }
-
-        #region FilterMethods
-        private void AddFilterRow()
-        {
-            _disableFilterEvents = true;
-            FilterDataGrid.Visible = true;
-            FilterDataGrid.Height = 2 * DataGridView.Rows[0].Height;
-            DataGridView.Columns.OfType<EspackDataGridViewColumn>().Where(c => c.Visible == true).ToList().ForEach(c =>
-            {
-                var column = new EspackDataGridViewColumn
-                {
-                    //AutoSizeMode = this.AutoSizeMode,
-                    Width = c.Width,
-                    Tag = c.Index,
-                    HeaderText = c.HeaderText,
-                    Name = c.Name,
-                    DBField = c.DBField,
-                    ReadOnly = false
-                };
-                FilterDataGrid.Columns.Add(column);
-            });
-            DataGridView.ColumnHeadersVisible = false;
-            FilterRow = new DataGridViewRow();
-            FilterDataGrid.Rows.Add(FilterRow);
-            for (var i=0; i< FilterDataGrid.Columns.Count; i++)
-            {
-                AddFilterCell(EspackCellTypes.WILDCARDTEXT, i);
-            }
-            _disableFilterEvents = false;
-        }
-
-        private void FilterDataGrid_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
-        {
-            if (!_disableFilterEvents)
-                FGFocused = true;
-        }
-
-        private void FilterDataGrid_LostFocus(object sender, EventArgs e)
-        {
-            if (!_disableFilterEvents)
-                FGFocused = false;
-        }
-
-        private void FilterDataGrid_GotFocus(object sender, EventArgs e)
-        {
-            if (!_disableFilterEvents)
-                FGFocused = true;
-        }
-
-        private void FilterDataGrid_ColumnWidthChanged(object sender, DataGridViewColumnEventArgs e)
-        {
-            if (!_disableFilterEvents)
-                if (e.Column.Width != Columns[e.Column.Index].Width)
-                    Columns[e.Column.Index].Width = e.Column.Width;
-        }
-
-        public void AddFilterCell(EspackCellTypes type, int column, string sqlSource = "")
-        {
-            if (FilterRowEnabled)
-            {
-                if (sqlSource=="")
-                    FilterDataGrid[column, 0] = new EspackDataGridViewCell(type, AutoCompleteMode.SuggestAppend, AutoCompleteSource.CustomSource, ((EspackDataGridViewColumn)DataGridView.Columns[column]).DistinctValues.ToArray()) { IsFilterCell = true };
-                else
-                    FilterDataGrid[column, 0] = new EspackDataGridViewCell(type, AutoCompleteMode.SuggestAppend, AutoCompleteSource.CustomSource, sqlSource, Conn) { SqlSource = sqlSource, IsFilterCell = true };
-                FilterCells.Add((EspackDataGridViewCell)FilterDataGrid[column, 0]);
-                FilterDataGrid[column, 0].ReadOnly = false;
-                ((EspackDataGridViewCell)FilterDataGrid[column, 0]).CellValueChanged += EspackDataGridView_FilterCellValueChanged;
-
-
-            }
-            else
-            {
-                throw new Exception("Enable Filter Row first");
-            }
-        }
-
-        private void EspackDataGridView_FilterCellValueChanged(object sender, CellValueChangedEventArgs e)
-        {
-            //for (int i = 1; i < Rows.Count; i++)
-            //    mDA.Table.Rows.RemoveAt(i);
-            if (FilterDataGrid.IsCurrentCellInEditMode /*&& !FilterDataGrid.endEditing*/)
-                FilterDataGrid.EndEditControlled();
-            List<string> whereList = new List<string>();
-            //Dictionary<int, string> valueList = new Dictionary<int, string>();
-            foreach (EspackDataGridViewCell c in FilterCells)
-            {
-                //valueList.Add(c.ColumnIndex, c.Value.ToString());
-                if (c.Value?.ToString() != null && c.Value?.ToString() != "")
-                {
-                    if (c.Type == EspackCellTypes.CHECKEDCOMBO)
-                    {
-                        var values = string.Format("'{0}'", c.Value.ToString().Replace("|", "','"));
-                        whereList.Add(string.Format("{0} in ({1})", c.Column.DBField, values));
-                    }
-                    else
-                        whereList.Add(string.Format("{0} like '%{1}%'", c.Column.DBField, c.Value.ToString()));
-                }
-            }
-            BaseSQL = BaseSQL ?? SQL;
-            //Refresh();
-            DA _da = new DA(Conn);
-            if (!BaseSQL.ToUpper().Contains("SELECT TOP 100 PERCENT"))
-                BaseSQL = BaseSQL.ToUpper().Replace("SELECT", "SELECT TOP 100 PERCENT");
-            _da.SQL = whereList.Count > 0 ? string.Format("Select * from ({0}) a where {1}", BaseSQL, string.Join(" and ", whereList)) : BaseSQL;
-            _da.Open();
-            DataGridView.DataSource = _da.Table;
-            Refresh();
-            //((EspackDataGridViewColumn)Columns[e.ColIndex]).Filter(e.NewValue.ToString(), true);
-        }
-
-        #endregion
 
         private void CtlVSGrid_Resize(object sender, EventArgs e) //resizes the control to multiples of row height
         {
@@ -1022,12 +818,6 @@ namespace EspackDataGridView
             if (GetStatus() != EnumStatus.ADDGRIDLINE && GetStatus() != EnumStatus.EDITGRIDLINE && GetStatus() != EnumStatus.EDIT && GetStatus() != EnumStatus.ADDNEW)
             {
                 bool lCancel = true;
-
-                if (FilterCells != null)
-                {
-                    if (FilterCells.Contains(CurrentCell))
-                        lCancel = false;
-                }
 
                 if (lCancel)
                 {

@@ -55,6 +55,8 @@
             this.txtPWD = new EspackFormControlsNS.EspackTextBox();
             this.lstEmailAliases = new EspackFormControlsNS.EspackCheckedListBox();
             this.CTLM = new EspackFormControlsNS.CTLMantenimiento();
+            this.btnMigrateToExchange = new System.Windows.Forms.Button();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -93,6 +95,7 @@
             this.txtUserNumber.ExtraDataLink = null;
             this.txtUserNumber.ForeColor = System.Drawing.Color.Gray;
             this.txtUserNumber.IsCTLMOwned = false;
+            this.txtUserNumber.IsPassword = false;
             this.txtUserNumber.Length = 0;
             this.txtUserNumber.Location = new System.Drawing.Point(351, 29);
             this.txtUserNumber.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
@@ -102,7 +105,6 @@
             this.txtUserNumber.Order = 0;
             this.txtUserNumber.ParentConn = null;
             this.txtUserNumber.ParentDA = null;
-            
             this.txtUserNumber.PK = false;
             this.txtUserNumber.Precision = 0;
             this.txtUserNumber.Protected = false;
@@ -114,8 +116,8 @@
             this.txtUserNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtUserNumber.ThousandsGroup = false;
             this.txtUserNumber.Upp = false;
-            
             this.txtUserNumber.Value = null;
+            this.txtUserNumber.WordWrap = true;
             // 
             // txtSurname2
             // 
@@ -132,6 +134,7 @@
             this.txtSurname2.ExtraDataLink = null;
             this.txtSurname2.ForeColor = System.Drawing.Color.Gray;
             this.txtSurname2.IsCTLMOwned = false;
+            this.txtSurname2.IsPassword = false;
             this.txtSurname2.Location = new System.Drawing.Point(351, 74);
             this.txtSurname2.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtSurname2.Multiline = true;
@@ -139,7 +142,6 @@
             this.txtSurname2.Order = 0;
             this.txtSurname2.ParentConn = null;
             this.txtSurname2.ParentDA = null;
-            
             this.txtSurname2.PK = false;
             this.txtSurname2.Protected = false;
             this.txtSurname2.ReadOnly = true;
@@ -149,8 +151,8 @@
             this.txtSurname2.TabIndex = 5;
             this.txtSurname2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtSurname2.Upp = false;
-            
             this.txtSurname2.Value = "";
+            this.txtSurname2.WordWrap = true;
             // 
             // txtSurname1
             // 
@@ -167,6 +169,7 @@
             this.txtSurname1.ExtraDataLink = null;
             this.txtSurname1.ForeColor = System.Drawing.Color.Gray;
             this.txtSurname1.IsCTLMOwned = false;
+            this.txtSurname1.IsPassword = false;
             this.txtSurname1.Location = new System.Drawing.Point(188, 74);
             this.txtSurname1.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtSurname1.Multiline = true;
@@ -174,7 +177,6 @@
             this.txtSurname1.Order = 0;
             this.txtSurname1.ParentConn = null;
             this.txtSurname1.ParentDA = null;
-            
             this.txtSurname1.PK = false;
             this.txtSurname1.Protected = false;
             this.txtSurname1.ReadOnly = true;
@@ -184,8 +186,8 @@
             this.txtSurname1.TabIndex = 4;
             this.txtSurname1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtSurname1.Upp = false;
-            
             this.txtSurname1.Value = "";
+            this.txtSurname1.WordWrap = true;
             // 
             // txtName
             // 
@@ -202,6 +204,7 @@
             this.txtName.ExtraDataLink = null;
             this.txtName.ForeColor = System.Drawing.Color.Gray;
             this.txtName.IsCTLMOwned = false;
+            this.txtName.IsPassword = false;
             this.txtName.Location = new System.Drawing.Point(23, 74);
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtName.Multiline = true;
@@ -209,7 +212,6 @@
             this.txtName.Order = 0;
             this.txtName.ParentConn = null;
             this.txtName.ParentDA = null;
-            
             this.txtName.PK = false;
             this.txtName.Protected = false;
             this.txtName.ReadOnly = true;
@@ -219,8 +221,8 @@
             this.txtName.TabIndex = 3;
             this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtName.Upp = false;
-            
             this.txtName.Value = "";
+            this.txtName.WordWrap = true;
             // 
             // txtUserCode
             // 
@@ -237,6 +239,7 @@
             this.txtUserCode.ExtraDataLink = null;
             this.txtUserCode.ForeColor = System.Drawing.Color.Gray;
             this.txtUserCode.IsCTLMOwned = false;
+            this.txtUserCode.IsPassword = false;
             this.txtUserCode.Location = new System.Drawing.Point(23, 29);
             this.txtUserCode.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtUserCode.Multiline = true;
@@ -244,7 +247,6 @@
             this.txtUserCode.Order = 0;
             this.txtUserCode.ParentConn = null;
             this.txtUserCode.ParentDA = null;
-            
             this.txtUserCode.PK = false;
             this.txtUserCode.Protected = false;
             this.txtUserCode.ReadOnly = true;
@@ -254,8 +256,8 @@
             this.txtUserCode.TabIndex = 1;
             this.txtUserCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtUserCode.Upp = false;
-            
             this.txtUserCode.Value = "";
+            this.txtUserCode.WordWrap = true;
             // 
             // groupBox2
             // 
@@ -369,6 +371,7 @@
             this.txtPosition.ExtraDataLink = null;
             this.txtPosition.ForeColor = System.Drawing.Color.Gray;
             this.txtPosition.IsCTLMOwned = false;
+            this.txtPosition.IsPassword = false;
             this.txtPosition.Location = new System.Drawing.Point(183, 247);
             this.txtPosition.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtPosition.Multiline = true;
@@ -376,7 +379,6 @@
             this.txtPosition.Order = 0;
             this.txtPosition.ParentConn = null;
             this.txtPosition.ParentDA = null;
-            
             this.txtPosition.PK = false;
             this.txtPosition.Protected = false;
             this.txtPosition.ReadOnly = true;
@@ -387,8 +389,8 @@
             this.txtPosition.TabStop = false;
             this.txtPosition.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtPosition.Upp = false;
-            
             this.txtPosition.Value = "";
+            this.txtPosition.WordWrap = true;
             // 
             // cboSecurityLevel
             // 
@@ -444,6 +446,7 @@
             this.txtDesCod3.ExtraDataLink = null;
             this.txtDesCod3.ForeColor = System.Drawing.Color.Gray;
             this.txtDesCod3.IsCTLMOwned = false;
+            this.txtDesCod3.IsPassword = false;
             this.txtDesCod3.Location = new System.Drawing.Point(183, 52);
             this.txtDesCod3.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtDesCod3.Multiline = true;
@@ -451,7 +454,6 @@
             this.txtDesCod3.Order = 0;
             this.txtDesCod3.ParentConn = null;
             this.txtDesCod3.ParentDA = null;
-            
             this.txtDesCod3.PK = false;
             this.txtDesCod3.Protected = false;
             this.txtDesCod3.ReadOnly = true;
@@ -462,8 +464,8 @@
             this.txtDesCod3.TabStop = false;
             this.txtDesCod3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDesCod3.Upp = false;
-            
             this.txtDesCod3.Value = "";
+            this.txtDesCod3.WordWrap = true;
             // 
             // cboCOD3
             // 
@@ -534,7 +536,7 @@
             this.listCOD3.Search = false;
             this.listCOD3.SelectedItem = null;
             this.listCOD3.SelectedValue = null;
-            this.listCOD3.Size = new System.Drawing.Size(482, 130);
+            this.listCOD3.Size = new System.Drawing.Size(482, 124);
             this.listCOD3.Status = CommonTools.EnumStatus.ADDNEW;
             this.listCOD3.TabIndex = 7;
             this.listCOD3.TBDescription = null;
@@ -654,6 +656,7 @@
             this.txtTicket.ExtraDataLink = null;
             this.txtTicket.ForeColor = System.Drawing.Color.Gray;
             this.txtTicket.IsCTLMOwned = false;
+            this.txtTicket.IsPassword = false;
             this.txtTicket.Location = new System.Drawing.Point(23, 254);
             this.txtTicket.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtTicket.Multiline = true;
@@ -661,7 +664,6 @@
             this.txtTicket.Order = 0;
             this.txtTicket.ParentConn = null;
             this.txtTicket.ParentDA = null;
-            
             this.txtTicket.PK = false;
             this.txtTicket.Protected = false;
             this.txtTicket.ReadOnly = true;
@@ -671,8 +673,8 @@
             this.txtTicket.TabIndex = 23;
             this.txtTicket.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtTicket.Upp = false;
-            
             this.txtTicket.Value = "";
+            this.txtTicket.WordWrap = true;
             // 
             // txtEmail
             // 
@@ -689,6 +691,7 @@
             this.txtEmail.ExtraDataLink = null;
             this.txtEmail.ForeColor = System.Drawing.Color.Gray;
             this.txtEmail.IsCTLMOwned = false;
+            this.txtEmail.IsPassword = false;
             this.txtEmail.Location = new System.Drawing.Point(183, 72);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtEmail.Multiline = true;
@@ -696,7 +699,6 @@
             this.txtEmail.Order = 0;
             this.txtEmail.ParentConn = null;
             this.txtEmail.ParentDA = null;
-            
             this.txtEmail.PK = false;
             this.txtEmail.Protected = false;
             this.txtEmail.ReadOnly = true;
@@ -706,8 +708,8 @@
             this.txtEmail.TabIndex = 12;
             this.txtEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtEmail.Upp = false;
-            
             this.txtEmail.Value = "";
+            this.txtEmail.WordWrap = true;
             // 
             // txtPIN
             // 
@@ -725,6 +727,7 @@
             this.txtPIN.ExtraDataLink = null;
             this.txtPIN.ForeColor = System.Drawing.Color.Gray;
             this.txtPIN.IsCTLMOwned = false;
+            this.txtPIN.IsPassword = false;
             this.txtPIN.Length = 0;
             this.txtPIN.Location = new System.Drawing.Point(343, 32);
             this.txtPIN.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
@@ -734,7 +737,6 @@
             this.txtPIN.Order = 0;
             this.txtPIN.ParentConn = null;
             this.txtPIN.ParentDA = null;
-            
             this.txtPIN.PK = false;
             this.txtPIN.Precision = 0;
             this.txtPIN.Protected = false;
@@ -746,8 +748,8 @@
             this.txtPIN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtPIN.ThousandsGroup = false;
             this.txtPIN.Upp = false;
-            
             this.txtPIN.Value = null;
+            this.txtPIN.WordWrap = true;
             // 
             // txtQuota
             // 
@@ -765,6 +767,7 @@
             this.txtQuota.ExtraDataLink = null;
             this.txtQuota.ForeColor = System.Drawing.Color.Gray;
             this.txtQuota.IsCTLMOwned = false;
+            this.txtQuota.IsPassword = false;
             this.txtQuota.Length = 0;
             this.txtQuota.Location = new System.Drawing.Point(400, 32);
             this.txtQuota.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
@@ -774,7 +777,6 @@
             this.txtQuota.Order = 0;
             this.txtQuota.ParentConn = null;
             this.txtQuota.ParentDA = null;
-            
             this.txtQuota.PK = false;
             this.txtQuota.Precision = 0;
             this.txtQuota.Protected = false;
@@ -786,8 +788,8 @@
             this.txtQuota.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtQuota.ThousandsGroup = false;
             this.txtQuota.Upp = false;
-            
             this.txtQuota.Value = null;
+            this.txtQuota.WordWrap = true;
             // 
             // cboDomain
             // 
@@ -896,7 +898,7 @@
             this.lstFlags.Search = false;
             this.lstFlags.SelectedItem = null;
             this.lstFlags.SelectedValue = null;
-            this.lstFlags.Size = new System.Drawing.Size(482, 111);
+            this.lstFlags.Size = new System.Drawing.Size(482, 106);
             this.lstFlags.Status = CommonTools.EnumStatus.ADDNEW;
             this.lstFlags.TabIndex = 14;
             this.lstFlags.TBDescription = null;
@@ -919,6 +921,7 @@
             this.txtPWD.ExtraDataLink = null;
             this.txtPWD.ForeColor = System.Drawing.Color.Gray;
             this.txtPWD.IsCTLMOwned = false;
+            this.txtPWD.IsPassword = false;
             this.txtPWD.Location = new System.Drawing.Point(23, 32);
             this.txtPWD.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
             this.txtPWD.Multiline = true;
@@ -926,7 +929,6 @@
             this.txtPWD.Order = 0;
             this.txtPWD.ParentConn = null;
             this.txtPWD.ParentDA = null;
-            
             this.txtPWD.PK = false;
             this.txtPWD.Protected = false;
             this.txtPWD.ReadOnly = true;
@@ -936,8 +938,8 @@
             this.txtPWD.TabIndex = 9;
             this.txtPWD.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtPWD.Upp = false;
-            
             this.txtPWD.Value = "";
+            this.txtPWD.WordWrap = true;
             // 
             // lstEmailAliases
             // 
@@ -969,7 +971,7 @@
             this.lstEmailAliases.Search = false;
             this.lstEmailAliases.SelectedItem = null;
             this.lstEmailAliases.SelectedValue = null;
-            this.lstEmailAliases.Size = new System.Drawing.Size(292, 741);
+            this.lstEmailAliases.Size = new System.Drawing.Size(292, 738);
             this.lstEmailAliases.Status = CommonTools.EnumStatus.ADDNEW;
             this.lstEmailAliases.TabIndex = 15;
             this.lstEmailAliases.TBDescription = null;
@@ -998,12 +1000,33 @@
             this.CTLM.StatusBarProgress = null;
             this.CTLM.TabIndex = 0;
             // 
+            // btnMigrateToExchange
+            // 
+            this.btnMigrateToExchange.Location = new System.Drawing.Point(861, 48);
+            this.btnMigrateToExchange.Name = "btnMigrateToExchange";
+            this.btnMigrateToExchange.Size = new System.Drawing.Size(154, 23);
+            this.btnMigrateToExchange.TabIndex = 154;
+            this.btnMigrateToExchange.Text = "Migrate to Exchange";
+            this.btnMigrateToExchange.UseVisualStyleBackColor = true;
+            this.btnMigrateToExchange.Click += new System.EventHandler(this.btnMigrateToExchange_Click);
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.BackColor = System.Drawing.Color.White;
+            this.lblStatus.Location = new System.Drawing.Point(858, 90);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(157, 65);
+            this.lblStatus.TabIndex = 155;
+            this.lblStatus.Text = "...";
+            // 
             // fUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1264, 839);
+            this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.btnMigrateToExchange);
             this.Controls.Add(this.lstEmailAliases);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -1051,5 +1074,7 @@
         private EspackFormControlsNS.EspackComboBox cboArea;
         private EspackFormControlsNS.EspackTextBox txtTicket;
         private EspackFormControlsNS.EspackDateTimePicker txtTicketExp;
+        private System.Windows.Forms.Button btnMigrateToExchange;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

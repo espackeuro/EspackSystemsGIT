@@ -126,10 +126,10 @@ namespace ADService
                     //    await AD.AddUserToGroup(User.UserCode, "NextCloud Users", GroupPath: AD.DefaultPath);
                     //}
                 }
-                if (User.Aliases != null)
-                {
-                    await AD.PropertyAdd(User.UserCode, "proxyAddresses", string.Join(",", User.Aliases), true);
-                }
+                //if (User.Aliases != null)
+                //{
+                //    await AD.PropertyAdd(User.UserCode, "proxyAddresses", string.Join(",", User.Aliases), true);
+                //}
                 return true;
             }
             catch (Exception ex)
@@ -219,58 +219,73 @@ namespace ADService
             }
         }
 
-        public async Task<bool> UpdateGroup(EspackGroup Group)
-        {
-            AD.EC.ServerName = ServerName;
-            try
-            {
-                if (!await AD.CheckGroup(Group.GroupCode))
-                {
-                    return false;
-                    throw new Exception(string.Format("Group {0} doesn't exist.", Group.GroupCode));
-                }
-                if (Group.GroupMembers.Count() != 0)
-                {
-                    await AD.PropertyAdd(Group.GroupCode, "proxyAddresses", string.Join(",", Group.GroupMembers), true);
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-                throw ex;
-            }
-        }
-
-        public async Task<bool> InsertGroup(EspackGroup Group)
-        {
-            AD.EC.ServerName = ServerName;
-            try
-            {
-                string _groupName = Group.GroupCode.Split('@')[0];
-                if (_groupName == "")
-                    _groupName = Group.GroupCode.Split('@')[1];
-                if (!await AD.CheckGroup(Group.GroupCode))
-                {
-                    await AD.CreateGroup(Group.GroupCode, _groupName, "distribution", AD.DefaultPathAliases);
-                    //await AssignUserGroupOU(User.UserCode, User.Group, User.Sede.COD3, User.Sede.COD3Description);
-                }
-                if (Group.GroupMembers.Count() != 0)
-                {
-                    await AD.PropertyAdd(Group.GroupCode, "proxyAddresses", string.Join(",", Group.GroupMembers), true);
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-                throw ex;
-            }
-        }
-
-        public async Task<bool> DisableGroup(string GroupCode)
+        public Task<bool> InsertGroup(EspackGroup Group)
         {
             throw new NotImplementedException();
         }
+
+        public Task<bool> UpdateGroup(EspackGroup Group)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> DisableGroup(string GroupCode)
+        {
+            throw new NotImplementedException();
+        }
+
+        //public async Task<bool> UpdateGroup(EspackGroup Group)
+        //{
+        //    AD.EC.ServerName = ServerName;
+        //    try
+        //    {
+        //        if (!await AD.CheckGroup(Group.GroupCode))
+        //        {
+        //            return false;
+        //            throw new Exception(string.Format("Group {0} doesn't exist.", Group.GroupCode));
+        //        }
+        //        if (Group.GroupMembers.Count() != 0)
+        //        {
+        //            await AD.PropertyAdd(Group.GroupCode, "proxyAddresses", string.Join(",", Group.GroupMembers), true);
+        //        }
+        //        return true;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return false;
+        //        throw ex;
+        //    }
+        //}
+
+        //public async Task<bool> InsertGroup(EspackGroup Group)
+        //{
+        //    AD.EC.ServerName = ServerName;
+        //    try
+        //    {
+        //        string _groupName = Group.GroupCode.Split('@')[0];
+        //        if (_groupName == "")
+        //            _groupName = Group.GroupCode.Split('@')[1];
+        //        if (!await AD.CheckGroup(Group.GroupCode))
+        //        {
+        //            await AD.CreateGroup(Group.GroupCode, _groupName, "distribution", AD.DefaultPathAliases);
+        //            //await AssignUserGroupOU(User.UserCode, User.Group, User.Sede.COD3, User.Sede.COD3Description);
+        //        }
+        //        if (Group.GroupMembers.Count() != 0)
+        //        {
+        //            await AD.PropertyAdd(Group.GroupCode, "proxyAddresses", string.Join(",", Group.GroupMembers), true);
+        //        }
+        //        return true;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return false;
+        //        throw ex;
+        //    }
+        //}
+
+        //public async Task<bool> DisableGroup(string GroupCode)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

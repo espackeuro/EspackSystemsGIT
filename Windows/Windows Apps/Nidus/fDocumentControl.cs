@@ -67,7 +67,6 @@ namespace Nidus
             CTLM.ReQuery = true;
             CTLM.AddDefaultStatusStrip();
             CTLM.Start();
-            VS.FilterRowEnabled = true;
             //VS.AddFilterCell(EspackCellTypes.WILDCARDTEXT, 0, "Select distinct TypeCode from DocumentsCab order by TypeCode");
             this.Load += FDocumentControl_Load;
             var c = VS.DataCellCollection;
@@ -108,9 +107,6 @@ namespace Nidus
 
         private void FDocumentControl_Load(object sender, EventArgs e)
         {
-            VS.AddFilterCell(EspackCellTypes.CHECKEDCOMBO, 0, "Select distinct Type=TypeCode,TypeCode from DocumentsCab");
-            VS.AddFilterCell(EspackCellTypes.CHECKEDCOMBO, 1, "Select distinct Section=SectionCode,SectionCode from DocumentsCab");
-            VS.AddFilterCell(EspackCellTypes.TEXT, 2, "Select distinct Title from DocumentsCab");
             VS.DataGridView.SelectionChanged += DataGridView_SelectionChanged;
         }
         
