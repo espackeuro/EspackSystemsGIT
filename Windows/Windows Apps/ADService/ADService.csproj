@@ -75,9 +75,9 @@
       <Project>{cdf2b471-cb48-46ed-bcbd-840294f106bb}</Project>
       <Name>BaseService</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PowerShell\ADControl.csproj">
-      <Project>{b4c5fc29-42a5-410e-a09d-bf68f2519bbc}</Project>
-      <Name>ADControl</Name>
+    <ProjectReference Include="..\PowerShellControl\PowerShellControl.csproj">
+      <Project>{ce8b242c-f8f7-41fe-b799-176f7fd75a2a}</Project>
+      <Name>PowerShellControl</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

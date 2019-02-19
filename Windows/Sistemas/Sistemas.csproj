@@ -346,9 +346,9 @@
       <Project>{ff2efef1-a838-438a-88bd-bc5f0f8d6f15}</Project>
       <Name>EspackFormControls</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Windows Apps\PowerShell\ADControl.csproj">
-      <Project>{b4c5fc29-42a5-410e-a09d-bf68f2519bbc}</Project>
-      <Name>ADControl</Name>
+    <ProjectReference Include="..\Windows Apps\PowerShellControl\PowerShellControl.csproj">
+      <Project>{ce8b242c-f8f7-41fe-b799-176f7fd75a2a}</Project>
+      <Name>PowerShellControl</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

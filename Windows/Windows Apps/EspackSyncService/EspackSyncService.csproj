@@ -96,10 +96,6 @@
       <Project>{f1a54468-3469-49be-b025-a9469925744c}</Project>
       <Name>MasterClass</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Database and tools\cAccesoDatos.NET\cAccesoDatosNet.csproj">
-      <Project>{d3e453aa-39b7-480f-8917-6d7f5076c3ed}</Project>
-      <Name>cAccesoDatosNet</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\Database and tools\CommonTools\CommonTools.csproj">
       <Project>{9148f7e6-31f6-4f96-b7dc-afea449998c7}</Project>
       <Name>CommonTools</Name>
@@ -112,9 +108,9 @@
       <Project>{cdf2b471-cb48-46ed-bcbd-840294f106bb}</Project>
       <Name>BaseService</Name>
     </ProjectReference>
-    <ProjectReference Include="..\cAccesoDatos\cAccesoDatos.csproj">
-      <Project>{5da9cb0b-9007-40f1-8086-1b0303d8271f}</Project>
-      <Name>cAccesoDatos</Name>
+    <ProjectReference Include="..\ExchangeService\ExchangeService.csproj">
+      <Project>{B52D0235-7035-4578-BFC1-54A66C3047CC}</Project>
+      <Name>ExchangeService</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

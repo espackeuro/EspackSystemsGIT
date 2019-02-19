@@ -5,22 +5,21 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PowerShellControl")]
+[assembly: AssemblyTitle("DemoActiveX")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PowerShellControl")]
+[assembly: AssemblyProduct("DemoActiveX")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-
+[assembly: ComVisible(true)]
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from
 // COM, set the ComVisible attribute to true on that type.
-[assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b4c5fc29-42a5-410e-a09d-bf68f2519bbc")]
+[assembly: Guid("072a23f1-daeb-4647-913f-2f567c4d391d")]
 
 // Version information for an assembly consists of the following four values:
 //

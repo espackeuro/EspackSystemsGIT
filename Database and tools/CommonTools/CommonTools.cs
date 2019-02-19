@@ -14,6 +14,7 @@ using System.Globalization;
 using System.Net;
 using System.Xml.Linq;
 using System.Security;
+using System.Collections.ObjectModel;
 //using ADODB;
 namespace CommonTools
 {
@@ -352,6 +353,17 @@ namespace CommonTools
             }
         }
 
+        public static string ToUpperFirstLetter(this string myString)
+        {
+            if (myString.Length > 0)
+            {
+                List<string> listOfWords = myString.Trim().Split(' ').ToList();
+                return string.Join(" ", listOfWords.Select(s => s.Substring(0, 1).ToUpper() + s.Substring(1).ToLower()));
+            }
+            else
+                return "";
+        }
+
         public static bool IsTextType(this SqlDbType columnType)
         {
             return columnType == SqlDbType.Char
@@ -417,6 +429,12 @@ namespace CommonTools
                 Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
             }
         }
+
+        public static Collection<T> ToCollection<T>(this IEnumerable<T> iEnumerable)
+        {
+            return new Collection<T>(iEnumerable.ToList());
+        }
+
         public static string PadCenter(this string pString, int totalWidth,char paddingChar)
         {
             pString = "**********************" + pString + "*******************************";
@@ -655,5 +673,11 @@ namespace CommonTools
         object Value { get; set; }
     }
 
+    public class ServiceCommand
+    {
+        public string ServiceName { get; set; }
+        public string Command { get; set; }
+        public string Result { get; set; }
+    }
 
 }

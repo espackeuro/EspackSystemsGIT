@@ -11,7 +11,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Linq;
 using EspackFormControlsNS;
-using ADControl;
+using PowerShellControl;
 using static Sistemas.Values;
 using static CommonToolsWin.CTWin;
 using Renci.SshNet;
@@ -171,7 +171,11 @@ namespace Sistemas
                     }
                     btnMigrateToExchange.Enabled = true;
                 }
-        
+                else
+                {
+                    btnMigrateToExchange.Enabled = true;
+                }
+
         }
 
         private async void btnMigrateToExchange_Click(object sender, EventArgs e)

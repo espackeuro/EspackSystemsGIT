@@ -9,9 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using CommonTools;
-using AccesoDatosNet;
+//using AccesoDatosNet;
 using BaseService;
 using ADService;
+using ExchangeService;
+using System.Collections.ObjectModel;
+using System.Data.SqlClient;
+
 namespace EspackSyncService
 {
 
@@ -62,7 +66,21 @@ namespace EspackSyncService
                                 User = "SYSTEMS\\administrador",
                                 Password = "Y?D6d#b@".ToSecureString()
                             },
-                            ServerName = pair.Value
+                            ServerName = pair.Value,
+                            Flags = Values.FlagsDefs
+                        });
+                        EventLog.WriteEntry(string.Format("Added {0} Service to server {1}", pair.Key, pair.Value));
+                        break;
+                    case "EXCHANGE":
+                        SyncedServices.Add(new ExchangeServiceClass()
+                        {
+                            ServiceCredentials = new EspackCredentials()
+                            {
+                                User = "SYSTEMS\\administrador",
+                                Password = "Y?D6d#b@".ToSecureString()
+                            },
+                            ServerName = pair.Value,
+                            Flags = Values.FlagsDefs
                         });
                         EventLog.WriteEntry(string.Format("Added {0} Service to server {1}", pair.Key, pair.Value));
                         break;
@@ -72,7 +90,7 @@ namespace EspackSyncService
 
 
             // Timer creation
-            EventLog.WriteEntry(string.Format("Service Espack Sync Started on database server {0}",Values.gDatos.Server));
+            EventLog.WriteEntry(string.Format("Service Espack Sync Started on database server {0}",Values.DBServer));
             // Set up a timer to trigger every minute.  
             timer = new System.Timers.Timer();
             timer.Interval = Values.PollingTime * 1000;
@@ -88,167 +106,201 @@ namespace EspackSyncService
 
         private async Task Synchronize()
         {
-            //get the recordset from database where status = 
-            Values.gDatos.DataBase = "SISTEMAS";
-            Values.gDatos.Connect();
-            //check if guest user password has expired
-            using (var _RS= new StaticRS("select * from Users where UserCode = 'guest' and (GETDATE() >= PasswordEXP or PasswordEXP is null)", Values.gDatos))
+            var prevState = Values.conn.State;
+            if (prevState == ConnectionState.Closed)
             {
-                try
-                {
-                    await _RS.OpenAsync();
-                }
-                catch (Exception ex)
-                {
-                    EventLog.WriteEntry(string.Format("Error accesing database: {0}", ex.Message), EventLogEntryType.Error);
-                    return;
-                }
-                if (!_RS.EOF)
-                {
-                    //generate new password
-                    var _newPassword = CT.GeneratePassword(8);
-                    //change guest password
-                    using (var _SP = new SP(Values.gDatos, "pUppUserPassword"))
-                    {
-                        _SP.AddParameterValue("UserCode", "guest");
-                        _SP.AddParameterValue("Password", _newPassword);
-                        _SP.AddParameterValue("PIN", "0000");
-                        int _error = 0;
-                        try
-                        {
-                            await _SP.ExecuteAsync();
-                        }
-                        catch (Exception ex)
-                        {
-                            EventLog.WriteEntry(string.Format("Error updating guest password: {0}", ex.Message), EventLogEntryType.Error);
-                            _error = 1;
-                        }
-                        if (_error == 0 && _SP.LastMsg != "OK")
-                        {
-                            EventLog.WriteEntry(string.Format("Error updating guest password: {0}", _SP.LastMsg), EventLogEntryType.Error);
-                        }
-                        if (_error == 0 && _SP.LastMsg == "OK")
-                        {
-                            EventLog.WriteEntry("Guest user password changed correctly.");
-                        }
-                    }
-                }
+                await Values.conn.OpenAsync();
+                SqlCommand cmd = Values.conn.CreateCommand();
+                string lSql = "set CONTEXT_INFO @C";
+                cmd.CommandText = lSql;
+                SqlParameter param = new SqlParameter();
+                param.ParameterName = "@C";
+                param.DbType = DbType.Binary;
+                param.Size = 128;
+                param.Value = Values.MasterPassword;
+                cmd.Parameters.Add(param);
+                await cmd.ExecuteNonQueryAsync();
             }
-            using (var _RS = new DynamicRS("select UserCode, Name, Surname1,Password,Position, MainCOD3, emailAddress, localDomain, flags, desCOD3  from vUsers where dbo.CheckFlag(flags,'CHANGED')=1", Values.gDatos))
+            //using (SqlDataAdapter _sDA = new SqlDataAdapter("select * from Users where UserCode = 'guest' and (GETDATE() >= PasswordEXP or PasswordEXP is null)", Values.conn))
+            //{
+            //    DataTable T = new DataTable();
+            //    _sDA.Fill(T);
+            //    var _RS = T.Rows;
+
+            //    if (_RS.Count != 0)
+            //    {
+            //        //generate new password
+            //        var _newPassword = CT.GeneratePassword(8);
+            //        //change guest password
+            //        using (var _sp = new SqlCommand("pUppUserPassword", Values.conn) { CommandType = CommandType.StoredProcedure })
+            //        {
+            //            //prevState = Values.conn.State;
+            //            //if (prevState == ConnectionState.Closed)
+            //            //    await Values.conn.OpenAsync();
+            //            SqlCommandBuilder.DeriveParameters(_sp);
+            //            _sp.Parameters["@msg"].Value = "";
+            //            _sp.Parameters["@UserCode"].Value = "guest";
+            //            _sp.Parameters["@Password"].Value = _newPassword;
+            //            _sp.Parameters["@PIN"].Value = "0000";
+            //            int _error = 0;
+            //            try
+            //            {
+            //                await _sp.ExecuteNonQueryAsync();
+            //            }
+            //            catch (Exception ex)
+            //            {
+            //                EventLog.WriteEntry(string.Format("Error updating guest password: {0}", ex.Message), EventLogEntryType.Error);
+            //                _error = 1;
+            //            }
+            //            if (_error == 0 && _sp.Parameters["@msg"].Value.ToString() != "OK")
+            //            {
+            //                EventLog.WriteEntry(string.Format("Error updating guest password: {0}", _sp.Parameters["@msg"].Value.ToString()), EventLogEntryType.Error);
+            //            }
+            //            if (_error == 0 && _sp.Parameters["@msg"].Value.ToString() == "OK")
+            //            {
+            //                EventLog.WriteEntry("Guest user password changed correctly.");
+            //            }
+            //        }
+            //    }
+            //}
+            using (var _sDA = new SqlDataAdapter(string.Format("select top 10 UserCode, Name, Surname1,Password,Position, MainCOD3, emailAddress, localDomain, flags, desCOD3,Area, remaining=(Select count(*) from users where dbo.CheckFlag(flags,'CHANGED')=1)  from vUsers where dbo.CheckFlag(flags,'CHANGED')=1 order by Surname1 desc"), Values.conn))
             {
-                try
+                using (DataTable T = new DataTable())
                 {
-                    await _RS.OpenAsync();
-                } catch (Exception ex)
-                {
-                    EventLog.WriteEntry(string.Format("Error accesing database: {0}", ex.Message), EventLogEntryType.Error);
-                    return;
-                }
-                foreach (var r in _RS.ToList())
-                {
-                    Dictionary<string, string> _flagsDefs;
-                    using (var _frs = new DynamicRS("Select Codigo, DescFlagEng from flags where Servicio='SYNC' and Tabla='Users'", Values.gDatos))
-                    {
-                        _frs.Open();
-                        _flagsDefs = _frs.ToList().ToDictionary(dr => dr["Codigo"].ToString(),dr => dr["DescFlagEng"].ToString());//.ToList().Select(fr => new KeyValuePair<string,string>(fr["Codigo"].ToString(), fr["DescFlagEng"].ToString())).ToDictionary<string,string>;
-                    }
-                    var _flags = r["flags"].ToString().Split('|').ToList().Where(fr => _flagsDefs.Keys.Contains(fr) ).ToList();
-                    int _error = 0;
-                    //create the user object
-                    var _user = new EspackUser()
-                    {
-                        UserCode = r["UserCode"].ToString(),
-                        Name = r["Name"].ToString(),
-                        Surname = r["Surname1"].ToString(),
-                        Group = "ESPACK_"+r["Position"].ToString(),
-                        Password = r["Password"].ToString(),
-                        Email = r["emailAddress"].ToString(),
-                        Sede = new EspackSede()
-                        {
-                            COD3 = r["MainCOD3"].ToString(),
-                            COD3Description = r["desCOD3"].ToString()
-                        },
-                        Flags = _flags,
-                    };
-                    // lets cycle each defined service
-                    foreach (var s in SyncedServices)
-                    { 
-                        if (_flags.Contains(s.ServiceName))
-                        {
-                            try
-                            {
-                                s.Flags = _flagsDefs;
-                                _flags.Remove(s.ServiceName);
-                                //define the alias list
-                                var _alias = Values.DomainList.Select(d => string.Format("'smtp:{0}@{1}'", r["UserCode"].ToString(), d));
-                                _user.Aliases = _alias.Concat(new string[]{ string.Format("'smtp:{0}@{1}'", r["UserCode"].ToString(), r["localDomain"].ToString())}).ToList(); //we add the @COD3.espackeuro.com domain
-                                //update or create the user in the service
-                                await s.Interact(_user);
-                                EventLog.WriteEntry(string.Format("User {0} from {1} was modified correctly in service {2}", _user.UserCode, _user.Sede.COD3, s.ServiceName));
-                                _error = 0;
-                            }
-                            catch (Exception ex)
-                            {
-                                EventLog.WriteEntry(string.Format("User {0} from {1} was NOT modified correctly in service {2}. \nError message was {3}", r["UserCode"].ToString(), r["MainCOD3"].ToString(), s.ServiceName, ex.Message), EventLogEntryType.Error);
-                                _error = 1;
-                            }
-                        }
-                    };
-                    // clear the CHANGED flag
-                    var _SP = new SP(Values.gDatos, "pUppUserFlagCheckedClear");
-                    _SP.AddParameterValue("UserCode", r["UserCode"].ToString());
-                    _SP.AddParameterValue("Error", _error);
                     try
                     {
-                        await _SP.ExecuteAsync();
-                        if (_SP.LastMsg != "OK")
-                            throw new Exception(_SP.LastMsg);
+                        _sDA.Fill(T);
                     }
                     catch (Exception ex)
                     {
-                        EventLog.WriteEntry(string.Format("User {0} from {1} was NOT unflagged correctly. \nError message was {2}", r["UserCode"].ToString(), r["MainCOD3"].ToString(), ex.Message), EventLogEntryType.Error);
+                        EventLog.WriteEntry(string.Format("Error accesing database: {0}", ex.Message), EventLogEntryType.Error);
+                        return;
                     }
-                };
+                    var _RS = T.Rows;
+                    if (_RS.Count != 0)
+                    {
+                        Collection<EspackUser> users = new Collection<EspackUser>();
+                        foreach (DataRow r in _RS)
+                        {
+                            //var r = _RS.Rows[0];
+                            Collection<string> _flags = r["flags"].ToString().Split('|').ToList().Where(fr => Values.FlagsDefs.Keys.Contains(fr)).ToCollection();
+                            //create the user object
+                            var _user = new EspackUser()
+                            {
+                                UserCode = r["UserCode"].ToString(),
+                                Name = r["Name"].ToString().ToUpperFirstLetter(),
+                                Surname = r["Surname1"].ToString().ToUpperFirstLetter(),
+                                Group = "ESPACK_" + r["Position"].ToString(),
+                                Password = r["Password"].ToString(),
+                                Email = r["emailAddress"].ToString(),
+                                Sede = new EspackSede()
+                                {
+                                    COD3 = r["MainCOD3"].ToString(),
+                                    COD3Description = r["desCOD3"].ToString()
+                                },
+                                Flags = _flags.ToCollection(),
+                                Position = r["Position"].ToString(),
+                                Area = r["Area"].ToString(),
+                                Services = r["flags"].ToString().Split('|').Where(s => SyncedServices.Select(ss => ss.ServiceName).Contains(s)).ToCollection(),
+                                LocalDomain = r["localDomain"].ToString()
+                            };
+                            users.Add(_user);
+                        }
+                        foreach (var s in SyncedServices)
+                        {
+                            var _userServices = users.Where(u => u.Services.Contains(s.ServiceName));
+                            if (_userServices.Count() != 0)
+                            {
+                                foreach (var _user in _userServices)
+                                {
+
+                                    //_flags.Remove(s.ServiceName);
+                                    //define the alias list
+                                    var _alias = Values.DomainList.Select(d => string.Format("'smtp:{0}@{1}'", _user.UserCode, d));
+                                    _user.Aliases = new Collection<string>(_alias.Concat(new string[] { string.Format("'smtp:{0}@{1}'", _user.UserCode, _user.LocalDomain) }).ToCollection());
+                                    //get the command list for the user
+                                    s.Interact(_user);
+                                }
+                                //execute the commands for the user list
+                                var commandCollection = _userServices.SelectMany(u => u.ServiceCommands).ToCollection();
+                                try
+                                {
+                                    await s.Commit(commandCollection);
+                                }
+                                catch (Exception ex)
+                                {
+                                    EventLog.WriteEntry(string.Format("Error interacting users {0}.", ex.Message), EventLogEntryType.Error);
+                                }
+
+                                foreach (var _user in _userServices)
+                                {
+                                    await _user.DoFlags(Values.conn);
+                                    var errorMessages = _user.ServiceCommands.Select(c => c.Result).Where(o => o != "OK");
+                                    var errorMessage = string.Join("· ", errorMessages);
+                                    if (errorMessages.Count() == 0)
+                                        EventLog.WriteEntry(string.Format("User {0} from {1} was modified correctly in service {2}", _user.UserCode, _user.Sede.COD3, s.ServiceName));
+                                    else
+                                        EventLog.WriteEntry(string.Format("User {0} from {1} was NOT modified correctly in service {2}. \nError message was {3}", _user.UserCode, _user.Sede.COD3, s.ServiceName, errorMessage), EventLogEntryType.Error);
+                                    _user.ServiceCommands.Clear();
+                                }
+                            }
+                        }
+                    }
+                }
             }
+            
+
+
+
             //now lets sync the groups
-            Values.gDatos.DataBase = "MAIL";
-            Values.gDatos.Connect();
-            using (var _RS = new DynamicRS("Select local_part,address,flags from aliasCAB where dbo.CheckFlag(flags,'CHANGED')=1 and local_part!=''", Values.gDatos))
+            //Values.gDatos.DataBase = "MAIL";
+            //Values.gDatos.Connect();
+            using (var _sDA = new SqlDataAdapter("Select top 10 local_part,address,flags from mail..aliasCAB where dbo.CheckFlag(flags,'CHANGED')=1 and local_part!='' order by address", Values.conn))
             {
+                DataTable T = new DataTable();
+                _sDA.SelectCommand.CommandTimeout = 300;
                 try
                 {
-                    await _RS.OpenAsync();
-                    //_RS.Open();
+                    _sDA.Fill(T);
                 }
                 catch (Exception ex)
                 {
                     EventLog.WriteEntry(string.Format("Error accesing database {0}", ex.Message), EventLogEntryType.Error);
                     return;
                 }
-
-                foreach (var r in _RS.ToList())
+                var _RS = T.Rows;
+                Collection<EspackGroup> groups = new Collection<EspackGroup>();
+                foreach (DataRow r in _RS)
                 //_RS.ToList().ForEach(async r =>
                 {
                     var _flags = r["flags"].ToString().Split('|');
-                    int _error = 0;
                     //lets get the group members
-                    using (var _aliases = new StaticRS(string.Format("select * from dbo.fExpandAlias('{0}') where gotoAddress not in (select gotoAddress from dbo.fExpandAliasExceptions('{0}'))", r["address"].ToString()), Values.gDatos))
+                    //using (var _aliases = new SqlDataAdapter(string.Format("select * from MAIL.dbo.fExpandAlias('{0}') where gotoAddress not in (select gotoAddress from MAIL.dbo.fExpandAliasExceptions('{0}'))", r["address"].ToString()), Values.conn))
+                    //using (var _aliases = new SqlDataAdapter(string.Format("EXEC Mail..pExpandAlias '{0}'", r["address"].ToString()), Values.conn))
+                    using (var _aliases = new SqlCommand("MAil..pExpandAlias", Values.conn) { CommandType = CommandType.StoredProcedure })
                     {
+                        _aliases.Parameters.Add(new SqlParameter()
+                        {
+                            ParameterName = "@address",
+                            DbType = DbType.String,
+                            Value = r["address"].ToString()
+                        });
+                        var tAliases = new DataTable();
                         try
                         {
-                            await _aliases.OpenAsync();
-                            //_RS.Open();
+                            tAliases.Load(await _aliases.ExecuteReaderAsync());
+                            //_aliases.Fill(tAliases);
                         }
                         catch (Exception ex)
                         {
                             EventLog.WriteEntry(string.Format("Error accesing database {0}", ex.Message), EventLogEntryType.Error);
                             return;
                         }
-                        var _alList = _aliases.ToList().Select(a => string.Format("{0}@{1}", a["local_part_goto"], CleanDomain(a["domain_goto"].ToString()))).ToArray();
+                        var _alList = tAliases.Rows.OfType<DataRow>().Select(a => string.Format("{0}@{1}", a["local_part_goto"], CleanDomain(a["domain_goto"].ToString()))).ToArray();
                         //create the group object
                         var _group = new EspackGroup()
                         {
-                            GroupCode = r["local_part"].ToString()!="" ? r["local_part"].ToString() : r["address"].ToString().Replace('@','_').ToUpper(),
+                            GroupCode = r["local_part"].ToString() != "" ? r["local_part"].ToString() : r["address"].ToString().Replace('@', '_').ToUpper(),
                             GroupMail = r["address"].ToString(),
                             GroupMembers = _alList
                         };
@@ -256,36 +308,33 @@ namespace EspackSyncService
                         {
                             if (_flags.Contains(s.ServiceName))
                             {
-                                try
-                                {
-                                    await s.InteractGroup(_group);
-                                    EventLog.WriteEntry(string.Format("Group {0} was modified correctly in service {1}", _group.GroupCode, s.ServiceName));
-                                    _error = 0;
-                                }
-                                catch (Exception ex)
-                                {
-                                    EventLog.WriteEntry(string.Format("Group {0} was NOT modified correctly in service {1}. \nError message was {2}", _group.GroupCode, s.ServiceName, ex.Message), EventLogEntryType.Error);
-                                    _error = 1;
-                                }
+                                s.InteractGroup(_group);
+                                groups.Add(_group);
                             }
-                        }
-                        // clear the CHANGED flag
-                        var _SP = new SP(Values.gDatos, "pUppAliasFlagCheckedClear");
-                        _SP.AddParameterValue("address", _group.GroupMail);
-                        _SP.AddParameterValue("Error", _error);
-                        try
-                        {
-                            await _SP.ExecuteAsync();
-                            if (_SP.LastMsg != "OK")
-                                throw new Exception(_SP.LastMsg);
-                        }
-                        catch (Exception ex)
-                        {
-                            EventLog.WriteEntry(string.Format("Group {0} was NOT unflagged correctly. \nError message was {1}", _group.GroupCode,  ex.Message), EventLogEntryType.Error);
+                            var commandCollection = groups.SelectMany(u => u.ServiceCommands).ToCollection();
+                            try
+                            {
+                                await s.Commit(commandCollection);
+                            }
+                            catch (Exception ex)
+                            {
+                                EventLog.WriteEntry(string.Format("Error interacting groups {0}.", ex.Message), EventLogEntryType.Error);
+                            }
+                            foreach (var group in groups)
+                            {
+                                await group.DoFlags(Values.conn);
+                                var errorMessages = group.ServiceCommands.Select(c => c.Result).Where(o => o != "OK");
+                                var errorMessage = string.Join("· ", errorMessages);
+                                if (errorMessages.Count() == 0)
+                                    EventLog.WriteEntry(string.Format("Group {0} was modified correctly in service {1}", group.GroupCode, s.ServiceName));
+                                else
+                                    EventLog.WriteEntry(string.Format("Group {0} was NOT modified correctly in service {1}. \nError message was {2}", group.GroupCode, s.ServiceName, errorMessage), EventLogEntryType.Error);
+                            }
                         }
                     }
                 }
             }
+            Values.conn.Close();
         }
 
         private string CleanDomain(string domain)

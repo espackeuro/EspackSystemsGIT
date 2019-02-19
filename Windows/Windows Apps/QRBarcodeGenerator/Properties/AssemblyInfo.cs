@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PowerShellControl")]
+[assembly: AssemblyTitle("QRBarcodeGenerator")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PowerShellControl")]
+[assembly: AssemblyProduct("QRBarcodeGenerator")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b4c5fc29-42a5-410e-a09d-bf68f2519bbc")]
+[assembly: Guid("02c45d63-4053-482e-ba53-7a6742410ddb")]
 
 // Version information for an assembly consists of the following four values:
 //
