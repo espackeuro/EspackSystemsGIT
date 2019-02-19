@@ -163,7 +163,7 @@ namespace EspackSyncService
             //        }
             //    }
             //}
-            using (var _sDA = new SqlDataAdapter(string.Format("select top 10 UserCode, Name, Surname1,Password,Position, MainCOD3, emailAddress, localDomain, flags, desCOD3,Area, remaining=(Select count(*) from users where dbo.CheckFlag(flags,'CHANGED')=1)  from vUsers where dbo.CheckFlag(flags,'CHANGED')=1 order by Surname1 desc"), Values.conn))
+            using (var _sDA = new SqlDataAdapter(string.Format("select top 10 UserCode, Name, Surname1,Password,Position, MainCOD3, emailAddress, localDomain, flags, desCOD3,Area, remaining=(Select count(*) from users where dbo.CheckFlag(flags,'CHANGED')=1),ExchangeDatabase  from vUsers where dbo.CheckFlag(flags,'CHANGED')=1 order by Surname1 desc"), Values.conn))
             {
                 using (DataTable T = new DataTable())
                 {
@@ -182,6 +182,9 @@ namespace EspackSyncService
                         Collection<EspackUser> users = new Collection<EspackUser>();
                         foreach (DataRow r in _RS)
                         {
+#if DEBUG
+                            Console.WriteLine(r["UserCode"].ToString());
+#endif
                             //var r = _RS.Rows[0];
                             Collection<string> _flags = r["flags"].ToString().Split('|').ToList().Where(fr => Values.FlagsDefs.Keys.Contains(fr)).ToCollection();
                             //create the user object
@@ -202,7 +205,8 @@ namespace EspackSyncService
                                 Position = r["Position"].ToString(),
                                 Area = r["Area"].ToString(),
                                 Services = r["flags"].ToString().Split('|').Where(s => SyncedServices.Select(ss => ss.ServiceName).Contains(s)).ToCollection(),
-                                LocalDomain = r["localDomain"].ToString()
+                                LocalDomain = r["localDomain"].ToString(),
+                                ExchangeDatabase = r["ExchangeDatabase"].ToString(),
                             };
                             users.Add(_user);
                         }
@@ -232,17 +236,18 @@ namespace EspackSyncService
                                     EventLog.WriteEntry(string.Format("Error interacting users {0}.", ex.Message), EventLogEntryType.Error);
                                 }
 
-                                foreach (var _user in _userServices)
-                                {
-                                    await _user.DoFlags(Values.conn);
-                                    var errorMessages = _user.ServiceCommands.Select(c => c.Result).Where(o => o != "OK");
-                                    var errorMessage = string.Join("· ", errorMessages);
-                                    if (errorMessages.Count() == 0)
-                                        EventLog.WriteEntry(string.Format("User {0} from {1} was modified correctly in service {2}", _user.UserCode, _user.Sede.COD3, s.ServiceName));
-                                    else
-                                        EventLog.WriteEntry(string.Format("User {0} from {1} was NOT modified correctly in service {2}. \nError message was {3}", _user.UserCode, _user.Sede.COD3, s.ServiceName, errorMessage), EventLogEntryType.Error);
-                                    _user.ServiceCommands.Clear();
-                                }
+
+                            }
+                            foreach (var _user in users)
+                            {
+                                await _user.DoFlags(Values.conn);
+                                var errorMessages = _user.ServiceCommands.Select(c => c.Result).Where(o => o != "OK");
+                                var errorMessage = string.Join("· ", errorMessages);
+                                if (errorMessages.Count() == 0)
+                                    EventLog.WriteEntry(string.Format("User {0} from {1} was modified correctly in service {2}", _user.UserCode, _user.Sede.COD3, s.ServiceName));
+                                else
+                                    EventLog.WriteEntry(string.Format("User {0} from {1} was NOT modified correctly in service {2}. \nError message was {3}", _user.UserCode, _user.Sede.COD3, s.ServiceName, errorMessage), EventLogEntryType.Error);
+                                _user.ServiceCommands.Clear();
                             }
                         }
                     }
@@ -255,7 +260,7 @@ namespace EspackSyncService
             //now lets sync the groups
             //Values.gDatos.DataBase = "MAIL";
             //Values.gDatos.Connect();
-            using (var _sDA = new SqlDataAdapter("Select top 10 local_part,address,flags from mail..aliasCAB where dbo.CheckFlag(flags,'CHANGED')=1 and local_part!='' order by address", Values.conn))
+            using (var _sDA = new SqlDataAdapter("Select local_part,address,flags from mail..aliasCAB where dbo.CheckFlag(flags,'CHANGED')=1 and local_part!='' order by address", Values.conn))
             {
                 DataTable T = new DataTable();
                 _sDA.SelectCommand.CommandTimeout = 300;
@@ -329,6 +334,7 @@ namespace EspackSyncService
                                     EventLog.WriteEntry(string.Format("Group {0} was modified correctly in service {1}", group.GroupCode, s.ServiceName));
                                 else
                                     EventLog.WriteEntry(string.Format("Group {0} was NOT modified correctly in service {1}. \nError message was {2}", group.GroupCode, s.ServiceName, errorMessage), EventLogEntryType.Error);
+                                group.ServiceCommands.Clear();
                             }
                         }
                     }

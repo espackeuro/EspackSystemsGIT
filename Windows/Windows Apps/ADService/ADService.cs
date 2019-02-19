@@ -48,7 +48,7 @@ namespace ADService
                 if (User.Flags.Contains("DIS"))
                 {
                     User.ServiceCommands.Add(new ServiceCommand() { Command = AD.UpdateUser(User.Name, User.Surname, User.UserCode, User.Password, User.Email, User.Sede.COD3, User.Position, User.Area, User.Sede.COD3Description) });
-                    User.ServiceCommands.Add(new ServiceCommand() { Command = AD.DisableUser(User.Name) });
+                    User.ServiceCommands.Add(new ServiceCommand() { Command = AD.DisableUser(User.UserCode) });
                     return true;
                 }
                 // insert or update the user
@@ -91,6 +91,9 @@ namespace ADService
 
         public bool InteractGroup(EspackGroup Group)
         {
+#if DEBUG
+            Console.WriteLine(Group.GroupCode);
+#endif
             AD.EC.ServerName = ServerName;
             try
             {

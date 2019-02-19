@@ -12,9 +12,9 @@ namespace PowerShellControl
     {
         public static EspackDomainConnection EC { get; set; } = new EspackDomainConnection();
         public static string Results { get; set; }
-        public static string EnableMailbox(string UserCode)
+        public static string EnableMailbox(string UserCode, string ExchangeDatabase)
         {
-            return string.Format(@"if (![bool](Get-Mailbox -Identity '{0}' -ErrorAction SilentlyContinue)) {{Enable-Mailbox -Identity '{0}';}}", UserCode);
+            return string.Format(@"if (![bool](Get-Mailbox -Identity '{0}' -ErrorAction SilentlyContinue)) {{Enable-Mailbox -Identity '{0}' -Database '{1}';Enable-Mailbox -Identity '{0}' -Archive -ArchiveDatabase 'Archive';}}", UserCode, ExchangeDatabase);
         }
         public static string EnableGroup(string GroupCode)
         {

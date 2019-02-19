@@ -31,12 +31,15 @@ namespace BaseService
             var prevStatus = conn.State;
             if (prevStatus == ConnectionState.Closed)
                 await conn.OpenAsync();
+
+            string errorMessage = string.Join("· ", result);
             using (SqlCommand sp = new SqlCommand("pUppUserFlagCheckedClear", conn) { CommandType = CommandType.StoredProcedure })
             {
                 SqlCommandBuilder.DeriveParameters(sp);
                 sp.Parameters["@msg"].Value = "";
                 sp.Parameters["@UserCode"].Value = UserCode;
                 sp.Parameters["@Error"].Value = error;
+                sp.Parameters["@errorMessage"].Value = errorMessage;
                 await sp.ExecuteNonQueryAsync();
                 if (sp.Parameters["@msg"].Value.ToString() != "OK")
                     result.Add(sp.Parameters["@msg"].Value.ToString());
@@ -48,6 +51,7 @@ namespace BaseService
         }
         public Collection<string> Services { get; set; } = new Collection<string>();
         public string LocalDomain { get; set; }
+        public string ExchangeDatabase { get; set; }
     }
 
     public class EspackGroup

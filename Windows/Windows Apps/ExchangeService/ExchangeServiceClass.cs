@@ -45,7 +45,7 @@ namespace ExchangeService
             Exchange.EC.ServerName = ServerName;
             User.ServiceCommands.Add(new ServiceCommand()
             {
-                Command = Exchange.EnableMailbox(User.UserCode)
+                Command = Exchange.EnableMailbox(User.UserCode, User.ExchangeDatabase)
             });
             return true;
         }
