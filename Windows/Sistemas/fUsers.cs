@@ -203,9 +203,16 @@ namespace Sistemas
                     {
                         using (var scpClient = new ScpClient("proxy.val.local", Values.DefaultUserForServers, Values.DefaultPasswordForServers))
                         {
-                            scpClient.Connect();
-                            scpClient.Download(string.Format("/root/{0}.log", txtUserCode.Text), new DirectoryInfo(Path.GetTempPath()));
-                            System.Diagnostics.Process.Start("notepad.exe", string.Format("{0}{1}.log", Path.GetTempPath(), txtUserCode.Text));
+                            try
+                            {
+                                scpClient.Connect();
+                                scpClient.Download(string.Format("/root/{0}.log", txtUserCode.Text), new DirectoryInfo(Path.GetTempPath()));
+                                System.Diagnostics.Process.Start("notepad.exe", string.Format("{0}{1}.log", Path.GetTempPath(), txtUserCode.Text));
+                            } catch (Exception ex)
+                            {
+                                if (MessageBox.Show(string.Format("log file error: {0}, do you want to continue?", ex.Message), "", MessageBoxButtons.YesNo) == DialogResult.No)
+                                    return;
+                            }
                         }
                         if (MessageBox.Show("Do you want to finish the migration process?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
@@ -227,7 +234,7 @@ namespace Sistemas
             AD.EC.Password = "Y?D6d#b@";
             var command = new PowerShellCommand();
             command.EC = AD.EC;
-            var c = string.Format(@"if (![bool](Get-Mailbox -Identity '{0}')) {{Enable-Mailbox -Identity '{0}';}}", txtUserCode.Text);
+            var c = string.Format(@"if (![bool](Get-Mailbox -Identity '{0}'  -ErrorAction SilentlyContinue)) {{Enable-Mailbox -Identity '{0}';}}", txtUserCode.Text);
             command.Command = c;
             var res = await command.InvokeAsyncExchange();
             var Results = command.SResults;
@@ -248,6 +255,7 @@ namespace Sistemas
 
                 //var result = client.RunCommand(string.Format("/root/imapsync.sh {0} {1}", txtUserCode.Text, txtPWD.Text));
                 client.Disconnect();
+                lblStatus.Text = "MIGRATION CURRENTLY RUNNING.";
             }
         }
 

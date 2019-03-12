@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
-            this.txtNumero = new EspackFormControlsNS.NumericTextBox();
+            this.CTLM = new EspackFormControlsNS.CTLMantenimiento();
+            this.txtNumero = new EspackFormControlsNS.EspackNumericTextBox();
             this.txtFecha = new EspackFormControlsNS.EspackDateTimePicker();
             this.txtDesServicio = new EspackFormControlsNS.EspackTextBox();
             this.cboServicio = new EspackFormControlsNS.EspackComboBox();
             this.txtDesRoute = new EspackFormControlsNS.EspackTextBox();
             this.cboRuta = new EspackFormControlsNS.EspackComboBox();
-            this.VS = new EspackDataGrid.EspackDataGridView();
-            this.txtExpedicion = new EspackFormControlsNS.NumericTextBox();
+            this.VS = new EspackDataGridView.EspackDataGridViewControl();
+            this.txtExpedicion = new EspackFormControlsNS.EspackNumericTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +46,6 @@
             this.CTLM.Conn = null;
             this.CTLM.DBTable = null;
             this.CTLM.Dock = System.Windows.Forms.DockStyle.None;
-            this.CTLM.ImageScalingSize = new System.Drawing.Size(22, 22);
             this.CTLM.Location = new System.Drawing.Point(13, 13);
             this.CTLM.MsgStatusInfoLabel = null;
             this.CTLM.MsgStatusLabel = null;
@@ -339,14 +338,14 @@
 
         #endregion
 
-        private CTLMantenimientoNet.CTLMantenimientoNet CTLM;
-        private EspackFormControlsNS.NumericTextBox txtNumero;
+        private EspackFormControlsNS.CTLMantenimiento CTLM;
+        private EspackFormControlsNS.EspackNumericTextBox txtNumero;
         private EspackFormControlsNS.EspackDateTimePicker txtFecha;
         private EspackFormControlsNS.EspackTextBox txtDesServicio;
         private EspackFormControlsNS.EspackComboBox cboServicio;
         private EspackFormControlsNS.EspackTextBox txtDesRoute;
         private EspackFormControlsNS.EspackComboBox cboRuta;
-        private EspackDataGrid.EspackDataGridView VS;
-        private EspackFormControlsNS.NumericTextBox txtExpedicion;
+        private EspackDataGridView.EspackDataGridViewControl VS;
+        private EspackFormControlsNS.EspackNumericTextBox txtExpedicion;
     }
 }

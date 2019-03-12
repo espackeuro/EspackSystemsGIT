@@ -42,8 +42,8 @@
             this.txtSuppDoc = new EspackFormControlsNS.EspackTextBox();
             this.txtFecha = new EspackFormControlsNS.EspackDateTimePicker();
             this.txtEntrada = new EspackFormControlsNS.EspackTextBox();
-            this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
-            this.VS = new EspackDataGrid.EspackDataGridViewControl();
+            this.CTLM = new EspackFormControlsNS.CTLMantenimiento();
+            this.VS = new EspackDataGridView.EspackDataGridViewControl();
             this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,49 +100,58 @@
             // 
             this.lstFlags.Add = false;
             this.lstFlags.BackColor = System.Drawing.Color.White;
-            this.lstFlags.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lstFlags.Caption = "";
             this.lstFlags.CheckOnClick = true;
+            this.lstFlags.ColumnWidth = 0;
+            this.lstFlags.DataSource = null;
             this.lstFlags.DBField = null;
             this.lstFlags.DBFieldType = null;
             this.lstFlags.DefaultValue = null;
             this.lstFlags.Del = false;
             this.lstFlags.DependingRS = null;
+            this.lstFlags.DisplayMember = "";
             this.lstFlags.ExtraDataLink = null;
-            this.lstFlags.Font = new System.Drawing.Font("Tahoma", 10F);
             this.lstFlags.ForeColor = System.Drawing.Color.Black;
             this.lstFlags.FormattingEnabled = true;
             this.lstFlags.IsCTLMOwned = false;
             this.lstFlags.Location = new System.Drawing.Point(11, 241);
             this.lstFlags.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.lstFlags.MultiColumn = false;
             this.lstFlags.Name = "lstFlags";
             this.lstFlags.Order = 0;
             this.lstFlags.ParentConn = null;
             this.lstFlags.ParentDA = null;
             this.lstFlags.PK = false;
             this.lstFlags.Protected = false;
+            this.lstFlags.ReadOnly = false;
             this.lstFlags.Search = false;
+            this.lstFlags.SelectedItem = null;
+            this.lstFlags.SelectedValue = null;
             this.lstFlags.Size = new System.Drawing.Size(540, 57);
             this.lstFlags.Status = CommonTools.EnumStatus.ADDNEW;
             this.lstFlags.TabIndex = 31;
+            this.lstFlags.TBDescription = null;
             this.lstFlags.Upp = false;
             this.lstFlags.Value = "";
+            this.lstFlags.ValueMember = "";
             // 
             // txtDesServicio
             // 
             this.txtDesServicio.Add = false;
+            this.txtDesServicio.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtDesServicio.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtDesServicio.BackColor = System.Drawing.Color.White;
-            this.txtDesServicio.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDesServicio.Caption = "";
+            this.txtDesServicio.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtDesServicio.DBField = null;
             this.txtDesServicio.DBFieldType = null;
             this.txtDesServicio.DefaultValue = null;
             this.txtDesServicio.Del = false;
             this.txtDesServicio.DependingRS = null;
             this.txtDesServicio.ExtraDataLink = null;
-            this.txtDesServicio.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtDesServicio.ForeColor = System.Drawing.Color.Black;
             this.txtDesServicio.IsCTLMOwned = false;
+            this.txtDesServicio.IsPassword = false;
             this.txtDesServicio.Location = new System.Drawing.Point(168, 156);
             this.txtDesServicio.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtDesServicio.Multiline = true;
@@ -152,12 +161,15 @@
             this.txtDesServicio.ParentDA = null;
             this.txtDesServicio.PK = false;
             this.txtDesServicio.Protected = false;
+            this.txtDesServicio.ReadOnly = false;
             this.txtDesServicio.Search = false;
             this.txtDesServicio.Size = new System.Drawing.Size(382, 23);
             this.txtDesServicio.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtDesServicio.TabIndex = 15;
+            this.txtDesServicio.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDesServicio.Upp = false;
             this.txtDesServicio.Value = "";
+            this.txtDesServicio.WordWrap = true;
             // 
             // cboServicio
             // 
@@ -166,11 +178,13 @@
             this.cboServicio.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboServicio.BackColor = System.Drawing.Color.White;
             this.cboServicio.Caption = "Service";
+            this.cboServicio.DataSource = null;
             this.cboServicio.DBField = null;
             this.cboServicio.DBFieldType = null;
             this.cboServicio.DefaultValue = null;
             this.cboServicio.Del = false;
             this.cboServicio.DependingRS = null;
+            this.cboServicio.DisplayMember = "";
             this.cboServicio.ExtraDataLink = null;
             this.cboServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboServicio.Font = new System.Drawing.Font("Tahoma", 10F);
@@ -185,73 +199,89 @@
             this.cboServicio.ParentDA = null;
             this.cboServicio.PK = false;
             this.cboServicio.Protected = false;
+            this.cboServicio.ReadOnly = false;
             this.cboServicio.Search = false;
-            this.cboServicio.Size = new System.Drawing.Size(130, 24);
+            this.cboServicio.SelectedItem = null;
+            this.cboServicio.SelectedValue = null;
+            this.cboServicio.Size = new System.Drawing.Size(130, 40);
             this.cboServicio.Status = CommonTools.EnumStatus.ADDNEW;
             this.cboServicio.TabIndex = 13;
             this.cboServicio.TBDescription = null;
             this.cboServicio.Upp = false;
             this.cboServicio.Value = "";
+            this.cboServicio.ValueMember = "";
             // 
             // txtNotes
             // 
             this.txtNotes.Add = false;
+            this.txtNotes.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtNotes.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtNotes.BackColor = System.Drawing.Color.White;
-            this.txtNotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNotes.Caption = "Notes";
+            this.txtNotes.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtNotes.DBField = null;
             this.txtNotes.DBFieldType = null;
             this.txtNotes.DefaultValue = null;
             this.txtNotes.Del = false;
             this.txtNotes.DependingRS = null;
             this.txtNotes.ExtraDataLink = null;
-            this.txtNotes.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtNotes.ForeColor = System.Drawing.Color.Black;
             this.txtNotes.IsCTLMOwned = false;
+            this.txtNotes.IsPassword = false;
             this.txtNotes.Location = new System.Drawing.Point(168, 198);
             this.txtNotes.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtNotes.Multiline = false;
             this.txtNotes.Name = "txtNotes";
             this.txtNotes.Order = 0;
             this.txtNotes.ParentConn = null;
             this.txtNotes.ParentDA = null;
             this.txtNotes.PK = false;
             this.txtNotes.Protected = false;
+            this.txtNotes.ReadOnly = false;
             this.txtNotes.Search = false;
             this.txtNotes.Size = new System.Drawing.Size(383, 17);
             this.txtNotes.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtNotes.TabIndex = 11;
+            this.txtNotes.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtNotes.Upp = false;
             this.txtNotes.Value = "";
+            this.txtNotes.WordWrap = true;
             // 
             // txtSuppDoc
             // 
             this.txtSuppDoc.Add = false;
+            this.txtSuppDoc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtSuppDoc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtSuppDoc.BackColor = System.Drawing.Color.White;
-            this.txtSuppDoc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSuppDoc.Caption = "Supplier Doc";
+            this.txtSuppDoc.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtSuppDoc.DBField = null;
             this.txtSuppDoc.DBFieldType = null;
             this.txtSuppDoc.DefaultValue = null;
             this.txtSuppDoc.Del = false;
             this.txtSuppDoc.DependingRS = null;
             this.txtSuppDoc.ExtraDataLink = null;
-            this.txtSuppDoc.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtSuppDoc.ForeColor = System.Drawing.Color.Black;
             this.txtSuppDoc.IsCTLMOwned = false;
+            this.txtSuppDoc.IsPassword = false;
             this.txtSuppDoc.Location = new System.Drawing.Point(12, 198);
             this.txtSuppDoc.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtSuppDoc.Multiline = false;
             this.txtSuppDoc.Name = "txtSuppDoc";
             this.txtSuppDoc.Order = 0;
             this.txtSuppDoc.ParentConn = null;
             this.txtSuppDoc.ParentDA = null;
             this.txtSuppDoc.PK = false;
             this.txtSuppDoc.Protected = false;
+            this.txtSuppDoc.ReadOnly = false;
             this.txtSuppDoc.Search = false;
             this.txtSuppDoc.Size = new System.Drawing.Size(121, 17);
             this.txtSuppDoc.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtSuppDoc.TabIndex = 7;
+            this.txtSuppDoc.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtSuppDoc.Upp = false;
             this.txtSuppDoc.Value = "";
+            this.txtSuppDoc.WordWrap = true;
             // 
             // txtFecha
             // 
@@ -260,6 +290,7 @@
             this.txtFecha.BorderColor = System.Drawing.Color.White;
             this.txtFecha.BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
             this.txtFecha.Caption = "Receival Date";
+            this.txtFecha.Checked = true;
             this.txtFecha.CustomFormat = "dd/MM/yyyy H:mm";
             this.txtFecha.DBField = null;
             this.txtFecha.DBFieldType = null;
@@ -273,6 +304,7 @@
             this.txtFecha.IsCTLMOwned = false;
             this.txtFecha.Location = new System.Drawing.Point(388, 113);
             this.txtFecha.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtFecha.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Nullable = true;
             this.txtFecha.Order = 0;
@@ -280,28 +312,33 @@
             this.txtFecha.ParentDA = null;
             this.txtFecha.PK = false;
             this.txtFecha.Protected = false;
+            this.txtFecha.ReadOnly = false;
             this.txtFecha.Search = false;
             this.txtFecha.ShowCheckBox = true;
-            this.txtFecha.Size = new System.Drawing.Size(163, 24);
+            this.txtFecha.Size = new System.Drawing.Size(163, 39);
+            this.txtFecha.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtFecha.TabIndex = 5;
+            this.txtFecha.Text = "22/06/2016 13:36";
             this.txtFecha.Upp = false;
             this.txtFecha.Value = new System.DateTime(2016, 6, 22, 13, 36, 41, 91);
             // 
             // txtEntrada
             // 
             this.txtEntrada.Add = false;
+            this.txtEntrada.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtEntrada.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtEntrada.BackColor = System.Drawing.Color.White;
-            this.txtEntrada.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEntrada.Caption = "Receival Number";
+            this.txtEntrada.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtEntrada.DBField = null;
             this.txtEntrada.DBFieldType = null;
             this.txtEntrada.DefaultValue = null;
             this.txtEntrada.Del = false;
             this.txtEntrada.DependingRS = null;
             this.txtEntrada.ExtraDataLink = null;
-            this.txtEntrada.Font = new System.Drawing.Font("Tahoma", 10F);
             this.txtEntrada.ForeColor = System.Drawing.Color.Black;
             this.txtEntrada.IsCTLMOwned = false;
+            this.txtEntrada.IsPassword = false;
             this.txtEntrada.Location = new System.Drawing.Point(11, 110);
             this.txtEntrada.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtEntrada.Multiline = true;
@@ -311,32 +348,36 @@
             this.txtEntrada.ParentDA = null;
             this.txtEntrada.PK = false;
             this.txtEntrada.Protected = false;
+            this.txtEntrada.ReadOnly = false;
             this.txtEntrada.Search = false;
             this.txtEntrada.Size = new System.Drawing.Size(121, 24);
             this.txtEntrada.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtEntrada.TabIndex = 1;
+            this.txtEntrada.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtEntrada.Upp = false;
             this.txtEntrada.Value = "";
+            this.txtEntrada.WordWrap = true;
             // 
             // CTLM
             // 
+            this.CTLM.AutoSize = true;
+            this.CTLM.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CTLM.BackColor = System.Drawing.Color.Transparent;
+            this.CTLM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CTLM.Clear = false;
             this.CTLM.Conn = null;
             this.CTLM.DBTable = null;
-            this.CTLM.Dock = System.Windows.Forms.DockStyle.None;
-            this.CTLM.ImageScalingSize = new System.Drawing.Size(22, 22);
             this.CTLM.Location = new System.Drawing.Point(13, 13);
             this.CTLM.MsgStatusInfoLabel = null;
             this.CTLM.MsgStatusLabel = null;
             this.CTLM.Name = "CTLM";
             this.CTLM.ReQuery = false;
-            this.CTLM.Size = new System.Drawing.Size(290, 29);
+            this.CTLM.Size = new System.Drawing.Size(300, 31);
             this.CTLM.sSPAdd = "";
             this.CTLM.sSPDel = "";
             this.CTLM.sSPUpp = "";
             this.CTLM.StatusBarProgress = null;
             this.CTLM.TabIndex = 0;
-            this.CTLM.Text = "ctlMantenimientoNet1";
             // 
             // VS
             // 
@@ -359,16 +400,13 @@
             this.VS.DefaultValue = null;
             this.VS.Del = false;
             this.VS.DependingRS = null;
+            this.VS.DGFocused = false;
             this.VS.Dirty = false;
             this.VS.EspackControlParent = null;
             this.VS.ExtraDataLink = null;
-            this.VS.FilterDataGrid = null;
-            this.VS.FilterRow = null;
-            this.VS.FilterRowEnabled = false;
             this.VS.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.VS.HorizontalScrollingOffset = 0;
             this.VS.IsCTLMOwned = false;
-            this.VS.IsFilterFocused = false;
             this.VS.Location = new System.Drawing.Point(12, 305);
             this.VS.MsgStatusLabel = null;
             this.VS.Name = "VS";
@@ -380,7 +418,6 @@
             this.VS.ParentDA = null;
             this.VS.PK = false;
             this.VS.Protected = false;
-            this.VS.ReadOnly = false;
             this.VS.RowCount = 0;
             this.VS.RowHeadersVisible = false;
             this.VS.RowTemplate = dataGridViewRow1;
@@ -422,7 +459,7 @@
 
         #endregion
 
-        private CTLMantenimientoNet.CTLMantenimientoNet CTLM;
+        private EspackFormControlsNS.CTLMantenimiento CTLM;
         private EspackFormControlsNS.EspackTextBox txtEntrada;
         private EspackFormControlsNS.EspackDateTimePicker txtFecha;
         private EspackFormControlsNS.EspackTextBox txtSuppDoc;
@@ -435,6 +472,6 @@
         private System.Windows.Forms.ToolStripButton btnReceived;
         private EspackFormControlsNS.EspackCheckedListBox lstFlags;
         private System.Windows.Forms.ToolStripButton btnACheck;
-        private EspackDataGrid.EspackDataGridViewControl VS;
+        private EspackDataGridView.EspackDataGridViewControl VS;
     }
 }

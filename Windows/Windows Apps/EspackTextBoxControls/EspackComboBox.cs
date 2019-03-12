@@ -31,7 +31,16 @@ namespace EspackFormControlsNS
         public object DataSource { get => ComboBox.DataSource; set => ComboBox.DataSource = value; }
         public string DisplayMember { get => ComboBox.DisplayMember; set => ComboBox.DisplayMember = value; }
         public bool FormattingEnabled { get => ComboBox.FormattingEnabled; set => ComboBox.FormattingEnabled = value; }
-
+        public event EventHandler SelectedIndexChanged
+        {
+            add { ComboBox.SelectedIndexChanged += value; }
+            remove { ComboBox.SelectedIndexChanged -= value; }
+        }
+        public event EventHandler SelectedValueChanged
+        {
+            add { ComboBox.SelectedValueChanged += value; }
+            remove { ComboBox.SelectedValueChanged -= value; }
+        }
         private string oldText;
         private StaticRS _RS;
         private string _SQL;

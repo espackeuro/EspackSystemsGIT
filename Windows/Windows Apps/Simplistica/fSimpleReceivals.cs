@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AccesoDatosNet;
 using CommonToolsWin;
-using EspackDataGrid;
+using EspackDataGridView;
 using EspackClasses;
 using RawPrinterHelper;
 using System.Threading;
@@ -75,7 +75,7 @@ namespace Simplistica
             toolStrip.Enabled = false;
         }
 
-        private void CTLM_AfterButtonClick(object sender, CTLMantenimientoNet.CTLMEventArgs e)
+        private void CTLM_AfterButtonClick(object sender, EspackFormControlsNS.CTLMEventArgs e)
         {
             btnACheck.Enabled = lstFlags["PALETAGS"] == false && lstFlags["RECEIVED"] == true && ServiceFlags.Contains("AUTOCHECK");
             btnReceived.Enabled = lstFlags["RECEIVED"] == false && txtEntrada.ToString() != "";

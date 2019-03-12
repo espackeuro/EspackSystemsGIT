@@ -116,7 +116,8 @@ namespace Simplistica
             setROBOT_Status(EnumROBOT_Status.NONE);
         }
 
-        private void CTLM_BeforeButtonClick(object sender, CTLMantenimientoNet.CTLMEventArgs e)
+
+        private void CTLM_BeforeButtonClick(object sender, EspackFormControlsNS.CTLMEventArgs e)
         {
             //(new string[]{"btnOk" }).Contains(e.ButtonClick)
 
@@ -154,7 +155,7 @@ namespace Simplistica
 
         }
 
-        private void CTLM_AfterButtonClick(object sender, CTLMantenimientoNet.CTLMEventArgs e)
+        private void CTLM_AfterButtonClick(object sender, EspackFormControlsNS.CTLMEventArgs e)
         {
             ROBOT_GetReceivalStatus(txtReceivalCode.Text);
         }

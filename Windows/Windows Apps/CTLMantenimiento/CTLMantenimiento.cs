@@ -25,19 +25,19 @@ namespace EspackFormControlsNS
         private List<EspackControl> mListItems = new List<EspackControl>();
         private DA mDA;
         private ToolStrip ToolStrip;
-        private ToolStripButton btnAdd;
-        private ToolStripButton btnUpp;
-        private ToolStripButton btnDel;
+        public ToolStripButton btnAdd;
+        public ToolStripButton btnUpp;
+        public ToolStripButton btnDel;
         private ToolStripSeparator toolStripSeparator1;
-        private ToolStripButton btnSearch;
+        public ToolStripButton btnSearch;
         private ToolStripSeparator toolStripSeparator2;
-        private ToolStripButton btnFirst;
-        private ToolStripButton btnPrev;
-        private ToolStripButton btnNext;
-        private ToolStripButton btnLast;
+        public ToolStripButton btnFirst;
+        public ToolStripButton btnPrev;
+        public ToolStripButton btnNext;
+        public ToolStripButton btnLast;
         private ToolStripSeparator toolStripSeparator3;
-        private ToolStripButton btnCancel;
-        private ToolStripButton btnOk;
+        public ToolStripButton btnCancel;
+        public ToolStripButton btnOk;
         private StatusStrip mDefaultStatusStrip = null;
 
         //Events
@@ -77,6 +77,12 @@ namespace EspackFormControlsNS
         public ToolStripStatusLabel MsgStatusInfoLabel { get; set; }
         public ToolStripStatusLabel MsgStatusLabel { get; set; }
         public ToolStripProgressBar StatusBarProgress { get; set; }
+
+        public ToolStripItemCollection Items
+        {
+            get => ToolStrip.Items;
+        }
+
         //Properties with SPs but in string format, we will use this when assigning a SP_Controls by its name, it will assign the properties to the Insert, Update and Delete commands of the mDA connection
         public string sSPAdd //Insert
         {

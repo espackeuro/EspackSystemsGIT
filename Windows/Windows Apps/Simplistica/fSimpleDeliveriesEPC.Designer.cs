@@ -49,9 +49,9 @@
             this.txtResponsible = new EspackFormControlsNS.EspackTextBox();
             this.cboShift = new EspackFormControlsNS.EspackComboBox();
             this.txtDeliveryN = new EspackFormControlsNS.EspackTextBox();
-            this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
+            this.CTLM = new EspackFormControlsNS.CTLMantenimiento();
             this.txtTrailerPlate = new EspackFormControlsNS.EspackTextBox();
-            this.VS = new EspackDataGrid.EspackDataGridView();
+            this.VS = new EspackDataGridView.EspackDataGridViewControl();
             this.dateDriverShiftLeader = new EspackFormControlsNS.EspackDateTimePicker();
             this.txtObservations = new EspackFormControlsNS.EspackTextBox();
             this.toolStrip.SuspendLayout();
@@ -458,7 +458,7 @@
             this.cboShift.ForeColor = System.Drawing.Color.Black;
             this.cboShift.FormattingEnabled = true;
             this.cboShift.IsCTLMOwned = false;
-            this.cboShift.Items.AddRange(new object[] {
+            this.cboShift.ComboBox.Items.AddRange(new object[] {
             "Morning",
             "Afternoon",
             "Night"});
@@ -515,7 +515,6 @@
             this.CTLM.Conn = null;
             this.CTLM.DBTable = null;
             this.CTLM.Dock = System.Windows.Forms.DockStyle.None;
-            this.CTLM.ImageScalingSize = new System.Drawing.Size(22, 22);
             this.CTLM.Location = new System.Drawing.Point(9, 9);
             this.CTLM.MsgStatusInfoLabel = null;
             this.CTLM.MsgStatusLabel = null;
@@ -580,12 +579,8 @@
             this.VS.Dirty = false;
             this.VS.EspackControlParent = null;
             this.VS.ExtraDataLink = null;
-            this.VS.FilterDataGrid = null;
-            this.VS.FilterRow = null;
-            this.VS.FilterRowEnabled = false;
             this.VS.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.VS.IsCTLMOwned = false;
-            this.VS.IsFilterFocused = false;
             this.VS.Location = new System.Drawing.Point(12, 256);
             this.VS.MsgStatusLabel = null;
             this.VS.Name = "VS";
@@ -716,7 +711,7 @@
         private System.Windows.Forms.ToolStripContentPanel ContentPanel;
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton btnClose;
-        private CTLMantenimientoNet.CTLMantenimientoNet CTLM;
+        private EspackFormControlsNS.CTLMantenimiento CTLM;
         private EspackFormControlsNS.EspackTextBox txtDeliveryN;
         private EspackFormControlsNS.EspackComboBox cboShift;
         private EspackFormControlsNS.EspackTextBox txtResponsible;
@@ -731,7 +726,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripButton2;
         private System.Windows.Forms.ToolStripButton btnPrint;
         private EspackFormControlsNS.EspackTextBox txtTrailerPlate;
-        private EspackDataGrid.EspackDataGridView VS;
+        private EspackDataGridView.EspackDataGridViewControl VS;
         private EspackFormControlsNS.EspackDateTimePicker dateDriverShiftLeader;
         private EspackFormControlsNS.EspackTextBox txtObservations;
     }

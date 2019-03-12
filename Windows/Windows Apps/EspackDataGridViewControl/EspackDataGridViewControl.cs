@@ -37,8 +37,20 @@ namespace EspackDataGridView
         public bool AllowDelete { get; set; }
         public int NumPages { get; set; }
         public EspackControl EspackControlParent { get; set; }
-
-
+        public event DataGridViewCellEventHandler CellEndEdit {
+            add { DataGridView.CellEndEdit += value;  }
+            remove { DataGridView.CellEndEdit -= value; }
+        }
+        public event DataGridViewCellCancelEventHandler CellBeginEdit
+        {
+            add { DataGridView.CellBeginEdit += value; }
+            remove { DataGridView.CellBeginEdit -= value; }
+        }
+        public event DataGridViewDataErrorEventHandler DataError
+        {
+            add { DataGridView.DataError += value; }
+            remove { DataGridView.DataError -= value; }
+        }
 
         //public DataGridView DataGridView { get; set; } = new DataGridView();
         public DataGridViewCell CurrentCell

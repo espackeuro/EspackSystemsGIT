@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fHSAReceivals));
-            this.CTLM = new CTLMantenimientoNet.CTLMantenimientoNet();
+            this.CTLM = new EspackFormControlsNS.CTLMantenimiento();
             this.txtReceivalCode = new EspackFormControlsNS.EspackTextBox();
             this.txtContainer = new EspackFormControlsNS.EspackTextBox();
             this.cboService = new EspackFormControlsNS.EspackComboBox();
@@ -39,7 +39,7 @@
             this.txtArrivalDate = new EspackFormControlsNS.EspackTextBox();
             this.txtDate = new EspackFormControlsNS.EspackDateTimePicker();
             this.txtLocation = new EspackFormControlsNS.EspackTextBox();
-            this.VS = new EspackDataGrid.EspackDataGridView();
+            this.VS = new EspackDataGridView.EspackDataGridViewControl();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.btnRobotProcess = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -58,7 +58,6 @@
             this.CTLM.Conn = null;
             this.CTLM.DBTable = null;
             this.CTLM.Dock = System.Windows.Forms.DockStyle.None;
-            this.CTLM.ImageScalingSize = new System.Drawing.Size(22, 22);
             this.CTLM.Location = new System.Drawing.Point(9, 9);
             this.CTLM.MsgStatusInfoLabel = null;
             this.CTLM.MsgStatusLabel = null;
@@ -468,7 +467,7 @@
 
         #endregion
 
-        private CTLMantenimientoNet.CTLMantenimientoNet CTLM;
+        private EspackFormControlsNS.CTLMantenimiento CTLM;
         private EspackFormControlsNS.EspackTextBox txtReceivalCode;
         private EspackFormControlsNS.EspackTextBox txtContainer;
         private EspackFormControlsNS.EspackComboBox cboService;
@@ -477,7 +476,7 @@
         private EspackFormControlsNS.EspackTextBox txtArrivalDate;
         private EspackFormControlsNS.EspackDateTimePicker txtDate;
         private EspackFormControlsNS.EspackTextBox txtLocation;
-        private EspackDataGrid.EspackDataGridView VS;
+        private EspackDataGridView.EspackDataGridViewControl VS;
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton btnRobotProcess;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
