@@ -119,7 +119,7 @@ namespace RadioLogisticaDeliveries
         {
             if (data == "")
             {
-                await cSounds.Error(Activity);
+                cSounds.Error(Activity);
                 Toast.MakeText(Activity, "Please enter one valid Order Number", ToastLength.Long).Show();
                 data = "";
                 return false;

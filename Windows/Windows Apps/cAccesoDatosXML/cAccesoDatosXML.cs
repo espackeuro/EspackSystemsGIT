@@ -960,31 +960,78 @@ namespace AccesoDatosXML
         public IPAddress IP { get; set; }
         public int Port { get; set; }
 
+        public static List<IPAddress> IPServerList { get; set; } = new List<IPAddress>();
+
         public async Task getSocksConnection()
         {
+            IPServerList.Clear();
             Status = CommStatus.TRYCONNECT;
+
+            List<string> serverList = new List<string>()
+            {
+                "val-tel1.espackeuro.com",
+                "val-nwckkdjtjv.dynamic-m.com",
+                "liv-bkrgrgvmjv.dynamic-m.com",
+                "gra-bghgwkwqjv-1.dynamic-m.com",
+                "nit-cwcgtdrrjv-1.dynamic-m.com"
+            };
+            foreach (var server in serverList)
+            {
+                try
+                {
+                    IPServerList.Add((await Dns.GetHostAddressesAsync(server))[0]);
+                } catch
+                {
+
+                }
+            };
+            if (IPServerList.Count == 0)
+            {
+                IPServerList.Add(IPAddress.Parse("213.0.111.218"));
+                IPServerList.Add(IPAddress.Parse("46.24.173.2"));
+                IPServerList.Add(IPAddress.Parse("81.150.8.34"));
+                IPServerList.Add(IPAddress.Parse("81.12.170.94"));
+            }
+
+
             _session = "";
-            var _r = Dns.GetHostEntry("socks.espackeuro.com");
-            IP = _r.AddressList[0];
-            Port = 17011;
-            //first phase, get the destination external IP to connect
-            //create the xml message with the session information
             var _message = new XDataMessageRequest();
             _message.SetActionDefinition("Start Session");
             _message.SetActionData(new XElement("data", Serial));
             _message.SetSession("");
-            XDocument _msgOut = await Transmit(_message);
+            XDocument _msgOut= new XDocument();
+            Port = 17011;
+            foreach (var _IP in IPServerList)
+            {
+                IP = _IP;
+                try
+                {
+                    _msgOut = await Transmit(_message);
+                    break;
+                } catch
+                {
+
+                }
+            }
+            
+            //first phase, get the destination external IP to connect
+            //create the xml message with the session information
+
             var _result = _msgOut.Root;
             if (_result == null || _result.Value.Substring(0, 5) == "ERROR")
             {
-                throw new Exception(_result.Value ?? "Error no result obtained");
+                _session = null;
+                throw new Exception(_result?.Value ?? "Cannot connect to any server.");
             }
-            var _parameters = _result.Element("parameters").Elements("parameter");
+            else
+            {
+                var _parameters = _result.Element("parameters").Elements("parameter");
 
-            string _sIP = (from _par in _parameters where _par.Element("Name").Value.ToString() == "@ExternalIP" select _par.Element("Value").Value).First();
-            var _COD3 = (from _par in _parameters where _par.Element("Name").Value.ToString() == "@COD3" select _par.Element("Value").Value).First();
-            _session = (from _par in _parameters where _par.Element("Name").Value.ToString() == "@SessionNumber" select _par.Element("Value").Value).First();
-            IP = IPAddress.Parse(_sIP);
+                string _sIP = (from _par in _parameters where _par.Element("Name").Value.ToString() == "@ExternalIP" select _par.Element("Value").Value).First();
+                var _COD3 = (from _par in _parameters where _par.Element("Name").Value.ToString() == "@COD3" select _par.Element("Value").Value).First();
+                _session = (from _par in _parameters where _par.Element("Name").Value.ToString() == "@SessionNumber" select _par.Element("Value").Value).First();
+                IP = IPAddress.Parse(_sIP);
+            }
         }
         public async Task<XDocument> Transmit(XDataMessageRequest x)
         {

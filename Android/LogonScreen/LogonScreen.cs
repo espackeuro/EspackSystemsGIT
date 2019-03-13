@@ -207,7 +207,7 @@ namespace LogonScreen
                         }
                     } catch (Exception ex)
                     {
-                        cMsgText.Text = ex.Message;
+                        cMsgText.Text = string.Format("{0}: {1}",ex.Message,ex.InnerException.Message);
                         cUser.Text = "";
                         cPassword.Text = "";
 #if DEBUG
@@ -259,7 +259,7 @@ namespace LogonScreen
         {
             using (var c = new WebClient())
             {
-                var URL = string.Format("http://portal.espackeuro.com/{0}.apk", packageName);
+                var URL = string.Format("https://portal.espackeuro.com/{0}.apk", packageName);
                 var _local = string.Format("{0}/{1}.apk", Android.OS.Environment.ExternalStorageDirectory.Path, packageName);
                 await c.DownloadFileTaskAsync(URL, _local);
                 if (!File.Exists(_local))
