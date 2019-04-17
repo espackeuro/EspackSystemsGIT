@@ -31,10 +31,11 @@ namespace Simplistica
 
         private void CboService_SelectedIndexChanged(object sender, EventArgs e)
         {
-            using (var _rs = new DynamicRS(string.Format("Select cmp_integer from REPAIRS..datosEmpresa where codigo='{0}_UNIT_QTY'", cboService.Value), Values.gDatos))
+            using (var _rs = new DynamicRS(string.Format("Select cmp_integer,letter=left(cmp_varchar,1),cmp_varchar from REPAIRS..datosEmpresa where codigo='{0}_UNIT_QTY'", cboService.Value), Values.gDatos))
             {
                 _rs.Open();
                 txtQtyLabel.Text = _rs.EOF ? "1" : _rs["cmp_integer"].ToString();
+                txtCharacter.Text = _rs.EOF ? "" : _rs["letter"].ToString();
             }
         }
 
@@ -43,6 +44,7 @@ namespace Simplistica
             if (MessageBox.Show(string.Format("This will print {0} unit labels. Are you sure?",txtQty.Text), "SIMPLISTICA", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 int _labelInit = 0;
+
                 using (var _conn = new cAccesoDatosNet(Values.gDatos.Server, "REPAIRS", Values.gDatos.User, Values.gDatos.Password))
                 using (var _sp = new SP(_conn, "pGetContador"))
                 {
@@ -54,6 +56,10 @@ namespace Simplistica
                     _sp.Execute();
                     _labelInit = Convert.ToInt32(_sp.ReturnValues()["@Contador"]);
                 }
+
+                if (txtCharacter.Text == "")
+                    throw (new Exception("Wrong character for labels."));
+
                 string _printerAddress = "";
                 int _printerResolution = 0;
                 using (var _RS = new DynamicRS(string.Format("select descripcion,cmp_varchar,cmp_integer from ETIQUETAS..datosEmpresa where codigo='{0}'", Values.LabelPrinterAddress), Values.gDatos))
@@ -75,7 +81,7 @@ namespace Simplistica
                     _printer.SendUTF8StringToPrinter(_delimiterLabel.ToString(), 1);
                     for (var i = _labelInit; i < _labelInit + Convert.ToInt32(txtQty.Value); i++)
                     {
-                        _unitLabel.Parameters["VALUE"] = "U" + i.ToString().PadLeft(8, '0');
+                        _unitLabel.Parameters["VALUE"] = txtCharacter.Text + i.ToString().PadLeft(8, '0');
                         for (var j = 0; j < Convert.ToInt32(txtQtyLabel.Text); j++)
                             _printer.SendUTF8StringToPrinter(_unitLabel.ToString(), 1);
                     }
