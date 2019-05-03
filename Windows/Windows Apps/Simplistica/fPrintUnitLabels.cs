@@ -79,7 +79,8 @@ namespace Simplistica
                     var _delimiterLabel = new ZPLLabel(_unitLabel.Label.width, _unitLabel.Label.height, 3, _unitLabel.Label.dpi);
                     delimiterLabel.delim(_delimiterLabel, "START UNIT LABELS", "-");
                     _printer.SendUTF8StringToPrinter(_delimiterLabel.ToString(), 1);
-                    for (var i = _labelInit; i < _labelInit + Convert.ToInt32(txtQty.Value); i++)
+                    //for (var i = _labelInit; i < _labelInit + Convert.ToInt32(txtQty.Value); i++)
+                    for (var i = _labelInit + Convert.ToInt32(txtQty.Value)-1; i >= _labelInit; i--)
                     {
                         _unitLabel.Parameters["VALUE"] = txtCharacter.Text + i.ToString().PadLeft(8, '0');
                         for (var j = 0; j < Convert.ToInt32(txtQtyLabel.Text); j++)
