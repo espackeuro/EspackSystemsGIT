@@ -15,7 +15,6 @@ using System.Collections.Generic;
 //using Java.Lang;
 using Uri = Android.Net.Uri;
 using AccesoDatosNet;
-using Android.Graphics;
 using System.Linq;
 using System.Net;
 using System.Threading;
@@ -249,7 +248,7 @@ namespace RadioFXC
         private string cRepairCode;
         private string cUnitNumber;
         private int cImageWidth;
-        private int cNUM;
+        //private int cNUM;
         public ListImageAdapter(Context c, string pRepairCode, string pUnitNumber, int pImageWidth, ListImageFile pImagefileList)
         {
             context = c;
@@ -596,8 +595,8 @@ namespace RadioFXC
             string[] subDirs = pathToCreate.Split('/');
 
             string currentDir = string.Format("ftp://{0}", ftpAddress);
-
-            foreach (string subDir in subDirs)
+ 
+            foreach (string subDir in subDirs.Where(s => s != ""))
             {
                 try
                 {
@@ -611,8 +610,9 @@ namespace RadioFXC
                     ftpStream.Close();
                     response.Close();
                 }
-                catch 
+                catch (Exception ex)
                 {
+
                     //directory already exist I know that is weak but there is no way to check if a folder exist on ftp...
                 }
             }

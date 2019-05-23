@@ -69,6 +69,10 @@
     <Compile Include="XDataMessageRequest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Android\VS2019\Encryption\Encryption.csproj">
+      <Project>{b2d37f13-1990-4d07-8e01-0d09b15c34ba}</Project>
+      <Name>Encryption</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Network Libraries\Sockets\Sockets\SocketsClient.csproj">
       <Project>{c9e2f11a-fa37-4fd2-9433-cc64cdbc2cef}</Project>
       <Name>SocketsClient</Name>
@@ -88,10 +92,6 @@
     <ProjectReference Include="..\CompressionAndroid\Compression\Compression.csproj">
       <Project>{948bbf7e-c260-47a5-b038-d2a8e0f17259}</Project>
       <Name>Compression</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EncryptionAndroid\Encryption\Encryption.csproj">
-      <Project>{44a86c5a-9221-4425-a960-64aeeb027cc8}</Project>
-      <Name>Encryption</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

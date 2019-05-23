@@ -13,14 +13,14 @@ using Android.Widget;
 
 namespace RadioLogisticaDeliveries
 {
-    public class dataReadingList : IEnumerable
+    public class DataReadingList : IEnumerable
     {
         public Context Context { get; set; } = null;
-        private List<cData> _dataList = new List<cData>();
+        private List<cData> dataList = new List<cData>();
 
         public IEnumerator<cData> GetEnumerator()
         {
-            return _dataList.GetEnumerator();
+            return dataList.GetEnumerator();
         }
         IEnumerator IEnumerable.GetEnumerator()
         {
@@ -28,7 +28,7 @@ namespace RadioLogisticaDeliveries
         }
         public void Add(cData d)
         {
-            _dataList.Add(d);
+            dataList.Add(d);
         }
 
         public bool Processing { get; set; } = false;
@@ -70,17 +70,17 @@ namespace RadioLogisticaDeliveries
                     return;
                 }
                 //check if serial is in list
-                if (_dataList.OfType<dataChecking>().FirstOrDefault(r => r.Serial== reading) != null)
+                if (dataList.OfType<DataChecking>().FirstOrDefault(r => r.Serial== reading) != null)
                     {
                     cSounds.Error(Context);
                     Values.iFt.SetMessage(string.Format("Error: Serial {0} already checked.", reading ));
                     Processing = false;
                     return;
                 }
-                _data = new dataChecking() { Context = Context, Rack = Values.CurrentRack, Data = reading, Serial = reading };
+                _data = new DataChecking() { Context = Context, Rack = Values.CurrentRack, Data = reading, Serial = reading };
                 if (await _data.doCheckings())
                 {
-                    _dataList.Add(_data);
+                    dataList.Add(_data);
                     position++;
                     //Values.sFt.CheckQtyReceived++;
                 }
@@ -103,12 +103,12 @@ namespace RadioLogisticaDeliveries
                 string _pn = _split[1];
                 string _lr = _split[2];
                 string _ls = _split.Length == 4 ? _split[3] : "";
-                dataReading _r;
+                DataReading _r;
                 bool newReading = false;
                 //SAME READING QTY+1
-                if (position > -1 && Current() is dataReading)
+                if (position > -1 && Current() is DataReading)
                 {
-                    _r = (dataReading)Current();
+                    _r = (DataReading)Current();
                     if (_r.Partnumber == _pn && _r.LabelRack == _lr && _r.LabelService == _ls)
                     {
                         _r.Qty++;
@@ -126,7 +126,7 @@ namespace RadioLogisticaDeliveries
                 {
                     //NEW READING
                     //get previous reading in the rack with the same data
-                    var itemToRemove = _dataList.SingleOrDefault(r => r is dataReading && ((dataReading)r).Partnumber == _pn && ((dataReading)r).LabelRack == _lr && ((dataReading)r).LabelService == _ls && (((dataReading)r).Status == dataStatus.READ || ((dataReading)r).Status == dataStatus.WARNING));
+                    var itemToRemove = dataList.SingleOrDefault(r => r is DataReading && ((DataReading)r).Partnumber == _pn && ((DataReading)r).LabelRack == _lr && ((DataReading)r).LabelService == _ls && (((DataReading)r).Status == dataStatus.READ || ((DataReading)r).Status == dataStatus.WARNING));
                     //var _query = from r in _dataList
                     //             where r is dataReading && ((dataReading)r).Partnumber == _pn && ((dataReading)r).LabelRack == _lr && ((dataReading)r).LabelService == _ls && (((dataReading)r).Status == dataStatus.READ || ((dataReading)r).Status == dataStatus.WARNING)
                     //             select r;
@@ -134,12 +134,12 @@ namespace RadioLogisticaDeliveries
                     //_dataList.Remove(d);
                     if (itemToRemove != null)
                     {
-                        _dataList.Remove(itemToRemove);
+                        dataList.Remove(itemToRemove);
                         position--;
                     }
 
                     //_dataList.OfType<dataReading>().Select(r) => r.Partnumber=_pn && r.)
-                    _data = new dataReading()
+                    _data = new DataReading()
                     {
                         Context = Context,
                         Rack = Values.CurrentRack,
@@ -151,7 +151,7 @@ namespace RadioLogisticaDeliveries
                     };
                     if (await _data.doCheckings())
                     {
-                        _dataList.Add(_data);
+                        dataList.Add(_data);
                         position++;
                         //Values.sFt.ReadQtyReceived++;
                     }
@@ -176,13 +176,13 @@ namespace RadioLogisticaDeliveries
                     Processing = false;
                     return;
                 }
-                _data = new dataCloseSession() { Context = Context, Data = reading };
+                _data = new DataCloseSession() { Context = Context, Data = reading };
                 if (await _data.doCheckings())
                 {
-                    _dataList.Add(_data);
+                    dataList.Add(_data);
                     //after close code we insert all reading from previous rack
                     Values.dFt.SetMessage("Waiting for the pending data to be transmitted");
-                    foreach (var r in _dataList.Where(r => r.Status == dataStatus.READ || r.Status == dataStatus.WARNING))
+                    foreach (var r in dataList.Where(r => r.Status == dataStatus.READ || r.Status == dataStatus.WARNING))
                     {
                         await r.ToDB();
                     }
@@ -210,7 +210,7 @@ namespace RadioLogisticaDeliveries
                     Values.gService = "";
                     Values.gOrderNumber = 0;
                     Values.gBlock = "";
-                    _dataList.Clear();
+                    dataList.Clear();
                     position = -1;
                     Values.SetCurrentRack("");
                     //change to enter order fragment
@@ -226,9 +226,9 @@ namespace RadioLogisticaDeliveries
             //NEW READING QTY
             if (reading.IsNumeric())
             {
-                if (position > -1 && Current() is dataReading)
+                if (position > -1 && Current() is DataReading)
                 {
-                    dataReading _r = (dataReading)Current();
+                    DataReading _r = (DataReading)Current();
                     _r.Qty = reading.ToInt();
                     await _r.doCheckings();
                 } else
@@ -255,19 +255,19 @@ namespace RadioLogisticaDeliveries
                     Processing = false;
                     return;
                 }
-                _data = new dataChangeRack() { Context = Context, Data = reading };
+                _data = new DataChangeRack() { Context = Context, Data = reading };
                 if (await _data.doCheckings())
                 {
                     //after new rack code we insert all reading from previous rack
-                    if (_dataList.Count != 0)
+                    if (dataList.Count != 0)
                     {
                         Values.dFt.SetMessage(string.Format("Transmitting Rack {0}", Values.CurrentRack));
-                        foreach (var r in _dataList.Where(r => r.Status == dataStatus.READ || r.Status == dataStatus.WARNING))
+                        foreach (var r in dataList.Where(r => r.Status == dataStatus.READ || r.Status == dataStatus.WARNING))
                         {
                             await r.ToDB();
                         }
                     }
-                    _dataList.Add(_data);
+                    dataList.Add(_data);
                     Values.sFt.UpdateInfo();
                     position++;
                     //try
@@ -289,7 +289,7 @@ namespace RadioLogisticaDeliveries
         public int position { get; set; } = -1;
         public cData Current()
         {
-            return _dataList.ElementAt(position);
+            return dataList.ElementAt(position);
         }
 
 

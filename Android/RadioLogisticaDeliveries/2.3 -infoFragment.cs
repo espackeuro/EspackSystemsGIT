@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
-using Android.App;
+//using Android.App;
+using Android.Support.V4.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
@@ -69,7 +69,7 @@ namespace RadioLogisticaDeliveries
         {
             pushInfo(d.c0, d.c1, d.c2, d.c3);
         }
-        public void pushInfo(Activity context, string c0, string c1 = "", string c2 = "", string c3 = "")
+        public void pushInfo(FragmentActivity context, string c0, string c1 = "", string c2 = "", string c3 = "")
         {
             context.RunOnUiThread(() =>
             {

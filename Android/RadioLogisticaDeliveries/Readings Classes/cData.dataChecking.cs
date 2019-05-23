@@ -4,7 +4,7 @@ using System;
 
 namespace RadioLogisticaDeliveries
 {
-    public class dataChecking : cData
+    public class DataChecking : cData
     {
         public string Rack { get; set; }
         public string Serial { get; set; }

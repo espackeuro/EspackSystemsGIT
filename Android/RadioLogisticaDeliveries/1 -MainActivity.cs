@@ -43,7 +43,8 @@ namespace RadioLogisticaDeliveries
         public static string gService;
         public static string gCloseCode = "000";
         public static string gSession;
-        public static dataReadingList gDRL = new dataReadingList();
+        public static int LocTime { get; set; } = 30; //time between gps readings
+        public static DataReadingList gDRL = new DataReadingList();
         public static string CurrentRack
         {
             get
@@ -64,12 +65,14 @@ namespace RadioLogisticaDeliveries
         public static infoFragment dFt { get; set; }
         public static statusFragment sFt { get; set; }
         public static DataTransferManager dtm { get; set; }
+        public static LocatorService ls { get; set; }
         public static Intent elIntent { get; set; }
         public static SQLiteDatabase SQLidb { get; set; }
 
         public async static Task CreateDatabase()
         {
             SQLidb.CreateDatabase();
+            await SQLidb.db.CreateTableAsync<DeviceLocation>();
             await SQLidb.db.CreateTableAsync<Readings>();
             await SQLidb.db.CreateTableAsync<Labels>();
             //Values.SQLidb.db.CreateTableAsync<Referencias>();
@@ -78,6 +81,7 @@ namespace RadioLogisticaDeliveries
             await SQLidb.db.CreateTableAsync<SerialTracking>();
             await SQLidb.db.CreateTableAsync<ScannedData>();
             await SQLidb.db.CreateTableAsync<Settings>();
+            
             // to do what to do when readings exist
         }
         public async static Task EmptyDatabase()
@@ -96,6 +100,8 @@ namespace RadioLogisticaDeliveries
             await SQLidb.db.DropTableAsync<ScannedData>();
             await SQLidb.db.ExecuteAsync("Delete from Settings ");
             await SQLidb.db.DropTableAsync<Settings>();
+            await SQLidb.db.ExecuteAsync("Delete from DeviceLocation ");
+            await SQLidb.db.DropTableAsync<DeviceLocation>();
 
         }
         public static WorkModes WorkMode { get; set; }

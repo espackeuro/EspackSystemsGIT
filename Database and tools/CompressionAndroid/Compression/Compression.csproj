@@ -48,7 +48,6 @@
     <Compile Include="..\..\Compression\Compression\Compression.cs">
       <Link>Compression.cs</Link>
     </Compile>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

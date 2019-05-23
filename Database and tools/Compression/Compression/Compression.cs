@@ -85,7 +85,7 @@ namespace Compression
             {
                 var a = Convert.FromBase64String(s);
                 return IsPossiblyGZippedBytes(a);
-            } catch (Exception ex)
+            } catch 
             {
                 return false;
             }

@@ -13,7 +13,7 @@ namespace RadioFXC
     {
         private string cUnitNumber;
         public string cRepairCode { get; set; }
-        private int cCount;
+        //private int cCount;
         private string cSQLList;
         private EditText cDataBox;
         private ListView cList;
@@ -23,7 +23,7 @@ namespace RadioFXC
         {
             cUnitNumber = UnitRepair.cUnitNumber;
             cRepairCode = UnitRepair.cRepairCode;
-            cCount = 0;
+            //cCount = 0;
             cSQLList = "Select Reference,Descripcion,Qty,Active from vPartsRepairs where RepairCode='" + cRepairCode + "' and UnitNumber='" + cUnitNumber + "' order by xfec desc";
 
 
@@ -135,7 +135,7 @@ namespace RadioFXC
     {
         private Context context;
         private DynamicRS _RS= new DynamicRS(); //= new DynamicRS("Select RepairCode,UnitNumber from Repairs where dbo.checkFlag(flags,'INI')=1 order by xfec", Values.gDatos);
-        private Color cBackColor;
+        //private Color cBackColor;
         private string cSQL;
         public ListPartsAdapter(Context context, string SQL)
         {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Android.App;
+using Android.Support.V4.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
@@ -71,12 +71,12 @@ namespace RadioLogisticaDeliveries
         {
             if (Values.gDRL.Processing)
                 return;
-            ((Activity)sender).RunOnUiThread(() =>
+            ((FragmentActivity)sender).RunOnUiThread(() =>
             {
                 elData.Enabled = false;
                 elData.Tag = "SCAN";
             });
-            Values.gDRL.Context = (Activity)sender;
+            Values.gDRL.Context = (FragmentActivity)sender;
             DataTransferManager.Active = false;
             try
             {
@@ -85,7 +85,7 @@ namespace RadioLogisticaDeliveries
                     await Values.gDRL.Add(e.ReceivedData);
                     Values.gDRL.Processing = false;
                     DataTransferManager.Active = true;
-                    ((Activity)sender).RunOnUiThread(() =>
+                    ((FragmentActivity)sender).RunOnUiThread(() =>
                     {
                         elData.Enabled = true;
                         elData.Text = "";
@@ -99,7 +99,7 @@ namespace RadioLogisticaDeliveries
             {
                 Values.gDRL.Processing = false;
                 DataTransferManager.Active = true;
-                ((Activity)sender).RunOnUiThread(() =>
+                ((FragmentActivity)sender).RunOnUiThread(() =>
                 {
                     Toast.MakeText(Activity, "Error reading scan." + ex.Message, ToastLength.Long).Show();
                 });

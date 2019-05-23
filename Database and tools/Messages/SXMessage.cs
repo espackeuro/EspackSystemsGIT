@@ -109,11 +109,15 @@ namespace Messages
     public class xControlMessage: SXMessage
     {
         public override string ProcessName { get { return "GENERIC"; } }
-        public override async Task<bool> process()
+        public async override Task<bool> process()
         {
+            await Task.Run(() =>
+            {
 
-            xmlMsgOut = XDocument.Parse((new XElement("result", "OK" )).ToString()); //returns OK
+                xmlMsgOut = XDocument.Parse((new XElement("result", "OK")).ToString()); //returns OK
 
+                
+            });
             return true;
         }
 

@@ -42,7 +42,7 @@ namespace RadioFXC
     public class ListServicesAdapter:BaseAdapter
     {
         private Context context;
-        private DynamicRS _RS = new DynamicRS("Select Codigo,Nombre from LOGISTICA..Servicios where dbo.checkFlag(flags,'REPAIRS')=1 order by Codigo", Values.gDatos);
+        private DynamicRS _RS = new DynamicRS(string.Format("Select Codigo,Nombre from LOGISTICA..Servicios where dbo.checkFlag(flags,'REPAIRS')=1 and cod3 in (select valor from dbo.split((Select cod3 from sistemas..users where usercode = '{0}'),'|')) order by Codigo", Values.gDatos.User), Values.gDatos);
 
         public ListServicesAdapter(Context context)
         {

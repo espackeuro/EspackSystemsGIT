@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">RadioFXC</string>
+    <string name="title_main_1">Repairs</string>
+    <string name="title_main_2">Loads</string>
+    <string name="title_main_3">Exit</string>
+
+  <string name="title_loads_1">Main</string>
+  <string name="title_loads_2">Add Repairs</string>
+  <string name="title_loads_3">Close Load</string>
+</resources>

@@ -68,11 +68,17 @@ namespace Scanner
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f030003
+			public static int ApplicationName = 2130903043;
+			
+			// aapt resource value: 0x7f030002
+			public static int Hello = 2130903042;
+			
 			// aapt resource value: 0x7f030001
-			public static int ApplicationName = 2130903041;
+			public static int app_name = 2130903041;
 			
 			// aapt resource value: 0x7f030000
-			public static int Hello = 2130903040;
+			public static int hello = 2130903040;
 			
 			static String()
 			{

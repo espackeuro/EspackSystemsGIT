@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using AccesoDatosNet;
 using System.Threading;
 using AccesoDatosXML;
+using Xamarin.Essentials;
 
 namespace RadioLogisticaDeliveries
 {
@@ -53,11 +54,13 @@ namespace RadioLogisticaDeliveries
             }
         }
 
+
         public async Task Transfer()
         {
             if (Transmitting)
                 return;
             Transmitting = true;
+            //readings
             while (true)
             {
                 try
@@ -81,6 +84,80 @@ namespace RadioLogisticaDeliveries
                                 //SPXML _sp = new SPXML(Values.gDatos, "pLaunchProcess_ReadingSessionControl");
                                 _sp.AddParameterValue("@DB", "LOGISTICA");
                                 _sp.AddParameterValue("@ProcedureName", "pReadingSessionControl");
+                                _sp.AddParameterValue("@Parameters", r.ProcedureParameters());
+                                _sp.AddParameterValue("@TableDB", "");
+                                _sp.AddParameterValue("@TableName", "");
+                                _sp.AddParameterValue("@TablePK", "");
+                                try
+                                {
+                                    await _sp.ExecuteAsync();
+                                    if (_sp.LastMsg.Substring(0, 2) != "OK")
+                                    {
+                                        Transmitting = false;
+                                        return;
+                                    }
+                                    else
+                                    {
+                                        r.Transmitted = true;
+                                        await Values.SQLidb.db.UpdateAsync(r);
+                                        Values.sFt.UpdateInfo();
+                                        //switch (r.Action)
+                                        //{
+                                        //    case "CHECK":
+                                        //        Values.sFt.CheckQtyTransmitted++;
+                                        //        break;
+                                        //    case "ADD":
+                                        //        Values.sFt.ReadQtyTransmitted++;
+                                        //        break;
+                                        //}
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    Transmitting = false;
+                                    Values.dFt.SetMessage(ex.Message);
+                                    return;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            Transmitting = false;
+                            return;
+                        }
+
+                    }
+                }
+                catch
+                {
+                    Transmitting = false;
+                    return;
+                }
+            }
+            //location data
+            while (true)
+            {
+                try
+                {
+                    var query = await Values.SQLidb.db.Table<DeviceLocation>().Where(r => r.Transmitted == false).ToListAsync();
+                    if (query.Count == 0)
+                        break;
+                    foreach (var r in query)
+                    {
+                        //show the list in the debug fragment
+                        //var q = await Values.SQLidb.db.Table<ScannedData>().Where(z => z.Transmitted == false).ToListAsync();
+                        //Values.dFt.Clear();
+                        //q.ForEach(async z => await Values.dFt.pushInfo(z.Action, z.LabelRack+z.Serial, z.Partnumber, z.Qty.ToString()));
+                        //Thread.Sleep(500);
+                        if (monitor.State == NetworkState.ConnectedData || monitor.State == NetworkState.ConnectedWifi)
+                        {
+                            //Values.sFt.socksProgress.Visibility = ViewStates.Visible;
+                            Values.gDatos.DataBase = "PROCESOS";
+                            using (SPXML _sp = new SPXML(Values.gDatos, "pLaunchProcess_ReadingSessionControl"))
+                            {
+                                //SPXML _sp = new SPXML(Values.gDatos, "pLaunchProcess_ReadingSessionControl");
+                                _sp.AddParameterValue("@DB", "LOGISTICA");
+                                _sp.AddParameterValue("@ProcedureName", "pReadingSessionControlLocation");
                                 _sp.AddParameterValue("@Parameters", r.ProcedureParameters());
                                 _sp.AddParameterValue("@TableDB", "");
                                 _sp.AddParameterValue("@TableName", "");

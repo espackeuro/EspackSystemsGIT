@@ -516,15 +516,10 @@ namespace AccesoDatos
         public List<ControlParameter> ControlParameters { set; get; }
         //public List<ObjectParameter> ObjectParameters { get; set; }
         public DbCommand Cmd { get; set; }
-        private DbParameterCollection _parameters;
+        //private DbParameterCollection _parameters;
 
-        public virtual DbParameterCollection Parameters
-        {
-            get
-            {
-                return _parameters;
-            }
-        }
+        public virtual DbParameterCollection Parameters { get; }
+
         public virtual cAccesoDatos Conn
         {
             get

@@ -60,6 +60,7 @@ namespace RadioFXC
             intent.PutExtra("PackageName", "Radio repairs");
             StartActivityForResult(intent, 0);
         }
+
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
@@ -72,7 +73,7 @@ namespace RadioFXC
                     Values.gDatos.Server = "net.espackeuro.com";
 
 #if DEBUG
-            //Values.gDatos.Server = "VA2DB";
+            Values.gDatos.Server = "WOLDB";
 #endif
 
                     Values.gDatos.User = LogonDetails.User;

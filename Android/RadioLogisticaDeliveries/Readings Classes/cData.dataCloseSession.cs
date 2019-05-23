@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace RadioLogisticaDeliveries
 {
 
-    public class dataCloseSession : cData
+    public class DataCloseSession : cData
     {
         public override infoData Info
         {

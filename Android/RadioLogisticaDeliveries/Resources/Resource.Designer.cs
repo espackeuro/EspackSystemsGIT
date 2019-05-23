@@ -26,13 +26,1533 @@ namespace RadioLogisticaDeliveries
 		
 		public static void UpdateIdValues()
 		{
+			global::CommonAndroidTools.Resource.Animation.abc_fade_in = global::RadioLogisticaDeliveries.Resource.Animation.abc_fade_in;
+			global::CommonAndroidTools.Resource.Animation.abc_fade_out = global::RadioLogisticaDeliveries.Resource.Animation.abc_fade_out;
+			global::CommonAndroidTools.Resource.Animation.abc_grow_fade_in_from_bottom = global::RadioLogisticaDeliveries.Resource.Animation.abc_grow_fade_in_from_bottom;
+			global::CommonAndroidTools.Resource.Animation.abc_popup_enter = global::RadioLogisticaDeliveries.Resource.Animation.abc_popup_enter;
+			global::CommonAndroidTools.Resource.Animation.abc_popup_exit = global::RadioLogisticaDeliveries.Resource.Animation.abc_popup_exit;
+			global::CommonAndroidTools.Resource.Animation.abc_shrink_fade_out_from_bottom = global::RadioLogisticaDeliveries.Resource.Animation.abc_shrink_fade_out_from_bottom;
+			global::CommonAndroidTools.Resource.Animation.abc_slide_in_bottom = global::RadioLogisticaDeliveries.Resource.Animation.abc_slide_in_bottom;
+			global::CommonAndroidTools.Resource.Animation.abc_slide_in_top = global::RadioLogisticaDeliveries.Resource.Animation.abc_slide_in_top;
+			global::CommonAndroidTools.Resource.Animation.abc_slide_out_bottom = global::RadioLogisticaDeliveries.Resource.Animation.abc_slide_out_bottom;
+			global::CommonAndroidTools.Resource.Animation.abc_slide_out_top = global::RadioLogisticaDeliveries.Resource.Animation.abc_slide_out_top;
+			global::CommonAndroidTools.Resource.Animation.tooltip_enter = global::RadioLogisticaDeliveries.Resource.Animation.tooltip_enter;
+			global::CommonAndroidTools.Resource.Animation.tooltip_exit = global::RadioLogisticaDeliveries.Resource.Animation.tooltip_exit;
+			global::CommonAndroidTools.Resource.Attribute.actionBarDivider = global::RadioLogisticaDeliveries.Resource.Attribute.actionBarDivider;
+			global::CommonAndroidTools.Resource.Attribute.actionBarItemBackground = global::RadioLogisticaDeliveries.Resource.Attribute.actionBarItemBackground;
+			global::CommonAndroidTools.Resource.Attribute.actionBarPopupTheme = global::RadioLogisticaDeliveries.Resource.Attribute.actionBarPopupTheme;
+			global::CommonAndroidTools.Resource.Attribute.actionBarSize = global::RadioLogisticaDeliveries.Resource.Attribute.actionBarSize;
+			global::CommonAndroidTools.Resource.Attribute.actionBarSplitStyle = global::RadioLogisticaDeliveries.Resource.Attribute.actionBarSplitStyle;
+			global::CommonAndroidTools.Resource.Attribute.actionBarStyle = global::RadioLogisticaDeliveries.Resource.Attribute.actionBarStyle;
+			global::CommonAndroidTools.Resource.Attribute.actionBarTabBarStyle = global::RadioLogisticaDeliveries.Resource.Attribute.actionBarTabBarStyle;
+			global::CommonAndroidTools.Resource.Attribute.actionBarTabStyle = global::RadioLogisticaDeliveries.Resource.Attribute.actionBarTabStyle;
+			global::CommonAndroidTools.Resource.Attribute.actionBarTabTextStyle = global::RadioLogisticaDeliveries.Resource.Attribute.actionBarTabTextStyle;
+			global::CommonAndroidTools.Resource.Attribute.actionBarTheme = global::RadioLogisticaDeliveries.Resource.Attribute.actionBarTheme;
+			global::CommonAndroidTools.Resource.Attribute.actionBarWidgetTheme = global::RadioLogisticaDeliveries.Resource.Attribute.actionBarWidgetTheme;
+			global::CommonAndroidTools.Resource.Attribute.actionButtonStyle = global::RadioLogisticaDeliveries.Resource.Attribute.actionButtonStyle;
+			global::CommonAndroidTools.Resource.Attribute.actionDropDownStyle = global::RadioLogisticaDeliveries.Resource.Attribute.actionDropDownStyle;
+			global::CommonAndroidTools.Resource.Attribute.actionLayout = global::RadioLogisticaDeliveries.Resource.Attribute.actionLayout;
+			global::CommonAndroidTools.Resource.Attribute.actionMenuTextAppearance = global::RadioLogisticaDeliveries.Resource.Attribute.actionMenuTextAppearance;
+			global::CommonAndroidTools.Resource.Attribute.actionMenuTextColor = global::RadioLogisticaDeliveries.Resource.Attribute.actionMenuTextColor;
+			global::CommonAndroidTools.Resource.Attribute.actionModeBackground = global::RadioLogisticaDeliveries.Resource.Attribute.actionModeBackground;
+			global::CommonAndroidTools.Resource.Attribute.actionModeCloseButtonStyle = global::RadioLogisticaDeliveries.Resource.Attribute.actionModeCloseButtonStyle;
+			global::CommonAndroidTools.Resource.Attribute.actionModeCloseDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.actionModeCloseDrawable;
+			global::CommonAndroidTools.Resource.Attribute.actionModeCopyDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.actionModeCopyDrawable;
+			global::CommonAndroidTools.Resource.Attribute.actionModeCutDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.actionModeCutDrawable;
+			global::CommonAndroidTools.Resource.Attribute.actionModeFindDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.actionModeFindDrawable;
+			global::CommonAndroidTools.Resource.Attribute.actionModePasteDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.actionModePasteDrawable;
+			global::CommonAndroidTools.Resource.Attribute.actionModePopupWindowStyle = global::RadioLogisticaDeliveries.Resource.Attribute.actionModePopupWindowStyle;
+			global::CommonAndroidTools.Resource.Attribute.actionModeSelectAllDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.actionModeSelectAllDrawable;
+			global::CommonAndroidTools.Resource.Attribute.actionModeShareDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.actionModeShareDrawable;
+			global::CommonAndroidTools.Resource.Attribute.actionModeSplitBackground = global::RadioLogisticaDeliveries.Resource.Attribute.actionModeSplitBackground;
+			global::CommonAndroidTools.Resource.Attribute.actionModeStyle = global::RadioLogisticaDeliveries.Resource.Attribute.actionModeStyle;
+			global::CommonAndroidTools.Resource.Attribute.actionModeWebSearchDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.actionModeWebSearchDrawable;
+			global::CommonAndroidTools.Resource.Attribute.actionOverflowButtonStyle = global::RadioLogisticaDeliveries.Resource.Attribute.actionOverflowButtonStyle;
+			global::CommonAndroidTools.Resource.Attribute.actionOverflowMenuStyle = global::RadioLogisticaDeliveries.Resource.Attribute.actionOverflowMenuStyle;
+			global::CommonAndroidTools.Resource.Attribute.actionProviderClass = global::RadioLogisticaDeliveries.Resource.Attribute.actionProviderClass;
+			global::CommonAndroidTools.Resource.Attribute.actionViewClass = global::RadioLogisticaDeliveries.Resource.Attribute.actionViewClass;
+			global::CommonAndroidTools.Resource.Attribute.activityChooserViewStyle = global::RadioLogisticaDeliveries.Resource.Attribute.activityChooserViewStyle;
+			global::CommonAndroidTools.Resource.Attribute.alertDialogButtonGroupStyle = global::RadioLogisticaDeliveries.Resource.Attribute.alertDialogButtonGroupStyle;
+			global::CommonAndroidTools.Resource.Attribute.alertDialogCenterButtons = global::RadioLogisticaDeliveries.Resource.Attribute.alertDialogCenterButtons;
+			global::CommonAndroidTools.Resource.Attribute.alertDialogStyle = global::RadioLogisticaDeliveries.Resource.Attribute.alertDialogStyle;
+			global::CommonAndroidTools.Resource.Attribute.alertDialogTheme = global::RadioLogisticaDeliveries.Resource.Attribute.alertDialogTheme;
+			global::CommonAndroidTools.Resource.Attribute.allowStacking = global::RadioLogisticaDeliveries.Resource.Attribute.allowStacking;
+			global::CommonAndroidTools.Resource.Attribute.alpha = global::RadioLogisticaDeliveries.Resource.Attribute.alpha;
+			global::CommonAndroidTools.Resource.Attribute.alphabeticModifiers = global::RadioLogisticaDeliveries.Resource.Attribute.alphabeticModifiers;
+			global::CommonAndroidTools.Resource.Attribute.arrowHeadLength = global::RadioLogisticaDeliveries.Resource.Attribute.arrowHeadLength;
+			global::CommonAndroidTools.Resource.Attribute.arrowShaftLength = global::RadioLogisticaDeliveries.Resource.Attribute.arrowShaftLength;
+			global::CommonAndroidTools.Resource.Attribute.autoCompleteTextViewStyle = global::RadioLogisticaDeliveries.Resource.Attribute.autoCompleteTextViewStyle;
+			global::CommonAndroidTools.Resource.Attribute.autoSizeMaxTextSize = global::RadioLogisticaDeliveries.Resource.Attribute.autoSizeMaxTextSize;
+			global::CommonAndroidTools.Resource.Attribute.autoSizeMinTextSize = global::RadioLogisticaDeliveries.Resource.Attribute.autoSizeMinTextSize;
+			global::CommonAndroidTools.Resource.Attribute.autoSizePresetSizes = global::RadioLogisticaDeliveries.Resource.Attribute.autoSizePresetSizes;
+			global::CommonAndroidTools.Resource.Attribute.autoSizeStepGranularity = global::RadioLogisticaDeliveries.Resource.Attribute.autoSizeStepGranularity;
+			global::CommonAndroidTools.Resource.Attribute.autoSizeTextType = global::RadioLogisticaDeliveries.Resource.Attribute.autoSizeTextType;
+			global::CommonAndroidTools.Resource.Attribute.background = global::RadioLogisticaDeliveries.Resource.Attribute.background;
+			global::CommonAndroidTools.Resource.Attribute.backgroundSplit = global::RadioLogisticaDeliveries.Resource.Attribute.backgroundSplit;
+			global::CommonAndroidTools.Resource.Attribute.backgroundStacked = global::RadioLogisticaDeliveries.Resource.Attribute.backgroundStacked;
+			global::CommonAndroidTools.Resource.Attribute.backgroundTint = global::RadioLogisticaDeliveries.Resource.Attribute.backgroundTint;
+			global::CommonAndroidTools.Resource.Attribute.backgroundTintMode = global::RadioLogisticaDeliveries.Resource.Attribute.backgroundTintMode;
+			global::CommonAndroidTools.Resource.Attribute.barLength = global::RadioLogisticaDeliveries.Resource.Attribute.barLength;
+			global::CommonAndroidTools.Resource.Attribute.borderlessButtonStyle = global::RadioLogisticaDeliveries.Resource.Attribute.borderlessButtonStyle;
+			global::CommonAndroidTools.Resource.Attribute.buttonBarButtonStyle = global::RadioLogisticaDeliveries.Resource.Attribute.buttonBarButtonStyle;
+			global::CommonAndroidTools.Resource.Attribute.buttonBarNegativeButtonStyle = global::RadioLogisticaDeliveries.Resource.Attribute.buttonBarNegativeButtonStyle;
+			global::CommonAndroidTools.Resource.Attribute.buttonBarNeutralButtonStyle = global::RadioLogisticaDeliveries.Resource.Attribute.buttonBarNeutralButtonStyle;
+			global::CommonAndroidTools.Resource.Attribute.buttonBarPositiveButtonStyle = global::RadioLogisticaDeliveries.Resource.Attribute.buttonBarPositiveButtonStyle;
+			global::CommonAndroidTools.Resource.Attribute.buttonBarStyle = global::RadioLogisticaDeliveries.Resource.Attribute.buttonBarStyle;
+			global::CommonAndroidTools.Resource.Attribute.buttonGravity = global::RadioLogisticaDeliveries.Resource.Attribute.buttonGravity;
+			global::CommonAndroidTools.Resource.Attribute.buttonPanelSideLayout = global::RadioLogisticaDeliveries.Resource.Attribute.buttonPanelSideLayout;
+			global::CommonAndroidTools.Resource.Attribute.buttonStyle = global::RadioLogisticaDeliveries.Resource.Attribute.buttonStyle;
+			global::CommonAndroidTools.Resource.Attribute.buttonStyleSmall = global::RadioLogisticaDeliveries.Resource.Attribute.buttonStyleSmall;
+			global::CommonAndroidTools.Resource.Attribute.buttonTint = global::RadioLogisticaDeliveries.Resource.Attribute.buttonTint;
+			global::CommonAndroidTools.Resource.Attribute.buttonTintMode = global::RadioLogisticaDeliveries.Resource.Attribute.buttonTintMode;
+			global::CommonAndroidTools.Resource.Attribute.checkboxStyle = global::RadioLogisticaDeliveries.Resource.Attribute.checkboxStyle;
+			global::CommonAndroidTools.Resource.Attribute.checkedTextViewStyle = global::RadioLogisticaDeliveries.Resource.Attribute.checkedTextViewStyle;
+			global::CommonAndroidTools.Resource.Attribute.closeIcon = global::RadioLogisticaDeliveries.Resource.Attribute.closeIcon;
+			global::CommonAndroidTools.Resource.Attribute.closeItemLayout = global::RadioLogisticaDeliveries.Resource.Attribute.closeItemLayout;
+			global::CommonAndroidTools.Resource.Attribute.collapseContentDescription = global::RadioLogisticaDeliveries.Resource.Attribute.collapseContentDescription;
+			global::CommonAndroidTools.Resource.Attribute.collapseIcon = global::RadioLogisticaDeliveries.Resource.Attribute.collapseIcon;
+			global::CommonAndroidTools.Resource.Attribute.color = global::RadioLogisticaDeliveries.Resource.Attribute.color;
+			global::CommonAndroidTools.Resource.Attribute.colorAccent = global::RadioLogisticaDeliveries.Resource.Attribute.colorAccent;
+			global::CommonAndroidTools.Resource.Attribute.colorBackgroundFloating = global::RadioLogisticaDeliveries.Resource.Attribute.colorBackgroundFloating;
+			global::CommonAndroidTools.Resource.Attribute.colorButtonNormal = global::RadioLogisticaDeliveries.Resource.Attribute.colorButtonNormal;
+			global::CommonAndroidTools.Resource.Attribute.colorControlActivated = global::RadioLogisticaDeliveries.Resource.Attribute.colorControlActivated;
+			global::CommonAndroidTools.Resource.Attribute.colorControlHighlight = global::RadioLogisticaDeliveries.Resource.Attribute.colorControlHighlight;
+			global::CommonAndroidTools.Resource.Attribute.colorControlNormal = global::RadioLogisticaDeliveries.Resource.Attribute.colorControlNormal;
+			global::CommonAndroidTools.Resource.Attribute.colorError = global::RadioLogisticaDeliveries.Resource.Attribute.colorError;
+			global::CommonAndroidTools.Resource.Attribute.colorPrimary = global::RadioLogisticaDeliveries.Resource.Attribute.colorPrimary;
+			global::CommonAndroidTools.Resource.Attribute.colorPrimaryDark = global::RadioLogisticaDeliveries.Resource.Attribute.colorPrimaryDark;
+			global::CommonAndroidTools.Resource.Attribute.colorSwitchThumbNormal = global::RadioLogisticaDeliveries.Resource.Attribute.colorSwitchThumbNormal;
+			global::CommonAndroidTools.Resource.Attribute.commitIcon = global::RadioLogisticaDeliveries.Resource.Attribute.commitIcon;
+			global::CommonAndroidTools.Resource.Attribute.contentDescription = global::RadioLogisticaDeliveries.Resource.Attribute.contentDescription;
+			global::CommonAndroidTools.Resource.Attribute.contentInsetEnd = global::RadioLogisticaDeliveries.Resource.Attribute.contentInsetEnd;
+			global::CommonAndroidTools.Resource.Attribute.contentInsetEndWithActions = global::RadioLogisticaDeliveries.Resource.Attribute.contentInsetEndWithActions;
+			global::CommonAndroidTools.Resource.Attribute.contentInsetLeft = global::RadioLogisticaDeliveries.Resource.Attribute.contentInsetLeft;
+			global::CommonAndroidTools.Resource.Attribute.contentInsetRight = global::RadioLogisticaDeliveries.Resource.Attribute.contentInsetRight;
+			global::CommonAndroidTools.Resource.Attribute.contentInsetStart = global::RadioLogisticaDeliveries.Resource.Attribute.contentInsetStart;
+			global::CommonAndroidTools.Resource.Attribute.contentInsetStartWithNavigation = global::RadioLogisticaDeliveries.Resource.Attribute.contentInsetStartWithNavigation;
+			global::CommonAndroidTools.Resource.Attribute.controlBackground = global::RadioLogisticaDeliveries.Resource.Attribute.controlBackground;
+			global::CommonAndroidTools.Resource.Attribute.customNavigationLayout = global::RadioLogisticaDeliveries.Resource.Attribute.customNavigationLayout;
+			global::CommonAndroidTools.Resource.Attribute.defaultQueryHint = global::RadioLogisticaDeliveries.Resource.Attribute.defaultQueryHint;
+			global::CommonAndroidTools.Resource.Attribute.dialogPreferredPadding = global::RadioLogisticaDeliveries.Resource.Attribute.dialogPreferredPadding;
+			global::CommonAndroidTools.Resource.Attribute.dialogTheme = global::RadioLogisticaDeliveries.Resource.Attribute.dialogTheme;
+			global::CommonAndroidTools.Resource.Attribute.displayOptions = global::RadioLogisticaDeliveries.Resource.Attribute.displayOptions;
+			global::CommonAndroidTools.Resource.Attribute.divider = global::RadioLogisticaDeliveries.Resource.Attribute.divider;
+			global::CommonAndroidTools.Resource.Attribute.dividerHorizontal = global::RadioLogisticaDeliveries.Resource.Attribute.dividerHorizontal;
+			global::CommonAndroidTools.Resource.Attribute.dividerPadding = global::RadioLogisticaDeliveries.Resource.Attribute.dividerPadding;
+			global::CommonAndroidTools.Resource.Attribute.dividerVertical = global::RadioLogisticaDeliveries.Resource.Attribute.dividerVertical;
+			global::CommonAndroidTools.Resource.Attribute.drawableSize = global::RadioLogisticaDeliveries.Resource.Attribute.drawableSize;
+			global::CommonAndroidTools.Resource.Attribute.drawerArrowStyle = global::RadioLogisticaDeliveries.Resource.Attribute.drawerArrowStyle;
+			global::CommonAndroidTools.Resource.Attribute.dropDownListViewStyle = global::RadioLogisticaDeliveries.Resource.Attribute.dropDownListViewStyle;
+			global::CommonAndroidTools.Resource.Attribute.dropdownListPreferredItemHeight = global::RadioLogisticaDeliveries.Resource.Attribute.dropdownListPreferredItemHeight;
+			global::CommonAndroidTools.Resource.Attribute.editTextBackground = global::RadioLogisticaDeliveries.Resource.Attribute.editTextBackground;
+			global::CommonAndroidTools.Resource.Attribute.editTextColor = global::RadioLogisticaDeliveries.Resource.Attribute.editTextColor;
+			global::CommonAndroidTools.Resource.Attribute.editTextStyle = global::RadioLogisticaDeliveries.Resource.Attribute.editTextStyle;
+			global::CommonAndroidTools.Resource.Attribute.elevation = global::RadioLogisticaDeliveries.Resource.Attribute.elevation;
+			global::CommonAndroidTools.Resource.Attribute.expandActivityOverflowButtonDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.expandActivityOverflowButtonDrawable;
+			global::CommonAndroidTools.Resource.Attribute.font = global::RadioLogisticaDeliveries.Resource.Attribute.font;
+			global::CommonAndroidTools.Resource.Attribute.fontFamily = global::RadioLogisticaDeliveries.Resource.Attribute.fontFamily;
+			global::CommonAndroidTools.Resource.Attribute.fontProviderAuthority = global::RadioLogisticaDeliveries.Resource.Attribute.fontProviderAuthority;
+			global::CommonAndroidTools.Resource.Attribute.fontProviderCerts = global::RadioLogisticaDeliveries.Resource.Attribute.fontProviderCerts;
+			global::CommonAndroidTools.Resource.Attribute.fontProviderFetchStrategy = global::RadioLogisticaDeliveries.Resource.Attribute.fontProviderFetchStrategy;
+			global::CommonAndroidTools.Resource.Attribute.fontProviderFetchTimeout = global::RadioLogisticaDeliveries.Resource.Attribute.fontProviderFetchTimeout;
+			global::CommonAndroidTools.Resource.Attribute.fontProviderPackage = global::RadioLogisticaDeliveries.Resource.Attribute.fontProviderPackage;
+			global::CommonAndroidTools.Resource.Attribute.fontProviderQuery = global::RadioLogisticaDeliveries.Resource.Attribute.fontProviderQuery;
+			global::CommonAndroidTools.Resource.Attribute.fontStyle = global::RadioLogisticaDeliveries.Resource.Attribute.fontStyle;
+			global::CommonAndroidTools.Resource.Attribute.fontWeight = global::RadioLogisticaDeliveries.Resource.Attribute.fontWeight;
+			global::CommonAndroidTools.Resource.Attribute.gapBetweenBars = global::RadioLogisticaDeliveries.Resource.Attribute.gapBetweenBars;
+			global::CommonAndroidTools.Resource.Attribute.goIcon = global::RadioLogisticaDeliveries.Resource.Attribute.goIcon;
+			global::CommonAndroidTools.Resource.Attribute.height = global::RadioLogisticaDeliveries.Resource.Attribute.height;
+			global::CommonAndroidTools.Resource.Attribute.hideOnContentScroll = global::RadioLogisticaDeliveries.Resource.Attribute.hideOnContentScroll;
+			global::CommonAndroidTools.Resource.Attribute.homeAsUpIndicator = global::RadioLogisticaDeliveries.Resource.Attribute.homeAsUpIndicator;
+			global::CommonAndroidTools.Resource.Attribute.homeLayout = global::RadioLogisticaDeliveries.Resource.Attribute.homeLayout;
+			global::CommonAndroidTools.Resource.Attribute.icon = global::RadioLogisticaDeliveries.Resource.Attribute.icon;
+			global::CommonAndroidTools.Resource.Attribute.iconTint = global::RadioLogisticaDeliveries.Resource.Attribute.iconTint;
+			global::CommonAndroidTools.Resource.Attribute.iconTintMode = global::RadioLogisticaDeliveries.Resource.Attribute.iconTintMode;
+			global::CommonAndroidTools.Resource.Attribute.iconifiedByDefault = global::RadioLogisticaDeliveries.Resource.Attribute.iconifiedByDefault;
+			global::CommonAndroidTools.Resource.Attribute.imageButtonStyle = global::RadioLogisticaDeliveries.Resource.Attribute.imageButtonStyle;
+			global::CommonAndroidTools.Resource.Attribute.indeterminateProgressStyle = global::RadioLogisticaDeliveries.Resource.Attribute.indeterminateProgressStyle;
+			global::CommonAndroidTools.Resource.Attribute.initialActivityCount = global::RadioLogisticaDeliveries.Resource.Attribute.initialActivityCount;
+			global::CommonAndroidTools.Resource.Attribute.isLightTheme = global::RadioLogisticaDeliveries.Resource.Attribute.isLightTheme;
+			global::CommonAndroidTools.Resource.Attribute.itemPadding = global::RadioLogisticaDeliveries.Resource.Attribute.itemPadding;
+			global::CommonAndroidTools.Resource.Attribute.layout = global::RadioLogisticaDeliveries.Resource.Attribute.layout;
+			global::CommonAndroidTools.Resource.Attribute.listChoiceBackgroundIndicator = global::RadioLogisticaDeliveries.Resource.Attribute.listChoiceBackgroundIndicator;
+			global::CommonAndroidTools.Resource.Attribute.listDividerAlertDialog = global::RadioLogisticaDeliveries.Resource.Attribute.listDividerAlertDialog;
+			global::CommonAndroidTools.Resource.Attribute.listItemLayout = global::RadioLogisticaDeliveries.Resource.Attribute.listItemLayout;
+			global::CommonAndroidTools.Resource.Attribute.listLayout = global::RadioLogisticaDeliveries.Resource.Attribute.listLayout;
+			global::CommonAndroidTools.Resource.Attribute.listMenuViewStyle = global::RadioLogisticaDeliveries.Resource.Attribute.listMenuViewStyle;
+			global::CommonAndroidTools.Resource.Attribute.listPopupWindowStyle = global::RadioLogisticaDeliveries.Resource.Attribute.listPopupWindowStyle;
+			global::CommonAndroidTools.Resource.Attribute.listPreferredItemHeight = global::RadioLogisticaDeliveries.Resource.Attribute.listPreferredItemHeight;
+			global::CommonAndroidTools.Resource.Attribute.listPreferredItemHeightLarge = global::RadioLogisticaDeliveries.Resource.Attribute.listPreferredItemHeightLarge;
+			global::CommonAndroidTools.Resource.Attribute.listPreferredItemHeightSmall = global::RadioLogisticaDeliveries.Resource.Attribute.listPreferredItemHeightSmall;
+			global::CommonAndroidTools.Resource.Attribute.listPreferredItemPaddingLeft = global::RadioLogisticaDeliveries.Resource.Attribute.listPreferredItemPaddingLeft;
+			global::CommonAndroidTools.Resource.Attribute.listPreferredItemPaddingRight = global::RadioLogisticaDeliveries.Resource.Attribute.listPreferredItemPaddingRight;
+			global::CommonAndroidTools.Resource.Attribute.logo = global::RadioLogisticaDeliveries.Resource.Attribute.logo;
+			global::CommonAndroidTools.Resource.Attribute.logoDescription = global::RadioLogisticaDeliveries.Resource.Attribute.logoDescription;
+			global::CommonAndroidTools.Resource.Attribute.maxButtonHeight = global::RadioLogisticaDeliveries.Resource.Attribute.maxButtonHeight;
+			global::CommonAndroidTools.Resource.Attribute.measureWithLargestChild = global::RadioLogisticaDeliveries.Resource.Attribute.measureWithLargestChild;
+			global::CommonAndroidTools.Resource.Attribute.multiChoiceItemLayout = global::RadioLogisticaDeliveries.Resource.Attribute.multiChoiceItemLayout;
+			global::CommonAndroidTools.Resource.Attribute.navigationContentDescription = global::RadioLogisticaDeliveries.Resource.Attribute.navigationContentDescription;
+			global::CommonAndroidTools.Resource.Attribute.navigationIcon = global::RadioLogisticaDeliveries.Resource.Attribute.navigationIcon;
+			global::CommonAndroidTools.Resource.Attribute.navigationMode = global::RadioLogisticaDeliveries.Resource.Attribute.navigationMode;
+			global::CommonAndroidTools.Resource.Attribute.numericModifiers = global::RadioLogisticaDeliveries.Resource.Attribute.numericModifiers;
+			global::CommonAndroidTools.Resource.Attribute.overlapAnchor = global::RadioLogisticaDeliveries.Resource.Attribute.overlapAnchor;
+			global::CommonAndroidTools.Resource.Attribute.paddingBottomNoButtons = global::RadioLogisticaDeliveries.Resource.Attribute.paddingBottomNoButtons;
+			global::CommonAndroidTools.Resource.Attribute.paddingEnd = global::RadioLogisticaDeliveries.Resource.Attribute.paddingEnd;
+			global::CommonAndroidTools.Resource.Attribute.paddingStart = global::RadioLogisticaDeliveries.Resource.Attribute.paddingStart;
+			global::CommonAndroidTools.Resource.Attribute.paddingTopNoTitle = global::RadioLogisticaDeliveries.Resource.Attribute.paddingTopNoTitle;
+			global::CommonAndroidTools.Resource.Attribute.panelBackground = global::RadioLogisticaDeliveries.Resource.Attribute.panelBackground;
+			global::CommonAndroidTools.Resource.Attribute.panelMenuListTheme = global::RadioLogisticaDeliveries.Resource.Attribute.panelMenuListTheme;
+			global::CommonAndroidTools.Resource.Attribute.panelMenuListWidth = global::RadioLogisticaDeliveries.Resource.Attribute.panelMenuListWidth;
+			global::CommonAndroidTools.Resource.Attribute.popupMenuStyle = global::RadioLogisticaDeliveries.Resource.Attribute.popupMenuStyle;
+			global::CommonAndroidTools.Resource.Attribute.popupTheme = global::RadioLogisticaDeliveries.Resource.Attribute.popupTheme;
+			global::CommonAndroidTools.Resource.Attribute.popupWindowStyle = global::RadioLogisticaDeliveries.Resource.Attribute.popupWindowStyle;
+			global::CommonAndroidTools.Resource.Attribute.preserveIconSpacing = global::RadioLogisticaDeliveries.Resource.Attribute.preserveIconSpacing;
+			global::CommonAndroidTools.Resource.Attribute.progressBarPadding = global::RadioLogisticaDeliveries.Resource.Attribute.progressBarPadding;
+			global::CommonAndroidTools.Resource.Attribute.progressBarStyle = global::RadioLogisticaDeliveries.Resource.Attribute.progressBarStyle;
+			global::CommonAndroidTools.Resource.Attribute.queryBackground = global::RadioLogisticaDeliveries.Resource.Attribute.queryBackground;
+			global::CommonAndroidTools.Resource.Attribute.queryHint = global::RadioLogisticaDeliveries.Resource.Attribute.queryHint;
+			global::CommonAndroidTools.Resource.Attribute.radioButtonStyle = global::RadioLogisticaDeliveries.Resource.Attribute.radioButtonStyle;
+			global::CommonAndroidTools.Resource.Attribute.ratingBarStyle = global::RadioLogisticaDeliveries.Resource.Attribute.ratingBarStyle;
+			global::CommonAndroidTools.Resource.Attribute.ratingBarStyleIndicator = global::RadioLogisticaDeliveries.Resource.Attribute.ratingBarStyleIndicator;
+			global::CommonAndroidTools.Resource.Attribute.ratingBarStyleSmall = global::RadioLogisticaDeliveries.Resource.Attribute.ratingBarStyleSmall;
+			global::CommonAndroidTools.Resource.Attribute.searchHintIcon = global::RadioLogisticaDeliveries.Resource.Attribute.searchHintIcon;
+			global::CommonAndroidTools.Resource.Attribute.searchIcon = global::RadioLogisticaDeliveries.Resource.Attribute.searchIcon;
+			global::CommonAndroidTools.Resource.Attribute.searchViewStyle = global::RadioLogisticaDeliveries.Resource.Attribute.searchViewStyle;
+			global::CommonAndroidTools.Resource.Attribute.seekBarStyle = global::RadioLogisticaDeliveries.Resource.Attribute.seekBarStyle;
+			global::CommonAndroidTools.Resource.Attribute.selectableItemBackground = global::RadioLogisticaDeliveries.Resource.Attribute.selectableItemBackground;
+			global::CommonAndroidTools.Resource.Attribute.selectableItemBackgroundBorderless = global::RadioLogisticaDeliveries.Resource.Attribute.selectableItemBackgroundBorderless;
+			global::CommonAndroidTools.Resource.Attribute.showAsAction = global::RadioLogisticaDeliveries.Resource.Attribute.showAsAction;
+			global::CommonAndroidTools.Resource.Attribute.showDividers = global::RadioLogisticaDeliveries.Resource.Attribute.showDividers;
+			global::CommonAndroidTools.Resource.Attribute.showText = global::RadioLogisticaDeliveries.Resource.Attribute.showText;
+			global::CommonAndroidTools.Resource.Attribute.showTitle = global::RadioLogisticaDeliveries.Resource.Attribute.showTitle;
+			global::CommonAndroidTools.Resource.Attribute.singleChoiceItemLayout = global::RadioLogisticaDeliveries.Resource.Attribute.singleChoiceItemLayout;
+			global::CommonAndroidTools.Resource.Attribute.spinBars = global::RadioLogisticaDeliveries.Resource.Attribute.spinBars;
+			global::CommonAndroidTools.Resource.Attribute.spinnerDropDownItemStyle = global::RadioLogisticaDeliveries.Resource.Attribute.spinnerDropDownItemStyle;
+			global::CommonAndroidTools.Resource.Attribute.spinnerStyle = global::RadioLogisticaDeliveries.Resource.Attribute.spinnerStyle;
+			global::CommonAndroidTools.Resource.Attribute.splitTrack = global::RadioLogisticaDeliveries.Resource.Attribute.splitTrack;
+			global::CommonAndroidTools.Resource.Attribute.srcCompat = global::RadioLogisticaDeliveries.Resource.Attribute.srcCompat;
+			global::CommonAndroidTools.Resource.Attribute.state_above_anchor = global::RadioLogisticaDeliveries.Resource.Attribute.state_above_anchor;
+			global::CommonAndroidTools.Resource.Attribute.subMenuArrow = global::RadioLogisticaDeliveries.Resource.Attribute.subMenuArrow;
+			global::CommonAndroidTools.Resource.Attribute.submitBackground = global::RadioLogisticaDeliveries.Resource.Attribute.submitBackground;
+			global::CommonAndroidTools.Resource.Attribute.subtitle = global::RadioLogisticaDeliveries.Resource.Attribute.subtitle;
+			global::CommonAndroidTools.Resource.Attribute.subtitleTextAppearance = global::RadioLogisticaDeliveries.Resource.Attribute.subtitleTextAppearance;
+			global::CommonAndroidTools.Resource.Attribute.subtitleTextColor = global::RadioLogisticaDeliveries.Resource.Attribute.subtitleTextColor;
+			global::CommonAndroidTools.Resource.Attribute.subtitleTextStyle = global::RadioLogisticaDeliveries.Resource.Attribute.subtitleTextStyle;
+			global::CommonAndroidTools.Resource.Attribute.suggestionRowLayout = global::RadioLogisticaDeliveries.Resource.Attribute.suggestionRowLayout;
+			global::CommonAndroidTools.Resource.Attribute.switchMinWidth = global::RadioLogisticaDeliveries.Resource.Attribute.switchMinWidth;
+			global::CommonAndroidTools.Resource.Attribute.switchPadding = global::RadioLogisticaDeliveries.Resource.Attribute.switchPadding;
+			global::CommonAndroidTools.Resource.Attribute.switchStyle = global::RadioLogisticaDeliveries.Resource.Attribute.switchStyle;
+			global::CommonAndroidTools.Resource.Attribute.switchTextAppearance = global::RadioLogisticaDeliveries.Resource.Attribute.switchTextAppearance;
+			global::CommonAndroidTools.Resource.Attribute.textAllCaps = global::RadioLogisticaDeliveries.Resource.Attribute.textAllCaps;
+			global::CommonAndroidTools.Resource.Attribute.textAppearanceLargePopupMenu = global::RadioLogisticaDeliveries.Resource.Attribute.textAppearanceLargePopupMenu;
+			global::CommonAndroidTools.Resource.Attribute.textAppearanceListItem = global::RadioLogisticaDeliveries.Resource.Attribute.textAppearanceListItem;
+			global::CommonAndroidTools.Resource.Attribute.textAppearanceListItemSecondary = global::RadioLogisticaDeliveries.Resource.Attribute.textAppearanceListItemSecondary;
+			global::CommonAndroidTools.Resource.Attribute.textAppearanceListItemSmall = global::RadioLogisticaDeliveries.Resource.Attribute.textAppearanceListItemSmall;
+			global::CommonAndroidTools.Resource.Attribute.textAppearancePopupMenuHeader = global::RadioLogisticaDeliveries.Resource.Attribute.textAppearancePopupMenuHeader;
+			global::CommonAndroidTools.Resource.Attribute.textAppearanceSearchResultSubtitle = global::RadioLogisticaDeliveries.Resource.Attribute.textAppearanceSearchResultSubtitle;
+			global::CommonAndroidTools.Resource.Attribute.textAppearanceSearchResultTitle = global::RadioLogisticaDeliveries.Resource.Attribute.textAppearanceSearchResultTitle;
+			global::CommonAndroidTools.Resource.Attribute.textAppearanceSmallPopupMenu = global::RadioLogisticaDeliveries.Resource.Attribute.textAppearanceSmallPopupMenu;
+			global::CommonAndroidTools.Resource.Attribute.textColorAlertDialogListItem = global::RadioLogisticaDeliveries.Resource.Attribute.textColorAlertDialogListItem;
+			global::CommonAndroidTools.Resource.Attribute.textColorSearchUrl = global::RadioLogisticaDeliveries.Resource.Attribute.textColorSearchUrl;
+			global::CommonAndroidTools.Resource.Attribute.theme = global::RadioLogisticaDeliveries.Resource.Attribute.theme;
+			global::CommonAndroidTools.Resource.Attribute.thickness = global::RadioLogisticaDeliveries.Resource.Attribute.thickness;
+			global::CommonAndroidTools.Resource.Attribute.thumbTextPadding = global::RadioLogisticaDeliveries.Resource.Attribute.thumbTextPadding;
+			global::CommonAndroidTools.Resource.Attribute.thumbTint = global::RadioLogisticaDeliveries.Resource.Attribute.thumbTint;
+			global::CommonAndroidTools.Resource.Attribute.thumbTintMode = global::RadioLogisticaDeliveries.Resource.Attribute.thumbTintMode;
+			global::CommonAndroidTools.Resource.Attribute.tickMark = global::RadioLogisticaDeliveries.Resource.Attribute.tickMark;
+			global::CommonAndroidTools.Resource.Attribute.tickMarkTint = global::RadioLogisticaDeliveries.Resource.Attribute.tickMarkTint;
+			global::CommonAndroidTools.Resource.Attribute.tickMarkTintMode = global::RadioLogisticaDeliveries.Resource.Attribute.tickMarkTintMode;
+			global::CommonAndroidTools.Resource.Attribute.tint = global::RadioLogisticaDeliveries.Resource.Attribute.tint;
+			global::CommonAndroidTools.Resource.Attribute.tintMode = global::RadioLogisticaDeliveries.Resource.Attribute.tintMode;
+			global::CommonAndroidTools.Resource.Attribute.title = global::RadioLogisticaDeliveries.Resource.Attribute.title;
+			global::CommonAndroidTools.Resource.Attribute.titleMargin = global::RadioLogisticaDeliveries.Resource.Attribute.titleMargin;
+			global::CommonAndroidTools.Resource.Attribute.titleMarginBottom = global::RadioLogisticaDeliveries.Resource.Attribute.titleMarginBottom;
+			global::CommonAndroidTools.Resource.Attribute.titleMarginEnd = global::RadioLogisticaDeliveries.Resource.Attribute.titleMarginEnd;
+			global::CommonAndroidTools.Resource.Attribute.titleMarginStart = global::RadioLogisticaDeliveries.Resource.Attribute.titleMarginStart;
+			global::CommonAndroidTools.Resource.Attribute.titleMarginTop = global::RadioLogisticaDeliveries.Resource.Attribute.titleMarginTop;
+			global::CommonAndroidTools.Resource.Attribute.titleMargins = global::RadioLogisticaDeliveries.Resource.Attribute.titleMargins;
+			global::CommonAndroidTools.Resource.Attribute.titleTextAppearance = global::RadioLogisticaDeliveries.Resource.Attribute.titleTextAppearance;
+			global::CommonAndroidTools.Resource.Attribute.titleTextColor = global::RadioLogisticaDeliveries.Resource.Attribute.titleTextColor;
+			global::CommonAndroidTools.Resource.Attribute.titleTextStyle = global::RadioLogisticaDeliveries.Resource.Attribute.titleTextStyle;
+			global::CommonAndroidTools.Resource.Attribute.toolbarNavigationButtonStyle = global::RadioLogisticaDeliveries.Resource.Attribute.toolbarNavigationButtonStyle;
+			global::CommonAndroidTools.Resource.Attribute.toolbarStyle = global::RadioLogisticaDeliveries.Resource.Attribute.toolbarStyle;
+			global::CommonAndroidTools.Resource.Attribute.tooltipForegroundColor = global::RadioLogisticaDeliveries.Resource.Attribute.tooltipForegroundColor;
+			global::CommonAndroidTools.Resource.Attribute.tooltipFrameBackground = global::RadioLogisticaDeliveries.Resource.Attribute.tooltipFrameBackground;
+			global::CommonAndroidTools.Resource.Attribute.tooltipText = global::RadioLogisticaDeliveries.Resource.Attribute.tooltipText;
+			global::CommonAndroidTools.Resource.Attribute.track = global::RadioLogisticaDeliveries.Resource.Attribute.track;
+			global::CommonAndroidTools.Resource.Attribute.trackTint = global::RadioLogisticaDeliveries.Resource.Attribute.trackTint;
+			global::CommonAndroidTools.Resource.Attribute.trackTintMode = global::RadioLogisticaDeliveries.Resource.Attribute.trackTintMode;
+			global::CommonAndroidTools.Resource.Attribute.voiceIcon = global::RadioLogisticaDeliveries.Resource.Attribute.voiceIcon;
+			global::CommonAndroidTools.Resource.Attribute.windowActionBar = global::RadioLogisticaDeliveries.Resource.Attribute.windowActionBar;
+			global::CommonAndroidTools.Resource.Attribute.windowActionBarOverlay = global::RadioLogisticaDeliveries.Resource.Attribute.windowActionBarOverlay;
+			global::CommonAndroidTools.Resource.Attribute.windowActionModeOverlay = global::RadioLogisticaDeliveries.Resource.Attribute.windowActionModeOverlay;
+			global::CommonAndroidTools.Resource.Attribute.windowFixedHeightMajor = global::RadioLogisticaDeliveries.Resource.Attribute.windowFixedHeightMajor;
+			global::CommonAndroidTools.Resource.Attribute.windowFixedHeightMinor = global::RadioLogisticaDeliveries.Resource.Attribute.windowFixedHeightMinor;
+			global::CommonAndroidTools.Resource.Attribute.windowFixedWidthMajor = global::RadioLogisticaDeliveries.Resource.Attribute.windowFixedWidthMajor;
+			global::CommonAndroidTools.Resource.Attribute.windowFixedWidthMinor = global::RadioLogisticaDeliveries.Resource.Attribute.windowFixedWidthMinor;
+			global::CommonAndroidTools.Resource.Attribute.windowMinWidthMajor = global::RadioLogisticaDeliveries.Resource.Attribute.windowMinWidthMajor;
+			global::CommonAndroidTools.Resource.Attribute.windowMinWidthMinor = global::RadioLogisticaDeliveries.Resource.Attribute.windowMinWidthMinor;
+			global::CommonAndroidTools.Resource.Attribute.windowNoTitle = global::RadioLogisticaDeliveries.Resource.Attribute.windowNoTitle;
+			global::CommonAndroidTools.Resource.Boolean.abc_action_bar_embed_tabs = global::RadioLogisticaDeliveries.Resource.Boolean.abc_action_bar_embed_tabs;
+			global::CommonAndroidTools.Resource.Boolean.abc_allow_stacked_button_bar = global::RadioLogisticaDeliveries.Resource.Boolean.abc_allow_stacked_button_bar;
+			global::CommonAndroidTools.Resource.Boolean.abc_config_actionMenuItemAllCaps = global::RadioLogisticaDeliveries.Resource.Boolean.abc_config_actionMenuItemAllCaps;
+			global::CommonAndroidTools.Resource.Boolean.abc_config_closeDialogWhenTouchOutside = global::RadioLogisticaDeliveries.Resource.Boolean.abc_config_closeDialogWhenTouchOutside;
+			global::CommonAndroidTools.Resource.Boolean.abc_config_showMenuShortcutsWhenKeyboardPresent = global::RadioLogisticaDeliveries.Resource.Boolean.abc_config_showMenuShortcutsWhenKeyboardPresent;
+			global::CommonAndroidTools.Resource.Color.abc_background_cache_hint_selector_material_dark = global::RadioLogisticaDeliveries.Resource.Color.abc_background_cache_hint_selector_material_dark;
+			global::CommonAndroidTools.Resource.Color.abc_background_cache_hint_selector_material_light = global::RadioLogisticaDeliveries.Resource.Color.abc_background_cache_hint_selector_material_light;
+			global::CommonAndroidTools.Resource.Color.abc_btn_colored_borderless_text_material = global::RadioLogisticaDeliveries.Resource.Color.abc_btn_colored_borderless_text_material;
+			global::CommonAndroidTools.Resource.Color.abc_btn_colored_text_material = global::RadioLogisticaDeliveries.Resource.Color.abc_btn_colored_text_material;
+			global::CommonAndroidTools.Resource.Color.abc_color_highlight_material = global::RadioLogisticaDeliveries.Resource.Color.abc_color_highlight_material;
+			global::CommonAndroidTools.Resource.Color.abc_hint_foreground_material_dark = global::RadioLogisticaDeliveries.Resource.Color.abc_hint_foreground_material_dark;
+			global::CommonAndroidTools.Resource.Color.abc_hint_foreground_material_light = global::RadioLogisticaDeliveries.Resource.Color.abc_hint_foreground_material_light;
+			global::CommonAndroidTools.Resource.Color.abc_input_method_navigation_guard = global::RadioLogisticaDeliveries.Resource.Color.abc_input_method_navigation_guard;
+			global::CommonAndroidTools.Resource.Color.abc_primary_text_disable_only_material_dark = global::RadioLogisticaDeliveries.Resource.Color.abc_primary_text_disable_only_material_dark;
+			global::CommonAndroidTools.Resource.Color.abc_primary_text_disable_only_material_light = global::RadioLogisticaDeliveries.Resource.Color.abc_primary_text_disable_only_material_light;
+			global::CommonAndroidTools.Resource.Color.abc_primary_text_material_dark = global::RadioLogisticaDeliveries.Resource.Color.abc_primary_text_material_dark;
+			global::CommonAndroidTools.Resource.Color.abc_primary_text_material_light = global::RadioLogisticaDeliveries.Resource.Color.abc_primary_text_material_light;
+			global::CommonAndroidTools.Resource.Color.abc_search_url_text = global::RadioLogisticaDeliveries.Resource.Color.abc_search_url_text;
+			global::CommonAndroidTools.Resource.Color.abc_search_url_text_normal = global::RadioLogisticaDeliveries.Resource.Color.abc_search_url_text_normal;
+			global::CommonAndroidTools.Resource.Color.abc_search_url_text_pressed = global::RadioLogisticaDeliveries.Resource.Color.abc_search_url_text_pressed;
+			global::CommonAndroidTools.Resource.Color.abc_search_url_text_selected = global::RadioLogisticaDeliveries.Resource.Color.abc_search_url_text_selected;
+			global::CommonAndroidTools.Resource.Color.abc_secondary_text_material_dark = global::RadioLogisticaDeliveries.Resource.Color.abc_secondary_text_material_dark;
+			global::CommonAndroidTools.Resource.Color.abc_secondary_text_material_light = global::RadioLogisticaDeliveries.Resource.Color.abc_secondary_text_material_light;
+			global::CommonAndroidTools.Resource.Color.abc_tint_btn_checkable = global::RadioLogisticaDeliveries.Resource.Color.abc_tint_btn_checkable;
+			global::CommonAndroidTools.Resource.Color.abc_tint_default = global::RadioLogisticaDeliveries.Resource.Color.abc_tint_default;
+			global::CommonAndroidTools.Resource.Color.abc_tint_edittext = global::RadioLogisticaDeliveries.Resource.Color.abc_tint_edittext;
+			global::CommonAndroidTools.Resource.Color.abc_tint_seek_thumb = global::RadioLogisticaDeliveries.Resource.Color.abc_tint_seek_thumb;
+			global::CommonAndroidTools.Resource.Color.abc_tint_spinner = global::RadioLogisticaDeliveries.Resource.Color.abc_tint_spinner;
+			global::CommonAndroidTools.Resource.Color.abc_tint_switch_track = global::RadioLogisticaDeliveries.Resource.Color.abc_tint_switch_track;
+			global::CommonAndroidTools.Resource.Color.accent_material_dark = global::RadioLogisticaDeliveries.Resource.Color.accent_material_dark;
+			global::CommonAndroidTools.Resource.Color.accent_material_light = global::RadioLogisticaDeliveries.Resource.Color.accent_material_light;
+			global::CommonAndroidTools.Resource.Color.background_floating_material_dark = global::RadioLogisticaDeliveries.Resource.Color.background_floating_material_dark;
+			global::CommonAndroidTools.Resource.Color.background_floating_material_light = global::RadioLogisticaDeliveries.Resource.Color.background_floating_material_light;
+			global::CommonAndroidTools.Resource.Color.background_material_dark = global::RadioLogisticaDeliveries.Resource.Color.background_material_dark;
+			global::CommonAndroidTools.Resource.Color.background_material_light = global::RadioLogisticaDeliveries.Resource.Color.background_material_light;
+			global::CommonAndroidTools.Resource.Color.bright_foreground_disabled_material_dark = global::RadioLogisticaDeliveries.Resource.Color.bright_foreground_disabled_material_dark;
+			global::CommonAndroidTools.Resource.Color.bright_foreground_disabled_material_light = global::RadioLogisticaDeliveries.Resource.Color.bright_foreground_disabled_material_light;
+			global::CommonAndroidTools.Resource.Color.bright_foreground_inverse_material_dark = global::RadioLogisticaDeliveries.Resource.Color.bright_foreground_inverse_material_dark;
+			global::CommonAndroidTools.Resource.Color.bright_foreground_inverse_material_light = global::RadioLogisticaDeliveries.Resource.Color.bright_foreground_inverse_material_light;
+			global::CommonAndroidTools.Resource.Color.bright_foreground_material_dark = global::RadioLogisticaDeliveries.Resource.Color.bright_foreground_material_dark;
+			global::CommonAndroidTools.Resource.Color.bright_foreground_material_light = global::RadioLogisticaDeliveries.Resource.Color.bright_foreground_material_light;
+			global::CommonAndroidTools.Resource.Color.button_material_dark = global::RadioLogisticaDeliveries.Resource.Color.button_material_dark;
+			global::CommonAndroidTools.Resource.Color.button_material_light = global::RadioLogisticaDeliveries.Resource.Color.button_material_light;
+			global::CommonAndroidTools.Resource.Color.dim_foreground_disabled_material_dark = global::RadioLogisticaDeliveries.Resource.Color.dim_foreground_disabled_material_dark;
+			global::CommonAndroidTools.Resource.Color.dim_foreground_disabled_material_light = global::RadioLogisticaDeliveries.Resource.Color.dim_foreground_disabled_material_light;
+			global::CommonAndroidTools.Resource.Color.dim_foreground_material_dark = global::RadioLogisticaDeliveries.Resource.Color.dim_foreground_material_dark;
+			global::CommonAndroidTools.Resource.Color.dim_foreground_material_light = global::RadioLogisticaDeliveries.Resource.Color.dim_foreground_material_light;
+			global::CommonAndroidTools.Resource.Color.error_color_material = global::RadioLogisticaDeliveries.Resource.Color.error_color_material;
+			global::CommonAndroidTools.Resource.Color.foreground_material_dark = global::RadioLogisticaDeliveries.Resource.Color.foreground_material_dark;
+			global::CommonAndroidTools.Resource.Color.foreground_material_light = global::RadioLogisticaDeliveries.Resource.Color.foreground_material_light;
+			global::CommonAndroidTools.Resource.Color.highlighted_text_material_dark = global::RadioLogisticaDeliveries.Resource.Color.highlighted_text_material_dark;
+			global::CommonAndroidTools.Resource.Color.highlighted_text_material_light = global::RadioLogisticaDeliveries.Resource.Color.highlighted_text_material_light;
+			global::CommonAndroidTools.Resource.Color.material_blue_grey_800 = global::RadioLogisticaDeliveries.Resource.Color.material_blue_grey_800;
+			global::CommonAndroidTools.Resource.Color.material_blue_grey_900 = global::RadioLogisticaDeliveries.Resource.Color.material_blue_grey_900;
+			global::CommonAndroidTools.Resource.Color.material_blue_grey_950 = global::RadioLogisticaDeliveries.Resource.Color.material_blue_grey_950;
+			global::CommonAndroidTools.Resource.Color.material_deep_teal_200 = global::RadioLogisticaDeliveries.Resource.Color.material_deep_teal_200;
+			global::CommonAndroidTools.Resource.Color.material_deep_teal_500 = global::RadioLogisticaDeliveries.Resource.Color.material_deep_teal_500;
+			global::CommonAndroidTools.Resource.Color.material_grey_100 = global::RadioLogisticaDeliveries.Resource.Color.material_grey_100;
+			global::CommonAndroidTools.Resource.Color.material_grey_300 = global::RadioLogisticaDeliveries.Resource.Color.material_grey_300;
+			global::CommonAndroidTools.Resource.Color.material_grey_50 = global::RadioLogisticaDeliveries.Resource.Color.material_grey_50;
+			global::CommonAndroidTools.Resource.Color.material_grey_600 = global::RadioLogisticaDeliveries.Resource.Color.material_grey_600;
+			global::CommonAndroidTools.Resource.Color.material_grey_800 = global::RadioLogisticaDeliveries.Resource.Color.material_grey_800;
+			global::CommonAndroidTools.Resource.Color.material_grey_850 = global::RadioLogisticaDeliveries.Resource.Color.material_grey_850;
+			global::CommonAndroidTools.Resource.Color.material_grey_900 = global::RadioLogisticaDeliveries.Resource.Color.material_grey_900;
+			global::CommonAndroidTools.Resource.Color.notification_action_color_filter = global::RadioLogisticaDeliveries.Resource.Color.notification_action_color_filter;
+			global::CommonAndroidTools.Resource.Color.notification_icon_bg_color = global::RadioLogisticaDeliveries.Resource.Color.notification_icon_bg_color;
+			global::CommonAndroidTools.Resource.Color.notification_material_background_media_default_color = global::RadioLogisticaDeliveries.Resource.Color.notification_material_background_media_default_color;
+			global::CommonAndroidTools.Resource.Color.primary_dark_material_dark = global::RadioLogisticaDeliveries.Resource.Color.primary_dark_material_dark;
+			global::CommonAndroidTools.Resource.Color.primary_dark_material_light = global::RadioLogisticaDeliveries.Resource.Color.primary_dark_material_light;
+			global::CommonAndroidTools.Resource.Color.primary_material_dark = global::RadioLogisticaDeliveries.Resource.Color.primary_material_dark;
+			global::CommonAndroidTools.Resource.Color.primary_material_light = global::RadioLogisticaDeliveries.Resource.Color.primary_material_light;
+			global::CommonAndroidTools.Resource.Color.primary_text_default_material_dark = global::RadioLogisticaDeliveries.Resource.Color.primary_text_default_material_dark;
+			global::CommonAndroidTools.Resource.Color.primary_text_default_material_light = global::RadioLogisticaDeliveries.Resource.Color.primary_text_default_material_light;
+			global::CommonAndroidTools.Resource.Color.primary_text_disabled_material_dark = global::RadioLogisticaDeliveries.Resource.Color.primary_text_disabled_material_dark;
+			global::CommonAndroidTools.Resource.Color.primary_text_disabled_material_light = global::RadioLogisticaDeliveries.Resource.Color.primary_text_disabled_material_light;
+			global::CommonAndroidTools.Resource.Color.ripple_material_dark = global::RadioLogisticaDeliveries.Resource.Color.ripple_material_dark;
+			global::CommonAndroidTools.Resource.Color.ripple_material_light = global::RadioLogisticaDeliveries.Resource.Color.ripple_material_light;
+			global::CommonAndroidTools.Resource.Color.secondary_text_default_material_dark = global::RadioLogisticaDeliveries.Resource.Color.secondary_text_default_material_dark;
+			global::CommonAndroidTools.Resource.Color.secondary_text_default_material_light = global::RadioLogisticaDeliveries.Resource.Color.secondary_text_default_material_light;
+			global::CommonAndroidTools.Resource.Color.secondary_text_disabled_material_dark = global::RadioLogisticaDeliveries.Resource.Color.secondary_text_disabled_material_dark;
+			global::CommonAndroidTools.Resource.Color.secondary_text_disabled_material_light = global::RadioLogisticaDeliveries.Resource.Color.secondary_text_disabled_material_light;
+			global::CommonAndroidTools.Resource.Color.switch_thumb_disabled_material_dark = global::RadioLogisticaDeliveries.Resource.Color.switch_thumb_disabled_material_dark;
+			global::CommonAndroidTools.Resource.Color.switch_thumb_disabled_material_light = global::RadioLogisticaDeliveries.Resource.Color.switch_thumb_disabled_material_light;
+			global::CommonAndroidTools.Resource.Color.switch_thumb_material_dark = global::RadioLogisticaDeliveries.Resource.Color.switch_thumb_material_dark;
+			global::CommonAndroidTools.Resource.Color.switch_thumb_material_light = global::RadioLogisticaDeliveries.Resource.Color.switch_thumb_material_light;
+			global::CommonAndroidTools.Resource.Color.switch_thumb_normal_material_dark = global::RadioLogisticaDeliveries.Resource.Color.switch_thumb_normal_material_dark;
+			global::CommonAndroidTools.Resource.Color.switch_thumb_normal_material_light = global::RadioLogisticaDeliveries.Resource.Color.switch_thumb_normal_material_light;
+			global::CommonAndroidTools.Resource.Color.tooltip_background_dark = global::RadioLogisticaDeliveries.Resource.Color.tooltip_background_dark;
+			global::CommonAndroidTools.Resource.Color.tooltip_background_light = global::RadioLogisticaDeliveries.Resource.Color.tooltip_background_light;
+			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_content_inset_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_action_bar_content_inset_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_content_inset_with_nav = global::RadioLogisticaDeliveries.Resource.Dimension.abc_action_bar_content_inset_with_nav;
+			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_default_height_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_action_bar_default_height_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_default_padding_end_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_action_bar_default_padding_end_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_default_padding_start_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_action_bar_default_padding_start_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_elevation_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_action_bar_elevation_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_icon_vertical_padding_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_action_bar_icon_vertical_padding_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_overflow_padding_end_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_action_bar_overflow_padding_end_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_overflow_padding_start_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_action_bar_overflow_padding_start_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_progress_bar_size = global::RadioLogisticaDeliveries.Resource.Dimension.abc_action_bar_progress_bar_size;
+			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_stacked_max_height = global::RadioLogisticaDeliveries.Resource.Dimension.abc_action_bar_stacked_max_height;
+			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_stacked_tab_max_width = global::RadioLogisticaDeliveries.Resource.Dimension.abc_action_bar_stacked_tab_max_width;
+			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_subtitle_bottom_margin_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_action_bar_subtitle_bottom_margin_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_subtitle_top_margin_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_action_bar_subtitle_top_margin_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_action_button_min_height_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_action_button_min_height_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_action_button_min_width_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_action_button_min_width_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_action_button_min_width_overflow_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_action_button_min_width_overflow_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_alert_dialog_button_bar_height = global::RadioLogisticaDeliveries.Resource.Dimension.abc_alert_dialog_button_bar_height;
+			global::CommonAndroidTools.Resource.Dimension.abc_button_inset_horizontal_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_button_inset_horizontal_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_button_inset_vertical_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_button_inset_vertical_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_button_padding_horizontal_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_button_padding_horizontal_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_button_padding_vertical_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_button_padding_vertical_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_cascading_menus_min_smallest_width = global::RadioLogisticaDeliveries.Resource.Dimension.abc_cascading_menus_min_smallest_width;
+			global::CommonAndroidTools.Resource.Dimension.abc_config_prefDialogWidth = global::RadioLogisticaDeliveries.Resource.Dimension.abc_config_prefDialogWidth;
+			global::CommonAndroidTools.Resource.Dimension.abc_control_corner_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_control_corner_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_control_inset_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_control_inset_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_control_padding_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_control_padding_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_dialog_fixed_height_major = global::RadioLogisticaDeliveries.Resource.Dimension.abc_dialog_fixed_height_major;
+			global::CommonAndroidTools.Resource.Dimension.abc_dialog_fixed_height_minor = global::RadioLogisticaDeliveries.Resource.Dimension.abc_dialog_fixed_height_minor;
+			global::CommonAndroidTools.Resource.Dimension.abc_dialog_fixed_width_major = global::RadioLogisticaDeliveries.Resource.Dimension.abc_dialog_fixed_width_major;
+			global::CommonAndroidTools.Resource.Dimension.abc_dialog_fixed_width_minor = global::RadioLogisticaDeliveries.Resource.Dimension.abc_dialog_fixed_width_minor;
+			global::CommonAndroidTools.Resource.Dimension.abc_dialog_list_padding_bottom_no_buttons = global::RadioLogisticaDeliveries.Resource.Dimension.abc_dialog_list_padding_bottom_no_buttons;
+			global::CommonAndroidTools.Resource.Dimension.abc_dialog_list_padding_top_no_title = global::RadioLogisticaDeliveries.Resource.Dimension.abc_dialog_list_padding_top_no_title;
+			global::CommonAndroidTools.Resource.Dimension.abc_dialog_min_width_major = global::RadioLogisticaDeliveries.Resource.Dimension.abc_dialog_min_width_major;
+			global::CommonAndroidTools.Resource.Dimension.abc_dialog_min_width_minor = global::RadioLogisticaDeliveries.Resource.Dimension.abc_dialog_min_width_minor;
+			global::CommonAndroidTools.Resource.Dimension.abc_dialog_padding_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_dialog_padding_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_dialog_padding_top_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_dialog_padding_top_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_dialog_title_divider_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_dialog_title_divider_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_disabled_alpha_material_dark = global::RadioLogisticaDeliveries.Resource.Dimension.abc_disabled_alpha_material_dark;
+			global::CommonAndroidTools.Resource.Dimension.abc_disabled_alpha_material_light = global::RadioLogisticaDeliveries.Resource.Dimension.abc_disabled_alpha_material_light;
+			global::CommonAndroidTools.Resource.Dimension.abc_dropdownitem_icon_width = global::RadioLogisticaDeliveries.Resource.Dimension.abc_dropdownitem_icon_width;
+			global::CommonAndroidTools.Resource.Dimension.abc_dropdownitem_text_padding_left = global::RadioLogisticaDeliveries.Resource.Dimension.abc_dropdownitem_text_padding_left;
+			global::CommonAndroidTools.Resource.Dimension.abc_dropdownitem_text_padding_right = global::RadioLogisticaDeliveries.Resource.Dimension.abc_dropdownitem_text_padding_right;
+			global::CommonAndroidTools.Resource.Dimension.abc_edit_text_inset_bottom_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_edit_text_inset_bottom_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_edit_text_inset_horizontal_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_edit_text_inset_horizontal_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_edit_text_inset_top_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_edit_text_inset_top_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_floating_window_z = global::RadioLogisticaDeliveries.Resource.Dimension.abc_floating_window_z;
+			global::CommonAndroidTools.Resource.Dimension.abc_list_item_padding_horizontal_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_list_item_padding_horizontal_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_panel_menu_list_width = global::RadioLogisticaDeliveries.Resource.Dimension.abc_panel_menu_list_width;
+			global::CommonAndroidTools.Resource.Dimension.abc_progress_bar_height_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_progress_bar_height_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_search_view_preferred_height = global::RadioLogisticaDeliveries.Resource.Dimension.abc_search_view_preferred_height;
+			global::CommonAndroidTools.Resource.Dimension.abc_search_view_preferred_width = global::RadioLogisticaDeliveries.Resource.Dimension.abc_search_view_preferred_width;
+			global::CommonAndroidTools.Resource.Dimension.abc_seekbar_track_background_height_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_seekbar_track_background_height_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_seekbar_track_progress_height_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_seekbar_track_progress_height_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_select_dialog_padding_start_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_select_dialog_padding_start_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_switch_padding = global::RadioLogisticaDeliveries.Resource.Dimension.abc_switch_padding;
+			global::CommonAndroidTools.Resource.Dimension.abc_text_size_body_1_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_text_size_body_1_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_text_size_body_2_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_text_size_body_2_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_text_size_button_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_text_size_button_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_text_size_caption_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_text_size_caption_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_text_size_display_1_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_text_size_display_1_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_text_size_display_2_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_text_size_display_2_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_text_size_display_3_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_text_size_display_3_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_text_size_display_4_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_text_size_display_4_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_text_size_headline_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_text_size_headline_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_text_size_large_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_text_size_large_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_text_size_medium_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_text_size_medium_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_text_size_menu_header_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_text_size_menu_header_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_text_size_menu_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_text_size_menu_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_text_size_small_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_text_size_small_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_text_size_subhead_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_text_size_subhead_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_text_size_subtitle_material_toolbar = global::RadioLogisticaDeliveries.Resource.Dimension.abc_text_size_subtitle_material_toolbar;
+			global::CommonAndroidTools.Resource.Dimension.abc_text_size_title_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_text_size_title_material;
+			global::CommonAndroidTools.Resource.Dimension.abc_text_size_title_material_toolbar = global::RadioLogisticaDeliveries.Resource.Dimension.abc_text_size_title_material_toolbar;
+			global::CommonAndroidTools.Resource.Dimension.compat_button_inset_horizontal_material = global::RadioLogisticaDeliveries.Resource.Dimension.compat_button_inset_horizontal_material;
+			global::CommonAndroidTools.Resource.Dimension.compat_button_inset_vertical_material = global::RadioLogisticaDeliveries.Resource.Dimension.compat_button_inset_vertical_material;
+			global::CommonAndroidTools.Resource.Dimension.compat_button_padding_horizontal_material = global::RadioLogisticaDeliveries.Resource.Dimension.compat_button_padding_horizontal_material;
+			global::CommonAndroidTools.Resource.Dimension.compat_button_padding_vertical_material = global::RadioLogisticaDeliveries.Resource.Dimension.compat_button_padding_vertical_material;
+			global::CommonAndroidTools.Resource.Dimension.compat_control_corner_material = global::RadioLogisticaDeliveries.Resource.Dimension.compat_control_corner_material;
+			global::CommonAndroidTools.Resource.Dimension.disabled_alpha_material_dark = global::RadioLogisticaDeliveries.Resource.Dimension.disabled_alpha_material_dark;
+			global::CommonAndroidTools.Resource.Dimension.disabled_alpha_material_light = global::RadioLogisticaDeliveries.Resource.Dimension.disabled_alpha_material_light;
+			global::CommonAndroidTools.Resource.Dimension.highlight_alpha_material_colored = global::RadioLogisticaDeliveries.Resource.Dimension.highlight_alpha_material_colored;
+			global::CommonAndroidTools.Resource.Dimension.highlight_alpha_material_dark = global::RadioLogisticaDeliveries.Resource.Dimension.highlight_alpha_material_dark;
+			global::CommonAndroidTools.Resource.Dimension.highlight_alpha_material_light = global::RadioLogisticaDeliveries.Resource.Dimension.highlight_alpha_material_light;
+			global::CommonAndroidTools.Resource.Dimension.hint_alpha_material_dark = global::RadioLogisticaDeliveries.Resource.Dimension.hint_alpha_material_dark;
+			global::CommonAndroidTools.Resource.Dimension.hint_alpha_material_light = global::RadioLogisticaDeliveries.Resource.Dimension.hint_alpha_material_light;
+			global::CommonAndroidTools.Resource.Dimension.hint_pressed_alpha_material_dark = global::RadioLogisticaDeliveries.Resource.Dimension.hint_pressed_alpha_material_dark;
+			global::CommonAndroidTools.Resource.Dimension.hint_pressed_alpha_material_light = global::RadioLogisticaDeliveries.Resource.Dimension.hint_pressed_alpha_material_light;
+			global::CommonAndroidTools.Resource.Dimension.notification_action_icon_size = global::RadioLogisticaDeliveries.Resource.Dimension.notification_action_icon_size;
+			global::CommonAndroidTools.Resource.Dimension.notification_action_text_size = global::RadioLogisticaDeliveries.Resource.Dimension.notification_action_text_size;
+			global::CommonAndroidTools.Resource.Dimension.notification_big_circle_margin = global::RadioLogisticaDeliveries.Resource.Dimension.notification_big_circle_margin;
+			global::CommonAndroidTools.Resource.Dimension.notification_content_margin_start = global::RadioLogisticaDeliveries.Resource.Dimension.notification_content_margin_start;
+			global::CommonAndroidTools.Resource.Dimension.notification_large_icon_height = global::RadioLogisticaDeliveries.Resource.Dimension.notification_large_icon_height;
+			global::CommonAndroidTools.Resource.Dimension.notification_large_icon_width = global::RadioLogisticaDeliveries.Resource.Dimension.notification_large_icon_width;
+			global::CommonAndroidTools.Resource.Dimension.notification_main_column_padding_top = global::RadioLogisticaDeliveries.Resource.Dimension.notification_main_column_padding_top;
+			global::CommonAndroidTools.Resource.Dimension.notification_media_narrow_margin = global::RadioLogisticaDeliveries.Resource.Dimension.notification_media_narrow_margin;
+			global::CommonAndroidTools.Resource.Dimension.notification_right_icon_size = global::RadioLogisticaDeliveries.Resource.Dimension.notification_right_icon_size;
+			global::CommonAndroidTools.Resource.Dimension.notification_right_side_padding_top = global::RadioLogisticaDeliveries.Resource.Dimension.notification_right_side_padding_top;
+			global::CommonAndroidTools.Resource.Dimension.notification_small_icon_background_padding = global::RadioLogisticaDeliveries.Resource.Dimension.notification_small_icon_background_padding;
+			global::CommonAndroidTools.Resource.Dimension.notification_small_icon_size_as_large = global::RadioLogisticaDeliveries.Resource.Dimension.notification_small_icon_size_as_large;
+			global::CommonAndroidTools.Resource.Dimension.notification_subtext_size = global::RadioLogisticaDeliveries.Resource.Dimension.notification_subtext_size;
+			global::CommonAndroidTools.Resource.Dimension.notification_top_pad = global::RadioLogisticaDeliveries.Resource.Dimension.notification_top_pad;
+			global::CommonAndroidTools.Resource.Dimension.notification_top_pad_large_text = global::RadioLogisticaDeliveries.Resource.Dimension.notification_top_pad_large_text;
+			global::CommonAndroidTools.Resource.Dimension.tooltip_corner_radius = global::RadioLogisticaDeliveries.Resource.Dimension.tooltip_corner_radius;
+			global::CommonAndroidTools.Resource.Dimension.tooltip_horizontal_padding = global::RadioLogisticaDeliveries.Resource.Dimension.tooltip_horizontal_padding;
+			global::CommonAndroidTools.Resource.Dimension.tooltip_margin = global::RadioLogisticaDeliveries.Resource.Dimension.tooltip_margin;
+			global::CommonAndroidTools.Resource.Dimension.tooltip_precise_anchor_extra_offset = global::RadioLogisticaDeliveries.Resource.Dimension.tooltip_precise_anchor_extra_offset;
+			global::CommonAndroidTools.Resource.Dimension.tooltip_precise_anchor_threshold = global::RadioLogisticaDeliveries.Resource.Dimension.tooltip_precise_anchor_threshold;
+			global::CommonAndroidTools.Resource.Dimension.tooltip_vertical_padding = global::RadioLogisticaDeliveries.Resource.Dimension.tooltip_vertical_padding;
+			global::CommonAndroidTools.Resource.Dimension.tooltip_y_offset_non_touch = global::RadioLogisticaDeliveries.Resource.Dimension.tooltip_y_offset_non_touch;
+			global::CommonAndroidTools.Resource.Dimension.tooltip_y_offset_touch = global::RadioLogisticaDeliveries.Resource.Dimension.tooltip_y_offset_touch;
+			global::CommonAndroidTools.Resource.Drawable.abc_ab_share_pack_mtrl_alpha = global::RadioLogisticaDeliveries.Resource.Drawable.abc_ab_share_pack_mtrl_alpha;
+			global::CommonAndroidTools.Resource.Drawable.abc_action_bar_item_background_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_action_bar_item_background_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_btn_borderless_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_btn_borderless_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_btn_check_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_btn_check_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_btn_check_to_on_mtrl_000 = global::RadioLogisticaDeliveries.Resource.Drawable.abc_btn_check_to_on_mtrl_000;
+			global::CommonAndroidTools.Resource.Drawable.abc_btn_check_to_on_mtrl_015 = global::RadioLogisticaDeliveries.Resource.Drawable.abc_btn_check_to_on_mtrl_015;
+			global::CommonAndroidTools.Resource.Drawable.abc_btn_colored_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_btn_colored_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_btn_default_mtrl_shape = global::RadioLogisticaDeliveries.Resource.Drawable.abc_btn_default_mtrl_shape;
+			global::CommonAndroidTools.Resource.Drawable.abc_btn_radio_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_btn_radio_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_btn_radio_to_on_mtrl_000 = global::RadioLogisticaDeliveries.Resource.Drawable.abc_btn_radio_to_on_mtrl_000;
+			global::CommonAndroidTools.Resource.Drawable.abc_btn_radio_to_on_mtrl_015 = global::RadioLogisticaDeliveries.Resource.Drawable.abc_btn_radio_to_on_mtrl_015;
+			global::CommonAndroidTools.Resource.Drawable.abc_btn_switch_to_on_mtrl_00001 = global::RadioLogisticaDeliveries.Resource.Drawable.abc_btn_switch_to_on_mtrl_00001;
+			global::CommonAndroidTools.Resource.Drawable.abc_btn_switch_to_on_mtrl_00012 = global::RadioLogisticaDeliveries.Resource.Drawable.abc_btn_switch_to_on_mtrl_00012;
+			global::CommonAndroidTools.Resource.Drawable.abc_cab_background_internal_bg = global::RadioLogisticaDeliveries.Resource.Drawable.abc_cab_background_internal_bg;
+			global::CommonAndroidTools.Resource.Drawable.abc_cab_background_top_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_cab_background_top_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_cab_background_top_mtrl_alpha = global::RadioLogisticaDeliveries.Resource.Drawable.abc_cab_background_top_mtrl_alpha;
+			global::CommonAndroidTools.Resource.Drawable.abc_control_background_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_control_background_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_dialog_material_background = global::RadioLogisticaDeliveries.Resource.Drawable.abc_dialog_material_background;
+			global::CommonAndroidTools.Resource.Drawable.abc_edit_text_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_edit_text_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_ic_ab_back_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_ic_ab_back_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_ic_arrow_drop_right_black_24dp = global::RadioLogisticaDeliveries.Resource.Drawable.abc_ic_arrow_drop_right_black_24dp;
+			global::CommonAndroidTools.Resource.Drawable.abc_ic_clear_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_ic_clear_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_ic_commit_search_api_mtrl_alpha = global::RadioLogisticaDeliveries.Resource.Drawable.abc_ic_commit_search_api_mtrl_alpha;
+			global::CommonAndroidTools.Resource.Drawable.abc_ic_go_search_api_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_ic_go_search_api_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_ic_menu_copy_mtrl_am_alpha = global::RadioLogisticaDeliveries.Resource.Drawable.abc_ic_menu_copy_mtrl_am_alpha;
+			global::CommonAndroidTools.Resource.Drawable.abc_ic_menu_cut_mtrl_alpha = global::RadioLogisticaDeliveries.Resource.Drawable.abc_ic_menu_cut_mtrl_alpha;
+			global::CommonAndroidTools.Resource.Drawable.abc_ic_menu_overflow_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_ic_menu_overflow_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_ic_menu_paste_mtrl_am_alpha = global::RadioLogisticaDeliveries.Resource.Drawable.abc_ic_menu_paste_mtrl_am_alpha;
+			global::CommonAndroidTools.Resource.Drawable.abc_ic_menu_selectall_mtrl_alpha = global::RadioLogisticaDeliveries.Resource.Drawable.abc_ic_menu_selectall_mtrl_alpha;
+			global::CommonAndroidTools.Resource.Drawable.abc_ic_menu_share_mtrl_alpha = global::RadioLogisticaDeliveries.Resource.Drawable.abc_ic_menu_share_mtrl_alpha;
+			global::CommonAndroidTools.Resource.Drawable.abc_ic_search_api_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_ic_search_api_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_ic_star_black_16dp = global::RadioLogisticaDeliveries.Resource.Drawable.abc_ic_star_black_16dp;
+			global::CommonAndroidTools.Resource.Drawable.abc_ic_star_black_36dp = global::RadioLogisticaDeliveries.Resource.Drawable.abc_ic_star_black_36dp;
+			global::CommonAndroidTools.Resource.Drawable.abc_ic_star_black_48dp = global::RadioLogisticaDeliveries.Resource.Drawable.abc_ic_star_black_48dp;
+			global::CommonAndroidTools.Resource.Drawable.abc_ic_star_half_black_16dp = global::RadioLogisticaDeliveries.Resource.Drawable.abc_ic_star_half_black_16dp;
+			global::CommonAndroidTools.Resource.Drawable.abc_ic_star_half_black_36dp = global::RadioLogisticaDeliveries.Resource.Drawable.abc_ic_star_half_black_36dp;
+			global::CommonAndroidTools.Resource.Drawable.abc_ic_star_half_black_48dp = global::RadioLogisticaDeliveries.Resource.Drawable.abc_ic_star_half_black_48dp;
+			global::CommonAndroidTools.Resource.Drawable.abc_ic_voice_search_api_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_ic_voice_search_api_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_item_background_holo_dark = global::RadioLogisticaDeliveries.Resource.Drawable.abc_item_background_holo_dark;
+			global::CommonAndroidTools.Resource.Drawable.abc_item_background_holo_light = global::RadioLogisticaDeliveries.Resource.Drawable.abc_item_background_holo_light;
+			global::CommonAndroidTools.Resource.Drawable.abc_list_divider_mtrl_alpha = global::RadioLogisticaDeliveries.Resource.Drawable.abc_list_divider_mtrl_alpha;
+			global::CommonAndroidTools.Resource.Drawable.abc_list_focused_holo = global::RadioLogisticaDeliveries.Resource.Drawable.abc_list_focused_holo;
+			global::CommonAndroidTools.Resource.Drawable.abc_list_longpressed_holo = global::RadioLogisticaDeliveries.Resource.Drawable.abc_list_longpressed_holo;
+			global::CommonAndroidTools.Resource.Drawable.abc_list_pressed_holo_dark = global::RadioLogisticaDeliveries.Resource.Drawable.abc_list_pressed_holo_dark;
+			global::CommonAndroidTools.Resource.Drawable.abc_list_pressed_holo_light = global::RadioLogisticaDeliveries.Resource.Drawable.abc_list_pressed_holo_light;
+			global::CommonAndroidTools.Resource.Drawable.abc_list_selector_background_transition_holo_dark = global::RadioLogisticaDeliveries.Resource.Drawable.abc_list_selector_background_transition_holo_dark;
+			global::CommonAndroidTools.Resource.Drawable.abc_list_selector_background_transition_holo_light = global::RadioLogisticaDeliveries.Resource.Drawable.abc_list_selector_background_transition_holo_light;
+			global::CommonAndroidTools.Resource.Drawable.abc_list_selector_disabled_holo_dark = global::RadioLogisticaDeliveries.Resource.Drawable.abc_list_selector_disabled_holo_dark;
+			global::CommonAndroidTools.Resource.Drawable.abc_list_selector_disabled_holo_light = global::RadioLogisticaDeliveries.Resource.Drawable.abc_list_selector_disabled_holo_light;
+			global::CommonAndroidTools.Resource.Drawable.abc_list_selector_holo_dark = global::RadioLogisticaDeliveries.Resource.Drawable.abc_list_selector_holo_dark;
+			global::CommonAndroidTools.Resource.Drawable.abc_list_selector_holo_light = global::RadioLogisticaDeliveries.Resource.Drawable.abc_list_selector_holo_light;
+			global::CommonAndroidTools.Resource.Drawable.abc_menu_hardkey_panel_mtrl_mult = global::RadioLogisticaDeliveries.Resource.Drawable.abc_menu_hardkey_panel_mtrl_mult;
+			global::CommonAndroidTools.Resource.Drawable.abc_popup_background_mtrl_mult = global::RadioLogisticaDeliveries.Resource.Drawable.abc_popup_background_mtrl_mult;
+			global::CommonAndroidTools.Resource.Drawable.abc_ratingbar_indicator_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_ratingbar_indicator_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_ratingbar_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_ratingbar_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_ratingbar_small_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_ratingbar_small_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_scrubber_control_off_mtrl_alpha = global::RadioLogisticaDeliveries.Resource.Drawable.abc_scrubber_control_off_mtrl_alpha;
+			global::CommonAndroidTools.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_000 = global::RadioLogisticaDeliveries.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_000;
+			global::CommonAndroidTools.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_005 = global::RadioLogisticaDeliveries.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_005;
+			global::CommonAndroidTools.Resource.Drawable.abc_scrubber_primary_mtrl_alpha = global::RadioLogisticaDeliveries.Resource.Drawable.abc_scrubber_primary_mtrl_alpha;
+			global::CommonAndroidTools.Resource.Drawable.abc_scrubber_track_mtrl_alpha = global::RadioLogisticaDeliveries.Resource.Drawable.abc_scrubber_track_mtrl_alpha;
+			global::CommonAndroidTools.Resource.Drawable.abc_seekbar_thumb_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_seekbar_thumb_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_seekbar_tick_mark_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_seekbar_tick_mark_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_seekbar_track_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_seekbar_track_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_spinner_mtrl_am_alpha = global::RadioLogisticaDeliveries.Resource.Drawable.abc_spinner_mtrl_am_alpha;
+			global::CommonAndroidTools.Resource.Drawable.abc_spinner_textfield_background_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_spinner_textfield_background_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_switch_thumb_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_switch_thumb_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_switch_track_mtrl_alpha = global::RadioLogisticaDeliveries.Resource.Drawable.abc_switch_track_mtrl_alpha;
+			global::CommonAndroidTools.Resource.Drawable.abc_tab_indicator_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_tab_indicator_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_tab_indicator_mtrl_alpha = global::RadioLogisticaDeliveries.Resource.Drawable.abc_tab_indicator_mtrl_alpha;
+			global::CommonAndroidTools.Resource.Drawable.abc_text_cursor_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_text_cursor_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_text_select_handle_left_mtrl_dark = global::RadioLogisticaDeliveries.Resource.Drawable.abc_text_select_handle_left_mtrl_dark;
+			global::CommonAndroidTools.Resource.Drawable.abc_text_select_handle_left_mtrl_light = global::RadioLogisticaDeliveries.Resource.Drawable.abc_text_select_handle_left_mtrl_light;
+			global::CommonAndroidTools.Resource.Drawable.abc_text_select_handle_middle_mtrl_dark = global::RadioLogisticaDeliveries.Resource.Drawable.abc_text_select_handle_middle_mtrl_dark;
+			global::CommonAndroidTools.Resource.Drawable.abc_text_select_handle_middle_mtrl_light = global::RadioLogisticaDeliveries.Resource.Drawable.abc_text_select_handle_middle_mtrl_light;
+			global::CommonAndroidTools.Resource.Drawable.abc_text_select_handle_right_mtrl_dark = global::RadioLogisticaDeliveries.Resource.Drawable.abc_text_select_handle_right_mtrl_dark;
+			global::CommonAndroidTools.Resource.Drawable.abc_text_select_handle_right_mtrl_light = global::RadioLogisticaDeliveries.Resource.Drawable.abc_text_select_handle_right_mtrl_light;
+			global::CommonAndroidTools.Resource.Drawable.abc_textfield_activated_mtrl_alpha = global::RadioLogisticaDeliveries.Resource.Drawable.abc_textfield_activated_mtrl_alpha;
+			global::CommonAndroidTools.Resource.Drawable.abc_textfield_default_mtrl_alpha = global::RadioLogisticaDeliveries.Resource.Drawable.abc_textfield_default_mtrl_alpha;
+			global::CommonAndroidTools.Resource.Drawable.abc_textfield_search_activated_mtrl_alpha = global::RadioLogisticaDeliveries.Resource.Drawable.abc_textfield_search_activated_mtrl_alpha;
+			global::CommonAndroidTools.Resource.Drawable.abc_textfield_search_default_mtrl_alpha = global::RadioLogisticaDeliveries.Resource.Drawable.abc_textfield_search_default_mtrl_alpha;
+			global::CommonAndroidTools.Resource.Drawable.abc_textfield_search_material = global::RadioLogisticaDeliveries.Resource.Drawable.abc_textfield_search_material;
+			global::CommonAndroidTools.Resource.Drawable.abc_vector_test = global::RadioLogisticaDeliveries.Resource.Drawable.abc_vector_test;
+			global::CommonAndroidTools.Resource.Drawable.notification_action_background = global::RadioLogisticaDeliveries.Resource.Drawable.notification_action_background;
+			global::CommonAndroidTools.Resource.Drawable.notification_bg = global::RadioLogisticaDeliveries.Resource.Drawable.notification_bg;
+			global::CommonAndroidTools.Resource.Drawable.notification_bg_low = global::RadioLogisticaDeliveries.Resource.Drawable.notification_bg_low;
+			global::CommonAndroidTools.Resource.Drawable.notification_bg_low_normal = global::RadioLogisticaDeliveries.Resource.Drawable.notification_bg_low_normal;
+			global::CommonAndroidTools.Resource.Drawable.notification_bg_low_pressed = global::RadioLogisticaDeliveries.Resource.Drawable.notification_bg_low_pressed;
+			global::CommonAndroidTools.Resource.Drawable.notification_bg_normal = global::RadioLogisticaDeliveries.Resource.Drawable.notification_bg_normal;
+			global::CommonAndroidTools.Resource.Drawable.notification_bg_normal_pressed = global::RadioLogisticaDeliveries.Resource.Drawable.notification_bg_normal_pressed;
+			global::CommonAndroidTools.Resource.Drawable.notification_icon_background = global::RadioLogisticaDeliveries.Resource.Drawable.notification_icon_background;
+			global::CommonAndroidTools.Resource.Drawable.notification_template_icon_bg = global::RadioLogisticaDeliveries.Resource.Drawable.notification_template_icon_bg;
+			global::CommonAndroidTools.Resource.Drawable.notification_template_icon_low_bg = global::RadioLogisticaDeliveries.Resource.Drawable.notification_template_icon_low_bg;
+			global::CommonAndroidTools.Resource.Drawable.notification_tile_bg = global::RadioLogisticaDeliveries.Resource.Drawable.notification_tile_bg;
+			global::CommonAndroidTools.Resource.Drawable.notify_panel_notification_icon_bg = global::RadioLogisticaDeliveries.Resource.Drawable.notify_panel_notification_icon_bg;
+			global::CommonAndroidTools.Resource.Drawable.tooltip_frame_dark = global::RadioLogisticaDeliveries.Resource.Drawable.tooltip_frame_dark;
+			global::CommonAndroidTools.Resource.Drawable.tooltip_frame_light = global::RadioLogisticaDeliveries.Resource.Drawable.tooltip_frame_light;
+			global::CommonAndroidTools.Resource.Id.ALT = global::RadioLogisticaDeliveries.Resource.Id.ALT;
+			global::CommonAndroidTools.Resource.Id.CTRL = global::RadioLogisticaDeliveries.Resource.Id.CTRL;
+			global::CommonAndroidTools.Resource.Id.FUNCTION = global::RadioLogisticaDeliveries.Resource.Id.FUNCTION;
+			global::CommonAndroidTools.Resource.Id.META = global::RadioLogisticaDeliveries.Resource.Id.META;
+			global::CommonAndroidTools.Resource.Id.SHIFT = global::RadioLogisticaDeliveries.Resource.Id.SHIFT;
+			global::CommonAndroidTools.Resource.Id.SYM = global::RadioLogisticaDeliveries.Resource.Id.SYM;
+			global::CommonAndroidTools.Resource.Id.action0 = global::RadioLogisticaDeliveries.Resource.Id.action0;
+			global::CommonAndroidTools.Resource.Id.action_bar = global::RadioLogisticaDeliveries.Resource.Id.action_bar;
+			global::CommonAndroidTools.Resource.Id.action_bar_activity_content = global::RadioLogisticaDeliveries.Resource.Id.action_bar_activity_content;
+			global::CommonAndroidTools.Resource.Id.action_bar_container = global::RadioLogisticaDeliveries.Resource.Id.action_bar_container;
+			global::CommonAndroidTools.Resource.Id.action_bar_root = global::RadioLogisticaDeliveries.Resource.Id.action_bar_root;
+			global::CommonAndroidTools.Resource.Id.action_bar_spinner = global::RadioLogisticaDeliveries.Resource.Id.action_bar_spinner;
+			global::CommonAndroidTools.Resource.Id.action_bar_subtitle = global::RadioLogisticaDeliveries.Resource.Id.action_bar_subtitle;
+			global::CommonAndroidTools.Resource.Id.action_bar_title = global::RadioLogisticaDeliveries.Resource.Id.action_bar_title;
+			global::CommonAndroidTools.Resource.Id.action_container = global::RadioLogisticaDeliveries.Resource.Id.action_container;
+			global::CommonAndroidTools.Resource.Id.action_context_bar = global::RadioLogisticaDeliveries.Resource.Id.action_context_bar;
+			global::CommonAndroidTools.Resource.Id.action_divider = global::RadioLogisticaDeliveries.Resource.Id.action_divider;
+			global::CommonAndroidTools.Resource.Id.action_image = global::RadioLogisticaDeliveries.Resource.Id.action_image;
+			global::CommonAndroidTools.Resource.Id.action_menu_divider = global::RadioLogisticaDeliveries.Resource.Id.action_menu_divider;
+			global::CommonAndroidTools.Resource.Id.action_menu_presenter = global::RadioLogisticaDeliveries.Resource.Id.action_menu_presenter;
+			global::CommonAndroidTools.Resource.Id.action_mode_bar = global::RadioLogisticaDeliveries.Resource.Id.action_mode_bar;
+			global::CommonAndroidTools.Resource.Id.action_mode_bar_stub = global::RadioLogisticaDeliveries.Resource.Id.action_mode_bar_stub;
+			global::CommonAndroidTools.Resource.Id.action_mode_close_button = global::RadioLogisticaDeliveries.Resource.Id.action_mode_close_button;
+			global::CommonAndroidTools.Resource.Id.action_text = global::RadioLogisticaDeliveries.Resource.Id.action_text;
+			global::CommonAndroidTools.Resource.Id.actions = global::RadioLogisticaDeliveries.Resource.Id.actions;
+			global::CommonAndroidTools.Resource.Id.activity_chooser_view_content = global::RadioLogisticaDeliveries.Resource.Id.activity_chooser_view_content;
+			global::CommonAndroidTools.Resource.Id.add = global::RadioLogisticaDeliveries.Resource.Id.add;
+			global::CommonAndroidTools.Resource.Id.alertTitle = global::RadioLogisticaDeliveries.Resource.Id.alertTitle;
+			global::CommonAndroidTools.Resource.Id.always = global::RadioLogisticaDeliveries.Resource.Id.always;
+			global::CommonAndroidTools.Resource.Id.async = global::RadioLogisticaDeliveries.Resource.Id.async;
+			global::CommonAndroidTools.Resource.Id.beginning = global::RadioLogisticaDeliveries.Resource.Id.beginning;
+			global::CommonAndroidTools.Resource.Id.blocking = global::RadioLogisticaDeliveries.Resource.Id.blocking;
+			global::CommonAndroidTools.Resource.Id.bottom = global::RadioLogisticaDeliveries.Resource.Id.bottom;
+			global::CommonAndroidTools.Resource.Id.buttonPanel = global::RadioLogisticaDeliveries.Resource.Id.buttonPanel;
+			global::CommonAndroidTools.Resource.Id.cancel_action = global::RadioLogisticaDeliveries.Resource.Id.cancel_action;
+			global::CommonAndroidTools.Resource.Id.checkbox = global::RadioLogisticaDeliveries.Resource.Id.checkbox;
+			global::CommonAndroidTools.Resource.Id.chronometer = global::RadioLogisticaDeliveries.Resource.Id.chronometer;
+			global::CommonAndroidTools.Resource.Id.collapseActionView = global::RadioLogisticaDeliveries.Resource.Id.collapseActionView;
+			global::CommonAndroidTools.Resource.Id.contentPanel = global::RadioLogisticaDeliveries.Resource.Id.contentPanel;
+			global::CommonAndroidTools.Resource.Id.custom = global::RadioLogisticaDeliveries.Resource.Id.custom;
+			global::CommonAndroidTools.Resource.Id.customPanel = global::RadioLogisticaDeliveries.Resource.Id.customPanel;
+			global::CommonAndroidTools.Resource.Id.decor_content_parent = global::RadioLogisticaDeliveries.Resource.Id.decor_content_parent;
+			global::CommonAndroidTools.Resource.Id.default_activity_button = global::RadioLogisticaDeliveries.Resource.Id.default_activity_button;
+			global::CommonAndroidTools.Resource.Id.disableHome = global::RadioLogisticaDeliveries.Resource.Id.disableHome;
+			global::CommonAndroidTools.Resource.Id.edit_query = global::RadioLogisticaDeliveries.Resource.Id.edit_query;
+			global::CommonAndroidTools.Resource.Id.end = global::RadioLogisticaDeliveries.Resource.Id.end;
+			global::CommonAndroidTools.Resource.Id.end_padder = global::RadioLogisticaDeliveries.Resource.Id.end_padder;
+			global::CommonAndroidTools.Resource.Id.expand_activities_button = global::RadioLogisticaDeliveries.Resource.Id.expand_activities_button;
+			global::CommonAndroidTools.Resource.Id.expanded_menu = global::RadioLogisticaDeliveries.Resource.Id.expanded_menu;
+			global::CommonAndroidTools.Resource.Id.forever = global::RadioLogisticaDeliveries.Resource.Id.forever;
+			global::CommonAndroidTools.Resource.Id.home = global::RadioLogisticaDeliveries.Resource.Id.home;
+			global::CommonAndroidTools.Resource.Id.homeAsUp = global::RadioLogisticaDeliveries.Resource.Id.homeAsUp;
+			global::CommonAndroidTools.Resource.Id.icon = global::RadioLogisticaDeliveries.Resource.Id.icon;
+			global::CommonAndroidTools.Resource.Id.icon_group = global::RadioLogisticaDeliveries.Resource.Id.icon_group;
+			global::CommonAndroidTools.Resource.Id.ifRoom = global::RadioLogisticaDeliveries.Resource.Id.ifRoom;
+			global::CommonAndroidTools.Resource.Id.image = global::RadioLogisticaDeliveries.Resource.Id.image;
+			global::CommonAndroidTools.Resource.Id.info = global::RadioLogisticaDeliveries.Resource.Id.info;
+			global::CommonAndroidTools.Resource.Id.italic = global::RadioLogisticaDeliveries.Resource.Id.italic;
+			global::CommonAndroidTools.Resource.Id.line1 = global::RadioLogisticaDeliveries.Resource.Id.line1;
+			global::CommonAndroidTools.Resource.Id.line3 = global::RadioLogisticaDeliveries.Resource.Id.line3;
+			global::CommonAndroidTools.Resource.Id.listMode = global::RadioLogisticaDeliveries.Resource.Id.listMode;
+			global::CommonAndroidTools.Resource.Id.list_item = global::RadioLogisticaDeliveries.Resource.Id.list_item;
+			global::CommonAndroidTools.Resource.Id.media_actions = global::RadioLogisticaDeliveries.Resource.Id.media_actions;
+			global::CommonAndroidTools.Resource.Id.message = global::RadioLogisticaDeliveries.Resource.Id.message;
+			global::CommonAndroidTools.Resource.Id.middle = global::RadioLogisticaDeliveries.Resource.Id.middle;
+			global::CommonAndroidTools.Resource.Id.multiply = global::RadioLogisticaDeliveries.Resource.Id.multiply;
+			global::CommonAndroidTools.Resource.Id.never = global::RadioLogisticaDeliveries.Resource.Id.never;
+			global::CommonAndroidTools.Resource.Id.none = global::RadioLogisticaDeliveries.Resource.Id.none;
+			global::CommonAndroidTools.Resource.Id.normal = global::RadioLogisticaDeliveries.Resource.Id.normal;
+			global::CommonAndroidTools.Resource.Id.notification_background = global::RadioLogisticaDeliveries.Resource.Id.notification_background;
+			global::CommonAndroidTools.Resource.Id.notification_main_column = global::RadioLogisticaDeliveries.Resource.Id.notification_main_column;
+			global::CommonAndroidTools.Resource.Id.notification_main_column_container = global::RadioLogisticaDeliveries.Resource.Id.notification_main_column_container;
+			global::CommonAndroidTools.Resource.Id.parentPanel = global::RadioLogisticaDeliveries.Resource.Id.parentPanel;
+			global::CommonAndroidTools.Resource.Id.progress_circular = global::RadioLogisticaDeliveries.Resource.Id.progress_circular;
+			global::CommonAndroidTools.Resource.Id.progress_horizontal = global::RadioLogisticaDeliveries.Resource.Id.progress_horizontal;
+			global::CommonAndroidTools.Resource.Id.radio = global::RadioLogisticaDeliveries.Resource.Id.radio;
+			global::CommonAndroidTools.Resource.Id.right_icon = global::RadioLogisticaDeliveries.Resource.Id.right_icon;
+			global::CommonAndroidTools.Resource.Id.right_side = global::RadioLogisticaDeliveries.Resource.Id.right_side;
+			global::CommonAndroidTools.Resource.Id.screen = global::RadioLogisticaDeliveries.Resource.Id.screen;
+			global::CommonAndroidTools.Resource.Id.scrollIndicatorDown = global::RadioLogisticaDeliveries.Resource.Id.scrollIndicatorDown;
+			global::CommonAndroidTools.Resource.Id.scrollIndicatorUp = global::RadioLogisticaDeliveries.Resource.Id.scrollIndicatorUp;
+			global::CommonAndroidTools.Resource.Id.scrollView = global::RadioLogisticaDeliveries.Resource.Id.scrollView;
+			global::CommonAndroidTools.Resource.Id.search_badge = global::RadioLogisticaDeliveries.Resource.Id.search_badge;
+			global::CommonAndroidTools.Resource.Id.search_bar = global::RadioLogisticaDeliveries.Resource.Id.search_bar;
+			global::CommonAndroidTools.Resource.Id.search_button = global::RadioLogisticaDeliveries.Resource.Id.search_button;
+			global::CommonAndroidTools.Resource.Id.search_close_btn = global::RadioLogisticaDeliveries.Resource.Id.search_close_btn;
+			global::CommonAndroidTools.Resource.Id.search_edit_frame = global::RadioLogisticaDeliveries.Resource.Id.search_edit_frame;
+			global::CommonAndroidTools.Resource.Id.search_go_btn = global::RadioLogisticaDeliveries.Resource.Id.search_go_btn;
+			global::CommonAndroidTools.Resource.Id.search_mag_icon = global::RadioLogisticaDeliveries.Resource.Id.search_mag_icon;
+			global::CommonAndroidTools.Resource.Id.search_plate = global::RadioLogisticaDeliveries.Resource.Id.search_plate;
+			global::CommonAndroidTools.Resource.Id.search_src_text = global::RadioLogisticaDeliveries.Resource.Id.search_src_text;
+			global::CommonAndroidTools.Resource.Id.search_voice_btn = global::RadioLogisticaDeliveries.Resource.Id.search_voice_btn;
+			global::CommonAndroidTools.Resource.Id.select_dialog_listview = global::RadioLogisticaDeliveries.Resource.Id.select_dialog_listview;
+			global::CommonAndroidTools.Resource.Id.shortcut = global::RadioLogisticaDeliveries.Resource.Id.shortcut;
+			global::CommonAndroidTools.Resource.Id.showCustom = global::RadioLogisticaDeliveries.Resource.Id.showCustom;
+			global::CommonAndroidTools.Resource.Id.showHome = global::RadioLogisticaDeliveries.Resource.Id.showHome;
+			global::CommonAndroidTools.Resource.Id.showTitle = global::RadioLogisticaDeliveries.Resource.Id.showTitle;
+			global::CommonAndroidTools.Resource.Id.spacer = global::RadioLogisticaDeliveries.Resource.Id.spacer;
+			global::CommonAndroidTools.Resource.Id.split_action_bar = global::RadioLogisticaDeliveries.Resource.Id.split_action_bar;
+			global::CommonAndroidTools.Resource.Id.src_atop = global::RadioLogisticaDeliveries.Resource.Id.src_atop;
+			global::CommonAndroidTools.Resource.Id.src_in = global::RadioLogisticaDeliveries.Resource.Id.src_in;
+			global::CommonAndroidTools.Resource.Id.src_over = global::RadioLogisticaDeliveries.Resource.Id.src_over;
+			global::CommonAndroidTools.Resource.Id.status_bar_latest_event_content = global::RadioLogisticaDeliveries.Resource.Id.status_bar_latest_event_content;
+			global::CommonAndroidTools.Resource.Id.submenuarrow = global::RadioLogisticaDeliveries.Resource.Id.submenuarrow;
+			global::CommonAndroidTools.Resource.Id.submit_area = global::RadioLogisticaDeliveries.Resource.Id.submit_area;
+			global::CommonAndroidTools.Resource.Id.tabMode = global::RadioLogisticaDeliveries.Resource.Id.tabMode;
+			global::CommonAndroidTools.Resource.Id.tag_transition_group = global::RadioLogisticaDeliveries.Resource.Id.tag_transition_group;
+			global::CommonAndroidTools.Resource.Id.text = global::RadioLogisticaDeliveries.Resource.Id.text;
+			global::CommonAndroidTools.Resource.Id.text2 = global::RadioLogisticaDeliveries.Resource.Id.text2;
+			global::CommonAndroidTools.Resource.Id.textSpacerNoButtons = global::RadioLogisticaDeliveries.Resource.Id.textSpacerNoButtons;
+			global::CommonAndroidTools.Resource.Id.textSpacerNoTitle = global::RadioLogisticaDeliveries.Resource.Id.textSpacerNoTitle;
+			global::CommonAndroidTools.Resource.Id.time = global::RadioLogisticaDeliveries.Resource.Id.time;
+			global::CommonAndroidTools.Resource.Id.title = global::RadioLogisticaDeliveries.Resource.Id.title;
+			global::CommonAndroidTools.Resource.Id.titleDividerNoCustom = global::RadioLogisticaDeliveries.Resource.Id.titleDividerNoCustom;
+			global::CommonAndroidTools.Resource.Id.title_template = global::RadioLogisticaDeliveries.Resource.Id.title_template;
+			global::CommonAndroidTools.Resource.Id.top = global::RadioLogisticaDeliveries.Resource.Id.top;
+			global::CommonAndroidTools.Resource.Id.topPanel = global::RadioLogisticaDeliveries.Resource.Id.topPanel;
+			global::CommonAndroidTools.Resource.Id.uniform = global::RadioLogisticaDeliveries.Resource.Id.uniform;
+			global::CommonAndroidTools.Resource.Id.up = global::RadioLogisticaDeliveries.Resource.Id.up;
+			global::CommonAndroidTools.Resource.Id.useLogo = global::RadioLogisticaDeliveries.Resource.Id.useLogo;
+			global::CommonAndroidTools.Resource.Id.withText = global::RadioLogisticaDeliveries.Resource.Id.withText;
+			global::CommonAndroidTools.Resource.Id.wrap_content = global::RadioLogisticaDeliveries.Resource.Id.wrap_content;
+			global::CommonAndroidTools.Resource.Integer.abc_config_activityDefaultDur = global::RadioLogisticaDeliveries.Resource.Integer.abc_config_activityDefaultDur;
+			global::CommonAndroidTools.Resource.Integer.abc_config_activityShortDur = global::RadioLogisticaDeliveries.Resource.Integer.abc_config_activityShortDur;
+			global::CommonAndroidTools.Resource.Integer.cancel_button_image_alpha = global::RadioLogisticaDeliveries.Resource.Integer.cancel_button_image_alpha;
+			global::CommonAndroidTools.Resource.Integer.config_tooltipAnimTime = global::RadioLogisticaDeliveries.Resource.Integer.config_tooltipAnimTime;
+			global::CommonAndroidTools.Resource.Integer.status_bar_notification_info_maxnum = global::RadioLogisticaDeliveries.Resource.Integer.status_bar_notification_info_maxnum;
+			global::CommonAndroidTools.Resource.Layout.abc_action_bar_title_item = global::RadioLogisticaDeliveries.Resource.Layout.abc_action_bar_title_item;
+			global::CommonAndroidTools.Resource.Layout.abc_action_bar_up_container = global::RadioLogisticaDeliveries.Resource.Layout.abc_action_bar_up_container;
+			global::CommonAndroidTools.Resource.Layout.abc_action_menu_item_layout = global::RadioLogisticaDeliveries.Resource.Layout.abc_action_menu_item_layout;
+			global::CommonAndroidTools.Resource.Layout.abc_action_menu_layout = global::RadioLogisticaDeliveries.Resource.Layout.abc_action_menu_layout;
+			global::CommonAndroidTools.Resource.Layout.abc_action_mode_bar = global::RadioLogisticaDeliveries.Resource.Layout.abc_action_mode_bar;
+			global::CommonAndroidTools.Resource.Layout.abc_action_mode_close_item_material = global::RadioLogisticaDeliveries.Resource.Layout.abc_action_mode_close_item_material;
+			global::CommonAndroidTools.Resource.Layout.abc_activity_chooser_view = global::RadioLogisticaDeliveries.Resource.Layout.abc_activity_chooser_view;
+			global::CommonAndroidTools.Resource.Layout.abc_activity_chooser_view_list_item = global::RadioLogisticaDeliveries.Resource.Layout.abc_activity_chooser_view_list_item;
+			global::CommonAndroidTools.Resource.Layout.abc_alert_dialog_button_bar_material = global::RadioLogisticaDeliveries.Resource.Layout.abc_alert_dialog_button_bar_material;
+			global::CommonAndroidTools.Resource.Layout.abc_alert_dialog_material = global::RadioLogisticaDeliveries.Resource.Layout.abc_alert_dialog_material;
+			global::CommonAndroidTools.Resource.Layout.abc_alert_dialog_title_material = global::RadioLogisticaDeliveries.Resource.Layout.abc_alert_dialog_title_material;
+			global::CommonAndroidTools.Resource.Layout.abc_dialog_title_material = global::RadioLogisticaDeliveries.Resource.Layout.abc_dialog_title_material;
+			global::CommonAndroidTools.Resource.Layout.abc_expanded_menu_layout = global::RadioLogisticaDeliveries.Resource.Layout.abc_expanded_menu_layout;
+			global::CommonAndroidTools.Resource.Layout.abc_list_menu_item_checkbox = global::RadioLogisticaDeliveries.Resource.Layout.abc_list_menu_item_checkbox;
+			global::CommonAndroidTools.Resource.Layout.abc_list_menu_item_icon = global::RadioLogisticaDeliveries.Resource.Layout.abc_list_menu_item_icon;
+			global::CommonAndroidTools.Resource.Layout.abc_list_menu_item_layout = global::RadioLogisticaDeliveries.Resource.Layout.abc_list_menu_item_layout;
+			global::CommonAndroidTools.Resource.Layout.abc_list_menu_item_radio = global::RadioLogisticaDeliveries.Resource.Layout.abc_list_menu_item_radio;
+			global::CommonAndroidTools.Resource.Layout.abc_popup_menu_header_item_layout = global::RadioLogisticaDeliveries.Resource.Layout.abc_popup_menu_header_item_layout;
+			global::CommonAndroidTools.Resource.Layout.abc_popup_menu_item_layout = global::RadioLogisticaDeliveries.Resource.Layout.abc_popup_menu_item_layout;
+			global::CommonAndroidTools.Resource.Layout.abc_screen_content_include = global::RadioLogisticaDeliveries.Resource.Layout.abc_screen_content_include;
+			global::CommonAndroidTools.Resource.Layout.abc_screen_simple = global::RadioLogisticaDeliveries.Resource.Layout.abc_screen_simple;
+			global::CommonAndroidTools.Resource.Layout.abc_screen_simple_overlay_action_mode = global::RadioLogisticaDeliveries.Resource.Layout.abc_screen_simple_overlay_action_mode;
+			global::CommonAndroidTools.Resource.Layout.abc_screen_toolbar = global::RadioLogisticaDeliveries.Resource.Layout.abc_screen_toolbar;
+			global::CommonAndroidTools.Resource.Layout.abc_search_dropdown_item_icons_2line = global::RadioLogisticaDeliveries.Resource.Layout.abc_search_dropdown_item_icons_2line;
+			global::CommonAndroidTools.Resource.Layout.abc_search_view = global::RadioLogisticaDeliveries.Resource.Layout.abc_search_view;
+			global::CommonAndroidTools.Resource.Layout.abc_select_dialog_material = global::RadioLogisticaDeliveries.Resource.Layout.abc_select_dialog_material;
+			global::CommonAndroidTools.Resource.Layout.notification_action = global::RadioLogisticaDeliveries.Resource.Layout.notification_action;
+			global::CommonAndroidTools.Resource.Layout.notification_action_tombstone = global::RadioLogisticaDeliveries.Resource.Layout.notification_action_tombstone;
+			global::CommonAndroidTools.Resource.Layout.notification_media_action = global::RadioLogisticaDeliveries.Resource.Layout.notification_media_action;
+			global::CommonAndroidTools.Resource.Layout.notification_media_cancel_action = global::RadioLogisticaDeliveries.Resource.Layout.notification_media_cancel_action;
+			global::CommonAndroidTools.Resource.Layout.notification_template_big_media = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_big_media;
+			global::CommonAndroidTools.Resource.Layout.notification_template_big_media_custom = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_big_media_custom;
+			global::CommonAndroidTools.Resource.Layout.notification_template_big_media_narrow = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_big_media_narrow;
+			global::CommonAndroidTools.Resource.Layout.notification_template_big_media_narrow_custom = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_big_media_narrow_custom;
+			global::CommonAndroidTools.Resource.Layout.notification_template_custom_big = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_custom_big;
+			global::CommonAndroidTools.Resource.Layout.notification_template_icon_group = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_icon_group;
+			global::CommonAndroidTools.Resource.Layout.notification_template_lines_media = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_lines_media;
+			global::CommonAndroidTools.Resource.Layout.notification_template_media = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_media;
+			global::CommonAndroidTools.Resource.Layout.notification_template_media_custom = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_media_custom;
+			global::CommonAndroidTools.Resource.Layout.notification_template_part_chronometer = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_part_chronometer;
+			global::CommonAndroidTools.Resource.Layout.notification_template_part_time = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_part_time;
+			global::CommonAndroidTools.Resource.Layout.select_dialog_item_material = global::RadioLogisticaDeliveries.Resource.Layout.select_dialog_item_material;
+			global::CommonAndroidTools.Resource.Layout.select_dialog_multichoice_material = global::RadioLogisticaDeliveries.Resource.Layout.select_dialog_multichoice_material;
+			global::CommonAndroidTools.Resource.Layout.select_dialog_singlechoice_material = global::RadioLogisticaDeliveries.Resource.Layout.select_dialog_singlechoice_material;
+			global::CommonAndroidTools.Resource.Layout.support_simple_spinner_dropdown_item = global::RadioLogisticaDeliveries.Resource.Layout.support_simple_spinner_dropdown_item;
+			global::CommonAndroidTools.Resource.Layout.tooltip = global::RadioLogisticaDeliveries.Resource.Layout.tooltip;
 			global::CommonAndroidTools.Resource.Raw.Antares = global::RadioLogisticaDeliveries.Resource.Raw.Antares;
 			global::CommonAndroidTools.Resource.Raw.decodeshort = global::RadioLogisticaDeliveries.Resource.Raw.decodeshort;
 			global::CommonAndroidTools.Resource.Raw.Gallium = global::RadioLogisticaDeliveries.Resource.Raw.Gallium;
 			global::CommonAndroidTools.Resource.Raw.TaDa = global::RadioLogisticaDeliveries.Resource.Raw.TaDa;
 			global::CommonAndroidTools.Resource.Raw.Tejat = global::RadioLogisticaDeliveries.Resource.Raw.Tejat;
-			global::CommonAndroidTools.Resource.String.ApplicationName = global::RadioLogisticaDeliveries.Resource.String.ApplicationName;
-			global::CommonAndroidTools.Resource.String.Hello = global::RadioLogisticaDeliveries.Resource.String.Hello;
+			global::CommonAndroidTools.Resource.String.abc_action_bar_home_description = global::RadioLogisticaDeliveries.Resource.String.abc_action_bar_home_description;
+			global::CommonAndroidTools.Resource.String.abc_action_bar_up_description = global::RadioLogisticaDeliveries.Resource.String.abc_action_bar_up_description;
+			global::CommonAndroidTools.Resource.String.abc_action_menu_overflow_description = global::RadioLogisticaDeliveries.Resource.String.abc_action_menu_overflow_description;
+			global::CommonAndroidTools.Resource.String.abc_action_mode_done = global::RadioLogisticaDeliveries.Resource.String.abc_action_mode_done;
+			global::CommonAndroidTools.Resource.String.abc_activity_chooser_view_see_all = global::RadioLogisticaDeliveries.Resource.String.abc_activity_chooser_view_see_all;
+			global::CommonAndroidTools.Resource.String.abc_activitychooserview_choose_application = global::RadioLogisticaDeliveries.Resource.String.abc_activitychooserview_choose_application;
+			global::CommonAndroidTools.Resource.String.abc_capital_off = global::RadioLogisticaDeliveries.Resource.String.abc_capital_off;
+			global::CommonAndroidTools.Resource.String.abc_capital_on = global::RadioLogisticaDeliveries.Resource.String.abc_capital_on;
+			global::CommonAndroidTools.Resource.String.abc_font_family_body_1_material = global::RadioLogisticaDeliveries.Resource.String.abc_font_family_body_1_material;
+			global::CommonAndroidTools.Resource.String.abc_font_family_body_2_material = global::RadioLogisticaDeliveries.Resource.String.abc_font_family_body_2_material;
+			global::CommonAndroidTools.Resource.String.abc_font_family_button_material = global::RadioLogisticaDeliveries.Resource.String.abc_font_family_button_material;
+			global::CommonAndroidTools.Resource.String.abc_font_family_caption_material = global::RadioLogisticaDeliveries.Resource.String.abc_font_family_caption_material;
+			global::CommonAndroidTools.Resource.String.abc_font_family_display_1_material = global::RadioLogisticaDeliveries.Resource.String.abc_font_family_display_1_material;
+			global::CommonAndroidTools.Resource.String.abc_font_family_display_2_material = global::RadioLogisticaDeliveries.Resource.String.abc_font_family_display_2_material;
+			global::CommonAndroidTools.Resource.String.abc_font_family_display_3_material = global::RadioLogisticaDeliveries.Resource.String.abc_font_family_display_3_material;
+			global::CommonAndroidTools.Resource.String.abc_font_family_display_4_material = global::RadioLogisticaDeliveries.Resource.String.abc_font_family_display_4_material;
+			global::CommonAndroidTools.Resource.String.abc_font_family_headline_material = global::RadioLogisticaDeliveries.Resource.String.abc_font_family_headline_material;
+			global::CommonAndroidTools.Resource.String.abc_font_family_menu_material = global::RadioLogisticaDeliveries.Resource.String.abc_font_family_menu_material;
+			global::CommonAndroidTools.Resource.String.abc_font_family_subhead_material = global::RadioLogisticaDeliveries.Resource.String.abc_font_family_subhead_material;
+			global::CommonAndroidTools.Resource.String.abc_font_family_title_material = global::RadioLogisticaDeliveries.Resource.String.abc_font_family_title_material;
+			global::CommonAndroidTools.Resource.String.abc_search_hint = global::RadioLogisticaDeliveries.Resource.String.abc_search_hint;
+			global::CommonAndroidTools.Resource.String.abc_searchview_description_clear = global::RadioLogisticaDeliveries.Resource.String.abc_searchview_description_clear;
+			global::CommonAndroidTools.Resource.String.abc_searchview_description_query = global::RadioLogisticaDeliveries.Resource.String.abc_searchview_description_query;
+			global::CommonAndroidTools.Resource.String.abc_searchview_description_search = global::RadioLogisticaDeliveries.Resource.String.abc_searchview_description_search;
+			global::CommonAndroidTools.Resource.String.abc_searchview_description_submit = global::RadioLogisticaDeliveries.Resource.String.abc_searchview_description_submit;
+			global::CommonAndroidTools.Resource.String.abc_searchview_description_voice = global::RadioLogisticaDeliveries.Resource.String.abc_searchview_description_voice;
+			global::CommonAndroidTools.Resource.String.abc_shareactionprovider_share_with = global::RadioLogisticaDeliveries.Resource.String.abc_shareactionprovider_share_with;
+			global::CommonAndroidTools.Resource.String.abc_shareactionprovider_share_with_application = global::RadioLogisticaDeliveries.Resource.String.abc_shareactionprovider_share_with_application;
+			global::CommonAndroidTools.Resource.String.abc_toolbar_collapse_description = global::RadioLogisticaDeliveries.Resource.String.abc_toolbar_collapse_description;
+			global::CommonAndroidTools.Resource.String.app_name = global::RadioLogisticaDeliveries.Resource.String.app_name;
+			global::CommonAndroidTools.Resource.String.hello = global::RadioLogisticaDeliveries.Resource.String.hello;
+			global::CommonAndroidTools.Resource.String.search_menu_title = global::RadioLogisticaDeliveries.Resource.String.search_menu_title;
+			global::CommonAndroidTools.Resource.String.status_bar_notification_info_overflow = global::RadioLogisticaDeliveries.Resource.String.status_bar_notification_info_overflow;
+			global::CommonAndroidTools.Resource.Style.AlertDialog_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.AlertDialog_AppCompat;
+			global::CommonAndroidTools.Resource.Style.AlertDialog_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.AlertDialog_AppCompat_Light;
+			global::CommonAndroidTools.Resource.Style.Animation_AppCompat_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Animation_AppCompat_Dialog;
+			global::CommonAndroidTools.Resource.Style.Animation_AppCompat_DropDownUp = global::RadioLogisticaDeliveries.Resource.Style.Animation_AppCompat_DropDownUp;
+			global::CommonAndroidTools.Resource.Style.Animation_AppCompat_Tooltip = global::RadioLogisticaDeliveries.Resource.Style.Animation_AppCompat_Tooltip;
+			global::CommonAndroidTools.Resource.Style.Base_AlertDialog_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Base_AlertDialog_AppCompat;
+			global::CommonAndroidTools.Resource.Style.Base_AlertDialog_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Base_AlertDialog_AppCompat_Light;
+			global::CommonAndroidTools.Resource.Style.Base_Animation_AppCompat_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Base_Animation_AppCompat_Dialog;
+			global::CommonAndroidTools.Resource.Style.Base_Animation_AppCompat_DropDownUp = global::RadioLogisticaDeliveries.Resource.Style.Base_Animation_AppCompat_DropDownUp;
+			global::CommonAndroidTools.Resource.Style.Base_Animation_AppCompat_Tooltip = global::RadioLogisticaDeliveries.Resource.Style.Base_Animation_AppCompat_Tooltip;
+			global::CommonAndroidTools.Resource.Style.Base_DialogWindowTitle_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Base_DialogWindowTitle_AppCompat;
+			global::CommonAndroidTools.Resource.Style.Base_DialogWindowTitleBackground_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Base_DialogWindowTitleBackground_AppCompat;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Body1 = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Body1;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Body2 = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Body2;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Button = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Button;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Caption = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Caption;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Display1 = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Display1;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Display2 = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Display2;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Display3 = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Display3;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Display4 = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Display4;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Headline = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Headline;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Inverse = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Inverse;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Large = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Large;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Large_Inverse = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Large_Inverse;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Medium = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Medium;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Medium_Inverse = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Medium_Inverse;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Menu = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Menu;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_SearchResult = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_SearchResult;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Subtitle = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Subtitle;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Title = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Title;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Small = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Small;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Small_Inverse = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Small_Inverse;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Subhead = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Subhead;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Subhead_Inverse = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Subhead_Inverse;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Title = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Title;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Title_Inverse = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Title_Inverse;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Tooltip = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Tooltip;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Menu = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Menu;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Title = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Title;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Colored = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Colored;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Inverse = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Inverse;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_DropDownItem = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Widget_DropDownItem;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Header = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Header;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Large = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Large;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Small = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Small;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_Switch = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Widget_Switch;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
+			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Title = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Title;
+			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Base_Theme_AppCompat;
+			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_CompactMenu = global::RadioLogisticaDeliveries.Resource.Style.Base_Theme_AppCompat_CompactMenu;
+			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Base_Theme_AppCompat_Dialog;
+			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_Dialog_Alert = global::RadioLogisticaDeliveries.Resource.Style.Base_Theme_AppCompat_Dialog_Alert;
+			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_Dialog_FixedSize = global::RadioLogisticaDeliveries.Resource.Style.Base_Theme_AppCompat_Dialog_FixedSize;
+			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_Dialog_MinWidth = global::RadioLogisticaDeliveries.Resource.Style.Base_Theme_AppCompat_Dialog_MinWidth;
+			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_DialogWhenLarge = global::RadioLogisticaDeliveries.Resource.Style.Base_Theme_AppCompat_DialogWhenLarge;
+			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Base_Theme_AppCompat_Light;
+			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_Light_DarkActionBar = global::RadioLogisticaDeliveries.Resource.Style.Base_Theme_AppCompat_Light_DarkActionBar;
+			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_Light_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Base_Theme_AppCompat_Light_Dialog;
+			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert = global::RadioLogisticaDeliveries.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert;
+			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize = global::RadioLogisticaDeliveries.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize;
+			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth = global::RadioLogisticaDeliveries.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth;
+			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge = global::RadioLogisticaDeliveries.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge;
+			global::CommonAndroidTools.Resource.Style.Base_ThemeOverlay_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Base_ThemeOverlay_AppCompat;
+			global::CommonAndroidTools.Resource.Style.Base_ThemeOverlay_AppCompat_ActionBar = global::RadioLogisticaDeliveries.Resource.Style.Base_ThemeOverlay_AppCompat_ActionBar;
+			global::CommonAndroidTools.Resource.Style.Base_ThemeOverlay_AppCompat_Dark = global::RadioLogisticaDeliveries.Resource.Style.Base_ThemeOverlay_AppCompat_Dark;
+			global::CommonAndroidTools.Resource.Style.Base_ThemeOverlay_AppCompat_Dark_ActionBar = global::RadioLogisticaDeliveries.Resource.Style.Base_ThemeOverlay_AppCompat_Dark_ActionBar;
+			global::CommonAndroidTools.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog;
+			global::CommonAndroidTools.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog_Alert = global::RadioLogisticaDeliveries.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog_Alert;
+			global::CommonAndroidTools.Resource.Style.Base_ThemeOverlay_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Base_ThemeOverlay_AppCompat_Light;
+			global::CommonAndroidTools.Resource.Style.Base_V11_Theme_AppCompat_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Base_V11_Theme_AppCompat_Dialog;
+			global::CommonAndroidTools.Resource.Style.Base_V11_Theme_AppCompat_Light_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Base_V11_Theme_AppCompat_Light_Dialog;
+			global::CommonAndroidTools.Resource.Style.Base_V11_ThemeOverlay_AppCompat_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Base_V11_ThemeOverlay_AppCompat_Dialog;
+			global::CommonAndroidTools.Resource.Style.Base_V12_Widget_AppCompat_AutoCompleteTextView = global::RadioLogisticaDeliveries.Resource.Style.Base_V12_Widget_AppCompat_AutoCompleteTextView;
+			global::CommonAndroidTools.Resource.Style.Base_V12_Widget_AppCompat_EditText = global::RadioLogisticaDeliveries.Resource.Style.Base_V12_Widget_AppCompat_EditText;
+			global::CommonAndroidTools.Resource.Style.Base_V21_Theme_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Base_V21_Theme_AppCompat;
+			global::CommonAndroidTools.Resource.Style.Base_V21_Theme_AppCompat_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Base_V21_Theme_AppCompat_Dialog;
+			global::CommonAndroidTools.Resource.Style.Base_V21_Theme_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Base_V21_Theme_AppCompat_Light;
+			global::CommonAndroidTools.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog;
+			global::CommonAndroidTools.Resource.Style.Base_V21_ThemeOverlay_AppCompat_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Base_V21_ThemeOverlay_AppCompat_Dialog;
+			global::CommonAndroidTools.Resource.Style.Base_V22_Theme_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Base_V22_Theme_AppCompat;
+			global::CommonAndroidTools.Resource.Style.Base_V22_Theme_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Base_V22_Theme_AppCompat_Light;
+			global::CommonAndroidTools.Resource.Style.Base_V23_Theme_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Base_V23_Theme_AppCompat;
+			global::CommonAndroidTools.Resource.Style.Base_V23_Theme_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Base_V23_Theme_AppCompat_Light;
+			global::CommonAndroidTools.Resource.Style.Base_V26_Theme_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Base_V26_Theme_AppCompat;
+			global::CommonAndroidTools.Resource.Style.Base_V26_Theme_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Base_V26_Theme_AppCompat_Light;
+			global::CommonAndroidTools.Resource.Style.Base_V26_Widget_AppCompat_Toolbar = global::RadioLogisticaDeliveries.Resource.Style.Base_V26_Widget_AppCompat_Toolbar;
+			global::CommonAndroidTools.Resource.Style.Base_V7_Theme_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Base_V7_Theme_AppCompat;
+			global::CommonAndroidTools.Resource.Style.Base_V7_Theme_AppCompat_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Base_V7_Theme_AppCompat_Dialog;
+			global::CommonAndroidTools.Resource.Style.Base_V7_Theme_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Base_V7_Theme_AppCompat_Light;
+			global::CommonAndroidTools.Resource.Style.Base_V7_Theme_AppCompat_Light_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Base_V7_Theme_AppCompat_Light_Dialog;
+			global::CommonAndroidTools.Resource.Style.Base_V7_ThemeOverlay_AppCompat_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Base_V7_ThemeOverlay_AppCompat_Dialog;
+			global::CommonAndroidTools.Resource.Style.Base_V7_Widget_AppCompat_AutoCompleteTextView = global::RadioLogisticaDeliveries.Resource.Style.Base_V7_Widget_AppCompat_AutoCompleteTextView;
+			global::CommonAndroidTools.Resource.Style.Base_V7_Widget_AppCompat_EditText = global::RadioLogisticaDeliveries.Resource.Style.Base_V7_Widget_AppCompat_EditText;
+			global::CommonAndroidTools.Resource.Style.Base_V7_Widget_AppCompat_Toolbar = global::RadioLogisticaDeliveries.Resource.Style.Base_V7_Widget_AppCompat_Toolbar;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ActionBar = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_ActionBar;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ActionBar_Solid = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_ActionBar_Solid;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ActionBar_TabBar = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_ActionBar_TabBar;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ActionBar_TabText = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_ActionBar_TabText;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ActionBar_TabView = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_ActionBar_TabView;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ActionButton = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_ActionButton;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ActionButton_CloseMode = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_ActionButton_CloseMode;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ActionButton_Overflow = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_ActionButton_Overflow;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ActionMode = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_ActionMode;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ActivityChooserView = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_ActivityChooserView;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_AutoCompleteTextView = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_AutoCompleteTextView;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Button = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_Button;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Button_Borderless = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_Button_Borderless;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Button_Borderless_Colored = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_Button_Borderless_Colored;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Button_ButtonBar_AlertDialog = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_Button_ButtonBar_AlertDialog;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Button_Colored = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_Button_Colored;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Button_Small = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_Button_Small;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ButtonBar = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_ButtonBar;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ButtonBar_AlertDialog = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_ButtonBar_AlertDialog;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_CompoundButton_CheckBox = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_CompoundButton_CheckBox;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_CompoundButton_RadioButton = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_CompoundButton_RadioButton;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_CompoundButton_Switch = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_CompoundButton_Switch;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle_Common = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle_Common;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_DropDownItem_Spinner = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_DropDownItem_Spinner;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_EditText = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_EditText;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ImageButton = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_ImageButton;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Light_ActionBar = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_Light_ActionBar;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_Solid = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_Solid;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabBar = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabBar;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabView = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabView;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu_Overflow = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu_Overflow;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ListMenuView = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_ListMenuView;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ListPopupWindow = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_ListPopupWindow;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ListView = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_ListView;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ListView_DropDown = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_ListView_DropDown;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ListView_Menu = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_ListView_Menu;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_PopupMenu = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_PopupMenu;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_PopupMenu_Overflow = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_PopupMenu_Overflow;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_PopupWindow = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_PopupWindow;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ProgressBar = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_ProgressBar;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ProgressBar_Horizontal = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_ProgressBar_Horizontal;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_RatingBar = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_RatingBar;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_RatingBar_Indicator = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_RatingBar_Indicator;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_RatingBar_Small = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_RatingBar_Small;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_SearchView = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_SearchView;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_SearchView_ActionBar = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_SearchView_ActionBar;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_SeekBar = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_SeekBar;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_SeekBar_Discrete = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_SeekBar_Discrete;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Spinner = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_Spinner;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Spinner_Underlined = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_Spinner_Underlined;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_TextView_SpinnerItem = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_TextView_SpinnerItem;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Toolbar = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_Toolbar;
+			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation;
+			global::CommonAndroidTools.Resource.Style.Platform_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Platform_AppCompat;
+			global::CommonAndroidTools.Resource.Style.Platform_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Platform_AppCompat_Light;
+			global::CommonAndroidTools.Resource.Style.Platform_ThemeOverlay_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Platform_ThemeOverlay_AppCompat;
+			global::CommonAndroidTools.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark = global::RadioLogisticaDeliveries.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark;
+			global::CommonAndroidTools.Resource.Style.Platform_ThemeOverlay_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Platform_ThemeOverlay_AppCompat_Light;
+			global::CommonAndroidTools.Resource.Style.Platform_V11_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Platform_V11_AppCompat;
+			global::CommonAndroidTools.Resource.Style.Platform_V11_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Platform_V11_AppCompat_Light;
+			global::CommonAndroidTools.Resource.Style.Platform_V14_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Platform_V14_AppCompat;
+			global::CommonAndroidTools.Resource.Style.Platform_V14_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Platform_V14_AppCompat_Light;
+			global::CommonAndroidTools.Resource.Style.Platform_V21_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Platform_V21_AppCompat;
+			global::CommonAndroidTools.Resource.Style.Platform_V21_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Platform_V21_AppCompat_Light;
+			global::CommonAndroidTools.Resource.Style.Platform_V25_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Platform_V25_AppCompat;
+			global::CommonAndroidTools.Resource.Style.Platform_V25_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Platform_V25_AppCompat_Light;
+			global::CommonAndroidTools.Resource.Style.Platform_Widget_AppCompat_Spinner = global::RadioLogisticaDeliveries.Resource.Style.Platform_Widget_AppCompat_Spinner;
+			global::CommonAndroidTools.Resource.Style.RtlOverlay_DialogWindowTitle_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.RtlOverlay_DialogWindowTitle_AppCompat;
+			global::CommonAndroidTools.Resource.Style.RtlOverlay_Widget_AppCompat_ActionBar_TitleItem = global::RadioLogisticaDeliveries.Resource.Style.RtlOverlay_Widget_AppCompat_ActionBar_TitleItem;
+			global::CommonAndroidTools.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon = global::RadioLogisticaDeliveries.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon;
+			global::CommonAndroidTools.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem = global::RadioLogisticaDeliveries.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem;
+			global::CommonAndroidTools.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup = global::RadioLogisticaDeliveries.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup;
+			global::CommonAndroidTools.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text = global::RadioLogisticaDeliveries.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text;
+			global::CommonAndroidTools.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown = global::RadioLogisticaDeliveries.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown;
+			global::CommonAndroidTools.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1 = global::RadioLogisticaDeliveries.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1;
+			global::CommonAndroidTools.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2 = global::RadioLogisticaDeliveries.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2;
+			global::CommonAndroidTools.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Query = global::RadioLogisticaDeliveries.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Query;
+			global::CommonAndroidTools.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text = global::RadioLogisticaDeliveries.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text;
+			global::CommonAndroidTools.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon = global::RadioLogisticaDeliveries.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon;
+			global::CommonAndroidTools.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton = global::RadioLogisticaDeliveries.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton;
+			global::CommonAndroidTools.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = global::RadioLogisticaDeliveries.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Body1 = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Body1;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Body2 = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Body2;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Button = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Button;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Caption = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Caption;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Display1 = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Display1;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Display2 = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Display2;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Display3 = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Display3;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Display4 = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Display4;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Headline = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Headline;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Inverse = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Inverse;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Large = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Large;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Large_Inverse = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Large_Inverse;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Subtitle = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Subtitle;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Title = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Title;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Large;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Small;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Medium = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Medium;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Medium_Inverse = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Medium_Inverse;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Menu = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Menu;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_SearchResult_Subtitle = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_SearchResult_Subtitle;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_SearchResult_Title = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_SearchResult_Title;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Small = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Small;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Small_Inverse = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Small_Inverse;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Subhead = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Subhead;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Subhead_Inverse = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Subhead_Inverse;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Title = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Title;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Title_Inverse = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Title_Inverse;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Tooltip = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Tooltip;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Menu = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Menu;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_Button = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Widget_Button;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_Button_Borderless_Colored = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Widget_Button_Borderless_Colored;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_Button_Colored = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Widget_Button_Colored;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_Button_Inverse = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Widget_Button_Inverse;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_DropDownItem = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Widget_DropDownItem;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Header = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Header;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Large = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Large;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Small = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Small;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_Switch = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Widget_Switch;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_TextView_SpinnerItem = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Widget_TextView_SpinnerItem;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_Compat_Notification = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_Compat_Notification_Info = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Info;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_Compat_Notification_Info_Media = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Info_Media;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Line2;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_Compat_Notification_Line2_Media = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Line2_Media;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_Compat_Notification_Media = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Media;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_Compat_Notification_Time = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Time;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_Compat_Notification_Time_Media = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Time_Media;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_Compat_Notification_Title = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Title;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_Compat_Notification_Title_Media = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Title_Media;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
+			global::CommonAndroidTools.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title;
+			global::CommonAndroidTools.Resource.Style.Theme_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Theme_AppCompat;
+			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_CompactMenu = global::RadioLogisticaDeliveries.Resource.Style.Theme_AppCompat_CompactMenu;
+			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_DayNight = global::RadioLogisticaDeliveries.Resource.Style.Theme_AppCompat_DayNight;
+			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_DayNight_DarkActionBar = global::RadioLogisticaDeliveries.Resource.Style.Theme_AppCompat_DayNight_DarkActionBar;
+			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_DayNight_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Theme_AppCompat_DayNight_Dialog;
+			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_DayNight_Dialog_Alert = global::RadioLogisticaDeliveries.Resource.Style.Theme_AppCompat_DayNight_Dialog_Alert;
+			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_DayNight_Dialog_MinWidth = global::RadioLogisticaDeliveries.Resource.Style.Theme_AppCompat_DayNight_Dialog_MinWidth;
+			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_DayNight_DialogWhenLarge = global::RadioLogisticaDeliveries.Resource.Style.Theme_AppCompat_DayNight_DialogWhenLarge;
+			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_DayNight_NoActionBar = global::RadioLogisticaDeliveries.Resource.Style.Theme_AppCompat_DayNight_NoActionBar;
+			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Theme_AppCompat_Dialog;
+			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_Dialog_Alert = global::RadioLogisticaDeliveries.Resource.Style.Theme_AppCompat_Dialog_Alert;
+			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_Dialog_MinWidth = global::RadioLogisticaDeliveries.Resource.Style.Theme_AppCompat_Dialog_MinWidth;
+			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_DialogWhenLarge = global::RadioLogisticaDeliveries.Resource.Style.Theme_AppCompat_DialogWhenLarge;
+			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Theme_AppCompat_Light;
+			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_Light_DarkActionBar = global::RadioLogisticaDeliveries.Resource.Style.Theme_AppCompat_Light_DarkActionBar;
+			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_Light_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Theme_AppCompat_Light_Dialog;
+			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_Light_Dialog_Alert = global::RadioLogisticaDeliveries.Resource.Style.Theme_AppCompat_Light_Dialog_Alert;
+			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_Light_Dialog_MinWidth = global::RadioLogisticaDeliveries.Resource.Style.Theme_AppCompat_Light_Dialog_MinWidth;
+			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_Light_DialogWhenLarge = global::RadioLogisticaDeliveries.Resource.Style.Theme_AppCompat_Light_DialogWhenLarge;
+			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_Light_NoActionBar = global::RadioLogisticaDeliveries.Resource.Style.Theme_AppCompat_Light_NoActionBar;
+			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_NoActionBar = global::RadioLogisticaDeliveries.Resource.Style.Theme_AppCompat_NoActionBar;
+			global::CommonAndroidTools.Resource.Style.ThemeOverlay_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.ThemeOverlay_AppCompat;
+			global::CommonAndroidTools.Resource.Style.ThemeOverlay_AppCompat_ActionBar = global::RadioLogisticaDeliveries.Resource.Style.ThemeOverlay_AppCompat_ActionBar;
+			global::CommonAndroidTools.Resource.Style.ThemeOverlay_AppCompat_Dark = global::RadioLogisticaDeliveries.Resource.Style.ThemeOverlay_AppCompat_Dark;
+			global::CommonAndroidTools.Resource.Style.ThemeOverlay_AppCompat_Dark_ActionBar = global::RadioLogisticaDeliveries.Resource.Style.ThemeOverlay_AppCompat_Dark_ActionBar;
+			global::CommonAndroidTools.Resource.Style.ThemeOverlay_AppCompat_Dialog = global::RadioLogisticaDeliveries.Resource.Style.ThemeOverlay_AppCompat_Dialog;
+			global::CommonAndroidTools.Resource.Style.ThemeOverlay_AppCompat_Dialog_Alert = global::RadioLogisticaDeliveries.Resource.Style.ThemeOverlay_AppCompat_Dialog_Alert;
+			global::CommonAndroidTools.Resource.Style.ThemeOverlay_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.ThemeOverlay_AppCompat_Light;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ActionBar = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ActionBar;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ActionBar_Solid = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ActionBar_Solid;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ActionBar_TabBar = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ActionBar_TabBar;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ActionBar_TabText = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ActionBar_TabText;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ActionBar_TabView = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ActionBar_TabView;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ActionButton = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ActionButton;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ActionButton_CloseMode = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ActionButton_CloseMode;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ActionButton_Overflow = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ActionButton_Overflow;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ActionMode = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ActionMode;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ActivityChooserView = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ActivityChooserView;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_AutoCompleteTextView = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_AutoCompleteTextView;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Button = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Button;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Button_Borderless = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Button_Borderless;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Button_Borderless_Colored = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Button_Borderless_Colored;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Button_ButtonBar_AlertDialog = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Button_ButtonBar_AlertDialog;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Button_Colored = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Button_Colored;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Button_Small = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Button_Small;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ButtonBar = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ButtonBar;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ButtonBar_AlertDialog = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ButtonBar_AlertDialog;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_CompoundButton_CheckBox = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_CompoundButton_CheckBox;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_CompoundButton_RadioButton = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_CompoundButton_RadioButton;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_CompoundButton_Switch = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_CompoundButton_Switch;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_DrawerArrowToggle = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_DrawerArrowToggle;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_DropDownItem_Spinner = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_DropDownItem_Spinner;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_EditText = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_EditText;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ImageButton = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ImageButton;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionBar = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Light_ActionBar;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid_Inverse = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid_Inverse;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar_Inverse = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar_Inverse;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText_Inverse = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText_Inverse;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView_Inverse = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView_Inverse;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionButton = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Light_ActionButton;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionButton_CloseMode = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Light_ActionButton_CloseMode;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionButton_Overflow = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Light_ActionButton_Overflow;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionMode_Inverse = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Light_ActionMode_Inverse;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActivityChooserView = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Light_ActivityChooserView;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_AutoCompleteTextView = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Light_AutoCompleteTextView;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_DropDownItem_Spinner = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Light_DropDownItem_Spinner;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ListPopupWindow = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Light_ListPopupWindow;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ListView_DropDown = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Light_ListView_DropDown;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_PopupMenu = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Light_PopupMenu;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_PopupMenu_Overflow = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Light_PopupMenu_Overflow;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_SearchView = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Light_SearchView;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_Spinner_DropDown_ActionBar = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Light_Spinner_DropDown_ActionBar;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ListMenuView = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ListMenuView;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ListPopupWindow = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ListPopupWindow;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ListView = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ListView;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ListView_DropDown = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ListView_DropDown;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ListView_Menu = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ListView_Menu;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_PopupMenu = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_PopupMenu;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_PopupMenu_Overflow = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_PopupMenu_Overflow;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_PopupWindow = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_PopupWindow;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ProgressBar = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ProgressBar;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ProgressBar_Horizontal = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ProgressBar_Horizontal;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_RatingBar = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_RatingBar;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_RatingBar_Indicator = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_RatingBar_Indicator;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_RatingBar_Small = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_RatingBar_Small;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_SearchView = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_SearchView;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_SearchView_ActionBar = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_SearchView_ActionBar;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_SeekBar = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_SeekBar;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_SeekBar_Discrete = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_SeekBar_Discrete;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Spinner = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Spinner;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Spinner_DropDown = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Spinner_DropDown;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Spinner_DropDown_ActionBar = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Spinner_DropDown_ActionBar;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Spinner_Underlined = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Spinner_Underlined;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_TextView_SpinnerItem = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_TextView_SpinnerItem;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Toolbar = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Toolbar;
+			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Toolbar_Button_Navigation = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_Toolbar_Button_Navigation;
+			global::CommonAndroidTools.Resource.Style.Widget_Compat_NotificationActionContainer = global::RadioLogisticaDeliveries.Resource.Style.Widget_Compat_NotificationActionContainer;
+			global::CommonAndroidTools.Resource.Style.Widget_Compat_NotificationActionText = global::RadioLogisticaDeliveries.Resource.Style.Widget_Compat_NotificationActionText;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_background = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_background;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_backgroundSplit = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_backgroundSplit;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_backgroundStacked = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_backgroundStacked;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_contentInsetEnd = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_contentInsetEnd;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_contentInsetEndWithActions = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_contentInsetEndWithActions;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_contentInsetLeft = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_contentInsetLeft;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_contentInsetRight = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_contentInsetRight;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_contentInsetStart = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_contentInsetStart;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_contentInsetStartWithNavigation = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_contentInsetStartWithNavigation;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_customNavigationLayout = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_customNavigationLayout;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_displayOptions = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_displayOptions;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_divider = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_divider;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_elevation = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_elevation;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_height = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_height;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_hideOnContentScroll = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_hideOnContentScroll;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_homeAsUpIndicator = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_homeAsUpIndicator;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_homeLayout = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_homeLayout;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_icon = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_icon;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_indeterminateProgressStyle = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_indeterminateProgressStyle;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_itemPadding = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_itemPadding;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_logo = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_logo;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_navigationMode = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_navigationMode;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_popupTheme = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_popupTheme;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_progressBarPadding = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_progressBarPadding;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_progressBarStyle = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_progressBarStyle;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_subtitle = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_subtitle;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_subtitleTextStyle = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_subtitleTextStyle;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_title = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_title;
+			global::CommonAndroidTools.Resource.Styleable.ActionBar_titleTextStyle = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_titleTextStyle;
+			global::CommonAndroidTools.Resource.Styleable.ActionBarLayout = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBarLayout;
+			global::CommonAndroidTools.Resource.Styleable.ActionBarLayout_android_layout_gravity = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBarLayout_android_layout_gravity;
+			global::CommonAndroidTools.Resource.Styleable.ActionMenuItemView = global::RadioLogisticaDeliveries.Resource.Styleable.ActionMenuItemView;
+			global::CommonAndroidTools.Resource.Styleable.ActionMenuItemView_android_minWidth = global::RadioLogisticaDeliveries.Resource.Styleable.ActionMenuItemView_android_minWidth;
+			global::CommonAndroidTools.Resource.Styleable.ActionMenuView = global::RadioLogisticaDeliveries.Resource.Styleable.ActionMenuView;
+			global::CommonAndroidTools.Resource.Styleable.ActionMode = global::RadioLogisticaDeliveries.Resource.Styleable.ActionMode;
+			global::CommonAndroidTools.Resource.Styleable.ActionMode_background = global::RadioLogisticaDeliveries.Resource.Styleable.ActionMode_background;
+			global::CommonAndroidTools.Resource.Styleable.ActionMode_backgroundSplit = global::RadioLogisticaDeliveries.Resource.Styleable.ActionMode_backgroundSplit;
+			global::CommonAndroidTools.Resource.Styleable.ActionMode_closeItemLayout = global::RadioLogisticaDeliveries.Resource.Styleable.ActionMode_closeItemLayout;
+			global::CommonAndroidTools.Resource.Styleable.ActionMode_height = global::RadioLogisticaDeliveries.Resource.Styleable.ActionMode_height;
+			global::CommonAndroidTools.Resource.Styleable.ActionMode_subtitleTextStyle = global::RadioLogisticaDeliveries.Resource.Styleable.ActionMode_subtitleTextStyle;
+			global::CommonAndroidTools.Resource.Styleable.ActionMode_titleTextStyle = global::RadioLogisticaDeliveries.Resource.Styleable.ActionMode_titleTextStyle;
+			global::CommonAndroidTools.Resource.Styleable.ActivityChooserView = global::RadioLogisticaDeliveries.Resource.Styleable.ActivityChooserView;
+			global::CommonAndroidTools.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable = global::RadioLogisticaDeliveries.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable;
+			global::CommonAndroidTools.Resource.Styleable.ActivityChooserView_initialActivityCount = global::RadioLogisticaDeliveries.Resource.Styleable.ActivityChooserView_initialActivityCount;
+			global::CommonAndroidTools.Resource.Styleable.AlertDialog = global::RadioLogisticaDeliveries.Resource.Styleable.AlertDialog;
+			global::CommonAndroidTools.Resource.Styleable.AlertDialog_android_layout = global::RadioLogisticaDeliveries.Resource.Styleable.AlertDialog_android_layout;
+			global::CommonAndroidTools.Resource.Styleable.AlertDialog_buttonPanelSideLayout = global::RadioLogisticaDeliveries.Resource.Styleable.AlertDialog_buttonPanelSideLayout;
+			global::CommonAndroidTools.Resource.Styleable.AlertDialog_listItemLayout = global::RadioLogisticaDeliveries.Resource.Styleable.AlertDialog_listItemLayout;
+			global::CommonAndroidTools.Resource.Styleable.AlertDialog_listLayout = global::RadioLogisticaDeliveries.Resource.Styleable.AlertDialog_listLayout;
+			global::CommonAndroidTools.Resource.Styleable.AlertDialog_multiChoiceItemLayout = global::RadioLogisticaDeliveries.Resource.Styleable.AlertDialog_multiChoiceItemLayout;
+			global::CommonAndroidTools.Resource.Styleable.AlertDialog_showTitle = global::RadioLogisticaDeliveries.Resource.Styleable.AlertDialog_showTitle;
+			global::CommonAndroidTools.Resource.Styleable.AlertDialog_singleChoiceItemLayout = global::RadioLogisticaDeliveries.Resource.Styleable.AlertDialog_singleChoiceItemLayout;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatImageView = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatImageView;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatImageView_android_src = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatImageView_android_src;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatImageView_srcCompat = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatImageView_srcCompat;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatImageView_tint = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatImageView_tint;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatImageView_tintMode = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatImageView_tintMode;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatSeekBar = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatSeekBar;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatSeekBar_android_thumb = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatSeekBar_android_thumb;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatSeekBar_tickMark = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatSeekBar_tickMark;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatSeekBar_tickMarkTint = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatSeekBar_tickMarkTint;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatSeekBar_tickMarkTintMode = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatSeekBar_tickMarkTintMode;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTextHelper = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTextHelper;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTextHelper_android_drawableBottom = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTextHelper_android_drawableBottom;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTextHelper_android_drawableEnd = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTextHelper_android_drawableEnd;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTextHelper_android_drawableLeft = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTextHelper_android_drawableLeft;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTextHelper_android_drawableRight = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTextHelper_android_drawableRight;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTextHelper_android_drawableStart = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTextHelper_android_drawableStart;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTextHelper_android_drawableTop = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTextHelper_android_drawableTop;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTextHelper_android_textAppearance = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTextHelper_android_textAppearance;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTextView = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTextView;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTextView_android_textAppearance = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTextView_android_textAppearance;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTextView_autoSizeMaxTextSize = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTextView_autoSizeMaxTextSize;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTextView_autoSizeMinTextSize = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTextView_autoSizeMinTextSize;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTextView_autoSizePresetSizes = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTextView_autoSizePresetSizes;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTextView_autoSizeStepGranularity = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTextView_autoSizeStepGranularity;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTextView_autoSizeTextType = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTextView_autoSizeTextType;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTextView_fontFamily = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTextView_fontFamily;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTextView_textAllCaps = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTextView_textAllCaps;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionBarDivider = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionBarDivider;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionBarItemBackground = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionBarItemBackground;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionBarPopupTheme = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionBarPopupTheme;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionBarSize = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionBarSize;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionBarSplitStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionBarSplitStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionBarStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionBarStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionBarTabBarStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionBarTabBarStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionBarTabStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionBarTabStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionBarTabTextStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionBarTabTextStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionBarTheme = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionBarTheme;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionBarWidgetTheme = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionBarWidgetTheme;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionButtonStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionButtonStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionDropDownStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionDropDownStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionMenuTextAppearance = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionMenuTextAppearance;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionMenuTextColor = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionMenuTextColor;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModeBackground = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionModeBackground;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModeCloseButtonStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionModeCloseButtonStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModeCloseDrawable = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionModeCloseDrawable;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModeCopyDrawable = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionModeCopyDrawable;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModeCutDrawable = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionModeCutDrawable;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModeFindDrawable = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionModeFindDrawable;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModePasteDrawable = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionModePasteDrawable;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModePopupWindowStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionModePopupWindowStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModeSelectAllDrawable = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionModeSelectAllDrawable;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModeShareDrawable = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionModeShareDrawable;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModeSplitBackground = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionModeSplitBackground;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModeStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionModeStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModeWebSearchDrawable = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionModeWebSearchDrawable;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionOverflowButtonStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionOverflowButtonStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionOverflowMenuStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_actionOverflowMenuStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_activityChooserViewStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_activityChooserViewStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_alertDialogButtonGroupStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_alertDialogButtonGroupStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_alertDialogCenterButtons = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_alertDialogCenterButtons;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_alertDialogStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_alertDialogStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_alertDialogTheme = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_alertDialogTheme;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_android_windowAnimationStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_android_windowAnimationStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_android_windowIsFloating = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_android_windowIsFloating;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_autoCompleteTextViewStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_autoCompleteTextViewStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_borderlessButtonStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_borderlessButtonStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_buttonBarButtonStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_buttonBarButtonStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_buttonBarNegativeButtonStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_buttonBarNegativeButtonStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_buttonBarNeutralButtonStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_buttonBarNeutralButtonStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_buttonBarPositiveButtonStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_buttonBarPositiveButtonStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_buttonBarStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_buttonBarStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_buttonStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_buttonStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_buttonStyleSmall = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_buttonStyleSmall;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_checkboxStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_checkboxStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_checkedTextViewStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_checkedTextViewStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_colorAccent = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_colorAccent;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_colorBackgroundFloating = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_colorBackgroundFloating;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_colorButtonNormal = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_colorButtonNormal;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_colorControlActivated = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_colorControlActivated;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_colorControlHighlight = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_colorControlHighlight;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_colorControlNormal = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_colorControlNormal;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_colorError = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_colorError;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_colorPrimary = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_colorPrimary;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_colorPrimaryDark = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_colorPrimaryDark;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_colorSwitchThumbNormal = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_colorSwitchThumbNormal;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_controlBackground = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_controlBackground;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_dialogPreferredPadding = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_dialogPreferredPadding;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_dialogTheme = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_dialogTheme;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_dividerHorizontal = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_dividerHorizontal;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_dividerVertical = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_dividerVertical;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_dropDownListViewStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_dropDownListViewStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_dropdownListPreferredItemHeight = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_dropdownListPreferredItemHeight;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_editTextBackground = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_editTextBackground;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_editTextColor = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_editTextColor;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_editTextStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_editTextStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_homeAsUpIndicator = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_homeAsUpIndicator;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_imageButtonStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_imageButtonStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_listChoiceBackgroundIndicator = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_listChoiceBackgroundIndicator;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_listDividerAlertDialog = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_listDividerAlertDialog;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_listMenuViewStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_listMenuViewStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_listPopupWindowStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_listPopupWindowStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_listPreferredItemHeight = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_listPreferredItemHeight;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_listPreferredItemHeightLarge = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_listPreferredItemHeightLarge;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_listPreferredItemHeightSmall = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_listPreferredItemHeightSmall;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingLeft = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingLeft;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingRight = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingRight;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_panelBackground = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_panelBackground;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_panelMenuListTheme = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_panelMenuListTheme;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_panelMenuListWidth = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_panelMenuListWidth;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_popupMenuStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_popupMenuStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_popupWindowStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_popupWindowStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_radioButtonStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_radioButtonStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_ratingBarStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_ratingBarStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_ratingBarStyleIndicator = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_ratingBarStyleIndicator;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_ratingBarStyleSmall = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_ratingBarStyleSmall;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_searchViewStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_searchViewStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_seekBarStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_seekBarStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_selectableItemBackground = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_selectableItemBackground;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_selectableItemBackgroundBorderless = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_selectableItemBackgroundBorderless;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_spinnerDropDownItemStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_spinnerDropDownItemStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_spinnerStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_spinnerStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_switchStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_switchStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_textAppearanceLargePopupMenu = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_textAppearanceLargePopupMenu;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_textAppearanceListItem = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_textAppearanceListItem;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_textAppearanceListItemSecondary = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_textAppearanceListItemSecondary;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_textAppearanceListItemSmall = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_textAppearanceListItemSmall;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_textAppearancePopupMenuHeader = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_textAppearancePopupMenuHeader;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultSubtitle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultSubtitle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultTitle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultTitle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_textAppearanceSmallPopupMenu = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_textAppearanceSmallPopupMenu;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_textColorAlertDialogListItem = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_textColorAlertDialogListItem;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_textColorSearchUrl = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_textColorSearchUrl;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_toolbarNavigationButtonStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_toolbarNavigationButtonStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_toolbarStyle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_toolbarStyle;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_tooltipForegroundColor = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_tooltipForegroundColor;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_tooltipFrameBackground = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_tooltipFrameBackground;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_windowActionBar = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_windowActionBar;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_windowActionBarOverlay = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_windowActionBarOverlay;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_windowActionModeOverlay = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_windowActionModeOverlay;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_windowFixedHeightMajor = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_windowFixedHeightMajor;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_windowFixedHeightMinor = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_windowFixedHeightMinor;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_windowFixedWidthMajor = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_windowFixedWidthMajor;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_windowFixedWidthMinor = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_windowFixedWidthMinor;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_windowMinWidthMajor = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_windowMinWidthMajor;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_windowMinWidthMinor = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_windowMinWidthMinor;
+			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_windowNoTitle = global::RadioLogisticaDeliveries.Resource.Styleable.AppCompatTheme_windowNoTitle;
+			global::CommonAndroidTools.Resource.Styleable.ButtonBarLayout = global::RadioLogisticaDeliveries.Resource.Styleable.ButtonBarLayout;
+			global::CommonAndroidTools.Resource.Styleable.ButtonBarLayout_allowStacking = global::RadioLogisticaDeliveries.Resource.Styleable.ButtonBarLayout_allowStacking;
+			global::CommonAndroidTools.Resource.Styleable.ColorStateListItem = global::RadioLogisticaDeliveries.Resource.Styleable.ColorStateListItem;
+			global::CommonAndroidTools.Resource.Styleable.ColorStateListItem_alpha = global::RadioLogisticaDeliveries.Resource.Styleable.ColorStateListItem_alpha;
+			global::CommonAndroidTools.Resource.Styleable.ColorStateListItem_android_alpha = global::RadioLogisticaDeliveries.Resource.Styleable.ColorStateListItem_android_alpha;
+			global::CommonAndroidTools.Resource.Styleable.ColorStateListItem_android_color = global::RadioLogisticaDeliveries.Resource.Styleable.ColorStateListItem_android_color;
+			global::CommonAndroidTools.Resource.Styleable.CompoundButton = global::RadioLogisticaDeliveries.Resource.Styleable.CompoundButton;
+			global::CommonAndroidTools.Resource.Styleable.CompoundButton_android_button = global::RadioLogisticaDeliveries.Resource.Styleable.CompoundButton_android_button;
+			global::CommonAndroidTools.Resource.Styleable.CompoundButton_buttonTint = global::RadioLogisticaDeliveries.Resource.Styleable.CompoundButton_buttonTint;
+			global::CommonAndroidTools.Resource.Styleable.CompoundButton_buttonTintMode = global::RadioLogisticaDeliveries.Resource.Styleable.CompoundButton_buttonTintMode;
+			global::CommonAndroidTools.Resource.Styleable.DrawerArrowToggle = global::RadioLogisticaDeliveries.Resource.Styleable.DrawerArrowToggle;
+			global::CommonAndroidTools.Resource.Styleable.DrawerArrowToggle_arrowHeadLength = global::RadioLogisticaDeliveries.Resource.Styleable.DrawerArrowToggle_arrowHeadLength;
+			global::CommonAndroidTools.Resource.Styleable.DrawerArrowToggle_arrowShaftLength = global::RadioLogisticaDeliveries.Resource.Styleable.DrawerArrowToggle_arrowShaftLength;
+			global::CommonAndroidTools.Resource.Styleable.DrawerArrowToggle_barLength = global::RadioLogisticaDeliveries.Resource.Styleable.DrawerArrowToggle_barLength;
+			global::CommonAndroidTools.Resource.Styleable.DrawerArrowToggle_color = global::RadioLogisticaDeliveries.Resource.Styleable.DrawerArrowToggle_color;
+			global::CommonAndroidTools.Resource.Styleable.DrawerArrowToggle_drawableSize = global::RadioLogisticaDeliveries.Resource.Styleable.DrawerArrowToggle_drawableSize;
+			global::CommonAndroidTools.Resource.Styleable.DrawerArrowToggle_gapBetweenBars = global::RadioLogisticaDeliveries.Resource.Styleable.DrawerArrowToggle_gapBetweenBars;
+			global::CommonAndroidTools.Resource.Styleable.DrawerArrowToggle_spinBars = global::RadioLogisticaDeliveries.Resource.Styleable.DrawerArrowToggle_spinBars;
+			global::CommonAndroidTools.Resource.Styleable.DrawerArrowToggle_thickness = global::RadioLogisticaDeliveries.Resource.Styleable.DrawerArrowToggle_thickness;
+			global::CommonAndroidTools.Resource.Styleable.FontFamily = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily;
+			global::CommonAndroidTools.Resource.Styleable.FontFamily_fontProviderAuthority = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily_fontProviderAuthority;
+			global::CommonAndroidTools.Resource.Styleable.FontFamily_fontProviderCerts = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily_fontProviderCerts;
+			global::CommonAndroidTools.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
+			global::CommonAndroidTools.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
+			global::CommonAndroidTools.Resource.Styleable.FontFamily_fontProviderPackage = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily_fontProviderPackage;
+			global::CommonAndroidTools.Resource.Styleable.FontFamily_fontProviderQuery = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily_fontProviderQuery;
+			global::CommonAndroidTools.Resource.Styleable.FontFamilyFont = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont;
+			global::CommonAndroidTools.Resource.Styleable.FontFamilyFont_android_font = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont_android_font;
+			global::CommonAndroidTools.Resource.Styleable.FontFamilyFont_android_fontStyle = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont_android_fontStyle;
+			global::CommonAndroidTools.Resource.Styleable.FontFamilyFont_android_fontWeight = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont_android_fontWeight;
+			global::CommonAndroidTools.Resource.Styleable.FontFamilyFont_font = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont_font;
+			global::CommonAndroidTools.Resource.Styleable.FontFamilyFont_fontStyle = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont_fontStyle;
+			global::CommonAndroidTools.Resource.Styleable.FontFamilyFont_fontWeight = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont_fontWeight;
+			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat = global::RadioLogisticaDeliveries.Resource.Styleable.LinearLayoutCompat;
+			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_android_baselineAligned = global::RadioLogisticaDeliveries.Resource.Styleable.LinearLayoutCompat_android_baselineAligned;
+			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex = global::RadioLogisticaDeliveries.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex;
+			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_android_gravity = global::RadioLogisticaDeliveries.Resource.Styleable.LinearLayoutCompat_android_gravity;
+			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_android_orientation = global::RadioLogisticaDeliveries.Resource.Styleable.LinearLayoutCompat_android_orientation;
+			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_android_weightSum = global::RadioLogisticaDeliveries.Resource.Styleable.LinearLayoutCompat_android_weightSum;
+			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_divider = global::RadioLogisticaDeliveries.Resource.Styleable.LinearLayoutCompat_divider;
+			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_dividerPadding = global::RadioLogisticaDeliveries.Resource.Styleable.LinearLayoutCompat_dividerPadding;
+			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_measureWithLargestChild = global::RadioLogisticaDeliveries.Resource.Styleable.LinearLayoutCompat_measureWithLargestChild;
+			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_showDividers = global::RadioLogisticaDeliveries.Resource.Styleable.LinearLayoutCompat_showDividers;
+			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_Layout = global::RadioLogisticaDeliveries.Resource.Styleable.LinearLayoutCompat_Layout;
+			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_gravity = global::RadioLogisticaDeliveries.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_gravity;
+			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_height = global::RadioLogisticaDeliveries.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_height;
+			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_weight = global::RadioLogisticaDeliveries.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_weight;
+			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_width = global::RadioLogisticaDeliveries.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_width;
+			global::CommonAndroidTools.Resource.Styleable.ListPopupWindow = global::RadioLogisticaDeliveries.Resource.Styleable.ListPopupWindow;
+			global::CommonAndroidTools.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset = global::RadioLogisticaDeliveries.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset;
+			global::CommonAndroidTools.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset = global::RadioLogisticaDeliveries.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset;
+			global::CommonAndroidTools.Resource.Styleable.MenuGroup = global::RadioLogisticaDeliveries.Resource.Styleable.MenuGroup;
+			global::CommonAndroidTools.Resource.Styleable.MenuGroup_android_checkableBehavior = global::RadioLogisticaDeliveries.Resource.Styleable.MenuGroup_android_checkableBehavior;
+			global::CommonAndroidTools.Resource.Styleable.MenuGroup_android_enabled = global::RadioLogisticaDeliveries.Resource.Styleable.MenuGroup_android_enabled;
+			global::CommonAndroidTools.Resource.Styleable.MenuGroup_android_id = global::RadioLogisticaDeliveries.Resource.Styleable.MenuGroup_android_id;
+			global::CommonAndroidTools.Resource.Styleable.MenuGroup_android_menuCategory = global::RadioLogisticaDeliveries.Resource.Styleable.MenuGroup_android_menuCategory;
+			global::CommonAndroidTools.Resource.Styleable.MenuGroup_android_orderInCategory = global::RadioLogisticaDeliveries.Resource.Styleable.MenuGroup_android_orderInCategory;
+			global::CommonAndroidTools.Resource.Styleable.MenuGroup_android_visible = global::RadioLogisticaDeliveries.Resource.Styleable.MenuGroup_android_visible;
+			global::CommonAndroidTools.Resource.Styleable.MenuItem = global::RadioLogisticaDeliveries.Resource.Styleable.MenuItem;
+			global::CommonAndroidTools.Resource.Styleable.MenuItem_actionLayout = global::RadioLogisticaDeliveries.Resource.Styleable.MenuItem_actionLayout;
+			global::CommonAndroidTools.Resource.Styleable.MenuItem_actionProviderClass = global::RadioLogisticaDeliveries.Resource.Styleable.MenuItem_actionProviderClass;
+			global::CommonAndroidTools.Resource.Styleable.MenuItem_actionViewClass = global::RadioLogisticaDeliveries.Resource.Styleable.MenuItem_actionViewClass;
+			global::CommonAndroidTools.Resource.Styleable.MenuItem_alphabeticModifiers = global::RadioLogisticaDeliveries.Resource.Styleable.MenuItem_alphabeticModifiers;
+			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_alphabeticShortcut = global::RadioLogisticaDeliveries.Resource.Styleable.MenuItem_android_alphabeticShortcut;
+			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_checkable = global::RadioLogisticaDeliveries.Resource.Styleable.MenuItem_android_checkable;
+			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_checked = global::RadioLogisticaDeliveries.Resource.Styleable.MenuItem_android_checked;
+			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_enabled = global::RadioLogisticaDeliveries.Resource.Styleable.MenuItem_android_enabled;
+			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_icon = global::RadioLogisticaDeliveries.Resource.Styleable.MenuItem_android_icon;
+			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_id = global::RadioLogisticaDeliveries.Resource.Styleable.MenuItem_android_id;
+			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_menuCategory = global::RadioLogisticaDeliveries.Resource.Styleable.MenuItem_android_menuCategory;
+			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_numericShortcut = global::RadioLogisticaDeliveries.Resource.Styleable.MenuItem_android_numericShortcut;
+			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_onClick = global::RadioLogisticaDeliveries.Resource.Styleable.MenuItem_android_onClick;
+			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_orderInCategory = global::RadioLogisticaDeliveries.Resource.Styleable.MenuItem_android_orderInCategory;
+			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_title = global::RadioLogisticaDeliveries.Resource.Styleable.MenuItem_android_title;
+			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_titleCondensed = global::RadioLogisticaDeliveries.Resource.Styleable.MenuItem_android_titleCondensed;
+			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_visible = global::RadioLogisticaDeliveries.Resource.Styleable.MenuItem_android_visible;
+			global::CommonAndroidTools.Resource.Styleable.MenuItem_contentDescription = global::RadioLogisticaDeliveries.Resource.Styleable.MenuItem_contentDescription;
+			global::CommonAndroidTools.Resource.Styleable.MenuItem_iconTint = global::RadioLogisticaDeliveries.Resource.Styleable.MenuItem_iconTint;
+			global::CommonAndroidTools.Resource.Styleable.MenuItem_iconTintMode = global::RadioLogisticaDeliveries.Resource.Styleable.MenuItem_iconTintMode;
+			global::CommonAndroidTools.Resource.Styleable.MenuItem_numericModifiers = global::RadioLogisticaDeliveries.Resource.Styleable.MenuItem_numericModifiers;
+			global::CommonAndroidTools.Resource.Styleable.MenuItem_showAsAction = global::RadioLogisticaDeliveries.Resource.Styleable.MenuItem_showAsAction;
+			global::CommonAndroidTools.Resource.Styleable.MenuItem_tooltipText = global::RadioLogisticaDeliveries.Resource.Styleable.MenuItem_tooltipText;
+			global::CommonAndroidTools.Resource.Styleable.MenuView = global::RadioLogisticaDeliveries.Resource.Styleable.MenuView;
+			global::CommonAndroidTools.Resource.Styleable.MenuView_android_headerBackground = global::RadioLogisticaDeliveries.Resource.Styleable.MenuView_android_headerBackground;
+			global::CommonAndroidTools.Resource.Styleable.MenuView_android_horizontalDivider = global::RadioLogisticaDeliveries.Resource.Styleable.MenuView_android_horizontalDivider;
+			global::CommonAndroidTools.Resource.Styleable.MenuView_android_itemBackground = global::RadioLogisticaDeliveries.Resource.Styleable.MenuView_android_itemBackground;
+			global::CommonAndroidTools.Resource.Styleable.MenuView_android_itemIconDisabledAlpha = global::RadioLogisticaDeliveries.Resource.Styleable.MenuView_android_itemIconDisabledAlpha;
+			global::CommonAndroidTools.Resource.Styleable.MenuView_android_itemTextAppearance = global::RadioLogisticaDeliveries.Resource.Styleable.MenuView_android_itemTextAppearance;
+			global::CommonAndroidTools.Resource.Styleable.MenuView_android_verticalDivider = global::RadioLogisticaDeliveries.Resource.Styleable.MenuView_android_verticalDivider;
+			global::CommonAndroidTools.Resource.Styleable.MenuView_android_windowAnimationStyle = global::RadioLogisticaDeliveries.Resource.Styleable.MenuView_android_windowAnimationStyle;
+			global::CommonAndroidTools.Resource.Styleable.MenuView_preserveIconSpacing = global::RadioLogisticaDeliveries.Resource.Styleable.MenuView_preserveIconSpacing;
+			global::CommonAndroidTools.Resource.Styleable.MenuView_subMenuArrow = global::RadioLogisticaDeliveries.Resource.Styleable.MenuView_subMenuArrow;
+			global::CommonAndroidTools.Resource.Styleable.PopupWindow = global::RadioLogisticaDeliveries.Resource.Styleable.PopupWindow;
+			global::CommonAndroidTools.Resource.Styleable.PopupWindow_android_popupAnimationStyle = global::RadioLogisticaDeliveries.Resource.Styleable.PopupWindow_android_popupAnimationStyle;
+			global::CommonAndroidTools.Resource.Styleable.PopupWindow_android_popupBackground = global::RadioLogisticaDeliveries.Resource.Styleable.PopupWindow_android_popupBackground;
+			global::CommonAndroidTools.Resource.Styleable.PopupWindow_overlapAnchor = global::RadioLogisticaDeliveries.Resource.Styleable.PopupWindow_overlapAnchor;
+			global::CommonAndroidTools.Resource.Styleable.PopupWindowBackgroundState = global::RadioLogisticaDeliveries.Resource.Styleable.PopupWindowBackgroundState;
+			global::CommonAndroidTools.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor = global::RadioLogisticaDeliveries.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor;
+			global::CommonAndroidTools.Resource.Styleable.RecycleListView = global::RadioLogisticaDeliveries.Resource.Styleable.RecycleListView;
+			global::CommonAndroidTools.Resource.Styleable.RecycleListView_paddingBottomNoButtons = global::RadioLogisticaDeliveries.Resource.Styleable.RecycleListView_paddingBottomNoButtons;
+			global::CommonAndroidTools.Resource.Styleable.RecycleListView_paddingTopNoTitle = global::RadioLogisticaDeliveries.Resource.Styleable.RecycleListView_paddingTopNoTitle;
+			global::CommonAndroidTools.Resource.Styleable.SearchView = global::RadioLogisticaDeliveries.Resource.Styleable.SearchView;
+			global::CommonAndroidTools.Resource.Styleable.SearchView_android_focusable = global::RadioLogisticaDeliveries.Resource.Styleable.SearchView_android_focusable;
+			global::CommonAndroidTools.Resource.Styleable.SearchView_android_imeOptions = global::RadioLogisticaDeliveries.Resource.Styleable.SearchView_android_imeOptions;
+			global::CommonAndroidTools.Resource.Styleable.SearchView_android_inputType = global::RadioLogisticaDeliveries.Resource.Styleable.SearchView_android_inputType;
+			global::CommonAndroidTools.Resource.Styleable.SearchView_android_maxWidth = global::RadioLogisticaDeliveries.Resource.Styleable.SearchView_android_maxWidth;
+			global::CommonAndroidTools.Resource.Styleable.SearchView_closeIcon = global::RadioLogisticaDeliveries.Resource.Styleable.SearchView_closeIcon;
+			global::CommonAndroidTools.Resource.Styleable.SearchView_commitIcon = global::RadioLogisticaDeliveries.Resource.Styleable.SearchView_commitIcon;
+			global::CommonAndroidTools.Resource.Styleable.SearchView_defaultQueryHint = global::RadioLogisticaDeliveries.Resource.Styleable.SearchView_defaultQueryHint;
+			global::CommonAndroidTools.Resource.Styleable.SearchView_goIcon = global::RadioLogisticaDeliveries.Resource.Styleable.SearchView_goIcon;
+			global::CommonAndroidTools.Resource.Styleable.SearchView_iconifiedByDefault = global::RadioLogisticaDeliveries.Resource.Styleable.SearchView_iconifiedByDefault;
+			global::CommonAndroidTools.Resource.Styleable.SearchView_layout = global::RadioLogisticaDeliveries.Resource.Styleable.SearchView_layout;
+			global::CommonAndroidTools.Resource.Styleable.SearchView_queryBackground = global::RadioLogisticaDeliveries.Resource.Styleable.SearchView_queryBackground;
+			global::CommonAndroidTools.Resource.Styleable.SearchView_queryHint = global::RadioLogisticaDeliveries.Resource.Styleable.SearchView_queryHint;
+			global::CommonAndroidTools.Resource.Styleable.SearchView_searchHintIcon = global::RadioLogisticaDeliveries.Resource.Styleable.SearchView_searchHintIcon;
+			global::CommonAndroidTools.Resource.Styleable.SearchView_searchIcon = global::RadioLogisticaDeliveries.Resource.Styleable.SearchView_searchIcon;
+			global::CommonAndroidTools.Resource.Styleable.SearchView_submitBackground = global::RadioLogisticaDeliveries.Resource.Styleable.SearchView_submitBackground;
+			global::CommonAndroidTools.Resource.Styleable.SearchView_suggestionRowLayout = global::RadioLogisticaDeliveries.Resource.Styleable.SearchView_suggestionRowLayout;
+			global::CommonAndroidTools.Resource.Styleable.SearchView_voiceIcon = global::RadioLogisticaDeliveries.Resource.Styleable.SearchView_voiceIcon;
+			global::CommonAndroidTools.Resource.Styleable.Spinner = global::RadioLogisticaDeliveries.Resource.Styleable.Spinner;
+			global::CommonAndroidTools.Resource.Styleable.Spinner_android_dropDownWidth = global::RadioLogisticaDeliveries.Resource.Styleable.Spinner_android_dropDownWidth;
+			global::CommonAndroidTools.Resource.Styleable.Spinner_android_entries = global::RadioLogisticaDeliveries.Resource.Styleable.Spinner_android_entries;
+			global::CommonAndroidTools.Resource.Styleable.Spinner_android_popupBackground = global::RadioLogisticaDeliveries.Resource.Styleable.Spinner_android_popupBackground;
+			global::CommonAndroidTools.Resource.Styleable.Spinner_android_prompt = global::RadioLogisticaDeliveries.Resource.Styleable.Spinner_android_prompt;
+			global::CommonAndroidTools.Resource.Styleable.Spinner_popupTheme = global::RadioLogisticaDeliveries.Resource.Styleable.Spinner_popupTheme;
+			global::CommonAndroidTools.Resource.Styleable.SwitchCompat = global::RadioLogisticaDeliveries.Resource.Styleable.SwitchCompat;
+			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_android_textOff = global::RadioLogisticaDeliveries.Resource.Styleable.SwitchCompat_android_textOff;
+			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_android_textOn = global::RadioLogisticaDeliveries.Resource.Styleable.SwitchCompat_android_textOn;
+			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_android_thumb = global::RadioLogisticaDeliveries.Resource.Styleable.SwitchCompat_android_thumb;
+			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_showText = global::RadioLogisticaDeliveries.Resource.Styleable.SwitchCompat_showText;
+			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_splitTrack = global::RadioLogisticaDeliveries.Resource.Styleable.SwitchCompat_splitTrack;
+			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_switchMinWidth = global::RadioLogisticaDeliveries.Resource.Styleable.SwitchCompat_switchMinWidth;
+			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_switchPadding = global::RadioLogisticaDeliveries.Resource.Styleable.SwitchCompat_switchPadding;
+			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_switchTextAppearance = global::RadioLogisticaDeliveries.Resource.Styleable.SwitchCompat_switchTextAppearance;
+			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_thumbTextPadding = global::RadioLogisticaDeliveries.Resource.Styleable.SwitchCompat_thumbTextPadding;
+			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_thumbTint = global::RadioLogisticaDeliveries.Resource.Styleable.SwitchCompat_thumbTint;
+			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_thumbTintMode = global::RadioLogisticaDeliveries.Resource.Styleable.SwitchCompat_thumbTintMode;
+			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_track = global::RadioLogisticaDeliveries.Resource.Styleable.SwitchCompat_track;
+			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_trackTint = global::RadioLogisticaDeliveries.Resource.Styleable.SwitchCompat_trackTint;
+			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_trackTintMode = global::RadioLogisticaDeliveries.Resource.Styleable.SwitchCompat_trackTintMode;
+			global::CommonAndroidTools.Resource.Styleable.TextAppearance = global::RadioLogisticaDeliveries.Resource.Styleable.TextAppearance;
+			global::CommonAndroidTools.Resource.Styleable.TextAppearance_android_fontFamily = global::RadioLogisticaDeliveries.Resource.Styleable.TextAppearance_android_fontFamily;
+			global::CommonAndroidTools.Resource.Styleable.TextAppearance_android_shadowColor = global::RadioLogisticaDeliveries.Resource.Styleable.TextAppearance_android_shadowColor;
+			global::CommonAndroidTools.Resource.Styleable.TextAppearance_android_shadowDx = global::RadioLogisticaDeliveries.Resource.Styleable.TextAppearance_android_shadowDx;
+			global::CommonAndroidTools.Resource.Styleable.TextAppearance_android_shadowDy = global::RadioLogisticaDeliveries.Resource.Styleable.TextAppearance_android_shadowDy;
+			global::CommonAndroidTools.Resource.Styleable.TextAppearance_android_shadowRadius = global::RadioLogisticaDeliveries.Resource.Styleable.TextAppearance_android_shadowRadius;
+			global::CommonAndroidTools.Resource.Styleable.TextAppearance_android_textColor = global::RadioLogisticaDeliveries.Resource.Styleable.TextAppearance_android_textColor;
+			global::CommonAndroidTools.Resource.Styleable.TextAppearance_android_textColorHint = global::RadioLogisticaDeliveries.Resource.Styleable.TextAppearance_android_textColorHint;
+			global::CommonAndroidTools.Resource.Styleable.TextAppearance_android_textColorLink = global::RadioLogisticaDeliveries.Resource.Styleable.TextAppearance_android_textColorLink;
+			global::CommonAndroidTools.Resource.Styleable.TextAppearance_android_textSize = global::RadioLogisticaDeliveries.Resource.Styleable.TextAppearance_android_textSize;
+			global::CommonAndroidTools.Resource.Styleable.TextAppearance_android_textStyle = global::RadioLogisticaDeliveries.Resource.Styleable.TextAppearance_android_textStyle;
+			global::CommonAndroidTools.Resource.Styleable.TextAppearance_android_typeface = global::RadioLogisticaDeliveries.Resource.Styleable.TextAppearance_android_typeface;
+			global::CommonAndroidTools.Resource.Styleable.TextAppearance_fontFamily = global::RadioLogisticaDeliveries.Resource.Styleable.TextAppearance_fontFamily;
+			global::CommonAndroidTools.Resource.Styleable.TextAppearance_textAllCaps = global::RadioLogisticaDeliveries.Resource.Styleable.TextAppearance_textAllCaps;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_android_gravity = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_android_gravity;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_android_minHeight = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_android_minHeight;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_buttonGravity = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_buttonGravity;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_collapseContentDescription = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_collapseContentDescription;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_collapseIcon = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_collapseIcon;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_contentInsetEnd = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_contentInsetEnd;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_contentInsetEndWithActions = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_contentInsetEndWithActions;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_contentInsetLeft = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_contentInsetLeft;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_contentInsetRight = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_contentInsetRight;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_contentInsetStart = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_contentInsetStart;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_contentInsetStartWithNavigation = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_contentInsetStartWithNavigation;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_logo = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_logo;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_logoDescription = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_logoDescription;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_maxButtonHeight = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_maxButtonHeight;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_navigationContentDescription = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_navigationContentDescription;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_navigationIcon = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_navigationIcon;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_popupTheme = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_popupTheme;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_subtitle = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_subtitle;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_subtitleTextAppearance = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_subtitleTextAppearance;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_subtitleTextColor = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_subtitleTextColor;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_title = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_title;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_titleMargin = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_titleMargin;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_titleMarginBottom = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_titleMarginBottom;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_titleMarginEnd = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_titleMarginEnd;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_titleMarginStart = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_titleMarginStart;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_titleMarginTop = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_titleMarginTop;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_titleMargins = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_titleMargins;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_titleTextAppearance = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_titleTextAppearance;
+			global::CommonAndroidTools.Resource.Styleable.Toolbar_titleTextColor = global::RadioLogisticaDeliveries.Resource.Styleable.Toolbar_titleTextColor;
+			global::CommonAndroidTools.Resource.Styleable.View = global::RadioLogisticaDeliveries.Resource.Styleable.View;
+			global::CommonAndroidTools.Resource.Styleable.View_android_focusable = global::RadioLogisticaDeliveries.Resource.Styleable.View_android_focusable;
+			global::CommonAndroidTools.Resource.Styleable.View_android_theme = global::RadioLogisticaDeliveries.Resource.Styleable.View_android_theme;
+			global::CommonAndroidTools.Resource.Styleable.View_paddingEnd = global::RadioLogisticaDeliveries.Resource.Styleable.View_paddingEnd;
+			global::CommonAndroidTools.Resource.Styleable.View_paddingStart = global::RadioLogisticaDeliveries.Resource.Styleable.View_paddingStart;
+			global::CommonAndroidTools.Resource.Styleable.View_theme = global::RadioLogisticaDeliveries.Resource.Styleable.View_theme;
+			global::CommonAndroidTools.Resource.Styleable.ViewBackgroundHelper = global::RadioLogisticaDeliveries.Resource.Styleable.ViewBackgroundHelper;
+			global::CommonAndroidTools.Resource.Styleable.ViewBackgroundHelper_android_background = global::RadioLogisticaDeliveries.Resource.Styleable.ViewBackgroundHelper_android_background;
+			global::CommonAndroidTools.Resource.Styleable.ViewBackgroundHelper_backgroundTint = global::RadioLogisticaDeliveries.Resource.Styleable.ViewBackgroundHelper_backgroundTint;
+			global::CommonAndroidTools.Resource.Styleable.ViewBackgroundHelper_backgroundTintMode = global::RadioLogisticaDeliveries.Resource.Styleable.ViewBackgroundHelper_backgroundTintMode;
+			global::CommonAndroidTools.Resource.Styleable.ViewStubCompat = global::RadioLogisticaDeliveries.Resource.Styleable.ViewStubCompat;
+			global::CommonAndroidTools.Resource.Styleable.ViewStubCompat_android_id = global::RadioLogisticaDeliveries.Resource.Styleable.ViewStubCompat_android_id;
+			global::CommonAndroidTools.Resource.Styleable.ViewStubCompat_android_inflatedId = global::RadioLogisticaDeliveries.Resource.Styleable.ViewStubCompat_android_inflatedId;
+			global::CommonAndroidTools.Resource.Styleable.ViewStubCompat_android_layout = global::RadioLogisticaDeliveries.Resource.Styleable.ViewStubCompat_android_layout;
 			global::LogonScreen.Resource.Animation.abc_fade_in = global::RadioLogisticaDeliveries.Resource.Animation.abc_fade_in;
 			global::LogonScreen.Resource.Animation.abc_fade_out = global::RadioLogisticaDeliveries.Resource.Animation.abc_fade_out;
 			global::LogonScreen.Resource.Animation.abc_grow_fade_in_from_bottom = global::RadioLogisticaDeliveries.Resource.Animation.abc_grow_fade_in_from_bottom;
@@ -125,12 +1645,6 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Attribute.buttonStyleSmall = global::RadioLogisticaDeliveries.Resource.Attribute.buttonStyleSmall;
 			global::LogonScreen.Resource.Attribute.buttonTint = global::RadioLogisticaDeliveries.Resource.Attribute.buttonTint;
 			global::LogonScreen.Resource.Attribute.buttonTintMode = global::RadioLogisticaDeliveries.Resource.Attribute.buttonTintMode;
-			global::LogonScreen.Resource.Attribute.cardBackgroundColor = global::RadioLogisticaDeliveries.Resource.Attribute.cardBackgroundColor;
-			global::LogonScreen.Resource.Attribute.cardCornerRadius = global::RadioLogisticaDeliveries.Resource.Attribute.cardCornerRadius;
-			global::LogonScreen.Resource.Attribute.cardElevation = global::RadioLogisticaDeliveries.Resource.Attribute.cardElevation;
-			global::LogonScreen.Resource.Attribute.cardMaxElevation = global::RadioLogisticaDeliveries.Resource.Attribute.cardMaxElevation;
-			global::LogonScreen.Resource.Attribute.cardPreventCornerOverlap = global::RadioLogisticaDeliveries.Resource.Attribute.cardPreventCornerOverlap;
-			global::LogonScreen.Resource.Attribute.cardUseCompatPadding = global::RadioLogisticaDeliveries.Resource.Attribute.cardUseCompatPadding;
 			global::LogonScreen.Resource.Attribute.checkboxStyle = global::RadioLogisticaDeliveries.Resource.Attribute.checkboxStyle;
 			global::LogonScreen.Resource.Attribute.checkedTextViewStyle = global::RadioLogisticaDeliveries.Resource.Attribute.checkedTextViewStyle;
 			global::LogonScreen.Resource.Attribute.closeIcon = global::RadioLogisticaDeliveries.Resource.Attribute.closeIcon;
@@ -158,11 +1672,6 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Attribute.contentInsetRight = global::RadioLogisticaDeliveries.Resource.Attribute.contentInsetRight;
 			global::LogonScreen.Resource.Attribute.contentInsetStart = global::RadioLogisticaDeliveries.Resource.Attribute.contentInsetStart;
 			global::LogonScreen.Resource.Attribute.contentInsetStartWithNavigation = global::RadioLogisticaDeliveries.Resource.Attribute.contentInsetStartWithNavigation;
-			global::LogonScreen.Resource.Attribute.contentPadding = global::RadioLogisticaDeliveries.Resource.Attribute.contentPadding;
-			global::LogonScreen.Resource.Attribute.contentPaddingBottom = global::RadioLogisticaDeliveries.Resource.Attribute.contentPaddingBottom;
-			global::LogonScreen.Resource.Attribute.contentPaddingLeft = global::RadioLogisticaDeliveries.Resource.Attribute.contentPaddingLeft;
-			global::LogonScreen.Resource.Attribute.contentPaddingRight = global::RadioLogisticaDeliveries.Resource.Attribute.contentPaddingRight;
-			global::LogonScreen.Resource.Attribute.contentPaddingTop = global::RadioLogisticaDeliveries.Resource.Attribute.contentPaddingTop;
 			global::LogonScreen.Resource.Attribute.contentScrim = global::RadioLogisticaDeliveries.Resource.Attribute.contentScrim;
 			global::LogonScreen.Resource.Attribute.controlBackground = global::RadioLogisticaDeliveries.Resource.Attribute.controlBackground;
 			global::LogonScreen.Resource.Attribute.counterEnabled = global::RadioLogisticaDeliveries.Resource.Attribute.counterEnabled;
@@ -197,7 +1706,6 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Attribute.expandedTitleMarginStart = global::RadioLogisticaDeliveries.Resource.Attribute.expandedTitleMarginStart;
 			global::LogonScreen.Resource.Attribute.expandedTitleMarginTop = global::RadioLogisticaDeliveries.Resource.Attribute.expandedTitleMarginTop;
 			global::LogonScreen.Resource.Attribute.expandedTitleTextAppearance = global::RadioLogisticaDeliveries.Resource.Attribute.expandedTitleTextAppearance;
-			global::LogonScreen.Resource.Attribute.externalRouteEnabledDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.externalRouteEnabledDrawable;
 			global::LogonScreen.Resource.Attribute.fabSize = global::RadioLogisticaDeliveries.Resource.Attribute.fabSize;
 			global::LogonScreen.Resource.Attribute.fastScrollEnabled = global::RadioLogisticaDeliveries.Resource.Attribute.fastScrollEnabled;
 			global::LogonScreen.Resource.Attribute.fastScrollHorizontalThumbDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.fastScrollHorizontalThumbDrawable;
@@ -268,19 +1776,6 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Attribute.maxActionInlineWidth = global::RadioLogisticaDeliveries.Resource.Attribute.maxActionInlineWidth;
 			global::LogonScreen.Resource.Attribute.maxButtonHeight = global::RadioLogisticaDeliveries.Resource.Attribute.maxButtonHeight;
 			global::LogonScreen.Resource.Attribute.measureWithLargestChild = global::RadioLogisticaDeliveries.Resource.Attribute.measureWithLargestChild;
-			global::LogonScreen.Resource.Attribute.mediaRouteAudioTrackDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRouteAudioTrackDrawable;
-			global::LogonScreen.Resource.Attribute.mediaRouteButtonStyle = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRouteButtonStyle;
-			global::LogonScreen.Resource.Attribute.mediaRouteButtonTint = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRouteButtonTint;
-			global::LogonScreen.Resource.Attribute.mediaRouteCloseDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRouteCloseDrawable;
-			global::LogonScreen.Resource.Attribute.mediaRouteControlPanelThemeOverlay = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRouteControlPanelThemeOverlay;
-			global::LogonScreen.Resource.Attribute.mediaRouteDefaultIconDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRouteDefaultIconDrawable;
-			global::LogonScreen.Resource.Attribute.mediaRoutePauseDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRoutePauseDrawable;
-			global::LogonScreen.Resource.Attribute.mediaRoutePlayDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRoutePlayDrawable;
-			global::LogonScreen.Resource.Attribute.mediaRouteSpeakerGroupIconDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRouteSpeakerGroupIconDrawable;
-			global::LogonScreen.Resource.Attribute.mediaRouteSpeakerIconDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRouteSpeakerIconDrawable;
-			global::LogonScreen.Resource.Attribute.mediaRouteStopDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRouteStopDrawable;
-			global::LogonScreen.Resource.Attribute.mediaRouteTheme = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRouteTheme;
-			global::LogonScreen.Resource.Attribute.mediaRouteTvIconDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRouteTvIconDrawable;
 			global::LogonScreen.Resource.Attribute.menu = global::RadioLogisticaDeliveries.Resource.Attribute.menu;
 			global::LogonScreen.Resource.Attribute.multiChoiceItemLayout = global::RadioLogisticaDeliveries.Resource.Attribute.multiChoiceItemLayout;
 			global::LogonScreen.Resource.Attribute.navigationContentDescription = global::RadioLogisticaDeliveries.Resource.Attribute.navigationContentDescription;
@@ -464,10 +1959,6 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Color.bright_foreground_material_light = global::RadioLogisticaDeliveries.Resource.Color.bright_foreground_material_light;
 			global::LogonScreen.Resource.Color.button_material_dark = global::RadioLogisticaDeliveries.Resource.Color.button_material_dark;
 			global::LogonScreen.Resource.Color.button_material_light = global::RadioLogisticaDeliveries.Resource.Color.button_material_light;
-			global::LogonScreen.Resource.Color.cardview_dark_background = global::RadioLogisticaDeliveries.Resource.Color.cardview_dark_background;
-			global::LogonScreen.Resource.Color.cardview_light_background = global::RadioLogisticaDeliveries.Resource.Color.cardview_light_background;
-			global::LogonScreen.Resource.Color.cardview_shadow_end_color = global::RadioLogisticaDeliveries.Resource.Color.cardview_shadow_end_color;
-			global::LogonScreen.Resource.Color.cardview_shadow_start_color = global::RadioLogisticaDeliveries.Resource.Color.cardview_shadow_start_color;
 			global::LogonScreen.Resource.Color.design_bottom_navigation_shadow_color = global::RadioLogisticaDeliveries.Resource.Color.design_bottom_navigation_shadow_color;
 			global::LogonScreen.Resource.Color.design_error = global::RadioLogisticaDeliveries.Resource.Color.design_error;
 			global::LogonScreen.Resource.Color.design_fab_shadow_end_color = global::RadioLogisticaDeliveries.Resource.Color.design_fab_shadow_end_color;
@@ -599,9 +2090,6 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Dimension.abc_text_size_subtitle_material_toolbar = global::RadioLogisticaDeliveries.Resource.Dimension.abc_text_size_subtitle_material_toolbar;
 			global::LogonScreen.Resource.Dimension.abc_text_size_title_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_text_size_title_material;
 			global::LogonScreen.Resource.Dimension.abc_text_size_title_material_toolbar = global::RadioLogisticaDeliveries.Resource.Dimension.abc_text_size_title_material_toolbar;
-			global::LogonScreen.Resource.Dimension.cardview_compat_inset_shadow = global::RadioLogisticaDeliveries.Resource.Dimension.cardview_compat_inset_shadow;
-			global::LogonScreen.Resource.Dimension.cardview_default_elevation = global::RadioLogisticaDeliveries.Resource.Dimension.cardview_default_elevation;
-			global::LogonScreen.Resource.Dimension.cardview_default_radius = global::RadioLogisticaDeliveries.Resource.Dimension.cardview_default_radius;
 			global::LogonScreen.Resource.Dimension.compat_button_inset_horizontal_material = global::RadioLogisticaDeliveries.Resource.Dimension.compat_button_inset_horizontal_material;
 			global::LogonScreen.Resource.Dimension.compat_button_inset_vertical_material = global::RadioLogisticaDeliveries.Resource.Dimension.compat_button_inset_vertical_material;
 			global::LogonScreen.Resource.Dimension.compat_button_padding_horizontal_material = global::RadioLogisticaDeliveries.Resource.Dimension.compat_button_padding_horizontal_material;
@@ -660,12 +2148,6 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame = global::RadioLogisticaDeliveries.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame;
 			global::LogonScreen.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity = global::RadioLogisticaDeliveries.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity;
 			global::LogonScreen.Resource.Dimension.item_touch_helper_swipe_escape_velocity = global::RadioLogisticaDeliveries.Resource.Dimension.item_touch_helper_swipe_escape_velocity;
-			global::LogonScreen.Resource.Dimension.mr_controller_volume_group_list_item_height = global::RadioLogisticaDeliveries.Resource.Dimension.mr_controller_volume_group_list_item_height;
-			global::LogonScreen.Resource.Dimension.mr_controller_volume_group_list_item_icon_size = global::RadioLogisticaDeliveries.Resource.Dimension.mr_controller_volume_group_list_item_icon_size;
-			global::LogonScreen.Resource.Dimension.mr_controller_volume_group_list_max_height = global::RadioLogisticaDeliveries.Resource.Dimension.mr_controller_volume_group_list_max_height;
-			global::LogonScreen.Resource.Dimension.mr_controller_volume_group_list_padding_top = global::RadioLogisticaDeliveries.Resource.Dimension.mr_controller_volume_group_list_padding_top;
-			global::LogonScreen.Resource.Dimension.mr_dialog_fixed_width_major = global::RadioLogisticaDeliveries.Resource.Dimension.mr_dialog_fixed_width_major;
-			global::LogonScreen.Resource.Dimension.mr_dialog_fixed_width_minor = global::RadioLogisticaDeliveries.Resource.Dimension.mr_dialog_fixed_width_minor;
 			global::LogonScreen.Resource.Dimension.notification_action_icon_size = global::RadioLogisticaDeliveries.Resource.Dimension.notification_action_icon_size;
 			global::LogonScreen.Resource.Dimension.notification_action_text_size = global::RadioLogisticaDeliveries.Resource.Dimension.notification_action_text_size;
 			global::LogonScreen.Resource.Dimension.notification_big_circle_margin = global::RadioLogisticaDeliveries.Resource.Dimension.notification_big_circle_margin;
@@ -786,204 +2268,7 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Drawable.design_ic_visibility_off = global::RadioLogisticaDeliveries.Resource.Drawable.design_ic_visibility_off;
 			global::LogonScreen.Resource.Drawable.design_password_eye = global::RadioLogisticaDeliveries.Resource.Drawable.design_password_eye;
 			global::LogonScreen.Resource.Drawable.design_snackbar_background = global::RadioLogisticaDeliveries.Resource.Drawable.design_snackbar_background;
-			global::LogonScreen.Resource.Drawable.ic_audiotrack_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_audiotrack_dark;
-			global::LogonScreen.Resource.Drawable.ic_audiotrack_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_audiotrack_light;
-			global::LogonScreen.Resource.Drawable.ic_dialog_close_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_dialog_close_dark;
-			global::LogonScreen.Resource.Drawable.ic_dialog_close_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_dialog_close_light;
-			global::LogonScreen.Resource.Drawable.ic_group_collapse_00 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_00;
-			global::LogonScreen.Resource.Drawable.ic_group_collapse_01 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_01;
-			global::LogonScreen.Resource.Drawable.ic_group_collapse_02 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_02;
-			global::LogonScreen.Resource.Drawable.ic_group_collapse_03 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_03;
-			global::LogonScreen.Resource.Drawable.ic_group_collapse_04 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_04;
-			global::LogonScreen.Resource.Drawable.ic_group_collapse_05 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_05;
-			global::LogonScreen.Resource.Drawable.ic_group_collapse_06 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_06;
-			global::LogonScreen.Resource.Drawable.ic_group_collapse_07 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_07;
-			global::LogonScreen.Resource.Drawable.ic_group_collapse_08 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_08;
-			global::LogonScreen.Resource.Drawable.ic_group_collapse_09 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_09;
-			global::LogonScreen.Resource.Drawable.ic_group_collapse_10 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_10;
-			global::LogonScreen.Resource.Drawable.ic_group_collapse_11 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_11;
-			global::LogonScreen.Resource.Drawable.ic_group_collapse_12 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_12;
-			global::LogonScreen.Resource.Drawable.ic_group_collapse_13 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_13;
-			global::LogonScreen.Resource.Drawable.ic_group_collapse_14 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_14;
-			global::LogonScreen.Resource.Drawable.ic_group_collapse_15 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_15;
-			global::LogonScreen.Resource.Drawable.ic_group_expand_00 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_00;
-			global::LogonScreen.Resource.Drawable.ic_group_expand_01 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_01;
-			global::LogonScreen.Resource.Drawable.ic_group_expand_02 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_02;
-			global::LogonScreen.Resource.Drawable.ic_group_expand_03 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_03;
-			global::LogonScreen.Resource.Drawable.ic_group_expand_04 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_04;
-			global::LogonScreen.Resource.Drawable.ic_group_expand_05 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_05;
-			global::LogonScreen.Resource.Drawable.ic_group_expand_06 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_06;
-			global::LogonScreen.Resource.Drawable.ic_group_expand_07 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_07;
-			global::LogonScreen.Resource.Drawable.ic_group_expand_08 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_08;
-			global::LogonScreen.Resource.Drawable.ic_group_expand_09 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_09;
-			global::LogonScreen.Resource.Drawable.ic_group_expand_10 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_10;
-			global::LogonScreen.Resource.Drawable.ic_group_expand_11 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_11;
-			global::LogonScreen.Resource.Drawable.ic_group_expand_12 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_12;
-			global::LogonScreen.Resource.Drawable.ic_group_expand_13 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_13;
-			global::LogonScreen.Resource.Drawable.ic_group_expand_14 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_14;
-			global::LogonScreen.Resource.Drawable.ic_group_expand_15 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_15;
-			global::LogonScreen.Resource.Drawable.ic_media_pause_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_media_pause_dark;
-			global::LogonScreen.Resource.Drawable.ic_media_pause_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_media_pause_light;
-			global::LogonScreen.Resource.Drawable.ic_media_play_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_media_play_dark;
-			global::LogonScreen.Resource.Drawable.ic_media_play_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_media_play_light;
-			global::LogonScreen.Resource.Drawable.ic_media_stop_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_media_stop_dark;
-			global::LogonScreen.Resource.Drawable.ic_media_stop_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_media_stop_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_00_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_00_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_00_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_00_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_01_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_01_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_01_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_01_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_02_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_02_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_02_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_02_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_03_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_03_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_03_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_03_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_04_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_04_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_04_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_04_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_05_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_05_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_05_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_05_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_06_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_06_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_06_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_06_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_07_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_07_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_07_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_07_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_08_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_08_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_08_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_08_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_09_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_09_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_09_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_09_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_10_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_10_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_10_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_10_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_11_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_11_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_11_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_11_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_12_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_12_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_12_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_12_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_13_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_13_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_13_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_13_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_14_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_14_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_14_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_14_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_15_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_15_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_15_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_15_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_16_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_16_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_16_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_16_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_17_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_17_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_17_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_17_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_18_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_18_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_18_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_18_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_19_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_19_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_19_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_19_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_20_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_20_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_20_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_20_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_21_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_21_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_21_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_21_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_22_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_22_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_22_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_22_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_23_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_23_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_23_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_23_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_24_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_24_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_24_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_24_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_25_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_25_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_25_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_25_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_26_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_26_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_26_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_26_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_27_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_27_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_27_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_27_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_28_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_28_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_28_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_28_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_29_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_29_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_29_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_29_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_30_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_30_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_30_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_30_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_00_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_00_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_00_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_00_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_01_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_01_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_01_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_01_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_02_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_02_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_02_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_02_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_03_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_03_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_03_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_03_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_04_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_04_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_04_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_04_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_05_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_05_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_05_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_05_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_06_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_06_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_06_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_06_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_07_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_07_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_07_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_07_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_08_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_08_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_08_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_08_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_09_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_09_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_09_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_09_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_10_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_10_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_10_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_10_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_11_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_11_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_11_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_11_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_12_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_12_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_12_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_12_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_13_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_13_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_13_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_13_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_14_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_14_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_14_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_14_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_15_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_15_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_15_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_15_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_16_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_16_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_16_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_16_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_17_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_17_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_17_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_17_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_18_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_18_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_18_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_18_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_19_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_19_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_19_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_19_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_20_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_20_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_20_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_20_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_21_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_21_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_21_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_21_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_22_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_22_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_22_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_22_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_23_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_23_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_23_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_23_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_24_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_24_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_24_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_24_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_25_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_25_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_25_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_25_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_26_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_26_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_26_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_26_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_27_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_27_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_27_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_27_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_28_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_28_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_28_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_28_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_29_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_29_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_29_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_29_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_30_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_30_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_30_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_30_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_disabled_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_disabled_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_disabled_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_disabled_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_disconnected_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_disconnected_dark;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_disconnected_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_disconnected_light;
-			global::LogonScreen.Resource.Drawable.ic_mr_button_grey = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_grey;
-			global::LogonScreen.Resource.Drawable.ic_vol_type_speaker_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_vol_type_speaker_dark;
-			global::LogonScreen.Resource.Drawable.ic_vol_type_speaker_group_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_vol_type_speaker_group_dark;
-			global::LogonScreen.Resource.Drawable.ic_vol_type_speaker_group_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_vol_type_speaker_group_light;
-			global::LogonScreen.Resource.Drawable.ic_vol_type_speaker_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_vol_type_speaker_light;
-			global::LogonScreen.Resource.Drawable.ic_vol_type_tv_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_vol_type_tv_dark;
-			global::LogonScreen.Resource.Drawable.ic_vol_type_tv_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_vol_type_tv_light;
 			global::LogonScreen.Resource.Drawable.Logo_Espack_Sistemas_vertical = global::RadioLogisticaDeliveries.Resource.Drawable.Logo_Espack_Sistemas_vertical;
-			global::LogonScreen.Resource.Drawable.mr_button_connected_dark = global::RadioLogisticaDeliveries.Resource.Drawable.mr_button_connected_dark;
-			global::LogonScreen.Resource.Drawable.mr_button_connected_light = global::RadioLogisticaDeliveries.Resource.Drawable.mr_button_connected_light;
-			global::LogonScreen.Resource.Drawable.mr_button_connecting_dark = global::RadioLogisticaDeliveries.Resource.Drawable.mr_button_connecting_dark;
-			global::LogonScreen.Resource.Drawable.mr_button_connecting_light = global::RadioLogisticaDeliveries.Resource.Drawable.mr_button_connecting_light;
-			global::LogonScreen.Resource.Drawable.mr_button_dark = global::RadioLogisticaDeliveries.Resource.Drawable.mr_button_dark;
-			global::LogonScreen.Resource.Drawable.mr_button_light = global::RadioLogisticaDeliveries.Resource.Drawable.mr_button_light;
-			global::LogonScreen.Resource.Drawable.mr_dialog_close_dark = global::RadioLogisticaDeliveries.Resource.Drawable.mr_dialog_close_dark;
-			global::LogonScreen.Resource.Drawable.mr_dialog_close_light = global::RadioLogisticaDeliveries.Resource.Drawable.mr_dialog_close_light;
-			global::LogonScreen.Resource.Drawable.mr_dialog_material_background_dark = global::RadioLogisticaDeliveries.Resource.Drawable.mr_dialog_material_background_dark;
-			global::LogonScreen.Resource.Drawable.mr_dialog_material_background_light = global::RadioLogisticaDeliveries.Resource.Drawable.mr_dialog_material_background_light;
-			global::LogonScreen.Resource.Drawable.mr_group_collapse = global::RadioLogisticaDeliveries.Resource.Drawable.mr_group_collapse;
-			global::LogonScreen.Resource.Drawable.mr_group_expand = global::RadioLogisticaDeliveries.Resource.Drawable.mr_group_expand;
-			global::LogonScreen.Resource.Drawable.mr_media_pause_dark = global::RadioLogisticaDeliveries.Resource.Drawable.mr_media_pause_dark;
-			global::LogonScreen.Resource.Drawable.mr_media_pause_light = global::RadioLogisticaDeliveries.Resource.Drawable.mr_media_pause_light;
-			global::LogonScreen.Resource.Drawable.mr_media_play_dark = global::RadioLogisticaDeliveries.Resource.Drawable.mr_media_play_dark;
-			global::LogonScreen.Resource.Drawable.mr_media_play_light = global::RadioLogisticaDeliveries.Resource.Drawable.mr_media_play_light;
-			global::LogonScreen.Resource.Drawable.mr_media_stop_dark = global::RadioLogisticaDeliveries.Resource.Drawable.mr_media_stop_dark;
-			global::LogonScreen.Resource.Drawable.mr_media_stop_light = global::RadioLogisticaDeliveries.Resource.Drawable.mr_media_stop_light;
-			global::LogonScreen.Resource.Drawable.mr_vol_type_audiotrack_dark = global::RadioLogisticaDeliveries.Resource.Drawable.mr_vol_type_audiotrack_dark;
-			global::LogonScreen.Resource.Drawable.mr_vol_type_audiotrack_light = global::RadioLogisticaDeliveries.Resource.Drawable.mr_vol_type_audiotrack_light;
 			global::LogonScreen.Resource.Drawable.navigation_empty_icon = global::RadioLogisticaDeliveries.Resource.Drawable.navigation_empty_icon;
 			global::LogonScreen.Resource.Drawable.notification_action_background = global::RadioLogisticaDeliveries.Resource.Drawable.notification_action_background;
 			global::LogonScreen.Resource.Drawable.notification_bg = global::RadioLogisticaDeliveries.Resource.Drawable.notification_bg;
@@ -1002,6 +2287,7 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Id.ALT = global::RadioLogisticaDeliveries.Resource.Id.ALT;
 			global::LogonScreen.Resource.Id.CTRL = global::RadioLogisticaDeliveries.Resource.Id.CTRL;
 			global::LogonScreen.Resource.Id.FUNCTION = global::RadioLogisticaDeliveries.Resource.Id.FUNCTION;
+			global::LogonScreen.Resource.Id.LogonScreen = global::RadioLogisticaDeliveries.Resource.Id.LogonScreen;
 			global::LogonScreen.Resource.Id.META = global::RadioLogisticaDeliveries.Resource.Id.META;
 			global::LogonScreen.Resource.Id.Password = global::RadioLogisticaDeliveries.Resource.Id.Password;
 			global::LogonScreen.Resource.Id.SHIFT = global::RadioLogisticaDeliveries.Resource.Id.SHIFT;
@@ -1093,31 +2379,6 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Id.message = global::RadioLogisticaDeliveries.Resource.Id.message;
 			global::LogonScreen.Resource.Id.middle = global::RadioLogisticaDeliveries.Resource.Id.middle;
 			global::LogonScreen.Resource.Id.mini = global::RadioLogisticaDeliveries.Resource.Id.mini;
-			global::LogonScreen.Resource.Id.mr_art = global::RadioLogisticaDeliveries.Resource.Id.mr_art;
-			global::LogonScreen.Resource.Id.mr_chooser_list = global::RadioLogisticaDeliveries.Resource.Id.mr_chooser_list;
-			global::LogonScreen.Resource.Id.mr_chooser_route_desc = global::RadioLogisticaDeliveries.Resource.Id.mr_chooser_route_desc;
-			global::LogonScreen.Resource.Id.mr_chooser_route_icon = global::RadioLogisticaDeliveries.Resource.Id.mr_chooser_route_icon;
-			global::LogonScreen.Resource.Id.mr_chooser_route_name = global::RadioLogisticaDeliveries.Resource.Id.mr_chooser_route_name;
-			global::LogonScreen.Resource.Id.mr_chooser_title = global::RadioLogisticaDeliveries.Resource.Id.mr_chooser_title;
-			global::LogonScreen.Resource.Id.mr_close = global::RadioLogisticaDeliveries.Resource.Id.mr_close;
-			global::LogonScreen.Resource.Id.mr_control_divider = global::RadioLogisticaDeliveries.Resource.Id.mr_control_divider;
-			global::LogonScreen.Resource.Id.mr_control_playback_ctrl = global::RadioLogisticaDeliveries.Resource.Id.mr_control_playback_ctrl;
-			global::LogonScreen.Resource.Id.mr_control_subtitle = global::RadioLogisticaDeliveries.Resource.Id.mr_control_subtitle;
-			global::LogonScreen.Resource.Id.mr_control_title = global::RadioLogisticaDeliveries.Resource.Id.mr_control_title;
-			global::LogonScreen.Resource.Id.mr_control_title_container = global::RadioLogisticaDeliveries.Resource.Id.mr_control_title_container;
-			global::LogonScreen.Resource.Id.mr_custom_control = global::RadioLogisticaDeliveries.Resource.Id.mr_custom_control;
-			global::LogonScreen.Resource.Id.mr_default_control = global::RadioLogisticaDeliveries.Resource.Id.mr_default_control;
-			global::LogonScreen.Resource.Id.mr_dialog_area = global::RadioLogisticaDeliveries.Resource.Id.mr_dialog_area;
-			global::LogonScreen.Resource.Id.mr_expandable_area = global::RadioLogisticaDeliveries.Resource.Id.mr_expandable_area;
-			global::LogonScreen.Resource.Id.mr_group_expand_collapse = global::RadioLogisticaDeliveries.Resource.Id.mr_group_expand_collapse;
-			global::LogonScreen.Resource.Id.mr_media_main_control = global::RadioLogisticaDeliveries.Resource.Id.mr_media_main_control;
-			global::LogonScreen.Resource.Id.mr_name = global::RadioLogisticaDeliveries.Resource.Id.mr_name;
-			global::LogonScreen.Resource.Id.mr_playback_control = global::RadioLogisticaDeliveries.Resource.Id.mr_playback_control;
-			global::LogonScreen.Resource.Id.mr_title_bar = global::RadioLogisticaDeliveries.Resource.Id.mr_title_bar;
-			global::LogonScreen.Resource.Id.mr_volume_control = global::RadioLogisticaDeliveries.Resource.Id.mr_volume_control;
-			global::LogonScreen.Resource.Id.mr_volume_group_list = global::RadioLogisticaDeliveries.Resource.Id.mr_volume_group_list;
-			global::LogonScreen.Resource.Id.mr_volume_item_icon = global::RadioLogisticaDeliveries.Resource.Id.mr_volume_item_icon;
-			global::LogonScreen.Resource.Id.mr_volume_slider = global::RadioLogisticaDeliveries.Resource.Id.mr_volume_slider;
 			global::LogonScreen.Resource.Id.msgPkgInfo = global::RadioLogisticaDeliveries.Resource.Id.msgPkgInfo;
 			global::LogonScreen.Resource.Id.msgText = global::RadioLogisticaDeliveries.Resource.Id.msgText;
 			global::LogonScreen.Resource.Id.multiply = global::RadioLogisticaDeliveries.Resource.Id.multiply;
@@ -1132,6 +2393,8 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Id.parentPanel = global::RadioLogisticaDeliveries.Resource.Id.parentPanel;
 			global::LogonScreen.Resource.Id.parent_matrix = global::RadioLogisticaDeliveries.Resource.Id.parent_matrix;
 			global::LogonScreen.Resource.Id.pin = global::RadioLogisticaDeliveries.Resource.Id.pin;
+			global::LogonScreen.Resource.Id.progress = global::RadioLogisticaDeliveries.Resource.Id.progress;
+			global::LogonScreen.Resource.Id.progressBarHolder = global::RadioLogisticaDeliveries.Resource.Id.progressBarHolder;
 			global::LogonScreen.Resource.Id.progress_circular = global::RadioLogisticaDeliveries.Resource.Id.progress_circular;
 			global::LogonScreen.Resource.Id.progress_horizontal = global::RadioLogisticaDeliveries.Resource.Id.progress_horizontal;
 			global::LogonScreen.Resource.Id.radio = global::RadioLogisticaDeliveries.Resource.Id.radio;
@@ -1176,6 +2439,7 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Id.submenuarrow = global::RadioLogisticaDeliveries.Resource.Id.submenuarrow;
 			global::LogonScreen.Resource.Id.submit_area = global::RadioLogisticaDeliveries.Resource.Id.submit_area;
 			global::LogonScreen.Resource.Id.tabMode = global::RadioLogisticaDeliveries.Resource.Id.tabMode;
+			global::LogonScreen.Resource.Id.tag_transition_group = global::RadioLogisticaDeliveries.Resource.Id.tag_transition_group;
 			global::LogonScreen.Resource.Id.text = global::RadioLogisticaDeliveries.Resource.Id.text;
 			global::LogonScreen.Resource.Id.text2 = global::RadioLogisticaDeliveries.Resource.Id.text2;
 			global::LogonScreen.Resource.Id.textSpacerNoButtons = global::RadioLogisticaDeliveries.Resource.Id.textSpacerNoButtons;
@@ -1200,7 +2464,6 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Id.useLogo = global::RadioLogisticaDeliveries.Resource.Id.useLogo;
 			global::LogonScreen.Resource.Id.view_offset_helper = global::RadioLogisticaDeliveries.Resource.Id.view_offset_helper;
 			global::LogonScreen.Resource.Id.visible = global::RadioLogisticaDeliveries.Resource.Id.visible;
-			global::LogonScreen.Resource.Id.volume_item_container = global::RadioLogisticaDeliveries.Resource.Id.volume_item_container;
 			global::LogonScreen.Resource.Id.withText = global::RadioLogisticaDeliveries.Resource.Id.withText;
 			global::LogonScreen.Resource.Id.wrap_content = global::RadioLogisticaDeliveries.Resource.Id.wrap_content;
 			global::LogonScreen.Resource.Integer.abc_config_activityDefaultDur = global::RadioLogisticaDeliveries.Resource.Integer.abc_config_activityDefaultDur;
@@ -1211,16 +2474,10 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Integer.config_tooltipAnimTime = global::RadioLogisticaDeliveries.Resource.Integer.config_tooltipAnimTime;
 			global::LogonScreen.Resource.Integer.design_snackbar_text_max_lines = global::RadioLogisticaDeliveries.Resource.Integer.design_snackbar_text_max_lines;
 			global::LogonScreen.Resource.Integer.hide_password_duration = global::RadioLogisticaDeliveries.Resource.Integer.hide_password_duration;
-			global::LogonScreen.Resource.Integer.mr_controller_volume_group_list_animation_duration_ms = global::RadioLogisticaDeliveries.Resource.Integer.mr_controller_volume_group_list_animation_duration_ms;
-			global::LogonScreen.Resource.Integer.mr_controller_volume_group_list_fade_in_duration_ms = global::RadioLogisticaDeliveries.Resource.Integer.mr_controller_volume_group_list_fade_in_duration_ms;
-			global::LogonScreen.Resource.Integer.mr_controller_volume_group_list_fade_out_duration_ms = global::RadioLogisticaDeliveries.Resource.Integer.mr_controller_volume_group_list_fade_out_duration_ms;
 			global::LogonScreen.Resource.Integer.show_password_duration = global::RadioLogisticaDeliveries.Resource.Integer.show_password_duration;
 			global::LogonScreen.Resource.Integer.status_bar_notification_info_maxnum = global::RadioLogisticaDeliveries.Resource.Integer.status_bar_notification_info_maxnum;
-			global::LogonScreen.Resource.Interpolator.mr_fast_out_slow_in = global::RadioLogisticaDeliveries.Resource.Interpolator.mr_fast_out_slow_in;
-			global::LogonScreen.Resource.Interpolator.mr_linear_out_slow_in = global::RadioLogisticaDeliveries.Resource.Interpolator.mr_linear_out_slow_in;
 			global::LogonScreen.Resource.Layout.abc_action_bar_title_item = global::RadioLogisticaDeliveries.Resource.Layout.abc_action_bar_title_item;
 			global::LogonScreen.Resource.Layout.abc_action_bar_up_container = global::RadioLogisticaDeliveries.Resource.Layout.abc_action_bar_up_container;
-			global::LogonScreen.Resource.Layout.abc_action_bar_view_list_nav_layout = global::RadioLogisticaDeliveries.Resource.Layout.abc_action_bar_view_list_nav_layout;
 			global::LogonScreen.Resource.Layout.abc_action_menu_item_layout = global::RadioLogisticaDeliveries.Resource.Layout.abc_action_menu_item_layout;
 			global::LogonScreen.Resource.Layout.abc_action_menu_layout = global::RadioLogisticaDeliveries.Resource.Layout.abc_action_menu_layout;
 			global::LogonScreen.Resource.Layout.abc_action_mode_bar = global::RadioLogisticaDeliveries.Resource.Layout.abc_action_mode_bar;
@@ -1260,12 +2517,6 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Layout.design_navigation_menu_item = global::RadioLogisticaDeliveries.Resource.Layout.design_navigation_menu_item;
 			global::LogonScreen.Resource.Layout.design_text_input_password_icon = global::RadioLogisticaDeliveries.Resource.Layout.design_text_input_password_icon;
 			global::LogonScreen.Resource.Layout.LogonScreen = global::RadioLogisticaDeliveries.Resource.Layout.LogonScreen;
-			global::LogonScreen.Resource.Layout.mr_chooser_dialog = global::RadioLogisticaDeliveries.Resource.Layout.mr_chooser_dialog;
-			global::LogonScreen.Resource.Layout.mr_chooser_list_item = global::RadioLogisticaDeliveries.Resource.Layout.mr_chooser_list_item;
-			global::LogonScreen.Resource.Layout.mr_controller_material_dialog_b = global::RadioLogisticaDeliveries.Resource.Layout.mr_controller_material_dialog_b;
-			global::LogonScreen.Resource.Layout.mr_controller_volume_item = global::RadioLogisticaDeliveries.Resource.Layout.mr_controller_volume_item;
-			global::LogonScreen.Resource.Layout.mr_playback_control = global::RadioLogisticaDeliveries.Resource.Layout.mr_playback_control;
-			global::LogonScreen.Resource.Layout.mr_volume_control = global::RadioLogisticaDeliveries.Resource.Layout.mr_volume_control;
 			global::LogonScreen.Resource.Layout.notification_action = global::RadioLogisticaDeliveries.Resource.Layout.notification_action;
 			global::LogonScreen.Resource.Layout.notification_action_tombstone = global::RadioLogisticaDeliveries.Resource.Layout.notification_action_tombstone;
 			global::LogonScreen.Resource.Layout.notification_media_action = global::RadioLogisticaDeliveries.Resource.Layout.notification_media_action;
@@ -1291,11 +2542,7 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Raw.Gallium = global::RadioLogisticaDeliveries.Resource.Raw.Gallium;
 			global::LogonScreen.Resource.Raw.TaDa = global::RadioLogisticaDeliveries.Resource.Raw.TaDa;
 			global::LogonScreen.Resource.Raw.Tejat = global::RadioLogisticaDeliveries.Resource.Raw.Tejat;
-			global::LogonScreen.Resource.String.ApplicationName = global::RadioLogisticaDeliveries.Resource.String.ApplicationName;
-			global::LogonScreen.Resource.String.Hello = global::RadioLogisticaDeliveries.Resource.String.Hello;
 			global::LogonScreen.Resource.String.abc_action_bar_home_description = global::RadioLogisticaDeliveries.Resource.String.abc_action_bar_home_description;
-			global::LogonScreen.Resource.String.abc_action_bar_home_description_format = global::RadioLogisticaDeliveries.Resource.String.abc_action_bar_home_description_format;
-			global::LogonScreen.Resource.String.abc_action_bar_home_subtitle_description_format = global::RadioLogisticaDeliveries.Resource.String.abc_action_bar_home_subtitle_description_format;
 			global::LogonScreen.Resource.String.abc_action_bar_up_description = global::RadioLogisticaDeliveries.Resource.String.abc_action_bar_up_description;
 			global::LogonScreen.Resource.String.abc_action_menu_overflow_description = global::RadioLogisticaDeliveries.Resource.String.abc_action_menu_overflow_description;
 			global::LogonScreen.Resource.String.abc_action_mode_done = global::RadioLogisticaDeliveries.Resource.String.abc_action_mode_done;
@@ -1324,30 +2571,11 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.String.abc_shareactionprovider_share_with = global::RadioLogisticaDeliveries.Resource.String.abc_shareactionprovider_share_with;
 			global::LogonScreen.Resource.String.abc_shareactionprovider_share_with_application = global::RadioLogisticaDeliveries.Resource.String.abc_shareactionprovider_share_with_application;
 			global::LogonScreen.Resource.String.abc_toolbar_collapse_description = global::RadioLogisticaDeliveries.Resource.String.abc_toolbar_collapse_description;
+			global::LogonScreen.Resource.String.app_name = global::RadioLogisticaDeliveries.Resource.String.app_name;
 			global::LogonScreen.Resource.String.appbar_scrolling_view_behavior = global::RadioLogisticaDeliveries.Resource.String.appbar_scrolling_view_behavior;
 			global::LogonScreen.Resource.String.bottom_sheet_behavior = global::RadioLogisticaDeliveries.Resource.String.bottom_sheet_behavior;
 			global::LogonScreen.Resource.String.character_counter_pattern = global::RadioLogisticaDeliveries.Resource.String.character_counter_pattern;
-			global::LogonScreen.Resource.String.mr_button_content_description = global::RadioLogisticaDeliveries.Resource.String.mr_button_content_description;
-			global::LogonScreen.Resource.String.mr_cast_button_connected = global::RadioLogisticaDeliveries.Resource.String.mr_cast_button_connected;
-			global::LogonScreen.Resource.String.mr_cast_button_connecting = global::RadioLogisticaDeliveries.Resource.String.mr_cast_button_connecting;
-			global::LogonScreen.Resource.String.mr_cast_button_disconnected = global::RadioLogisticaDeliveries.Resource.String.mr_cast_button_disconnected;
-			global::LogonScreen.Resource.String.mr_chooser_searching = global::RadioLogisticaDeliveries.Resource.String.mr_chooser_searching;
-			global::LogonScreen.Resource.String.mr_chooser_title = global::RadioLogisticaDeliveries.Resource.String.mr_chooser_title;
-			global::LogonScreen.Resource.String.mr_controller_album_art = global::RadioLogisticaDeliveries.Resource.String.mr_controller_album_art;
-			global::LogonScreen.Resource.String.mr_controller_casting_screen = global::RadioLogisticaDeliveries.Resource.String.mr_controller_casting_screen;
-			global::LogonScreen.Resource.String.mr_controller_close_description = global::RadioLogisticaDeliveries.Resource.String.mr_controller_close_description;
-			global::LogonScreen.Resource.String.mr_controller_collapse_group = global::RadioLogisticaDeliveries.Resource.String.mr_controller_collapse_group;
-			global::LogonScreen.Resource.String.mr_controller_disconnect = global::RadioLogisticaDeliveries.Resource.String.mr_controller_disconnect;
-			global::LogonScreen.Resource.String.mr_controller_expand_group = global::RadioLogisticaDeliveries.Resource.String.mr_controller_expand_group;
-			global::LogonScreen.Resource.String.mr_controller_no_info_available = global::RadioLogisticaDeliveries.Resource.String.mr_controller_no_info_available;
-			global::LogonScreen.Resource.String.mr_controller_no_media_selected = global::RadioLogisticaDeliveries.Resource.String.mr_controller_no_media_selected;
-			global::LogonScreen.Resource.String.mr_controller_pause = global::RadioLogisticaDeliveries.Resource.String.mr_controller_pause;
-			global::LogonScreen.Resource.String.mr_controller_play = global::RadioLogisticaDeliveries.Resource.String.mr_controller_play;
-			global::LogonScreen.Resource.String.mr_controller_stop = global::RadioLogisticaDeliveries.Resource.String.mr_controller_stop;
-			global::LogonScreen.Resource.String.mr_controller_stop_casting = global::RadioLogisticaDeliveries.Resource.String.mr_controller_stop_casting;
-			global::LogonScreen.Resource.String.mr_controller_volume_slider = global::RadioLogisticaDeliveries.Resource.String.mr_controller_volume_slider;
-			global::LogonScreen.Resource.String.mr_system_route_name = global::RadioLogisticaDeliveries.Resource.String.mr_system_route_name;
-			global::LogonScreen.Resource.String.mr_user_route_category_name = global::RadioLogisticaDeliveries.Resource.String.mr_user_route_category_name;
+			global::LogonScreen.Resource.String.hello = global::RadioLogisticaDeliveries.Resource.String.hello;
 			global::LogonScreen.Resource.String.password_toggle_content_description = global::RadioLogisticaDeliveries.Resource.String.password_toggle_content_description;
 			global::LogonScreen.Resource.String.path_password_eye = global::RadioLogisticaDeliveries.Resource.String.path_password_eye;
 			global::LogonScreen.Resource.String.path_password_eye_mask_strike_through = global::RadioLogisticaDeliveries.Resource.String.path_password_eye_mask_strike_through;
@@ -1366,7 +2594,6 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Style.Base_Animation_AppCompat_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Base_Animation_AppCompat_Dialog;
 			global::LogonScreen.Resource.Style.Base_Animation_AppCompat_DropDownUp = global::RadioLogisticaDeliveries.Resource.Style.Base_Animation_AppCompat_DropDownUp;
 			global::LogonScreen.Resource.Style.Base_Animation_AppCompat_Tooltip = global::RadioLogisticaDeliveries.Resource.Style.Base_Animation_AppCompat_Tooltip;
-			global::LogonScreen.Resource.Style.Base_CardView = global::RadioLogisticaDeliveries.Resource.Style.Base_CardView;
 			global::LogonScreen.Resource.Style.Base_DialogWindowTitle_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Base_DialogWindowTitle_AppCompat;
 			global::LogonScreen.Resource.Style.Base_DialogWindowTitleBackground_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Base_DialogWindowTitleBackground_AppCompat;
 			global::LogonScreen.Resource.Style.Base_TextAppearance_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Base_TextAppearance_AppCompat;
@@ -1525,9 +2752,6 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation;
 			global::LogonScreen.Resource.Style.Base_Widget_Design_AppBarLayout = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_Design_AppBarLayout;
 			global::LogonScreen.Resource.Style.Base_Widget_Design_TabLayout = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_Design_TabLayout;
-			global::LogonScreen.Resource.Style.CardView = global::RadioLogisticaDeliveries.Resource.Style.CardView;
-			global::LogonScreen.Resource.Style.CardView_Dark = global::RadioLogisticaDeliveries.Resource.Style.CardView_Dark;
-			global::LogonScreen.Resource.Style.CardView_Light = global::RadioLogisticaDeliveries.Resource.Style.CardView_Light;
 			global::LogonScreen.Resource.Style.Platform_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Platform_AppCompat;
 			global::LogonScreen.Resource.Style.Platform_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Platform_AppCompat_Light;
 			global::LogonScreen.Resource.Style.Platform_ThemeOverlay_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Platform_ThemeOverlay_AppCompat;
@@ -1576,16 +2800,6 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Style.TextAppearance_AppCompat_Medium = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Medium;
 			global::LogonScreen.Resource.Style.TextAppearance_AppCompat_Medium_Inverse = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Medium_Inverse;
 			global::LogonScreen.Resource.Style.TextAppearance_AppCompat_Menu = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Menu;
-			global::LogonScreen.Resource.Style.TextAppearance_AppCompat_Notification = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Notification;
-			global::LogonScreen.Resource.Style.TextAppearance_AppCompat_Notification_Info = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Notification_Info;
-			global::LogonScreen.Resource.Style.TextAppearance_AppCompat_Notification_Info_Media = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Notification_Info_Media;
-			global::LogonScreen.Resource.Style.TextAppearance_AppCompat_Notification_Line2 = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Notification_Line2;
-			global::LogonScreen.Resource.Style.TextAppearance_AppCompat_Notification_Line2_Media = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Notification_Line2_Media;
-			global::LogonScreen.Resource.Style.TextAppearance_AppCompat_Notification_Media = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Notification_Media;
-			global::LogonScreen.Resource.Style.TextAppearance_AppCompat_Notification_Time = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Notification_Time;
-			global::LogonScreen.Resource.Style.TextAppearance_AppCompat_Notification_Time_Media = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Notification_Time_Media;
-			global::LogonScreen.Resource.Style.TextAppearance_AppCompat_Notification_Title = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Notification_Title;
-			global::LogonScreen.Resource.Style.TextAppearance_AppCompat_Notification_Title_Media = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Notification_Title_Media;
 			global::LogonScreen.Resource.Style.TextAppearance_AppCompat_SearchResult_Subtitle = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_SearchResult_Subtitle;
 			global::LogonScreen.Resource.Style.TextAppearance_AppCompat_SearchResult_Title = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_SearchResult_Title;
 			global::LogonScreen.Resource.Style.TextAppearance_AppCompat_Small = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Small;
@@ -1631,9 +2845,6 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Style.TextAppearance_Design_Hint = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Design_Hint;
 			global::LogonScreen.Resource.Style.TextAppearance_Design_Snackbar_Message = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Design_Snackbar_Message;
 			global::LogonScreen.Resource.Style.TextAppearance_Design_Tab = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Design_Tab;
-			global::LogonScreen.Resource.Style.TextAppearance_MediaRouter_PrimaryText = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_MediaRouter_PrimaryText;
-			global::LogonScreen.Resource.Style.TextAppearance_MediaRouter_SecondaryText = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_MediaRouter_SecondaryText;
-			global::LogonScreen.Resource.Style.TextAppearance_MediaRouter_Title = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_MediaRouter_Title;
 			global::LogonScreen.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
 			global::LogonScreen.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
 			global::LogonScreen.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title;
@@ -1664,10 +2875,6 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Style.Theme_Design_Light_BottomSheetDialog = global::RadioLogisticaDeliveries.Resource.Style.Theme_Design_Light_BottomSheetDialog;
 			global::LogonScreen.Resource.Style.Theme_Design_Light_NoActionBar = global::RadioLogisticaDeliveries.Resource.Style.Theme_Design_Light_NoActionBar;
 			global::LogonScreen.Resource.Style.Theme_Design_NoActionBar = global::RadioLogisticaDeliveries.Resource.Style.Theme_Design_NoActionBar;
-			global::LogonScreen.Resource.Style.Theme_MediaRouter = global::RadioLogisticaDeliveries.Resource.Style.Theme_MediaRouter;
-			global::LogonScreen.Resource.Style.Theme_MediaRouter_Light = global::RadioLogisticaDeliveries.Resource.Style.Theme_MediaRouter_Light;
-			global::LogonScreen.Resource.Style.Theme_MediaRouter_Light_DarkControlPanel = global::RadioLogisticaDeliveries.Resource.Style.Theme_MediaRouter_Light_DarkControlPanel;
-			global::LogonScreen.Resource.Style.Theme_MediaRouter_LightControlPanel = global::RadioLogisticaDeliveries.Resource.Style.Theme_MediaRouter_LightControlPanel;
 			global::LogonScreen.Resource.Style.ThemeOverlay_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.ThemeOverlay_AppCompat;
 			global::LogonScreen.Resource.Style.ThemeOverlay_AppCompat_ActionBar = global::RadioLogisticaDeliveries.Resource.Style.ThemeOverlay_AppCompat_ActionBar;
 			global::LogonScreen.Resource.Style.ThemeOverlay_AppCompat_Dark = global::RadioLogisticaDeliveries.Resource.Style.ThemeOverlay_AppCompat_Dark;
@@ -1675,8 +2882,6 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Style.ThemeOverlay_AppCompat_Dialog = global::RadioLogisticaDeliveries.Resource.Style.ThemeOverlay_AppCompat_Dialog;
 			global::LogonScreen.Resource.Style.ThemeOverlay_AppCompat_Dialog_Alert = global::RadioLogisticaDeliveries.Resource.Style.ThemeOverlay_AppCompat_Dialog_Alert;
 			global::LogonScreen.Resource.Style.ThemeOverlay_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.ThemeOverlay_AppCompat_Light;
-			global::LogonScreen.Resource.Style.ThemeOverlay_MediaRouter_Dark = global::RadioLogisticaDeliveries.Resource.Style.ThemeOverlay_MediaRouter_Dark;
-			global::LogonScreen.Resource.Style.ThemeOverlay_MediaRouter_Light = global::RadioLogisticaDeliveries.Resource.Style.ThemeOverlay_MediaRouter_Light;
 			global::LogonScreen.Resource.Style.Widget_AppCompat_ActionBar = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ActionBar;
 			global::LogonScreen.Resource.Style.Widget_AppCompat_ActionBar_Solid = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ActionBar_Solid;
 			global::LogonScreen.Resource.Style.Widget_AppCompat_ActionBar_TabBar = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ActionBar_TabBar;
@@ -1762,8 +2967,6 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Style.Widget_Design_Snackbar = global::RadioLogisticaDeliveries.Resource.Style.Widget_Design_Snackbar;
 			global::LogonScreen.Resource.Style.Widget_Design_TabLayout = global::RadioLogisticaDeliveries.Resource.Style.Widget_Design_TabLayout;
 			global::LogonScreen.Resource.Style.Widget_Design_TextInputLayout = global::RadioLogisticaDeliveries.Resource.Style.Widget_Design_TextInputLayout;
-			global::LogonScreen.Resource.Style.Widget_MediaRouter_Light_MediaRouteButton = global::RadioLogisticaDeliveries.Resource.Style.Widget_MediaRouter_Light_MediaRouteButton;
-			global::LogonScreen.Resource.Style.Widget_MediaRouter_MediaRouteButton = global::RadioLogisticaDeliveries.Resource.Style.Widget_MediaRouter_MediaRouteButton;
 			global::LogonScreen.Resource.Styleable.ActionBar = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar;
 			global::LogonScreen.Resource.Styleable.ActionBar_background = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_background;
 			global::LogonScreen.Resource.Styleable.ActionBar_backgroundSplit = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_backgroundSplit;
@@ -1988,20 +3191,6 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Styleable.BottomSheetBehavior_Layout_behavior_skipCollapsed = global::RadioLogisticaDeliveries.Resource.Styleable.BottomSheetBehavior_Layout_behavior_skipCollapsed;
 			global::LogonScreen.Resource.Styleable.ButtonBarLayout = global::RadioLogisticaDeliveries.Resource.Styleable.ButtonBarLayout;
 			global::LogonScreen.Resource.Styleable.ButtonBarLayout_allowStacking = global::RadioLogisticaDeliveries.Resource.Styleable.ButtonBarLayout_allowStacking;
-			global::LogonScreen.Resource.Styleable.CardView = global::RadioLogisticaDeliveries.Resource.Styleable.CardView;
-			global::LogonScreen.Resource.Styleable.CardView_android_minHeight = global::RadioLogisticaDeliveries.Resource.Styleable.CardView_android_minHeight;
-			global::LogonScreen.Resource.Styleable.CardView_android_minWidth = global::RadioLogisticaDeliveries.Resource.Styleable.CardView_android_minWidth;
-			global::LogonScreen.Resource.Styleable.CardView_cardBackgroundColor = global::RadioLogisticaDeliveries.Resource.Styleable.CardView_cardBackgroundColor;
-			global::LogonScreen.Resource.Styleable.CardView_cardCornerRadius = global::RadioLogisticaDeliveries.Resource.Styleable.CardView_cardCornerRadius;
-			global::LogonScreen.Resource.Styleable.CardView_cardElevation = global::RadioLogisticaDeliveries.Resource.Styleable.CardView_cardElevation;
-			global::LogonScreen.Resource.Styleable.CardView_cardMaxElevation = global::RadioLogisticaDeliveries.Resource.Styleable.CardView_cardMaxElevation;
-			global::LogonScreen.Resource.Styleable.CardView_cardPreventCornerOverlap = global::RadioLogisticaDeliveries.Resource.Styleable.CardView_cardPreventCornerOverlap;
-			global::LogonScreen.Resource.Styleable.CardView_cardUseCompatPadding = global::RadioLogisticaDeliveries.Resource.Styleable.CardView_cardUseCompatPadding;
-			global::LogonScreen.Resource.Styleable.CardView_contentPadding = global::RadioLogisticaDeliveries.Resource.Styleable.CardView_contentPadding;
-			global::LogonScreen.Resource.Styleable.CardView_contentPaddingBottom = global::RadioLogisticaDeliveries.Resource.Styleable.CardView_contentPaddingBottom;
-			global::LogonScreen.Resource.Styleable.CardView_contentPaddingLeft = global::RadioLogisticaDeliveries.Resource.Styleable.CardView_contentPaddingLeft;
-			global::LogonScreen.Resource.Styleable.CardView_contentPaddingRight = global::RadioLogisticaDeliveries.Resource.Styleable.CardView_contentPaddingRight;
-			global::LogonScreen.Resource.Styleable.CardView_contentPaddingTop = global::RadioLogisticaDeliveries.Resource.Styleable.CardView_contentPaddingTop;
 			global::LogonScreen.Resource.Styleable.CollapsingToolbarLayout = global::RadioLogisticaDeliveries.Resource.Styleable.CollapsingToolbarLayout;
 			global::LogonScreen.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleGravity = global::RadioLogisticaDeliveries.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleGravity;
 			global::LogonScreen.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleTextAppearance = global::RadioLogisticaDeliveries.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleTextAppearance;
@@ -2073,6 +3262,9 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Styleable.FontFamily_fontProviderPackage = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily_fontProviderPackage;
 			global::LogonScreen.Resource.Styleable.FontFamily_fontProviderQuery = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily_fontProviderQuery;
 			global::LogonScreen.Resource.Styleable.FontFamilyFont = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont;
+			global::LogonScreen.Resource.Styleable.FontFamilyFont_android_font = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont_android_font;
+			global::LogonScreen.Resource.Styleable.FontFamilyFont_android_fontStyle = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont_android_fontStyle;
+			global::LogonScreen.Resource.Styleable.FontFamilyFont_android_fontWeight = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont_android_fontWeight;
 			global::LogonScreen.Resource.Styleable.FontFamilyFont_font = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont_font;
 			global::LogonScreen.Resource.Styleable.FontFamilyFont_fontStyle = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont_fontStyle;
 			global::LogonScreen.Resource.Styleable.FontFamilyFont_fontWeight = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont_fontWeight;
@@ -2098,11 +3290,6 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Styleable.ListPopupWindow = global::RadioLogisticaDeliveries.Resource.Styleable.ListPopupWindow;
 			global::LogonScreen.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset = global::RadioLogisticaDeliveries.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset;
 			global::LogonScreen.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset = global::RadioLogisticaDeliveries.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset;
-			global::LogonScreen.Resource.Styleable.MediaRouteButton = global::RadioLogisticaDeliveries.Resource.Styleable.MediaRouteButton;
-			global::LogonScreen.Resource.Styleable.MediaRouteButton_android_minHeight = global::RadioLogisticaDeliveries.Resource.Styleable.MediaRouteButton_android_minHeight;
-			global::LogonScreen.Resource.Styleable.MediaRouteButton_android_minWidth = global::RadioLogisticaDeliveries.Resource.Styleable.MediaRouteButton_android_minWidth;
-			global::LogonScreen.Resource.Styleable.MediaRouteButton_externalRouteEnabledDrawable = global::RadioLogisticaDeliveries.Resource.Styleable.MediaRouteButton_externalRouteEnabledDrawable;
-			global::LogonScreen.Resource.Styleable.MediaRouteButton_mediaRouteButtonTint = global::RadioLogisticaDeliveries.Resource.Styleable.MediaRouteButton_mediaRouteButtonTint;
 			global::LogonScreen.Resource.Styleable.MenuGroup = global::RadioLogisticaDeliveries.Resource.Styleable.MenuGroup;
 			global::LogonScreen.Resource.Styleable.MenuGroup_android_checkableBehavior = global::RadioLogisticaDeliveries.Resource.Styleable.MenuGroup_android_checkableBehavior;
 			global::LogonScreen.Resource.Styleable.MenuGroup_android_enabled = global::RadioLogisticaDeliveries.Resource.Styleable.MenuGroup_android_enabled;
@@ -2328,6 +3515,106 @@ namespace RadioLogisticaDeliveries
 			global::Scanner.Resource.Raw.Tejat = global::RadioLogisticaDeliveries.Resource.Raw.Tejat;
 			global::Scanner.Resource.String.ApplicationName = global::RadioLogisticaDeliveries.Resource.String.ApplicationName;
 			global::Scanner.Resource.String.Hello = global::RadioLogisticaDeliveries.Resource.String.Hello;
+			global::Scanner.Resource.String.app_name = global::RadioLogisticaDeliveries.Resource.String.app_name;
+			global::Scanner.Resource.String.hello = global::RadioLogisticaDeliveries.Resource.String.hello;
+			global::Xamarin.Essentials.Resource.Attribute.font = global::RadioLogisticaDeliveries.Resource.Attribute.font;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderAuthority = global::RadioLogisticaDeliveries.Resource.Attribute.fontProviderAuthority;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderCerts = global::RadioLogisticaDeliveries.Resource.Attribute.fontProviderCerts;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderFetchStrategy = global::RadioLogisticaDeliveries.Resource.Attribute.fontProviderFetchStrategy;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderFetchTimeout = global::RadioLogisticaDeliveries.Resource.Attribute.fontProviderFetchTimeout;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderPackage = global::RadioLogisticaDeliveries.Resource.Attribute.fontProviderPackage;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderQuery = global::RadioLogisticaDeliveries.Resource.Attribute.fontProviderQuery;
+			global::Xamarin.Essentials.Resource.Attribute.fontStyle = global::RadioLogisticaDeliveries.Resource.Attribute.fontStyle;
+			global::Xamarin.Essentials.Resource.Attribute.fontWeight = global::RadioLogisticaDeliveries.Resource.Attribute.fontWeight;
+			global::Xamarin.Essentials.Resource.Boolean.abc_action_bar_embed_tabs = global::RadioLogisticaDeliveries.Resource.Boolean.abc_action_bar_embed_tabs;
+			global::Xamarin.Essentials.Resource.Color.notification_action_color_filter = global::RadioLogisticaDeliveries.Resource.Color.notification_action_color_filter;
+			global::Xamarin.Essentials.Resource.Color.notification_icon_bg_color = global::RadioLogisticaDeliveries.Resource.Color.notification_icon_bg_color;
+			global::Xamarin.Essentials.Resource.Color.ripple_material_light = global::RadioLogisticaDeliveries.Resource.Color.ripple_material_light;
+			global::Xamarin.Essentials.Resource.Color.secondary_text_default_material_light = global::RadioLogisticaDeliveries.Resource.Color.secondary_text_default_material_light;
+			global::Xamarin.Essentials.Resource.Dimension.compat_button_inset_horizontal_material = global::RadioLogisticaDeliveries.Resource.Dimension.compat_button_inset_horizontal_material;
+			global::Xamarin.Essentials.Resource.Dimension.compat_button_inset_vertical_material = global::RadioLogisticaDeliveries.Resource.Dimension.compat_button_inset_vertical_material;
+			global::Xamarin.Essentials.Resource.Dimension.compat_button_padding_horizontal_material = global::RadioLogisticaDeliveries.Resource.Dimension.compat_button_padding_horizontal_material;
+			global::Xamarin.Essentials.Resource.Dimension.compat_button_padding_vertical_material = global::RadioLogisticaDeliveries.Resource.Dimension.compat_button_padding_vertical_material;
+			global::Xamarin.Essentials.Resource.Dimension.compat_control_corner_material = global::RadioLogisticaDeliveries.Resource.Dimension.compat_control_corner_material;
+			global::Xamarin.Essentials.Resource.Dimension.notification_action_icon_size = global::RadioLogisticaDeliveries.Resource.Dimension.notification_action_icon_size;
+			global::Xamarin.Essentials.Resource.Dimension.notification_action_text_size = global::RadioLogisticaDeliveries.Resource.Dimension.notification_action_text_size;
+			global::Xamarin.Essentials.Resource.Dimension.notification_big_circle_margin = global::RadioLogisticaDeliveries.Resource.Dimension.notification_big_circle_margin;
+			global::Xamarin.Essentials.Resource.Dimension.notification_content_margin_start = global::RadioLogisticaDeliveries.Resource.Dimension.notification_content_margin_start;
+			global::Xamarin.Essentials.Resource.Dimension.notification_large_icon_height = global::RadioLogisticaDeliveries.Resource.Dimension.notification_large_icon_height;
+			global::Xamarin.Essentials.Resource.Dimension.notification_large_icon_width = global::RadioLogisticaDeliveries.Resource.Dimension.notification_large_icon_width;
+			global::Xamarin.Essentials.Resource.Dimension.notification_main_column_padding_top = global::RadioLogisticaDeliveries.Resource.Dimension.notification_main_column_padding_top;
+			global::Xamarin.Essentials.Resource.Dimension.notification_media_narrow_margin = global::RadioLogisticaDeliveries.Resource.Dimension.notification_media_narrow_margin;
+			global::Xamarin.Essentials.Resource.Dimension.notification_right_icon_size = global::RadioLogisticaDeliveries.Resource.Dimension.notification_right_icon_size;
+			global::Xamarin.Essentials.Resource.Dimension.notification_right_side_padding_top = global::RadioLogisticaDeliveries.Resource.Dimension.notification_right_side_padding_top;
+			global::Xamarin.Essentials.Resource.Dimension.notification_small_icon_background_padding = global::RadioLogisticaDeliveries.Resource.Dimension.notification_small_icon_background_padding;
+			global::Xamarin.Essentials.Resource.Dimension.notification_small_icon_size_as_large = global::RadioLogisticaDeliveries.Resource.Dimension.notification_small_icon_size_as_large;
+			global::Xamarin.Essentials.Resource.Dimension.notification_subtext_size = global::RadioLogisticaDeliveries.Resource.Dimension.notification_subtext_size;
+			global::Xamarin.Essentials.Resource.Dimension.notification_top_pad = global::RadioLogisticaDeliveries.Resource.Dimension.notification_top_pad;
+			global::Xamarin.Essentials.Resource.Dimension.notification_top_pad_large_text = global::RadioLogisticaDeliveries.Resource.Dimension.notification_top_pad_large_text;
+			global::Xamarin.Essentials.Resource.Drawable.notification_action_background = global::RadioLogisticaDeliveries.Resource.Drawable.notification_action_background;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg = global::RadioLogisticaDeliveries.Resource.Drawable.notification_bg;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_low = global::RadioLogisticaDeliveries.Resource.Drawable.notification_bg_low;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_low_normal = global::RadioLogisticaDeliveries.Resource.Drawable.notification_bg_low_normal;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_low_pressed = global::RadioLogisticaDeliveries.Resource.Drawable.notification_bg_low_pressed;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_normal = global::RadioLogisticaDeliveries.Resource.Drawable.notification_bg_normal;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_normal_pressed = global::RadioLogisticaDeliveries.Resource.Drawable.notification_bg_normal_pressed;
+			global::Xamarin.Essentials.Resource.Drawable.notification_icon_background = global::RadioLogisticaDeliveries.Resource.Drawable.notification_icon_background;
+			global::Xamarin.Essentials.Resource.Drawable.notification_template_icon_bg = global::RadioLogisticaDeliveries.Resource.Drawable.notification_template_icon_bg;
+			global::Xamarin.Essentials.Resource.Drawable.notification_template_icon_low_bg = global::RadioLogisticaDeliveries.Resource.Drawable.notification_template_icon_low_bg;
+			global::Xamarin.Essentials.Resource.Drawable.notification_tile_bg = global::RadioLogisticaDeliveries.Resource.Drawable.notification_tile_bg;
+			global::Xamarin.Essentials.Resource.Drawable.notify_panel_notification_icon_bg = global::RadioLogisticaDeliveries.Resource.Drawable.notify_panel_notification_icon_bg;
+			global::Xamarin.Essentials.Resource.Id.action_container = global::RadioLogisticaDeliveries.Resource.Id.action_container;
+			global::Xamarin.Essentials.Resource.Id.action_divider = global::RadioLogisticaDeliveries.Resource.Id.action_divider;
+			global::Xamarin.Essentials.Resource.Id.action_image = global::RadioLogisticaDeliveries.Resource.Id.action_image;
+			global::Xamarin.Essentials.Resource.Id.action_text = global::RadioLogisticaDeliveries.Resource.Id.action_text;
+			global::Xamarin.Essentials.Resource.Id.actions = global::RadioLogisticaDeliveries.Resource.Id.actions;
+			global::Xamarin.Essentials.Resource.Id.async = global::RadioLogisticaDeliveries.Resource.Id.async;
+			global::Xamarin.Essentials.Resource.Id.blocking = global::RadioLogisticaDeliveries.Resource.Id.blocking;
+			global::Xamarin.Essentials.Resource.Id.chronometer = global::RadioLogisticaDeliveries.Resource.Id.chronometer;
+			global::Xamarin.Essentials.Resource.Id.forever = global::RadioLogisticaDeliveries.Resource.Id.forever;
+			global::Xamarin.Essentials.Resource.Id.icon = global::RadioLogisticaDeliveries.Resource.Id.icon;
+			global::Xamarin.Essentials.Resource.Id.icon_group = global::RadioLogisticaDeliveries.Resource.Id.icon_group;
+			global::Xamarin.Essentials.Resource.Id.info = global::RadioLogisticaDeliveries.Resource.Id.info;
+			global::Xamarin.Essentials.Resource.Id.italic = global::RadioLogisticaDeliveries.Resource.Id.italic;
+			global::Xamarin.Essentials.Resource.Id.line1 = global::RadioLogisticaDeliveries.Resource.Id.line1;
+			global::Xamarin.Essentials.Resource.Id.line3 = global::RadioLogisticaDeliveries.Resource.Id.line3;
+			global::Xamarin.Essentials.Resource.Id.normal = global::RadioLogisticaDeliveries.Resource.Id.normal;
+			global::Xamarin.Essentials.Resource.Id.notification_background = global::RadioLogisticaDeliveries.Resource.Id.notification_background;
+			global::Xamarin.Essentials.Resource.Id.notification_main_column = global::RadioLogisticaDeliveries.Resource.Id.notification_main_column;
+			global::Xamarin.Essentials.Resource.Id.notification_main_column_container = global::RadioLogisticaDeliveries.Resource.Id.notification_main_column_container;
+			global::Xamarin.Essentials.Resource.Id.right_icon = global::RadioLogisticaDeliveries.Resource.Id.right_icon;
+			global::Xamarin.Essentials.Resource.Id.right_side = global::RadioLogisticaDeliveries.Resource.Id.right_side;
+			global::Xamarin.Essentials.Resource.Id.text = global::RadioLogisticaDeliveries.Resource.Id.text;
+			global::Xamarin.Essentials.Resource.Id.text2 = global::RadioLogisticaDeliveries.Resource.Id.text2;
+			global::Xamarin.Essentials.Resource.Id.time = global::RadioLogisticaDeliveries.Resource.Id.time;
+			global::Xamarin.Essentials.Resource.Id.title = global::RadioLogisticaDeliveries.Resource.Id.title;
+			global::Xamarin.Essentials.Resource.Integer.status_bar_notification_info_maxnum = global::RadioLogisticaDeliveries.Resource.Integer.status_bar_notification_info_maxnum;
+			global::Xamarin.Essentials.Resource.Layout.notification_action = global::RadioLogisticaDeliveries.Resource.Layout.notification_action;
+			global::Xamarin.Essentials.Resource.Layout.notification_action_tombstone = global::RadioLogisticaDeliveries.Resource.Layout.notification_action_tombstone;
+			global::Xamarin.Essentials.Resource.Layout.notification_template_custom_big = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_custom_big;
+			global::Xamarin.Essentials.Resource.Layout.notification_template_icon_group = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_icon_group;
+			global::Xamarin.Essentials.Resource.Layout.notification_template_part_chronometer = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_part_chronometer;
+			global::Xamarin.Essentials.Resource.Layout.notification_template_part_time = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_part_time;
+			global::Xamarin.Essentials.Resource.String.status_bar_notification_info_overflow = global::RadioLogisticaDeliveries.Resource.String.status_bar_notification_info_overflow;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Info = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Info;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Line2;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Time = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Time;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Title = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Title;
+			global::Xamarin.Essentials.Resource.Style.Widget_Compat_NotificationActionContainer = global::RadioLogisticaDeliveries.Resource.Style.Widget_Compat_NotificationActionContainer;
+			global::Xamarin.Essentials.Resource.Style.Widget_Compat_NotificationActionText = global::RadioLogisticaDeliveries.Resource.Style.Widget_Compat_NotificationActionText;
+			global::Xamarin.Essentials.Resource.Xml.xamarin_essentials_fileprovider_file_paths = global::RadioLogisticaDeliveries.Resource.Xml.xamarin_essentials_fileprovider_file_paths;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderAuthority = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily_fontProviderAuthority;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderCerts = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily_fontProviderCerts;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderPackage = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily_fontProviderPackage;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderQuery = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily_fontProviderQuery;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_font = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont_font;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_fontStyle = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont_fontStyle;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_fontWeight = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont_fontWeight;
 		}
 		
 		public partial class Animation
@@ -3536,20 +4823,20 @@ namespace RadioLogisticaDeliveries
 		public partial class Boolean
 		{
 			
-			// aapt resource value: 0x7f0e0000
-			public const int abc_action_bar_embed_tabs = 2131623936;
+			// aapt resource value: 0x7f0f0000
+			public const int abc_action_bar_embed_tabs = 2131689472;
 			
-			// aapt resource value: 0x7f0e0001
-			public const int abc_allow_stacked_button_bar = 2131623937;
+			// aapt resource value: 0x7f0f0001
+			public const int abc_allow_stacked_button_bar = 2131689473;
 			
-			// aapt resource value: 0x7f0e0002
-			public const int abc_config_actionMenuItemAllCaps = 2131623938;
+			// aapt resource value: 0x7f0f0002
+			public const int abc_config_actionMenuItemAllCaps = 2131689474;
 			
-			// aapt resource value: 0x7f0e0003
-			public const int abc_config_closeDialogWhenTouchOutside = 2131623939;
+			// aapt resource value: 0x7f0f0003
+			public const int abc_config_closeDialogWhenTouchOutside = 2131689475;
 			
-			// aapt resource value: 0x7f0e0004
-			public const int abc_config_showMenuShortcutsWhenKeyboardPresent = 2131623940;
+			// aapt resource value: 0x7f0f0004
+			public const int abc_config_showMenuShortcutsWhenKeyboardPresent = 2131689476;
 			
 			static Boolean()
 			{
@@ -3564,317 +4851,317 @@ namespace RadioLogisticaDeliveries
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0d0050
-			public const int abc_background_cache_hint_selector_material_dark = 2131558480;
+			// aapt resource value: 0x7f0e0050
+			public const int abc_background_cache_hint_selector_material_dark = 2131624016;
 			
-			// aapt resource value: 0x7f0d0051
-			public const int abc_background_cache_hint_selector_material_light = 2131558481;
+			// aapt resource value: 0x7f0e0051
+			public const int abc_background_cache_hint_selector_material_light = 2131624017;
 			
-			// aapt resource value: 0x7f0d0052
-			public const int abc_btn_colored_borderless_text_material = 2131558482;
+			// aapt resource value: 0x7f0e0052
+			public const int abc_btn_colored_borderless_text_material = 2131624018;
 			
-			// aapt resource value: 0x7f0d0053
-			public const int abc_btn_colored_text_material = 2131558483;
+			// aapt resource value: 0x7f0e0053
+			public const int abc_btn_colored_text_material = 2131624019;
 			
-			// aapt resource value: 0x7f0d0054
-			public const int abc_color_highlight_material = 2131558484;
+			// aapt resource value: 0x7f0e0054
+			public const int abc_color_highlight_material = 2131624020;
 			
-			// aapt resource value: 0x7f0d0055
-			public const int abc_hint_foreground_material_dark = 2131558485;
+			// aapt resource value: 0x7f0e0055
+			public const int abc_hint_foreground_material_dark = 2131624021;
 			
-			// aapt resource value: 0x7f0d0056
-			public const int abc_hint_foreground_material_light = 2131558486;
+			// aapt resource value: 0x7f0e0056
+			public const int abc_hint_foreground_material_light = 2131624022;
 			
-			// aapt resource value: 0x7f0d0004
-			public const int abc_input_method_navigation_guard = 2131558404;
+			// aapt resource value: 0x7f0e0004
+			public const int abc_input_method_navigation_guard = 2131623940;
 			
-			// aapt resource value: 0x7f0d0057
-			public const int abc_primary_text_disable_only_material_dark = 2131558487;
+			// aapt resource value: 0x7f0e0057
+			public const int abc_primary_text_disable_only_material_dark = 2131624023;
 			
-			// aapt resource value: 0x7f0d0058
-			public const int abc_primary_text_disable_only_material_light = 2131558488;
+			// aapt resource value: 0x7f0e0058
+			public const int abc_primary_text_disable_only_material_light = 2131624024;
 			
-			// aapt resource value: 0x7f0d0059
-			public const int abc_primary_text_material_dark = 2131558489;
+			// aapt resource value: 0x7f0e0059
+			public const int abc_primary_text_material_dark = 2131624025;
 			
-			// aapt resource value: 0x7f0d005a
-			public const int abc_primary_text_material_light = 2131558490;
+			// aapt resource value: 0x7f0e005a
+			public const int abc_primary_text_material_light = 2131624026;
 			
-			// aapt resource value: 0x7f0d005b
-			public const int abc_search_url_text = 2131558491;
+			// aapt resource value: 0x7f0e005b
+			public const int abc_search_url_text = 2131624027;
 			
-			// aapt resource value: 0x7f0d0005
-			public const int abc_search_url_text_normal = 2131558405;
+			// aapt resource value: 0x7f0e0005
+			public const int abc_search_url_text_normal = 2131623941;
 			
-			// aapt resource value: 0x7f0d0006
-			public const int abc_search_url_text_pressed = 2131558406;
+			// aapt resource value: 0x7f0e0006
+			public const int abc_search_url_text_pressed = 2131623942;
 			
-			// aapt resource value: 0x7f0d0007
-			public const int abc_search_url_text_selected = 2131558407;
+			// aapt resource value: 0x7f0e0007
+			public const int abc_search_url_text_selected = 2131623943;
 			
-			// aapt resource value: 0x7f0d005c
-			public const int abc_secondary_text_material_dark = 2131558492;
+			// aapt resource value: 0x7f0e005c
+			public const int abc_secondary_text_material_dark = 2131624028;
 			
-			// aapt resource value: 0x7f0d005d
-			public const int abc_secondary_text_material_light = 2131558493;
+			// aapt resource value: 0x7f0e005d
+			public const int abc_secondary_text_material_light = 2131624029;
 			
-			// aapt resource value: 0x7f0d005e
-			public const int abc_tint_btn_checkable = 2131558494;
+			// aapt resource value: 0x7f0e005e
+			public const int abc_tint_btn_checkable = 2131624030;
 			
-			// aapt resource value: 0x7f0d005f
-			public const int abc_tint_default = 2131558495;
+			// aapt resource value: 0x7f0e005f
+			public const int abc_tint_default = 2131624031;
 			
-			// aapt resource value: 0x7f0d0060
-			public const int abc_tint_edittext = 2131558496;
+			// aapt resource value: 0x7f0e0060
+			public const int abc_tint_edittext = 2131624032;
 			
-			// aapt resource value: 0x7f0d0061
-			public const int abc_tint_seek_thumb = 2131558497;
+			// aapt resource value: 0x7f0e0061
+			public const int abc_tint_seek_thumb = 2131624033;
 			
-			// aapt resource value: 0x7f0d0062
-			public const int abc_tint_spinner = 2131558498;
+			// aapt resource value: 0x7f0e0062
+			public const int abc_tint_spinner = 2131624034;
 			
-			// aapt resource value: 0x7f0d0063
-			public const int abc_tint_switch_track = 2131558499;
+			// aapt resource value: 0x7f0e0063
+			public const int abc_tint_switch_track = 2131624035;
 			
-			// aapt resource value: 0x7f0d004e
-			public const int accent = 2131558478;
+			// aapt resource value: 0x7f0e004e
+			public const int accent = 2131624014;
 			
-			// aapt resource value: 0x7f0d0008
-			public const int accent_material_dark = 2131558408;
+			// aapt resource value: 0x7f0e0008
+			public const int accent_material_dark = 2131623944;
 			
-			// aapt resource value: 0x7f0d0009
-			public const int accent_material_light = 2131558409;
+			// aapt resource value: 0x7f0e0009
+			public const int accent_material_light = 2131623945;
 			
-			// aapt resource value: 0x7f0d004f
-			public const int accent_pressed = 2131558479;
+			// aapt resource value: 0x7f0e004f
+			public const int accent_pressed = 2131624015;
 			
-			// aapt resource value: 0x7f0d000a
-			public const int background_floating_material_dark = 2131558410;
+			// aapt resource value: 0x7f0e000a
+			public const int background_floating_material_dark = 2131623946;
 			
-			// aapt resource value: 0x7f0d000b
-			public const int background_floating_material_light = 2131558411;
+			// aapt resource value: 0x7f0e000b
+			public const int background_floating_material_light = 2131623947;
 			
-			// aapt resource value: 0x7f0d000c
-			public const int background_material_dark = 2131558412;
+			// aapt resource value: 0x7f0e000c
+			public const int background_material_dark = 2131623948;
 			
-			// aapt resource value: 0x7f0d000d
-			public const int background_material_light = 2131558413;
+			// aapt resource value: 0x7f0e000d
+			public const int background_material_light = 2131623949;
 			
-			// aapt resource value: 0x7f0d000e
-			public const int bright_foreground_disabled_material_dark = 2131558414;
+			// aapt resource value: 0x7f0e000e
+			public const int bright_foreground_disabled_material_dark = 2131623950;
 			
-			// aapt resource value: 0x7f0d000f
-			public const int bright_foreground_disabled_material_light = 2131558415;
+			// aapt resource value: 0x7f0e000f
+			public const int bright_foreground_disabled_material_light = 2131623951;
 			
-			// aapt resource value: 0x7f0d0010
-			public const int bright_foreground_inverse_material_dark = 2131558416;
+			// aapt resource value: 0x7f0e0010
+			public const int bright_foreground_inverse_material_dark = 2131623952;
 			
-			// aapt resource value: 0x7f0d0011
-			public const int bright_foreground_inverse_material_light = 2131558417;
+			// aapt resource value: 0x7f0e0011
+			public const int bright_foreground_inverse_material_light = 2131623953;
 			
-			// aapt resource value: 0x7f0d0012
-			public const int bright_foreground_material_dark = 2131558418;
+			// aapt resource value: 0x7f0e0012
+			public const int bright_foreground_material_dark = 2131623954;
 			
-			// aapt resource value: 0x7f0d0013
-			public const int bright_foreground_material_light = 2131558419;
+			// aapt resource value: 0x7f0e0013
+			public const int bright_foreground_material_light = 2131623955;
 			
-			// aapt resource value: 0x7f0d0014
-			public const int button_material_dark = 2131558420;
+			// aapt resource value: 0x7f0e0014
+			public const int button_material_dark = 2131623956;
 			
-			// aapt resource value: 0x7f0d0015
-			public const int button_material_light = 2131558421;
+			// aapt resource value: 0x7f0e0015
+			public const int button_material_light = 2131623957;
 			
-			// aapt resource value: 0x7f0d0000
-			public const int cardview_dark_background = 2131558400;
+			// aapt resource value: 0x7f0e0000
+			public const int cardview_dark_background = 2131623936;
 			
-			// aapt resource value: 0x7f0d0001
-			public const int cardview_light_background = 2131558401;
+			// aapt resource value: 0x7f0e0001
+			public const int cardview_light_background = 2131623937;
 			
-			// aapt resource value: 0x7f0d0002
-			public const int cardview_shadow_end_color = 2131558402;
+			// aapt resource value: 0x7f0e0002
+			public const int cardview_shadow_end_color = 2131623938;
 			
-			// aapt resource value: 0x7f0d0003
-			public const int cardview_shadow_start_color = 2131558403;
+			// aapt resource value: 0x7f0e0003
+			public const int cardview_shadow_start_color = 2131623939;
 			
-			// aapt resource value: 0x7f0d0040
-			public const int design_bottom_navigation_shadow_color = 2131558464;
+			// aapt resource value: 0x7f0e0040
+			public const int design_bottom_navigation_shadow_color = 2131624000;
 			
-			// aapt resource value: 0x7f0d0064
-			public const int design_error = 2131558500;
+			// aapt resource value: 0x7f0e0064
+			public const int design_error = 2131624036;
 			
-			// aapt resource value: 0x7f0d0041
-			public const int design_fab_shadow_end_color = 2131558465;
+			// aapt resource value: 0x7f0e0041
+			public const int design_fab_shadow_end_color = 2131624001;
 			
-			// aapt resource value: 0x7f0d0042
-			public const int design_fab_shadow_mid_color = 2131558466;
+			// aapt resource value: 0x7f0e0042
+			public const int design_fab_shadow_mid_color = 2131624002;
 			
-			// aapt resource value: 0x7f0d0043
-			public const int design_fab_shadow_start_color = 2131558467;
+			// aapt resource value: 0x7f0e0043
+			public const int design_fab_shadow_start_color = 2131624003;
 			
-			// aapt resource value: 0x7f0d0044
-			public const int design_fab_stroke_end_inner_color = 2131558468;
+			// aapt resource value: 0x7f0e0044
+			public const int design_fab_stroke_end_inner_color = 2131624004;
 			
-			// aapt resource value: 0x7f0d0045
-			public const int design_fab_stroke_end_outer_color = 2131558469;
+			// aapt resource value: 0x7f0e0045
+			public const int design_fab_stroke_end_outer_color = 2131624005;
 			
-			// aapt resource value: 0x7f0d0046
-			public const int design_fab_stroke_top_inner_color = 2131558470;
+			// aapt resource value: 0x7f0e0046
+			public const int design_fab_stroke_top_inner_color = 2131624006;
 			
-			// aapt resource value: 0x7f0d0047
-			public const int design_fab_stroke_top_outer_color = 2131558471;
+			// aapt resource value: 0x7f0e0047
+			public const int design_fab_stroke_top_outer_color = 2131624007;
 			
-			// aapt resource value: 0x7f0d0048
-			public const int design_snackbar_background_color = 2131558472;
+			// aapt resource value: 0x7f0e0048
+			public const int design_snackbar_background_color = 2131624008;
 			
-			// aapt resource value: 0x7f0d0065
-			public const int design_tint_password_toggle = 2131558501;
+			// aapt resource value: 0x7f0e0065
+			public const int design_tint_password_toggle = 2131624037;
 			
-			// aapt resource value: 0x7f0d0016
-			public const int dim_foreground_disabled_material_dark = 2131558422;
+			// aapt resource value: 0x7f0e0016
+			public const int dim_foreground_disabled_material_dark = 2131623958;
 			
-			// aapt resource value: 0x7f0d0017
-			public const int dim_foreground_disabled_material_light = 2131558423;
+			// aapt resource value: 0x7f0e0017
+			public const int dim_foreground_disabled_material_light = 2131623959;
 			
-			// aapt resource value: 0x7f0d0018
-			public const int dim_foreground_material_dark = 2131558424;
+			// aapt resource value: 0x7f0e0018
+			public const int dim_foreground_material_dark = 2131623960;
 			
-			// aapt resource value: 0x7f0d0019
-			public const int dim_foreground_material_light = 2131558425;
+			// aapt resource value: 0x7f0e0019
+			public const int dim_foreground_material_light = 2131623961;
 			
-			// aapt resource value: 0x7f0d001a
-			public const int error_color_material = 2131558426;
+			// aapt resource value: 0x7f0e001a
+			public const int error_color_material = 2131623962;
 			
-			// aapt resource value: 0x7f0d001b
-			public const int foreground_material_dark = 2131558427;
+			// aapt resource value: 0x7f0e001b
+			public const int foreground_material_dark = 2131623963;
 			
-			// aapt resource value: 0x7f0d001c
-			public const int foreground_material_light = 2131558428;
+			// aapt resource value: 0x7f0e001c
+			public const int foreground_material_light = 2131623964;
 			
-			// aapt resource value: 0x7f0d001d
-			public const int highlighted_text_material_dark = 2131558429;
+			// aapt resource value: 0x7f0e001d
+			public const int highlighted_text_material_dark = 2131623965;
 			
-			// aapt resource value: 0x7f0d001e
-			public const int highlighted_text_material_light = 2131558430;
+			// aapt resource value: 0x7f0e001e
+			public const int highlighted_text_material_light = 2131623966;
 			
-			// aapt resource value: 0x7f0d001f
-			public const int material_blue_grey_800 = 2131558431;
+			// aapt resource value: 0x7f0e001f
+			public const int material_blue_grey_800 = 2131623967;
 			
-			// aapt resource value: 0x7f0d0020
-			public const int material_blue_grey_900 = 2131558432;
+			// aapt resource value: 0x7f0e0020
+			public const int material_blue_grey_900 = 2131623968;
 			
-			// aapt resource value: 0x7f0d0021
-			public const int material_blue_grey_950 = 2131558433;
+			// aapt resource value: 0x7f0e0021
+			public const int material_blue_grey_950 = 2131623969;
 			
-			// aapt resource value: 0x7f0d0022
-			public const int material_deep_teal_200 = 2131558434;
+			// aapt resource value: 0x7f0e0022
+			public const int material_deep_teal_200 = 2131623970;
 			
-			// aapt resource value: 0x7f0d0023
-			public const int material_deep_teal_500 = 2131558435;
+			// aapt resource value: 0x7f0e0023
+			public const int material_deep_teal_500 = 2131623971;
 			
-			// aapt resource value: 0x7f0d0024
-			public const int material_grey_100 = 2131558436;
+			// aapt resource value: 0x7f0e0024
+			public const int material_grey_100 = 2131623972;
 			
-			// aapt resource value: 0x7f0d0025
-			public const int material_grey_300 = 2131558437;
+			// aapt resource value: 0x7f0e0025
+			public const int material_grey_300 = 2131623973;
 			
-			// aapt resource value: 0x7f0d0026
-			public const int material_grey_50 = 2131558438;
+			// aapt resource value: 0x7f0e0026
+			public const int material_grey_50 = 2131623974;
 			
-			// aapt resource value: 0x7f0d0027
-			public const int material_grey_600 = 2131558439;
+			// aapt resource value: 0x7f0e0027
+			public const int material_grey_600 = 2131623975;
 			
-			// aapt resource value: 0x7f0d0028
-			public const int material_grey_800 = 2131558440;
+			// aapt resource value: 0x7f0e0028
+			public const int material_grey_800 = 2131623976;
 			
-			// aapt resource value: 0x7f0d0029
-			public const int material_grey_850 = 2131558441;
+			// aapt resource value: 0x7f0e0029
+			public const int material_grey_850 = 2131623977;
 			
-			// aapt resource value: 0x7f0d002a
-			public const int material_grey_900 = 2131558442;
+			// aapt resource value: 0x7f0e002a
+			public const int material_grey_900 = 2131623978;
 			
-			// aapt resource value: 0x7f0d0049
-			public const int notification_action_color_filter = 2131558473;
+			// aapt resource value: 0x7f0e0049
+			public const int notification_action_color_filter = 2131624009;
 			
-			// aapt resource value: 0x7f0d004a
-			public const int notification_icon_bg_color = 2131558474;
+			// aapt resource value: 0x7f0e004a
+			public const int notification_icon_bg_color = 2131624010;
 			
-			// aapt resource value: 0x7f0d003f
-			public const int notification_material_background_media_default_color = 2131558463;
+			// aapt resource value: 0x7f0e003f
+			public const int notification_material_background_media_default_color = 2131623999;
 			
-			// aapt resource value: 0x7f0d004b
-			public const int primary = 2131558475;
+			// aapt resource value: 0x7f0e004b
+			public const int primary = 2131624011;
 			
-			// aapt resource value: 0x7f0d002b
-			public const int primary_dark_material_dark = 2131558443;
+			// aapt resource value: 0x7f0e002b
+			public const int primary_dark_material_dark = 2131623979;
 			
-			// aapt resource value: 0x7f0d002c
-			public const int primary_dark_material_light = 2131558444;
+			// aapt resource value: 0x7f0e002c
+			public const int primary_dark_material_light = 2131623980;
 			
-			// aapt resource value: 0x7f0d002d
-			public const int primary_material_dark = 2131558445;
+			// aapt resource value: 0x7f0e002d
+			public const int primary_material_dark = 2131623981;
 			
-			// aapt resource value: 0x7f0d002e
-			public const int primary_material_light = 2131558446;
+			// aapt resource value: 0x7f0e002e
+			public const int primary_material_light = 2131623982;
 			
-			// aapt resource value: 0x7f0d004c
-			public const int primary_pressed = 2131558476;
+			// aapt resource value: 0x7f0e004c
+			public const int primary_pressed = 2131624012;
 			
-			// aapt resource value: 0x7f0d002f
-			public const int primary_text_default_material_dark = 2131558447;
+			// aapt resource value: 0x7f0e002f
+			public const int primary_text_default_material_dark = 2131623983;
 			
-			// aapt resource value: 0x7f0d0030
-			public const int primary_text_default_material_light = 2131558448;
+			// aapt resource value: 0x7f0e0030
+			public const int primary_text_default_material_light = 2131623984;
 			
-			// aapt resource value: 0x7f0d0031
-			public const int primary_text_disabled_material_dark = 2131558449;
+			// aapt resource value: 0x7f0e0031
+			public const int primary_text_disabled_material_dark = 2131623985;
 			
-			// aapt resource value: 0x7f0d0032
-			public const int primary_text_disabled_material_light = 2131558450;
+			// aapt resource value: 0x7f0e0032
+			public const int primary_text_disabled_material_light = 2131623986;
 			
-			// aapt resource value: 0x7f0d004d
-			public const int ripple = 2131558477;
+			// aapt resource value: 0x7f0e004d
+			public const int ripple = 2131624013;
 			
-			// aapt resource value: 0x7f0d0033
-			public const int ripple_material_dark = 2131558451;
+			// aapt resource value: 0x7f0e0033
+			public const int ripple_material_dark = 2131623987;
 			
-			// aapt resource value: 0x7f0d0034
-			public const int ripple_material_light = 2131558452;
+			// aapt resource value: 0x7f0e0034
+			public const int ripple_material_light = 2131623988;
 			
-			// aapt resource value: 0x7f0d0035
-			public const int secondary_text_default_material_dark = 2131558453;
+			// aapt resource value: 0x7f0e0035
+			public const int secondary_text_default_material_dark = 2131623989;
 			
-			// aapt resource value: 0x7f0d0036
-			public const int secondary_text_default_material_light = 2131558454;
+			// aapt resource value: 0x7f0e0036
+			public const int secondary_text_default_material_light = 2131623990;
 			
-			// aapt resource value: 0x7f0d0037
-			public const int secondary_text_disabled_material_dark = 2131558455;
+			// aapt resource value: 0x7f0e0037
+			public const int secondary_text_disabled_material_dark = 2131623991;
 			
-			// aapt resource value: 0x7f0d0038
-			public const int secondary_text_disabled_material_light = 2131558456;
+			// aapt resource value: 0x7f0e0038
+			public const int secondary_text_disabled_material_light = 2131623992;
 			
-			// aapt resource value: 0x7f0d0039
-			public const int switch_thumb_disabled_material_dark = 2131558457;
+			// aapt resource value: 0x7f0e0039
+			public const int switch_thumb_disabled_material_dark = 2131623993;
 			
-			// aapt resource value: 0x7f0d003a
-			public const int switch_thumb_disabled_material_light = 2131558458;
+			// aapt resource value: 0x7f0e003a
+			public const int switch_thumb_disabled_material_light = 2131623994;
 			
-			// aapt resource value: 0x7f0d0066
-			public const int switch_thumb_material_dark = 2131558502;
+			// aapt resource value: 0x7f0e0066
+			public const int switch_thumb_material_dark = 2131624038;
 			
-			// aapt resource value: 0x7f0d0067
-			public const int switch_thumb_material_light = 2131558503;
+			// aapt resource value: 0x7f0e0067
+			public const int switch_thumb_material_light = 2131624039;
 			
-			// aapt resource value: 0x7f0d003b
-			public const int switch_thumb_normal_material_dark = 2131558459;
+			// aapt resource value: 0x7f0e003b
+			public const int switch_thumb_normal_material_dark = 2131623995;
 			
-			// aapt resource value: 0x7f0d003c
-			public const int switch_thumb_normal_material_light = 2131558460;
+			// aapt resource value: 0x7f0e003c
+			public const int switch_thumb_normal_material_light = 2131623996;
 			
-			// aapt resource value: 0x7f0d003d
-			public const int tooltip_background_dark = 2131558461;
+			// aapt resource value: 0x7f0e003d
+			public const int tooltip_background_dark = 2131623997;
 			
-			// aapt resource value: 0x7f0d003e
-			public const int tooltip_background_light = 2131558462;
+			// aapt resource value: 0x7f0e003e
+			public const int tooltip_background_light = 2131623998;
 			
 			static Color()
 			{
@@ -5442,221 +6729,224 @@ namespace RadioLogisticaDeliveries
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0a0031
-			public const int ALT = 2131361841;
-			
-			// aapt resource value: 0x7f0a0121
-			public const int Anio1 = 2131362081;
+			// aapt resource value: 0x7f0a0032
+			public const int ALT = 2131361842;
 			
 			// aapt resource value: 0x7f0a0125
-			public const int Anio2 = 2131362085;
+			public const int Anio1 = 2131362085;
 			
 			// aapt resource value: 0x7f0a0129
-			public const int Anio3 = 2131362089;
-			
-			// aapt resource value: 0x7f0a012f
-			public const int Anio4 = 2131362095;
+			public const int Anio2 = 2131362089;
 			
 			// aapt resource value: 0x7f0a012d
-			public const int Bronce3 = 2131362093;
+			public const int Anio3 = 2131362093;
 			
 			// aapt resource value: 0x7f0a0133
-			public const int Bronce4 = 2131362099;
-			
-			// aapt resource value: 0x7f0a013a
-			public const int BronceTotal = 2131362106;
-			
-			// aapt resource value: 0x7f0a0032
-			public const int CTRL = 2131361842;
-			
-			// aapt resource value: 0x7f0a0118
-			public const int Cabecera = 2131362072;
-			
-			// aapt resource value: 0x7f0a0119
-			public const int ColumnaAnio = 2131362073;
-			
-			// aapt resource value: 0x7f0a011d
-			public const int ColumnaBronce = 2131362077;
-			
-			// aapt resource value: 0x7f0a011a
-			public const int ColumnaCiudad = 2131362074;
-			
-			// aapt resource value: 0x7f0a011b
-			public const int ColumnaOro = 2131362075;
-			
-			// aapt resource value: 0x7f0a011c
-			public const int ColumnaPlata = 2131362076;
-			
-			// aapt resource value: 0x7f0a0122
-			public const int Cuidad1 = 2131362082;
-			
-			// aapt resource value: 0x7f0a0126
-			public const int Cuidad2 = 2131362086;
-			
-			// aapt resource value: 0x7f0a012a
-			public const int Cuidad3 = 2131362090;
-			
-			// aapt resource value: 0x7f0a0130
-			public const int Cuidad4 = 2131362096;
-			
-			// aapt resource value: 0x7f0a00e9
-			public const int DebugFragment = 2131362025;
-			
-			// aapt resource value: 0x7f0a0033
-			public const int FUNCTION = 2131361843;
-			
-			// aapt resource value: 0x7f0a0120
-			public const int Fila1 = 2131362080;
-			
-			// aapt resource value: 0x7f0a0124
-			public const int Fila2 = 2131362084;
-			
-			// aapt resource value: 0x7f0a0128
-			public const int Fila3 = 2131362088;
-			
-			// aapt resource value: 0x7f0a012e
-			public const int Fila4 = 2131362094;
-			
-			// aapt resource value: 0x7f0a00e8
-			public const int InfoFragment = 2131362024;
-			
-			// aapt resource value: 0x7f0a011f
-			public const int LineaCabecera = 2131362079;
-			
-			// aapt resource value: 0x7f0a0135
-			public const int LineaTotales = 2131362101;
-			
-			// aapt resource value: 0x7f0a0034
-			public const int META = 2131361844;
-			
-			// aapt resource value: 0x7f0a0123
-			public const int Oro1 = 2131362083;
-			
-			// aapt resource value: 0x7f0a012b
-			public const int Oro3 = 2131362091;
+			public const int Anio4 = 2131362099;
 			
 			// aapt resource value: 0x7f0a0131
-			public const int Oro4 = 2131362097;
-			
-			// aapt resource value: 0x7f0a0138
-			public const int OroTotal = 2131362104;
-			
-			// aapt resource value: 0x7f0a00e4
-			public const int Password = 2131362020;
-			
-			// aapt resource value: 0x7f0a0127
-			public const int Plata2 = 2131362087;
-			
-			// aapt resource value: 0x7f0a012c
-			public const int Plata3 = 2131362092;
-			
-			// aapt resource value: 0x7f0a0132
-			public const int Plata4 = 2131362098;
-			
-			// aapt resource value: 0x7f0a0139
-			public const int PlataTotal = 2131362105;
-			
-			// aapt resource value: 0x7f0a00a6
-			public const int Row0 = 2131361958;
-			
-			// aapt resource value: 0x7f0a00ab
-			public const int Row1 = 2131361963;
-			
-			// aapt resource value: 0x7f0a00d8
-			public const int Row10 = 2131362008;
-			
-			// aapt resource value: 0x7f0a00dd
-			public const int Row11 = 2131362013;
-			
-			// aapt resource value: 0x7f0a00b0
-			public const int Row2 = 2131361968;
-			
-			// aapt resource value: 0x7f0a00b5
-			public const int Row3 = 2131361973;
-			
-			// aapt resource value: 0x7f0a00ba
-			public const int Row4 = 2131361978;
-			
-			// aapt resource value: 0x7f0a00bf
-			public const int Row5 = 2131361983;
-			
-			// aapt resource value: 0x7f0a00c4
-			public const int Row6 = 2131361988;
-			
-			// aapt resource value: 0x7f0a00c9
-			public const int Row7 = 2131361993;
-			
-			// aapt resource value: 0x7f0a00ce
-			public const int Row8 = 2131361998;
-			
-			// aapt resource value: 0x7f0a00d3
-			public const int Row9 = 2131362003;
-			
-			// aapt resource value: 0x7f0a00a3
-			public const int RowMessage = 2131361955;
-			
-			// aapt resource value: 0x7f0a0035
-			public const int SHIFT = 2131361845;
-			
-			// aapt resource value: 0x7f0a0036
-			public const int SYM = 2131361846;
-			
-			// aapt resource value: 0x7f0a011e
-			public const int SeparadorCabecera = 2131362078;
-			
-			// aapt resource value: 0x7f0a0134
-			public const int SeparadorTotales = 2131362100;
-			
-			// aapt resource value: 0x7f0a00ea
-			public const int StatusFragment = 2131362026;
-			
-			// aapt resource value: 0x7f0a00a1
-			public const int Tabla = 2131361953;
+			public const int Bronce3 = 2131362097;
 			
 			// aapt resource value: 0x7f0a0137
-			public const int TextoTotal = 2131362103;
+			public const int Bronce4 = 2131362103;
 			
-			// aapt resource value: 0x7f0a0136
-			public const int Totales = 2131362102;
+			// aapt resource value: 0x7f0a013e
+			public const int BronceTotal = 2131362110;
+			
+			// aapt resource value: 0x7f0a0033
+			public const int CTRL = 2131361843;
+			
+			// aapt resource value: 0x7f0a011c
+			public const int Cabecera = 2131362076;
+			
+			// aapt resource value: 0x7f0a011d
+			public const int ColumnaAnio = 2131362077;
+			
+			// aapt resource value: 0x7f0a0121
+			public const int ColumnaBronce = 2131362081;
+			
+			// aapt resource value: 0x7f0a011e
+			public const int ColumnaCiudad = 2131362078;
+			
+			// aapt resource value: 0x7f0a011f
+			public const int ColumnaOro = 2131362079;
+			
+			// aapt resource value: 0x7f0a0120
+			public const int ColumnaPlata = 2131362080;
+			
+			// aapt resource value: 0x7f0a0126
+			public const int Cuidad1 = 2131362086;
+			
+			// aapt resource value: 0x7f0a012a
+			public const int Cuidad2 = 2131362090;
+			
+			// aapt resource value: 0x7f0a012e
+			public const int Cuidad3 = 2131362094;
+			
+			// aapt resource value: 0x7f0a0134
+			public const int Cuidad4 = 2131362100;
+			
+			// aapt resource value: 0x7f0a00ed
+			public const int DebugFragment = 2131362029;
+			
+			// aapt resource value: 0x7f0a0034
+			public const int FUNCTION = 2131361844;
+			
+			// aapt resource value: 0x7f0a0124
+			public const int Fila1 = 2131362084;
+			
+			// aapt resource value: 0x7f0a0128
+			public const int Fila2 = 2131362088;
+			
+			// aapt resource value: 0x7f0a012c
+			public const int Fila3 = 2131362092;
+			
+			// aapt resource value: 0x7f0a0132
+			public const int Fila4 = 2131362098;
+			
+			// aapt resource value: 0x7f0a00ec
+			public const int InfoFragment = 2131362028;
+			
+			// aapt resource value: 0x7f0a0123
+			public const int LineaCabecera = 2131362083;
+			
+			// aapt resource value: 0x7f0a0139
+			public const int LineaTotales = 2131362105;
 			
 			// aapt resource value: 0x7f0a00e3
-			public const int User = 2131362019;
+			public const int LogonScreen = 2131362019;
 			
-			// aapt resource value: 0x7f0a0108
-			public const int action0 = 2131362056;
+			// aapt resource value: 0x7f0a0035
+			public const int META = 2131361845;
 			
-			// aapt resource value: 0x7f0a007b
-			public const int action_bar = 2131361915;
+			// aapt resource value: 0x7f0a0127
+			public const int Oro1 = 2131362087;
+			
+			// aapt resource value: 0x7f0a012f
+			public const int Oro3 = 2131362095;
+			
+			// aapt resource value: 0x7f0a0135
+			public const int Oro4 = 2131362101;
+			
+			// aapt resource value: 0x7f0a013c
+			public const int OroTotal = 2131362108;
+			
+			// aapt resource value: 0x7f0a00e6
+			public const int Password = 2131362022;
+			
+			// aapt resource value: 0x7f0a012b
+			public const int Plata2 = 2131362091;
+			
+			// aapt resource value: 0x7f0a0130
+			public const int Plata3 = 2131362096;
+			
+			// aapt resource value: 0x7f0a0136
+			public const int Plata4 = 2131362102;
+			
+			// aapt resource value: 0x7f0a013d
+			public const int PlataTotal = 2131362109;
+			
+			// aapt resource value: 0x7f0a00a7
+			public const int Row0 = 2131361959;
+			
+			// aapt resource value: 0x7f0a00ac
+			public const int Row1 = 2131361964;
+			
+			// aapt resource value: 0x7f0a00d9
+			public const int Row10 = 2131362009;
+			
+			// aapt resource value: 0x7f0a00de
+			public const int Row11 = 2131362014;
+			
+			// aapt resource value: 0x7f0a00b1
+			public const int Row2 = 2131361969;
+			
+			// aapt resource value: 0x7f0a00b6
+			public const int Row3 = 2131361974;
+			
+			// aapt resource value: 0x7f0a00bb
+			public const int Row4 = 2131361979;
+			
+			// aapt resource value: 0x7f0a00c0
+			public const int Row5 = 2131361984;
+			
+			// aapt resource value: 0x7f0a00c5
+			public const int Row6 = 2131361989;
+			
+			// aapt resource value: 0x7f0a00ca
+			public const int Row7 = 2131361994;
+			
+			// aapt resource value: 0x7f0a00cf
+			public const int Row8 = 2131361999;
+			
+			// aapt resource value: 0x7f0a00d4
+			public const int Row9 = 2131362004;
+			
+			// aapt resource value: 0x7f0a00a4
+			public const int RowMessage = 2131361956;
+			
+			// aapt resource value: 0x7f0a0036
+			public const int SHIFT = 2131361846;
+			
+			// aapt resource value: 0x7f0a0037
+			public const int SYM = 2131361847;
+			
+			// aapt resource value: 0x7f0a0122
+			public const int SeparadorCabecera = 2131362082;
+			
+			// aapt resource value: 0x7f0a0138
+			public const int SeparadorTotales = 2131362104;
+			
+			// aapt resource value: 0x7f0a00ee
+			public const int StatusFragment = 2131362030;
+			
+			// aapt resource value: 0x7f0a00a2
+			public const int Tabla = 2131361954;
+			
+			// aapt resource value: 0x7f0a013b
+			public const int TextoTotal = 2131362107;
+			
+			// aapt resource value: 0x7f0a013a
+			public const int Totales = 2131362106;
+			
+			// aapt resource value: 0x7f0a00e5
+			public const int User = 2131362021;
+			
+			// aapt resource value: 0x7f0a010c
+			public const int action0 = 2131362060;
+			
+			// aapt resource value: 0x7f0a007c
+			public const int action_bar = 2131361916;
 			
 			// aapt resource value: 0x7f0a0001
 			public const int action_bar_activity_content = 2131361793;
 			
-			// aapt resource value: 0x7f0a007a
-			public const int action_bar_container = 2131361914;
+			// aapt resource value: 0x7f0a007b
+			public const int action_bar_container = 2131361915;
 			
-			// aapt resource value: 0x7f0a0076
-			public const int action_bar_root = 2131361910;
+			// aapt resource value: 0x7f0a0077
+			public const int action_bar_root = 2131361911;
 			
 			// aapt resource value: 0x7f0a0002
 			public const int action_bar_spinner = 2131361794;
 			
+			// aapt resource value: 0x7f0a005b
+			public const int action_bar_subtitle = 2131361883;
+			
 			// aapt resource value: 0x7f0a005a
-			public const int action_bar_subtitle = 2131361882;
+			public const int action_bar_title = 2131361882;
 			
-			// aapt resource value: 0x7f0a0059
-			public const int action_bar_title = 2131361881;
+			// aapt resource value: 0x7f0a0109
+			public const int action_container = 2131362057;
 			
-			// aapt resource value: 0x7f0a0105
-			public const int action_container = 2131362053;
+			// aapt resource value: 0x7f0a007d
+			public const int action_context_bar = 2131361917;
 			
-			// aapt resource value: 0x7f0a007c
-			public const int action_context_bar = 2131361916;
+			// aapt resource value: 0x7f0a0110
+			public const int action_divider = 2131362064;
 			
-			// aapt resource value: 0x7f0a010c
-			public const int action_divider = 2131362060;
-			
-			// aapt resource value: 0x7f0a0106
-			public const int action_image = 2131362054;
+			// aapt resource value: 0x7f0a010a
+			public const int action_image = 2131362058;
 			
 			// aapt resource value: 0x7f0a0003
 			public const int action_menu_divider = 2131361795;
@@ -5664,350 +6954,350 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0a0004
 			public const int action_menu_presenter = 2131361796;
 			
+			// aapt resource value: 0x7f0a0079
+			public const int action_mode_bar = 2131361913;
+			
 			// aapt resource value: 0x7f0a0078
-			public const int action_mode_bar = 2131361912;
-			
-			// aapt resource value: 0x7f0a0077
-			public const int action_mode_bar_stub = 2131361911;
-			
-			// aapt resource value: 0x7f0a005b
-			public const int action_mode_close_button = 2131361883;
-			
-			// aapt resource value: 0x7f0a0107
-			public const int action_text = 2131362055;
-			
-			// aapt resource value: 0x7f0a0115
-			public const int actions = 2131362069;
+			public const int action_mode_bar_stub = 2131361912;
 			
 			// aapt resource value: 0x7f0a005c
-			public const int activity_chooser_view_content = 2131361884;
+			public const int action_mode_close_button = 2131361884;
 			
-			// aapt resource value: 0x7f0a002b
-			public const int add = 2131361835;
+			// aapt resource value: 0x7f0a010b
+			public const int action_text = 2131362059;
 			
-			// aapt resource value: 0x7f0a006f
-			public const int alertTitle = 2131361903;
-			
-			// aapt resource value: 0x7f0a0051
-			public const int all = 2131361873;
-			
-			// aapt resource value: 0x7f0a0037
-			public const int always = 2131361847;
-			
-			// aapt resource value: 0x7f0a0055
-			public const int async = 2131361877;
-			
-			// aapt resource value: 0x7f0a0043
-			public const int auto = 2131361859;
-			
-			// aapt resource value: 0x7f0a002e
-			public const int beginning = 2131361838;
-			
-			// aapt resource value: 0x7f0a0056
-			public const int blocking = 2131361878;
-			
-			// aapt resource value: 0x7f0a003c
-			public const int bottom = 2131361852;
-			
-			// aapt resource value: 0x7f0a0062
-			public const int buttonPanel = 2131361890;
-			
-			// aapt resource value: 0x7f0a00a7
-			public const int c00 = 2131361959;
-			
-			// aapt resource value: 0x7f0a00a8
-			public const int c01 = 2131361960;
-			
-			// aapt resource value: 0x7f0a00a9
-			public const int c02 = 2131361961;
-			
-			// aapt resource value: 0x7f0a00aa
-			public const int c03 = 2131361962;
-			
-			// aapt resource value: 0x7f0a00ac
-			public const int c10 = 2131361964;
-			
-			// aapt resource value: 0x7f0a00d9
-			public const int c100 = 2131362009;
-			
-			// aapt resource value: 0x7f0a00da
-			public const int c101 = 2131362010;
-			
-			// aapt resource value: 0x7f0a00db
-			public const int c102 = 2131362011;
-			
-			// aapt resource value: 0x7f0a00dc
-			public const int c103 = 2131362012;
-			
-			// aapt resource value: 0x7f0a00ad
-			public const int c11 = 2131361965;
-			
-			// aapt resource value: 0x7f0a00de
-			public const int c110 = 2131362014;
-			
-			// aapt resource value: 0x7f0a00df
-			public const int c111 = 2131362015;
-			
-			// aapt resource value: 0x7f0a00e0
-			public const int c112 = 2131362016;
-			
-			// aapt resource value: 0x7f0a00e1
-			public const int c113 = 2131362017;
-			
-			// aapt resource value: 0x7f0a00ae
-			public const int c12 = 2131361966;
-			
-			// aapt resource value: 0x7f0a00af
-			public const int c13 = 2131361967;
-			
-			// aapt resource value: 0x7f0a00b1
-			public const int c20 = 2131361969;
-			
-			// aapt resource value: 0x7f0a00b2
-			public const int c21 = 2131361970;
-			
-			// aapt resource value: 0x7f0a00b3
-			public const int c22 = 2131361971;
-			
-			// aapt resource value: 0x7f0a00b4
-			public const int c23 = 2131361972;
-			
-			// aapt resource value: 0x7f0a00b6
-			public const int c30 = 2131361974;
-			
-			// aapt resource value: 0x7f0a00b7
-			public const int c31 = 2131361975;
-			
-			// aapt resource value: 0x7f0a00b8
-			public const int c32 = 2131361976;
-			
-			// aapt resource value: 0x7f0a00b9
-			public const int c33 = 2131361977;
-			
-			// aapt resource value: 0x7f0a00bb
-			public const int c40 = 2131361979;
-			
-			// aapt resource value: 0x7f0a00bc
-			public const int c41 = 2131361980;
-			
-			// aapt resource value: 0x7f0a00bd
-			public const int c42 = 2131361981;
-			
-			// aapt resource value: 0x7f0a00be
-			public const int c43 = 2131361982;
-			
-			// aapt resource value: 0x7f0a00c0
-			public const int c50 = 2131361984;
-			
-			// aapt resource value: 0x7f0a00c1
-			public const int c51 = 2131361985;
-			
-			// aapt resource value: 0x7f0a00c2
-			public const int c52 = 2131361986;
-			
-			// aapt resource value: 0x7f0a00c3
-			public const int c53 = 2131361987;
-			
-			// aapt resource value: 0x7f0a00c5
-			public const int c60 = 2131361989;
-			
-			// aapt resource value: 0x7f0a00c6
-			public const int c61 = 2131361990;
-			
-			// aapt resource value: 0x7f0a00c7
-			public const int c62 = 2131361991;
-			
-			// aapt resource value: 0x7f0a00c8
-			public const int c63 = 2131361992;
-			
-			// aapt resource value: 0x7f0a00ca
-			public const int c70 = 2131361994;
-			
-			// aapt resource value: 0x7f0a00cb
-			public const int c71 = 2131361995;
-			
-			// aapt resource value: 0x7f0a00cc
-			public const int c72 = 2131361996;
-			
-			// aapt resource value: 0x7f0a00cd
-			public const int c73 = 2131361997;
-			
-			// aapt resource value: 0x7f0a00cf
-			public const int c80 = 2131361999;
-			
-			// aapt resource value: 0x7f0a00d0
-			public const int c81 = 2131362000;
-			
-			// aapt resource value: 0x7f0a00d1
-			public const int c82 = 2131362001;
-			
-			// aapt resource value: 0x7f0a00d2
-			public const int c83 = 2131362002;
-			
-			// aapt resource value: 0x7f0a00d4
-			public const int c90 = 2131362004;
-			
-			// aapt resource value: 0x7f0a00d5
-			public const int c91 = 2131362005;
-			
-			// aapt resource value: 0x7f0a00d6
-			public const int c92 = 2131362006;
-			
-			// aapt resource value: 0x7f0a00d7
-			public const int c93 = 2131362007;
-			
-			// aapt resource value: 0x7f0a0109
-			public const int cancel_action = 2131362057;
-			
-			// aapt resource value: 0x7f0a0044
-			public const int center = 2131361860;
-			
-			// aapt resource value: 0x7f0a0045
-			public const int center_horizontal = 2131361861;
-			
-			// aapt resource value: 0x7f0a0046
-			public const int center_vertical = 2131361862;
-			
-			// aapt resource value: 0x7f0a0072
-			public const int checkbox = 2131361906;
-			
-			// aapt resource value: 0x7f0a013d
-			public const int checkingsInfo = 2131362109;
-			
-			// aapt resource value: 0x7f0a0111
-			public const int chronometer = 2131362065;
-			
-			// aapt resource value: 0x7f0a004d
-			public const int clip_horizontal = 2131361869;
-			
-			// aapt resource value: 0x7f0a004e
-			public const int clip_vertical = 2131361870;
-			
-			// aapt resource value: 0x7f0a0038
-			public const int collapseActionView = 2131361848;
-			
-			// aapt resource value: 0x7f0a008c
-			public const int container = 2131361932;
-			
-			// aapt resource value: 0x7f0a0065
-			public const int contentPanel = 2131361893;
-			
-			// aapt resource value: 0x7f0a008d
-			public const int coordinator = 2131361933;
-			
-			// aapt resource value: 0x7f0a006c
-			public const int custom = 2131361900;
-			
-			// aapt resource value: 0x7f0a006b
-			public const int customPanel = 2131361899;
-			
-			// aapt resource value: 0x7f0a0098
-			public const int data = 2131361944;
-			
-			// aapt resource value: 0x7f0a00e7
-			public const int dataInputFragment = 2131362023;
-			
-			// aapt resource value: 0x7f0a0079
-			public const int decor_content_parent = 2131361913;
-			
-			// aapt resource value: 0x7f0a005f
-			public const int default_activity_button = 2131361887;
-			
-			// aapt resource value: 0x7f0a008f
-			public const int design_bottom_sheet = 2131361935;
-			
-			// aapt resource value: 0x7f0a0096
-			public const int design_menu_item_action_area = 2131361942;
-			
-			// aapt resource value: 0x7f0a0095
-			public const int design_menu_item_action_area_stub = 2131361941;
-			
-			// aapt resource value: 0x7f0a0094
-			public const int design_menu_item_text = 2131361940;
-			
-			// aapt resource value: 0x7f0a0093
-			public const int design_navigation_view = 2131361939;
-			
-			// aapt resource value: 0x7f0a001f
-			public const int disableHome = 2131361823;
-			
-			// aapt resource value: 0x7f0a007d
-			public const int edit_query = 2131361917;
-			
-			// aapt resource value: 0x7f0a002f
-			public const int end = 2131361839;
-			
-			// aapt resource value: 0x7f0a0117
-			public const int end_padder = 2131362071;
-			
-			// aapt resource value: 0x7f0a003e
-			public const int enterAlways = 2131361854;
-			
-			// aapt resource value: 0x7f0a003f
-			public const int enterAlwaysCollapsed = 2131361855;
-			
-			// aapt resource value: 0x7f0a0040
-			public const int exitUntilCollapsed = 2131361856;
+			// aapt resource value: 0x7f0a0119
+			public const int actions = 2131362073;
 			
 			// aapt resource value: 0x7f0a005d
-			public const int expand_activities_button = 2131361885;
+			public const int activity_chooser_view_content = 2131361885;
 			
-			// aapt resource value: 0x7f0a0071
-			public const int expanded_menu = 2131361905;
+			// aapt resource value: 0x7f0a0027
+			public const int add = 2131361831;
 			
-			// aapt resource value: 0x7f0a004f
-			public const int fill = 2131361871;
+			// aapt resource value: 0x7f0a0070
+			public const int alertTitle = 2131361904;
 			
-			// aapt resource value: 0x7f0a0050
-			public const int fill_horizontal = 2131361872;
+			// aapt resource value: 0x7f0a0052
+			public const int all = 2131361874;
 			
-			// aapt resource value: 0x7f0a0047
-			public const int fill_vertical = 2131361863;
+			// aapt resource value: 0x7f0a0038
+			public const int always = 2131361848;
 			
-			// aapt resource value: 0x7f0a0053
-			public const int @fixed = 2131361875;
+			// aapt resource value: 0x7f0a0056
+			public const int async = 2131361878;
+			
+			// aapt resource value: 0x7f0a0044
+			public const int auto = 2131361860;
+			
+			// aapt resource value: 0x7f0a002f
+			public const int beginning = 2131361839;
 			
 			// aapt resource value: 0x7f0a0057
-			public const int forever = 2131361879;
+			public const int blocking = 2131361879;
+			
+			// aapt resource value: 0x7f0a003d
+			public const int bottom = 2131361853;
+			
+			// aapt resource value: 0x7f0a0063
+			public const int buttonPanel = 2131361891;
+			
+			// aapt resource value: 0x7f0a00a8
+			public const int c00 = 2131361960;
+			
+			// aapt resource value: 0x7f0a00a9
+			public const int c01 = 2131361961;
+			
+			// aapt resource value: 0x7f0a00aa
+			public const int c02 = 2131361962;
+			
+			// aapt resource value: 0x7f0a00ab
+			public const int c03 = 2131361963;
+			
+			// aapt resource value: 0x7f0a00ad
+			public const int c10 = 2131361965;
+			
+			// aapt resource value: 0x7f0a00da
+			public const int c100 = 2131362010;
+			
+			// aapt resource value: 0x7f0a00db
+			public const int c101 = 2131362011;
+			
+			// aapt resource value: 0x7f0a00dc
+			public const int c102 = 2131362012;
+			
+			// aapt resource value: 0x7f0a00dd
+			public const int c103 = 2131362013;
+			
+			// aapt resource value: 0x7f0a00ae
+			public const int c11 = 2131361966;
+			
+			// aapt resource value: 0x7f0a00df
+			public const int c110 = 2131362015;
+			
+			// aapt resource value: 0x7f0a00e0
+			public const int c111 = 2131362016;
+			
+			// aapt resource value: 0x7f0a00e1
+			public const int c112 = 2131362017;
+			
+			// aapt resource value: 0x7f0a00e2
+			public const int c113 = 2131362018;
+			
+			// aapt resource value: 0x7f0a00af
+			public const int c12 = 2131361967;
+			
+			// aapt resource value: 0x7f0a00b0
+			public const int c13 = 2131361968;
+			
+			// aapt resource value: 0x7f0a00b2
+			public const int c20 = 2131361970;
+			
+			// aapt resource value: 0x7f0a00b3
+			public const int c21 = 2131361971;
+			
+			// aapt resource value: 0x7f0a00b4
+			public const int c22 = 2131361972;
+			
+			// aapt resource value: 0x7f0a00b5
+			public const int c23 = 2131361973;
+			
+			// aapt resource value: 0x7f0a00b7
+			public const int c30 = 2131361975;
+			
+			// aapt resource value: 0x7f0a00b8
+			public const int c31 = 2131361976;
+			
+			// aapt resource value: 0x7f0a00b9
+			public const int c32 = 2131361977;
+			
+			// aapt resource value: 0x7f0a00ba
+			public const int c33 = 2131361978;
+			
+			// aapt resource value: 0x7f0a00bc
+			public const int c40 = 2131361980;
+			
+			// aapt resource value: 0x7f0a00bd
+			public const int c41 = 2131361981;
+			
+			// aapt resource value: 0x7f0a00be
+			public const int c42 = 2131361982;
+			
+			// aapt resource value: 0x7f0a00bf
+			public const int c43 = 2131361983;
+			
+			// aapt resource value: 0x7f0a00c1
+			public const int c50 = 2131361985;
+			
+			// aapt resource value: 0x7f0a00c2
+			public const int c51 = 2131361986;
+			
+			// aapt resource value: 0x7f0a00c3
+			public const int c52 = 2131361987;
+			
+			// aapt resource value: 0x7f0a00c4
+			public const int c53 = 2131361988;
+			
+			// aapt resource value: 0x7f0a00c6
+			public const int c60 = 2131361990;
+			
+			// aapt resource value: 0x7f0a00c7
+			public const int c61 = 2131361991;
+			
+			// aapt resource value: 0x7f0a00c8
+			public const int c62 = 2131361992;
+			
+			// aapt resource value: 0x7f0a00c9
+			public const int c63 = 2131361993;
+			
+			// aapt resource value: 0x7f0a00cb
+			public const int c70 = 2131361995;
+			
+			// aapt resource value: 0x7f0a00cc
+			public const int c71 = 2131361996;
+			
+			// aapt resource value: 0x7f0a00cd
+			public const int c72 = 2131361997;
+			
+			// aapt resource value: 0x7f0a00ce
+			public const int c73 = 2131361998;
+			
+			// aapt resource value: 0x7f0a00d0
+			public const int c80 = 2131362000;
+			
+			// aapt resource value: 0x7f0a00d1
+			public const int c81 = 2131362001;
+			
+			// aapt resource value: 0x7f0a00d2
+			public const int c82 = 2131362002;
+			
+			// aapt resource value: 0x7f0a00d3
+			public const int c83 = 2131362003;
+			
+			// aapt resource value: 0x7f0a00d5
+			public const int c90 = 2131362005;
+			
+			// aapt resource value: 0x7f0a00d6
+			public const int c91 = 2131362006;
+			
+			// aapt resource value: 0x7f0a00d7
+			public const int c92 = 2131362007;
+			
+			// aapt resource value: 0x7f0a00d8
+			public const int c93 = 2131362008;
+			
+			// aapt resource value: 0x7f0a010d
+			public const int cancel_action = 2131362061;
+			
+			// aapt resource value: 0x7f0a0045
+			public const int center = 2131361861;
+			
+			// aapt resource value: 0x7f0a0046
+			public const int center_horizontal = 2131361862;
+			
+			// aapt resource value: 0x7f0a0047
+			public const int center_vertical = 2131361863;
+			
+			// aapt resource value: 0x7f0a0073
+			public const int checkbox = 2131361907;
+			
+			// aapt resource value: 0x7f0a0141
+			public const int checkingsInfo = 2131362113;
+			
+			// aapt resource value: 0x7f0a0115
+			public const int chronometer = 2131362069;
+			
+			// aapt resource value: 0x7f0a004e
+			public const int clip_horizontal = 2131361870;
+			
+			// aapt resource value: 0x7f0a004f
+			public const int clip_vertical = 2131361871;
+			
+			// aapt resource value: 0x7f0a0039
+			public const int collapseActionView = 2131361849;
+			
+			// aapt resource value: 0x7f0a008d
+			public const int container = 2131361933;
+			
+			// aapt resource value: 0x7f0a0066
+			public const int contentPanel = 2131361894;
+			
+			// aapt resource value: 0x7f0a008e
+			public const int coordinator = 2131361934;
+			
+			// aapt resource value: 0x7f0a006d
+			public const int custom = 2131361901;
+			
+			// aapt resource value: 0x7f0a006c
+			public const int customPanel = 2131361900;
+			
+			// aapt resource value: 0x7f0a0099
+			public const int data = 2131361945;
+			
+			// aapt resource value: 0x7f0a00eb
+			public const int dataInputFragment = 2131362027;
+			
+			// aapt resource value: 0x7f0a007a
+			public const int decor_content_parent = 2131361914;
+			
+			// aapt resource value: 0x7f0a0060
+			public const int default_activity_button = 2131361888;
+			
+			// aapt resource value: 0x7f0a0090
+			public const int design_bottom_sheet = 2131361936;
+			
+			// aapt resource value: 0x7f0a0097
+			public const int design_menu_item_action_area = 2131361943;
+			
+			// aapt resource value: 0x7f0a0096
+			public const int design_menu_item_action_area_stub = 2131361942;
+			
+			// aapt resource value: 0x7f0a0095
+			public const int design_menu_item_text = 2131361941;
+			
+			// aapt resource value: 0x7f0a0094
+			public const int design_navigation_view = 2131361940;
+			
+			// aapt resource value: 0x7f0a0020
+			public const int disableHome = 2131361824;
+			
+			// aapt resource value: 0x7f0a007e
+			public const int edit_query = 2131361918;
+			
+			// aapt resource value: 0x7f0a0030
+			public const int end = 2131361840;
+			
+			// aapt resource value: 0x7f0a011b
+			public const int end_padder = 2131362075;
+			
+			// aapt resource value: 0x7f0a003f
+			public const int enterAlways = 2131361855;
+			
+			// aapt resource value: 0x7f0a0040
+			public const int enterAlwaysCollapsed = 2131361856;
+			
+			// aapt resource value: 0x7f0a0041
+			public const int exitUntilCollapsed = 2131361857;
+			
+			// aapt resource value: 0x7f0a005e
+			public const int expand_activities_button = 2131361886;
+			
+			// aapt resource value: 0x7f0a0072
+			public const int expanded_menu = 2131361906;
+			
+			// aapt resource value: 0x7f0a0050
+			public const int fill = 2131361872;
+			
+			// aapt resource value: 0x7f0a0051
+			public const int fill_horizontal = 2131361873;
+			
+			// aapt resource value: 0x7f0a0048
+			public const int fill_vertical = 2131361864;
+			
+			// aapt resource value: 0x7f0a0054
+			public const int @fixed = 2131361876;
+			
+			// aapt resource value: 0x7f0a0058
+			public const int forever = 2131361880;
 			
 			// aapt resource value: 0x7f0a000a
 			public const int ghost_view = 2131361802;
 			
-			// aapt resource value: 0x7f0a00e6
-			public const int headerFragment = 2131362022;
+			// aapt resource value: 0x7f0a00ea
+			public const int headerFragment = 2131362026;
 			
 			// aapt resource value: 0x7f0a0005
 			public const int home = 2131361797;
 			
-			// aapt resource value: 0x7f0a0020
-			public const int homeAsUp = 2131361824;
+			// aapt resource value: 0x7f0a0021
+			public const int homeAsUp = 2131361825;
 			
-			// aapt resource value: 0x7f0a0061
-			public const int icon = 2131361889;
+			// aapt resource value: 0x7f0a0062
+			public const int icon = 2131361890;
+			
+			// aapt resource value: 0x7f0a011a
+			public const int icon_group = 2131362074;
+			
+			// aapt resource value: 0x7f0a003a
+			public const int ifRoom = 2131361850;
+			
+			// aapt resource value: 0x7f0a005f
+			public const int image = 2131361887;
 			
 			// aapt resource value: 0x7f0a0116
-			public const int icon_group = 2131362070;
+			public const int info = 2131362070;
 			
-			// aapt resource value: 0x7f0a0039
-			public const int ifRoom = 2131361849;
-			
-			// aapt resource value: 0x7f0a005e
-			public const int image = 2131361886;
-			
-			// aapt resource value: 0x7f0a0112
-			public const int info = 2131362066;
-			
-			// aapt resource value: 0x7f0a0058
-			public const int italic = 2131361880;
+			// aapt resource value: 0x7f0a0059
+			public const int italic = 2131361881;
 			
 			// aapt resource value: 0x7f0a0000
 			public const int item_touch_helper_previous_elevation = 2131361792;
 			
-			// aapt resource value: 0x7f0a008b
-			public const int largeLabel = 2131361931;
+			// aapt resource value: 0x7f0a008c
+			public const int largeLabel = 2131361932;
 			
-			// aapt resource value: 0x7f0a0048
-			public const int left = 2131361864;
+			// aapt resource value: 0x7f0a0049
+			public const int left = 2131361865;
 			
 			// aapt resource value: 0x7f0a0017
 			public const int line1 = 2131361815;
@@ -6015,170 +7305,179 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0a0018
 			public const int line3 = 2131361816;
 			
-			// aapt resource value: 0x7f0a00a5
-			public const int linedown = 2131361957;
+			// aapt resource value: 0x7f0a00a6
+			public const int linedown = 2131361958;
 			
-			// aapt resource value: 0x7f0a00a2
-			public const int lineup = 2131361954;
+			// aapt resource value: 0x7f0a00a3
+			public const int lineup = 2131361955;
 			
-			// aapt resource value: 0x7f0a013b
-			public const int list = 2131362107;
-			
-			// aapt resource value: 0x7f0a001c
-			public const int listMode = 2131361820;
-			
-			// aapt resource value: 0x7f0a0060
-			public const int list_item = 2131361888;
-			
-			// aapt resource value: 0x7f0a0141
-			public const int mainMenu = 2131362113;
-			
-			// aapt resource value: 0x7f0a0140
-			public const int masked = 2131362112;
-			
-			// aapt resource value: 0x7f0a010b
-			public const int media_actions = 2131362059;
-			
-			// aapt resource value: 0x7f0a00a4
-			public const int message = 2131361956;
-			
-			// aapt resource value: 0x7f0a0030
-			public const int middle = 2131361840;
-			
-			// aapt resource value: 0x7f0a0052
-			public const int mini = 2131361874;
-			
-			// aapt resource value: 0x7f0a0145
-			public const int mnuclose = 2131362117;
-			
-			// aapt resource value: 0x7f0a0144
-			public const int mnuloads = 2131362116;
-			
-			// aapt resource value: 0x7f0a0142
-			public const int mnumain = 2131362114;
-			
-			// aapt resource value: 0x7f0a0143
-			public const int mnurepair = 2131362115;
-			
-			// aapt resource value: 0x7f0a00f7
-			public const int mr_art = 2131362039;
-			
-			// aapt resource value: 0x7f0a00ec
-			public const int mr_chooser_list = 2131362028;
-			
-			// aapt resource value: 0x7f0a00ef
-			public const int mr_chooser_route_desc = 2131362031;
-			
-			// aapt resource value: 0x7f0a00ed
-			public const int mr_chooser_route_icon = 2131362029;
-			
-			// aapt resource value: 0x7f0a00ee
-			public const int mr_chooser_route_name = 2131362030;
-			
-			// aapt resource value: 0x7f0a00eb
-			public const int mr_chooser_title = 2131362027;
-			
-			// aapt resource value: 0x7f0a00f4
-			public const int mr_close = 2131362036;
-			
-			// aapt resource value: 0x7f0a00fa
-			public const int mr_control_divider = 2131362042;
-			
-			// aapt resource value: 0x7f0a0100
-			public const int mr_control_playback_ctrl = 2131362048;
-			
-			// aapt resource value: 0x7f0a0103
-			public const int mr_control_subtitle = 2131362051;
-			
-			// aapt resource value: 0x7f0a0102
-			public const int mr_control_title = 2131362050;
-			
-			// aapt resource value: 0x7f0a0101
-			public const int mr_control_title_container = 2131362049;
-			
-			// aapt resource value: 0x7f0a00f5
-			public const int mr_custom_control = 2131362037;
-			
-			// aapt resource value: 0x7f0a00f6
-			public const int mr_default_control = 2131362038;
-			
-			// aapt resource value: 0x7f0a00f1
-			public const int mr_dialog_area = 2131362033;
-			
-			// aapt resource value: 0x7f0a00f0
-			public const int mr_expandable_area = 2131362032;
-			
-			// aapt resource value: 0x7f0a0104
-			public const int mr_group_expand_collapse = 2131362052;
-			
-			// aapt resource value: 0x7f0a00f8
-			public const int mr_media_main_control = 2131362040;
-			
-			// aapt resource value: 0x7f0a00f3
-			public const int mr_name = 2131362035;
-			
-			// aapt resource value: 0x7f0a00f9
-			public const int mr_playback_control = 2131362041;
-			
-			// aapt resource value: 0x7f0a00f2
-			public const int mr_title_bar = 2131362034;
-			
-			// aapt resource value: 0x7f0a00fb
-			public const int mr_volume_control = 2131362043;
-			
-			// aapt resource value: 0x7f0a00fc
-			public const int mr_volume_group_list = 2131362044;
-			
-			// aapt resource value: 0x7f0a00fe
-			public const int mr_volume_item_icon = 2131362046;
-			
-			// aapt resource value: 0x7f0a00ff
-			public const int mr_volume_slider = 2131362047;
-			
-			// aapt resource value: 0x7f0a00e2
-			public const int msgPkgInfo = 2131362018;
-			
-			// aapt resource value: 0x7f0a00e5
-			public const int msgText = 2131362021;
-			
-			// aapt resource value: 0x7f0a0026
-			public const int multiply = 2131361830;
-			
-			// aapt resource value: 0x7f0a0092
-			public const int navigation_header_container = 2131361938;
-			
-			// aapt resource value: 0x7f0a003a
-			public const int never = 2131361850;
-			
-			// aapt resource value: 0x7f0a0021
-			public const int none = 2131361825;
+			// aapt resource value: 0x7f0a013f
+			public const int list = 2131362111;
 			
 			// aapt resource value: 0x7f0a001d
-			public const int normal = 2131361821;
+			public const int listMode = 2131361821;
 			
-			// aapt resource value: 0x7f0a0114
-			public const int notification_background = 2131362068;
+			// aapt resource value: 0x7f0a0061
+			public const int list_item = 2131361889;
 			
-			// aapt resource value: 0x7f0a010e
-			public const int notification_main_column = 2131362062;
+			// aapt resource value: 0x7f0a0142
+			public const int locationInfo = 2131362114;
 			
-			// aapt resource value: 0x7f0a010d
-			public const int notification_main_column_container = 2131362061;
+			// aapt resource value: 0x7f0a0146
+			public const int mainMenu = 2131362118;
 			
-			// aapt resource value: 0x7f0a009b
-			public const int orderNumber = 2131361947;
+			// aapt resource value: 0x7f0a0145
+			public const int masked = 2131362117;
 			
-			// aapt resource value: 0x7f0a004b
-			public const int parallax = 2131361867;
+			// aapt resource value: 0x7f0a010f
+			public const int media_actions = 2131362063;
 			
-			// aapt resource value: 0x7f0a0064
-			public const int parentPanel = 2131361892;
+			// aapt resource value: 0x7f0a00a5
+			public const int message = 2131361957;
+			
+			// aapt resource value: 0x7f0a0031
+			public const int middle = 2131361841;
+			
+			// aapt resource value: 0x7f0a0053
+			public const int mini = 2131361875;
+			
+			// aapt resource value: 0x7f0a014a
+			public const int mnuclose = 2131362122;
+			
+			// aapt resource value: 0x7f0a0149
+			public const int mnuloads = 2131362121;
+			
+			// aapt resource value: 0x7f0a0147
+			public const int mnumain = 2131362119;
+			
+			// aapt resource value: 0x7f0a0148
+			public const int mnurepair = 2131362120;
+			
+			// aapt resource value: 0x7f0a00fb
+			public const int mr_art = 2131362043;
+			
+			// aapt resource value: 0x7f0a00f0
+			public const int mr_chooser_list = 2131362032;
+			
+			// aapt resource value: 0x7f0a00f3
+			public const int mr_chooser_route_desc = 2131362035;
+			
+			// aapt resource value: 0x7f0a00f1
+			public const int mr_chooser_route_icon = 2131362033;
+			
+			// aapt resource value: 0x7f0a00f2
+			public const int mr_chooser_route_name = 2131362034;
+			
+			// aapt resource value: 0x7f0a00ef
+			public const int mr_chooser_title = 2131362031;
+			
+			// aapt resource value: 0x7f0a00f8
+			public const int mr_close = 2131362040;
+			
+			// aapt resource value: 0x7f0a00fe
+			public const int mr_control_divider = 2131362046;
+			
+			// aapt resource value: 0x7f0a0104
+			public const int mr_control_playback_ctrl = 2131362052;
+			
+			// aapt resource value: 0x7f0a0107
+			public const int mr_control_subtitle = 2131362055;
+			
+			// aapt resource value: 0x7f0a0106
+			public const int mr_control_title = 2131362054;
+			
+			// aapt resource value: 0x7f0a0105
+			public const int mr_control_title_container = 2131362053;
+			
+			// aapt resource value: 0x7f0a00f9
+			public const int mr_custom_control = 2131362041;
+			
+			// aapt resource value: 0x7f0a00fa
+			public const int mr_default_control = 2131362042;
+			
+			// aapt resource value: 0x7f0a00f5
+			public const int mr_dialog_area = 2131362037;
+			
+			// aapt resource value: 0x7f0a00f4
+			public const int mr_expandable_area = 2131362036;
+			
+			// aapt resource value: 0x7f0a0108
+			public const int mr_group_expand_collapse = 2131362056;
+			
+			// aapt resource value: 0x7f0a00fc
+			public const int mr_media_main_control = 2131362044;
+			
+			// aapt resource value: 0x7f0a00f7
+			public const int mr_name = 2131362039;
+			
+			// aapt resource value: 0x7f0a00fd
+			public const int mr_playback_control = 2131362045;
+			
+			// aapt resource value: 0x7f0a00f6
+			public const int mr_title_bar = 2131362038;
+			
+			// aapt resource value: 0x7f0a00ff
+			public const int mr_volume_control = 2131362047;
+			
+			// aapt resource value: 0x7f0a0100
+			public const int mr_volume_group_list = 2131362048;
+			
+			// aapt resource value: 0x7f0a0102
+			public const int mr_volume_item_icon = 2131362050;
+			
+			// aapt resource value: 0x7f0a0103
+			public const int mr_volume_slider = 2131362051;
+			
+			// aapt resource value: 0x7f0a00e4
+			public const int msgPkgInfo = 2131362020;
+			
+			// aapt resource value: 0x7f0a00e7
+			public const int msgText = 2131362023;
+			
+			// aapt resource value: 0x7f0a0028
+			public const int multiply = 2131361832;
+			
+			// aapt resource value: 0x7f0a0093
+			public const int navigation_header_container = 2131361939;
+			
+			// aapt resource value: 0x7f0a003b
+			public const int never = 2131361851;
+			
+			// aapt resource value: 0x7f0a0022
+			public const int none = 2131361826;
+			
+			// aapt resource value: 0x7f0a001e
+			public const int normal = 2131361822;
+			
+			// aapt resource value: 0x7f0a0118
+			public const int notification_background = 2131362072;
+			
+			// aapt resource value: 0x7f0a0112
+			public const int notification_main_column = 2131362066;
+			
+			// aapt resource value: 0x7f0a0111
+			public const int notification_main_column_container = 2131362065;
+			
+			// aapt resource value: 0x7f0a009c
+			public const int orderNumber = 2131361948;
+			
+			// aapt resource value: 0x7f0a004c
+			public const int parallax = 2131361868;
+			
+			// aapt resource value: 0x7f0a0065
+			public const int parentPanel = 2131361893;
 			
 			// aapt resource value: 0x7f0a000b
 			public const int parent_matrix = 2131361803;
 			
-			// aapt resource value: 0x7f0a004c
-			public const int pin = 2131361868;
+			// aapt resource value: 0x7f0a004d
+			public const int pin = 2131361869;
+			
+			// aapt resource value: 0x7f0a00e9
+			public const int progress = 2131362025;
+			
+			// aapt resource value: 0x7f0a00e8
+			public const int progressBarHolder = 2131362024;
 			
 			// aapt resource value: 0x7f0a0006
 			public const int progress_circular = 2131361798;
@@ -6186,26 +7485,26 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0a0007
 			public const int progress_horizontal = 2131361799;
 			
-			// aapt resource value: 0x7f0a0074
-			public const int radio = 2131361908;
+			// aapt resource value: 0x7f0a0075
+			public const int radio = 2131361909;
+			
+			// aapt resource value: 0x7f0a009b
+			public const int radioChecking = 2131361947;
 			
 			// aapt resource value: 0x7f0a009a
-			public const int radioChecking = 2131361946;
+			public const int radioReading = 2131361946;
 			
-			// aapt resource value: 0x7f0a0099
-			public const int radioReading = 2131361945;
+			// aapt resource value: 0x7f0a0140
+			public const int readingsInfo = 2131362112;
 			
-			// aapt resource value: 0x7f0a013c
-			public const int readingsInfo = 2131362108;
+			// aapt resource value: 0x7f0a004a
+			public const int right = 2131361866;
 			
-			// aapt resource value: 0x7f0a0049
-			public const int right = 2131361865;
+			// aapt resource value: 0x7f0a0117
+			public const int right_icon = 2131362071;
 			
 			// aapt resource value: 0x7f0a0113
-			public const int right_icon = 2131362067;
-			
-			// aapt resource value: 0x7f0a010f
-			public const int right_side = 2131362063;
+			public const int right_side = 2131362067;
 			
 			// aapt resource value: 0x7f0a000c
 			public const int save_image_matrix = 2131361804;
@@ -6216,143 +7515,146 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0a000e
 			public const int save_scale_type = 2131361806;
 			
-			// aapt resource value: 0x7f0a0027
-			public const int screen = 2131361831;
-			
-			// aapt resource value: 0x7f0a0041
-			public const int scroll = 2131361857;
-			
-			// aapt resource value: 0x7f0a006a
-			public const int scrollIndicatorDown = 2131361898;
-			
-			// aapt resource value: 0x7f0a0066
-			public const int scrollIndicatorUp = 2131361894;
-			
-			// aapt resource value: 0x7f0a0067
-			public const int scrollView = 2131361895;
-			
-			// aapt resource value: 0x7f0a0054
-			public const int scrollable = 2131361876;
-			
-			// aapt resource value: 0x7f0a007f
-			public const int search_badge = 2131361919;
-			
-			// aapt resource value: 0x7f0a007e
-			public const int search_bar = 2131361918;
-			
-			// aapt resource value: 0x7f0a0080
-			public const int search_button = 2131361920;
-			
-			// aapt resource value: 0x7f0a0085
-			public const int search_close_btn = 2131361925;
-			
-			// aapt resource value: 0x7f0a0081
-			public const int search_edit_frame = 2131361921;
-			
-			// aapt resource value: 0x7f0a0087
-			public const int search_go_btn = 2131361927;
-			
-			// aapt resource value: 0x7f0a0082
-			public const int search_mag_icon = 2131361922;
-			
-			// aapt resource value: 0x7f0a0083
-			public const int search_plate = 2131361923;
-			
-			// aapt resource value: 0x7f0a0084
-			public const int search_src_text = 2131361924;
-			
-			// aapt resource value: 0x7f0a0088
-			public const int search_voice_btn = 2131361928;
-			
-			// aapt resource value: 0x7f0a0089
-			public const int select_dialog_listview = 2131361929;
-			
-			// aapt resource value: 0x7f0a0073
-			public const int shortcut = 2131361907;
-			
-			// aapt resource value: 0x7f0a0022
-			public const int showCustom = 2131361826;
-			
-			// aapt resource value: 0x7f0a0023
-			public const int showHome = 2131361827;
-			
-			// aapt resource value: 0x7f0a0024
-			public const int showTitle = 2131361828;
-			
-			// aapt resource value: 0x7f0a008a
-			public const int smallLabel = 2131361930;
-			
-			// aapt resource value: 0x7f0a0091
-			public const int snackbar_action = 2131361937;
-			
-			// aapt resource value: 0x7f0a0090
-			public const int snackbar_text = 2131361936;
+			// aapt resource value: 0x7f0a0029
+			public const int screen = 2131361833;
 			
 			// aapt resource value: 0x7f0a0042
-			public const int snap = 2131361858;
+			public const int scroll = 2131361858;
 			
-			// aapt resource value: 0x7f0a013e
-			public const int socksProgress = 2131362110;
+			// aapt resource value: 0x7f0a006b
+			public const int scrollIndicatorDown = 2131361899;
 			
-			// aapt resource value: 0x7f0a0063
-			public const int spacer = 2131361891;
+			// aapt resource value: 0x7f0a0067
+			public const int scrollIndicatorUp = 2131361895;
+			
+			// aapt resource value: 0x7f0a0068
+			public const int scrollView = 2131361896;
+			
+			// aapt resource value: 0x7f0a0055
+			public const int scrollable = 2131361877;
+			
+			// aapt resource value: 0x7f0a0080
+			public const int search_badge = 2131361920;
+			
+			// aapt resource value: 0x7f0a007f
+			public const int search_bar = 2131361919;
+			
+			// aapt resource value: 0x7f0a0081
+			public const int search_button = 2131361921;
+			
+			// aapt resource value: 0x7f0a0086
+			public const int search_close_btn = 2131361926;
+			
+			// aapt resource value: 0x7f0a0082
+			public const int search_edit_frame = 2131361922;
+			
+			// aapt resource value: 0x7f0a0088
+			public const int search_go_btn = 2131361928;
+			
+			// aapt resource value: 0x7f0a0083
+			public const int search_mag_icon = 2131361923;
+			
+			// aapt resource value: 0x7f0a0084
+			public const int search_plate = 2131361924;
+			
+			// aapt resource value: 0x7f0a0085
+			public const int search_src_text = 2131361925;
+			
+			// aapt resource value: 0x7f0a0089
+			public const int search_voice_btn = 2131361929;
+			
+			// aapt resource value: 0x7f0a008a
+			public const int select_dialog_listview = 2131361930;
+			
+			// aapt resource value: 0x7f0a0074
+			public const int shortcut = 2131361908;
+			
+			// aapt resource value: 0x7f0a0023
+			public const int showCustom = 2131361827;
+			
+			// aapt resource value: 0x7f0a0024
+			public const int showHome = 2131361828;
+			
+			// aapt resource value: 0x7f0a0025
+			public const int showTitle = 2131361829;
+			
+			// aapt resource value: 0x7f0a008b
+			public const int smallLabel = 2131361931;
+			
+			// aapt resource value: 0x7f0a0092
+			public const int snackbar_action = 2131361938;
+			
+			// aapt resource value: 0x7f0a0091
+			public const int snackbar_text = 2131361937;
+			
+			// aapt resource value: 0x7f0a0043
+			public const int snap = 2131361859;
+			
+			// aapt resource value: 0x7f0a0143
+			public const int socksProgress = 2131362115;
+			
+			// aapt resource value: 0x7f0a0064
+			public const int spacer = 2131361892;
 			
 			// aapt resource value: 0x7f0a0008
 			public const int split_action_bar = 2131361800;
 			
-			// aapt resource value: 0x7f0a0028
-			public const int src_atop = 2131361832;
-			
-			// aapt resource value: 0x7f0a0029
-			public const int src_in = 2131361833;
-			
 			// aapt resource value: 0x7f0a002a
-			public const int src_over = 2131361834;
+			public const int src_atop = 2131361834;
 			
-			// aapt resource value: 0x7f0a004a
-			public const int start = 2131361866;
+			// aapt resource value: 0x7f0a002b
+			public const int src_in = 2131361835;
 			
-			// aapt resource value: 0x7f0a010a
-			public const int status_bar_latest_event_content = 2131362058;
+			// aapt resource value: 0x7f0a002c
+			public const int src_over = 2131361836;
 			
-			// aapt resource value: 0x7f0a0075
-			public const int submenuarrow = 2131361909;
+			// aapt resource value: 0x7f0a004b
+			public const int start = 2131361867;
 			
-			// aapt resource value: 0x7f0a0086
-			public const int submit_area = 2131361926;
+			// aapt resource value: 0x7f0a010e
+			public const int status_bar_latest_event_content = 2131362062;
 			
-			// aapt resource value: 0x7f0a009c
-			public const int t1 = 2131361948;
+			// aapt resource value: 0x7f0a0076
+			public const int submenuarrow = 2131361910;
+			
+			// aapt resource value: 0x7f0a0087
+			public const int submit_area = 2131361927;
 			
 			// aapt resource value: 0x7f0a009d
-			public const int t2 = 2131361949;
+			public const int t1 = 2131361949;
 			
 			// aapt resource value: 0x7f0a009e
-			public const int t3 = 2131361950;
+			public const int t2 = 2131361950;
 			
 			// aapt resource value: 0x7f0a009f
-			public const int t4 = 2131361951;
+			public const int t3 = 2131361951;
 			
 			// aapt resource value: 0x7f0a00a0
-			public const int t5 = 2131361952;
+			public const int t4 = 2131361952;
 			
-			// aapt resource value: 0x7f0a001e
-			public const int tabMode = 2131361822;
+			// aapt resource value: 0x7f0a00a1
+			public const int t5 = 2131361953;
+			
+			// aapt resource value: 0x7f0a001f
+			public const int tabMode = 2131361823;
 			
 			// aapt resource value: 0x7f0a0019
-			public const int text = 2131361817;
+			public const int tag_transition_group = 2131361817;
 			
 			// aapt resource value: 0x7f0a001a
-			public const int text2 = 2131361818;
+			public const int text = 2131361818;
+			
+			// aapt resource value: 0x7f0a001b
+			public const int text2 = 2131361819;
+			
+			// aapt resource value: 0x7f0a006a
+			public const int textSpacerNoButtons = 2131361898;
 			
 			// aapt resource value: 0x7f0a0069
-			public const int textSpacerNoButtons = 2131361897;
+			public const int textSpacerNoTitle = 2131361897;
 			
-			// aapt resource value: 0x7f0a0068
-			public const int textSpacerNoTitle = 2131361896;
-			
-			// aapt resource value: 0x7f0a0097
-			public const int text_input_password_toggle = 2131361943;
+			// aapt resource value: 0x7f0a0098
+			public const int text_input_password_toggle = 2131361944;
 			
 			// aapt resource value: 0x7f0a0014
 			public const int textinput_counter = 2131361812;
@@ -6360,26 +7662,26 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0a0015
 			public const int textinput_error = 2131361813;
 			
-			// aapt resource value: 0x7f0a0110
-			public const int time = 2131362064;
+			// aapt resource value: 0x7f0a0114
+			public const int time = 2131362068;
 			
-			// aapt resource value: 0x7f0a001b
-			public const int title = 2131361819;
+			// aapt resource value: 0x7f0a001c
+			public const int title = 2131361820;
 			
-			// aapt resource value: 0x7f0a0070
-			public const int titleDividerNoCustom = 2131361904;
+			// aapt resource value: 0x7f0a0071
+			public const int titleDividerNoCustom = 2131361905;
+			
+			// aapt resource value: 0x7f0a006f
+			public const int title_template = 2131361903;
+			
+			// aapt resource value: 0x7f0a003e
+			public const int top = 2131361854;
 			
 			// aapt resource value: 0x7f0a006e
-			public const int title_template = 2131361902;
+			public const int topPanel = 2131361902;
 			
-			// aapt resource value: 0x7f0a003d
-			public const int top = 2131361853;
-			
-			// aapt resource value: 0x7f0a006d
-			public const int topPanel = 2131361901;
-			
-			// aapt resource value: 0x7f0a008e
-			public const int touch_outside = 2131361934;
+			// aapt resource value: 0x7f0a008f
+			public const int touch_outside = 2131361935;
 			
 			// aapt resource value: 0x7f0a000f
 			public const int transition_current_scene = 2131361807;
@@ -6396,29 +7698,29 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0a0013
 			public const int transition_transform = 2131361811;
 			
-			// aapt resource value: 0x7f0a002c
-			public const int uniform = 2131361836;
+			// aapt resource value: 0x7f0a002d
+			public const int uniform = 2131361837;
 			
 			// aapt resource value: 0x7f0a0009
 			public const int up = 2131361801;
 			
-			// aapt resource value: 0x7f0a0025
-			public const int useLogo = 2131361829;
+			// aapt resource value: 0x7f0a0026
+			public const int useLogo = 2131361830;
 			
 			// aapt resource value: 0x7f0a0016
 			public const int view_offset_helper = 2131361814;
 			
-			// aapt resource value: 0x7f0a013f
-			public const int visible = 2131362111;
+			// aapt resource value: 0x7f0a0144
+			public const int visible = 2131362116;
 			
-			// aapt resource value: 0x7f0a00fd
-			public const int volume_item_container = 2131362045;
+			// aapt resource value: 0x7f0a0101
+			public const int volume_item_container = 2131362049;
 			
-			// aapt resource value: 0x7f0a003b
-			public const int withText = 2131361851;
+			// aapt resource value: 0x7f0a003c
+			public const int withText = 2131361852;
 			
-			// aapt resource value: 0x7f0a002d
-			public const int wrap_content = 2131361837;
+			// aapt resource value: 0x7f0a002e
+			public const int wrap_content = 2131361838;
 			
 			static Id()
 			{
@@ -6433,44 +7735,44 @@ namespace RadioLogisticaDeliveries
 		public partial class Integer
 		{
 			
-			// aapt resource value: 0x7f0b0003
-			public const int abc_config_activityDefaultDur = 2131427331;
+			// aapt resource value: 0x7f0c0003
+			public const int abc_config_activityDefaultDur = 2131492867;
 			
-			// aapt resource value: 0x7f0b0004
-			public const int abc_config_activityShortDur = 2131427332;
+			// aapt resource value: 0x7f0c0004
+			public const int abc_config_activityShortDur = 2131492868;
 			
-			// aapt resource value: 0x7f0b0008
-			public const int app_bar_elevation_anim_duration = 2131427336;
+			// aapt resource value: 0x7f0c0008
+			public const int app_bar_elevation_anim_duration = 2131492872;
 			
-			// aapt resource value: 0x7f0b0009
-			public const int bottom_sheet_slide_duration = 2131427337;
+			// aapt resource value: 0x7f0c0009
+			public const int bottom_sheet_slide_duration = 2131492873;
 			
-			// aapt resource value: 0x7f0b0005
-			public const int cancel_button_image_alpha = 2131427333;
+			// aapt resource value: 0x7f0c0005
+			public const int cancel_button_image_alpha = 2131492869;
 			
-			// aapt resource value: 0x7f0b0006
-			public const int config_tooltipAnimTime = 2131427334;
+			// aapt resource value: 0x7f0c0006
+			public const int config_tooltipAnimTime = 2131492870;
 			
-			// aapt resource value: 0x7f0b0007
-			public const int design_snackbar_text_max_lines = 2131427335;
+			// aapt resource value: 0x7f0c0007
+			public const int design_snackbar_text_max_lines = 2131492871;
 			
-			// aapt resource value: 0x7f0b000a
-			public const int hide_password_duration = 2131427338;
+			// aapt resource value: 0x7f0c000a
+			public const int hide_password_duration = 2131492874;
 			
-			// aapt resource value: 0x7f0b0000
-			public const int mr_controller_volume_group_list_animation_duration_ms = 2131427328;
+			// aapt resource value: 0x7f0c0000
+			public const int mr_controller_volume_group_list_animation_duration_ms = 2131492864;
 			
-			// aapt resource value: 0x7f0b0001
-			public const int mr_controller_volume_group_list_fade_in_duration_ms = 2131427329;
+			// aapt resource value: 0x7f0c0001
+			public const int mr_controller_volume_group_list_fade_in_duration_ms = 2131492865;
 			
-			// aapt resource value: 0x7f0b0002
-			public const int mr_controller_volume_group_list_fade_out_duration_ms = 2131427330;
+			// aapt resource value: 0x7f0c0002
+			public const int mr_controller_volume_group_list_fade_out_duration_ms = 2131492866;
 			
-			// aapt resource value: 0x7f0b000b
-			public const int show_password_duration = 2131427339;
+			// aapt resource value: 0x7f0c000b
+			public const int show_password_duration = 2131492875;
 			
-			// aapt resource value: 0x7f0b000c
-			public const int status_bar_notification_info_maxnum = 2131427340;
+			// aapt resource value: 0x7f0c000c
+			public const int status_bar_notification_info_maxnum = 2131492876;
 			
 			static Integer()
 			{
@@ -6511,226 +7813,223 @@ namespace RadioLogisticaDeliveries
 			public const int abc_action_bar_up_container = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int abc_action_bar_view_list_nav_layout = 2130903042;
+			public const int abc_action_menu_item_layout = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int abc_action_menu_item_layout = 2130903043;
+			public const int abc_action_menu_layout = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int abc_action_menu_layout = 2130903044;
+			public const int abc_action_mode_bar = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int abc_action_mode_bar = 2130903045;
+			public const int abc_action_mode_close_item_material = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int abc_action_mode_close_item_material = 2130903046;
+			public const int abc_activity_chooser_view = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int abc_activity_chooser_view = 2130903047;
+			public const int abc_activity_chooser_view_list_item = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int abc_activity_chooser_view_list_item = 2130903048;
+			public const int abc_alert_dialog_button_bar_material = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int abc_alert_dialog_button_bar_material = 2130903049;
+			public const int abc_alert_dialog_material = 2130903049;
 			
 			// aapt resource value: 0x7f03000a
-			public const int abc_alert_dialog_material = 2130903050;
+			public const int abc_alert_dialog_title_material = 2130903050;
 			
 			// aapt resource value: 0x7f03000b
-			public const int abc_alert_dialog_title_material = 2130903051;
+			public const int abc_dialog_title_material = 2130903051;
 			
 			// aapt resource value: 0x7f03000c
-			public const int abc_dialog_title_material = 2130903052;
+			public const int abc_expanded_menu_layout = 2130903052;
 			
 			// aapt resource value: 0x7f03000d
-			public const int abc_expanded_menu_layout = 2130903053;
+			public const int abc_list_menu_item_checkbox = 2130903053;
 			
 			// aapt resource value: 0x7f03000e
-			public const int abc_list_menu_item_checkbox = 2130903054;
+			public const int abc_list_menu_item_icon = 2130903054;
 			
 			// aapt resource value: 0x7f03000f
-			public const int abc_list_menu_item_icon = 2130903055;
+			public const int abc_list_menu_item_layout = 2130903055;
 			
 			// aapt resource value: 0x7f030010
-			public const int abc_list_menu_item_layout = 2130903056;
+			public const int abc_list_menu_item_radio = 2130903056;
 			
 			// aapt resource value: 0x7f030011
-			public const int abc_list_menu_item_radio = 2130903057;
+			public const int abc_popup_menu_header_item_layout = 2130903057;
 			
 			// aapt resource value: 0x7f030012
-			public const int abc_popup_menu_header_item_layout = 2130903058;
+			public const int abc_popup_menu_item_layout = 2130903058;
 			
 			// aapt resource value: 0x7f030013
-			public const int abc_popup_menu_item_layout = 2130903059;
+			public const int abc_screen_content_include = 2130903059;
 			
 			// aapt resource value: 0x7f030014
-			public const int abc_screen_content_include = 2130903060;
+			public const int abc_screen_simple = 2130903060;
 			
 			// aapt resource value: 0x7f030015
-			public const int abc_screen_simple = 2130903061;
+			public const int abc_screen_simple_overlay_action_mode = 2130903061;
 			
 			// aapt resource value: 0x7f030016
-			public const int abc_screen_simple_overlay_action_mode = 2130903062;
+			public const int abc_screen_toolbar = 2130903062;
 			
 			// aapt resource value: 0x7f030017
-			public const int abc_screen_toolbar = 2130903063;
+			public const int abc_search_dropdown_item_icons_2line = 2130903063;
 			
 			// aapt resource value: 0x7f030018
-			public const int abc_search_dropdown_item_icons_2line = 2130903064;
+			public const int abc_search_view = 2130903064;
 			
 			// aapt resource value: 0x7f030019
-			public const int abc_search_view = 2130903065;
+			public const int abc_select_dialog_material = 2130903065;
 			
 			// aapt resource value: 0x7f03001a
-			public const int abc_select_dialog_material = 2130903066;
+			public const int design_bottom_navigation_item = 2130903066;
 			
 			// aapt resource value: 0x7f03001b
-			public const int design_bottom_navigation_item = 2130903067;
+			public const int design_bottom_sheet_dialog = 2130903067;
 			
 			// aapt resource value: 0x7f03001c
-			public const int design_bottom_sheet_dialog = 2130903068;
+			public const int design_layout_snackbar = 2130903068;
 			
 			// aapt resource value: 0x7f03001d
-			public const int design_layout_snackbar = 2130903069;
+			public const int design_layout_snackbar_include = 2130903069;
 			
 			// aapt resource value: 0x7f03001e
-			public const int design_layout_snackbar_include = 2130903070;
+			public const int design_layout_tab_icon = 2130903070;
 			
 			// aapt resource value: 0x7f03001f
-			public const int design_layout_tab_icon = 2130903071;
+			public const int design_layout_tab_text = 2130903071;
 			
 			// aapt resource value: 0x7f030020
-			public const int design_layout_tab_text = 2130903072;
+			public const int design_menu_item_action_area = 2130903072;
 			
 			// aapt resource value: 0x7f030021
-			public const int design_menu_item_action_area = 2130903073;
+			public const int design_navigation_item = 2130903073;
 			
 			// aapt resource value: 0x7f030022
-			public const int design_navigation_item = 2130903074;
+			public const int design_navigation_item_header = 2130903074;
 			
 			// aapt resource value: 0x7f030023
-			public const int design_navigation_item_header = 2130903075;
+			public const int design_navigation_item_separator = 2130903075;
 			
 			// aapt resource value: 0x7f030024
-			public const int design_navigation_item_separator = 2130903076;
+			public const int design_navigation_item_subheader = 2130903076;
 			
 			// aapt resource value: 0x7f030025
-			public const int design_navigation_item_subheader = 2130903077;
+			public const int design_navigation_menu = 2130903077;
 			
 			// aapt resource value: 0x7f030026
-			public const int design_navigation_menu = 2130903078;
+			public const int design_navigation_menu_item = 2130903078;
 			
 			// aapt resource value: 0x7f030027
-			public const int design_navigation_menu_item = 2130903079;
+			public const int design_text_input_password_icon = 2130903079;
 			
 			// aapt resource value: 0x7f030028
-			public const int design_text_input_password_icon = 2130903080;
+			public const int enterDataFt = 2130903080;
 			
 			// aapt resource value: 0x7f030029
-			public const int enterDataFt = 2130903081;
+			public const int enterOrderFt = 2130903081;
 			
 			// aapt resource value: 0x7f03002a
-			public const int enterOrderFt = 2130903082;
+			public const int headerFt = 2130903082;
 			
 			// aapt resource value: 0x7f03002b
-			public const int headerFt = 2130903083;
+			public const int infoFt = 2130903083;
 			
 			// aapt resource value: 0x7f03002c
-			public const int infoFt = 2130903084;
+			public const int LogonScreen = 2130903084;
 			
 			// aapt resource value: 0x7f03002d
-			public const int LogonScreen = 2130903085;
+			public const int mainLayout = 2130903085;
 			
 			// aapt resource value: 0x7f03002e
-			public const int mainLayout = 2130903086;
+			public const int mr_chooser_dialog = 2130903086;
 			
 			// aapt resource value: 0x7f03002f
-			public const int mr_chooser_dialog = 2130903087;
+			public const int mr_chooser_list_item = 2130903087;
 			
 			// aapt resource value: 0x7f030030
-			public const int mr_chooser_list_item = 2130903088;
+			public const int mr_controller_material_dialog_b = 2130903088;
 			
 			// aapt resource value: 0x7f030031
-			public const int mr_controller_material_dialog_b = 2130903089;
+			public const int mr_controller_volume_item = 2130903089;
 			
 			// aapt resource value: 0x7f030032
-			public const int mr_controller_volume_item = 2130903090;
+			public const int mr_playback_control = 2130903090;
 			
 			// aapt resource value: 0x7f030033
-			public const int mr_playback_control = 2130903091;
+			public const int mr_volume_control = 2130903091;
 			
 			// aapt resource value: 0x7f030034
-			public const int mr_volume_control = 2130903092;
+			public const int notification_action = 2130903092;
 			
 			// aapt resource value: 0x7f030035
-			public const int notification_action = 2130903093;
+			public const int notification_action_tombstone = 2130903093;
 			
 			// aapt resource value: 0x7f030036
-			public const int notification_action_tombstone = 2130903094;
+			public const int notification_media_action = 2130903094;
 			
 			// aapt resource value: 0x7f030037
-			public const int notification_media_action = 2130903095;
+			public const int notification_media_cancel_action = 2130903095;
 			
 			// aapt resource value: 0x7f030038
-			public const int notification_media_cancel_action = 2130903096;
+			public const int notification_template_big_media = 2130903096;
 			
 			// aapt resource value: 0x7f030039
-			public const int notification_template_big_media = 2130903097;
+			public const int notification_template_big_media_custom = 2130903097;
 			
 			// aapt resource value: 0x7f03003a
-			public const int notification_template_big_media_custom = 2130903098;
+			public const int notification_template_big_media_narrow = 2130903098;
 			
 			// aapt resource value: 0x7f03003b
-			public const int notification_template_big_media_narrow = 2130903099;
+			public const int notification_template_big_media_narrow_custom = 2130903099;
 			
 			// aapt resource value: 0x7f03003c
-			public const int notification_template_big_media_narrow_custom = 2130903100;
+			public const int notification_template_custom_big = 2130903100;
 			
 			// aapt resource value: 0x7f03003d
-			public const int notification_template_custom_big = 2130903101;
+			public const int notification_template_icon_group = 2130903101;
 			
 			// aapt resource value: 0x7f03003e
-			public const int notification_template_icon_group = 2130903102;
+			public const int notification_template_lines_media = 2130903102;
 			
 			// aapt resource value: 0x7f03003f
-			public const int notification_template_lines_media = 2130903103;
+			public const int notification_template_media = 2130903103;
 			
 			// aapt resource value: 0x7f030040
-			public const int notification_template_media = 2130903104;
+			public const int notification_template_media_custom = 2130903104;
 			
 			// aapt resource value: 0x7f030041
-			public const int notification_template_media_custom = 2130903105;
+			public const int notification_template_part_chronometer = 2130903105;
 			
 			// aapt resource value: 0x7f030042
-			public const int notification_template_part_chronometer = 2130903106;
+			public const int notification_template_part_time = 2130903106;
 			
 			// aapt resource value: 0x7f030043
-			public const int notification_template_part_time = 2130903107;
+			public const int sampleTableLayout = 2130903107;
 			
 			// aapt resource value: 0x7f030044
-			public const int sampleTableLayout = 2130903108;
+			public const int select_dialog_item_material = 2130903108;
 			
 			// aapt resource value: 0x7f030045
-			public const int select_dialog_item_material = 2130903109;
+			public const int select_dialog_multichoice_material = 2130903109;
 			
 			// aapt resource value: 0x7f030046
-			public const int select_dialog_multichoice_material = 2130903110;
+			public const int select_dialog_singlechoice_material = 2130903110;
 			
 			// aapt resource value: 0x7f030047
-			public const int select_dialog_singlechoice_material = 2130903111;
+			public const int SimpleList = 2130903111;
 			
 			// aapt resource value: 0x7f030048
-			public const int SimpleList = 2130903112;
+			public const int statusFragment = 2130903112;
 			
 			// aapt resource value: 0x7f030049
-			public const int statusFragment = 2130903113;
+			public const int support_simple_spinner_dropdown_item = 2130903113;
 			
 			// aapt resource value: 0x7f03004a
-			public const int support_simple_spinner_dropdown_item = 2130903114;
-			
-			// aapt resource value: 0x7f03004b
-			public const int tooltip = 2130903115;
+			public const int tooltip = 2130903114;
 			
 			static Layout()
 			{
@@ -6745,8 +8044,8 @@ namespace RadioLogisticaDeliveries
 		public partial class Menu
 		{
 			
-			// aapt resource value: 0x7f0f0000
-			public const int mainMenu = 2131689472;
+			// aapt resource value: 0x7f100000
+			public const int mainMenu = 2131755008;
 			
 			static Menu()
 			{
@@ -6761,20 +8060,20 @@ namespace RadioLogisticaDeliveries
 		public partial class Raw
 		{
 			
-			// aapt resource value: 0x7f070000
-			public const int Antares = 2131165184;
+			// aapt resource value: 0x7f080000
+			public const int Antares = 2131230720;
 			
-			// aapt resource value: 0x7f070001
-			public const int decodeshort = 2131165185;
+			// aapt resource value: 0x7f080001
+			public const int decodeshort = 2131230721;
 			
-			// aapt resource value: 0x7f070002
-			public const int Gallium = 2131165186;
+			// aapt resource value: 0x7f080002
+			public const int Gallium = 2131230722;
 			
-			// aapt resource value: 0x7f070003
-			public const int TaDa = 2131165187;
+			// aapt resource value: 0x7f080003
+			public const int TaDa = 2131230723;
 			
-			// aapt resource value: 0x7f070004
-			public const int Tejat = 2131165188;
+			// aapt resource value: 0x7f080004
+			public const int Tejat = 2131230724;
 			
 			static Raw()
 			{
@@ -6789,200 +8088,200 @@ namespace RadioLogisticaDeliveries
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f080001
-			public const int ApplicationName = 2131230721;
+			// aapt resource value: 0x7f0b003d
+			public const int ApplicationName = 2131427389;
 			
-			// aapt resource value: 0x7f080000
-			public const int Hello = 2131230720;
+			// aapt resource value: 0x7f0b003c
+			public const int Hello = 2131427388;
 			
-			// aapt resource value: 0x7f080040
-			public const int Next = 2131230784;
+			// aapt resource value: 0x7f0b0040
+			public const int Next = 2131427392;
 			
-			// aapt resource value: 0x7f080017
-			public const int abc_action_bar_home_description = 2131230743;
+			// aapt resource value: 0x7f0b0015
+			public const int abc_action_bar_home_description = 2131427349;
 			
-			// aapt resource value: 0x7f080018
-			public const int abc_action_bar_home_description_format = 2131230744;
+			// aapt resource value: 0x7f0b0016
+			public const int abc_action_bar_up_description = 2131427350;
 			
-			// aapt resource value: 0x7f080019
-			public const int abc_action_bar_home_subtitle_description_format = 2131230745;
+			// aapt resource value: 0x7f0b0017
+			public const int abc_action_menu_overflow_description = 2131427351;
 			
-			// aapt resource value: 0x7f08001a
-			public const int abc_action_bar_up_description = 2131230746;
+			// aapt resource value: 0x7f0b0018
+			public const int abc_action_mode_done = 2131427352;
 			
-			// aapt resource value: 0x7f08001b
-			public const int abc_action_menu_overflow_description = 2131230747;
+			// aapt resource value: 0x7f0b0019
+			public const int abc_activity_chooser_view_see_all = 2131427353;
 			
-			// aapt resource value: 0x7f08001c
-			public const int abc_action_mode_done = 2131230748;
+			// aapt resource value: 0x7f0b001a
+			public const int abc_activitychooserview_choose_application = 2131427354;
 			
-			// aapt resource value: 0x7f08001d
-			public const int abc_activity_chooser_view_see_all = 2131230749;
+			// aapt resource value: 0x7f0b001b
+			public const int abc_capital_off = 2131427355;
 			
-			// aapt resource value: 0x7f08001e
-			public const int abc_activitychooserview_choose_application = 2131230750;
+			// aapt resource value: 0x7f0b001c
+			public const int abc_capital_on = 2131427356;
 			
-			// aapt resource value: 0x7f08001f
-			public const int abc_capital_off = 2131230751;
+			// aapt resource value: 0x7f0b0027
+			public const int abc_font_family_body_1_material = 2131427367;
 			
-			// aapt resource value: 0x7f080020
-			public const int abc_capital_on = 2131230752;
+			// aapt resource value: 0x7f0b0028
+			public const int abc_font_family_body_2_material = 2131427368;
 			
-			// aapt resource value: 0x7f08002c
-			public const int abc_font_family_body_1_material = 2131230764;
+			// aapt resource value: 0x7f0b0029
+			public const int abc_font_family_button_material = 2131427369;
 			
-			// aapt resource value: 0x7f08002d
-			public const int abc_font_family_body_2_material = 2131230765;
+			// aapt resource value: 0x7f0b002a
+			public const int abc_font_family_caption_material = 2131427370;
 			
-			// aapt resource value: 0x7f08002e
-			public const int abc_font_family_button_material = 2131230766;
+			// aapt resource value: 0x7f0b002b
+			public const int abc_font_family_display_1_material = 2131427371;
 			
-			// aapt resource value: 0x7f08002f
-			public const int abc_font_family_caption_material = 2131230767;
+			// aapt resource value: 0x7f0b002c
+			public const int abc_font_family_display_2_material = 2131427372;
 			
-			// aapt resource value: 0x7f080030
-			public const int abc_font_family_display_1_material = 2131230768;
+			// aapt resource value: 0x7f0b002d
+			public const int abc_font_family_display_3_material = 2131427373;
 			
-			// aapt resource value: 0x7f080031
-			public const int abc_font_family_display_2_material = 2131230769;
+			// aapt resource value: 0x7f0b002e
+			public const int abc_font_family_display_4_material = 2131427374;
 			
-			// aapt resource value: 0x7f080032
-			public const int abc_font_family_display_3_material = 2131230770;
+			// aapt resource value: 0x7f0b002f
+			public const int abc_font_family_headline_material = 2131427375;
 			
-			// aapt resource value: 0x7f080033
-			public const int abc_font_family_display_4_material = 2131230771;
+			// aapt resource value: 0x7f0b0030
+			public const int abc_font_family_menu_material = 2131427376;
 			
-			// aapt resource value: 0x7f080034
-			public const int abc_font_family_headline_material = 2131230772;
+			// aapt resource value: 0x7f0b0031
+			public const int abc_font_family_subhead_material = 2131427377;
 			
-			// aapt resource value: 0x7f080035
-			public const int abc_font_family_menu_material = 2131230773;
+			// aapt resource value: 0x7f0b0032
+			public const int abc_font_family_title_material = 2131427378;
 			
-			// aapt resource value: 0x7f080036
-			public const int abc_font_family_subhead_material = 2131230774;
+			// aapt resource value: 0x7f0b001d
+			public const int abc_search_hint = 2131427357;
 			
-			// aapt resource value: 0x7f080037
-			public const int abc_font_family_title_material = 2131230775;
+			// aapt resource value: 0x7f0b001e
+			public const int abc_searchview_description_clear = 2131427358;
 			
-			// aapt resource value: 0x7f080021
-			public const int abc_search_hint = 2131230753;
+			// aapt resource value: 0x7f0b001f
+			public const int abc_searchview_description_query = 2131427359;
 			
-			// aapt resource value: 0x7f080022
-			public const int abc_searchview_description_clear = 2131230754;
+			// aapt resource value: 0x7f0b0020
+			public const int abc_searchview_description_search = 2131427360;
 			
-			// aapt resource value: 0x7f080023
-			public const int abc_searchview_description_query = 2131230755;
+			// aapt resource value: 0x7f0b0021
+			public const int abc_searchview_description_submit = 2131427361;
 			
-			// aapt resource value: 0x7f080024
-			public const int abc_searchview_description_search = 2131230756;
+			// aapt resource value: 0x7f0b0022
+			public const int abc_searchview_description_voice = 2131427362;
 			
-			// aapt resource value: 0x7f080025
-			public const int abc_searchview_description_submit = 2131230757;
+			// aapt resource value: 0x7f0b0023
+			public const int abc_shareactionprovider_share_with = 2131427363;
 			
-			// aapt resource value: 0x7f080026
-			public const int abc_searchview_description_voice = 2131230758;
+			// aapt resource value: 0x7f0b0024
+			public const int abc_shareactionprovider_share_with_application = 2131427364;
 			
-			// aapt resource value: 0x7f080027
-			public const int abc_shareactionprovider_share_with = 2131230759;
+			// aapt resource value: 0x7f0b0025
+			public const int abc_toolbar_collapse_description = 2131427365;
 			
-			// aapt resource value: 0x7f080028
-			public const int abc_shareactionprovider_share_with_application = 2131230760;
+			// aapt resource value: 0x7f0b003f
+			public const int app_name = 2131427391;
 			
-			// aapt resource value: 0x7f080029
-			public const int abc_toolbar_collapse_description = 2131230761;
+			// aapt resource value: 0x7f0b0033
+			public const int appbar_scrolling_view_behavior = 2131427379;
 			
-			// aapt resource value: 0x7f080038
-			public const int appbar_scrolling_view_behavior = 2131230776;
+			// aapt resource value: 0x7f0b0034
+			public const int bottom_sheet_behavior = 2131427380;
 			
-			// aapt resource value: 0x7f080039
-			public const int bottom_sheet_behavior = 2131230777;
+			// aapt resource value: 0x7f0b0035
+			public const int character_counter_pattern = 2131427381;
 			
-			// aapt resource value: 0x7f08003a
-			public const int character_counter_pattern = 2131230778;
+			// aapt resource value: 0x7f0b003e
+			public const int hello = 2131427390;
 			
-			// aapt resource value: 0x7f080002
-			public const int mr_button_content_description = 2131230722;
+			// aapt resource value: 0x7f0b0000
+			public const int mr_button_content_description = 2131427328;
 			
-			// aapt resource value: 0x7f080003
-			public const int mr_cast_button_connected = 2131230723;
+			// aapt resource value: 0x7f0b0001
+			public const int mr_cast_button_connected = 2131427329;
 			
-			// aapt resource value: 0x7f080004
-			public const int mr_cast_button_connecting = 2131230724;
+			// aapt resource value: 0x7f0b0002
+			public const int mr_cast_button_connecting = 2131427330;
 			
-			// aapt resource value: 0x7f080005
-			public const int mr_cast_button_disconnected = 2131230725;
+			// aapt resource value: 0x7f0b0003
+			public const int mr_cast_button_disconnected = 2131427331;
 			
-			// aapt resource value: 0x7f080006
-			public const int mr_chooser_searching = 2131230726;
+			// aapt resource value: 0x7f0b0004
+			public const int mr_chooser_searching = 2131427332;
 			
-			// aapt resource value: 0x7f080007
-			public const int mr_chooser_title = 2131230727;
+			// aapt resource value: 0x7f0b0005
+			public const int mr_chooser_title = 2131427333;
 			
-			// aapt resource value: 0x7f080008
-			public const int mr_controller_album_art = 2131230728;
+			// aapt resource value: 0x7f0b0006
+			public const int mr_controller_album_art = 2131427334;
 			
-			// aapt resource value: 0x7f080009
-			public const int mr_controller_casting_screen = 2131230729;
+			// aapt resource value: 0x7f0b0007
+			public const int mr_controller_casting_screen = 2131427335;
 			
-			// aapt resource value: 0x7f08000a
-			public const int mr_controller_close_description = 2131230730;
+			// aapt resource value: 0x7f0b0008
+			public const int mr_controller_close_description = 2131427336;
 			
-			// aapt resource value: 0x7f08000b
-			public const int mr_controller_collapse_group = 2131230731;
+			// aapt resource value: 0x7f0b0009
+			public const int mr_controller_collapse_group = 2131427337;
 			
-			// aapt resource value: 0x7f08000c
-			public const int mr_controller_disconnect = 2131230732;
+			// aapt resource value: 0x7f0b000a
+			public const int mr_controller_disconnect = 2131427338;
 			
-			// aapt resource value: 0x7f08000d
-			public const int mr_controller_expand_group = 2131230733;
+			// aapt resource value: 0x7f0b000b
+			public const int mr_controller_expand_group = 2131427339;
 			
-			// aapt resource value: 0x7f08000e
-			public const int mr_controller_no_info_available = 2131230734;
+			// aapt resource value: 0x7f0b000c
+			public const int mr_controller_no_info_available = 2131427340;
 			
-			// aapt resource value: 0x7f08000f
-			public const int mr_controller_no_media_selected = 2131230735;
+			// aapt resource value: 0x7f0b000d
+			public const int mr_controller_no_media_selected = 2131427341;
 			
-			// aapt resource value: 0x7f080010
-			public const int mr_controller_pause = 2131230736;
+			// aapt resource value: 0x7f0b000e
+			public const int mr_controller_pause = 2131427342;
 			
-			// aapt resource value: 0x7f080011
-			public const int mr_controller_play = 2131230737;
+			// aapt resource value: 0x7f0b000f
+			public const int mr_controller_play = 2131427343;
 			
-			// aapt resource value: 0x7f080012
-			public const int mr_controller_stop = 2131230738;
+			// aapt resource value: 0x7f0b0010
+			public const int mr_controller_stop = 2131427344;
 			
-			// aapt resource value: 0x7f080013
-			public const int mr_controller_stop_casting = 2131230739;
+			// aapt resource value: 0x7f0b0011
+			public const int mr_controller_stop_casting = 2131427345;
 			
-			// aapt resource value: 0x7f080014
-			public const int mr_controller_volume_slider = 2131230740;
+			// aapt resource value: 0x7f0b0012
+			public const int mr_controller_volume_slider = 2131427346;
 			
-			// aapt resource value: 0x7f080015
-			public const int mr_system_route_name = 2131230741;
+			// aapt resource value: 0x7f0b0013
+			public const int mr_system_route_name = 2131427347;
 			
-			// aapt resource value: 0x7f080016
-			public const int mr_user_route_category_name = 2131230742;
+			// aapt resource value: 0x7f0b0014
+			public const int mr_user_route_category_name = 2131427348;
 			
-			// aapt resource value: 0x7f08003b
-			public const int password_toggle_content_description = 2131230779;
+			// aapt resource value: 0x7f0b0036
+			public const int password_toggle_content_description = 2131427382;
 			
-			// aapt resource value: 0x7f08003c
-			public const int path_password_eye = 2131230780;
+			// aapt resource value: 0x7f0b0037
+			public const int path_password_eye = 2131427383;
 			
-			// aapt resource value: 0x7f08003d
-			public const int path_password_eye_mask_strike_through = 2131230781;
+			// aapt resource value: 0x7f0b0038
+			public const int path_password_eye_mask_strike_through = 2131427384;
 			
-			// aapt resource value: 0x7f08003e
-			public const int path_password_eye_mask_visible = 2131230782;
+			// aapt resource value: 0x7f0b0039
+			public const int path_password_eye_mask_visible = 2131427385;
 			
-			// aapt resource value: 0x7f08003f
-			public const int path_password_strike_through = 2131230783;
+			// aapt resource value: 0x7f0b003a
+			public const int path_password_strike_through = 2131427386;
 			
-			// aapt resource value: 0x7f08002a
-			public const int search_menu_title = 2131230762;
+			// aapt resource value: 0x7f0b0026
+			public const int search_menu_title = 2131427366;
 			
-			// aapt resource value: 0x7f08002b
-			public const int status_bar_notification_info_overflow = 2131230763;
+			// aapt resource value: 0x7f0b003b
+			public const int status_bar_notification_info_overflow = 2131427387;
 			
 			static String()
 			{
@@ -6997,1235 +8296,1205 @@ namespace RadioLogisticaDeliveries
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f0c00ac
-			public const int AlertDialog_AppCompat = 2131493036;
+			// aapt resource value: 0x7f0d00a4
+			public const int AlertDialog_AppCompat = 2131558564;
 			
-			// aapt resource value: 0x7f0c00ad
-			public const int AlertDialog_AppCompat_Light = 2131493037;
+			// aapt resource value: 0x7f0d00a5
+			public const int AlertDialog_AppCompat_Light = 2131558565;
 			
-			// aapt resource value: 0x7f0c00ae
-			public const int Animation_AppCompat_Dialog = 2131493038;
+			// aapt resource value: 0x7f0d00a6
+			public const int Animation_AppCompat_Dialog = 2131558566;
 			
-			// aapt resource value: 0x7f0c00af
-			public const int Animation_AppCompat_DropDownUp = 2131493039;
+			// aapt resource value: 0x7f0d00a7
+			public const int Animation_AppCompat_DropDownUp = 2131558567;
 			
-			// aapt resource value: 0x7f0c00b0
-			public const int Animation_AppCompat_Tooltip = 2131493040;
+			// aapt resource value: 0x7f0d00a8
+			public const int Animation_AppCompat_Tooltip = 2131558568;
 			
-			// aapt resource value: 0x7f0c0178
-			public const int Animation_Design_BottomSheetDialog = 2131493240;
+			// aapt resource value: 0x7f0d016e
+			public const int Animation_Design_BottomSheetDialog = 2131558766;
 			
-			// aapt resource value: 0x7f0c0199
-			public const int AppTheme = 2131493273;
+			// aapt resource value: 0x7f0d018f
+			public const int AppTheme = 2131558799;
 			
-			// aapt resource value: 0x7f0c00b1
-			public const int Base_AlertDialog_AppCompat = 2131493041;
+			// aapt resource value: 0x7f0d00a9
+			public const int Base_AlertDialog_AppCompat = 2131558569;
 			
-			// aapt resource value: 0x7f0c00b2
-			public const int Base_AlertDialog_AppCompat_Light = 2131493042;
+			// aapt resource value: 0x7f0d00aa
+			public const int Base_AlertDialog_AppCompat_Light = 2131558570;
 			
-			// aapt resource value: 0x7f0c00b3
-			public const int Base_Animation_AppCompat_Dialog = 2131493043;
+			// aapt resource value: 0x7f0d00ab
+			public const int Base_Animation_AppCompat_Dialog = 2131558571;
 			
-			// aapt resource value: 0x7f0c00b4
-			public const int Base_Animation_AppCompat_DropDownUp = 2131493044;
+			// aapt resource value: 0x7f0d00ac
+			public const int Base_Animation_AppCompat_DropDownUp = 2131558572;
 			
-			// aapt resource value: 0x7f0c00b5
-			public const int Base_Animation_AppCompat_Tooltip = 2131493045;
+			// aapt resource value: 0x7f0d00ad
+			public const int Base_Animation_AppCompat_Tooltip = 2131558573;
 			
-			// aapt resource value: 0x7f0c000c
-			public const int Base_CardView = 2131492876;
+			// aapt resource value: 0x7f0d000c
+			public const int Base_CardView = 2131558412;
 			
-			// aapt resource value: 0x7f0c00b6
-			public const int Base_DialogWindowTitle_AppCompat = 2131493046;
+			// aapt resource value: 0x7f0d00ae
+			public const int Base_DialogWindowTitle_AppCompat = 2131558574;
 			
-			// aapt resource value: 0x7f0c00b7
-			public const int Base_DialogWindowTitleBackground_AppCompat = 2131493047;
+			// aapt resource value: 0x7f0d00af
+			public const int Base_DialogWindowTitleBackground_AppCompat = 2131558575;
 			
-			// aapt resource value: 0x7f0c0048
-			public const int Base_TextAppearance_AppCompat = 2131492936;
+			// aapt resource value: 0x7f0d0048
+			public const int Base_TextAppearance_AppCompat = 2131558472;
 			
-			// aapt resource value: 0x7f0c0049
-			public const int Base_TextAppearance_AppCompat_Body1 = 2131492937;
+			// aapt resource value: 0x7f0d0049
+			public const int Base_TextAppearance_AppCompat_Body1 = 2131558473;
 			
-			// aapt resource value: 0x7f0c004a
-			public const int Base_TextAppearance_AppCompat_Body2 = 2131492938;
+			// aapt resource value: 0x7f0d004a
+			public const int Base_TextAppearance_AppCompat_Body2 = 2131558474;
 			
-			// aapt resource value: 0x7f0c0036
-			public const int Base_TextAppearance_AppCompat_Button = 2131492918;
+			// aapt resource value: 0x7f0d0036
+			public const int Base_TextAppearance_AppCompat_Button = 2131558454;
 			
-			// aapt resource value: 0x7f0c004b
-			public const int Base_TextAppearance_AppCompat_Caption = 2131492939;
+			// aapt resource value: 0x7f0d004b
+			public const int Base_TextAppearance_AppCompat_Caption = 2131558475;
 			
-			// aapt resource value: 0x7f0c004c
-			public const int Base_TextAppearance_AppCompat_Display1 = 2131492940;
+			// aapt resource value: 0x7f0d004c
+			public const int Base_TextAppearance_AppCompat_Display1 = 2131558476;
 			
-			// aapt resource value: 0x7f0c004d
-			public const int Base_TextAppearance_AppCompat_Display2 = 2131492941;
+			// aapt resource value: 0x7f0d004d
+			public const int Base_TextAppearance_AppCompat_Display2 = 2131558477;
 			
-			// aapt resource value: 0x7f0c004e
-			public const int Base_TextAppearance_AppCompat_Display3 = 2131492942;
+			// aapt resource value: 0x7f0d004e
+			public const int Base_TextAppearance_AppCompat_Display3 = 2131558478;
 			
-			// aapt resource value: 0x7f0c004f
-			public const int Base_TextAppearance_AppCompat_Display4 = 2131492943;
+			// aapt resource value: 0x7f0d004f
+			public const int Base_TextAppearance_AppCompat_Display4 = 2131558479;
 			
-			// aapt resource value: 0x7f0c0050
-			public const int Base_TextAppearance_AppCompat_Headline = 2131492944;
+			// aapt resource value: 0x7f0d0050
+			public const int Base_TextAppearance_AppCompat_Headline = 2131558480;
 			
-			// aapt resource value: 0x7f0c001a
-			public const int Base_TextAppearance_AppCompat_Inverse = 2131492890;
+			// aapt resource value: 0x7f0d001a
+			public const int Base_TextAppearance_AppCompat_Inverse = 2131558426;
 			
-			// aapt resource value: 0x7f0c0051
-			public const int Base_TextAppearance_AppCompat_Large = 2131492945;
+			// aapt resource value: 0x7f0d0051
+			public const int Base_TextAppearance_AppCompat_Large = 2131558481;
 			
-			// aapt resource value: 0x7f0c001b
-			public const int Base_TextAppearance_AppCompat_Large_Inverse = 2131492891;
+			// aapt resource value: 0x7f0d001b
+			public const int Base_TextAppearance_AppCompat_Large_Inverse = 2131558427;
 			
-			// aapt resource value: 0x7f0c0052
-			public const int Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = 2131492946;
+			// aapt resource value: 0x7f0d0052
+			public const int Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = 2131558482;
 			
-			// aapt resource value: 0x7f0c0053
-			public const int Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = 2131492947;
+			// aapt resource value: 0x7f0d0053
+			public const int Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = 2131558483;
 			
-			// aapt resource value: 0x7f0c0054
-			public const int Base_TextAppearance_AppCompat_Medium = 2131492948;
+			// aapt resource value: 0x7f0d0054
+			public const int Base_TextAppearance_AppCompat_Medium = 2131558484;
 			
-			// aapt resource value: 0x7f0c001c
-			public const int Base_TextAppearance_AppCompat_Medium_Inverse = 2131492892;
+			// aapt resource value: 0x7f0d001c
+			public const int Base_TextAppearance_AppCompat_Medium_Inverse = 2131558428;
 			
-			// aapt resource value: 0x7f0c0055
-			public const int Base_TextAppearance_AppCompat_Menu = 2131492949;
+			// aapt resource value: 0x7f0d0055
+			public const int Base_TextAppearance_AppCompat_Menu = 2131558485;
 			
-			// aapt resource value: 0x7f0c00b8
-			public const int Base_TextAppearance_AppCompat_SearchResult = 2131493048;
+			// aapt resource value: 0x7f0d00b0
+			public const int Base_TextAppearance_AppCompat_SearchResult = 2131558576;
 			
-			// aapt resource value: 0x7f0c0056
-			public const int Base_TextAppearance_AppCompat_SearchResult_Subtitle = 2131492950;
+			// aapt resource value: 0x7f0d0056
+			public const int Base_TextAppearance_AppCompat_SearchResult_Subtitle = 2131558486;
 			
-			// aapt resource value: 0x7f0c0057
-			public const int Base_TextAppearance_AppCompat_SearchResult_Title = 2131492951;
+			// aapt resource value: 0x7f0d0057
+			public const int Base_TextAppearance_AppCompat_SearchResult_Title = 2131558487;
 			
-			// aapt resource value: 0x7f0c0058
-			public const int Base_TextAppearance_AppCompat_Small = 2131492952;
+			// aapt resource value: 0x7f0d0058
+			public const int Base_TextAppearance_AppCompat_Small = 2131558488;
 			
-			// aapt resource value: 0x7f0c001d
-			public const int Base_TextAppearance_AppCompat_Small_Inverse = 2131492893;
+			// aapt resource value: 0x7f0d001d
+			public const int Base_TextAppearance_AppCompat_Small_Inverse = 2131558429;
 			
-			// aapt resource value: 0x7f0c0059
-			public const int Base_TextAppearance_AppCompat_Subhead = 2131492953;
+			// aapt resource value: 0x7f0d0059
+			public const int Base_TextAppearance_AppCompat_Subhead = 2131558489;
 			
-			// aapt resource value: 0x7f0c001e
-			public const int Base_TextAppearance_AppCompat_Subhead_Inverse = 2131492894;
+			// aapt resource value: 0x7f0d001e
+			public const int Base_TextAppearance_AppCompat_Subhead_Inverse = 2131558430;
 			
-			// aapt resource value: 0x7f0c005a
-			public const int Base_TextAppearance_AppCompat_Title = 2131492954;
+			// aapt resource value: 0x7f0d005a
+			public const int Base_TextAppearance_AppCompat_Title = 2131558490;
 			
-			// aapt resource value: 0x7f0c001f
-			public const int Base_TextAppearance_AppCompat_Title_Inverse = 2131492895;
+			// aapt resource value: 0x7f0d001f
+			public const int Base_TextAppearance_AppCompat_Title_Inverse = 2131558431;
 			
-			// aapt resource value: 0x7f0c00b9
-			public const int Base_TextAppearance_AppCompat_Tooltip = 2131493049;
+			// aapt resource value: 0x7f0d00b1
+			public const int Base_TextAppearance_AppCompat_Tooltip = 2131558577;
 			
-			// aapt resource value: 0x7f0c009d
-			public const int Base_TextAppearance_AppCompat_Widget_ActionBar_Menu = 2131493021;
+			// aapt resource value: 0x7f0d0095
+			public const int Base_TextAppearance_AppCompat_Widget_ActionBar_Menu = 2131558549;
 			
-			// aapt resource value: 0x7f0c005b
-			public const int Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle = 2131492955;
+			// aapt resource value: 0x7f0d005b
+			public const int Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle = 2131558491;
 			
-			// aapt resource value: 0x7f0c005c
-			public const int Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = 2131492956;
+			// aapt resource value: 0x7f0d005c
+			public const int Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = 2131558492;
 			
-			// aapt resource value: 0x7f0c005d
-			public const int Base_TextAppearance_AppCompat_Widget_ActionBar_Title = 2131492957;
+			// aapt resource value: 0x7f0d005d
+			public const int Base_TextAppearance_AppCompat_Widget_ActionBar_Title = 2131558493;
 			
-			// aapt resource value: 0x7f0c005e
-			public const int Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = 2131492958;
+			// aapt resource value: 0x7f0d005e
+			public const int Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = 2131558494;
 			
-			// aapt resource value: 0x7f0c005f
-			public const int Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle = 2131492959;
+			// aapt resource value: 0x7f0d005f
+			public const int Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle = 2131558495;
 			
-			// aapt resource value: 0x7f0c0060
-			public const int Base_TextAppearance_AppCompat_Widget_ActionMode_Title = 2131492960;
+			// aapt resource value: 0x7f0d0060
+			public const int Base_TextAppearance_AppCompat_Widget_ActionMode_Title = 2131558496;
 			
-			// aapt resource value: 0x7f0c0061
-			public const int Base_TextAppearance_AppCompat_Widget_Button = 2131492961;
+			// aapt resource value: 0x7f0d0061
+			public const int Base_TextAppearance_AppCompat_Widget_Button = 2131558497;
 			
-			// aapt resource value: 0x7f0c00a4
-			public const int Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored = 2131493028;
+			// aapt resource value: 0x7f0d009c
+			public const int Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored = 2131558556;
 			
-			// aapt resource value: 0x7f0c00a5
-			public const int Base_TextAppearance_AppCompat_Widget_Button_Colored = 2131493029;
+			// aapt resource value: 0x7f0d009d
+			public const int Base_TextAppearance_AppCompat_Widget_Button_Colored = 2131558557;
 			
-			// aapt resource value: 0x7f0c009e
-			public const int Base_TextAppearance_AppCompat_Widget_Button_Inverse = 2131493022;
+			// aapt resource value: 0x7f0d0096
+			public const int Base_TextAppearance_AppCompat_Widget_Button_Inverse = 2131558550;
 			
-			// aapt resource value: 0x7f0c00ba
-			public const int Base_TextAppearance_AppCompat_Widget_DropDownItem = 2131493050;
+			// aapt resource value: 0x7f0d00b2
+			public const int Base_TextAppearance_AppCompat_Widget_DropDownItem = 2131558578;
 			
-			// aapt resource value: 0x7f0c0062
-			public const int Base_TextAppearance_AppCompat_Widget_PopupMenu_Header = 2131492962;
+			// aapt resource value: 0x7f0d0062
+			public const int Base_TextAppearance_AppCompat_Widget_PopupMenu_Header = 2131558498;
 			
-			// aapt resource value: 0x7f0c0063
-			public const int Base_TextAppearance_AppCompat_Widget_PopupMenu_Large = 2131492963;
+			// aapt resource value: 0x7f0d0063
+			public const int Base_TextAppearance_AppCompat_Widget_PopupMenu_Large = 2131558499;
 			
-			// aapt resource value: 0x7f0c0064
-			public const int Base_TextAppearance_AppCompat_Widget_PopupMenu_Small = 2131492964;
+			// aapt resource value: 0x7f0d0064
+			public const int Base_TextAppearance_AppCompat_Widget_PopupMenu_Small = 2131558500;
 			
-			// aapt resource value: 0x7f0c0065
-			public const int Base_TextAppearance_AppCompat_Widget_Switch = 2131492965;
+			// aapt resource value: 0x7f0d0065
+			public const int Base_TextAppearance_AppCompat_Widget_Switch = 2131558501;
 			
-			// aapt resource value: 0x7f0c0066
-			public const int Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem = 2131492966;
+			// aapt resource value: 0x7f0d0066
+			public const int Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem = 2131558502;
 			
-			// aapt resource value: 0x7f0c00bb
-			public const int Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item = 2131493051;
+			// aapt resource value: 0x7f0d00b3
+			public const int Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item = 2131558579;
 			
-			// aapt resource value: 0x7f0c0067
-			public const int Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle = 2131492967;
+			// aapt resource value: 0x7f0d0067
+			public const int Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle = 2131558503;
 			
-			// aapt resource value: 0x7f0c0068
-			public const int Base_TextAppearance_Widget_AppCompat_Toolbar_Title = 2131492968;
+			// aapt resource value: 0x7f0d0068
+			public const int Base_TextAppearance_Widget_AppCompat_Toolbar_Title = 2131558504;
 			
-			// aapt resource value: 0x7f0c0069
-			public const int Base_Theme_AppCompat = 2131492969;
+			// aapt resource value: 0x7f0d0069
+			public const int Base_Theme_AppCompat = 2131558505;
 			
-			// aapt resource value: 0x7f0c00bc
-			public const int Base_Theme_AppCompat_CompactMenu = 2131493052;
+			// aapt resource value: 0x7f0d00b4
+			public const int Base_Theme_AppCompat_CompactMenu = 2131558580;
 			
-			// aapt resource value: 0x7f0c0020
-			public const int Base_Theme_AppCompat_Dialog = 2131492896;
+			// aapt resource value: 0x7f0d0020
+			public const int Base_Theme_AppCompat_Dialog = 2131558432;
 			
-			// aapt resource value: 0x7f0c0021
-			public const int Base_Theme_AppCompat_Dialog_Alert = 2131492897;
+			// aapt resource value: 0x7f0d0021
+			public const int Base_Theme_AppCompat_Dialog_Alert = 2131558433;
 			
-			// aapt resource value: 0x7f0c00bd
-			public const int Base_Theme_AppCompat_Dialog_FixedSize = 2131493053;
+			// aapt resource value: 0x7f0d00b5
+			public const int Base_Theme_AppCompat_Dialog_FixedSize = 2131558581;
 			
-			// aapt resource value: 0x7f0c0022
-			public const int Base_Theme_AppCompat_Dialog_MinWidth = 2131492898;
+			// aapt resource value: 0x7f0d0022
+			public const int Base_Theme_AppCompat_Dialog_MinWidth = 2131558434;
 			
-			// aapt resource value: 0x7f0c0010
-			public const int Base_Theme_AppCompat_DialogWhenLarge = 2131492880;
+			// aapt resource value: 0x7f0d0010
+			public const int Base_Theme_AppCompat_DialogWhenLarge = 2131558416;
 			
-			// aapt resource value: 0x7f0c006a
-			public const int Base_Theme_AppCompat_Light = 2131492970;
+			// aapt resource value: 0x7f0d006a
+			public const int Base_Theme_AppCompat_Light = 2131558506;
 			
-			// aapt resource value: 0x7f0c00be
-			public const int Base_Theme_AppCompat_Light_DarkActionBar = 2131493054;
+			// aapt resource value: 0x7f0d00b6
+			public const int Base_Theme_AppCompat_Light_DarkActionBar = 2131558582;
 			
-			// aapt resource value: 0x7f0c0023
-			public const int Base_Theme_AppCompat_Light_Dialog = 2131492899;
+			// aapt resource value: 0x7f0d0023
+			public const int Base_Theme_AppCompat_Light_Dialog = 2131558435;
 			
-			// aapt resource value: 0x7f0c0024
-			public const int Base_Theme_AppCompat_Light_Dialog_Alert = 2131492900;
+			// aapt resource value: 0x7f0d0024
+			public const int Base_Theme_AppCompat_Light_Dialog_Alert = 2131558436;
 			
-			// aapt resource value: 0x7f0c00bf
-			public const int Base_Theme_AppCompat_Light_Dialog_FixedSize = 2131493055;
+			// aapt resource value: 0x7f0d00b7
+			public const int Base_Theme_AppCompat_Light_Dialog_FixedSize = 2131558583;
 			
-			// aapt resource value: 0x7f0c0025
-			public const int Base_Theme_AppCompat_Light_Dialog_MinWidth = 2131492901;
+			// aapt resource value: 0x7f0d0025
+			public const int Base_Theme_AppCompat_Light_Dialog_MinWidth = 2131558437;
 			
-			// aapt resource value: 0x7f0c0011
-			public const int Base_Theme_AppCompat_Light_DialogWhenLarge = 2131492881;
+			// aapt resource value: 0x7f0d0011
+			public const int Base_Theme_AppCompat_Light_DialogWhenLarge = 2131558417;
 			
-			// aapt resource value: 0x7f0c00c0
-			public const int Base_ThemeOverlay_AppCompat = 2131493056;
+			// aapt resource value: 0x7f0d00b8
+			public const int Base_ThemeOverlay_AppCompat = 2131558584;
 			
-			// aapt resource value: 0x7f0c00c1
-			public const int Base_ThemeOverlay_AppCompat_ActionBar = 2131493057;
+			// aapt resource value: 0x7f0d00b9
+			public const int Base_ThemeOverlay_AppCompat_ActionBar = 2131558585;
 			
-			// aapt resource value: 0x7f0c00c2
-			public const int Base_ThemeOverlay_AppCompat_Dark = 2131493058;
+			// aapt resource value: 0x7f0d00ba
+			public const int Base_ThemeOverlay_AppCompat_Dark = 2131558586;
 			
-			// aapt resource value: 0x7f0c00c3
-			public const int Base_ThemeOverlay_AppCompat_Dark_ActionBar = 2131493059;
+			// aapt resource value: 0x7f0d00bb
+			public const int Base_ThemeOverlay_AppCompat_Dark_ActionBar = 2131558587;
 			
-			// aapt resource value: 0x7f0c0026
-			public const int Base_ThemeOverlay_AppCompat_Dialog = 2131492902;
+			// aapt resource value: 0x7f0d0026
+			public const int Base_ThemeOverlay_AppCompat_Dialog = 2131558438;
 			
-			// aapt resource value: 0x7f0c0027
-			public const int Base_ThemeOverlay_AppCompat_Dialog_Alert = 2131492903;
+			// aapt resource value: 0x7f0d0027
+			public const int Base_ThemeOverlay_AppCompat_Dialog_Alert = 2131558439;
 			
-			// aapt resource value: 0x7f0c00c4
-			public const int Base_ThemeOverlay_AppCompat_Light = 2131493060;
+			// aapt resource value: 0x7f0d00bc
+			public const int Base_ThemeOverlay_AppCompat_Light = 2131558588;
 			
-			// aapt resource value: 0x7f0c0028
-			public const int Base_V11_Theme_AppCompat_Dialog = 2131492904;
+			// aapt resource value: 0x7f0d0028
+			public const int Base_V11_Theme_AppCompat_Dialog = 2131558440;
 			
-			// aapt resource value: 0x7f0c0029
-			public const int Base_V11_Theme_AppCompat_Light_Dialog = 2131492905;
+			// aapt resource value: 0x7f0d0029
+			public const int Base_V11_Theme_AppCompat_Light_Dialog = 2131558441;
 			
-			// aapt resource value: 0x7f0c002a
-			public const int Base_V11_ThemeOverlay_AppCompat_Dialog = 2131492906;
+			// aapt resource value: 0x7f0d002a
+			public const int Base_V11_ThemeOverlay_AppCompat_Dialog = 2131558442;
 			
-			// aapt resource value: 0x7f0c0032
-			public const int Base_V12_Widget_AppCompat_AutoCompleteTextView = 2131492914;
+			// aapt resource value: 0x7f0d0032
+			public const int Base_V12_Widget_AppCompat_AutoCompleteTextView = 2131558450;
 			
-			// aapt resource value: 0x7f0c0033
-			public const int Base_V12_Widget_AppCompat_EditText = 2131492915;
+			// aapt resource value: 0x7f0d0033
+			public const int Base_V12_Widget_AppCompat_EditText = 2131558451;
 			
-			// aapt resource value: 0x7f0c0179
-			public const int Base_V14_Widget_Design_AppBarLayout = 2131493241;
+			// aapt resource value: 0x7f0d016f
+			public const int Base_V14_Widget_Design_AppBarLayout = 2131558767;
 			
-			// aapt resource value: 0x7f0c006b
-			public const int Base_V21_Theme_AppCompat = 2131492971;
+			// aapt resource value: 0x7f0d006b
+			public const int Base_V21_Theme_AppCompat = 2131558507;
 			
-			// aapt resource value: 0x7f0c006c
-			public const int Base_V21_Theme_AppCompat_Dialog = 2131492972;
+			// aapt resource value: 0x7f0d006c
+			public const int Base_V21_Theme_AppCompat_Dialog = 2131558508;
 			
-			// aapt resource value: 0x7f0c006d
-			public const int Base_V21_Theme_AppCompat_Light = 2131492973;
+			// aapt resource value: 0x7f0d006d
+			public const int Base_V21_Theme_AppCompat_Light = 2131558509;
 			
-			// aapt resource value: 0x7f0c006e
-			public const int Base_V21_Theme_AppCompat_Light_Dialog = 2131492974;
+			// aapt resource value: 0x7f0d006e
+			public const int Base_V21_Theme_AppCompat_Light_Dialog = 2131558510;
 			
-			// aapt resource value: 0x7f0c006f
-			public const int Base_V21_ThemeOverlay_AppCompat_Dialog = 2131492975;
+			// aapt resource value: 0x7f0d006f
+			public const int Base_V21_ThemeOverlay_AppCompat_Dialog = 2131558511;
 			
-			// aapt resource value: 0x7f0c0175
-			public const int Base_V21_Widget_Design_AppBarLayout = 2131493237;
+			// aapt resource value: 0x7f0d016b
+			public const int Base_V21_Widget_Design_AppBarLayout = 2131558763;
 			
-			// aapt resource value: 0x7f0c009b
-			public const int Base_V22_Theme_AppCompat = 2131493019;
+			// aapt resource value: 0x7f0d0093
+			public const int Base_V22_Theme_AppCompat = 2131558547;
 			
-			// aapt resource value: 0x7f0c009c
-			public const int Base_V22_Theme_AppCompat_Light = 2131493020;
+			// aapt resource value: 0x7f0d0094
+			public const int Base_V22_Theme_AppCompat_Light = 2131558548;
 			
-			// aapt resource value: 0x7f0c009f
-			public const int Base_V23_Theme_AppCompat = 2131493023;
+			// aapt resource value: 0x7f0d0097
+			public const int Base_V23_Theme_AppCompat = 2131558551;
 			
-			// aapt resource value: 0x7f0c00a0
-			public const int Base_V23_Theme_AppCompat_Light = 2131493024;
+			// aapt resource value: 0x7f0d0098
+			public const int Base_V23_Theme_AppCompat_Light = 2131558552;
 			
-			// aapt resource value: 0x7f0c00a8
-			public const int Base_V26_Theme_AppCompat = 2131493032;
+			// aapt resource value: 0x7f0d00a0
+			public const int Base_V26_Theme_AppCompat = 2131558560;
 			
-			// aapt resource value: 0x7f0c00a9
-			public const int Base_V26_Theme_AppCompat_Light = 2131493033;
+			// aapt resource value: 0x7f0d00a1
+			public const int Base_V26_Theme_AppCompat_Light = 2131558561;
 			
-			// aapt resource value: 0x7f0c00aa
-			public const int Base_V26_Widget_AppCompat_Toolbar = 2131493034;
+			// aapt resource value: 0x7f0d00a2
+			public const int Base_V26_Widget_AppCompat_Toolbar = 2131558562;
 			
-			// aapt resource value: 0x7f0c0177
-			public const int Base_V26_Widget_Design_AppBarLayout = 2131493239;
+			// aapt resource value: 0x7f0d016d
+			public const int Base_V26_Widget_Design_AppBarLayout = 2131558765;
 			
-			// aapt resource value: 0x7f0c00c5
-			public const int Base_V7_Theme_AppCompat = 2131493061;
+			// aapt resource value: 0x7f0d00bd
+			public const int Base_V7_Theme_AppCompat = 2131558589;
 			
-			// aapt resource value: 0x7f0c00c6
-			public const int Base_V7_Theme_AppCompat_Dialog = 2131493062;
+			// aapt resource value: 0x7f0d00be
+			public const int Base_V7_Theme_AppCompat_Dialog = 2131558590;
 			
-			// aapt resource value: 0x7f0c00c7
-			public const int Base_V7_Theme_AppCompat_Light = 2131493063;
+			// aapt resource value: 0x7f0d00bf
+			public const int Base_V7_Theme_AppCompat_Light = 2131558591;
 			
-			// aapt resource value: 0x7f0c00c8
-			public const int Base_V7_Theme_AppCompat_Light_Dialog = 2131493064;
+			// aapt resource value: 0x7f0d00c0
+			public const int Base_V7_Theme_AppCompat_Light_Dialog = 2131558592;
 			
-			// aapt resource value: 0x7f0c00c9
-			public const int Base_V7_ThemeOverlay_AppCompat_Dialog = 2131493065;
+			// aapt resource value: 0x7f0d00c1
+			public const int Base_V7_ThemeOverlay_AppCompat_Dialog = 2131558593;
 			
-			// aapt resource value: 0x7f0c00ca
-			public const int Base_V7_Widget_AppCompat_AutoCompleteTextView = 2131493066;
+			// aapt resource value: 0x7f0d00c2
+			public const int Base_V7_Widget_AppCompat_AutoCompleteTextView = 2131558594;
 			
-			// aapt resource value: 0x7f0c00cb
-			public const int Base_V7_Widget_AppCompat_EditText = 2131493067;
+			// aapt resource value: 0x7f0d00c3
+			public const int Base_V7_Widget_AppCompat_EditText = 2131558595;
 			
-			// aapt resource value: 0x7f0c00cc
-			public const int Base_V7_Widget_AppCompat_Toolbar = 2131493068;
+			// aapt resource value: 0x7f0d00c4
+			public const int Base_V7_Widget_AppCompat_Toolbar = 2131558596;
 			
-			// aapt resource value: 0x7f0c00cd
-			public const int Base_Widget_AppCompat_ActionBar = 2131493069;
+			// aapt resource value: 0x7f0d00c5
+			public const int Base_Widget_AppCompat_ActionBar = 2131558597;
 			
-			// aapt resource value: 0x7f0c00ce
-			public const int Base_Widget_AppCompat_ActionBar_Solid = 2131493070;
+			// aapt resource value: 0x7f0d00c6
+			public const int Base_Widget_AppCompat_ActionBar_Solid = 2131558598;
 			
-			// aapt resource value: 0x7f0c00cf
-			public const int Base_Widget_AppCompat_ActionBar_TabBar = 2131493071;
+			// aapt resource value: 0x7f0d00c7
+			public const int Base_Widget_AppCompat_ActionBar_TabBar = 2131558599;
 			
-			// aapt resource value: 0x7f0c0070
-			public const int Base_Widget_AppCompat_ActionBar_TabText = 2131492976;
+			// aapt resource value: 0x7f0d0070
+			public const int Base_Widget_AppCompat_ActionBar_TabText = 2131558512;
 			
-			// aapt resource value: 0x7f0c0071
-			public const int Base_Widget_AppCompat_ActionBar_TabView = 2131492977;
+			// aapt resource value: 0x7f0d0071
+			public const int Base_Widget_AppCompat_ActionBar_TabView = 2131558513;
 			
-			// aapt resource value: 0x7f0c0072
-			public const int Base_Widget_AppCompat_ActionButton = 2131492978;
+			// aapt resource value: 0x7f0d0072
+			public const int Base_Widget_AppCompat_ActionButton = 2131558514;
 			
-			// aapt resource value: 0x7f0c0073
-			public const int Base_Widget_AppCompat_ActionButton_CloseMode = 2131492979;
+			// aapt resource value: 0x7f0d0073
+			public const int Base_Widget_AppCompat_ActionButton_CloseMode = 2131558515;
 			
-			// aapt resource value: 0x7f0c0074
-			public const int Base_Widget_AppCompat_ActionButton_Overflow = 2131492980;
+			// aapt resource value: 0x7f0d0074
+			public const int Base_Widget_AppCompat_ActionButton_Overflow = 2131558516;
 			
-			// aapt resource value: 0x7f0c00d0
-			public const int Base_Widget_AppCompat_ActionMode = 2131493072;
+			// aapt resource value: 0x7f0d00c8
+			public const int Base_Widget_AppCompat_ActionMode = 2131558600;
 			
-			// aapt resource value: 0x7f0c00d1
-			public const int Base_Widget_AppCompat_ActivityChooserView = 2131493073;
+			// aapt resource value: 0x7f0d00c9
+			public const int Base_Widget_AppCompat_ActivityChooserView = 2131558601;
 			
-			// aapt resource value: 0x7f0c0034
-			public const int Base_Widget_AppCompat_AutoCompleteTextView = 2131492916;
+			// aapt resource value: 0x7f0d0034
+			public const int Base_Widget_AppCompat_AutoCompleteTextView = 2131558452;
 			
-			// aapt resource value: 0x7f0c0075
-			public const int Base_Widget_AppCompat_Button = 2131492981;
+			// aapt resource value: 0x7f0d0075
+			public const int Base_Widget_AppCompat_Button = 2131558517;
 			
-			// aapt resource value: 0x7f0c0076
-			public const int Base_Widget_AppCompat_Button_Borderless = 2131492982;
+			// aapt resource value: 0x7f0d0076
+			public const int Base_Widget_AppCompat_Button_Borderless = 2131558518;
 			
-			// aapt resource value: 0x7f0c0077
-			public const int Base_Widget_AppCompat_Button_Borderless_Colored = 2131492983;
+			// aapt resource value: 0x7f0d0077
+			public const int Base_Widget_AppCompat_Button_Borderless_Colored = 2131558519;
 			
-			// aapt resource value: 0x7f0c00d2
-			public const int Base_Widget_AppCompat_Button_ButtonBar_AlertDialog = 2131493074;
+			// aapt resource value: 0x7f0d00ca
+			public const int Base_Widget_AppCompat_Button_ButtonBar_AlertDialog = 2131558602;
 			
-			// aapt resource value: 0x7f0c00a1
-			public const int Base_Widget_AppCompat_Button_Colored = 2131493025;
+			// aapt resource value: 0x7f0d0099
+			public const int Base_Widget_AppCompat_Button_Colored = 2131558553;
 			
-			// aapt resource value: 0x7f0c0078
-			public const int Base_Widget_AppCompat_Button_Small = 2131492984;
+			// aapt resource value: 0x7f0d0078
+			public const int Base_Widget_AppCompat_Button_Small = 2131558520;
 			
-			// aapt resource value: 0x7f0c0079
-			public const int Base_Widget_AppCompat_ButtonBar = 2131492985;
+			// aapt resource value: 0x7f0d0079
+			public const int Base_Widget_AppCompat_ButtonBar = 2131558521;
 			
-			// aapt resource value: 0x7f0c00d3
-			public const int Base_Widget_AppCompat_ButtonBar_AlertDialog = 2131493075;
+			// aapt resource value: 0x7f0d00cb
+			public const int Base_Widget_AppCompat_ButtonBar_AlertDialog = 2131558603;
 			
-			// aapt resource value: 0x7f0c007a
-			public const int Base_Widget_AppCompat_CompoundButton_CheckBox = 2131492986;
+			// aapt resource value: 0x7f0d007a
+			public const int Base_Widget_AppCompat_CompoundButton_CheckBox = 2131558522;
 			
-			// aapt resource value: 0x7f0c007b
-			public const int Base_Widget_AppCompat_CompoundButton_RadioButton = 2131492987;
+			// aapt resource value: 0x7f0d007b
+			public const int Base_Widget_AppCompat_CompoundButton_RadioButton = 2131558523;
 			
-			// aapt resource value: 0x7f0c00d4
-			public const int Base_Widget_AppCompat_CompoundButton_Switch = 2131493076;
+			// aapt resource value: 0x7f0d00cc
+			public const int Base_Widget_AppCompat_CompoundButton_Switch = 2131558604;
 			
-			// aapt resource value: 0x7f0c000f
-			public const int Base_Widget_AppCompat_DrawerArrowToggle = 2131492879;
+			// aapt resource value: 0x7f0d000f
+			public const int Base_Widget_AppCompat_DrawerArrowToggle = 2131558415;
 			
-			// aapt resource value: 0x7f0c00d5
-			public const int Base_Widget_AppCompat_DrawerArrowToggle_Common = 2131493077;
+			// aapt resource value: 0x7f0d00cd
+			public const int Base_Widget_AppCompat_DrawerArrowToggle_Common = 2131558605;
 			
-			// aapt resource value: 0x7f0c007c
-			public const int Base_Widget_AppCompat_DropDownItem_Spinner = 2131492988;
+			// aapt resource value: 0x7f0d007c
+			public const int Base_Widget_AppCompat_DropDownItem_Spinner = 2131558524;
 			
-			// aapt resource value: 0x7f0c0035
-			public const int Base_Widget_AppCompat_EditText = 2131492917;
+			// aapt resource value: 0x7f0d0035
+			public const int Base_Widget_AppCompat_EditText = 2131558453;
 			
-			// aapt resource value: 0x7f0c007d
-			public const int Base_Widget_AppCompat_ImageButton = 2131492989;
+			// aapt resource value: 0x7f0d007d
+			public const int Base_Widget_AppCompat_ImageButton = 2131558525;
 			
-			// aapt resource value: 0x7f0c00d6
-			public const int Base_Widget_AppCompat_Light_ActionBar = 2131493078;
+			// aapt resource value: 0x7f0d00ce
+			public const int Base_Widget_AppCompat_Light_ActionBar = 2131558606;
 			
-			// aapt resource value: 0x7f0c00d7
-			public const int Base_Widget_AppCompat_Light_ActionBar_Solid = 2131493079;
+			// aapt resource value: 0x7f0d00cf
+			public const int Base_Widget_AppCompat_Light_ActionBar_Solid = 2131558607;
 			
-			// aapt resource value: 0x7f0c00d8
-			public const int Base_Widget_AppCompat_Light_ActionBar_TabBar = 2131493080;
+			// aapt resource value: 0x7f0d00d0
+			public const int Base_Widget_AppCompat_Light_ActionBar_TabBar = 2131558608;
 			
-			// aapt resource value: 0x7f0c007e
-			public const int Base_Widget_AppCompat_Light_ActionBar_TabText = 2131492990;
+			// aapt resource value: 0x7f0d007e
+			public const int Base_Widget_AppCompat_Light_ActionBar_TabText = 2131558526;
 			
-			// aapt resource value: 0x7f0c007f
-			public const int Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse = 2131492991;
+			// aapt resource value: 0x7f0d007f
+			public const int Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse = 2131558527;
 			
-			// aapt resource value: 0x7f0c0080
-			public const int Base_Widget_AppCompat_Light_ActionBar_TabView = 2131492992;
+			// aapt resource value: 0x7f0d0080
+			public const int Base_Widget_AppCompat_Light_ActionBar_TabView = 2131558528;
 			
-			// aapt resource value: 0x7f0c0081
-			public const int Base_Widget_AppCompat_Light_PopupMenu = 2131492993;
+			// aapt resource value: 0x7f0d0081
+			public const int Base_Widget_AppCompat_Light_PopupMenu = 2131558529;
 			
-			// aapt resource value: 0x7f0c0082
-			public const int Base_Widget_AppCompat_Light_PopupMenu_Overflow = 2131492994;
+			// aapt resource value: 0x7f0d0082
+			public const int Base_Widget_AppCompat_Light_PopupMenu_Overflow = 2131558530;
 			
-			// aapt resource value: 0x7f0c00d9
-			public const int Base_Widget_AppCompat_ListMenuView = 2131493081;
+			// aapt resource value: 0x7f0d00d1
+			public const int Base_Widget_AppCompat_ListMenuView = 2131558609;
 			
-			// aapt resource value: 0x7f0c0083
-			public const int Base_Widget_AppCompat_ListPopupWindow = 2131492995;
+			// aapt resource value: 0x7f0d0083
+			public const int Base_Widget_AppCompat_ListPopupWindow = 2131558531;
 			
-			// aapt resource value: 0x7f0c0084
-			public const int Base_Widget_AppCompat_ListView = 2131492996;
+			// aapt resource value: 0x7f0d0084
+			public const int Base_Widget_AppCompat_ListView = 2131558532;
 			
-			// aapt resource value: 0x7f0c0085
-			public const int Base_Widget_AppCompat_ListView_DropDown = 2131492997;
+			// aapt resource value: 0x7f0d0085
+			public const int Base_Widget_AppCompat_ListView_DropDown = 2131558533;
 			
-			// aapt resource value: 0x7f0c0086
-			public const int Base_Widget_AppCompat_ListView_Menu = 2131492998;
+			// aapt resource value: 0x7f0d0086
+			public const int Base_Widget_AppCompat_ListView_Menu = 2131558534;
 			
-			// aapt resource value: 0x7f0c0087
-			public const int Base_Widget_AppCompat_PopupMenu = 2131492999;
+			// aapt resource value: 0x7f0d0087
+			public const int Base_Widget_AppCompat_PopupMenu = 2131558535;
 			
-			// aapt resource value: 0x7f0c0088
-			public const int Base_Widget_AppCompat_PopupMenu_Overflow = 2131493000;
+			// aapt resource value: 0x7f0d0088
+			public const int Base_Widget_AppCompat_PopupMenu_Overflow = 2131558536;
 			
-			// aapt resource value: 0x7f0c00da
-			public const int Base_Widget_AppCompat_PopupWindow = 2131493082;
+			// aapt resource value: 0x7f0d00d2
+			public const int Base_Widget_AppCompat_PopupWindow = 2131558610;
 			
-			// aapt resource value: 0x7f0c002b
-			public const int Base_Widget_AppCompat_ProgressBar = 2131492907;
+			// aapt resource value: 0x7f0d002b
+			public const int Base_Widget_AppCompat_ProgressBar = 2131558443;
 			
-			// aapt resource value: 0x7f0c002c
-			public const int Base_Widget_AppCompat_ProgressBar_Horizontal = 2131492908;
+			// aapt resource value: 0x7f0d002c
+			public const int Base_Widget_AppCompat_ProgressBar_Horizontal = 2131558444;
 			
-			// aapt resource value: 0x7f0c0089
-			public const int Base_Widget_AppCompat_RatingBar = 2131493001;
+			// aapt resource value: 0x7f0d0089
+			public const int Base_Widget_AppCompat_RatingBar = 2131558537;
 			
-			// aapt resource value: 0x7f0c00a2
-			public const int Base_Widget_AppCompat_RatingBar_Indicator = 2131493026;
+			// aapt resource value: 0x7f0d009a
+			public const int Base_Widget_AppCompat_RatingBar_Indicator = 2131558554;
 			
-			// aapt resource value: 0x7f0c00a3
-			public const int Base_Widget_AppCompat_RatingBar_Small = 2131493027;
+			// aapt resource value: 0x7f0d009b
+			public const int Base_Widget_AppCompat_RatingBar_Small = 2131558555;
 			
-			// aapt resource value: 0x7f0c00db
-			public const int Base_Widget_AppCompat_SearchView = 2131493083;
+			// aapt resource value: 0x7f0d00d3
+			public const int Base_Widget_AppCompat_SearchView = 2131558611;
 			
-			// aapt resource value: 0x7f0c00dc
-			public const int Base_Widget_AppCompat_SearchView_ActionBar = 2131493084;
+			// aapt resource value: 0x7f0d00d4
+			public const int Base_Widget_AppCompat_SearchView_ActionBar = 2131558612;
 			
-			// aapt resource value: 0x7f0c008a
-			public const int Base_Widget_AppCompat_SeekBar = 2131493002;
+			// aapt resource value: 0x7f0d008a
+			public const int Base_Widget_AppCompat_SeekBar = 2131558538;
 			
-			// aapt resource value: 0x7f0c00dd
-			public const int Base_Widget_AppCompat_SeekBar_Discrete = 2131493085;
+			// aapt resource value: 0x7f0d00d5
+			public const int Base_Widget_AppCompat_SeekBar_Discrete = 2131558613;
 			
-			// aapt resource value: 0x7f0c008b
-			public const int Base_Widget_AppCompat_Spinner = 2131493003;
+			// aapt resource value: 0x7f0d008b
+			public const int Base_Widget_AppCompat_Spinner = 2131558539;
 			
-			// aapt resource value: 0x7f0c0012
-			public const int Base_Widget_AppCompat_Spinner_Underlined = 2131492882;
+			// aapt resource value: 0x7f0d0012
+			public const int Base_Widget_AppCompat_Spinner_Underlined = 2131558418;
 			
-			// aapt resource value: 0x7f0c008c
-			public const int Base_Widget_AppCompat_TextView_SpinnerItem = 2131493004;
+			// aapt resource value: 0x7f0d008c
+			public const int Base_Widget_AppCompat_TextView_SpinnerItem = 2131558540;
 			
-			// aapt resource value: 0x7f0c00ab
-			public const int Base_Widget_AppCompat_Toolbar = 2131493035;
+			// aapt resource value: 0x7f0d00a3
+			public const int Base_Widget_AppCompat_Toolbar = 2131558563;
 			
-			// aapt resource value: 0x7f0c008d
-			public const int Base_Widget_AppCompat_Toolbar_Button_Navigation = 2131493005;
+			// aapt resource value: 0x7f0d008d
+			public const int Base_Widget_AppCompat_Toolbar_Button_Navigation = 2131558541;
 			
-			// aapt resource value: 0x7f0c0176
-			public const int Base_Widget_Design_AppBarLayout = 2131493238;
+			// aapt resource value: 0x7f0d016c
+			public const int Base_Widget_Design_AppBarLayout = 2131558764;
 			
-			// aapt resource value: 0x7f0c017a
-			public const int Base_Widget_Design_TabLayout = 2131493242;
+			// aapt resource value: 0x7f0d0170
+			public const int Base_Widget_Design_TabLayout = 2131558768;
 			
-			// aapt resource value: 0x7f0c000b
-			public const int CardView = 2131492875;
+			// aapt resource value: 0x7f0d000b
+			public const int CardView = 2131558411;
 			
-			// aapt resource value: 0x7f0c000d
-			public const int CardView_Dark = 2131492877;
+			// aapt resource value: 0x7f0d000d
+			public const int CardView_Dark = 2131558413;
 			
-			// aapt resource value: 0x7f0c000e
-			public const int CardView_Light = 2131492878;
+			// aapt resource value: 0x7f0d000e
+			public const int CardView_Light = 2131558414;
 			
-			// aapt resource value: 0x7f0c002d
-			public const int Platform_AppCompat = 2131492909;
+			// aapt resource value: 0x7f0d002d
+			public const int Platform_AppCompat = 2131558445;
 			
-			// aapt resource value: 0x7f0c002e
-			public const int Platform_AppCompat_Light = 2131492910;
+			// aapt resource value: 0x7f0d002e
+			public const int Platform_AppCompat_Light = 2131558446;
 			
-			// aapt resource value: 0x7f0c008e
-			public const int Platform_ThemeOverlay_AppCompat = 2131493006;
+			// aapt resource value: 0x7f0d008e
+			public const int Platform_ThemeOverlay_AppCompat = 2131558542;
 			
-			// aapt resource value: 0x7f0c008f
-			public const int Platform_ThemeOverlay_AppCompat_Dark = 2131493007;
+			// aapt resource value: 0x7f0d008f
+			public const int Platform_ThemeOverlay_AppCompat_Dark = 2131558543;
 			
-			// aapt resource value: 0x7f0c0090
-			public const int Platform_ThemeOverlay_AppCompat_Light = 2131493008;
+			// aapt resource value: 0x7f0d0090
+			public const int Platform_ThemeOverlay_AppCompat_Light = 2131558544;
 			
-			// aapt resource value: 0x7f0c002f
-			public const int Platform_V11_AppCompat = 2131492911;
+			// aapt resource value: 0x7f0d002f
+			public const int Platform_V11_AppCompat = 2131558447;
 			
-			// aapt resource value: 0x7f0c0030
-			public const int Platform_V11_AppCompat_Light = 2131492912;
+			// aapt resource value: 0x7f0d0030
+			public const int Platform_V11_AppCompat_Light = 2131558448;
 			
-			// aapt resource value: 0x7f0c0037
-			public const int Platform_V14_AppCompat = 2131492919;
+			// aapt resource value: 0x7f0d0037
+			public const int Platform_V14_AppCompat = 2131558455;
 			
-			// aapt resource value: 0x7f0c0038
-			public const int Platform_V14_AppCompat_Light = 2131492920;
+			// aapt resource value: 0x7f0d0038
+			public const int Platform_V14_AppCompat_Light = 2131558456;
 			
-			// aapt resource value: 0x7f0c0091
-			public const int Platform_V21_AppCompat = 2131493009;
+			// aapt resource value: 0x7f0d0091
+			public const int Platform_V21_AppCompat = 2131558545;
 			
-			// aapt resource value: 0x7f0c0092
-			public const int Platform_V21_AppCompat_Light = 2131493010;
+			// aapt resource value: 0x7f0d0092
+			public const int Platform_V21_AppCompat_Light = 2131558546;
 			
-			// aapt resource value: 0x7f0c00a6
-			public const int Platform_V25_AppCompat = 2131493030;
+			// aapt resource value: 0x7f0d009e
+			public const int Platform_V25_AppCompat = 2131558558;
 			
-			// aapt resource value: 0x7f0c00a7
-			public const int Platform_V25_AppCompat_Light = 2131493031;
+			// aapt resource value: 0x7f0d009f
+			public const int Platform_V25_AppCompat_Light = 2131558559;
 			
-			// aapt resource value: 0x7f0c0031
-			public const int Platform_Widget_AppCompat_Spinner = 2131492913;
+			// aapt resource value: 0x7f0d0031
+			public const int Platform_Widget_AppCompat_Spinner = 2131558449;
 			
-			// aapt resource value: 0x7f0c003a
-			public const int RtlOverlay_DialogWindowTitle_AppCompat = 2131492922;
+			// aapt resource value: 0x7f0d003a
+			public const int RtlOverlay_DialogWindowTitle_AppCompat = 2131558458;
 			
-			// aapt resource value: 0x7f0c003b
-			public const int RtlOverlay_Widget_AppCompat_ActionBar_TitleItem = 2131492923;
+			// aapt resource value: 0x7f0d003b
+			public const int RtlOverlay_Widget_AppCompat_ActionBar_TitleItem = 2131558459;
 			
-			// aapt resource value: 0x7f0c003c
-			public const int RtlOverlay_Widget_AppCompat_DialogTitle_Icon = 2131492924;
+			// aapt resource value: 0x7f0d003c
+			public const int RtlOverlay_Widget_AppCompat_DialogTitle_Icon = 2131558460;
 			
-			// aapt resource value: 0x7f0c003d
-			public const int RtlOverlay_Widget_AppCompat_PopupMenuItem = 2131492925;
+			// aapt resource value: 0x7f0d003d
+			public const int RtlOverlay_Widget_AppCompat_PopupMenuItem = 2131558461;
 			
-			// aapt resource value: 0x7f0c003e
-			public const int RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup = 2131492926;
+			// aapt resource value: 0x7f0d003e
+			public const int RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup = 2131558462;
 			
-			// aapt resource value: 0x7f0c003f
-			public const int RtlOverlay_Widget_AppCompat_PopupMenuItem_Text = 2131492927;
+			// aapt resource value: 0x7f0d003f
+			public const int RtlOverlay_Widget_AppCompat_PopupMenuItem_Text = 2131558463;
 			
-			// aapt resource value: 0x7f0c0040
-			public const int RtlOverlay_Widget_AppCompat_Search_DropDown = 2131492928;
+			// aapt resource value: 0x7f0d0040
+			public const int RtlOverlay_Widget_AppCompat_Search_DropDown = 2131558464;
 			
-			// aapt resource value: 0x7f0c0041
-			public const int RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1 = 2131492929;
+			// aapt resource value: 0x7f0d0041
+			public const int RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1 = 2131558465;
 			
-			// aapt resource value: 0x7f0c0042
-			public const int RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2 = 2131492930;
+			// aapt resource value: 0x7f0d0042
+			public const int RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2 = 2131558466;
 			
-			// aapt resource value: 0x7f0c0043
-			public const int RtlOverlay_Widget_AppCompat_Search_DropDown_Query = 2131492931;
+			// aapt resource value: 0x7f0d0043
+			public const int RtlOverlay_Widget_AppCompat_Search_DropDown_Query = 2131558467;
 			
-			// aapt resource value: 0x7f0c0044
-			public const int RtlOverlay_Widget_AppCompat_Search_DropDown_Text = 2131492932;
+			// aapt resource value: 0x7f0d0044
+			public const int RtlOverlay_Widget_AppCompat_Search_DropDown_Text = 2131558468;
 			
-			// aapt resource value: 0x7f0c0045
-			public const int RtlOverlay_Widget_AppCompat_SearchView_MagIcon = 2131492933;
+			// aapt resource value: 0x7f0d0045
+			public const int RtlOverlay_Widget_AppCompat_SearchView_MagIcon = 2131558469;
 			
-			// aapt resource value: 0x7f0c0046
-			public const int RtlUnderlay_Widget_AppCompat_ActionButton = 2131492934;
+			// aapt resource value: 0x7f0d0046
+			public const int RtlUnderlay_Widget_AppCompat_ActionButton = 2131558470;
 			
-			// aapt resource value: 0x7f0c0047
-			public const int RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = 2131492935;
+			// aapt resource value: 0x7f0d0047
+			public const int RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = 2131558471;
 			
-			// aapt resource value: 0x7f0c00de
-			public const int TextAppearance_AppCompat = 2131493086;
+			// aapt resource value: 0x7f0d00d6
+			public const int TextAppearance_AppCompat = 2131558614;
 			
-			// aapt resource value: 0x7f0c00df
-			public const int TextAppearance_AppCompat_Body1 = 2131493087;
+			// aapt resource value: 0x7f0d00d7
+			public const int TextAppearance_AppCompat_Body1 = 2131558615;
 			
-			// aapt resource value: 0x7f0c00e0
-			public const int TextAppearance_AppCompat_Body2 = 2131493088;
+			// aapt resource value: 0x7f0d00d8
+			public const int TextAppearance_AppCompat_Body2 = 2131558616;
 			
-			// aapt resource value: 0x7f0c00e1
-			public const int TextAppearance_AppCompat_Button = 2131493089;
+			// aapt resource value: 0x7f0d00d9
+			public const int TextAppearance_AppCompat_Button = 2131558617;
 			
-			// aapt resource value: 0x7f0c00e2
-			public const int TextAppearance_AppCompat_Caption = 2131493090;
+			// aapt resource value: 0x7f0d00da
+			public const int TextAppearance_AppCompat_Caption = 2131558618;
 			
-			// aapt resource value: 0x7f0c00e3
-			public const int TextAppearance_AppCompat_Display1 = 2131493091;
+			// aapt resource value: 0x7f0d00db
+			public const int TextAppearance_AppCompat_Display1 = 2131558619;
 			
-			// aapt resource value: 0x7f0c00e4
-			public const int TextAppearance_AppCompat_Display2 = 2131493092;
+			// aapt resource value: 0x7f0d00dc
+			public const int TextAppearance_AppCompat_Display2 = 2131558620;
 			
-			// aapt resource value: 0x7f0c00e5
-			public const int TextAppearance_AppCompat_Display3 = 2131493093;
+			// aapt resource value: 0x7f0d00dd
+			public const int TextAppearance_AppCompat_Display3 = 2131558621;
 			
-			// aapt resource value: 0x7f0c00e6
-			public const int TextAppearance_AppCompat_Display4 = 2131493094;
+			// aapt resource value: 0x7f0d00de
+			public const int TextAppearance_AppCompat_Display4 = 2131558622;
 			
-			// aapt resource value: 0x7f0c00e7
-			public const int TextAppearance_AppCompat_Headline = 2131493095;
+			// aapt resource value: 0x7f0d00df
+			public const int TextAppearance_AppCompat_Headline = 2131558623;
 			
-			// aapt resource value: 0x7f0c00e8
-			public const int TextAppearance_AppCompat_Inverse = 2131493096;
+			// aapt resource value: 0x7f0d00e0
+			public const int TextAppearance_AppCompat_Inverse = 2131558624;
 			
-			// aapt resource value: 0x7f0c00e9
-			public const int TextAppearance_AppCompat_Large = 2131493097;
+			// aapt resource value: 0x7f0d00e1
+			public const int TextAppearance_AppCompat_Large = 2131558625;
 			
-			// aapt resource value: 0x7f0c00ea
-			public const int TextAppearance_AppCompat_Large_Inverse = 2131493098;
+			// aapt resource value: 0x7f0d00e2
+			public const int TextAppearance_AppCompat_Large_Inverse = 2131558626;
 			
-			// aapt resource value: 0x7f0c00eb
-			public const int TextAppearance_AppCompat_Light_SearchResult_Subtitle = 2131493099;
+			// aapt resource value: 0x7f0d00e3
+			public const int TextAppearance_AppCompat_Light_SearchResult_Subtitle = 2131558627;
 			
-			// aapt resource value: 0x7f0c00ec
-			public const int TextAppearance_AppCompat_Light_SearchResult_Title = 2131493100;
+			// aapt resource value: 0x7f0d00e4
+			public const int TextAppearance_AppCompat_Light_SearchResult_Title = 2131558628;
 			
-			// aapt resource value: 0x7f0c00ed
-			public const int TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = 2131493101;
+			// aapt resource value: 0x7f0d00e5
+			public const int TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = 2131558629;
 			
-			// aapt resource value: 0x7f0c00ee
-			public const int TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = 2131493102;
+			// aapt resource value: 0x7f0d00e6
+			public const int TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = 2131558630;
 			
-			// aapt resource value: 0x7f0c00ef
-			public const int TextAppearance_AppCompat_Medium = 2131493103;
+			// aapt resource value: 0x7f0d00e7
+			public const int TextAppearance_AppCompat_Medium = 2131558631;
 			
-			// aapt resource value: 0x7f0c00f0
-			public const int TextAppearance_AppCompat_Medium_Inverse = 2131493104;
+			// aapt resource value: 0x7f0d00e8
+			public const int TextAppearance_AppCompat_Medium_Inverse = 2131558632;
 			
-			// aapt resource value: 0x7f0c00f1
-			public const int TextAppearance_AppCompat_Menu = 2131493105;
+			// aapt resource value: 0x7f0d00e9
+			public const int TextAppearance_AppCompat_Menu = 2131558633;
 			
-			// aapt resource value: 0x7f0c0093
-			public const int TextAppearance_AppCompat_Notification = 2131493011;
+			// aapt resource value: 0x7f0d00ea
+			public const int TextAppearance_AppCompat_SearchResult_Subtitle = 2131558634;
 			
-			// aapt resource value: 0x7f0c0094
-			public const int TextAppearance_AppCompat_Notification_Info = 2131493012;
+			// aapt resource value: 0x7f0d00eb
+			public const int TextAppearance_AppCompat_SearchResult_Title = 2131558635;
 			
-			// aapt resource value: 0x7f0c0095
-			public const int TextAppearance_AppCompat_Notification_Info_Media = 2131493013;
+			// aapt resource value: 0x7f0d00ec
+			public const int TextAppearance_AppCompat_Small = 2131558636;
 			
-			// aapt resource value: 0x7f0c00f2
-			public const int TextAppearance_AppCompat_Notification_Line2 = 2131493106;
+			// aapt resource value: 0x7f0d00ed
+			public const int TextAppearance_AppCompat_Small_Inverse = 2131558637;
 			
-			// aapt resource value: 0x7f0c00f3
-			public const int TextAppearance_AppCompat_Notification_Line2_Media = 2131493107;
+			// aapt resource value: 0x7f0d00ee
+			public const int TextAppearance_AppCompat_Subhead = 2131558638;
 			
-			// aapt resource value: 0x7f0c0096
-			public const int TextAppearance_AppCompat_Notification_Media = 2131493014;
+			// aapt resource value: 0x7f0d00ef
+			public const int TextAppearance_AppCompat_Subhead_Inverse = 2131558639;
 			
-			// aapt resource value: 0x7f0c0097
-			public const int TextAppearance_AppCompat_Notification_Time = 2131493015;
+			// aapt resource value: 0x7f0d00f0
+			public const int TextAppearance_AppCompat_Title = 2131558640;
 			
-			// aapt resource value: 0x7f0c0098
-			public const int TextAppearance_AppCompat_Notification_Time_Media = 2131493016;
+			// aapt resource value: 0x7f0d00f1
+			public const int TextAppearance_AppCompat_Title_Inverse = 2131558641;
 			
-			// aapt resource value: 0x7f0c0099
-			public const int TextAppearance_AppCompat_Notification_Title = 2131493017;
+			// aapt resource value: 0x7f0d0039
+			public const int TextAppearance_AppCompat_Tooltip = 2131558457;
 			
-			// aapt resource value: 0x7f0c009a
-			public const int TextAppearance_AppCompat_Notification_Title_Media = 2131493018;
+			// aapt resource value: 0x7f0d00f2
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Menu = 2131558642;
 			
-			// aapt resource value: 0x7f0c00f4
-			public const int TextAppearance_AppCompat_SearchResult_Subtitle = 2131493108;
+			// aapt resource value: 0x7f0d00f3
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Subtitle = 2131558643;
 			
-			// aapt resource value: 0x7f0c00f5
-			public const int TextAppearance_AppCompat_SearchResult_Title = 2131493109;
+			// aapt resource value: 0x7f0d00f4
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = 2131558644;
 			
-			// aapt resource value: 0x7f0c00f6
-			public const int TextAppearance_AppCompat_Small = 2131493110;
+			// aapt resource value: 0x7f0d00f5
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Title = 2131558645;
 			
-			// aapt resource value: 0x7f0c00f7
-			public const int TextAppearance_AppCompat_Small_Inverse = 2131493111;
+			// aapt resource value: 0x7f0d00f6
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = 2131558646;
 			
-			// aapt resource value: 0x7f0c00f8
-			public const int TextAppearance_AppCompat_Subhead = 2131493112;
+			// aapt resource value: 0x7f0d00f7
+			public const int TextAppearance_AppCompat_Widget_ActionMode_Subtitle = 2131558647;
 			
-			// aapt resource value: 0x7f0c00f9
-			public const int TextAppearance_AppCompat_Subhead_Inverse = 2131493113;
+			// aapt resource value: 0x7f0d00f8
+			public const int TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse = 2131558648;
 			
-			// aapt resource value: 0x7f0c00fa
-			public const int TextAppearance_AppCompat_Title = 2131493114;
+			// aapt resource value: 0x7f0d00f9
+			public const int TextAppearance_AppCompat_Widget_ActionMode_Title = 2131558649;
 			
-			// aapt resource value: 0x7f0c00fb
-			public const int TextAppearance_AppCompat_Title_Inverse = 2131493115;
+			// aapt resource value: 0x7f0d00fa
+			public const int TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse = 2131558650;
 			
-			// aapt resource value: 0x7f0c0039
-			public const int TextAppearance_AppCompat_Tooltip = 2131492921;
+			// aapt resource value: 0x7f0d00fb
+			public const int TextAppearance_AppCompat_Widget_Button = 2131558651;
 			
-			// aapt resource value: 0x7f0c00fc
-			public const int TextAppearance_AppCompat_Widget_ActionBar_Menu = 2131493116;
+			// aapt resource value: 0x7f0d00fc
+			public const int TextAppearance_AppCompat_Widget_Button_Borderless_Colored = 2131558652;
 			
-			// aapt resource value: 0x7f0c00fd
-			public const int TextAppearance_AppCompat_Widget_ActionBar_Subtitle = 2131493117;
+			// aapt resource value: 0x7f0d00fd
+			public const int TextAppearance_AppCompat_Widget_Button_Colored = 2131558653;
 			
-			// aapt resource value: 0x7f0c00fe
-			public const int TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = 2131493118;
+			// aapt resource value: 0x7f0d00fe
+			public const int TextAppearance_AppCompat_Widget_Button_Inverse = 2131558654;
 			
-			// aapt resource value: 0x7f0c00ff
-			public const int TextAppearance_AppCompat_Widget_ActionBar_Title = 2131493119;
+			// aapt resource value: 0x7f0d00ff
+			public const int TextAppearance_AppCompat_Widget_DropDownItem = 2131558655;
 			
-			// aapt resource value: 0x7f0c0100
-			public const int TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = 2131493120;
+			// aapt resource value: 0x7f0d0100
+			public const int TextAppearance_AppCompat_Widget_PopupMenu_Header = 2131558656;
 			
-			// aapt resource value: 0x7f0c0101
-			public const int TextAppearance_AppCompat_Widget_ActionMode_Subtitle = 2131493121;
+			// aapt resource value: 0x7f0d0101
+			public const int TextAppearance_AppCompat_Widget_PopupMenu_Large = 2131558657;
 			
-			// aapt resource value: 0x7f0c0102
-			public const int TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse = 2131493122;
+			// aapt resource value: 0x7f0d0102
+			public const int TextAppearance_AppCompat_Widget_PopupMenu_Small = 2131558658;
 			
-			// aapt resource value: 0x7f0c0103
-			public const int TextAppearance_AppCompat_Widget_ActionMode_Title = 2131493123;
+			// aapt resource value: 0x7f0d0103
+			public const int TextAppearance_AppCompat_Widget_Switch = 2131558659;
 			
-			// aapt resource value: 0x7f0c0104
-			public const int TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse = 2131493124;
+			// aapt resource value: 0x7f0d0104
+			public const int TextAppearance_AppCompat_Widget_TextView_SpinnerItem = 2131558660;
 			
-			// aapt resource value: 0x7f0c0105
-			public const int TextAppearance_AppCompat_Widget_Button = 2131493125;
+			// aapt resource value: 0x7f0d0188
+			public const int TextAppearance_Compat_Notification = 2131558792;
 			
-			// aapt resource value: 0x7f0c0106
-			public const int TextAppearance_AppCompat_Widget_Button_Borderless_Colored = 2131493126;
+			// aapt resource value: 0x7f0d0189
+			public const int TextAppearance_Compat_Notification_Info = 2131558793;
 			
-			// aapt resource value: 0x7f0c0107
-			public const int TextAppearance_AppCompat_Widget_Button_Colored = 2131493127;
+			// aapt resource value: 0x7f0d0165
+			public const int TextAppearance_Compat_Notification_Info_Media = 2131558757;
 			
-			// aapt resource value: 0x7f0c0108
-			public const int TextAppearance_AppCompat_Widget_Button_Inverse = 2131493128;
+			// aapt resource value: 0x7f0d018e
+			public const int TextAppearance_Compat_Notification_Line2 = 2131558798;
 			
-			// aapt resource value: 0x7f0c0109
-			public const int TextAppearance_AppCompat_Widget_DropDownItem = 2131493129;
+			// aapt resource value: 0x7f0d0169
+			public const int TextAppearance_Compat_Notification_Line2_Media = 2131558761;
 			
-			// aapt resource value: 0x7f0c010a
-			public const int TextAppearance_AppCompat_Widget_PopupMenu_Header = 2131493130;
+			// aapt resource value: 0x7f0d0166
+			public const int TextAppearance_Compat_Notification_Media = 2131558758;
 			
-			// aapt resource value: 0x7f0c010b
-			public const int TextAppearance_AppCompat_Widget_PopupMenu_Large = 2131493131;
+			// aapt resource value: 0x7f0d018a
+			public const int TextAppearance_Compat_Notification_Time = 2131558794;
 			
-			// aapt resource value: 0x7f0c010c
-			public const int TextAppearance_AppCompat_Widget_PopupMenu_Small = 2131493132;
+			// aapt resource value: 0x7f0d0167
+			public const int TextAppearance_Compat_Notification_Time_Media = 2131558759;
 			
-			// aapt resource value: 0x7f0c010d
-			public const int TextAppearance_AppCompat_Widget_Switch = 2131493133;
+			// aapt resource value: 0x7f0d018b
+			public const int TextAppearance_Compat_Notification_Title = 2131558795;
 			
-			// aapt resource value: 0x7f0c010e
-			public const int TextAppearance_AppCompat_Widget_TextView_SpinnerItem = 2131493134;
+			// aapt resource value: 0x7f0d0168
+			public const int TextAppearance_Compat_Notification_Title_Media = 2131558760;
 			
-			// aapt resource value: 0x7f0c0192
-			public const int TextAppearance_Compat_Notification = 2131493266;
+			// aapt resource value: 0x7f0d0171
+			public const int TextAppearance_Design_CollapsingToolbar_Expanded = 2131558769;
 			
-			// aapt resource value: 0x7f0c0193
-			public const int TextAppearance_Compat_Notification_Info = 2131493267;
+			// aapt resource value: 0x7f0d0172
+			public const int TextAppearance_Design_Counter = 2131558770;
 			
-			// aapt resource value: 0x7f0c016f
-			public const int TextAppearance_Compat_Notification_Info_Media = 2131493231;
+			// aapt resource value: 0x7f0d0173
+			public const int TextAppearance_Design_Counter_Overflow = 2131558771;
 			
-			// aapt resource value: 0x7f0c0198
-			public const int TextAppearance_Compat_Notification_Line2 = 2131493272;
+			// aapt resource value: 0x7f0d0174
+			public const int TextAppearance_Design_Error = 2131558772;
 			
-			// aapt resource value: 0x7f0c0173
-			public const int TextAppearance_Compat_Notification_Line2_Media = 2131493235;
+			// aapt resource value: 0x7f0d0175
+			public const int TextAppearance_Design_Hint = 2131558773;
 			
-			// aapt resource value: 0x7f0c0170
-			public const int TextAppearance_Compat_Notification_Media = 2131493232;
+			// aapt resource value: 0x7f0d0176
+			public const int TextAppearance_Design_Snackbar_Message = 2131558774;
 			
-			// aapt resource value: 0x7f0c0194
-			public const int TextAppearance_Compat_Notification_Time = 2131493268;
+			// aapt resource value: 0x7f0d0177
+			public const int TextAppearance_Design_Tab = 2131558775;
 			
-			// aapt resource value: 0x7f0c0171
-			public const int TextAppearance_Compat_Notification_Time_Media = 2131493233;
+			// aapt resource value: 0x7f0d0000
+			public const int TextAppearance_MediaRouter_PrimaryText = 2131558400;
 			
-			// aapt resource value: 0x7f0c0195
-			public const int TextAppearance_Compat_Notification_Title = 2131493269;
+			// aapt resource value: 0x7f0d0001
+			public const int TextAppearance_MediaRouter_SecondaryText = 2131558401;
 			
-			// aapt resource value: 0x7f0c0172
-			public const int TextAppearance_Compat_Notification_Title_Media = 2131493234;
+			// aapt resource value: 0x7f0d0002
+			public const int TextAppearance_MediaRouter_Title = 2131558402;
 			
-			// aapt resource value: 0x7f0c017b
-			public const int TextAppearance_Design_CollapsingToolbar_Expanded = 2131493243;
+			// aapt resource value: 0x7f0d0105
+			public const int TextAppearance_Widget_AppCompat_ExpandedMenu_Item = 2131558661;
 			
-			// aapt resource value: 0x7f0c017c
-			public const int TextAppearance_Design_Counter = 2131493244;
+			// aapt resource value: 0x7f0d0106
+			public const int TextAppearance_Widget_AppCompat_Toolbar_Subtitle = 2131558662;
 			
-			// aapt resource value: 0x7f0c017d
-			public const int TextAppearance_Design_Counter_Overflow = 2131493245;
+			// aapt resource value: 0x7f0d0107
+			public const int TextAppearance_Widget_AppCompat_Toolbar_Title = 2131558663;
 			
-			// aapt resource value: 0x7f0c017e
-			public const int TextAppearance_Design_Error = 2131493246;
+			// aapt resource value: 0x7f0d0108
+			public const int Theme_AppCompat = 2131558664;
 			
-			// aapt resource value: 0x7f0c017f
-			public const int TextAppearance_Design_Hint = 2131493247;
+			// aapt resource value: 0x7f0d0109
+			public const int Theme_AppCompat_CompactMenu = 2131558665;
 			
-			// aapt resource value: 0x7f0c0180
-			public const int TextAppearance_Design_Snackbar_Message = 2131493248;
+			// aapt resource value: 0x7f0d0013
+			public const int Theme_AppCompat_DayNight = 2131558419;
 			
-			// aapt resource value: 0x7f0c0181
-			public const int TextAppearance_Design_Tab = 2131493249;
+			// aapt resource value: 0x7f0d0014
+			public const int Theme_AppCompat_DayNight_DarkActionBar = 2131558420;
 			
-			// aapt resource value: 0x7f0c0000
-			public const int TextAppearance_MediaRouter_PrimaryText = 2131492864;
+			// aapt resource value: 0x7f0d0015
+			public const int Theme_AppCompat_DayNight_Dialog = 2131558421;
 			
-			// aapt resource value: 0x7f0c0001
-			public const int TextAppearance_MediaRouter_SecondaryText = 2131492865;
+			// aapt resource value: 0x7f0d0016
+			public const int Theme_AppCompat_DayNight_Dialog_Alert = 2131558422;
 			
-			// aapt resource value: 0x7f0c0002
-			public const int TextAppearance_MediaRouter_Title = 2131492866;
+			// aapt resource value: 0x7f0d0017
+			public const int Theme_AppCompat_DayNight_Dialog_MinWidth = 2131558423;
 			
-			// aapt resource value: 0x7f0c010f
-			public const int TextAppearance_Widget_AppCompat_ExpandedMenu_Item = 2131493135;
+			// aapt resource value: 0x7f0d0018
+			public const int Theme_AppCompat_DayNight_DialogWhenLarge = 2131558424;
 			
-			// aapt resource value: 0x7f0c0110
-			public const int TextAppearance_Widget_AppCompat_Toolbar_Subtitle = 2131493136;
+			// aapt resource value: 0x7f0d0019
+			public const int Theme_AppCompat_DayNight_NoActionBar = 2131558425;
 			
-			// aapt resource value: 0x7f0c0111
-			public const int TextAppearance_Widget_AppCompat_Toolbar_Title = 2131493137;
+			// aapt resource value: 0x7f0d010a
+			public const int Theme_AppCompat_Dialog = 2131558666;
 			
-			// aapt resource value: 0x7f0c0112
-			public const int Theme_AppCompat = 2131493138;
+			// aapt resource value: 0x7f0d010b
+			public const int Theme_AppCompat_Dialog_Alert = 2131558667;
 			
-			// aapt resource value: 0x7f0c0113
-			public const int Theme_AppCompat_CompactMenu = 2131493139;
+			// aapt resource value: 0x7f0d010c
+			public const int Theme_AppCompat_Dialog_MinWidth = 2131558668;
 			
-			// aapt resource value: 0x7f0c0013
-			public const int Theme_AppCompat_DayNight = 2131492883;
+			// aapt resource value: 0x7f0d010d
+			public const int Theme_AppCompat_DialogWhenLarge = 2131558669;
 			
-			// aapt resource value: 0x7f0c0014
-			public const int Theme_AppCompat_DayNight_DarkActionBar = 2131492884;
+			// aapt resource value: 0x7f0d010e
+			public const int Theme_AppCompat_Light = 2131558670;
 			
-			// aapt resource value: 0x7f0c0015
-			public const int Theme_AppCompat_DayNight_Dialog = 2131492885;
+			// aapt resource value: 0x7f0d010f
+			public const int Theme_AppCompat_Light_DarkActionBar = 2131558671;
 			
-			// aapt resource value: 0x7f0c0016
-			public const int Theme_AppCompat_DayNight_Dialog_Alert = 2131492886;
+			// aapt resource value: 0x7f0d0110
+			public const int Theme_AppCompat_Light_Dialog = 2131558672;
 			
-			// aapt resource value: 0x7f0c0017
-			public const int Theme_AppCompat_DayNight_Dialog_MinWidth = 2131492887;
+			// aapt resource value: 0x7f0d0111
+			public const int Theme_AppCompat_Light_Dialog_Alert = 2131558673;
 			
-			// aapt resource value: 0x7f0c0018
-			public const int Theme_AppCompat_DayNight_DialogWhenLarge = 2131492888;
+			// aapt resource value: 0x7f0d0112
+			public const int Theme_AppCompat_Light_Dialog_MinWidth = 2131558674;
 			
-			// aapt resource value: 0x7f0c0019
-			public const int Theme_AppCompat_DayNight_NoActionBar = 2131492889;
+			// aapt resource value: 0x7f0d0113
+			public const int Theme_AppCompat_Light_DialogWhenLarge = 2131558675;
 			
-			// aapt resource value: 0x7f0c0114
-			public const int Theme_AppCompat_Dialog = 2131493140;
+			// aapt resource value: 0x7f0d0114
+			public const int Theme_AppCompat_Light_NoActionBar = 2131558676;
 			
-			// aapt resource value: 0x7f0c0115
-			public const int Theme_AppCompat_Dialog_Alert = 2131493141;
+			// aapt resource value: 0x7f0d0115
+			public const int Theme_AppCompat_NoActionBar = 2131558677;
 			
-			// aapt resource value: 0x7f0c0116
-			public const int Theme_AppCompat_Dialog_MinWidth = 2131493142;
+			// aapt resource value: 0x7f0d0178
+			public const int Theme_Design = 2131558776;
 			
-			// aapt resource value: 0x7f0c0117
-			public const int Theme_AppCompat_DialogWhenLarge = 2131493143;
+			// aapt resource value: 0x7f0d0179
+			public const int Theme_Design_BottomSheetDialog = 2131558777;
 			
-			// aapt resource value: 0x7f0c0118
-			public const int Theme_AppCompat_Light = 2131493144;
+			// aapt resource value: 0x7f0d017a
+			public const int Theme_Design_Light = 2131558778;
 			
-			// aapt resource value: 0x7f0c0119
-			public const int Theme_AppCompat_Light_DarkActionBar = 2131493145;
+			// aapt resource value: 0x7f0d017b
+			public const int Theme_Design_Light_BottomSheetDialog = 2131558779;
 			
-			// aapt resource value: 0x7f0c011a
-			public const int Theme_AppCompat_Light_Dialog = 2131493146;
+			// aapt resource value: 0x7f0d017c
+			public const int Theme_Design_Light_NoActionBar = 2131558780;
 			
-			// aapt resource value: 0x7f0c011b
-			public const int Theme_AppCompat_Light_Dialog_Alert = 2131493147;
+			// aapt resource value: 0x7f0d017d
+			public const int Theme_Design_NoActionBar = 2131558781;
 			
-			// aapt resource value: 0x7f0c011c
-			public const int Theme_AppCompat_Light_Dialog_MinWidth = 2131493148;
+			// aapt resource value: 0x7f0d0003
+			public const int Theme_MediaRouter = 2131558403;
 			
-			// aapt resource value: 0x7f0c011d
-			public const int Theme_AppCompat_Light_DialogWhenLarge = 2131493149;
+			// aapt resource value: 0x7f0d0004
+			public const int Theme_MediaRouter_Light = 2131558404;
 			
-			// aapt resource value: 0x7f0c011e
-			public const int Theme_AppCompat_Light_NoActionBar = 2131493150;
+			// aapt resource value: 0x7f0d0005
+			public const int Theme_MediaRouter_Light_DarkControlPanel = 2131558405;
 			
-			// aapt resource value: 0x7f0c011f
-			public const int Theme_AppCompat_NoActionBar = 2131493151;
+			// aapt resource value: 0x7f0d0006
+			public const int Theme_MediaRouter_LightControlPanel = 2131558406;
 			
-			// aapt resource value: 0x7f0c0182
-			public const int Theme_Design = 2131493250;
+			// aapt resource value: 0x7f0d0116
+			public const int ThemeOverlay_AppCompat = 2131558678;
 			
-			// aapt resource value: 0x7f0c0183
-			public const int Theme_Design_BottomSheetDialog = 2131493251;
+			// aapt resource value: 0x7f0d0117
+			public const int ThemeOverlay_AppCompat_ActionBar = 2131558679;
 			
-			// aapt resource value: 0x7f0c0184
-			public const int Theme_Design_Light = 2131493252;
+			// aapt resource value: 0x7f0d0118
+			public const int ThemeOverlay_AppCompat_Dark = 2131558680;
 			
-			// aapt resource value: 0x7f0c0185
-			public const int Theme_Design_Light_BottomSheetDialog = 2131493253;
+			// aapt resource value: 0x7f0d0119
+			public const int ThemeOverlay_AppCompat_Dark_ActionBar = 2131558681;
 			
-			// aapt resource value: 0x7f0c0186
-			public const int Theme_Design_Light_NoActionBar = 2131493254;
+			// aapt resource value: 0x7f0d011a
+			public const int ThemeOverlay_AppCompat_Dialog = 2131558682;
 			
-			// aapt resource value: 0x7f0c0187
-			public const int Theme_Design_NoActionBar = 2131493255;
+			// aapt resource value: 0x7f0d011b
+			public const int ThemeOverlay_AppCompat_Dialog_Alert = 2131558683;
 			
-			// aapt resource value: 0x7f0c0003
-			public const int Theme_MediaRouter = 2131492867;
+			// aapt resource value: 0x7f0d011c
+			public const int ThemeOverlay_AppCompat_Light = 2131558684;
 			
-			// aapt resource value: 0x7f0c0004
-			public const int Theme_MediaRouter_Light = 2131492868;
+			// aapt resource value: 0x7f0d0007
+			public const int ThemeOverlay_MediaRouter_Dark = 2131558407;
 			
-			// aapt resource value: 0x7f0c0005
-			public const int Theme_MediaRouter_Light_DarkControlPanel = 2131492869;
+			// aapt resource value: 0x7f0d0008
+			public const int ThemeOverlay_MediaRouter_Light = 2131558408;
 			
-			// aapt resource value: 0x7f0c0006
-			public const int Theme_MediaRouter_LightControlPanel = 2131492870;
+			// aapt resource value: 0x7f0d011d
+			public const int Widget_AppCompat_ActionBar = 2131558685;
 			
-			// aapt resource value: 0x7f0c0120
-			public const int ThemeOverlay_AppCompat = 2131493152;
+			// aapt resource value: 0x7f0d011e
+			public const int Widget_AppCompat_ActionBar_Solid = 2131558686;
 			
-			// aapt resource value: 0x7f0c0121
-			public const int ThemeOverlay_AppCompat_ActionBar = 2131493153;
+			// aapt resource value: 0x7f0d011f
+			public const int Widget_AppCompat_ActionBar_TabBar = 2131558687;
 			
-			// aapt resource value: 0x7f0c0122
-			public const int ThemeOverlay_AppCompat_Dark = 2131493154;
+			// aapt resource value: 0x7f0d0120
+			public const int Widget_AppCompat_ActionBar_TabText = 2131558688;
 			
-			// aapt resource value: 0x7f0c0123
-			public const int ThemeOverlay_AppCompat_Dark_ActionBar = 2131493155;
+			// aapt resource value: 0x7f0d0121
+			public const int Widget_AppCompat_ActionBar_TabView = 2131558689;
 			
-			// aapt resource value: 0x7f0c0124
-			public const int ThemeOverlay_AppCompat_Dialog = 2131493156;
+			// aapt resource value: 0x7f0d0122
+			public const int Widget_AppCompat_ActionButton = 2131558690;
 			
-			// aapt resource value: 0x7f0c0125
-			public const int ThemeOverlay_AppCompat_Dialog_Alert = 2131493157;
+			// aapt resource value: 0x7f0d0123
+			public const int Widget_AppCompat_ActionButton_CloseMode = 2131558691;
 			
-			// aapt resource value: 0x7f0c0126
-			public const int ThemeOverlay_AppCompat_Light = 2131493158;
+			// aapt resource value: 0x7f0d0124
+			public const int Widget_AppCompat_ActionButton_Overflow = 2131558692;
 			
-			// aapt resource value: 0x7f0c0007
-			public const int ThemeOverlay_MediaRouter_Dark = 2131492871;
+			// aapt resource value: 0x7f0d0125
+			public const int Widget_AppCompat_ActionMode = 2131558693;
 			
-			// aapt resource value: 0x7f0c0008
-			public const int ThemeOverlay_MediaRouter_Light = 2131492872;
+			// aapt resource value: 0x7f0d0126
+			public const int Widget_AppCompat_ActivityChooserView = 2131558694;
 			
-			// aapt resource value: 0x7f0c0127
-			public const int Widget_AppCompat_ActionBar = 2131493159;
+			// aapt resource value: 0x7f0d0127
+			public const int Widget_AppCompat_AutoCompleteTextView = 2131558695;
 			
-			// aapt resource value: 0x7f0c0128
-			public const int Widget_AppCompat_ActionBar_Solid = 2131493160;
+			// aapt resource value: 0x7f0d0128
+			public const int Widget_AppCompat_Button = 2131558696;
 			
-			// aapt resource value: 0x7f0c0129
-			public const int Widget_AppCompat_ActionBar_TabBar = 2131493161;
+			// aapt resource value: 0x7f0d0129
+			public const int Widget_AppCompat_Button_Borderless = 2131558697;
 			
-			// aapt resource value: 0x7f0c012a
-			public const int Widget_AppCompat_ActionBar_TabText = 2131493162;
+			// aapt resource value: 0x7f0d012a
+			public const int Widget_AppCompat_Button_Borderless_Colored = 2131558698;
 			
-			// aapt resource value: 0x7f0c012b
-			public const int Widget_AppCompat_ActionBar_TabView = 2131493163;
+			// aapt resource value: 0x7f0d012b
+			public const int Widget_AppCompat_Button_ButtonBar_AlertDialog = 2131558699;
 			
-			// aapt resource value: 0x7f0c012c
-			public const int Widget_AppCompat_ActionButton = 2131493164;
+			// aapt resource value: 0x7f0d012c
+			public const int Widget_AppCompat_Button_Colored = 2131558700;
 			
-			// aapt resource value: 0x7f0c012d
-			public const int Widget_AppCompat_ActionButton_CloseMode = 2131493165;
+			// aapt resource value: 0x7f0d012d
+			public const int Widget_AppCompat_Button_Small = 2131558701;
 			
-			// aapt resource value: 0x7f0c012e
-			public const int Widget_AppCompat_ActionButton_Overflow = 2131493166;
+			// aapt resource value: 0x7f0d012e
+			public const int Widget_AppCompat_ButtonBar = 2131558702;
 			
-			// aapt resource value: 0x7f0c012f
-			public const int Widget_AppCompat_ActionMode = 2131493167;
+			// aapt resource value: 0x7f0d012f
+			public const int Widget_AppCompat_ButtonBar_AlertDialog = 2131558703;
 			
-			// aapt resource value: 0x7f0c0130
-			public const int Widget_AppCompat_ActivityChooserView = 2131493168;
+			// aapt resource value: 0x7f0d0130
+			public const int Widget_AppCompat_CompoundButton_CheckBox = 2131558704;
 			
-			// aapt resource value: 0x7f0c0131
-			public const int Widget_AppCompat_AutoCompleteTextView = 2131493169;
+			// aapt resource value: 0x7f0d0131
+			public const int Widget_AppCompat_CompoundButton_RadioButton = 2131558705;
 			
-			// aapt resource value: 0x7f0c0132
-			public const int Widget_AppCompat_Button = 2131493170;
+			// aapt resource value: 0x7f0d0132
+			public const int Widget_AppCompat_CompoundButton_Switch = 2131558706;
 			
-			// aapt resource value: 0x7f0c0133
-			public const int Widget_AppCompat_Button_Borderless = 2131493171;
+			// aapt resource value: 0x7f0d0133
+			public const int Widget_AppCompat_DrawerArrowToggle = 2131558707;
 			
-			// aapt resource value: 0x7f0c0134
-			public const int Widget_AppCompat_Button_Borderless_Colored = 2131493172;
+			// aapt resource value: 0x7f0d0134
+			public const int Widget_AppCompat_DropDownItem_Spinner = 2131558708;
 			
-			// aapt resource value: 0x7f0c0135
-			public const int Widget_AppCompat_Button_ButtonBar_AlertDialog = 2131493173;
+			// aapt resource value: 0x7f0d0135
+			public const int Widget_AppCompat_EditText = 2131558709;
 			
-			// aapt resource value: 0x7f0c0136
-			public const int Widget_AppCompat_Button_Colored = 2131493174;
+			// aapt resource value: 0x7f0d0136
+			public const int Widget_AppCompat_ImageButton = 2131558710;
 			
-			// aapt resource value: 0x7f0c0137
-			public const int Widget_AppCompat_Button_Small = 2131493175;
+			// aapt resource value: 0x7f0d0137
+			public const int Widget_AppCompat_Light_ActionBar = 2131558711;
 			
-			// aapt resource value: 0x7f0c0138
-			public const int Widget_AppCompat_ButtonBar = 2131493176;
+			// aapt resource value: 0x7f0d0138
+			public const int Widget_AppCompat_Light_ActionBar_Solid = 2131558712;
 			
-			// aapt resource value: 0x7f0c0139
-			public const int Widget_AppCompat_ButtonBar_AlertDialog = 2131493177;
+			// aapt resource value: 0x7f0d0139
+			public const int Widget_AppCompat_Light_ActionBar_Solid_Inverse = 2131558713;
 			
-			// aapt resource value: 0x7f0c013a
-			public const int Widget_AppCompat_CompoundButton_CheckBox = 2131493178;
+			// aapt resource value: 0x7f0d013a
+			public const int Widget_AppCompat_Light_ActionBar_TabBar = 2131558714;
 			
-			// aapt resource value: 0x7f0c013b
-			public const int Widget_AppCompat_CompoundButton_RadioButton = 2131493179;
+			// aapt resource value: 0x7f0d013b
+			public const int Widget_AppCompat_Light_ActionBar_TabBar_Inverse = 2131558715;
 			
-			// aapt resource value: 0x7f0c013c
-			public const int Widget_AppCompat_CompoundButton_Switch = 2131493180;
+			// aapt resource value: 0x7f0d013c
+			public const int Widget_AppCompat_Light_ActionBar_TabText = 2131558716;
 			
-			// aapt resource value: 0x7f0c013d
-			public const int Widget_AppCompat_DrawerArrowToggle = 2131493181;
+			// aapt resource value: 0x7f0d013d
+			public const int Widget_AppCompat_Light_ActionBar_TabText_Inverse = 2131558717;
 			
-			// aapt resource value: 0x7f0c013e
-			public const int Widget_AppCompat_DropDownItem_Spinner = 2131493182;
+			// aapt resource value: 0x7f0d013e
+			public const int Widget_AppCompat_Light_ActionBar_TabView = 2131558718;
 			
-			// aapt resource value: 0x7f0c013f
-			public const int Widget_AppCompat_EditText = 2131493183;
+			// aapt resource value: 0x7f0d013f
+			public const int Widget_AppCompat_Light_ActionBar_TabView_Inverse = 2131558719;
 			
-			// aapt resource value: 0x7f0c0140
-			public const int Widget_AppCompat_ImageButton = 2131493184;
+			// aapt resource value: 0x7f0d0140
+			public const int Widget_AppCompat_Light_ActionButton = 2131558720;
 			
-			// aapt resource value: 0x7f0c0141
-			public const int Widget_AppCompat_Light_ActionBar = 2131493185;
+			// aapt resource value: 0x7f0d0141
+			public const int Widget_AppCompat_Light_ActionButton_CloseMode = 2131558721;
 			
-			// aapt resource value: 0x7f0c0142
-			public const int Widget_AppCompat_Light_ActionBar_Solid = 2131493186;
+			// aapt resource value: 0x7f0d0142
+			public const int Widget_AppCompat_Light_ActionButton_Overflow = 2131558722;
 			
-			// aapt resource value: 0x7f0c0143
-			public const int Widget_AppCompat_Light_ActionBar_Solid_Inverse = 2131493187;
+			// aapt resource value: 0x7f0d0143
+			public const int Widget_AppCompat_Light_ActionMode_Inverse = 2131558723;
 			
-			// aapt resource value: 0x7f0c0144
-			public const int Widget_AppCompat_Light_ActionBar_TabBar = 2131493188;
+			// aapt resource value: 0x7f0d0144
+			public const int Widget_AppCompat_Light_ActivityChooserView = 2131558724;
 			
-			// aapt resource value: 0x7f0c0145
-			public const int Widget_AppCompat_Light_ActionBar_TabBar_Inverse = 2131493189;
+			// aapt resource value: 0x7f0d0145
+			public const int Widget_AppCompat_Light_AutoCompleteTextView = 2131558725;
 			
-			// aapt resource value: 0x7f0c0146
-			public const int Widget_AppCompat_Light_ActionBar_TabText = 2131493190;
+			// aapt resource value: 0x7f0d0146
+			public const int Widget_AppCompat_Light_DropDownItem_Spinner = 2131558726;
 			
-			// aapt resource value: 0x7f0c0147
-			public const int Widget_AppCompat_Light_ActionBar_TabText_Inverse = 2131493191;
+			// aapt resource value: 0x7f0d0147
+			public const int Widget_AppCompat_Light_ListPopupWindow = 2131558727;
 			
-			// aapt resource value: 0x7f0c0148
-			public const int Widget_AppCompat_Light_ActionBar_TabView = 2131493192;
+			// aapt resource value: 0x7f0d0148
+			public const int Widget_AppCompat_Light_ListView_DropDown = 2131558728;
 			
-			// aapt resource value: 0x7f0c0149
-			public const int Widget_AppCompat_Light_ActionBar_TabView_Inverse = 2131493193;
+			// aapt resource value: 0x7f0d0149
+			public const int Widget_AppCompat_Light_PopupMenu = 2131558729;
 			
-			// aapt resource value: 0x7f0c014a
-			public const int Widget_AppCompat_Light_ActionButton = 2131493194;
+			// aapt resource value: 0x7f0d014a
+			public const int Widget_AppCompat_Light_PopupMenu_Overflow = 2131558730;
 			
-			// aapt resource value: 0x7f0c014b
-			public const int Widget_AppCompat_Light_ActionButton_CloseMode = 2131493195;
+			// aapt resource value: 0x7f0d014b
+			public const int Widget_AppCompat_Light_SearchView = 2131558731;
 			
-			// aapt resource value: 0x7f0c014c
-			public const int Widget_AppCompat_Light_ActionButton_Overflow = 2131493196;
+			// aapt resource value: 0x7f0d014c
+			public const int Widget_AppCompat_Light_Spinner_DropDown_ActionBar = 2131558732;
 			
-			// aapt resource value: 0x7f0c014d
-			public const int Widget_AppCompat_Light_ActionMode_Inverse = 2131493197;
+			// aapt resource value: 0x7f0d014d
+			public const int Widget_AppCompat_ListMenuView = 2131558733;
 			
-			// aapt resource value: 0x7f0c014e
-			public const int Widget_AppCompat_Light_ActivityChooserView = 2131493198;
+			// aapt resource value: 0x7f0d014e
+			public const int Widget_AppCompat_ListPopupWindow = 2131558734;
 			
-			// aapt resource value: 0x7f0c014f
-			public const int Widget_AppCompat_Light_AutoCompleteTextView = 2131493199;
+			// aapt resource value: 0x7f0d014f
+			public const int Widget_AppCompat_ListView = 2131558735;
 			
-			// aapt resource value: 0x7f0c0150
-			public const int Widget_AppCompat_Light_DropDownItem_Spinner = 2131493200;
+			// aapt resource value: 0x7f0d0150
+			public const int Widget_AppCompat_ListView_DropDown = 2131558736;
 			
-			// aapt resource value: 0x7f0c0151
-			public const int Widget_AppCompat_Light_ListPopupWindow = 2131493201;
+			// aapt resource value: 0x7f0d0151
+			public const int Widget_AppCompat_ListView_Menu = 2131558737;
 			
-			// aapt resource value: 0x7f0c0152
-			public const int Widget_AppCompat_Light_ListView_DropDown = 2131493202;
+			// aapt resource value: 0x7f0d0152
+			public const int Widget_AppCompat_PopupMenu = 2131558738;
 			
-			// aapt resource value: 0x7f0c0153
-			public const int Widget_AppCompat_Light_PopupMenu = 2131493203;
+			// aapt resource value: 0x7f0d0153
+			public const int Widget_AppCompat_PopupMenu_Overflow = 2131558739;
 			
-			// aapt resource value: 0x7f0c0154
-			public const int Widget_AppCompat_Light_PopupMenu_Overflow = 2131493204;
+			// aapt resource value: 0x7f0d0154
+			public const int Widget_AppCompat_PopupWindow = 2131558740;
 			
-			// aapt resource value: 0x7f0c0155
-			public const int Widget_AppCompat_Light_SearchView = 2131493205;
+			// aapt resource value: 0x7f0d0155
+			public const int Widget_AppCompat_ProgressBar = 2131558741;
 			
-			// aapt resource value: 0x7f0c0156
-			public const int Widget_AppCompat_Light_Spinner_DropDown_ActionBar = 2131493206;
+			// aapt resource value: 0x7f0d0156
+			public const int Widget_AppCompat_ProgressBar_Horizontal = 2131558742;
 			
-			// aapt resource value: 0x7f0c0157
-			public const int Widget_AppCompat_ListMenuView = 2131493207;
+			// aapt resource value: 0x7f0d0157
+			public const int Widget_AppCompat_RatingBar = 2131558743;
 			
-			// aapt resource value: 0x7f0c0158
-			public const int Widget_AppCompat_ListPopupWindow = 2131493208;
+			// aapt resource value: 0x7f0d0158
+			public const int Widget_AppCompat_RatingBar_Indicator = 2131558744;
 			
-			// aapt resource value: 0x7f0c0159
-			public const int Widget_AppCompat_ListView = 2131493209;
+			// aapt resource value: 0x7f0d0159
+			public const int Widget_AppCompat_RatingBar_Small = 2131558745;
 			
-			// aapt resource value: 0x7f0c015a
-			public const int Widget_AppCompat_ListView_DropDown = 2131493210;
+			// aapt resource value: 0x7f0d015a
+			public const int Widget_AppCompat_SearchView = 2131558746;
 			
-			// aapt resource value: 0x7f0c015b
-			public const int Widget_AppCompat_ListView_Menu = 2131493211;
+			// aapt resource value: 0x7f0d015b
+			public const int Widget_AppCompat_SearchView_ActionBar = 2131558747;
 			
-			// aapt resource value: 0x7f0c015c
-			public const int Widget_AppCompat_PopupMenu = 2131493212;
+			// aapt resource value: 0x7f0d015c
+			public const int Widget_AppCompat_SeekBar = 2131558748;
 			
-			// aapt resource value: 0x7f0c015d
-			public const int Widget_AppCompat_PopupMenu_Overflow = 2131493213;
+			// aapt resource value: 0x7f0d015d
+			public const int Widget_AppCompat_SeekBar_Discrete = 2131558749;
 			
-			// aapt resource value: 0x7f0c015e
-			public const int Widget_AppCompat_PopupWindow = 2131493214;
+			// aapt resource value: 0x7f0d015e
+			public const int Widget_AppCompat_Spinner = 2131558750;
 			
-			// aapt resource value: 0x7f0c015f
-			public const int Widget_AppCompat_ProgressBar = 2131493215;
+			// aapt resource value: 0x7f0d015f
+			public const int Widget_AppCompat_Spinner_DropDown = 2131558751;
 			
-			// aapt resource value: 0x7f0c0160
-			public const int Widget_AppCompat_ProgressBar_Horizontal = 2131493216;
+			// aapt resource value: 0x7f0d0160
+			public const int Widget_AppCompat_Spinner_DropDown_ActionBar = 2131558752;
 			
-			// aapt resource value: 0x7f0c0161
-			public const int Widget_AppCompat_RatingBar = 2131493217;
+			// aapt resource value: 0x7f0d0161
+			public const int Widget_AppCompat_Spinner_Underlined = 2131558753;
 			
-			// aapt resource value: 0x7f0c0162
-			public const int Widget_AppCompat_RatingBar_Indicator = 2131493218;
+			// aapt resource value: 0x7f0d0162
+			public const int Widget_AppCompat_TextView_SpinnerItem = 2131558754;
 			
-			// aapt resource value: 0x7f0c0163
-			public const int Widget_AppCompat_RatingBar_Small = 2131493219;
+			// aapt resource value: 0x7f0d0163
+			public const int Widget_AppCompat_Toolbar = 2131558755;
 			
-			// aapt resource value: 0x7f0c0164
-			public const int Widget_AppCompat_SearchView = 2131493220;
+			// aapt resource value: 0x7f0d0164
+			public const int Widget_AppCompat_Toolbar_Button_Navigation = 2131558756;
 			
-			// aapt resource value: 0x7f0c0165
-			public const int Widget_AppCompat_SearchView_ActionBar = 2131493221;
+			// aapt resource value: 0x7f0d018c
+			public const int Widget_Compat_NotificationActionContainer = 2131558796;
 			
-			// aapt resource value: 0x7f0c0166
-			public const int Widget_AppCompat_SeekBar = 2131493222;
+			// aapt resource value: 0x7f0d018d
+			public const int Widget_Compat_NotificationActionText = 2131558797;
 			
-			// aapt resource value: 0x7f0c0167
-			public const int Widget_AppCompat_SeekBar_Discrete = 2131493223;
+			// aapt resource value: 0x7f0d017e
+			public const int Widget_Design_AppBarLayout = 2131558782;
 			
-			// aapt resource value: 0x7f0c0168
-			public const int Widget_AppCompat_Spinner = 2131493224;
+			// aapt resource value: 0x7f0d017f
+			public const int Widget_Design_BottomNavigationView = 2131558783;
 			
-			// aapt resource value: 0x7f0c0169
-			public const int Widget_AppCompat_Spinner_DropDown = 2131493225;
+			// aapt resource value: 0x7f0d0180
+			public const int Widget_Design_BottomSheet_Modal = 2131558784;
 			
-			// aapt resource value: 0x7f0c016a
-			public const int Widget_AppCompat_Spinner_DropDown_ActionBar = 2131493226;
+			// aapt resource value: 0x7f0d0181
+			public const int Widget_Design_CollapsingToolbar = 2131558785;
 			
-			// aapt resource value: 0x7f0c016b
-			public const int Widget_AppCompat_Spinner_Underlined = 2131493227;
+			// aapt resource value: 0x7f0d0182
+			public const int Widget_Design_CoordinatorLayout = 2131558786;
 			
-			// aapt resource value: 0x7f0c016c
-			public const int Widget_AppCompat_TextView_SpinnerItem = 2131493228;
+			// aapt resource value: 0x7f0d0183
+			public const int Widget_Design_FloatingActionButton = 2131558787;
 			
-			// aapt resource value: 0x7f0c016d
-			public const int Widget_AppCompat_Toolbar = 2131493229;
+			// aapt resource value: 0x7f0d0184
+			public const int Widget_Design_NavigationView = 2131558788;
 			
-			// aapt resource value: 0x7f0c016e
-			public const int Widget_AppCompat_Toolbar_Button_Navigation = 2131493230;
+			// aapt resource value: 0x7f0d0185
+			public const int Widget_Design_ScrimInsetsFrameLayout = 2131558789;
 			
-			// aapt resource value: 0x7f0c0196
-			public const int Widget_Compat_NotificationActionContainer = 2131493270;
+			// aapt resource value: 0x7f0d0186
+			public const int Widget_Design_Snackbar = 2131558790;
 			
-			// aapt resource value: 0x7f0c0197
-			public const int Widget_Compat_NotificationActionText = 2131493271;
+			// aapt resource value: 0x7f0d016a
+			public const int Widget_Design_TabLayout = 2131558762;
 			
-			// aapt resource value: 0x7f0c0188
-			public const int Widget_Design_AppBarLayout = 2131493256;
+			// aapt resource value: 0x7f0d0187
+			public const int Widget_Design_TextInputLayout = 2131558791;
 			
-			// aapt resource value: 0x7f0c0189
-			public const int Widget_Design_BottomNavigationView = 2131493257;
+			// aapt resource value: 0x7f0d0009
+			public const int Widget_MediaRouter_Light_MediaRouteButton = 2131558409;
 			
-			// aapt resource value: 0x7f0c018a
-			public const int Widget_Design_BottomSheet_Modal = 2131493258;
-			
-			// aapt resource value: 0x7f0c018b
-			public const int Widget_Design_CollapsingToolbar = 2131493259;
-			
-			// aapt resource value: 0x7f0c018c
-			public const int Widget_Design_CoordinatorLayout = 2131493260;
-			
-			// aapt resource value: 0x7f0c018d
-			public const int Widget_Design_FloatingActionButton = 2131493261;
-			
-			// aapt resource value: 0x7f0c018e
-			public const int Widget_Design_NavigationView = 2131493262;
-			
-			// aapt resource value: 0x7f0c018f
-			public const int Widget_Design_ScrimInsetsFrameLayout = 2131493263;
-			
-			// aapt resource value: 0x7f0c0190
-			public const int Widget_Design_Snackbar = 2131493264;
-			
-			// aapt resource value: 0x7f0c0174
-			public const int Widget_Design_TabLayout = 2131493236;
-			
-			// aapt resource value: 0x7f0c0191
-			public const int Widget_Design_TextInputLayout = 2131493265;
-			
-			// aapt resource value: 0x7f0c0009
-			public const int Widget_MediaRouter_Light_MediaRouteButton = 2131492873;
-			
-			// aapt resource value: 0x7f0c000a
-			public const int Widget_MediaRouter_MediaRouteButton = 2131492874;
+			// aapt resource value: 0x7f0d000a
+			public const int Widget_MediaRouter_MediaRouteButton = 2131558410;
 			
 			static Style()
 			{
@@ -8233,6 +9502,22 @@ namespace RadioLogisticaDeliveries
 			}
 			
 			private Style()
+			{
+			}
+		}
+		
+		public partial class Xml
+		{
+			
+			// aapt resource value: 0x7f070000
+			public const int xamarin_essentials_fileprovider_file_paths = 2131165184;
+			
+			static Xml()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Xml()
 			{
 			}
 		}
@@ -9413,18 +10698,30 @@ namespace RadioLogisticaDeliveries
 			public const int FontFamily_fontProviderQuery = 2;
 			
 			public static int[] FontFamilyFont = new int[] {
+					16844082,
+					16844083,
+					16844095,
 					2130772336,
 					2130772337,
 					2130772338};
 			
-			// aapt resource value: 1
-			public const int FontFamilyFont_font = 1;
-			
 			// aapt resource value: 0
-			public const int FontFamilyFont_fontStyle = 0;
+			public const int FontFamilyFont_android_font = 0;
 			
 			// aapt resource value: 2
-			public const int FontFamilyFont_fontWeight = 2;
+			public const int FontFamilyFont_android_fontStyle = 2;
+			
+			// aapt resource value: 1
+			public const int FontFamilyFont_android_fontWeight = 1;
+			
+			// aapt resource value: 4
+			public const int FontFamilyFont_font = 4;
+			
+			// aapt resource value: 3
+			public const int FontFamilyFont_fontStyle = 3;
+			
+			// aapt resource value: 5
+			public const int FontFamilyFont_fontWeight = 5;
 			
 			public static int[] ForegroundLinearLayout = new int[] {
 					16843017,

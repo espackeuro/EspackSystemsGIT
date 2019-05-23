@@ -5,7 +5,7 @@ using System;
 
 namespace RadioLogisticaDeliveries
 {
-    public class dataReading : cData
+    public class DataReading : cData
     {
         public string Rack { get; set; }
         public string Partnumber { get; set; }

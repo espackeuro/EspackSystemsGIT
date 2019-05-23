@@ -902,7 +902,8 @@ namespace AccesoDatosXML
         public override async Task ExecuteAsync()
         {
             XDocument _msgOut = await EspackCommServer.Server.Transmit(XMessage);
-            if (_msgOut.Element("result").Value.Substring(0, 5) == "ERROR")
+            var _res = _msgOut.Element("result").Value;
+            if (_res.Length>=5 && _res.Substring(0, 5) == "ERROR")
                 throw new Exception(_msgOut.Element("result").Value);
             //to do: recover parameter values for output parameters
             mDS = new DataSet();

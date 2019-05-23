@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace RadioLogisticaDeliveries
 {
-    public class dataChangeRack : cData
+    public class DataChangeRack : cData
     {
         public override infoData Info
         {

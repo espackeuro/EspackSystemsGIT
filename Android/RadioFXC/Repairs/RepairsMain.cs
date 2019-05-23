@@ -1,19 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Android.Content;
-using Android.OS;
 using Android.Support.V7.App;
-using Android.Views;
-using Android.Widget;
 using ActionBar = Android.Support.V7.App.ActionBar;
 
 namespace RadioFXC
@@ -21,7 +12,7 @@ namespace RadioFXC
     [Activity(Label = "Radio REPAIRS - Repairs")]
     public class RepairsMain : AppCompatActivity, ActionBar.ITabListener
     {
-        private string cUnitNumber;
+        //private string cUnitNumber;
         public string cRepairCode { get; set; }
         private FragmentPicturesManagement _fpim;
         private FragmentPartsManagement _fpam;

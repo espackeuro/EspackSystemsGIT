@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 
 using Android.App;
+using Android.Support.V4;
+using Android.Support.V4.App;
+using Android.Support.V7.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
@@ -13,26 +16,30 @@ using System.Threading.Tasks;
 using AccesoDatosNet;
 using Android.Util;
 using AccesoDatosXML;
+using Xamarin.Essentials;
 
 namespace RadioLogisticaDeliveries
 {
     public struct QueryResult { public string Rack; public int count; }
 
     [Activity(Label = "Radio LOGISTICA deliveries", WindowSoftInputMode = SoftInput.AdjustPan)]
-    public class MainScreen : Activity
+    public class MainScreen : AppCompatActivity
     {
        
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.mainLayout);
             // Create your application here
 
+
             string _mainScreenMode = Intent.GetStringExtra("MainScreenMode");
+            
 
 
             Values.hFt = new headerFragment();
-            var ft = FragmentManager.BeginTransaction();
+            
+            var ft = SupportFragmentManager.BeginTransaction();
             ft.Replace(Resource.Id.headerFragment, Values.hFt);
             //ft.Commit();
 
@@ -65,7 +72,7 @@ namespace RadioLogisticaDeliveries
             //start the transmission service
 
 
-            EspackCommServer.Server.PropertyChanged += ConnectionServer_PropertyChanged; ;
+            EspackCommServer.Server.PropertyChanged += ConnectionServer_PropertyChanged; 
         }
         //public override View OnCreateView(string name, Context context, IAttributeSet attrs)
         //{
@@ -104,7 +111,7 @@ namespace RadioLogisticaDeliveries
 
         public void changeOrderToEnterDataFragments()
         {
-            using (var ft = FragmentManager.BeginTransaction())
+            using (var ft = SupportFragmentManager.BeginTransaction())
             {
                 var edFt = new EnterDataFragment();
                 ft.Replace(Resource.Id.dataInputFragment, edFt);
@@ -114,7 +121,7 @@ namespace RadioLogisticaDeliveries
 
         public void changeEnterDataToOrderFragments()
         {
-            using (var ft = FragmentManager.BeginTransaction())
+            using (var ft = SupportFragmentManager.BeginTransaction())
             {
                 var oFt = new orderFragment();
                 ft.Replace(Resource.Id.dataInputFragment, oFt);

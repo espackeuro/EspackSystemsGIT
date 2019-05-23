@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Android.App;
+//using Android.App;
+using Android.Support.V4.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
@@ -21,6 +22,14 @@ namespace RadioLogisticaDeliveries
         public ProgressBar socksProgress { get; set; }
         public TextView readingsInfo { get; set; }
         public TextView checkingsInfo { get; set; }
+        private TextView locationInfo { get ; set; }
+        public void SetLocationInfo(DataLocation loc=null)
+        {
+            if (loc == null)
+                Activity.RunOnUiThread(() => locationInfo.Text = "Latitude: ---, Longitude: ---, Altitude: ---");
+            else
+                Activity.RunOnUiThread(() => locationInfo.Text = $"Latitude: {loc.Latitude}, Longitude: {loc.Longitude}, Altitude: {loc.Altitude}");
+        }
         public int ReadQtyReceived
         {
             get
@@ -94,7 +103,7 @@ namespace RadioLogisticaDeliveries
 
             // Create your fragment here
         }
-
+        
         public Task ChangeProgressVisibility(bool visible)
         {
             return Task.Run(() => Activity.RunOnUiThread(() =>
@@ -113,6 +122,7 @@ namespace RadioLogisticaDeliveries
             socksProgress.Visibility = ViewStates.Gone;
             readingsInfo = _root.FindViewById<TextView>(Resource.Id.readingsInfo);
             checkingsInfo = _root.FindViewById<TextView>(Resource.Id.checkingsInfo);
+            locationInfo = _root.FindViewById<TextView>(Resource.Id.locationInfo);
             UpdateInfo();
             return _root;
         }

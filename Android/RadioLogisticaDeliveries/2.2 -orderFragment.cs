@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Android.App;
+using Android.Support.V4.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
@@ -18,6 +18,7 @@ using Android.Views.InputMethods;
 using CommonAndroidTools;
 using Scanner;
 using AccesoDatosXML;
+using Xamarin.Essentials;
 
 namespace RadioLogisticaDeliveries
 {
@@ -27,7 +28,7 @@ namespace RadioLogisticaDeliveries
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            Xamarin.Essentials.Platform.Init(Activity, savedInstanceState);
             // Create your fragment here
         }
         private EditText orderNumberET;
@@ -65,7 +66,7 @@ namespace RadioLogisticaDeliveries
         }
         private void Scanner_BeforeReceive(object sender, EventArgs e)
         {
-            ((Activity)sender).RunOnUiThread(() =>
+            ((FragmentActivity)sender).RunOnUiThread(() =>
             {
                 orderNumberET.Enabled = false;
             });
@@ -92,7 +93,7 @@ namespace RadioLogisticaDeliveries
             }
             orderNumberET.Text = _scan;
             var _res = await ActionGo(_scan);
-            ((Activity)sender).RunOnUiThread(() =>
+            ((FragmentActivity)sender).RunOnUiThread(() =>
             {
                 orderNumberET.Enabled = true;
                 orderNumberET.Text = "";
@@ -187,6 +188,31 @@ namespace RadioLogisticaDeliveries
         {
             //Dismiss Keybaord
             InputMethodManager imm = (InputMethodManager)Activity.GetSystemService(Context.InputMethodService);
+            //get location
+            using (var rs= new XMLRS("Select CMP_INTEGER from Datos_Empresa where Codigo='LOC_TIME'",Values.gDatos))
+            {
+                await rs.OpenAsync();
+                if (rs.RecordCount != 0)
+                    Values.LocTime = rs["CMP_INTEGER"].ToInt();
+            }
+            var request = new GeolocationRequest(GeolocationAccuracy.High, TimeSpan.FromSeconds(30));
+            var ini = await Geolocation.GetLastKnownLocationAsync();
+            Location location = null;
+            try
+            {
+                location = await Geolocation.GetLocationAsync(request);
+            } catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            if (location != null)
+            {
+                var _locData = new DataLocation() { Accuracy = location.Accuracy, Course = location.Course, Altitude = location.Altitude, Latitude = location.Latitude, Longitude = location.Longitude, Speed = location.Speed, Timestamp = location.Timestamp };
+                await _locData.ToDB();
+            }
+            Activity.StartService(new Intent(Activity, typeof(LocatorService)));
+            LocatorService.Active = true;
+
             imm.HideSoftInputFromWindow(orderNumberET.WindowToken, 0);
             int _progress = 0;
             if (Values.gOrderNumber!=0)

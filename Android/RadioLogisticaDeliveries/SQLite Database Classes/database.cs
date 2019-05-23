@@ -101,6 +101,21 @@ namespace RadioLogisticaDeliveries
 
     }
 
+    public class DeviceLocation
+    {
+        [PrimaryKey, AutoIncrement]
+        public int idreg { get; set; }
+        public string Session { get; set; }
+        public double? Accuracy { get; set; }
+        public double? Course { get; set; }
+        public double? Altitude { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+        public double? Speed { get; set; }
+        public DateTimeOffset Timestamp { get; set; }
+        public bool Transmitted { get; set; } = false;
+        public string TransmissionResult { get; set; } = "";
+    }
     
     public static class ScannedDataControl
     {
@@ -133,6 +148,14 @@ namespace RadioLogisticaDeliveries
         }
     }
     
+    public static class DeviceLocationControl
+    {
+        public static string ProcedureParameters(this DeviceLocation DL)
+        {
+            return $"@Session={DL.Session}, @Accuracy={DL.Accuracy},@Altitude={DL.Altitude ?? -1},@Course={DL.Course ?? -1},@Latitude={DL.Latitude},@Longitude={DL.Longitude},@Speed={DL.Speed ?? -1},@Timestamp='{DL.Timestamp.DateTime}'";
+        }
+    }
+
     #endregion
     public class SQLiteDatabase
     {
