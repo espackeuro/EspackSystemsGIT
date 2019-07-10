@@ -228,10 +228,10 @@ namespace Messages
             string _dataBase = _xconn.Element("DataBase").Value.ToString(); //get the database
             string _procedureName = xmlMsgIn.Data.Element("procedureName").Value.ToString(); // get the procedure name
             var _server = new cServer(_xconn.Element("server")); //create the server object from the connection data
-            using (var _conn = new cAccesoDatosNet(_server, _dataBase)) //create the normal connection
-            using (var _sp = new SP(_conn, _procedureName)) // create the normal SP
+            try
             {
-                try
+                using (var _conn = new cAccesoDatosNet(_server, _dataBase)) //create the normal connection
+                using (var _sp = new SP(_conn, _procedureName)) // create the normal SP
                 {
                     _parameters.ToList().ForEach(p =>
                     {
@@ -244,10 +244,10 @@ namespace Messages
                     _msgOut.Add(_sp.XOutParameters.Root); //adds the out parameters to the data
                     xmlMsgOut = new XDocument(_msgOut); // returns
                 }
-                catch (Exception ex)
-                {
-                    xmlMsgOut = new XDocument(new XElement("result", "ERROR: " + ex.Message));
-                }
+            }
+            catch (Exception ex)
+            {
+                xmlMsgOut = new XDocument(new XElement("result", "ERROR: " + ex.Message));
             }
             MsgOut = xmlMsgOut.ToString();
             return true;

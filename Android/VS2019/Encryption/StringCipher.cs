@@ -66,7 +66,15 @@ namespace Encryption
         {
             // Get the complete stream of bytes that represent:
             // [32 bytes of Salt] + [32 bytes of IV] + [n bytes of CipherText]
-            var cipherTextBytesWithSaltAndIv = Convert.FromBase64String(cipherText);
+            byte[] cipherTextBytesWithSaltAndIv;
+            try
+            {
+                cipherTextBytesWithSaltAndIv = Convert.FromBase64String(cipherText);
+            } catch
+            {
+                //not encrypted
+                return cipherText;
+            }
             // Get the saltbytes by extracting the first 32 bytes from the supplied cipherText bytes.
             var saltStringBytes = cipherTextBytesWithSaltAndIv.Take(Keysize / 8).ToArray();
             // Get the IV bytes by extracting the next 32 bytes from the supplied cipherText bytes.

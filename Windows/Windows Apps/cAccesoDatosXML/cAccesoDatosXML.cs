@@ -450,6 +450,11 @@ namespace AccesoDatosXML
             oServer.Resolve = false;
         }
 
+        public cAccesoDatosXML(cAccesoDatosXML parent) : base(parent)
+        {
+            oServer.Resolve = false;
+        }
+
     }
 
 
@@ -988,8 +993,13 @@ namespace AccesoDatosXML
             };
             if (IPServerList.Count == 0)
             {
+#if DEBUG
+                IPServerList.Add(IPAddress.Parse("10.200.90.19"));
+#endif
                 IPServerList.Add(IPAddress.Parse("213.0.111.218"));
+#if !DEBUG
                 IPServerList.Add(IPAddress.Parse("46.24.173.2"));
+#endif
                 IPServerList.Add(IPAddress.Parse("81.150.8.34"));
                 IPServerList.Add(IPAddress.Parse("81.12.170.94"));
             }
@@ -1029,6 +1039,9 @@ namespace AccesoDatosXML
                 var _parameters = _result.Element("parameters").Elements("parameter");
 
                 string _sIP = (from _par in _parameters where _par.Element("Name").Value.ToString() == "@ExternalIP" select _par.Element("Value").Value).First();
+#if DEBUG
+                _sIP = "10.200.90.19";//"46.24.173.2";
+#endif
                 var _COD3 = (from _par in _parameters where _par.Element("Name").Value.ToString() == "@COD3" select _par.Element("Value").Value).First();
                 _session = (from _par in _parameters where _par.Element("Name").Value.ToString() == "@SessionNumber" select _par.Element("Value").Value).First();
                 IP = IPAddress.Parse(_sIP);
@@ -1046,6 +1059,10 @@ namespace AccesoDatosXML
                 await encryptedCompressedMsgOut.process();
                 var Socket = new AsynchronousSocketClient() { ServerIP = IP, ServerPort = Port };
                 var _result = await Socket.AsyncConversation(encryptedCompressedMsgOut.MsgOut);
+                if (_result == "" || _result.Substring(0, 5) == "ERROR")
+                {
+                    throw new Exception(_result);
+                }
                 var msgIn = new Message();
                 var decryptedUncompressedMsgIn = new DecryptMessageInput(new DecompressMessageInput(msgIn)) { MsgIn = _result };
                 await decryptedUncompressedMsgIn.process();

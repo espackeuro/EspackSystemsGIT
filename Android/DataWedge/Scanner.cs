@@ -124,7 +124,7 @@ namespace Scanner
                     
                     string _scanAll = cDataWedge.HandleDecodeData(intent);
                     string _pattern = @"(.*)\|(Scanner|MSR)\|(.*)\|(\d+)";
-                    var _matches = Regex.Match(_scanAll, _pattern);
+                    var _matches = Regex.Match(_scanAll, _pattern, RegexOptions.Singleline);
                     string _scan = _matches.Groups[1].ToString();
                     try
                     {

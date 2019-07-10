@@ -1,0 +1,144 @@
+using System.Linq;
+using System.Threading.Tasks;
+using System;
+using static RadioSequencing.Values;
+
+namespace RadioSequencing
+{
+    public class DataReading : cData
+    {
+        //ticket
+        public string SequenceNumber { get; set; }
+        public string VINNr { get; set; }
+        public string PartnumberSeqLabel { get; set; }
+        //partnumber datamatrix
+        public string PartnumberLabel { get; set; }
+        public string Batch { get; set; }
+        //Truck position
+        public string TrollLocation { get; set; }
+        //Qty
+        public int Qty { get; set; }
+
+        public override infoData Info
+        {
+            get
+            {
+                return new infoData()
+                {
+                    c0 = SequenceNumber,
+                    c1 = TrollLocation,
+                    c2 = PartnumberLabel,
+                    c3 = Qty.ToString()
+                };
+            }
+        }
+
+        public async override Task<bool> doCheckings()
+        {
+            Status = dataStatus.READ;
+            /*
+
+
+            //check if Rack is set
+            if (Values.CurrentRack == "")
+            {
+                _errorMessage = "Rack not set, read rack first.";
+                Status = dataStatus.ERROR;
+                return false;
+            }
+            //check if present and get serial data
+            var query1 = await Values.SQLidb.db.Table<PartnumbersRacks>().Where(r => r.Partnumber == Partnumber && r.Rack == Values.CurrentRack).ToListAsync();
+            if (query1.Count == 0)
+            {
+                _errorMessage = string.Format("Wrong partnumber {0}.", Partnumber);
+                Status = dataStatus.ERROR;
+                query1.Clear();
+                query1 = null;
+                return false;
+            }
+            int _min = query1[0].MinBoxes;
+            int _max = query1[0].MaxBoxes;
+            //find the one corresponding to labelrack
+            var _partRack = query1.FirstOrDefault(r => r.Rack==LabelRack);
+            if (_partRack == null)
+            {
+                _errorMessage = string.Format("Partnumber {0} is not assigned to this Rack.", Partnumber);
+                Status = dataStatus.ERROR;
+                query1.Clear();
+                query1 = null;
+                return false;
+            }
+            //if labelrack is not currentrack, warning and copy the new destination
+            if (LabelRack!= Values.CurrentRack)
+            {
+                _warningMessage = string.Format("Label Rack is {0}.\n Copying to {1}.", LabelRack, Values.CurrentRack);
+                Status = dataStatus.WARNING;
+                //insert the new rack for the partnumber
+                await Values.SQLidb.db.InsertAsync(new PartnumbersRacks()
+                {
+                    Rack = Values.CurrentRack,
+                    Partnumber = Partnumber,
+                    MinBoxes = _min,
+                    MaxBoxes = _max
+                });
+            }
+            //check block from RacksBlocks for current rack
+            var _readRack= await Values.SQLidb.db.FindAsync<RacksBlocks>(r => r.Rack == Values.CurrentRack);
+            if (_readRack==null)
+            {
+                _errorMessage = string.Format("Wrong Rack {0}.", Values.CurrentRack);
+                Status = dataStatus.ERROR;
+                return false;
+            }
+            var _block = _readRack.Block;
+            
+            //if block is different we move it
+            if (_block!=Values.gBlock)
+            {
+                _errorMessage = string.Format("Wrong Block for the rack {0}.", Values.CurrentRack);
+                Status = dataStatus.ERROR;
+                return false;
+
+            }
+            //check block from RacksBlocks for current labelrack
+            var _labelRack = await Values.SQLidb.db.FindAsync<RacksBlocks>(r => r.Rack == LabelRack);
+            if (_labelRack == null)
+            {
+                _errorMessage = string.Format("Wrong Rack {0}.", LabelRack);
+                Status = dataStatus.ERROR;
+                return false;
+            }
+            //check block match
+            if (_labelRack.Block!=_block)
+            {
+                _warningMessage = string.Format("Label rack block {0} mismatch.", _labelRack.Block);
+                Status = dataStatus.WARNING;
+            }
+            //qty checks 
+            if (Qty>_max)
+            {
+                _warningMessage= string.Format("QTY overflow, max QTY is {0}.", _max);
+                Status = dataStatus.WARNING;
+                Qty = _max;
+            }
+            */
+            return true;
+
+        }
+        public override async Task<bool> ToDB()
+        {
+            try
+            {
+                await Values.SQLidb.db.InsertAsync(new ScannedData() { Action = "ADD", System = Values.System,CustomerService=CustomerService, Session = Session, SequenceNumber = SequenceNumber, VINNr = VINNr, PartnumberSeqLabel = PartnumberSeqLabel, PartnumberLabel = PartnumberLabel, Batch = Batch, Qty = Qty, TrollLocation = TrollLocation, Transmitted=false });
+            }
+            catch (Exception ex)
+            {
+                _errorMessage = ex.Message;
+                _status = dataStatus.ERROR;
+                return false;
+            }
+            _status = dataStatus.DATABASE;
+            return true;
+        }
+    }
+}

@@ -13,6 +13,7 @@ namespace Messages
         private XElement ActionDefinition { get; set; }
         private XElement ActionData { get; set; }
         private XElement SessionNumber { get; set; }
+        private XElement ErrorMessage { get; set; }
         public XDocument XMessage
         {
             get
@@ -28,9 +29,16 @@ namespace Messages
                 _root.Root.Add(ActionDefinition);
                 _root.Root.Add(ActionData);
                 _root.Root.Add(SessionNumber);
+
                 return _root;
             }
         }
+
+        public void SetErrorMsg(string error)
+        {
+            ErrorMessage = new XElement("ErrorMessage", error);
+        }
+
         public void SetActionDefinition(string _action)
         {
             ActionDefinition = new XElement("ActionDefinition", _action);

@@ -64,49 +64,55 @@ public class StateObject
 
         public async Task<string> AsyncConversation(string msgOut)
         {
-            try
+            string dataFromServer = "";
+            IPAddress ipAddress = ServerIP;
+            var port = ServerPort;
+            if (ipAddress == null)
+                throw new Exception("No IPv4 address for server");
+            using (TcpClient client = new TcpClient())
             {
-                string dataFromServer = "";
-                IPAddress ipAddress = ServerIP;
-                var port = ServerPort;
-                if (ipAddress == null)
-                    throw new Exception("No IPv4 address for server");
-                using (TcpClient client = new TcpClient())
+                try
                 {
-                    
                     await client.ConnectAsync(ipAddress, port);
-                    //LogMessage("Connected to Server");
-                    using (var networkStream = client.GetStream())
-                    using (var writer = new StreamWriter(networkStream))
-                    using (var reader = new StreamReader(networkStream))
+                }
+                catch (Exception ex)
+                {
+                    return $"ERROR CONNECTING: {ex.Message};";
+                    throw ex;
+                }
+                //LogMessage("Connected to Server");
+                using (var networkStream = client.GetStream())
+                using (var writer = new StreamWriter(networkStream))
+                using (var reader = new StreamReader(networkStream))
+                {
+                    try
                     {
                         writer.AutoFlush = true;
                         await writer.WriteLineAsync(msgOut);
-                        try
-                        {
-                            dataFromServer = await reader.ReadLineAsync();
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine(ex.Message);
-                        }
-                        if (string.IsNullOrEmpty(dataFromServer))
-                        {
-                            return "";
-                        }
-
+                    }
+                    catch (Exception ex)
+                    {
+                        return $"ERROR SENDING: {ex.Message};";
+                        throw ex;
+                    }
+                    try
+                    {
+                        dataFromServer = await reader.ReadLineAsync();
+                    }
+                    catch (Exception ex)
+                    {
+                        return $"ERROR RECEIVING: {ex.Message};";
+                        throw ex;
+                    }
+                    if (string.IsNullOrEmpty(dataFromServer))
+                    {
+                        return "";
                     }
 
                 }
 
-
-
-                return dataFromServer;
             }
-            catch (Exception ex)
-            {
-                return ex.Message;
-            }
+            return dataFromServer;
         }
 
         public string SyncConversation(string msgOut)
