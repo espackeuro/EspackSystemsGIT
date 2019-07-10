@@ -34,6 +34,7 @@
             this.txtDesService = new EspackFormControlsNS.EspackTextBox();
             this.txtQtyLabel = new EspackFormControlsNS.EspackNumericTextBox();
             this.txtCharacter = new EspackFormControlsNS.EspackNumericTextBox();
+            this.txtPrinter = new EspackFormControlsNS.EspackNumericTextBox();
             this.SuspendLayout();
             // 
             // txtQty
@@ -119,7 +120,7 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(385, 89);
+            this.btnPrint.Location = new System.Drawing.Point(360, 152);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 23);
             this.btnPrint.TabIndex = 4;
@@ -245,11 +246,53 @@
             this.txtCharacter.Value = null;
             this.txtCharacter.WordWrap = true;
             // 
+            // txtPrinter
+            // 
+            this.txtPrinter.Add = false;
+            this.txtPrinter.AllowSpace = false;
+            this.txtPrinter.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtPrinter.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtPrinter.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtPrinter.Caption = "Printer";
+            this.txtPrinter.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtPrinter.DBField = null;
+            this.txtPrinter.DBFieldType = null;
+            this.txtPrinter.DefaultValue = null;
+            this.txtPrinter.Del = false;
+            this.txtPrinter.DependingRS = null;
+            this.txtPrinter.ExtraDataLink = null;
+            this.txtPrinter.ForeColor = System.Drawing.Color.Gray;
+            this.txtPrinter.IsCTLMOwned = false;
+            this.txtPrinter.IsPassword = false;
+            this.txtPrinter.Length = 0;
+            this.txtPrinter.Location = new System.Drawing.Point(12, 131);
+            this.txtPrinter.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtPrinter.Mask = false;
+            this.txtPrinter.Multiline = false;
+            this.txtPrinter.Name = "txtPrinter";
+            this.txtPrinter.Order = 0;
+            this.txtPrinter.ParentConn = null;
+            this.txtPrinter.ParentDA = null;
+            this.txtPrinter.PK = false;
+            this.txtPrinter.Precision = 0;
+            this.txtPrinter.Protected = false;
+            this.txtPrinter.ReadOnly = true;
+            this.txtPrinter.Search = false;
+            this.txtPrinter.Size = new System.Drawing.Size(160, 44);
+            this.txtPrinter.Status = CommonTools.EnumStatus.SEARCH;
+            this.txtPrinter.TabIndex = 11;
+            this.txtPrinter.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtPrinter.ThousandsGroup = false;
+            this.txtPrinter.Upp = true;
+            this.txtPrinter.Value = null;
+            this.txtPrinter.WordWrap = true;
+            // 
             // fPrintUnitLabels
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(472, 124);
+            this.ClientSize = new System.Drawing.Size(453, 190);
+            this.Controls.Add(this.txtPrinter);
             this.Controls.Add(this.txtCharacter);
             this.Controls.Add(this.txtQtyLabel);
             this.Controls.Add(this.txtDesService);
@@ -270,5 +313,6 @@
         private EspackFormControlsNS.EspackNumericTextBox txtQty;
         private EspackFormControlsNS.EspackNumericTextBox txtQtyLabel;
         private EspackFormControlsNS.EspackNumericTextBox txtCharacter;
+        private EspackFormControlsNS.EspackNumericTextBox txtPrinter;
     }
 }

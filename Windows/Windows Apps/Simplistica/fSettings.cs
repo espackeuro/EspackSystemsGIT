@@ -25,7 +25,7 @@ namespace Simplistica
             try
             {
                 cboPrinters.Enabled = true;
-                cboPrinters.Source("select Codigo from  ETIQUETAS..datosEmpresa where descripcion like '%COO%' order by cmp_integer", Values.gDatos);
+                cboPrinters.Source("select Codigo from  ETIQUETAS..datosEmpresa where descripcion like '%|COO|%' or descripcion like '%|FXC|%' order by cmp_integer", Values.gDatos);
                 cboPrinters.Value = cSettings.readSetting("labelPrinter");
                 Values.LabelPrinterAddress = cboPrinters.Value.ToString();
                 cboPrinters.SelectedIndexChanged += CboPrinters_SelectedIndexChanged;

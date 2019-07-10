@@ -25,6 +25,7 @@ namespace Simplistica
             txtQty.Enabled = true;
             cboService.ParentConn = Values.gDatos;
             cboService.Source("Select Codigo,Nombre from Servicios where dbo.CheckFlag(flags,'REPAIRS')=1 order by codigo", txtDesService);
+            txtPrinter.Text = Values.LabelPrinterAddress.ToString();
             cboService.SelectedIndexChanged += CboService_SelectedIndexChanged;
             AcceptButton = btnPrint;
         }
@@ -36,6 +37,7 @@ namespace Simplistica
                 _rs.Open();
                 txtQtyLabel.Text = _rs.EOF ? "1" : _rs["cmp_integer"].ToString();
                 txtCharacter.Text = _rs.EOF ? "" : _rs["letter"].ToString();
+                txtPrinter.Text = Values.LabelPrinterAddress.ToString();
             }
         }
 
@@ -44,6 +46,8 @@ namespace Simplistica
             if (MessageBox.Show(string.Format("This will print {0} unit labels. Are you sure?",txtQty.Text), "SIMPLISTICA", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 int _labelInit = 0;
+
+                txtPrinter.Text = Values.LabelPrinterAddress.ToString();
 
                 using (var _conn = new cAccesoDatosNet(Values.gDatos.Server, "REPAIRS", Values.gDatos.User, Values.gDatos.Password))
                 using (var _sp = new SP(_conn, "pGetContador"))
