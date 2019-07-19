@@ -60,8 +60,8 @@
     <AndroidResource Include="Resources\Values\Strings.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\VS2019\CommonAndroidTools\CommonAndroidTools.csproj">
-      <Project>{2515369E-2EC4-4459-B58E-8B6B6B1D619B}</Project>
+    <ProjectReference Include="..\BitmapHelpers\CommonAndroidTools.csproj">
+      <Project>{FE45781B-38CB-44F0-9DE7-08E15E0C53BD}</Project>
       <Name>CommonAndroidTools</Name>
     </ProjectReference>
   </ItemGroup>

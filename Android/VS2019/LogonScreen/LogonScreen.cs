@@ -190,7 +190,7 @@ namespace LogonScreen
                             version = string.Format("{0}.{1}", versionArray[0], versionArray[1]);
                             _packageName = LogonSP.ReturnValues()["@PackageName"].ToString();
 #if DEBUG
-                            if (true)
+                            if (false)
 #else
                             if (_version != version)
 #endif

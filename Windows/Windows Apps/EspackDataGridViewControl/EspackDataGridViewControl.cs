@@ -134,7 +134,7 @@ namespace EspackDataGridView
         {
             if (Status == EnumStatus.ADDNEW || Status == EnumStatus.EDIT)
             {
-                if (CurrentRow.Cells.OfType<EspackDataGridViewCell>().Where(o => o.Value.ToString() != "").Count() == 0)
+                if (CurrentRow.Cells.OfType<EspackDataGridViewCell>().Where(o => o.Value?.ToString() != "").Count() == 0)
                     return false;
             }
             return true;

@@ -5,7 +5,7 @@ using static RadioSequencing.Values;
 
 namespace RadioSequencing
 {
-    public class DataReading : cData
+    public class DataReading : cData, ICloneable
     {
         //ticket
         public string SequenceNumber { get; set; }
@@ -31,6 +31,11 @@ namespace RadioSequencing
                     c3 = Qty.ToString()
                 };
             }
+        }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
 
         public async override Task<bool> doCheckings()

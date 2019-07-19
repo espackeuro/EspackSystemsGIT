@@ -67,14 +67,14 @@ namespace RadioSequencing
             {
                 case dataStatus.WARNING:
                     Values.iFt.SetMessage(Warning);
-                    Values.iFt.pushInfo(this.Info);
+                    //Values.iFt.pushInfo(this.Info);
                     return;
                 case dataStatus.ERROR:
                     Values.iFt.SetMessage(Error);
                     return;
             }
             Values.iFt.SetMessage("");
-            Values.iFt.pushInfo(this.Info);
+            //Values.iFt.pushInfo(this.Info);
         }
 
         public void UpdateCurrent()
@@ -83,15 +83,15 @@ namespace RadioSequencing
             {
                 case dataStatus.WARNING:
                     Values.iFt.SetMessage(Warning);
-                    Values.iFt.pushInfo(Info);
-                    Values.iFt.updateMainLine(Info);
+                    //Values.iFt.pushInfo(Info);
+                    //Values.iFt.updateMainLine(Info);
                     return;
                 case dataStatus.ERROR:
                     Values.iFt.SetMessage(Error);
                     return;
             }
             Values.iFt.SetMessage("");
-            Values.iFt.updateMainLine(Info);
+            //Values.iFt.updateMainLine(Info);
         }
 
         public virtual Task<bool> doCheckings() { return Task.FromResult(false); }

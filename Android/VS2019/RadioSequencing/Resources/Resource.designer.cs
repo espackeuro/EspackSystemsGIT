@@ -26,1497 +26,13 @@ namespace RadioSequencing
 		
 		public static void UpdateIdValues()
 		{
-			global::CommonAndroidTools.Resource.Animation.abc_fade_in = global::RadioSequencing.Resource.Animation.abc_fade_in;
-			global::CommonAndroidTools.Resource.Animation.abc_fade_out = global::RadioSequencing.Resource.Animation.abc_fade_out;
-			global::CommonAndroidTools.Resource.Animation.abc_grow_fade_in_from_bottom = global::RadioSequencing.Resource.Animation.abc_grow_fade_in_from_bottom;
-			global::CommonAndroidTools.Resource.Animation.abc_popup_enter = global::RadioSequencing.Resource.Animation.abc_popup_enter;
-			global::CommonAndroidTools.Resource.Animation.abc_popup_exit = global::RadioSequencing.Resource.Animation.abc_popup_exit;
-			global::CommonAndroidTools.Resource.Animation.abc_shrink_fade_out_from_bottom = global::RadioSequencing.Resource.Animation.abc_shrink_fade_out_from_bottom;
-			global::CommonAndroidTools.Resource.Animation.abc_slide_in_bottom = global::RadioSequencing.Resource.Animation.abc_slide_in_bottom;
-			global::CommonAndroidTools.Resource.Animation.abc_slide_in_top = global::RadioSequencing.Resource.Animation.abc_slide_in_top;
-			global::CommonAndroidTools.Resource.Animation.abc_slide_out_bottom = global::RadioSequencing.Resource.Animation.abc_slide_out_bottom;
-			global::CommonAndroidTools.Resource.Animation.abc_slide_out_top = global::RadioSequencing.Resource.Animation.abc_slide_out_top;
-			global::CommonAndroidTools.Resource.Attribute.actionBarDivider = global::RadioSequencing.Resource.Attribute.actionBarDivider;
-			global::CommonAndroidTools.Resource.Attribute.actionBarItemBackground = global::RadioSequencing.Resource.Attribute.actionBarItemBackground;
-			global::CommonAndroidTools.Resource.Attribute.actionBarPopupTheme = global::RadioSequencing.Resource.Attribute.actionBarPopupTheme;
-			global::CommonAndroidTools.Resource.Attribute.actionBarSize = global::RadioSequencing.Resource.Attribute.actionBarSize;
-			global::CommonAndroidTools.Resource.Attribute.actionBarSplitStyle = global::RadioSequencing.Resource.Attribute.actionBarSplitStyle;
-			global::CommonAndroidTools.Resource.Attribute.actionBarStyle = global::RadioSequencing.Resource.Attribute.actionBarStyle;
-			global::CommonAndroidTools.Resource.Attribute.actionBarTabBarStyle = global::RadioSequencing.Resource.Attribute.actionBarTabBarStyle;
-			global::CommonAndroidTools.Resource.Attribute.actionBarTabStyle = global::RadioSequencing.Resource.Attribute.actionBarTabStyle;
-			global::CommonAndroidTools.Resource.Attribute.actionBarTabTextStyle = global::RadioSequencing.Resource.Attribute.actionBarTabTextStyle;
-			global::CommonAndroidTools.Resource.Attribute.actionBarTheme = global::RadioSequencing.Resource.Attribute.actionBarTheme;
-			global::CommonAndroidTools.Resource.Attribute.actionBarWidgetTheme = global::RadioSequencing.Resource.Attribute.actionBarWidgetTheme;
-			global::CommonAndroidTools.Resource.Attribute.actionButtonStyle = global::RadioSequencing.Resource.Attribute.actionButtonStyle;
-			global::CommonAndroidTools.Resource.Attribute.actionDropDownStyle = global::RadioSequencing.Resource.Attribute.actionDropDownStyle;
-			global::CommonAndroidTools.Resource.Attribute.actionLayout = global::RadioSequencing.Resource.Attribute.actionLayout;
-			global::CommonAndroidTools.Resource.Attribute.actionMenuTextAppearance = global::RadioSequencing.Resource.Attribute.actionMenuTextAppearance;
-			global::CommonAndroidTools.Resource.Attribute.actionMenuTextColor = global::RadioSequencing.Resource.Attribute.actionMenuTextColor;
-			global::CommonAndroidTools.Resource.Attribute.actionModeBackground = global::RadioSequencing.Resource.Attribute.actionModeBackground;
-			global::CommonAndroidTools.Resource.Attribute.actionModeCloseButtonStyle = global::RadioSequencing.Resource.Attribute.actionModeCloseButtonStyle;
-			global::CommonAndroidTools.Resource.Attribute.actionModeCloseDrawable = global::RadioSequencing.Resource.Attribute.actionModeCloseDrawable;
-			global::CommonAndroidTools.Resource.Attribute.actionModeCopyDrawable = global::RadioSequencing.Resource.Attribute.actionModeCopyDrawable;
-			global::CommonAndroidTools.Resource.Attribute.actionModeCutDrawable = global::RadioSequencing.Resource.Attribute.actionModeCutDrawable;
-			global::CommonAndroidTools.Resource.Attribute.actionModeFindDrawable = global::RadioSequencing.Resource.Attribute.actionModeFindDrawable;
-			global::CommonAndroidTools.Resource.Attribute.actionModePasteDrawable = global::RadioSequencing.Resource.Attribute.actionModePasteDrawable;
-			global::CommonAndroidTools.Resource.Attribute.actionModePopupWindowStyle = global::RadioSequencing.Resource.Attribute.actionModePopupWindowStyle;
-			global::CommonAndroidTools.Resource.Attribute.actionModeSelectAllDrawable = global::RadioSequencing.Resource.Attribute.actionModeSelectAllDrawable;
-			global::CommonAndroidTools.Resource.Attribute.actionModeShareDrawable = global::RadioSequencing.Resource.Attribute.actionModeShareDrawable;
-			global::CommonAndroidTools.Resource.Attribute.actionModeSplitBackground = global::RadioSequencing.Resource.Attribute.actionModeSplitBackground;
-			global::CommonAndroidTools.Resource.Attribute.actionModeStyle = global::RadioSequencing.Resource.Attribute.actionModeStyle;
-			global::CommonAndroidTools.Resource.Attribute.actionModeWebSearchDrawable = global::RadioSequencing.Resource.Attribute.actionModeWebSearchDrawable;
-			global::CommonAndroidTools.Resource.Attribute.actionOverflowButtonStyle = global::RadioSequencing.Resource.Attribute.actionOverflowButtonStyle;
-			global::CommonAndroidTools.Resource.Attribute.actionOverflowMenuStyle = global::RadioSequencing.Resource.Attribute.actionOverflowMenuStyle;
-			global::CommonAndroidTools.Resource.Attribute.actionProviderClass = global::RadioSequencing.Resource.Attribute.actionProviderClass;
-			global::CommonAndroidTools.Resource.Attribute.actionViewClass = global::RadioSequencing.Resource.Attribute.actionViewClass;
-			global::CommonAndroidTools.Resource.Attribute.activityChooserViewStyle = global::RadioSequencing.Resource.Attribute.activityChooserViewStyle;
-			global::CommonAndroidTools.Resource.Attribute.alertDialogButtonGroupStyle = global::RadioSequencing.Resource.Attribute.alertDialogButtonGroupStyle;
-			global::CommonAndroidTools.Resource.Attribute.alertDialogCenterButtons = global::RadioSequencing.Resource.Attribute.alertDialogCenterButtons;
-			global::CommonAndroidTools.Resource.Attribute.alertDialogStyle = global::RadioSequencing.Resource.Attribute.alertDialogStyle;
-			global::CommonAndroidTools.Resource.Attribute.alertDialogTheme = global::RadioSequencing.Resource.Attribute.alertDialogTheme;
-			global::CommonAndroidTools.Resource.Attribute.allowStacking = global::RadioSequencing.Resource.Attribute.allowStacking;
-			global::CommonAndroidTools.Resource.Attribute.alpha = global::RadioSequencing.Resource.Attribute.alpha;
-			global::CommonAndroidTools.Resource.Attribute.alphabeticModifiers = global::RadioSequencing.Resource.Attribute.alphabeticModifiers;
-			global::CommonAndroidTools.Resource.Attribute.arrowHeadLength = global::RadioSequencing.Resource.Attribute.arrowHeadLength;
-			global::CommonAndroidTools.Resource.Attribute.arrowShaftLength = global::RadioSequencing.Resource.Attribute.arrowShaftLength;
-			global::CommonAndroidTools.Resource.Attribute.autoCompleteTextViewStyle = global::RadioSequencing.Resource.Attribute.autoCompleteTextViewStyle;
-			global::CommonAndroidTools.Resource.Attribute.autoSizeMaxTextSize = global::RadioSequencing.Resource.Attribute.autoSizeMaxTextSize;
-			global::CommonAndroidTools.Resource.Attribute.autoSizeMinTextSize = global::RadioSequencing.Resource.Attribute.autoSizeMinTextSize;
-			global::CommonAndroidTools.Resource.Attribute.autoSizePresetSizes = global::RadioSequencing.Resource.Attribute.autoSizePresetSizes;
-			global::CommonAndroidTools.Resource.Attribute.autoSizeStepGranularity = global::RadioSequencing.Resource.Attribute.autoSizeStepGranularity;
-			global::CommonAndroidTools.Resource.Attribute.autoSizeTextType = global::RadioSequencing.Resource.Attribute.autoSizeTextType;
-			global::CommonAndroidTools.Resource.Attribute.background = global::RadioSequencing.Resource.Attribute.background;
-			global::CommonAndroidTools.Resource.Attribute.backgroundSplit = global::RadioSequencing.Resource.Attribute.backgroundSplit;
-			global::CommonAndroidTools.Resource.Attribute.backgroundStacked = global::RadioSequencing.Resource.Attribute.backgroundStacked;
-			global::CommonAndroidTools.Resource.Attribute.backgroundTint = global::RadioSequencing.Resource.Attribute.backgroundTint;
-			global::CommonAndroidTools.Resource.Attribute.backgroundTintMode = global::RadioSequencing.Resource.Attribute.backgroundTintMode;
-			global::CommonAndroidTools.Resource.Attribute.barLength = global::RadioSequencing.Resource.Attribute.barLength;
-			global::CommonAndroidTools.Resource.Attribute.borderlessButtonStyle = global::RadioSequencing.Resource.Attribute.borderlessButtonStyle;
-			global::CommonAndroidTools.Resource.Attribute.buttonBarButtonStyle = global::RadioSequencing.Resource.Attribute.buttonBarButtonStyle;
-			global::CommonAndroidTools.Resource.Attribute.buttonBarNegativeButtonStyle = global::RadioSequencing.Resource.Attribute.buttonBarNegativeButtonStyle;
-			global::CommonAndroidTools.Resource.Attribute.buttonBarNeutralButtonStyle = global::RadioSequencing.Resource.Attribute.buttonBarNeutralButtonStyle;
-			global::CommonAndroidTools.Resource.Attribute.buttonBarPositiveButtonStyle = global::RadioSequencing.Resource.Attribute.buttonBarPositiveButtonStyle;
-			global::CommonAndroidTools.Resource.Attribute.buttonBarStyle = global::RadioSequencing.Resource.Attribute.buttonBarStyle;
-			global::CommonAndroidTools.Resource.Attribute.buttonGravity = global::RadioSequencing.Resource.Attribute.buttonGravity;
-			global::CommonAndroidTools.Resource.Attribute.buttonPanelSideLayout = global::RadioSequencing.Resource.Attribute.buttonPanelSideLayout;
-			global::CommonAndroidTools.Resource.Attribute.buttonStyle = global::RadioSequencing.Resource.Attribute.buttonStyle;
-			global::CommonAndroidTools.Resource.Attribute.buttonStyleSmall = global::RadioSequencing.Resource.Attribute.buttonStyleSmall;
-			global::CommonAndroidTools.Resource.Attribute.buttonTint = global::RadioSequencing.Resource.Attribute.buttonTint;
-			global::CommonAndroidTools.Resource.Attribute.buttonTintMode = global::RadioSequencing.Resource.Attribute.buttonTintMode;
-			global::CommonAndroidTools.Resource.Attribute.checkboxStyle = global::RadioSequencing.Resource.Attribute.checkboxStyle;
-			global::CommonAndroidTools.Resource.Attribute.checkedTextViewStyle = global::RadioSequencing.Resource.Attribute.checkedTextViewStyle;
-			global::CommonAndroidTools.Resource.Attribute.closeIcon = global::RadioSequencing.Resource.Attribute.closeIcon;
-			global::CommonAndroidTools.Resource.Attribute.closeItemLayout = global::RadioSequencing.Resource.Attribute.closeItemLayout;
-			global::CommonAndroidTools.Resource.Attribute.collapseContentDescription = global::RadioSequencing.Resource.Attribute.collapseContentDescription;
-			global::CommonAndroidTools.Resource.Attribute.collapseIcon = global::RadioSequencing.Resource.Attribute.collapseIcon;
-			global::CommonAndroidTools.Resource.Attribute.color = global::RadioSequencing.Resource.Attribute.color;
-			global::CommonAndroidTools.Resource.Attribute.colorAccent = global::RadioSequencing.Resource.Attribute.colorAccent;
-			global::CommonAndroidTools.Resource.Attribute.colorBackgroundFloating = global::RadioSequencing.Resource.Attribute.colorBackgroundFloating;
-			global::CommonAndroidTools.Resource.Attribute.colorButtonNormal = global::RadioSequencing.Resource.Attribute.colorButtonNormal;
-			global::CommonAndroidTools.Resource.Attribute.colorControlActivated = global::RadioSequencing.Resource.Attribute.colorControlActivated;
-			global::CommonAndroidTools.Resource.Attribute.colorControlHighlight = global::RadioSequencing.Resource.Attribute.colorControlHighlight;
-			global::CommonAndroidTools.Resource.Attribute.colorControlNormal = global::RadioSequencing.Resource.Attribute.colorControlNormal;
-			global::CommonAndroidTools.Resource.Attribute.colorError = global::RadioSequencing.Resource.Attribute.colorError;
-			global::CommonAndroidTools.Resource.Attribute.colorPrimary = global::RadioSequencing.Resource.Attribute.colorPrimary;
-			global::CommonAndroidTools.Resource.Attribute.colorPrimaryDark = global::RadioSequencing.Resource.Attribute.colorPrimaryDark;
-			global::CommonAndroidTools.Resource.Attribute.colorSwitchThumbNormal = global::RadioSequencing.Resource.Attribute.colorSwitchThumbNormal;
-			global::CommonAndroidTools.Resource.Attribute.commitIcon = global::RadioSequencing.Resource.Attribute.commitIcon;
-			global::CommonAndroidTools.Resource.Attribute.contentDescription = global::RadioSequencing.Resource.Attribute.contentDescription;
-			global::CommonAndroidTools.Resource.Attribute.contentInsetEnd = global::RadioSequencing.Resource.Attribute.contentInsetEnd;
-			global::CommonAndroidTools.Resource.Attribute.contentInsetEndWithActions = global::RadioSequencing.Resource.Attribute.contentInsetEndWithActions;
-			global::CommonAndroidTools.Resource.Attribute.contentInsetLeft = global::RadioSequencing.Resource.Attribute.contentInsetLeft;
-			global::CommonAndroidTools.Resource.Attribute.contentInsetRight = global::RadioSequencing.Resource.Attribute.contentInsetRight;
-			global::CommonAndroidTools.Resource.Attribute.contentInsetStart = global::RadioSequencing.Resource.Attribute.contentInsetStart;
-			global::CommonAndroidTools.Resource.Attribute.contentInsetStartWithNavigation = global::RadioSequencing.Resource.Attribute.contentInsetStartWithNavigation;
-			global::CommonAndroidTools.Resource.Attribute.controlBackground = global::RadioSequencing.Resource.Attribute.controlBackground;
-			global::CommonAndroidTools.Resource.Attribute.customNavigationLayout = global::RadioSequencing.Resource.Attribute.customNavigationLayout;
-			global::CommonAndroidTools.Resource.Attribute.defaultQueryHint = global::RadioSequencing.Resource.Attribute.defaultQueryHint;
-			global::CommonAndroidTools.Resource.Attribute.dialogPreferredPadding = global::RadioSequencing.Resource.Attribute.dialogPreferredPadding;
-			global::CommonAndroidTools.Resource.Attribute.dialogTheme = global::RadioSequencing.Resource.Attribute.dialogTheme;
-			global::CommonAndroidTools.Resource.Attribute.displayOptions = global::RadioSequencing.Resource.Attribute.displayOptions;
-			global::CommonAndroidTools.Resource.Attribute.divider = global::RadioSequencing.Resource.Attribute.divider;
-			global::CommonAndroidTools.Resource.Attribute.dividerHorizontal = global::RadioSequencing.Resource.Attribute.dividerHorizontal;
-			global::CommonAndroidTools.Resource.Attribute.dividerPadding = global::RadioSequencing.Resource.Attribute.dividerPadding;
-			global::CommonAndroidTools.Resource.Attribute.dividerVertical = global::RadioSequencing.Resource.Attribute.dividerVertical;
-			global::CommonAndroidTools.Resource.Attribute.drawableSize = global::RadioSequencing.Resource.Attribute.drawableSize;
-			global::CommonAndroidTools.Resource.Attribute.drawerArrowStyle = global::RadioSequencing.Resource.Attribute.drawerArrowStyle;
-			global::CommonAndroidTools.Resource.Attribute.dropDownListViewStyle = global::RadioSequencing.Resource.Attribute.dropDownListViewStyle;
-			global::CommonAndroidTools.Resource.Attribute.dropdownListPreferredItemHeight = global::RadioSequencing.Resource.Attribute.dropdownListPreferredItemHeight;
-			global::CommonAndroidTools.Resource.Attribute.editTextBackground = global::RadioSequencing.Resource.Attribute.editTextBackground;
-			global::CommonAndroidTools.Resource.Attribute.editTextColor = global::RadioSequencing.Resource.Attribute.editTextColor;
-			global::CommonAndroidTools.Resource.Attribute.editTextStyle = global::RadioSequencing.Resource.Attribute.editTextStyle;
-			global::CommonAndroidTools.Resource.Attribute.elevation = global::RadioSequencing.Resource.Attribute.elevation;
-			global::CommonAndroidTools.Resource.Attribute.expandActivityOverflowButtonDrawable = global::RadioSequencing.Resource.Attribute.expandActivityOverflowButtonDrawable;
-			global::CommonAndroidTools.Resource.Attribute.font = global::RadioSequencing.Resource.Attribute.font;
-			global::CommonAndroidTools.Resource.Attribute.fontFamily = global::RadioSequencing.Resource.Attribute.fontFamily;
-			global::CommonAndroidTools.Resource.Attribute.fontProviderAuthority = global::RadioSequencing.Resource.Attribute.fontProviderAuthority;
-			global::CommonAndroidTools.Resource.Attribute.fontProviderCerts = global::RadioSequencing.Resource.Attribute.fontProviderCerts;
-			global::CommonAndroidTools.Resource.Attribute.fontProviderFetchStrategy = global::RadioSequencing.Resource.Attribute.fontProviderFetchStrategy;
-			global::CommonAndroidTools.Resource.Attribute.fontProviderFetchTimeout = global::RadioSequencing.Resource.Attribute.fontProviderFetchTimeout;
-			global::CommonAndroidTools.Resource.Attribute.fontProviderPackage = global::RadioSequencing.Resource.Attribute.fontProviderPackage;
-			global::CommonAndroidTools.Resource.Attribute.fontProviderQuery = global::RadioSequencing.Resource.Attribute.fontProviderQuery;
-			global::CommonAndroidTools.Resource.Attribute.fontStyle = global::RadioSequencing.Resource.Attribute.fontStyle;
-			global::CommonAndroidTools.Resource.Attribute.fontWeight = global::RadioSequencing.Resource.Attribute.fontWeight;
-			global::CommonAndroidTools.Resource.Attribute.gapBetweenBars = global::RadioSequencing.Resource.Attribute.gapBetweenBars;
-			global::CommonAndroidTools.Resource.Attribute.goIcon = global::RadioSequencing.Resource.Attribute.goIcon;
-			global::CommonAndroidTools.Resource.Attribute.height = global::RadioSequencing.Resource.Attribute.height;
-			global::CommonAndroidTools.Resource.Attribute.hideOnContentScroll = global::RadioSequencing.Resource.Attribute.hideOnContentScroll;
-			global::CommonAndroidTools.Resource.Attribute.homeAsUpIndicator = global::RadioSequencing.Resource.Attribute.homeAsUpIndicator;
-			global::CommonAndroidTools.Resource.Attribute.homeLayout = global::RadioSequencing.Resource.Attribute.homeLayout;
-			global::CommonAndroidTools.Resource.Attribute.icon = global::RadioSequencing.Resource.Attribute.icon;
-			global::CommonAndroidTools.Resource.Attribute.iconTint = global::RadioSequencing.Resource.Attribute.iconTint;
-			global::CommonAndroidTools.Resource.Attribute.iconTintMode = global::RadioSequencing.Resource.Attribute.iconTintMode;
-			global::CommonAndroidTools.Resource.Attribute.iconifiedByDefault = global::RadioSequencing.Resource.Attribute.iconifiedByDefault;
-			global::CommonAndroidTools.Resource.Attribute.imageButtonStyle = global::RadioSequencing.Resource.Attribute.imageButtonStyle;
-			global::CommonAndroidTools.Resource.Attribute.indeterminateProgressStyle = global::RadioSequencing.Resource.Attribute.indeterminateProgressStyle;
-			global::CommonAndroidTools.Resource.Attribute.initialActivityCount = global::RadioSequencing.Resource.Attribute.initialActivityCount;
-			global::CommonAndroidTools.Resource.Attribute.isLightTheme = global::RadioSequencing.Resource.Attribute.isLightTheme;
-			global::CommonAndroidTools.Resource.Attribute.itemPadding = global::RadioSequencing.Resource.Attribute.itemPadding;
-			global::CommonAndroidTools.Resource.Attribute.layout = global::RadioSequencing.Resource.Attribute.layout;
-			global::CommonAndroidTools.Resource.Attribute.listChoiceBackgroundIndicator = global::RadioSequencing.Resource.Attribute.listChoiceBackgroundIndicator;
-			global::CommonAndroidTools.Resource.Attribute.listDividerAlertDialog = global::RadioSequencing.Resource.Attribute.listDividerAlertDialog;
-			global::CommonAndroidTools.Resource.Attribute.listItemLayout = global::RadioSequencing.Resource.Attribute.listItemLayout;
-			global::CommonAndroidTools.Resource.Attribute.listLayout = global::RadioSequencing.Resource.Attribute.listLayout;
-			global::CommonAndroidTools.Resource.Attribute.listMenuViewStyle = global::RadioSequencing.Resource.Attribute.listMenuViewStyle;
-			global::CommonAndroidTools.Resource.Attribute.listPopupWindowStyle = global::RadioSequencing.Resource.Attribute.listPopupWindowStyle;
-			global::CommonAndroidTools.Resource.Attribute.listPreferredItemHeight = global::RadioSequencing.Resource.Attribute.listPreferredItemHeight;
-			global::CommonAndroidTools.Resource.Attribute.listPreferredItemHeightLarge = global::RadioSequencing.Resource.Attribute.listPreferredItemHeightLarge;
-			global::CommonAndroidTools.Resource.Attribute.listPreferredItemHeightSmall = global::RadioSequencing.Resource.Attribute.listPreferredItemHeightSmall;
-			global::CommonAndroidTools.Resource.Attribute.listPreferredItemPaddingLeft = global::RadioSequencing.Resource.Attribute.listPreferredItemPaddingLeft;
-			global::CommonAndroidTools.Resource.Attribute.listPreferredItemPaddingRight = global::RadioSequencing.Resource.Attribute.listPreferredItemPaddingRight;
-			global::CommonAndroidTools.Resource.Attribute.logo = global::RadioSequencing.Resource.Attribute.logo;
-			global::CommonAndroidTools.Resource.Attribute.logoDescription = global::RadioSequencing.Resource.Attribute.logoDescription;
-			global::CommonAndroidTools.Resource.Attribute.maxButtonHeight = global::RadioSequencing.Resource.Attribute.maxButtonHeight;
-			global::CommonAndroidTools.Resource.Attribute.measureWithLargestChild = global::RadioSequencing.Resource.Attribute.measureWithLargestChild;
-			global::CommonAndroidTools.Resource.Attribute.multiChoiceItemLayout = global::RadioSequencing.Resource.Attribute.multiChoiceItemLayout;
-			global::CommonAndroidTools.Resource.Attribute.navigationContentDescription = global::RadioSequencing.Resource.Attribute.navigationContentDescription;
-			global::CommonAndroidTools.Resource.Attribute.navigationIcon = global::RadioSequencing.Resource.Attribute.navigationIcon;
-			global::CommonAndroidTools.Resource.Attribute.navigationMode = global::RadioSequencing.Resource.Attribute.navigationMode;
-			global::CommonAndroidTools.Resource.Attribute.numericModifiers = global::RadioSequencing.Resource.Attribute.numericModifiers;
-			global::CommonAndroidTools.Resource.Attribute.overlapAnchor = global::RadioSequencing.Resource.Attribute.overlapAnchor;
-			global::CommonAndroidTools.Resource.Attribute.paddingBottomNoButtons = global::RadioSequencing.Resource.Attribute.paddingBottomNoButtons;
-			global::CommonAndroidTools.Resource.Attribute.paddingEnd = global::RadioSequencing.Resource.Attribute.paddingEnd;
-			global::CommonAndroidTools.Resource.Attribute.paddingStart = global::RadioSequencing.Resource.Attribute.paddingStart;
-			global::CommonAndroidTools.Resource.Attribute.paddingTopNoTitle = global::RadioSequencing.Resource.Attribute.paddingTopNoTitle;
-			global::CommonAndroidTools.Resource.Attribute.panelBackground = global::RadioSequencing.Resource.Attribute.panelBackground;
-			global::CommonAndroidTools.Resource.Attribute.panelMenuListTheme = global::RadioSequencing.Resource.Attribute.panelMenuListTheme;
-			global::CommonAndroidTools.Resource.Attribute.panelMenuListWidth = global::RadioSequencing.Resource.Attribute.panelMenuListWidth;
-			global::CommonAndroidTools.Resource.Attribute.popupMenuStyle = global::RadioSequencing.Resource.Attribute.popupMenuStyle;
-			global::CommonAndroidTools.Resource.Attribute.popupTheme = global::RadioSequencing.Resource.Attribute.popupTheme;
-			global::CommonAndroidTools.Resource.Attribute.popupWindowStyle = global::RadioSequencing.Resource.Attribute.popupWindowStyle;
-			global::CommonAndroidTools.Resource.Attribute.preserveIconSpacing = global::RadioSequencing.Resource.Attribute.preserveIconSpacing;
-			global::CommonAndroidTools.Resource.Attribute.progressBarPadding = global::RadioSequencing.Resource.Attribute.progressBarPadding;
-			global::CommonAndroidTools.Resource.Attribute.progressBarStyle = global::RadioSequencing.Resource.Attribute.progressBarStyle;
-			global::CommonAndroidTools.Resource.Attribute.queryBackground = global::RadioSequencing.Resource.Attribute.queryBackground;
-			global::CommonAndroidTools.Resource.Attribute.queryHint = global::RadioSequencing.Resource.Attribute.queryHint;
-			global::CommonAndroidTools.Resource.Attribute.radioButtonStyle = global::RadioSequencing.Resource.Attribute.radioButtonStyle;
-			global::CommonAndroidTools.Resource.Attribute.ratingBarStyle = global::RadioSequencing.Resource.Attribute.ratingBarStyle;
-			global::CommonAndroidTools.Resource.Attribute.ratingBarStyleIndicator = global::RadioSequencing.Resource.Attribute.ratingBarStyleIndicator;
-			global::CommonAndroidTools.Resource.Attribute.ratingBarStyleSmall = global::RadioSequencing.Resource.Attribute.ratingBarStyleSmall;
-			global::CommonAndroidTools.Resource.Attribute.searchHintIcon = global::RadioSequencing.Resource.Attribute.searchHintIcon;
-			global::CommonAndroidTools.Resource.Attribute.searchIcon = global::RadioSequencing.Resource.Attribute.searchIcon;
-			global::CommonAndroidTools.Resource.Attribute.searchViewStyle = global::RadioSequencing.Resource.Attribute.searchViewStyle;
-			global::CommonAndroidTools.Resource.Attribute.seekBarStyle = global::RadioSequencing.Resource.Attribute.seekBarStyle;
-			global::CommonAndroidTools.Resource.Attribute.selectableItemBackground = global::RadioSequencing.Resource.Attribute.selectableItemBackground;
-			global::CommonAndroidTools.Resource.Attribute.selectableItemBackgroundBorderless = global::RadioSequencing.Resource.Attribute.selectableItemBackgroundBorderless;
-			global::CommonAndroidTools.Resource.Attribute.showAsAction = global::RadioSequencing.Resource.Attribute.showAsAction;
-			global::CommonAndroidTools.Resource.Attribute.showDividers = global::RadioSequencing.Resource.Attribute.showDividers;
-			global::CommonAndroidTools.Resource.Attribute.showText = global::RadioSequencing.Resource.Attribute.showText;
-			global::CommonAndroidTools.Resource.Attribute.showTitle = global::RadioSequencing.Resource.Attribute.showTitle;
-			global::CommonAndroidTools.Resource.Attribute.singleChoiceItemLayout = global::RadioSequencing.Resource.Attribute.singleChoiceItemLayout;
-			global::CommonAndroidTools.Resource.Attribute.spinBars = global::RadioSequencing.Resource.Attribute.spinBars;
-			global::CommonAndroidTools.Resource.Attribute.spinnerDropDownItemStyle = global::RadioSequencing.Resource.Attribute.spinnerDropDownItemStyle;
-			global::CommonAndroidTools.Resource.Attribute.spinnerStyle = global::RadioSequencing.Resource.Attribute.spinnerStyle;
-			global::CommonAndroidTools.Resource.Attribute.splitTrack = global::RadioSequencing.Resource.Attribute.splitTrack;
-			global::CommonAndroidTools.Resource.Attribute.srcCompat = global::RadioSequencing.Resource.Attribute.srcCompat;
-			global::CommonAndroidTools.Resource.Attribute.state_above_anchor = global::RadioSequencing.Resource.Attribute.state_above_anchor;
-			global::CommonAndroidTools.Resource.Attribute.subMenuArrow = global::RadioSequencing.Resource.Attribute.subMenuArrow;
-			global::CommonAndroidTools.Resource.Attribute.submitBackground = global::RadioSequencing.Resource.Attribute.submitBackground;
-			global::CommonAndroidTools.Resource.Attribute.subtitle = global::RadioSequencing.Resource.Attribute.subtitle;
-			global::CommonAndroidTools.Resource.Attribute.subtitleTextAppearance = global::RadioSequencing.Resource.Attribute.subtitleTextAppearance;
-			global::CommonAndroidTools.Resource.Attribute.subtitleTextColor = global::RadioSequencing.Resource.Attribute.subtitleTextColor;
-			global::CommonAndroidTools.Resource.Attribute.subtitleTextStyle = global::RadioSequencing.Resource.Attribute.subtitleTextStyle;
-			global::CommonAndroidTools.Resource.Attribute.suggestionRowLayout = global::RadioSequencing.Resource.Attribute.suggestionRowLayout;
-			global::CommonAndroidTools.Resource.Attribute.switchMinWidth = global::RadioSequencing.Resource.Attribute.switchMinWidth;
-			global::CommonAndroidTools.Resource.Attribute.switchPadding = global::RadioSequencing.Resource.Attribute.switchPadding;
-			global::CommonAndroidTools.Resource.Attribute.switchStyle = global::RadioSequencing.Resource.Attribute.switchStyle;
-			global::CommonAndroidTools.Resource.Attribute.switchTextAppearance = global::RadioSequencing.Resource.Attribute.switchTextAppearance;
-			global::CommonAndroidTools.Resource.Attribute.textAllCaps = global::RadioSequencing.Resource.Attribute.textAllCaps;
-			global::CommonAndroidTools.Resource.Attribute.textAppearanceLargePopupMenu = global::RadioSequencing.Resource.Attribute.textAppearanceLargePopupMenu;
-			global::CommonAndroidTools.Resource.Attribute.textAppearanceListItem = global::RadioSequencing.Resource.Attribute.textAppearanceListItem;
-			global::CommonAndroidTools.Resource.Attribute.textAppearanceListItemSecondary = global::RadioSequencing.Resource.Attribute.textAppearanceListItemSecondary;
-			global::CommonAndroidTools.Resource.Attribute.textAppearanceListItemSmall = global::RadioSequencing.Resource.Attribute.textAppearanceListItemSmall;
-			global::CommonAndroidTools.Resource.Attribute.textAppearancePopupMenuHeader = global::RadioSequencing.Resource.Attribute.textAppearancePopupMenuHeader;
-			global::CommonAndroidTools.Resource.Attribute.textAppearanceSearchResultSubtitle = global::RadioSequencing.Resource.Attribute.textAppearanceSearchResultSubtitle;
-			global::CommonAndroidTools.Resource.Attribute.textAppearanceSearchResultTitle = global::RadioSequencing.Resource.Attribute.textAppearanceSearchResultTitle;
-			global::CommonAndroidTools.Resource.Attribute.textAppearanceSmallPopupMenu = global::RadioSequencing.Resource.Attribute.textAppearanceSmallPopupMenu;
-			global::CommonAndroidTools.Resource.Attribute.textColorAlertDialogListItem = global::RadioSequencing.Resource.Attribute.textColorAlertDialogListItem;
-			global::CommonAndroidTools.Resource.Attribute.textColorSearchUrl = global::RadioSequencing.Resource.Attribute.textColorSearchUrl;
-			global::CommonAndroidTools.Resource.Attribute.theme = global::RadioSequencing.Resource.Attribute.theme;
-			global::CommonAndroidTools.Resource.Attribute.thickness = global::RadioSequencing.Resource.Attribute.thickness;
-			global::CommonAndroidTools.Resource.Attribute.thumbTextPadding = global::RadioSequencing.Resource.Attribute.thumbTextPadding;
-			global::CommonAndroidTools.Resource.Attribute.thumbTint = global::RadioSequencing.Resource.Attribute.thumbTint;
-			global::CommonAndroidTools.Resource.Attribute.thumbTintMode = global::RadioSequencing.Resource.Attribute.thumbTintMode;
-			global::CommonAndroidTools.Resource.Attribute.tickMark = global::RadioSequencing.Resource.Attribute.tickMark;
-			global::CommonAndroidTools.Resource.Attribute.tickMarkTint = global::RadioSequencing.Resource.Attribute.tickMarkTint;
-			global::CommonAndroidTools.Resource.Attribute.tickMarkTintMode = global::RadioSequencing.Resource.Attribute.tickMarkTintMode;
-			global::CommonAndroidTools.Resource.Attribute.tint = global::RadioSequencing.Resource.Attribute.tint;
-			global::CommonAndroidTools.Resource.Attribute.tintMode = global::RadioSequencing.Resource.Attribute.tintMode;
-			global::CommonAndroidTools.Resource.Attribute.title = global::RadioSequencing.Resource.Attribute.title;
-			global::CommonAndroidTools.Resource.Attribute.titleMargin = global::RadioSequencing.Resource.Attribute.titleMargin;
-			global::CommonAndroidTools.Resource.Attribute.titleMarginBottom = global::RadioSequencing.Resource.Attribute.titleMarginBottom;
-			global::CommonAndroidTools.Resource.Attribute.titleMarginEnd = global::RadioSequencing.Resource.Attribute.titleMarginEnd;
-			global::CommonAndroidTools.Resource.Attribute.titleMarginStart = global::RadioSequencing.Resource.Attribute.titleMarginStart;
-			global::CommonAndroidTools.Resource.Attribute.titleMarginTop = global::RadioSequencing.Resource.Attribute.titleMarginTop;
-			global::CommonAndroidTools.Resource.Attribute.titleMargins = global::RadioSequencing.Resource.Attribute.titleMargins;
-			global::CommonAndroidTools.Resource.Attribute.titleTextAppearance = global::RadioSequencing.Resource.Attribute.titleTextAppearance;
-			global::CommonAndroidTools.Resource.Attribute.titleTextColor = global::RadioSequencing.Resource.Attribute.titleTextColor;
-			global::CommonAndroidTools.Resource.Attribute.titleTextStyle = global::RadioSequencing.Resource.Attribute.titleTextStyle;
-			global::CommonAndroidTools.Resource.Attribute.toolbarNavigationButtonStyle = global::RadioSequencing.Resource.Attribute.toolbarNavigationButtonStyle;
-			global::CommonAndroidTools.Resource.Attribute.toolbarStyle = global::RadioSequencing.Resource.Attribute.toolbarStyle;
-			global::CommonAndroidTools.Resource.Attribute.tooltipForegroundColor = global::RadioSequencing.Resource.Attribute.tooltipForegroundColor;
-			global::CommonAndroidTools.Resource.Attribute.tooltipFrameBackground = global::RadioSequencing.Resource.Attribute.tooltipFrameBackground;
-			global::CommonAndroidTools.Resource.Attribute.tooltipText = global::RadioSequencing.Resource.Attribute.tooltipText;
-			global::CommonAndroidTools.Resource.Attribute.track = global::RadioSequencing.Resource.Attribute.track;
-			global::CommonAndroidTools.Resource.Attribute.trackTint = global::RadioSequencing.Resource.Attribute.trackTint;
-			global::CommonAndroidTools.Resource.Attribute.trackTintMode = global::RadioSequencing.Resource.Attribute.trackTintMode;
-			global::CommonAndroidTools.Resource.Attribute.voiceIcon = global::RadioSequencing.Resource.Attribute.voiceIcon;
-			global::CommonAndroidTools.Resource.Attribute.windowActionBar = global::RadioSequencing.Resource.Attribute.windowActionBar;
-			global::CommonAndroidTools.Resource.Attribute.windowActionBarOverlay = global::RadioSequencing.Resource.Attribute.windowActionBarOverlay;
-			global::CommonAndroidTools.Resource.Attribute.windowActionModeOverlay = global::RadioSequencing.Resource.Attribute.windowActionModeOverlay;
-			global::CommonAndroidTools.Resource.Attribute.windowFixedHeightMajor = global::RadioSequencing.Resource.Attribute.windowFixedHeightMajor;
-			global::CommonAndroidTools.Resource.Attribute.windowFixedHeightMinor = global::RadioSequencing.Resource.Attribute.windowFixedHeightMinor;
-			global::CommonAndroidTools.Resource.Attribute.windowFixedWidthMajor = global::RadioSequencing.Resource.Attribute.windowFixedWidthMajor;
-			global::CommonAndroidTools.Resource.Attribute.windowFixedWidthMinor = global::RadioSequencing.Resource.Attribute.windowFixedWidthMinor;
-			global::CommonAndroidTools.Resource.Attribute.windowMinWidthMajor = global::RadioSequencing.Resource.Attribute.windowMinWidthMajor;
-			global::CommonAndroidTools.Resource.Attribute.windowMinWidthMinor = global::RadioSequencing.Resource.Attribute.windowMinWidthMinor;
-			global::CommonAndroidTools.Resource.Attribute.windowNoTitle = global::RadioSequencing.Resource.Attribute.windowNoTitle;
-			global::CommonAndroidTools.Resource.Boolean.abc_action_bar_embed_tabs = global::RadioSequencing.Resource.Boolean.abc_action_bar_embed_tabs;
-			global::CommonAndroidTools.Resource.Boolean.abc_allow_stacked_button_bar = global::RadioSequencing.Resource.Boolean.abc_allow_stacked_button_bar;
-			global::CommonAndroidTools.Resource.Boolean.abc_config_actionMenuItemAllCaps = global::RadioSequencing.Resource.Boolean.abc_config_actionMenuItemAllCaps;
-			global::CommonAndroidTools.Resource.Color.abc_background_cache_hint_selector_material_dark = global::RadioSequencing.Resource.Color.abc_background_cache_hint_selector_material_dark;
-			global::CommonAndroidTools.Resource.Color.abc_background_cache_hint_selector_material_light = global::RadioSequencing.Resource.Color.abc_background_cache_hint_selector_material_light;
-			global::CommonAndroidTools.Resource.Color.abc_btn_colored_borderless_text_material = global::RadioSequencing.Resource.Color.abc_btn_colored_borderless_text_material;
-			global::CommonAndroidTools.Resource.Color.abc_btn_colored_text_material = global::RadioSequencing.Resource.Color.abc_btn_colored_text_material;
-			global::CommonAndroidTools.Resource.Color.abc_color_highlight_material = global::RadioSequencing.Resource.Color.abc_color_highlight_material;
-			global::CommonAndroidTools.Resource.Color.abc_hint_foreground_material_dark = global::RadioSequencing.Resource.Color.abc_hint_foreground_material_dark;
-			global::CommonAndroidTools.Resource.Color.abc_hint_foreground_material_light = global::RadioSequencing.Resource.Color.abc_hint_foreground_material_light;
-			global::CommonAndroidTools.Resource.Color.abc_input_method_navigation_guard = global::RadioSequencing.Resource.Color.abc_input_method_navigation_guard;
-			global::CommonAndroidTools.Resource.Color.abc_primary_text_disable_only_material_dark = global::RadioSequencing.Resource.Color.abc_primary_text_disable_only_material_dark;
-			global::CommonAndroidTools.Resource.Color.abc_primary_text_disable_only_material_light = global::RadioSequencing.Resource.Color.abc_primary_text_disable_only_material_light;
-			global::CommonAndroidTools.Resource.Color.abc_primary_text_material_dark = global::RadioSequencing.Resource.Color.abc_primary_text_material_dark;
-			global::CommonAndroidTools.Resource.Color.abc_primary_text_material_light = global::RadioSequencing.Resource.Color.abc_primary_text_material_light;
-			global::CommonAndroidTools.Resource.Color.abc_search_url_text = global::RadioSequencing.Resource.Color.abc_search_url_text;
-			global::CommonAndroidTools.Resource.Color.abc_search_url_text_normal = global::RadioSequencing.Resource.Color.abc_search_url_text_normal;
-			global::CommonAndroidTools.Resource.Color.abc_search_url_text_pressed = global::RadioSequencing.Resource.Color.abc_search_url_text_pressed;
-			global::CommonAndroidTools.Resource.Color.abc_search_url_text_selected = global::RadioSequencing.Resource.Color.abc_search_url_text_selected;
-			global::CommonAndroidTools.Resource.Color.abc_secondary_text_material_dark = global::RadioSequencing.Resource.Color.abc_secondary_text_material_dark;
-			global::CommonAndroidTools.Resource.Color.abc_secondary_text_material_light = global::RadioSequencing.Resource.Color.abc_secondary_text_material_light;
-			global::CommonAndroidTools.Resource.Color.abc_tint_btn_checkable = global::RadioSequencing.Resource.Color.abc_tint_btn_checkable;
-			global::CommonAndroidTools.Resource.Color.abc_tint_default = global::RadioSequencing.Resource.Color.abc_tint_default;
-			global::CommonAndroidTools.Resource.Color.abc_tint_edittext = global::RadioSequencing.Resource.Color.abc_tint_edittext;
-			global::CommonAndroidTools.Resource.Color.abc_tint_seek_thumb = global::RadioSequencing.Resource.Color.abc_tint_seek_thumb;
-			global::CommonAndroidTools.Resource.Color.abc_tint_spinner = global::RadioSequencing.Resource.Color.abc_tint_spinner;
-			global::CommonAndroidTools.Resource.Color.abc_tint_switch_track = global::RadioSequencing.Resource.Color.abc_tint_switch_track;
-			global::CommonAndroidTools.Resource.Color.accent_material_dark = global::RadioSequencing.Resource.Color.accent_material_dark;
-			global::CommonAndroidTools.Resource.Color.accent_material_light = global::RadioSequencing.Resource.Color.accent_material_light;
-			global::CommonAndroidTools.Resource.Color.background_floating_material_dark = global::RadioSequencing.Resource.Color.background_floating_material_dark;
-			global::CommonAndroidTools.Resource.Color.background_floating_material_light = global::RadioSequencing.Resource.Color.background_floating_material_light;
-			global::CommonAndroidTools.Resource.Color.background_material_dark = global::RadioSequencing.Resource.Color.background_material_dark;
-			global::CommonAndroidTools.Resource.Color.background_material_light = global::RadioSequencing.Resource.Color.background_material_light;
-			global::CommonAndroidTools.Resource.Color.bright_foreground_disabled_material_dark = global::RadioSequencing.Resource.Color.bright_foreground_disabled_material_dark;
-			global::CommonAndroidTools.Resource.Color.bright_foreground_disabled_material_light = global::RadioSequencing.Resource.Color.bright_foreground_disabled_material_light;
-			global::CommonAndroidTools.Resource.Color.bright_foreground_inverse_material_dark = global::RadioSequencing.Resource.Color.bright_foreground_inverse_material_dark;
-			global::CommonAndroidTools.Resource.Color.bright_foreground_inverse_material_light = global::RadioSequencing.Resource.Color.bright_foreground_inverse_material_light;
-			global::CommonAndroidTools.Resource.Color.bright_foreground_material_dark = global::RadioSequencing.Resource.Color.bright_foreground_material_dark;
-			global::CommonAndroidTools.Resource.Color.bright_foreground_material_light = global::RadioSequencing.Resource.Color.bright_foreground_material_light;
-			global::CommonAndroidTools.Resource.Color.button_material_dark = global::RadioSequencing.Resource.Color.button_material_dark;
-			global::CommonAndroidTools.Resource.Color.button_material_light = global::RadioSequencing.Resource.Color.button_material_light;
-			global::CommonAndroidTools.Resource.Color.dim_foreground_disabled_material_dark = global::RadioSequencing.Resource.Color.dim_foreground_disabled_material_dark;
-			global::CommonAndroidTools.Resource.Color.dim_foreground_disabled_material_light = global::RadioSequencing.Resource.Color.dim_foreground_disabled_material_light;
-			global::CommonAndroidTools.Resource.Color.dim_foreground_material_dark = global::RadioSequencing.Resource.Color.dim_foreground_material_dark;
-			global::CommonAndroidTools.Resource.Color.dim_foreground_material_light = global::RadioSequencing.Resource.Color.dim_foreground_material_light;
-			global::CommonAndroidTools.Resource.Color.foreground_material_dark = global::RadioSequencing.Resource.Color.foreground_material_dark;
-			global::CommonAndroidTools.Resource.Color.foreground_material_light = global::RadioSequencing.Resource.Color.foreground_material_light;
-			global::CommonAndroidTools.Resource.Color.highlighted_text_material_dark = global::RadioSequencing.Resource.Color.highlighted_text_material_dark;
-			global::CommonAndroidTools.Resource.Color.highlighted_text_material_light = global::RadioSequencing.Resource.Color.highlighted_text_material_light;
-			global::CommonAndroidTools.Resource.Color.material_blue_grey_800 = global::RadioSequencing.Resource.Color.material_blue_grey_800;
-			global::CommonAndroidTools.Resource.Color.material_blue_grey_900 = global::RadioSequencing.Resource.Color.material_blue_grey_900;
-			global::CommonAndroidTools.Resource.Color.material_blue_grey_950 = global::RadioSequencing.Resource.Color.material_blue_grey_950;
-			global::CommonAndroidTools.Resource.Color.material_deep_teal_200 = global::RadioSequencing.Resource.Color.material_deep_teal_200;
-			global::CommonAndroidTools.Resource.Color.material_deep_teal_500 = global::RadioSequencing.Resource.Color.material_deep_teal_500;
-			global::CommonAndroidTools.Resource.Color.material_grey_100 = global::RadioSequencing.Resource.Color.material_grey_100;
-			global::CommonAndroidTools.Resource.Color.material_grey_300 = global::RadioSequencing.Resource.Color.material_grey_300;
-			global::CommonAndroidTools.Resource.Color.material_grey_50 = global::RadioSequencing.Resource.Color.material_grey_50;
-			global::CommonAndroidTools.Resource.Color.material_grey_600 = global::RadioSequencing.Resource.Color.material_grey_600;
-			global::CommonAndroidTools.Resource.Color.material_grey_800 = global::RadioSequencing.Resource.Color.material_grey_800;
-			global::CommonAndroidTools.Resource.Color.material_grey_850 = global::RadioSequencing.Resource.Color.material_grey_850;
-			global::CommonAndroidTools.Resource.Color.material_grey_900 = global::RadioSequencing.Resource.Color.material_grey_900;
-			global::CommonAndroidTools.Resource.Color.notification_action_color_filter = global::RadioSequencing.Resource.Color.notification_action_color_filter;
-			global::CommonAndroidTools.Resource.Color.notification_icon_bg_color = global::RadioSequencing.Resource.Color.notification_icon_bg_color;
-			global::CommonAndroidTools.Resource.Color.primary_dark_material_dark = global::RadioSequencing.Resource.Color.primary_dark_material_dark;
-			global::CommonAndroidTools.Resource.Color.primary_dark_material_light = global::RadioSequencing.Resource.Color.primary_dark_material_light;
-			global::CommonAndroidTools.Resource.Color.primary_material_dark = global::RadioSequencing.Resource.Color.primary_material_dark;
-			global::CommonAndroidTools.Resource.Color.primary_material_light = global::RadioSequencing.Resource.Color.primary_material_light;
-			global::CommonAndroidTools.Resource.Color.primary_text_default_material_dark = global::RadioSequencing.Resource.Color.primary_text_default_material_dark;
-			global::CommonAndroidTools.Resource.Color.primary_text_default_material_light = global::RadioSequencing.Resource.Color.primary_text_default_material_light;
-			global::CommonAndroidTools.Resource.Color.primary_text_disabled_material_dark = global::RadioSequencing.Resource.Color.primary_text_disabled_material_dark;
-			global::CommonAndroidTools.Resource.Color.primary_text_disabled_material_light = global::RadioSequencing.Resource.Color.primary_text_disabled_material_light;
-			global::CommonAndroidTools.Resource.Color.ripple_material_dark = global::RadioSequencing.Resource.Color.ripple_material_dark;
-			global::CommonAndroidTools.Resource.Color.ripple_material_light = global::RadioSequencing.Resource.Color.ripple_material_light;
-			global::CommonAndroidTools.Resource.Color.secondary_text_default_material_dark = global::RadioSequencing.Resource.Color.secondary_text_default_material_dark;
-			global::CommonAndroidTools.Resource.Color.secondary_text_default_material_light = global::RadioSequencing.Resource.Color.secondary_text_default_material_light;
-			global::CommonAndroidTools.Resource.Color.secondary_text_disabled_material_dark = global::RadioSequencing.Resource.Color.secondary_text_disabled_material_dark;
-			global::CommonAndroidTools.Resource.Color.secondary_text_disabled_material_light = global::RadioSequencing.Resource.Color.secondary_text_disabled_material_light;
-			global::CommonAndroidTools.Resource.Color.switch_thumb_disabled_material_dark = global::RadioSequencing.Resource.Color.switch_thumb_disabled_material_dark;
-			global::CommonAndroidTools.Resource.Color.switch_thumb_disabled_material_light = global::RadioSequencing.Resource.Color.switch_thumb_disabled_material_light;
-			global::CommonAndroidTools.Resource.Color.switch_thumb_material_dark = global::RadioSequencing.Resource.Color.switch_thumb_material_dark;
-			global::CommonAndroidTools.Resource.Color.switch_thumb_material_light = global::RadioSequencing.Resource.Color.switch_thumb_material_light;
-			global::CommonAndroidTools.Resource.Color.switch_thumb_normal_material_dark = global::RadioSequencing.Resource.Color.switch_thumb_normal_material_dark;
-			global::CommonAndroidTools.Resource.Color.switch_thumb_normal_material_light = global::RadioSequencing.Resource.Color.switch_thumb_normal_material_light;
-			global::CommonAndroidTools.Resource.Color.tooltip_background_dark = global::RadioSequencing.Resource.Color.tooltip_background_dark;
-			global::CommonAndroidTools.Resource.Color.tooltip_background_light = global::RadioSequencing.Resource.Color.tooltip_background_light;
-			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_content_inset_material = global::RadioSequencing.Resource.Dimension.abc_action_bar_content_inset_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_content_inset_with_nav = global::RadioSequencing.Resource.Dimension.abc_action_bar_content_inset_with_nav;
-			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_default_height_material = global::RadioSequencing.Resource.Dimension.abc_action_bar_default_height_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_default_padding_end_material = global::RadioSequencing.Resource.Dimension.abc_action_bar_default_padding_end_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_default_padding_start_material = global::RadioSequencing.Resource.Dimension.abc_action_bar_default_padding_start_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_elevation_material = global::RadioSequencing.Resource.Dimension.abc_action_bar_elevation_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_icon_vertical_padding_material = global::RadioSequencing.Resource.Dimension.abc_action_bar_icon_vertical_padding_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_overflow_padding_end_material = global::RadioSequencing.Resource.Dimension.abc_action_bar_overflow_padding_end_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_overflow_padding_start_material = global::RadioSequencing.Resource.Dimension.abc_action_bar_overflow_padding_start_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_stacked_max_height = global::RadioSequencing.Resource.Dimension.abc_action_bar_stacked_max_height;
-			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_stacked_tab_max_width = global::RadioSequencing.Resource.Dimension.abc_action_bar_stacked_tab_max_width;
-			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_subtitle_bottom_margin_material = global::RadioSequencing.Resource.Dimension.abc_action_bar_subtitle_bottom_margin_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_action_bar_subtitle_top_margin_material = global::RadioSequencing.Resource.Dimension.abc_action_bar_subtitle_top_margin_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_action_button_min_height_material = global::RadioSequencing.Resource.Dimension.abc_action_button_min_height_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_action_button_min_width_material = global::RadioSequencing.Resource.Dimension.abc_action_button_min_width_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_action_button_min_width_overflow_material = global::RadioSequencing.Resource.Dimension.abc_action_button_min_width_overflow_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_alert_dialog_button_bar_height = global::RadioSequencing.Resource.Dimension.abc_alert_dialog_button_bar_height;
-			global::CommonAndroidTools.Resource.Dimension.abc_button_inset_horizontal_material = global::RadioSequencing.Resource.Dimension.abc_button_inset_horizontal_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_button_inset_vertical_material = global::RadioSequencing.Resource.Dimension.abc_button_inset_vertical_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_button_padding_horizontal_material = global::RadioSequencing.Resource.Dimension.abc_button_padding_horizontal_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_button_padding_vertical_material = global::RadioSequencing.Resource.Dimension.abc_button_padding_vertical_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_cascading_menus_min_smallest_width = global::RadioSequencing.Resource.Dimension.abc_cascading_menus_min_smallest_width;
-			global::CommonAndroidTools.Resource.Dimension.abc_config_prefDialogWidth = global::RadioSequencing.Resource.Dimension.abc_config_prefDialogWidth;
-			global::CommonAndroidTools.Resource.Dimension.abc_control_corner_material = global::RadioSequencing.Resource.Dimension.abc_control_corner_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_control_inset_material = global::RadioSequencing.Resource.Dimension.abc_control_inset_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_control_padding_material = global::RadioSequencing.Resource.Dimension.abc_control_padding_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_dialog_fixed_height_major = global::RadioSequencing.Resource.Dimension.abc_dialog_fixed_height_major;
-			global::CommonAndroidTools.Resource.Dimension.abc_dialog_fixed_height_minor = global::RadioSequencing.Resource.Dimension.abc_dialog_fixed_height_minor;
-			global::CommonAndroidTools.Resource.Dimension.abc_dialog_fixed_width_major = global::RadioSequencing.Resource.Dimension.abc_dialog_fixed_width_major;
-			global::CommonAndroidTools.Resource.Dimension.abc_dialog_fixed_width_minor = global::RadioSequencing.Resource.Dimension.abc_dialog_fixed_width_minor;
-			global::CommonAndroidTools.Resource.Dimension.abc_dialog_list_padding_bottom_no_buttons = global::RadioSequencing.Resource.Dimension.abc_dialog_list_padding_bottom_no_buttons;
-			global::CommonAndroidTools.Resource.Dimension.abc_dialog_list_padding_top_no_title = global::RadioSequencing.Resource.Dimension.abc_dialog_list_padding_top_no_title;
-			global::CommonAndroidTools.Resource.Dimension.abc_dialog_min_width_major = global::RadioSequencing.Resource.Dimension.abc_dialog_min_width_major;
-			global::CommonAndroidTools.Resource.Dimension.abc_dialog_min_width_minor = global::RadioSequencing.Resource.Dimension.abc_dialog_min_width_minor;
-			global::CommonAndroidTools.Resource.Dimension.abc_dialog_padding_material = global::RadioSequencing.Resource.Dimension.abc_dialog_padding_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_dialog_padding_top_material = global::RadioSequencing.Resource.Dimension.abc_dialog_padding_top_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_dialog_title_divider_material = global::RadioSequencing.Resource.Dimension.abc_dialog_title_divider_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_disabled_alpha_material_dark = global::RadioSequencing.Resource.Dimension.abc_disabled_alpha_material_dark;
-			global::CommonAndroidTools.Resource.Dimension.abc_disabled_alpha_material_light = global::RadioSequencing.Resource.Dimension.abc_disabled_alpha_material_light;
-			global::CommonAndroidTools.Resource.Dimension.abc_dropdownitem_icon_width = global::RadioSequencing.Resource.Dimension.abc_dropdownitem_icon_width;
-			global::CommonAndroidTools.Resource.Dimension.abc_dropdownitem_text_padding_left = global::RadioSequencing.Resource.Dimension.abc_dropdownitem_text_padding_left;
-			global::CommonAndroidTools.Resource.Dimension.abc_dropdownitem_text_padding_right = global::RadioSequencing.Resource.Dimension.abc_dropdownitem_text_padding_right;
-			global::CommonAndroidTools.Resource.Dimension.abc_edit_text_inset_bottom_material = global::RadioSequencing.Resource.Dimension.abc_edit_text_inset_bottom_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_edit_text_inset_horizontal_material = global::RadioSequencing.Resource.Dimension.abc_edit_text_inset_horizontal_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_edit_text_inset_top_material = global::RadioSequencing.Resource.Dimension.abc_edit_text_inset_top_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_floating_window_z = global::RadioSequencing.Resource.Dimension.abc_floating_window_z;
-			global::CommonAndroidTools.Resource.Dimension.abc_list_item_padding_horizontal_material = global::RadioSequencing.Resource.Dimension.abc_list_item_padding_horizontal_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_panel_menu_list_width = global::RadioSequencing.Resource.Dimension.abc_panel_menu_list_width;
-			global::CommonAndroidTools.Resource.Dimension.abc_progress_bar_height_material = global::RadioSequencing.Resource.Dimension.abc_progress_bar_height_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_search_view_preferred_height = global::RadioSequencing.Resource.Dimension.abc_search_view_preferred_height;
-			global::CommonAndroidTools.Resource.Dimension.abc_search_view_preferred_width = global::RadioSequencing.Resource.Dimension.abc_search_view_preferred_width;
-			global::CommonAndroidTools.Resource.Dimension.abc_seekbar_track_background_height_material = global::RadioSequencing.Resource.Dimension.abc_seekbar_track_background_height_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_seekbar_track_progress_height_material = global::RadioSequencing.Resource.Dimension.abc_seekbar_track_progress_height_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_select_dialog_padding_start_material = global::RadioSequencing.Resource.Dimension.abc_select_dialog_padding_start_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_switch_padding = global::RadioSequencing.Resource.Dimension.abc_switch_padding;
-			global::CommonAndroidTools.Resource.Dimension.abc_text_size_body_1_material = global::RadioSequencing.Resource.Dimension.abc_text_size_body_1_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_text_size_body_2_material = global::RadioSequencing.Resource.Dimension.abc_text_size_body_2_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_text_size_button_material = global::RadioSequencing.Resource.Dimension.abc_text_size_button_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_text_size_caption_material = global::RadioSequencing.Resource.Dimension.abc_text_size_caption_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_text_size_display_1_material = global::RadioSequencing.Resource.Dimension.abc_text_size_display_1_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_text_size_display_2_material = global::RadioSequencing.Resource.Dimension.abc_text_size_display_2_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_text_size_display_3_material = global::RadioSequencing.Resource.Dimension.abc_text_size_display_3_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_text_size_display_4_material = global::RadioSequencing.Resource.Dimension.abc_text_size_display_4_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_text_size_headline_material = global::RadioSequencing.Resource.Dimension.abc_text_size_headline_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_text_size_large_material = global::RadioSequencing.Resource.Dimension.abc_text_size_large_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_text_size_medium_material = global::RadioSequencing.Resource.Dimension.abc_text_size_medium_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_text_size_menu_header_material = global::RadioSequencing.Resource.Dimension.abc_text_size_menu_header_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_text_size_menu_material = global::RadioSequencing.Resource.Dimension.abc_text_size_menu_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_text_size_small_material = global::RadioSequencing.Resource.Dimension.abc_text_size_small_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_text_size_subhead_material = global::RadioSequencing.Resource.Dimension.abc_text_size_subhead_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_text_size_subtitle_material_toolbar = global::RadioSequencing.Resource.Dimension.abc_text_size_subtitle_material_toolbar;
-			global::CommonAndroidTools.Resource.Dimension.abc_text_size_title_material = global::RadioSequencing.Resource.Dimension.abc_text_size_title_material;
-			global::CommonAndroidTools.Resource.Dimension.abc_text_size_title_material_toolbar = global::RadioSequencing.Resource.Dimension.abc_text_size_title_material_toolbar;
-			global::CommonAndroidTools.Resource.Dimension.compat_button_inset_horizontal_material = global::RadioSequencing.Resource.Dimension.compat_button_inset_horizontal_material;
-			global::CommonAndroidTools.Resource.Dimension.compat_button_inset_vertical_material = global::RadioSequencing.Resource.Dimension.compat_button_inset_vertical_material;
-			global::CommonAndroidTools.Resource.Dimension.compat_button_padding_horizontal_material = global::RadioSequencing.Resource.Dimension.compat_button_padding_horizontal_material;
-			global::CommonAndroidTools.Resource.Dimension.compat_button_padding_vertical_material = global::RadioSequencing.Resource.Dimension.compat_button_padding_vertical_material;
-			global::CommonAndroidTools.Resource.Dimension.compat_control_corner_material = global::RadioSequencing.Resource.Dimension.compat_control_corner_material;
-			global::CommonAndroidTools.Resource.Dimension.disabled_alpha_material_dark = global::RadioSequencing.Resource.Dimension.disabled_alpha_material_dark;
-			global::CommonAndroidTools.Resource.Dimension.disabled_alpha_material_light = global::RadioSequencing.Resource.Dimension.disabled_alpha_material_light;
-			global::CommonAndroidTools.Resource.Dimension.highlight_alpha_material_colored = global::RadioSequencing.Resource.Dimension.highlight_alpha_material_colored;
-			global::CommonAndroidTools.Resource.Dimension.highlight_alpha_material_dark = global::RadioSequencing.Resource.Dimension.highlight_alpha_material_dark;
-			global::CommonAndroidTools.Resource.Dimension.highlight_alpha_material_light = global::RadioSequencing.Resource.Dimension.highlight_alpha_material_light;
-			global::CommonAndroidTools.Resource.Dimension.hint_alpha_material_dark = global::RadioSequencing.Resource.Dimension.hint_alpha_material_dark;
-			global::CommonAndroidTools.Resource.Dimension.hint_alpha_material_light = global::RadioSequencing.Resource.Dimension.hint_alpha_material_light;
-			global::CommonAndroidTools.Resource.Dimension.hint_pressed_alpha_material_dark = global::RadioSequencing.Resource.Dimension.hint_pressed_alpha_material_dark;
-			global::CommonAndroidTools.Resource.Dimension.hint_pressed_alpha_material_light = global::RadioSequencing.Resource.Dimension.hint_pressed_alpha_material_light;
-			global::CommonAndroidTools.Resource.Dimension.notification_action_icon_size = global::RadioSequencing.Resource.Dimension.notification_action_icon_size;
-			global::CommonAndroidTools.Resource.Dimension.notification_action_text_size = global::RadioSequencing.Resource.Dimension.notification_action_text_size;
-			global::CommonAndroidTools.Resource.Dimension.notification_big_circle_margin = global::RadioSequencing.Resource.Dimension.notification_big_circle_margin;
-			global::CommonAndroidTools.Resource.Dimension.notification_content_margin_start = global::RadioSequencing.Resource.Dimension.notification_content_margin_start;
-			global::CommonAndroidTools.Resource.Dimension.notification_large_icon_height = global::RadioSequencing.Resource.Dimension.notification_large_icon_height;
-			global::CommonAndroidTools.Resource.Dimension.notification_large_icon_width = global::RadioSequencing.Resource.Dimension.notification_large_icon_width;
-			global::CommonAndroidTools.Resource.Dimension.notification_main_column_padding_top = global::RadioSequencing.Resource.Dimension.notification_main_column_padding_top;
-			global::CommonAndroidTools.Resource.Dimension.notification_media_narrow_margin = global::RadioSequencing.Resource.Dimension.notification_media_narrow_margin;
-			global::CommonAndroidTools.Resource.Dimension.notification_right_icon_size = global::RadioSequencing.Resource.Dimension.notification_right_icon_size;
-			global::CommonAndroidTools.Resource.Dimension.notification_right_side_padding_top = global::RadioSequencing.Resource.Dimension.notification_right_side_padding_top;
-			global::CommonAndroidTools.Resource.Dimension.notification_small_icon_background_padding = global::RadioSequencing.Resource.Dimension.notification_small_icon_background_padding;
-			global::CommonAndroidTools.Resource.Dimension.notification_small_icon_size_as_large = global::RadioSequencing.Resource.Dimension.notification_small_icon_size_as_large;
-			global::CommonAndroidTools.Resource.Dimension.notification_subtext_size = global::RadioSequencing.Resource.Dimension.notification_subtext_size;
-			global::CommonAndroidTools.Resource.Dimension.notification_top_pad = global::RadioSequencing.Resource.Dimension.notification_top_pad;
-			global::CommonAndroidTools.Resource.Dimension.notification_top_pad_large_text = global::RadioSequencing.Resource.Dimension.notification_top_pad_large_text;
-			global::CommonAndroidTools.Resource.Dimension.tooltip_corner_radius = global::RadioSequencing.Resource.Dimension.tooltip_corner_radius;
-			global::CommonAndroidTools.Resource.Dimension.tooltip_horizontal_padding = global::RadioSequencing.Resource.Dimension.tooltip_horizontal_padding;
-			global::CommonAndroidTools.Resource.Dimension.tooltip_margin = global::RadioSequencing.Resource.Dimension.tooltip_margin;
-			global::CommonAndroidTools.Resource.Dimension.tooltip_precise_anchor_extra_offset = global::RadioSequencing.Resource.Dimension.tooltip_precise_anchor_extra_offset;
-			global::CommonAndroidTools.Resource.Dimension.tooltip_precise_anchor_threshold = global::RadioSequencing.Resource.Dimension.tooltip_precise_anchor_threshold;
-			global::CommonAndroidTools.Resource.Dimension.tooltip_vertical_padding = global::RadioSequencing.Resource.Dimension.tooltip_vertical_padding;
-			global::CommonAndroidTools.Resource.Dimension.tooltip_y_offset_non_touch = global::RadioSequencing.Resource.Dimension.tooltip_y_offset_non_touch;
-			global::CommonAndroidTools.Resource.Dimension.tooltip_y_offset_touch = global::RadioSequencing.Resource.Dimension.tooltip_y_offset_touch;
-			global::CommonAndroidTools.Resource.Drawable.abc_ab_share_pack_mtrl_alpha = global::RadioSequencing.Resource.Drawable.abc_ab_share_pack_mtrl_alpha;
-			global::CommonAndroidTools.Resource.Drawable.abc_action_bar_item_background_material = global::RadioSequencing.Resource.Drawable.abc_action_bar_item_background_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_btn_borderless_material = global::RadioSequencing.Resource.Drawable.abc_btn_borderless_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_btn_check_material = global::RadioSequencing.Resource.Drawable.abc_btn_check_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_btn_check_to_on_mtrl_000 = global::RadioSequencing.Resource.Drawable.abc_btn_check_to_on_mtrl_000;
-			global::CommonAndroidTools.Resource.Drawable.abc_btn_check_to_on_mtrl_015 = global::RadioSequencing.Resource.Drawable.abc_btn_check_to_on_mtrl_015;
-			global::CommonAndroidTools.Resource.Drawable.abc_btn_colored_material = global::RadioSequencing.Resource.Drawable.abc_btn_colored_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_btn_default_mtrl_shape = global::RadioSequencing.Resource.Drawable.abc_btn_default_mtrl_shape;
-			global::CommonAndroidTools.Resource.Drawable.abc_btn_radio_material = global::RadioSequencing.Resource.Drawable.abc_btn_radio_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_btn_radio_to_on_mtrl_000 = global::RadioSequencing.Resource.Drawable.abc_btn_radio_to_on_mtrl_000;
-			global::CommonAndroidTools.Resource.Drawable.abc_btn_radio_to_on_mtrl_015 = global::RadioSequencing.Resource.Drawable.abc_btn_radio_to_on_mtrl_015;
-			global::CommonAndroidTools.Resource.Drawable.abc_btn_switch_to_on_mtrl_00001 = global::RadioSequencing.Resource.Drawable.abc_btn_switch_to_on_mtrl_00001;
-			global::CommonAndroidTools.Resource.Drawable.abc_btn_switch_to_on_mtrl_00012 = global::RadioSequencing.Resource.Drawable.abc_btn_switch_to_on_mtrl_00012;
-			global::CommonAndroidTools.Resource.Drawable.abc_cab_background_internal_bg = global::RadioSequencing.Resource.Drawable.abc_cab_background_internal_bg;
-			global::CommonAndroidTools.Resource.Drawable.abc_cab_background_top_material = global::RadioSequencing.Resource.Drawable.abc_cab_background_top_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_cab_background_top_mtrl_alpha = global::RadioSequencing.Resource.Drawable.abc_cab_background_top_mtrl_alpha;
-			global::CommonAndroidTools.Resource.Drawable.abc_control_background_material = global::RadioSequencing.Resource.Drawable.abc_control_background_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_dialog_material_background = global::RadioSequencing.Resource.Drawable.abc_dialog_material_background;
-			global::CommonAndroidTools.Resource.Drawable.abc_edit_text_material = global::RadioSequencing.Resource.Drawable.abc_edit_text_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_ic_ab_back_material = global::RadioSequencing.Resource.Drawable.abc_ic_ab_back_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_ic_arrow_drop_right_black_24dp = global::RadioSequencing.Resource.Drawable.abc_ic_arrow_drop_right_black_24dp;
-			global::CommonAndroidTools.Resource.Drawable.abc_ic_clear_material = global::RadioSequencing.Resource.Drawable.abc_ic_clear_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_ic_commit_search_api_mtrl_alpha = global::RadioSequencing.Resource.Drawable.abc_ic_commit_search_api_mtrl_alpha;
-			global::CommonAndroidTools.Resource.Drawable.abc_ic_go_search_api_material = global::RadioSequencing.Resource.Drawable.abc_ic_go_search_api_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_ic_menu_copy_mtrl_am_alpha = global::RadioSequencing.Resource.Drawable.abc_ic_menu_copy_mtrl_am_alpha;
-			global::CommonAndroidTools.Resource.Drawable.abc_ic_menu_cut_mtrl_alpha = global::RadioSequencing.Resource.Drawable.abc_ic_menu_cut_mtrl_alpha;
-			global::CommonAndroidTools.Resource.Drawable.abc_ic_menu_overflow_material = global::RadioSequencing.Resource.Drawable.abc_ic_menu_overflow_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_ic_menu_paste_mtrl_am_alpha = global::RadioSequencing.Resource.Drawable.abc_ic_menu_paste_mtrl_am_alpha;
-			global::CommonAndroidTools.Resource.Drawable.abc_ic_menu_selectall_mtrl_alpha = global::RadioSequencing.Resource.Drawable.abc_ic_menu_selectall_mtrl_alpha;
-			global::CommonAndroidTools.Resource.Drawable.abc_ic_menu_share_mtrl_alpha = global::RadioSequencing.Resource.Drawable.abc_ic_menu_share_mtrl_alpha;
-			global::CommonAndroidTools.Resource.Drawable.abc_ic_search_api_material = global::RadioSequencing.Resource.Drawable.abc_ic_search_api_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_ic_star_black_16dp = global::RadioSequencing.Resource.Drawable.abc_ic_star_black_16dp;
-			global::CommonAndroidTools.Resource.Drawable.abc_ic_star_black_36dp = global::RadioSequencing.Resource.Drawable.abc_ic_star_black_36dp;
-			global::CommonAndroidTools.Resource.Drawable.abc_ic_star_black_48dp = global::RadioSequencing.Resource.Drawable.abc_ic_star_black_48dp;
-			global::CommonAndroidTools.Resource.Drawable.abc_ic_star_half_black_16dp = global::RadioSequencing.Resource.Drawable.abc_ic_star_half_black_16dp;
-			global::CommonAndroidTools.Resource.Drawable.abc_ic_star_half_black_36dp = global::RadioSequencing.Resource.Drawable.abc_ic_star_half_black_36dp;
-			global::CommonAndroidTools.Resource.Drawable.abc_ic_star_half_black_48dp = global::RadioSequencing.Resource.Drawable.abc_ic_star_half_black_48dp;
-			global::CommonAndroidTools.Resource.Drawable.abc_ic_voice_search_api_material = global::RadioSequencing.Resource.Drawable.abc_ic_voice_search_api_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_item_background_holo_dark = global::RadioSequencing.Resource.Drawable.abc_item_background_holo_dark;
-			global::CommonAndroidTools.Resource.Drawable.abc_item_background_holo_light = global::RadioSequencing.Resource.Drawable.abc_item_background_holo_light;
-			global::CommonAndroidTools.Resource.Drawable.abc_list_divider_mtrl_alpha = global::RadioSequencing.Resource.Drawable.abc_list_divider_mtrl_alpha;
-			global::CommonAndroidTools.Resource.Drawable.abc_list_focused_holo = global::RadioSequencing.Resource.Drawable.abc_list_focused_holo;
-			global::CommonAndroidTools.Resource.Drawable.abc_list_longpressed_holo = global::RadioSequencing.Resource.Drawable.abc_list_longpressed_holo;
-			global::CommonAndroidTools.Resource.Drawable.abc_list_pressed_holo_dark = global::RadioSequencing.Resource.Drawable.abc_list_pressed_holo_dark;
-			global::CommonAndroidTools.Resource.Drawable.abc_list_pressed_holo_light = global::RadioSequencing.Resource.Drawable.abc_list_pressed_holo_light;
-			global::CommonAndroidTools.Resource.Drawable.abc_list_selector_background_transition_holo_dark = global::RadioSequencing.Resource.Drawable.abc_list_selector_background_transition_holo_dark;
-			global::CommonAndroidTools.Resource.Drawable.abc_list_selector_background_transition_holo_light = global::RadioSequencing.Resource.Drawable.abc_list_selector_background_transition_holo_light;
-			global::CommonAndroidTools.Resource.Drawable.abc_list_selector_disabled_holo_dark = global::RadioSequencing.Resource.Drawable.abc_list_selector_disabled_holo_dark;
-			global::CommonAndroidTools.Resource.Drawable.abc_list_selector_disabled_holo_light = global::RadioSequencing.Resource.Drawable.abc_list_selector_disabled_holo_light;
-			global::CommonAndroidTools.Resource.Drawable.abc_list_selector_holo_dark = global::RadioSequencing.Resource.Drawable.abc_list_selector_holo_dark;
-			global::CommonAndroidTools.Resource.Drawable.abc_list_selector_holo_light = global::RadioSequencing.Resource.Drawable.abc_list_selector_holo_light;
-			global::CommonAndroidTools.Resource.Drawable.abc_menu_hardkey_panel_mtrl_mult = global::RadioSequencing.Resource.Drawable.abc_menu_hardkey_panel_mtrl_mult;
-			global::CommonAndroidTools.Resource.Drawable.abc_popup_background_mtrl_mult = global::RadioSequencing.Resource.Drawable.abc_popup_background_mtrl_mult;
-			global::CommonAndroidTools.Resource.Drawable.abc_ratingbar_indicator_material = global::RadioSequencing.Resource.Drawable.abc_ratingbar_indicator_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_ratingbar_material = global::RadioSequencing.Resource.Drawable.abc_ratingbar_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_ratingbar_small_material = global::RadioSequencing.Resource.Drawable.abc_ratingbar_small_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_scrubber_control_off_mtrl_alpha = global::RadioSequencing.Resource.Drawable.abc_scrubber_control_off_mtrl_alpha;
-			global::CommonAndroidTools.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_000 = global::RadioSequencing.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_000;
-			global::CommonAndroidTools.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_005 = global::RadioSequencing.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_005;
-			global::CommonAndroidTools.Resource.Drawable.abc_scrubber_primary_mtrl_alpha = global::RadioSequencing.Resource.Drawable.abc_scrubber_primary_mtrl_alpha;
-			global::CommonAndroidTools.Resource.Drawable.abc_scrubber_track_mtrl_alpha = global::RadioSequencing.Resource.Drawable.abc_scrubber_track_mtrl_alpha;
-			global::CommonAndroidTools.Resource.Drawable.abc_seekbar_thumb_material = global::RadioSequencing.Resource.Drawable.abc_seekbar_thumb_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_seekbar_tick_mark_material = global::RadioSequencing.Resource.Drawable.abc_seekbar_tick_mark_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_seekbar_track_material = global::RadioSequencing.Resource.Drawable.abc_seekbar_track_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_spinner_mtrl_am_alpha = global::RadioSequencing.Resource.Drawable.abc_spinner_mtrl_am_alpha;
-			global::CommonAndroidTools.Resource.Drawable.abc_spinner_textfield_background_material = global::RadioSequencing.Resource.Drawable.abc_spinner_textfield_background_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_switch_thumb_material = global::RadioSequencing.Resource.Drawable.abc_switch_thumb_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_switch_track_mtrl_alpha = global::RadioSequencing.Resource.Drawable.abc_switch_track_mtrl_alpha;
-			global::CommonAndroidTools.Resource.Drawable.abc_tab_indicator_material = global::RadioSequencing.Resource.Drawable.abc_tab_indicator_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_tab_indicator_mtrl_alpha = global::RadioSequencing.Resource.Drawable.abc_tab_indicator_mtrl_alpha;
-			global::CommonAndroidTools.Resource.Drawable.abc_text_cursor_material = global::RadioSequencing.Resource.Drawable.abc_text_cursor_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_text_select_handle_left_mtrl_dark = global::RadioSequencing.Resource.Drawable.abc_text_select_handle_left_mtrl_dark;
-			global::CommonAndroidTools.Resource.Drawable.abc_text_select_handle_left_mtrl_light = global::RadioSequencing.Resource.Drawable.abc_text_select_handle_left_mtrl_light;
-			global::CommonAndroidTools.Resource.Drawable.abc_text_select_handle_middle_mtrl_dark = global::RadioSequencing.Resource.Drawable.abc_text_select_handle_middle_mtrl_dark;
-			global::CommonAndroidTools.Resource.Drawable.abc_text_select_handle_middle_mtrl_light = global::RadioSequencing.Resource.Drawable.abc_text_select_handle_middle_mtrl_light;
-			global::CommonAndroidTools.Resource.Drawable.abc_text_select_handle_right_mtrl_dark = global::RadioSequencing.Resource.Drawable.abc_text_select_handle_right_mtrl_dark;
-			global::CommonAndroidTools.Resource.Drawable.abc_text_select_handle_right_mtrl_light = global::RadioSequencing.Resource.Drawable.abc_text_select_handle_right_mtrl_light;
-			global::CommonAndroidTools.Resource.Drawable.abc_textfield_activated_mtrl_alpha = global::RadioSequencing.Resource.Drawable.abc_textfield_activated_mtrl_alpha;
-			global::CommonAndroidTools.Resource.Drawable.abc_textfield_default_mtrl_alpha = global::RadioSequencing.Resource.Drawable.abc_textfield_default_mtrl_alpha;
-			global::CommonAndroidTools.Resource.Drawable.abc_textfield_search_activated_mtrl_alpha = global::RadioSequencing.Resource.Drawable.abc_textfield_search_activated_mtrl_alpha;
-			global::CommonAndroidTools.Resource.Drawable.abc_textfield_search_default_mtrl_alpha = global::RadioSequencing.Resource.Drawable.abc_textfield_search_default_mtrl_alpha;
-			global::CommonAndroidTools.Resource.Drawable.abc_textfield_search_material = global::RadioSequencing.Resource.Drawable.abc_textfield_search_material;
-			global::CommonAndroidTools.Resource.Drawable.abc_vector_test = global::RadioSequencing.Resource.Drawable.abc_vector_test;
-			global::CommonAndroidTools.Resource.Drawable.notification_action_background = global::RadioSequencing.Resource.Drawable.notification_action_background;
-			global::CommonAndroidTools.Resource.Drawable.notification_bg = global::RadioSequencing.Resource.Drawable.notification_bg;
-			global::CommonAndroidTools.Resource.Drawable.notification_bg_low = global::RadioSequencing.Resource.Drawable.notification_bg_low;
-			global::CommonAndroidTools.Resource.Drawable.notification_bg_low_normal = global::RadioSequencing.Resource.Drawable.notification_bg_low_normal;
-			global::CommonAndroidTools.Resource.Drawable.notification_bg_low_pressed = global::RadioSequencing.Resource.Drawable.notification_bg_low_pressed;
-			global::CommonAndroidTools.Resource.Drawable.notification_bg_normal = global::RadioSequencing.Resource.Drawable.notification_bg_normal;
-			global::CommonAndroidTools.Resource.Drawable.notification_bg_normal_pressed = global::RadioSequencing.Resource.Drawable.notification_bg_normal_pressed;
-			global::CommonAndroidTools.Resource.Drawable.notification_icon_background = global::RadioSequencing.Resource.Drawable.notification_icon_background;
-			global::CommonAndroidTools.Resource.Drawable.notification_template_icon_bg = global::RadioSequencing.Resource.Drawable.notification_template_icon_bg;
-			global::CommonAndroidTools.Resource.Drawable.notification_template_icon_low_bg = global::RadioSequencing.Resource.Drawable.notification_template_icon_low_bg;
-			global::CommonAndroidTools.Resource.Drawable.notification_tile_bg = global::RadioSequencing.Resource.Drawable.notification_tile_bg;
-			global::CommonAndroidTools.Resource.Drawable.notify_panel_notification_icon_bg = global::RadioSequencing.Resource.Drawable.notify_panel_notification_icon_bg;
-			global::CommonAndroidTools.Resource.Drawable.tooltip_frame_dark = global::RadioSequencing.Resource.Drawable.tooltip_frame_dark;
-			global::CommonAndroidTools.Resource.Drawable.tooltip_frame_light = global::RadioSequencing.Resource.Drawable.tooltip_frame_light;
-			global::CommonAndroidTools.Resource.Id.ALT = global::RadioSequencing.Resource.Id.ALT;
-			global::CommonAndroidTools.Resource.Id.CTRL = global::RadioSequencing.Resource.Id.CTRL;
-			global::CommonAndroidTools.Resource.Id.FUNCTION = global::RadioSequencing.Resource.Id.FUNCTION;
-			global::CommonAndroidTools.Resource.Id.META = global::RadioSequencing.Resource.Id.META;
-			global::CommonAndroidTools.Resource.Id.SHIFT = global::RadioSequencing.Resource.Id.SHIFT;
-			global::CommonAndroidTools.Resource.Id.SYM = global::RadioSequencing.Resource.Id.SYM;
-			global::CommonAndroidTools.Resource.Id.action_bar = global::RadioSequencing.Resource.Id.action_bar;
-			global::CommonAndroidTools.Resource.Id.action_bar_activity_content = global::RadioSequencing.Resource.Id.action_bar_activity_content;
-			global::CommonAndroidTools.Resource.Id.action_bar_container = global::RadioSequencing.Resource.Id.action_bar_container;
-			global::CommonAndroidTools.Resource.Id.action_bar_root = global::RadioSequencing.Resource.Id.action_bar_root;
-			global::CommonAndroidTools.Resource.Id.action_bar_spinner = global::RadioSequencing.Resource.Id.action_bar_spinner;
-			global::CommonAndroidTools.Resource.Id.action_bar_subtitle = global::RadioSequencing.Resource.Id.action_bar_subtitle;
-			global::CommonAndroidTools.Resource.Id.action_bar_title = global::RadioSequencing.Resource.Id.action_bar_title;
-			global::CommonAndroidTools.Resource.Id.action_container = global::RadioSequencing.Resource.Id.action_container;
-			global::CommonAndroidTools.Resource.Id.action_context_bar = global::RadioSequencing.Resource.Id.action_context_bar;
-			global::CommonAndroidTools.Resource.Id.action_divider = global::RadioSequencing.Resource.Id.action_divider;
-			global::CommonAndroidTools.Resource.Id.action_image = global::RadioSequencing.Resource.Id.action_image;
-			global::CommonAndroidTools.Resource.Id.action_menu_divider = global::RadioSequencing.Resource.Id.action_menu_divider;
-			global::CommonAndroidTools.Resource.Id.action_menu_presenter = global::RadioSequencing.Resource.Id.action_menu_presenter;
-			global::CommonAndroidTools.Resource.Id.action_mode_bar = global::RadioSequencing.Resource.Id.action_mode_bar;
-			global::CommonAndroidTools.Resource.Id.action_mode_bar_stub = global::RadioSequencing.Resource.Id.action_mode_bar_stub;
-			global::CommonAndroidTools.Resource.Id.action_mode_close_button = global::RadioSequencing.Resource.Id.action_mode_close_button;
-			global::CommonAndroidTools.Resource.Id.action_text = global::RadioSequencing.Resource.Id.action_text;
-			global::CommonAndroidTools.Resource.Id.actions = global::RadioSequencing.Resource.Id.actions;
-			global::CommonAndroidTools.Resource.Id.activity_chooser_view_content = global::RadioSequencing.Resource.Id.activity_chooser_view_content;
-			global::CommonAndroidTools.Resource.Id.add = global::RadioSequencing.Resource.Id.add;
-			global::CommonAndroidTools.Resource.Id.alertTitle = global::RadioSequencing.Resource.Id.alertTitle;
-			global::CommonAndroidTools.Resource.Id.always = global::RadioSequencing.Resource.Id.always;
-			global::CommonAndroidTools.Resource.Id.async = global::RadioSequencing.Resource.Id.async;
-			global::CommonAndroidTools.Resource.Id.beginning = global::RadioSequencing.Resource.Id.beginning;
-			global::CommonAndroidTools.Resource.Id.blocking = global::RadioSequencing.Resource.Id.blocking;
-			global::CommonAndroidTools.Resource.Id.bottom = global::RadioSequencing.Resource.Id.bottom;
-			global::CommonAndroidTools.Resource.Id.buttonPanel = global::RadioSequencing.Resource.Id.buttonPanel;
-			global::CommonAndroidTools.Resource.Id.checkbox = global::RadioSequencing.Resource.Id.checkbox;
-			global::CommonAndroidTools.Resource.Id.chronometer = global::RadioSequencing.Resource.Id.chronometer;
-			global::CommonAndroidTools.Resource.Id.collapseActionView = global::RadioSequencing.Resource.Id.collapseActionView;
-			global::CommonAndroidTools.Resource.Id.contentPanel = global::RadioSequencing.Resource.Id.contentPanel;
-			global::CommonAndroidTools.Resource.Id.custom = global::RadioSequencing.Resource.Id.custom;
-			global::CommonAndroidTools.Resource.Id.customPanel = global::RadioSequencing.Resource.Id.customPanel;
-			global::CommonAndroidTools.Resource.Id.decor_content_parent = global::RadioSequencing.Resource.Id.decor_content_parent;
-			global::CommonAndroidTools.Resource.Id.default_activity_button = global::RadioSequencing.Resource.Id.default_activity_button;
-			global::CommonAndroidTools.Resource.Id.disableHome = global::RadioSequencing.Resource.Id.disableHome;
-			global::CommonAndroidTools.Resource.Id.edit_query = global::RadioSequencing.Resource.Id.edit_query;
-			global::CommonAndroidTools.Resource.Id.end = global::RadioSequencing.Resource.Id.end;
-			global::CommonAndroidTools.Resource.Id.expand_activities_button = global::RadioSequencing.Resource.Id.expand_activities_button;
-			global::CommonAndroidTools.Resource.Id.expanded_menu = global::RadioSequencing.Resource.Id.expanded_menu;
-			global::CommonAndroidTools.Resource.Id.forever = global::RadioSequencing.Resource.Id.forever;
-			global::CommonAndroidTools.Resource.Id.home = global::RadioSequencing.Resource.Id.home;
-			global::CommonAndroidTools.Resource.Id.homeAsUp = global::RadioSequencing.Resource.Id.homeAsUp;
-			global::CommonAndroidTools.Resource.Id.icon = global::RadioSequencing.Resource.Id.icon;
-			global::CommonAndroidTools.Resource.Id.icon_group = global::RadioSequencing.Resource.Id.icon_group;
-			global::CommonAndroidTools.Resource.Id.ifRoom = global::RadioSequencing.Resource.Id.ifRoom;
-			global::CommonAndroidTools.Resource.Id.image = global::RadioSequencing.Resource.Id.image;
-			global::CommonAndroidTools.Resource.Id.info = global::RadioSequencing.Resource.Id.info;
-			global::CommonAndroidTools.Resource.Id.italic = global::RadioSequencing.Resource.Id.italic;
-			global::CommonAndroidTools.Resource.Id.line1 = global::RadioSequencing.Resource.Id.line1;
-			global::CommonAndroidTools.Resource.Id.line3 = global::RadioSequencing.Resource.Id.line3;
-			global::CommonAndroidTools.Resource.Id.listMode = global::RadioSequencing.Resource.Id.listMode;
-			global::CommonAndroidTools.Resource.Id.list_item = global::RadioSequencing.Resource.Id.list_item;
-			global::CommonAndroidTools.Resource.Id.message = global::RadioSequencing.Resource.Id.message;
-			global::CommonAndroidTools.Resource.Id.middle = global::RadioSequencing.Resource.Id.middle;
-			global::CommonAndroidTools.Resource.Id.multiply = global::RadioSequencing.Resource.Id.multiply;
-			global::CommonAndroidTools.Resource.Id.never = global::RadioSequencing.Resource.Id.never;
-			global::CommonAndroidTools.Resource.Id.none = global::RadioSequencing.Resource.Id.none;
-			global::CommonAndroidTools.Resource.Id.normal = global::RadioSequencing.Resource.Id.normal;
-			global::CommonAndroidTools.Resource.Id.notification_background = global::RadioSequencing.Resource.Id.notification_background;
-			global::CommonAndroidTools.Resource.Id.notification_main_column = global::RadioSequencing.Resource.Id.notification_main_column;
-			global::CommonAndroidTools.Resource.Id.notification_main_column_container = global::RadioSequencing.Resource.Id.notification_main_column_container;
-			global::CommonAndroidTools.Resource.Id.parentPanel = global::RadioSequencing.Resource.Id.parentPanel;
-			global::CommonAndroidTools.Resource.Id.progress_circular = global::RadioSequencing.Resource.Id.progress_circular;
-			global::CommonAndroidTools.Resource.Id.progress_horizontal = global::RadioSequencing.Resource.Id.progress_horizontal;
-			global::CommonAndroidTools.Resource.Id.radio = global::RadioSequencing.Resource.Id.radio;
-			global::CommonAndroidTools.Resource.Id.right_icon = global::RadioSequencing.Resource.Id.right_icon;
-			global::CommonAndroidTools.Resource.Id.right_side = global::RadioSequencing.Resource.Id.right_side;
-			global::CommonAndroidTools.Resource.Id.screen = global::RadioSequencing.Resource.Id.screen;
-			global::CommonAndroidTools.Resource.Id.scrollIndicatorDown = global::RadioSequencing.Resource.Id.scrollIndicatorDown;
-			global::CommonAndroidTools.Resource.Id.scrollIndicatorUp = global::RadioSequencing.Resource.Id.scrollIndicatorUp;
-			global::CommonAndroidTools.Resource.Id.scrollView = global::RadioSequencing.Resource.Id.scrollView;
-			global::CommonAndroidTools.Resource.Id.search_badge = global::RadioSequencing.Resource.Id.search_badge;
-			global::CommonAndroidTools.Resource.Id.search_bar = global::RadioSequencing.Resource.Id.search_bar;
-			global::CommonAndroidTools.Resource.Id.search_button = global::RadioSequencing.Resource.Id.search_button;
-			global::CommonAndroidTools.Resource.Id.search_close_btn = global::RadioSequencing.Resource.Id.search_close_btn;
-			global::CommonAndroidTools.Resource.Id.search_edit_frame = global::RadioSequencing.Resource.Id.search_edit_frame;
-			global::CommonAndroidTools.Resource.Id.search_go_btn = global::RadioSequencing.Resource.Id.search_go_btn;
-			global::CommonAndroidTools.Resource.Id.search_mag_icon = global::RadioSequencing.Resource.Id.search_mag_icon;
-			global::CommonAndroidTools.Resource.Id.search_plate = global::RadioSequencing.Resource.Id.search_plate;
-			global::CommonAndroidTools.Resource.Id.search_src_text = global::RadioSequencing.Resource.Id.search_src_text;
-			global::CommonAndroidTools.Resource.Id.search_voice_btn = global::RadioSequencing.Resource.Id.search_voice_btn;
-			global::CommonAndroidTools.Resource.Id.select_dialog_listview = global::RadioSequencing.Resource.Id.select_dialog_listview;
-			global::CommonAndroidTools.Resource.Id.shortcut = global::RadioSequencing.Resource.Id.shortcut;
-			global::CommonAndroidTools.Resource.Id.showCustom = global::RadioSequencing.Resource.Id.showCustom;
-			global::CommonAndroidTools.Resource.Id.showHome = global::RadioSequencing.Resource.Id.showHome;
-			global::CommonAndroidTools.Resource.Id.showTitle = global::RadioSequencing.Resource.Id.showTitle;
-			global::CommonAndroidTools.Resource.Id.spacer = global::RadioSequencing.Resource.Id.spacer;
-			global::CommonAndroidTools.Resource.Id.split_action_bar = global::RadioSequencing.Resource.Id.split_action_bar;
-			global::CommonAndroidTools.Resource.Id.src_atop = global::RadioSequencing.Resource.Id.src_atop;
-			global::CommonAndroidTools.Resource.Id.src_in = global::RadioSequencing.Resource.Id.src_in;
-			global::CommonAndroidTools.Resource.Id.src_over = global::RadioSequencing.Resource.Id.src_over;
-			global::CommonAndroidTools.Resource.Id.submenuarrow = global::RadioSequencing.Resource.Id.submenuarrow;
-			global::CommonAndroidTools.Resource.Id.submit_area = global::RadioSequencing.Resource.Id.submit_area;
-			global::CommonAndroidTools.Resource.Id.tabMode = global::RadioSequencing.Resource.Id.tabMode;
-			global::CommonAndroidTools.Resource.Id.tag_transition_group = global::RadioSequencing.Resource.Id.tag_transition_group;
-			global::CommonAndroidTools.Resource.Id.text = global::RadioSequencing.Resource.Id.text;
-			global::CommonAndroidTools.Resource.Id.text2 = global::RadioSequencing.Resource.Id.text2;
-			global::CommonAndroidTools.Resource.Id.textSpacerNoButtons = global::RadioSequencing.Resource.Id.textSpacerNoButtons;
-			global::CommonAndroidTools.Resource.Id.textSpacerNoTitle = global::RadioSequencing.Resource.Id.textSpacerNoTitle;
-			global::CommonAndroidTools.Resource.Id.time = global::RadioSequencing.Resource.Id.time;
-			global::CommonAndroidTools.Resource.Id.title = global::RadioSequencing.Resource.Id.title;
-			global::CommonAndroidTools.Resource.Id.titleDividerNoCustom = global::RadioSequencing.Resource.Id.titleDividerNoCustom;
-			global::CommonAndroidTools.Resource.Id.title_template = global::RadioSequencing.Resource.Id.title_template;
-			global::CommonAndroidTools.Resource.Id.top = global::RadioSequencing.Resource.Id.top;
-			global::CommonAndroidTools.Resource.Id.topPanel = global::RadioSequencing.Resource.Id.topPanel;
-			global::CommonAndroidTools.Resource.Id.uniform = global::RadioSequencing.Resource.Id.uniform;
-			global::CommonAndroidTools.Resource.Id.up = global::RadioSequencing.Resource.Id.up;
-			global::CommonAndroidTools.Resource.Id.useLogo = global::RadioSequencing.Resource.Id.useLogo;
-			global::CommonAndroidTools.Resource.Id.withText = global::RadioSequencing.Resource.Id.withText;
-			global::CommonAndroidTools.Resource.Id.wrap_content = global::RadioSequencing.Resource.Id.wrap_content;
-			global::CommonAndroidTools.Resource.Integer.abc_config_activityDefaultDur = global::RadioSequencing.Resource.Integer.abc_config_activityDefaultDur;
-			global::CommonAndroidTools.Resource.Integer.abc_config_activityShortDur = global::RadioSequencing.Resource.Integer.abc_config_activityShortDur;
-			global::CommonAndroidTools.Resource.Integer.cancel_button_image_alpha = global::RadioSequencing.Resource.Integer.cancel_button_image_alpha;
-			global::CommonAndroidTools.Resource.Integer.config_tooltipAnimTime = global::RadioSequencing.Resource.Integer.config_tooltipAnimTime;
-			global::CommonAndroidTools.Resource.Integer.status_bar_notification_info_maxnum = global::RadioSequencing.Resource.Integer.status_bar_notification_info_maxnum;
-			global::CommonAndroidTools.Resource.Layout.abc_action_bar_title_item = global::RadioSequencing.Resource.Layout.abc_action_bar_title_item;
-			global::CommonAndroidTools.Resource.Layout.abc_action_bar_up_container = global::RadioSequencing.Resource.Layout.abc_action_bar_up_container;
-			global::CommonAndroidTools.Resource.Layout.abc_action_menu_item_layout = global::RadioSequencing.Resource.Layout.abc_action_menu_item_layout;
-			global::CommonAndroidTools.Resource.Layout.abc_action_menu_layout = global::RadioSequencing.Resource.Layout.abc_action_menu_layout;
-			global::CommonAndroidTools.Resource.Layout.abc_action_mode_bar = global::RadioSequencing.Resource.Layout.abc_action_mode_bar;
-			global::CommonAndroidTools.Resource.Layout.abc_action_mode_close_item_material = global::RadioSequencing.Resource.Layout.abc_action_mode_close_item_material;
-			global::CommonAndroidTools.Resource.Layout.abc_activity_chooser_view = global::RadioSequencing.Resource.Layout.abc_activity_chooser_view;
-			global::CommonAndroidTools.Resource.Layout.abc_activity_chooser_view_list_item = global::RadioSequencing.Resource.Layout.abc_activity_chooser_view_list_item;
-			global::CommonAndroidTools.Resource.Layout.abc_alert_dialog_button_bar_material = global::RadioSequencing.Resource.Layout.abc_alert_dialog_button_bar_material;
-			global::CommonAndroidTools.Resource.Layout.abc_alert_dialog_material = global::RadioSequencing.Resource.Layout.abc_alert_dialog_material;
-			global::CommonAndroidTools.Resource.Layout.abc_alert_dialog_title_material = global::RadioSequencing.Resource.Layout.abc_alert_dialog_title_material;
-			global::CommonAndroidTools.Resource.Layout.abc_dialog_title_material = global::RadioSequencing.Resource.Layout.abc_dialog_title_material;
-			global::CommonAndroidTools.Resource.Layout.abc_expanded_menu_layout = global::RadioSequencing.Resource.Layout.abc_expanded_menu_layout;
-			global::CommonAndroidTools.Resource.Layout.abc_list_menu_item_checkbox = global::RadioSequencing.Resource.Layout.abc_list_menu_item_checkbox;
-			global::CommonAndroidTools.Resource.Layout.abc_list_menu_item_icon = global::RadioSequencing.Resource.Layout.abc_list_menu_item_icon;
-			global::CommonAndroidTools.Resource.Layout.abc_list_menu_item_layout = global::RadioSequencing.Resource.Layout.abc_list_menu_item_layout;
-			global::CommonAndroidTools.Resource.Layout.abc_list_menu_item_radio = global::RadioSequencing.Resource.Layout.abc_list_menu_item_radio;
-			global::CommonAndroidTools.Resource.Layout.abc_popup_menu_header_item_layout = global::RadioSequencing.Resource.Layout.abc_popup_menu_header_item_layout;
-			global::CommonAndroidTools.Resource.Layout.abc_popup_menu_item_layout = global::RadioSequencing.Resource.Layout.abc_popup_menu_item_layout;
-			global::CommonAndroidTools.Resource.Layout.abc_screen_content_include = global::RadioSequencing.Resource.Layout.abc_screen_content_include;
-			global::CommonAndroidTools.Resource.Layout.abc_screen_simple = global::RadioSequencing.Resource.Layout.abc_screen_simple;
-			global::CommonAndroidTools.Resource.Layout.abc_screen_simple_overlay_action_mode = global::RadioSequencing.Resource.Layout.abc_screen_simple_overlay_action_mode;
-			global::CommonAndroidTools.Resource.Layout.abc_screen_toolbar = global::RadioSequencing.Resource.Layout.abc_screen_toolbar;
-			global::CommonAndroidTools.Resource.Layout.abc_search_dropdown_item_icons_2line = global::RadioSequencing.Resource.Layout.abc_search_dropdown_item_icons_2line;
-			global::CommonAndroidTools.Resource.Layout.abc_search_view = global::RadioSequencing.Resource.Layout.abc_search_view;
-			global::CommonAndroidTools.Resource.Layout.abc_select_dialog_material = global::RadioSequencing.Resource.Layout.abc_select_dialog_material;
-			global::CommonAndroidTools.Resource.Layout.notification_action = global::RadioSequencing.Resource.Layout.notification_action;
-			global::CommonAndroidTools.Resource.Layout.notification_action_tombstone = global::RadioSequencing.Resource.Layout.notification_action_tombstone;
-			global::CommonAndroidTools.Resource.Layout.notification_template_custom_big = global::RadioSequencing.Resource.Layout.notification_template_custom_big;
-			global::CommonAndroidTools.Resource.Layout.notification_template_icon_group = global::RadioSequencing.Resource.Layout.notification_template_icon_group;
-			global::CommonAndroidTools.Resource.Layout.notification_template_part_chronometer = global::RadioSequencing.Resource.Layout.notification_template_part_chronometer;
-			global::CommonAndroidTools.Resource.Layout.notification_template_part_time = global::RadioSequencing.Resource.Layout.notification_template_part_time;
-			global::CommonAndroidTools.Resource.Layout.select_dialog_item_material = global::RadioSequencing.Resource.Layout.select_dialog_item_material;
-			global::CommonAndroidTools.Resource.Layout.select_dialog_multichoice_material = global::RadioSequencing.Resource.Layout.select_dialog_multichoice_material;
-			global::CommonAndroidTools.Resource.Layout.select_dialog_singlechoice_material = global::RadioSequencing.Resource.Layout.select_dialog_singlechoice_material;
-			global::CommonAndroidTools.Resource.Layout.support_simple_spinner_dropdown_item = global::RadioSequencing.Resource.Layout.support_simple_spinner_dropdown_item;
 			global::CommonAndroidTools.Resource.Raw.Antares = global::RadioSequencing.Resource.Raw.Antares;
 			global::CommonAndroidTools.Resource.Raw.decodeshort = global::RadioSequencing.Resource.Raw.decodeshort;
 			global::CommonAndroidTools.Resource.Raw.Gallium = global::RadioSequencing.Resource.Raw.Gallium;
 			global::CommonAndroidTools.Resource.Raw.TaDa = global::RadioSequencing.Resource.Raw.TaDa;
 			global::CommonAndroidTools.Resource.Raw.Tejat = global::RadioSequencing.Resource.Raw.Tejat;
-			global::CommonAndroidTools.Resource.String.abc_action_bar_home_description = global::RadioSequencing.Resource.String.abc_action_bar_home_description;
-			global::CommonAndroidTools.Resource.String.abc_action_bar_up_description = global::RadioSequencing.Resource.String.abc_action_bar_up_description;
-			global::CommonAndroidTools.Resource.String.abc_action_menu_overflow_description = global::RadioSequencing.Resource.String.abc_action_menu_overflow_description;
-			global::CommonAndroidTools.Resource.String.abc_action_mode_done = global::RadioSequencing.Resource.String.abc_action_mode_done;
-			global::CommonAndroidTools.Resource.String.abc_activity_chooser_view_see_all = global::RadioSequencing.Resource.String.abc_activity_chooser_view_see_all;
-			global::CommonAndroidTools.Resource.String.abc_activitychooserview_choose_application = global::RadioSequencing.Resource.String.abc_activitychooserview_choose_application;
-			global::CommonAndroidTools.Resource.String.abc_capital_off = global::RadioSequencing.Resource.String.abc_capital_off;
-			global::CommonAndroidTools.Resource.String.abc_capital_on = global::RadioSequencing.Resource.String.abc_capital_on;
-			global::CommonAndroidTools.Resource.String.abc_font_family_body_1_material = global::RadioSequencing.Resource.String.abc_font_family_body_1_material;
-			global::CommonAndroidTools.Resource.String.abc_font_family_body_2_material = global::RadioSequencing.Resource.String.abc_font_family_body_2_material;
-			global::CommonAndroidTools.Resource.String.abc_font_family_button_material = global::RadioSequencing.Resource.String.abc_font_family_button_material;
-			global::CommonAndroidTools.Resource.String.abc_font_family_caption_material = global::RadioSequencing.Resource.String.abc_font_family_caption_material;
-			global::CommonAndroidTools.Resource.String.abc_font_family_display_1_material = global::RadioSequencing.Resource.String.abc_font_family_display_1_material;
-			global::CommonAndroidTools.Resource.String.abc_font_family_display_2_material = global::RadioSequencing.Resource.String.abc_font_family_display_2_material;
-			global::CommonAndroidTools.Resource.String.abc_font_family_display_3_material = global::RadioSequencing.Resource.String.abc_font_family_display_3_material;
-			global::CommonAndroidTools.Resource.String.abc_font_family_display_4_material = global::RadioSequencing.Resource.String.abc_font_family_display_4_material;
-			global::CommonAndroidTools.Resource.String.abc_font_family_headline_material = global::RadioSequencing.Resource.String.abc_font_family_headline_material;
-			global::CommonAndroidTools.Resource.String.abc_font_family_menu_material = global::RadioSequencing.Resource.String.abc_font_family_menu_material;
-			global::CommonAndroidTools.Resource.String.abc_font_family_subhead_material = global::RadioSequencing.Resource.String.abc_font_family_subhead_material;
-			global::CommonAndroidTools.Resource.String.abc_font_family_title_material = global::RadioSequencing.Resource.String.abc_font_family_title_material;
-			global::CommonAndroidTools.Resource.String.abc_search_hint = global::RadioSequencing.Resource.String.abc_search_hint;
-			global::CommonAndroidTools.Resource.String.abc_searchview_description_clear = global::RadioSequencing.Resource.String.abc_searchview_description_clear;
-			global::CommonAndroidTools.Resource.String.abc_searchview_description_query = global::RadioSequencing.Resource.String.abc_searchview_description_query;
-			global::CommonAndroidTools.Resource.String.abc_searchview_description_search = global::RadioSequencing.Resource.String.abc_searchview_description_search;
-			global::CommonAndroidTools.Resource.String.abc_searchview_description_submit = global::RadioSequencing.Resource.String.abc_searchview_description_submit;
-			global::CommonAndroidTools.Resource.String.abc_searchview_description_voice = global::RadioSequencing.Resource.String.abc_searchview_description_voice;
-			global::CommonAndroidTools.Resource.String.abc_shareactionprovider_share_with = global::RadioSequencing.Resource.String.abc_shareactionprovider_share_with;
-			global::CommonAndroidTools.Resource.String.abc_shareactionprovider_share_with_application = global::RadioSequencing.Resource.String.abc_shareactionprovider_share_with_application;
-			global::CommonAndroidTools.Resource.String.abc_toolbar_collapse_description = global::RadioSequencing.Resource.String.abc_toolbar_collapse_description;
-			global::CommonAndroidTools.Resource.String.app_name = global::RadioSequencing.Resource.String.app_name;
-			global::CommonAndroidTools.Resource.String.hello = global::RadioSequencing.Resource.String.hello;
-			global::CommonAndroidTools.Resource.String.search_menu_title = global::RadioSequencing.Resource.String.search_menu_title;
-			global::CommonAndroidTools.Resource.String.status_bar_notification_info_overflow = global::RadioSequencing.Resource.String.status_bar_notification_info_overflow;
-			global::CommonAndroidTools.Resource.Style.AlertDialog_AppCompat = global::RadioSequencing.Resource.Style.AlertDialog_AppCompat;
-			global::CommonAndroidTools.Resource.Style.AlertDialog_AppCompat_Light = global::RadioSequencing.Resource.Style.AlertDialog_AppCompat_Light;
-			global::CommonAndroidTools.Resource.Style.Animation_AppCompat_Dialog = global::RadioSequencing.Resource.Style.Animation_AppCompat_Dialog;
-			global::CommonAndroidTools.Resource.Style.Animation_AppCompat_DropDownUp = global::RadioSequencing.Resource.Style.Animation_AppCompat_DropDownUp;
-			global::CommonAndroidTools.Resource.Style.Animation_AppCompat_Tooltip = global::RadioSequencing.Resource.Style.Animation_AppCompat_Tooltip;
-			global::CommonAndroidTools.Resource.Style.Base_AlertDialog_AppCompat = global::RadioSequencing.Resource.Style.Base_AlertDialog_AppCompat;
-			global::CommonAndroidTools.Resource.Style.Base_AlertDialog_AppCompat_Light = global::RadioSequencing.Resource.Style.Base_AlertDialog_AppCompat_Light;
-			global::CommonAndroidTools.Resource.Style.Base_Animation_AppCompat_Dialog = global::RadioSequencing.Resource.Style.Base_Animation_AppCompat_Dialog;
-			global::CommonAndroidTools.Resource.Style.Base_Animation_AppCompat_DropDownUp = global::RadioSequencing.Resource.Style.Base_Animation_AppCompat_DropDownUp;
-			global::CommonAndroidTools.Resource.Style.Base_Animation_AppCompat_Tooltip = global::RadioSequencing.Resource.Style.Base_Animation_AppCompat_Tooltip;
-			global::CommonAndroidTools.Resource.Style.Base_DialogWindowTitle_AppCompat = global::RadioSequencing.Resource.Style.Base_DialogWindowTitle_AppCompat;
-			global::CommonAndroidTools.Resource.Style.Base_DialogWindowTitleBackground_AppCompat = global::RadioSequencing.Resource.Style.Base_DialogWindowTitleBackground_AppCompat;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Body1 = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Body1;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Body2 = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Body2;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Button = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Button;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Caption = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Caption;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Display1 = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Display1;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Display2 = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Display2;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Display3 = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Display3;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Display4 = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Display4;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Headline = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Headline;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Inverse = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Inverse;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Large = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Large;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Large_Inverse = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Large_Inverse;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Medium = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Medium;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Medium_Inverse = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Medium_Inverse;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Menu = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Menu;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_SearchResult = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_SearchResult;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Subtitle = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Subtitle;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Title = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Title;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Small = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Small;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Small_Inverse = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Small_Inverse;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Subhead = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Subhead;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Subhead_Inverse = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Subhead_Inverse;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Title = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Title;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Title_Inverse = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Title_Inverse;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Tooltip = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Tooltip;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Menu = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Menu;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Title = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Title;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Colored = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Colored;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Inverse = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Inverse;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_DropDownItem = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Widget_DropDownItem;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Header = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Header;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Large = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Large;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Small = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Small;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_Switch = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Widget_Switch;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::RadioSequencing.Resource.Style.Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::RadioSequencing.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
-			global::CommonAndroidTools.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Title = global::RadioSequencing.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Title;
-			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat = global::RadioSequencing.Resource.Style.Base_Theme_AppCompat;
-			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_CompactMenu = global::RadioSequencing.Resource.Style.Base_Theme_AppCompat_CompactMenu;
-			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_Dialog = global::RadioSequencing.Resource.Style.Base_Theme_AppCompat_Dialog;
-			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_Dialog_Alert = global::RadioSequencing.Resource.Style.Base_Theme_AppCompat_Dialog_Alert;
-			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_Dialog_FixedSize = global::RadioSequencing.Resource.Style.Base_Theme_AppCompat_Dialog_FixedSize;
-			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_Dialog_MinWidth = global::RadioSequencing.Resource.Style.Base_Theme_AppCompat_Dialog_MinWidth;
-			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_DialogWhenLarge = global::RadioSequencing.Resource.Style.Base_Theme_AppCompat_DialogWhenLarge;
-			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_Light = global::RadioSequencing.Resource.Style.Base_Theme_AppCompat_Light;
-			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_Light_DarkActionBar = global::RadioSequencing.Resource.Style.Base_Theme_AppCompat_Light_DarkActionBar;
-			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_Light_Dialog = global::RadioSequencing.Resource.Style.Base_Theme_AppCompat_Light_Dialog;
-			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert = global::RadioSequencing.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert;
-			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize = global::RadioSequencing.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize;
-			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth = global::RadioSequencing.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth;
-			global::CommonAndroidTools.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge = global::RadioSequencing.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge;
-			global::CommonAndroidTools.Resource.Style.Base_ThemeOverlay_AppCompat = global::RadioSequencing.Resource.Style.Base_ThemeOverlay_AppCompat;
-			global::CommonAndroidTools.Resource.Style.Base_ThemeOverlay_AppCompat_ActionBar = global::RadioSequencing.Resource.Style.Base_ThemeOverlay_AppCompat_ActionBar;
-			global::CommonAndroidTools.Resource.Style.Base_ThemeOverlay_AppCompat_Dark = global::RadioSequencing.Resource.Style.Base_ThemeOverlay_AppCompat_Dark;
-			global::CommonAndroidTools.Resource.Style.Base_ThemeOverlay_AppCompat_Dark_ActionBar = global::RadioSequencing.Resource.Style.Base_ThemeOverlay_AppCompat_Dark_ActionBar;
-			global::CommonAndroidTools.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog = global::RadioSequencing.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog;
-			global::CommonAndroidTools.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog_Alert = global::RadioSequencing.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog_Alert;
-			global::CommonAndroidTools.Resource.Style.Base_ThemeOverlay_AppCompat_Light = global::RadioSequencing.Resource.Style.Base_ThemeOverlay_AppCompat_Light;
-			global::CommonAndroidTools.Resource.Style.Base_V21_Theme_AppCompat = global::RadioSequencing.Resource.Style.Base_V21_Theme_AppCompat;
-			global::CommonAndroidTools.Resource.Style.Base_V21_Theme_AppCompat_Dialog = global::RadioSequencing.Resource.Style.Base_V21_Theme_AppCompat_Dialog;
-			global::CommonAndroidTools.Resource.Style.Base_V21_Theme_AppCompat_Light = global::RadioSequencing.Resource.Style.Base_V21_Theme_AppCompat_Light;
-			global::CommonAndroidTools.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog = global::RadioSequencing.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog;
-			global::CommonAndroidTools.Resource.Style.Base_V21_ThemeOverlay_AppCompat_Dialog = global::RadioSequencing.Resource.Style.Base_V21_ThemeOverlay_AppCompat_Dialog;
-			global::CommonAndroidTools.Resource.Style.Base_V22_Theme_AppCompat = global::RadioSequencing.Resource.Style.Base_V22_Theme_AppCompat;
-			global::CommonAndroidTools.Resource.Style.Base_V22_Theme_AppCompat_Light = global::RadioSequencing.Resource.Style.Base_V22_Theme_AppCompat_Light;
-			global::CommonAndroidTools.Resource.Style.Base_V23_Theme_AppCompat = global::RadioSequencing.Resource.Style.Base_V23_Theme_AppCompat;
-			global::CommonAndroidTools.Resource.Style.Base_V23_Theme_AppCompat_Light = global::RadioSequencing.Resource.Style.Base_V23_Theme_AppCompat_Light;
-			global::CommonAndroidTools.Resource.Style.Base_V26_Theme_AppCompat = global::RadioSequencing.Resource.Style.Base_V26_Theme_AppCompat;
-			global::CommonAndroidTools.Resource.Style.Base_V26_Theme_AppCompat_Light = global::RadioSequencing.Resource.Style.Base_V26_Theme_AppCompat_Light;
-			global::CommonAndroidTools.Resource.Style.Base_V26_Widget_AppCompat_Toolbar = global::RadioSequencing.Resource.Style.Base_V26_Widget_AppCompat_Toolbar;
-			global::CommonAndroidTools.Resource.Style.Base_V7_Theme_AppCompat = global::RadioSequencing.Resource.Style.Base_V7_Theme_AppCompat;
-			global::CommonAndroidTools.Resource.Style.Base_V7_Theme_AppCompat_Dialog = global::RadioSequencing.Resource.Style.Base_V7_Theme_AppCompat_Dialog;
-			global::CommonAndroidTools.Resource.Style.Base_V7_Theme_AppCompat_Light = global::RadioSequencing.Resource.Style.Base_V7_Theme_AppCompat_Light;
-			global::CommonAndroidTools.Resource.Style.Base_V7_Theme_AppCompat_Light_Dialog = global::RadioSequencing.Resource.Style.Base_V7_Theme_AppCompat_Light_Dialog;
-			global::CommonAndroidTools.Resource.Style.Base_V7_ThemeOverlay_AppCompat_Dialog = global::RadioSequencing.Resource.Style.Base_V7_ThemeOverlay_AppCompat_Dialog;
-			global::CommonAndroidTools.Resource.Style.Base_V7_Widget_AppCompat_AutoCompleteTextView = global::RadioSequencing.Resource.Style.Base_V7_Widget_AppCompat_AutoCompleteTextView;
-			global::CommonAndroidTools.Resource.Style.Base_V7_Widget_AppCompat_EditText = global::RadioSequencing.Resource.Style.Base_V7_Widget_AppCompat_EditText;
-			global::CommonAndroidTools.Resource.Style.Base_V7_Widget_AppCompat_Toolbar = global::RadioSequencing.Resource.Style.Base_V7_Widget_AppCompat_Toolbar;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ActionBar = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_ActionBar;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ActionBar_Solid = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_ActionBar_Solid;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ActionBar_TabBar = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_ActionBar_TabBar;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ActionBar_TabText = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_ActionBar_TabText;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ActionBar_TabView = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_ActionBar_TabView;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ActionButton = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_ActionButton;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ActionButton_CloseMode = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_ActionButton_CloseMode;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ActionButton_Overflow = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_ActionButton_Overflow;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ActionMode = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_ActionMode;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ActivityChooserView = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_ActivityChooserView;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_AutoCompleteTextView = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_AutoCompleteTextView;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Button = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_Button;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Button_Borderless = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_Button_Borderless;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Button_Borderless_Colored = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_Button_Borderless_Colored;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Button_ButtonBar_AlertDialog = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_Button_ButtonBar_AlertDialog;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Button_Colored = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_Button_Colored;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Button_Small = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_Button_Small;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ButtonBar = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_ButtonBar;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ButtonBar_AlertDialog = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_ButtonBar_AlertDialog;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_CompoundButton_CheckBox = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_CompoundButton_CheckBox;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_CompoundButton_RadioButton = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_CompoundButton_RadioButton;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_CompoundButton_Switch = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_CompoundButton_Switch;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle_Common = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle_Common;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_DropDownItem_Spinner = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_DropDownItem_Spinner;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_EditText = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_EditText;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ImageButton = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_ImageButton;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Light_ActionBar = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_Light_ActionBar;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_Solid = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_Solid;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabBar = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabBar;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabView = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabView;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu_Overflow = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu_Overflow;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ListMenuView = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_ListMenuView;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ListPopupWindow = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_ListPopupWindow;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ListView = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_ListView;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ListView_DropDown = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_ListView_DropDown;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ListView_Menu = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_ListView_Menu;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_PopupMenu = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_PopupMenu;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_PopupMenu_Overflow = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_PopupMenu_Overflow;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_PopupWindow = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_PopupWindow;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ProgressBar = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_ProgressBar;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_ProgressBar_Horizontal = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_ProgressBar_Horizontal;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_RatingBar = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_RatingBar;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_RatingBar_Indicator = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_RatingBar_Indicator;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_RatingBar_Small = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_RatingBar_Small;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_SearchView = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_SearchView;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_SearchView_ActionBar = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_SearchView_ActionBar;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_SeekBar = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_SeekBar;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_SeekBar_Discrete = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_SeekBar_Discrete;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Spinner = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_Spinner;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Spinner_Underlined = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_Spinner_Underlined;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_TextView_SpinnerItem = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_TextView_SpinnerItem;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Toolbar = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_Toolbar;
-			global::CommonAndroidTools.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation;
-			global::CommonAndroidTools.Resource.Style.Platform_AppCompat = global::RadioSequencing.Resource.Style.Platform_AppCompat;
-			global::CommonAndroidTools.Resource.Style.Platform_AppCompat_Light = global::RadioSequencing.Resource.Style.Platform_AppCompat_Light;
-			global::CommonAndroidTools.Resource.Style.Platform_ThemeOverlay_AppCompat = global::RadioSequencing.Resource.Style.Platform_ThemeOverlay_AppCompat;
-			global::CommonAndroidTools.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark = global::RadioSequencing.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark;
-			global::CommonAndroidTools.Resource.Style.Platform_ThemeOverlay_AppCompat_Light = global::RadioSequencing.Resource.Style.Platform_ThemeOverlay_AppCompat_Light;
-			global::CommonAndroidTools.Resource.Style.Platform_V21_AppCompat = global::RadioSequencing.Resource.Style.Platform_V21_AppCompat;
-			global::CommonAndroidTools.Resource.Style.Platform_V21_AppCompat_Light = global::RadioSequencing.Resource.Style.Platform_V21_AppCompat_Light;
-			global::CommonAndroidTools.Resource.Style.Platform_V25_AppCompat = global::RadioSequencing.Resource.Style.Platform_V25_AppCompat;
-			global::CommonAndroidTools.Resource.Style.Platform_V25_AppCompat_Light = global::RadioSequencing.Resource.Style.Platform_V25_AppCompat_Light;
-			global::CommonAndroidTools.Resource.Style.Platform_Widget_AppCompat_Spinner = global::RadioSequencing.Resource.Style.Platform_Widget_AppCompat_Spinner;
-			global::CommonAndroidTools.Resource.Style.RtlOverlay_DialogWindowTitle_AppCompat = global::RadioSequencing.Resource.Style.RtlOverlay_DialogWindowTitle_AppCompat;
-			global::CommonAndroidTools.Resource.Style.RtlOverlay_Widget_AppCompat_ActionBar_TitleItem = global::RadioSequencing.Resource.Style.RtlOverlay_Widget_AppCompat_ActionBar_TitleItem;
-			global::CommonAndroidTools.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon = global::RadioSequencing.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon;
-			global::CommonAndroidTools.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem = global::RadioSequencing.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem;
-			global::CommonAndroidTools.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup = global::RadioSequencing.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup;
-			global::CommonAndroidTools.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text = global::RadioSequencing.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text;
-			global::CommonAndroidTools.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown = global::RadioSequencing.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown;
-			global::CommonAndroidTools.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1 = global::RadioSequencing.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1;
-			global::CommonAndroidTools.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2 = global::RadioSequencing.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2;
-			global::CommonAndroidTools.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Query = global::RadioSequencing.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Query;
-			global::CommonAndroidTools.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text = global::RadioSequencing.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text;
-			global::CommonAndroidTools.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon = global::RadioSequencing.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon;
-			global::CommonAndroidTools.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton = global::RadioSequencing.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton;
-			global::CommonAndroidTools.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = global::RadioSequencing.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Body1 = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Body1;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Body2 = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Body2;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Button = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Button;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Caption = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Caption;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Display1 = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Display1;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Display2 = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Display2;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Display3 = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Display3;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Display4 = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Display4;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Headline = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Headline;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Inverse = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Inverse;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Large = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Large;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Large_Inverse = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Large_Inverse;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Subtitle = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Subtitle;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Title = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Title;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Large;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Small;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Medium = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Medium;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Medium_Inverse = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Medium_Inverse;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Menu = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Menu;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_SearchResult_Subtitle = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_SearchResult_Subtitle;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_SearchResult_Title = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_SearchResult_Title;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Small = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Small;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Small_Inverse = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Small_Inverse;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Subhead = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Subhead;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Subhead_Inverse = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Subhead_Inverse;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Title = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Title;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Title_Inverse = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Title_Inverse;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Tooltip = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Tooltip;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Menu = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Menu;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_Button = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Widget_Button;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_Button_Borderless_Colored = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Widget_Button_Borderless_Colored;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_Button_Colored = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Widget_Button_Colored;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_Button_Inverse = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Widget_Button_Inverse;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_DropDownItem = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Widget_DropDownItem;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Header = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Header;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Large = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Large;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Small = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Small;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_Switch = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Widget_Switch;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_AppCompat_Widget_TextView_SpinnerItem = global::RadioSequencing.Resource.Style.TextAppearance_AppCompat_Widget_TextView_SpinnerItem;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_Compat_Notification = global::RadioSequencing.Resource.Style.TextAppearance_Compat_Notification;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_Compat_Notification_Info = global::RadioSequencing.Resource.Style.TextAppearance_Compat_Notification_Info;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::RadioSequencing.Resource.Style.TextAppearance_Compat_Notification_Line2;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_Compat_Notification_Time = global::RadioSequencing.Resource.Style.TextAppearance_Compat_Notification_Time;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_Compat_Notification_Title = global::RadioSequencing.Resource.Style.TextAppearance_Compat_Notification_Title;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::RadioSequencing.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::RadioSequencing.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
-			global::CommonAndroidTools.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title = global::RadioSequencing.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title;
-			global::CommonAndroidTools.Resource.Style.Theme_AppCompat = global::RadioSequencing.Resource.Style.Theme_AppCompat;
-			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_CompactMenu = global::RadioSequencing.Resource.Style.Theme_AppCompat_CompactMenu;
-			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_DayNight = global::RadioSequencing.Resource.Style.Theme_AppCompat_DayNight;
-			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_DayNight_DarkActionBar = global::RadioSequencing.Resource.Style.Theme_AppCompat_DayNight_DarkActionBar;
-			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_DayNight_Dialog = global::RadioSequencing.Resource.Style.Theme_AppCompat_DayNight_Dialog;
-			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_DayNight_Dialog_Alert = global::RadioSequencing.Resource.Style.Theme_AppCompat_DayNight_Dialog_Alert;
-			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_DayNight_Dialog_MinWidth = global::RadioSequencing.Resource.Style.Theme_AppCompat_DayNight_Dialog_MinWidth;
-			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_DayNight_DialogWhenLarge = global::RadioSequencing.Resource.Style.Theme_AppCompat_DayNight_DialogWhenLarge;
-			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_DayNight_NoActionBar = global::RadioSequencing.Resource.Style.Theme_AppCompat_DayNight_NoActionBar;
-			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_Dialog = global::RadioSequencing.Resource.Style.Theme_AppCompat_Dialog;
-			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_Dialog_Alert = global::RadioSequencing.Resource.Style.Theme_AppCompat_Dialog_Alert;
-			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_Dialog_MinWidth = global::RadioSequencing.Resource.Style.Theme_AppCompat_Dialog_MinWidth;
-			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_DialogWhenLarge = global::RadioSequencing.Resource.Style.Theme_AppCompat_DialogWhenLarge;
-			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_Light = global::RadioSequencing.Resource.Style.Theme_AppCompat_Light;
-			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_Light_DarkActionBar = global::RadioSequencing.Resource.Style.Theme_AppCompat_Light_DarkActionBar;
-			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_Light_Dialog = global::RadioSequencing.Resource.Style.Theme_AppCompat_Light_Dialog;
-			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_Light_Dialog_Alert = global::RadioSequencing.Resource.Style.Theme_AppCompat_Light_Dialog_Alert;
-			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_Light_Dialog_MinWidth = global::RadioSequencing.Resource.Style.Theme_AppCompat_Light_Dialog_MinWidth;
-			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_Light_DialogWhenLarge = global::RadioSequencing.Resource.Style.Theme_AppCompat_Light_DialogWhenLarge;
-			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_Light_NoActionBar = global::RadioSequencing.Resource.Style.Theme_AppCompat_Light_NoActionBar;
-			global::CommonAndroidTools.Resource.Style.Theme_AppCompat_NoActionBar = global::RadioSequencing.Resource.Style.Theme_AppCompat_NoActionBar;
-			global::CommonAndroidTools.Resource.Style.ThemeOverlay_AppCompat = global::RadioSequencing.Resource.Style.ThemeOverlay_AppCompat;
-			global::CommonAndroidTools.Resource.Style.ThemeOverlay_AppCompat_ActionBar = global::RadioSequencing.Resource.Style.ThemeOverlay_AppCompat_ActionBar;
-			global::CommonAndroidTools.Resource.Style.ThemeOverlay_AppCompat_Dark = global::RadioSequencing.Resource.Style.ThemeOverlay_AppCompat_Dark;
-			global::CommonAndroidTools.Resource.Style.ThemeOverlay_AppCompat_Dark_ActionBar = global::RadioSequencing.Resource.Style.ThemeOverlay_AppCompat_Dark_ActionBar;
-			global::CommonAndroidTools.Resource.Style.ThemeOverlay_AppCompat_Dialog = global::RadioSequencing.Resource.Style.ThemeOverlay_AppCompat_Dialog;
-			global::CommonAndroidTools.Resource.Style.ThemeOverlay_AppCompat_Dialog_Alert = global::RadioSequencing.Resource.Style.ThemeOverlay_AppCompat_Dialog_Alert;
-			global::CommonAndroidTools.Resource.Style.ThemeOverlay_AppCompat_Light = global::RadioSequencing.Resource.Style.ThemeOverlay_AppCompat_Light;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ActionBar = global::RadioSequencing.Resource.Style.Widget_AppCompat_ActionBar;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ActionBar_Solid = global::RadioSequencing.Resource.Style.Widget_AppCompat_ActionBar_Solid;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ActionBar_TabBar = global::RadioSequencing.Resource.Style.Widget_AppCompat_ActionBar_TabBar;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ActionBar_TabText = global::RadioSequencing.Resource.Style.Widget_AppCompat_ActionBar_TabText;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ActionBar_TabView = global::RadioSequencing.Resource.Style.Widget_AppCompat_ActionBar_TabView;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ActionButton = global::RadioSequencing.Resource.Style.Widget_AppCompat_ActionButton;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ActionButton_CloseMode = global::RadioSequencing.Resource.Style.Widget_AppCompat_ActionButton_CloseMode;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ActionButton_Overflow = global::RadioSequencing.Resource.Style.Widget_AppCompat_ActionButton_Overflow;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ActionMode = global::RadioSequencing.Resource.Style.Widget_AppCompat_ActionMode;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ActivityChooserView = global::RadioSequencing.Resource.Style.Widget_AppCompat_ActivityChooserView;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_AutoCompleteTextView = global::RadioSequencing.Resource.Style.Widget_AppCompat_AutoCompleteTextView;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Button = global::RadioSequencing.Resource.Style.Widget_AppCompat_Button;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Button_Borderless = global::RadioSequencing.Resource.Style.Widget_AppCompat_Button_Borderless;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Button_Borderless_Colored = global::RadioSequencing.Resource.Style.Widget_AppCompat_Button_Borderless_Colored;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Button_ButtonBar_AlertDialog = global::RadioSequencing.Resource.Style.Widget_AppCompat_Button_ButtonBar_AlertDialog;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Button_Colored = global::RadioSequencing.Resource.Style.Widget_AppCompat_Button_Colored;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Button_Small = global::RadioSequencing.Resource.Style.Widget_AppCompat_Button_Small;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ButtonBar = global::RadioSequencing.Resource.Style.Widget_AppCompat_ButtonBar;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ButtonBar_AlertDialog = global::RadioSequencing.Resource.Style.Widget_AppCompat_ButtonBar_AlertDialog;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_CompoundButton_CheckBox = global::RadioSequencing.Resource.Style.Widget_AppCompat_CompoundButton_CheckBox;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_CompoundButton_RadioButton = global::RadioSequencing.Resource.Style.Widget_AppCompat_CompoundButton_RadioButton;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_CompoundButton_Switch = global::RadioSequencing.Resource.Style.Widget_AppCompat_CompoundButton_Switch;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_DrawerArrowToggle = global::RadioSequencing.Resource.Style.Widget_AppCompat_DrawerArrowToggle;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_DropDownItem_Spinner = global::RadioSequencing.Resource.Style.Widget_AppCompat_DropDownItem_Spinner;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_EditText = global::RadioSequencing.Resource.Style.Widget_AppCompat_EditText;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ImageButton = global::RadioSequencing.Resource.Style.Widget_AppCompat_ImageButton;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionBar = global::RadioSequencing.Resource.Style.Widget_AppCompat_Light_ActionBar;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid = global::RadioSequencing.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid_Inverse = global::RadioSequencing.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid_Inverse;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar = global::RadioSequencing.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar_Inverse = global::RadioSequencing.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar_Inverse;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText = global::RadioSequencing.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText_Inverse = global::RadioSequencing.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText_Inverse;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView = global::RadioSequencing.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView_Inverse = global::RadioSequencing.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView_Inverse;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionButton = global::RadioSequencing.Resource.Style.Widget_AppCompat_Light_ActionButton;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionButton_CloseMode = global::RadioSequencing.Resource.Style.Widget_AppCompat_Light_ActionButton_CloseMode;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionButton_Overflow = global::RadioSequencing.Resource.Style.Widget_AppCompat_Light_ActionButton_Overflow;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActionMode_Inverse = global::RadioSequencing.Resource.Style.Widget_AppCompat_Light_ActionMode_Inverse;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ActivityChooserView = global::RadioSequencing.Resource.Style.Widget_AppCompat_Light_ActivityChooserView;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_AutoCompleteTextView = global::RadioSequencing.Resource.Style.Widget_AppCompat_Light_AutoCompleteTextView;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_DropDownItem_Spinner = global::RadioSequencing.Resource.Style.Widget_AppCompat_Light_DropDownItem_Spinner;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ListPopupWindow = global::RadioSequencing.Resource.Style.Widget_AppCompat_Light_ListPopupWindow;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_ListView_DropDown = global::RadioSequencing.Resource.Style.Widget_AppCompat_Light_ListView_DropDown;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_PopupMenu = global::RadioSequencing.Resource.Style.Widget_AppCompat_Light_PopupMenu;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_PopupMenu_Overflow = global::RadioSequencing.Resource.Style.Widget_AppCompat_Light_PopupMenu_Overflow;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_SearchView = global::RadioSequencing.Resource.Style.Widget_AppCompat_Light_SearchView;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Light_Spinner_DropDown_ActionBar = global::RadioSequencing.Resource.Style.Widget_AppCompat_Light_Spinner_DropDown_ActionBar;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ListMenuView = global::RadioSequencing.Resource.Style.Widget_AppCompat_ListMenuView;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ListPopupWindow = global::RadioSequencing.Resource.Style.Widget_AppCompat_ListPopupWindow;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ListView = global::RadioSequencing.Resource.Style.Widget_AppCompat_ListView;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ListView_DropDown = global::RadioSequencing.Resource.Style.Widget_AppCompat_ListView_DropDown;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ListView_Menu = global::RadioSequencing.Resource.Style.Widget_AppCompat_ListView_Menu;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_PopupMenu = global::RadioSequencing.Resource.Style.Widget_AppCompat_PopupMenu;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_PopupMenu_Overflow = global::RadioSequencing.Resource.Style.Widget_AppCompat_PopupMenu_Overflow;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_PopupWindow = global::RadioSequencing.Resource.Style.Widget_AppCompat_PopupWindow;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ProgressBar = global::RadioSequencing.Resource.Style.Widget_AppCompat_ProgressBar;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_ProgressBar_Horizontal = global::RadioSequencing.Resource.Style.Widget_AppCompat_ProgressBar_Horizontal;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_RatingBar = global::RadioSequencing.Resource.Style.Widget_AppCompat_RatingBar;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_RatingBar_Indicator = global::RadioSequencing.Resource.Style.Widget_AppCompat_RatingBar_Indicator;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_RatingBar_Small = global::RadioSequencing.Resource.Style.Widget_AppCompat_RatingBar_Small;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_SearchView = global::RadioSequencing.Resource.Style.Widget_AppCompat_SearchView;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_SearchView_ActionBar = global::RadioSequencing.Resource.Style.Widget_AppCompat_SearchView_ActionBar;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_SeekBar = global::RadioSequencing.Resource.Style.Widget_AppCompat_SeekBar;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_SeekBar_Discrete = global::RadioSequencing.Resource.Style.Widget_AppCompat_SeekBar_Discrete;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Spinner = global::RadioSequencing.Resource.Style.Widget_AppCompat_Spinner;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Spinner_DropDown = global::RadioSequencing.Resource.Style.Widget_AppCompat_Spinner_DropDown;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Spinner_DropDown_ActionBar = global::RadioSequencing.Resource.Style.Widget_AppCompat_Spinner_DropDown_ActionBar;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Spinner_Underlined = global::RadioSequencing.Resource.Style.Widget_AppCompat_Spinner_Underlined;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_TextView_SpinnerItem = global::RadioSequencing.Resource.Style.Widget_AppCompat_TextView_SpinnerItem;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Toolbar = global::RadioSequencing.Resource.Style.Widget_AppCompat_Toolbar;
-			global::CommonAndroidTools.Resource.Style.Widget_AppCompat_Toolbar_Button_Navigation = global::RadioSequencing.Resource.Style.Widget_AppCompat_Toolbar_Button_Navigation;
-			global::CommonAndroidTools.Resource.Style.Widget_Compat_NotificationActionContainer = global::RadioSequencing.Resource.Style.Widget_Compat_NotificationActionContainer;
-			global::CommonAndroidTools.Resource.Style.Widget_Compat_NotificationActionText = global::RadioSequencing.Resource.Style.Widget_Compat_NotificationActionText;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar = global::RadioSequencing.Resource.Styleable.ActionBar;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_background = global::RadioSequencing.Resource.Styleable.ActionBar_background;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_backgroundSplit = global::RadioSequencing.Resource.Styleable.ActionBar_backgroundSplit;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_backgroundStacked = global::RadioSequencing.Resource.Styleable.ActionBar_backgroundStacked;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_contentInsetEnd = global::RadioSequencing.Resource.Styleable.ActionBar_contentInsetEnd;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_contentInsetEndWithActions = global::RadioSequencing.Resource.Styleable.ActionBar_contentInsetEndWithActions;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_contentInsetLeft = global::RadioSequencing.Resource.Styleable.ActionBar_contentInsetLeft;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_contentInsetRight = global::RadioSequencing.Resource.Styleable.ActionBar_contentInsetRight;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_contentInsetStart = global::RadioSequencing.Resource.Styleable.ActionBar_contentInsetStart;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_contentInsetStartWithNavigation = global::RadioSequencing.Resource.Styleable.ActionBar_contentInsetStartWithNavigation;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_customNavigationLayout = global::RadioSequencing.Resource.Styleable.ActionBar_customNavigationLayout;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_displayOptions = global::RadioSequencing.Resource.Styleable.ActionBar_displayOptions;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_divider = global::RadioSequencing.Resource.Styleable.ActionBar_divider;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_elevation = global::RadioSequencing.Resource.Styleable.ActionBar_elevation;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_height = global::RadioSequencing.Resource.Styleable.ActionBar_height;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_hideOnContentScroll = global::RadioSequencing.Resource.Styleable.ActionBar_hideOnContentScroll;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_homeAsUpIndicator = global::RadioSequencing.Resource.Styleable.ActionBar_homeAsUpIndicator;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_homeLayout = global::RadioSequencing.Resource.Styleable.ActionBar_homeLayout;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_icon = global::RadioSequencing.Resource.Styleable.ActionBar_icon;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_indeterminateProgressStyle = global::RadioSequencing.Resource.Styleable.ActionBar_indeterminateProgressStyle;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_itemPadding = global::RadioSequencing.Resource.Styleable.ActionBar_itemPadding;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_logo = global::RadioSequencing.Resource.Styleable.ActionBar_logo;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_navigationMode = global::RadioSequencing.Resource.Styleable.ActionBar_navigationMode;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_popupTheme = global::RadioSequencing.Resource.Styleable.ActionBar_popupTheme;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_progressBarPadding = global::RadioSequencing.Resource.Styleable.ActionBar_progressBarPadding;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_progressBarStyle = global::RadioSequencing.Resource.Styleable.ActionBar_progressBarStyle;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_subtitle = global::RadioSequencing.Resource.Styleable.ActionBar_subtitle;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_subtitleTextStyle = global::RadioSequencing.Resource.Styleable.ActionBar_subtitleTextStyle;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_title = global::RadioSequencing.Resource.Styleable.ActionBar_title;
-			global::CommonAndroidTools.Resource.Styleable.ActionBar_titleTextStyle = global::RadioSequencing.Resource.Styleable.ActionBar_titleTextStyle;
-			global::CommonAndroidTools.Resource.Styleable.ActionBarLayout = global::RadioSequencing.Resource.Styleable.ActionBarLayout;
-			global::CommonAndroidTools.Resource.Styleable.ActionBarLayout_android_layout_gravity = global::RadioSequencing.Resource.Styleable.ActionBarLayout_android_layout_gravity;
-			global::CommonAndroidTools.Resource.Styleable.ActionMenuItemView = global::RadioSequencing.Resource.Styleable.ActionMenuItemView;
-			global::CommonAndroidTools.Resource.Styleable.ActionMenuItemView_android_minWidth = global::RadioSequencing.Resource.Styleable.ActionMenuItemView_android_minWidth;
-			global::CommonAndroidTools.Resource.Styleable.ActionMenuView = global::RadioSequencing.Resource.Styleable.ActionMenuView;
-			global::CommonAndroidTools.Resource.Styleable.ActionMode = global::RadioSequencing.Resource.Styleable.ActionMode;
-			global::CommonAndroidTools.Resource.Styleable.ActionMode_background = global::RadioSequencing.Resource.Styleable.ActionMode_background;
-			global::CommonAndroidTools.Resource.Styleable.ActionMode_backgroundSplit = global::RadioSequencing.Resource.Styleable.ActionMode_backgroundSplit;
-			global::CommonAndroidTools.Resource.Styleable.ActionMode_closeItemLayout = global::RadioSequencing.Resource.Styleable.ActionMode_closeItemLayout;
-			global::CommonAndroidTools.Resource.Styleable.ActionMode_height = global::RadioSequencing.Resource.Styleable.ActionMode_height;
-			global::CommonAndroidTools.Resource.Styleable.ActionMode_subtitleTextStyle = global::RadioSequencing.Resource.Styleable.ActionMode_subtitleTextStyle;
-			global::CommonAndroidTools.Resource.Styleable.ActionMode_titleTextStyle = global::RadioSequencing.Resource.Styleable.ActionMode_titleTextStyle;
-			global::CommonAndroidTools.Resource.Styleable.ActivityChooserView = global::RadioSequencing.Resource.Styleable.ActivityChooserView;
-			global::CommonAndroidTools.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable = global::RadioSequencing.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable;
-			global::CommonAndroidTools.Resource.Styleable.ActivityChooserView_initialActivityCount = global::RadioSequencing.Resource.Styleable.ActivityChooserView_initialActivityCount;
-			global::CommonAndroidTools.Resource.Styleable.AlertDialog = global::RadioSequencing.Resource.Styleable.AlertDialog;
-			global::CommonAndroidTools.Resource.Styleable.AlertDialog_android_layout = global::RadioSequencing.Resource.Styleable.AlertDialog_android_layout;
-			global::CommonAndroidTools.Resource.Styleable.AlertDialog_buttonPanelSideLayout = global::RadioSequencing.Resource.Styleable.AlertDialog_buttonPanelSideLayout;
-			global::CommonAndroidTools.Resource.Styleable.AlertDialog_listItemLayout = global::RadioSequencing.Resource.Styleable.AlertDialog_listItemLayout;
-			global::CommonAndroidTools.Resource.Styleable.AlertDialog_listLayout = global::RadioSequencing.Resource.Styleable.AlertDialog_listLayout;
-			global::CommonAndroidTools.Resource.Styleable.AlertDialog_multiChoiceItemLayout = global::RadioSequencing.Resource.Styleable.AlertDialog_multiChoiceItemLayout;
-			global::CommonAndroidTools.Resource.Styleable.AlertDialog_showTitle = global::RadioSequencing.Resource.Styleable.AlertDialog_showTitle;
-			global::CommonAndroidTools.Resource.Styleable.AlertDialog_singleChoiceItemLayout = global::RadioSequencing.Resource.Styleable.AlertDialog_singleChoiceItemLayout;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatImageView = global::RadioSequencing.Resource.Styleable.AppCompatImageView;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatImageView_android_src = global::RadioSequencing.Resource.Styleable.AppCompatImageView_android_src;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatImageView_srcCompat = global::RadioSequencing.Resource.Styleable.AppCompatImageView_srcCompat;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatImageView_tint = global::RadioSequencing.Resource.Styleable.AppCompatImageView_tint;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatImageView_tintMode = global::RadioSequencing.Resource.Styleable.AppCompatImageView_tintMode;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatSeekBar = global::RadioSequencing.Resource.Styleable.AppCompatSeekBar;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatSeekBar_android_thumb = global::RadioSequencing.Resource.Styleable.AppCompatSeekBar_android_thumb;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatSeekBar_tickMark = global::RadioSequencing.Resource.Styleable.AppCompatSeekBar_tickMark;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatSeekBar_tickMarkTint = global::RadioSequencing.Resource.Styleable.AppCompatSeekBar_tickMarkTint;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatSeekBar_tickMarkTintMode = global::RadioSequencing.Resource.Styleable.AppCompatSeekBar_tickMarkTintMode;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTextHelper = global::RadioSequencing.Resource.Styleable.AppCompatTextHelper;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTextHelper_android_drawableBottom = global::RadioSequencing.Resource.Styleable.AppCompatTextHelper_android_drawableBottom;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTextHelper_android_drawableEnd = global::RadioSequencing.Resource.Styleable.AppCompatTextHelper_android_drawableEnd;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTextHelper_android_drawableLeft = global::RadioSequencing.Resource.Styleable.AppCompatTextHelper_android_drawableLeft;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTextHelper_android_drawableRight = global::RadioSequencing.Resource.Styleable.AppCompatTextHelper_android_drawableRight;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTextHelper_android_drawableStart = global::RadioSequencing.Resource.Styleable.AppCompatTextHelper_android_drawableStart;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTextHelper_android_drawableTop = global::RadioSequencing.Resource.Styleable.AppCompatTextHelper_android_drawableTop;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTextHelper_android_textAppearance = global::RadioSequencing.Resource.Styleable.AppCompatTextHelper_android_textAppearance;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTextView = global::RadioSequencing.Resource.Styleable.AppCompatTextView;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTextView_android_textAppearance = global::RadioSequencing.Resource.Styleable.AppCompatTextView_android_textAppearance;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTextView_autoSizeMaxTextSize = global::RadioSequencing.Resource.Styleable.AppCompatTextView_autoSizeMaxTextSize;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTextView_autoSizeMinTextSize = global::RadioSequencing.Resource.Styleable.AppCompatTextView_autoSizeMinTextSize;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTextView_autoSizePresetSizes = global::RadioSequencing.Resource.Styleable.AppCompatTextView_autoSizePresetSizes;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTextView_autoSizeStepGranularity = global::RadioSequencing.Resource.Styleable.AppCompatTextView_autoSizeStepGranularity;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTextView_autoSizeTextType = global::RadioSequencing.Resource.Styleable.AppCompatTextView_autoSizeTextType;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTextView_fontFamily = global::RadioSequencing.Resource.Styleable.AppCompatTextView_fontFamily;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTextView_textAllCaps = global::RadioSequencing.Resource.Styleable.AppCompatTextView_textAllCaps;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme = global::RadioSequencing.Resource.Styleable.AppCompatTheme;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionBarDivider = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionBarDivider;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionBarItemBackground = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionBarItemBackground;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionBarPopupTheme = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionBarPopupTheme;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionBarSize = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionBarSize;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionBarSplitStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionBarSplitStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionBarStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionBarStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionBarTabBarStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionBarTabBarStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionBarTabStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionBarTabStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionBarTabTextStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionBarTabTextStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionBarTheme = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionBarTheme;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionBarWidgetTheme = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionBarWidgetTheme;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionButtonStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionButtonStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionDropDownStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionDropDownStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionMenuTextAppearance = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionMenuTextAppearance;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionMenuTextColor = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionMenuTextColor;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModeBackground = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionModeBackground;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModeCloseButtonStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionModeCloseButtonStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModeCloseDrawable = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionModeCloseDrawable;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModeCopyDrawable = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionModeCopyDrawable;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModeCutDrawable = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionModeCutDrawable;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModeFindDrawable = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionModeFindDrawable;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModePasteDrawable = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionModePasteDrawable;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModePopupWindowStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionModePopupWindowStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModeSelectAllDrawable = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionModeSelectAllDrawable;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModeShareDrawable = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionModeShareDrawable;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModeSplitBackground = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionModeSplitBackground;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModeStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionModeStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionModeWebSearchDrawable = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionModeWebSearchDrawable;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionOverflowButtonStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionOverflowButtonStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_actionOverflowMenuStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionOverflowMenuStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_activityChooserViewStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_activityChooserViewStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_alertDialogButtonGroupStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_alertDialogButtonGroupStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_alertDialogCenterButtons = global::RadioSequencing.Resource.Styleable.AppCompatTheme_alertDialogCenterButtons;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_alertDialogStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_alertDialogStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_alertDialogTheme = global::RadioSequencing.Resource.Styleable.AppCompatTheme_alertDialogTheme;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_android_windowAnimationStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_android_windowAnimationStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_android_windowIsFloating = global::RadioSequencing.Resource.Styleable.AppCompatTheme_android_windowIsFloating;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_autoCompleteTextViewStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_autoCompleteTextViewStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_borderlessButtonStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_borderlessButtonStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_buttonBarButtonStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_buttonBarButtonStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_buttonBarNegativeButtonStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_buttonBarNegativeButtonStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_buttonBarNeutralButtonStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_buttonBarNeutralButtonStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_buttonBarPositiveButtonStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_buttonBarPositiveButtonStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_buttonBarStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_buttonBarStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_buttonStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_buttonStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_buttonStyleSmall = global::RadioSequencing.Resource.Styleable.AppCompatTheme_buttonStyleSmall;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_checkboxStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_checkboxStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_checkedTextViewStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_checkedTextViewStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_colorAccent = global::RadioSequencing.Resource.Styleable.AppCompatTheme_colorAccent;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_colorBackgroundFloating = global::RadioSequencing.Resource.Styleable.AppCompatTheme_colorBackgroundFloating;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_colorButtonNormal = global::RadioSequencing.Resource.Styleable.AppCompatTheme_colorButtonNormal;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_colorControlActivated = global::RadioSequencing.Resource.Styleable.AppCompatTheme_colorControlActivated;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_colorControlHighlight = global::RadioSequencing.Resource.Styleable.AppCompatTheme_colorControlHighlight;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_colorControlNormal = global::RadioSequencing.Resource.Styleable.AppCompatTheme_colorControlNormal;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_colorError = global::RadioSequencing.Resource.Styleable.AppCompatTheme_colorError;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_colorPrimary = global::RadioSequencing.Resource.Styleable.AppCompatTheme_colorPrimary;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_colorPrimaryDark = global::RadioSequencing.Resource.Styleable.AppCompatTheme_colorPrimaryDark;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_colorSwitchThumbNormal = global::RadioSequencing.Resource.Styleable.AppCompatTheme_colorSwitchThumbNormal;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_controlBackground = global::RadioSequencing.Resource.Styleable.AppCompatTheme_controlBackground;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_dialogPreferredPadding = global::RadioSequencing.Resource.Styleable.AppCompatTheme_dialogPreferredPadding;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_dialogTheme = global::RadioSequencing.Resource.Styleable.AppCompatTheme_dialogTheme;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_dividerHorizontal = global::RadioSequencing.Resource.Styleable.AppCompatTheme_dividerHorizontal;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_dividerVertical = global::RadioSequencing.Resource.Styleable.AppCompatTheme_dividerVertical;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_dropDownListViewStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_dropDownListViewStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_dropdownListPreferredItemHeight = global::RadioSequencing.Resource.Styleable.AppCompatTheme_dropdownListPreferredItemHeight;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_editTextBackground = global::RadioSequencing.Resource.Styleable.AppCompatTheme_editTextBackground;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_editTextColor = global::RadioSequencing.Resource.Styleable.AppCompatTheme_editTextColor;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_editTextStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_editTextStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_homeAsUpIndicator = global::RadioSequencing.Resource.Styleable.AppCompatTheme_homeAsUpIndicator;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_imageButtonStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_imageButtonStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_listChoiceBackgroundIndicator = global::RadioSequencing.Resource.Styleable.AppCompatTheme_listChoiceBackgroundIndicator;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_listDividerAlertDialog = global::RadioSequencing.Resource.Styleable.AppCompatTheme_listDividerAlertDialog;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_listMenuViewStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_listMenuViewStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_listPopupWindowStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_listPopupWindowStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_listPreferredItemHeight = global::RadioSequencing.Resource.Styleable.AppCompatTheme_listPreferredItemHeight;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_listPreferredItemHeightLarge = global::RadioSequencing.Resource.Styleable.AppCompatTheme_listPreferredItemHeightLarge;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_listPreferredItemHeightSmall = global::RadioSequencing.Resource.Styleable.AppCompatTheme_listPreferredItemHeightSmall;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingLeft = global::RadioSequencing.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingLeft;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingRight = global::RadioSequencing.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingRight;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_panelBackground = global::RadioSequencing.Resource.Styleable.AppCompatTheme_panelBackground;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_panelMenuListTheme = global::RadioSequencing.Resource.Styleable.AppCompatTheme_panelMenuListTheme;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_panelMenuListWidth = global::RadioSequencing.Resource.Styleable.AppCompatTheme_panelMenuListWidth;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_popupMenuStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_popupMenuStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_popupWindowStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_popupWindowStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_radioButtonStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_radioButtonStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_ratingBarStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_ratingBarStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_ratingBarStyleIndicator = global::RadioSequencing.Resource.Styleable.AppCompatTheme_ratingBarStyleIndicator;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_ratingBarStyleSmall = global::RadioSequencing.Resource.Styleable.AppCompatTheme_ratingBarStyleSmall;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_searchViewStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_searchViewStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_seekBarStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_seekBarStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_selectableItemBackground = global::RadioSequencing.Resource.Styleable.AppCompatTheme_selectableItemBackground;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_selectableItemBackgroundBorderless = global::RadioSequencing.Resource.Styleable.AppCompatTheme_selectableItemBackgroundBorderless;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_spinnerDropDownItemStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_spinnerDropDownItemStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_spinnerStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_spinnerStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_switchStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_switchStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_textAppearanceLargePopupMenu = global::RadioSequencing.Resource.Styleable.AppCompatTheme_textAppearanceLargePopupMenu;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_textAppearanceListItem = global::RadioSequencing.Resource.Styleable.AppCompatTheme_textAppearanceListItem;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_textAppearanceListItemSecondary = global::RadioSequencing.Resource.Styleable.AppCompatTheme_textAppearanceListItemSecondary;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_textAppearanceListItemSmall = global::RadioSequencing.Resource.Styleable.AppCompatTheme_textAppearanceListItemSmall;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_textAppearancePopupMenuHeader = global::RadioSequencing.Resource.Styleable.AppCompatTheme_textAppearancePopupMenuHeader;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultSubtitle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultSubtitle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultTitle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultTitle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_textAppearanceSmallPopupMenu = global::RadioSequencing.Resource.Styleable.AppCompatTheme_textAppearanceSmallPopupMenu;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_textColorAlertDialogListItem = global::RadioSequencing.Resource.Styleable.AppCompatTheme_textColorAlertDialogListItem;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_textColorSearchUrl = global::RadioSequencing.Resource.Styleable.AppCompatTheme_textColorSearchUrl;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_toolbarNavigationButtonStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_toolbarNavigationButtonStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_toolbarStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_toolbarStyle;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_tooltipForegroundColor = global::RadioSequencing.Resource.Styleable.AppCompatTheme_tooltipForegroundColor;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_tooltipFrameBackground = global::RadioSequencing.Resource.Styleable.AppCompatTheme_tooltipFrameBackground;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_windowActionBar = global::RadioSequencing.Resource.Styleable.AppCompatTheme_windowActionBar;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_windowActionBarOverlay = global::RadioSequencing.Resource.Styleable.AppCompatTheme_windowActionBarOverlay;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_windowActionModeOverlay = global::RadioSequencing.Resource.Styleable.AppCompatTheme_windowActionModeOverlay;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_windowFixedHeightMajor = global::RadioSequencing.Resource.Styleable.AppCompatTheme_windowFixedHeightMajor;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_windowFixedHeightMinor = global::RadioSequencing.Resource.Styleable.AppCompatTheme_windowFixedHeightMinor;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_windowFixedWidthMajor = global::RadioSequencing.Resource.Styleable.AppCompatTheme_windowFixedWidthMajor;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_windowFixedWidthMinor = global::RadioSequencing.Resource.Styleable.AppCompatTheme_windowFixedWidthMinor;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_windowMinWidthMajor = global::RadioSequencing.Resource.Styleable.AppCompatTheme_windowMinWidthMajor;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_windowMinWidthMinor = global::RadioSequencing.Resource.Styleable.AppCompatTheme_windowMinWidthMinor;
-			global::CommonAndroidTools.Resource.Styleable.AppCompatTheme_windowNoTitle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_windowNoTitle;
-			global::CommonAndroidTools.Resource.Styleable.ButtonBarLayout = global::RadioSequencing.Resource.Styleable.ButtonBarLayout;
-			global::CommonAndroidTools.Resource.Styleable.ButtonBarLayout_allowStacking = global::RadioSequencing.Resource.Styleable.ButtonBarLayout_allowStacking;
-			global::CommonAndroidTools.Resource.Styleable.ColorStateListItem = global::RadioSequencing.Resource.Styleable.ColorStateListItem;
-			global::CommonAndroidTools.Resource.Styleable.ColorStateListItem_alpha = global::RadioSequencing.Resource.Styleable.ColorStateListItem_alpha;
-			global::CommonAndroidTools.Resource.Styleable.ColorStateListItem_android_alpha = global::RadioSequencing.Resource.Styleable.ColorStateListItem_android_alpha;
-			global::CommonAndroidTools.Resource.Styleable.ColorStateListItem_android_color = global::RadioSequencing.Resource.Styleable.ColorStateListItem_android_color;
-			global::CommonAndroidTools.Resource.Styleable.CompoundButton = global::RadioSequencing.Resource.Styleable.CompoundButton;
-			global::CommonAndroidTools.Resource.Styleable.CompoundButton_android_button = global::RadioSequencing.Resource.Styleable.CompoundButton_android_button;
-			global::CommonAndroidTools.Resource.Styleable.CompoundButton_buttonTint = global::RadioSequencing.Resource.Styleable.CompoundButton_buttonTint;
-			global::CommonAndroidTools.Resource.Styleable.CompoundButton_buttonTintMode = global::RadioSequencing.Resource.Styleable.CompoundButton_buttonTintMode;
-			global::CommonAndroidTools.Resource.Styleable.DrawerArrowToggle = global::RadioSequencing.Resource.Styleable.DrawerArrowToggle;
-			global::CommonAndroidTools.Resource.Styleable.DrawerArrowToggle_arrowHeadLength = global::RadioSequencing.Resource.Styleable.DrawerArrowToggle_arrowHeadLength;
-			global::CommonAndroidTools.Resource.Styleable.DrawerArrowToggle_arrowShaftLength = global::RadioSequencing.Resource.Styleable.DrawerArrowToggle_arrowShaftLength;
-			global::CommonAndroidTools.Resource.Styleable.DrawerArrowToggle_barLength = global::RadioSequencing.Resource.Styleable.DrawerArrowToggle_barLength;
-			global::CommonAndroidTools.Resource.Styleable.DrawerArrowToggle_color = global::RadioSequencing.Resource.Styleable.DrawerArrowToggle_color;
-			global::CommonAndroidTools.Resource.Styleable.DrawerArrowToggle_drawableSize = global::RadioSequencing.Resource.Styleable.DrawerArrowToggle_drawableSize;
-			global::CommonAndroidTools.Resource.Styleable.DrawerArrowToggle_gapBetweenBars = global::RadioSequencing.Resource.Styleable.DrawerArrowToggle_gapBetweenBars;
-			global::CommonAndroidTools.Resource.Styleable.DrawerArrowToggle_spinBars = global::RadioSequencing.Resource.Styleable.DrawerArrowToggle_spinBars;
-			global::CommonAndroidTools.Resource.Styleable.DrawerArrowToggle_thickness = global::RadioSequencing.Resource.Styleable.DrawerArrowToggle_thickness;
-			global::CommonAndroidTools.Resource.Styleable.FontFamily = global::RadioSequencing.Resource.Styleable.FontFamily;
-			global::CommonAndroidTools.Resource.Styleable.FontFamily_fontProviderAuthority = global::RadioSequencing.Resource.Styleable.FontFamily_fontProviderAuthority;
-			global::CommonAndroidTools.Resource.Styleable.FontFamily_fontProviderCerts = global::RadioSequencing.Resource.Styleable.FontFamily_fontProviderCerts;
-			global::CommonAndroidTools.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::RadioSequencing.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
-			global::CommonAndroidTools.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::RadioSequencing.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
-			global::CommonAndroidTools.Resource.Styleable.FontFamily_fontProviderPackage = global::RadioSequencing.Resource.Styleable.FontFamily_fontProviderPackage;
-			global::CommonAndroidTools.Resource.Styleable.FontFamily_fontProviderQuery = global::RadioSequencing.Resource.Styleable.FontFamily_fontProviderQuery;
-			global::CommonAndroidTools.Resource.Styleable.FontFamilyFont = global::RadioSequencing.Resource.Styleable.FontFamilyFont;
-			global::CommonAndroidTools.Resource.Styleable.FontFamilyFont_android_font = global::RadioSequencing.Resource.Styleable.FontFamilyFont_android_font;
-			global::CommonAndroidTools.Resource.Styleable.FontFamilyFont_android_fontStyle = global::RadioSequencing.Resource.Styleable.FontFamilyFont_android_fontStyle;
-			global::CommonAndroidTools.Resource.Styleable.FontFamilyFont_android_fontWeight = global::RadioSequencing.Resource.Styleable.FontFamilyFont_android_fontWeight;
-			global::CommonAndroidTools.Resource.Styleable.FontFamilyFont_font = global::RadioSequencing.Resource.Styleable.FontFamilyFont_font;
-			global::CommonAndroidTools.Resource.Styleable.FontFamilyFont_fontStyle = global::RadioSequencing.Resource.Styleable.FontFamilyFont_fontStyle;
-			global::CommonAndroidTools.Resource.Styleable.FontFamilyFont_fontWeight = global::RadioSequencing.Resource.Styleable.FontFamilyFont_fontWeight;
-			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat = global::RadioSequencing.Resource.Styleable.LinearLayoutCompat;
-			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_android_baselineAligned = global::RadioSequencing.Resource.Styleable.LinearLayoutCompat_android_baselineAligned;
-			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex = global::RadioSequencing.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex;
-			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_android_gravity = global::RadioSequencing.Resource.Styleable.LinearLayoutCompat_android_gravity;
-			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_android_orientation = global::RadioSequencing.Resource.Styleable.LinearLayoutCompat_android_orientation;
-			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_android_weightSum = global::RadioSequencing.Resource.Styleable.LinearLayoutCompat_android_weightSum;
-			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_divider = global::RadioSequencing.Resource.Styleable.LinearLayoutCompat_divider;
-			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_dividerPadding = global::RadioSequencing.Resource.Styleable.LinearLayoutCompat_dividerPadding;
-			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_measureWithLargestChild = global::RadioSequencing.Resource.Styleable.LinearLayoutCompat_measureWithLargestChild;
-			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_showDividers = global::RadioSequencing.Resource.Styleable.LinearLayoutCompat_showDividers;
-			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_Layout = global::RadioSequencing.Resource.Styleable.LinearLayoutCompat_Layout;
-			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_gravity = global::RadioSequencing.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_gravity;
-			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_height = global::RadioSequencing.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_height;
-			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_weight = global::RadioSequencing.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_weight;
-			global::CommonAndroidTools.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_width = global::RadioSequencing.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_width;
-			global::CommonAndroidTools.Resource.Styleable.ListPopupWindow = global::RadioSequencing.Resource.Styleable.ListPopupWindow;
-			global::CommonAndroidTools.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset = global::RadioSequencing.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset;
-			global::CommonAndroidTools.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset = global::RadioSequencing.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset;
-			global::CommonAndroidTools.Resource.Styleable.MenuGroup = global::RadioSequencing.Resource.Styleable.MenuGroup;
-			global::CommonAndroidTools.Resource.Styleable.MenuGroup_android_checkableBehavior = global::RadioSequencing.Resource.Styleable.MenuGroup_android_checkableBehavior;
-			global::CommonAndroidTools.Resource.Styleable.MenuGroup_android_enabled = global::RadioSequencing.Resource.Styleable.MenuGroup_android_enabled;
-			global::CommonAndroidTools.Resource.Styleable.MenuGroup_android_id = global::RadioSequencing.Resource.Styleable.MenuGroup_android_id;
-			global::CommonAndroidTools.Resource.Styleable.MenuGroup_android_menuCategory = global::RadioSequencing.Resource.Styleable.MenuGroup_android_menuCategory;
-			global::CommonAndroidTools.Resource.Styleable.MenuGroup_android_orderInCategory = global::RadioSequencing.Resource.Styleable.MenuGroup_android_orderInCategory;
-			global::CommonAndroidTools.Resource.Styleable.MenuGroup_android_visible = global::RadioSequencing.Resource.Styleable.MenuGroup_android_visible;
-			global::CommonAndroidTools.Resource.Styleable.MenuItem = global::RadioSequencing.Resource.Styleable.MenuItem;
-			global::CommonAndroidTools.Resource.Styleable.MenuItem_actionLayout = global::RadioSequencing.Resource.Styleable.MenuItem_actionLayout;
-			global::CommonAndroidTools.Resource.Styleable.MenuItem_actionProviderClass = global::RadioSequencing.Resource.Styleable.MenuItem_actionProviderClass;
-			global::CommonAndroidTools.Resource.Styleable.MenuItem_actionViewClass = global::RadioSequencing.Resource.Styleable.MenuItem_actionViewClass;
-			global::CommonAndroidTools.Resource.Styleable.MenuItem_alphabeticModifiers = global::RadioSequencing.Resource.Styleable.MenuItem_alphabeticModifiers;
-			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_alphabeticShortcut = global::RadioSequencing.Resource.Styleable.MenuItem_android_alphabeticShortcut;
-			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_checkable = global::RadioSequencing.Resource.Styleable.MenuItem_android_checkable;
-			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_checked = global::RadioSequencing.Resource.Styleable.MenuItem_android_checked;
-			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_enabled = global::RadioSequencing.Resource.Styleable.MenuItem_android_enabled;
-			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_icon = global::RadioSequencing.Resource.Styleable.MenuItem_android_icon;
-			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_id = global::RadioSequencing.Resource.Styleable.MenuItem_android_id;
-			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_menuCategory = global::RadioSequencing.Resource.Styleable.MenuItem_android_menuCategory;
-			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_numericShortcut = global::RadioSequencing.Resource.Styleable.MenuItem_android_numericShortcut;
-			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_onClick = global::RadioSequencing.Resource.Styleable.MenuItem_android_onClick;
-			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_orderInCategory = global::RadioSequencing.Resource.Styleable.MenuItem_android_orderInCategory;
-			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_title = global::RadioSequencing.Resource.Styleable.MenuItem_android_title;
-			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_titleCondensed = global::RadioSequencing.Resource.Styleable.MenuItem_android_titleCondensed;
-			global::CommonAndroidTools.Resource.Styleable.MenuItem_android_visible = global::RadioSequencing.Resource.Styleable.MenuItem_android_visible;
-			global::CommonAndroidTools.Resource.Styleable.MenuItem_contentDescription = global::RadioSequencing.Resource.Styleable.MenuItem_contentDescription;
-			global::CommonAndroidTools.Resource.Styleable.MenuItem_iconTint = global::RadioSequencing.Resource.Styleable.MenuItem_iconTint;
-			global::CommonAndroidTools.Resource.Styleable.MenuItem_iconTintMode = global::RadioSequencing.Resource.Styleable.MenuItem_iconTintMode;
-			global::CommonAndroidTools.Resource.Styleable.MenuItem_numericModifiers = global::RadioSequencing.Resource.Styleable.MenuItem_numericModifiers;
-			global::CommonAndroidTools.Resource.Styleable.MenuItem_showAsAction = global::RadioSequencing.Resource.Styleable.MenuItem_showAsAction;
-			global::CommonAndroidTools.Resource.Styleable.MenuItem_tooltipText = global::RadioSequencing.Resource.Styleable.MenuItem_tooltipText;
-			global::CommonAndroidTools.Resource.Styleable.MenuView = global::RadioSequencing.Resource.Styleable.MenuView;
-			global::CommonAndroidTools.Resource.Styleable.MenuView_android_headerBackground = global::RadioSequencing.Resource.Styleable.MenuView_android_headerBackground;
-			global::CommonAndroidTools.Resource.Styleable.MenuView_android_horizontalDivider = global::RadioSequencing.Resource.Styleable.MenuView_android_horizontalDivider;
-			global::CommonAndroidTools.Resource.Styleable.MenuView_android_itemBackground = global::RadioSequencing.Resource.Styleable.MenuView_android_itemBackground;
-			global::CommonAndroidTools.Resource.Styleable.MenuView_android_itemIconDisabledAlpha = global::RadioSequencing.Resource.Styleable.MenuView_android_itemIconDisabledAlpha;
-			global::CommonAndroidTools.Resource.Styleable.MenuView_android_itemTextAppearance = global::RadioSequencing.Resource.Styleable.MenuView_android_itemTextAppearance;
-			global::CommonAndroidTools.Resource.Styleable.MenuView_android_verticalDivider = global::RadioSequencing.Resource.Styleable.MenuView_android_verticalDivider;
-			global::CommonAndroidTools.Resource.Styleable.MenuView_android_windowAnimationStyle = global::RadioSequencing.Resource.Styleable.MenuView_android_windowAnimationStyle;
-			global::CommonAndroidTools.Resource.Styleable.MenuView_preserveIconSpacing = global::RadioSequencing.Resource.Styleable.MenuView_preserveIconSpacing;
-			global::CommonAndroidTools.Resource.Styleable.MenuView_subMenuArrow = global::RadioSequencing.Resource.Styleable.MenuView_subMenuArrow;
-			global::CommonAndroidTools.Resource.Styleable.PopupWindow = global::RadioSequencing.Resource.Styleable.PopupWindow;
-			global::CommonAndroidTools.Resource.Styleable.PopupWindow_android_popupAnimationStyle = global::RadioSequencing.Resource.Styleable.PopupWindow_android_popupAnimationStyle;
-			global::CommonAndroidTools.Resource.Styleable.PopupWindow_android_popupBackground = global::RadioSequencing.Resource.Styleable.PopupWindow_android_popupBackground;
-			global::CommonAndroidTools.Resource.Styleable.PopupWindow_overlapAnchor = global::RadioSequencing.Resource.Styleable.PopupWindow_overlapAnchor;
-			global::CommonAndroidTools.Resource.Styleable.PopupWindowBackgroundState = global::RadioSequencing.Resource.Styleable.PopupWindowBackgroundState;
-			global::CommonAndroidTools.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor = global::RadioSequencing.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor;
-			global::CommonAndroidTools.Resource.Styleable.RecycleListView = global::RadioSequencing.Resource.Styleable.RecycleListView;
-			global::CommonAndroidTools.Resource.Styleable.RecycleListView_paddingBottomNoButtons = global::RadioSequencing.Resource.Styleable.RecycleListView_paddingBottomNoButtons;
-			global::CommonAndroidTools.Resource.Styleable.RecycleListView_paddingTopNoTitle = global::RadioSequencing.Resource.Styleable.RecycleListView_paddingTopNoTitle;
-			global::CommonAndroidTools.Resource.Styleable.SearchView = global::RadioSequencing.Resource.Styleable.SearchView;
-			global::CommonAndroidTools.Resource.Styleable.SearchView_android_focusable = global::RadioSequencing.Resource.Styleable.SearchView_android_focusable;
-			global::CommonAndroidTools.Resource.Styleable.SearchView_android_imeOptions = global::RadioSequencing.Resource.Styleable.SearchView_android_imeOptions;
-			global::CommonAndroidTools.Resource.Styleable.SearchView_android_inputType = global::RadioSequencing.Resource.Styleable.SearchView_android_inputType;
-			global::CommonAndroidTools.Resource.Styleable.SearchView_android_maxWidth = global::RadioSequencing.Resource.Styleable.SearchView_android_maxWidth;
-			global::CommonAndroidTools.Resource.Styleable.SearchView_closeIcon = global::RadioSequencing.Resource.Styleable.SearchView_closeIcon;
-			global::CommonAndroidTools.Resource.Styleable.SearchView_commitIcon = global::RadioSequencing.Resource.Styleable.SearchView_commitIcon;
-			global::CommonAndroidTools.Resource.Styleable.SearchView_defaultQueryHint = global::RadioSequencing.Resource.Styleable.SearchView_defaultQueryHint;
-			global::CommonAndroidTools.Resource.Styleable.SearchView_goIcon = global::RadioSequencing.Resource.Styleable.SearchView_goIcon;
-			global::CommonAndroidTools.Resource.Styleable.SearchView_iconifiedByDefault = global::RadioSequencing.Resource.Styleable.SearchView_iconifiedByDefault;
-			global::CommonAndroidTools.Resource.Styleable.SearchView_layout = global::RadioSequencing.Resource.Styleable.SearchView_layout;
-			global::CommonAndroidTools.Resource.Styleable.SearchView_queryBackground = global::RadioSequencing.Resource.Styleable.SearchView_queryBackground;
-			global::CommonAndroidTools.Resource.Styleable.SearchView_queryHint = global::RadioSequencing.Resource.Styleable.SearchView_queryHint;
-			global::CommonAndroidTools.Resource.Styleable.SearchView_searchHintIcon = global::RadioSequencing.Resource.Styleable.SearchView_searchHintIcon;
-			global::CommonAndroidTools.Resource.Styleable.SearchView_searchIcon = global::RadioSequencing.Resource.Styleable.SearchView_searchIcon;
-			global::CommonAndroidTools.Resource.Styleable.SearchView_submitBackground = global::RadioSequencing.Resource.Styleable.SearchView_submitBackground;
-			global::CommonAndroidTools.Resource.Styleable.SearchView_suggestionRowLayout = global::RadioSequencing.Resource.Styleable.SearchView_suggestionRowLayout;
-			global::CommonAndroidTools.Resource.Styleable.SearchView_voiceIcon = global::RadioSequencing.Resource.Styleable.SearchView_voiceIcon;
-			global::CommonAndroidTools.Resource.Styleable.Spinner = global::RadioSequencing.Resource.Styleable.Spinner;
-			global::CommonAndroidTools.Resource.Styleable.Spinner_android_dropDownWidth = global::RadioSequencing.Resource.Styleable.Spinner_android_dropDownWidth;
-			global::CommonAndroidTools.Resource.Styleable.Spinner_android_entries = global::RadioSequencing.Resource.Styleable.Spinner_android_entries;
-			global::CommonAndroidTools.Resource.Styleable.Spinner_android_popupBackground = global::RadioSequencing.Resource.Styleable.Spinner_android_popupBackground;
-			global::CommonAndroidTools.Resource.Styleable.Spinner_android_prompt = global::RadioSequencing.Resource.Styleable.Spinner_android_prompt;
-			global::CommonAndroidTools.Resource.Styleable.Spinner_popupTheme = global::RadioSequencing.Resource.Styleable.Spinner_popupTheme;
-			global::CommonAndroidTools.Resource.Styleable.SwitchCompat = global::RadioSequencing.Resource.Styleable.SwitchCompat;
-			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_android_textOff = global::RadioSequencing.Resource.Styleable.SwitchCompat_android_textOff;
-			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_android_textOn = global::RadioSequencing.Resource.Styleable.SwitchCompat_android_textOn;
-			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_android_thumb = global::RadioSequencing.Resource.Styleable.SwitchCompat_android_thumb;
-			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_showText = global::RadioSequencing.Resource.Styleable.SwitchCompat_showText;
-			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_splitTrack = global::RadioSequencing.Resource.Styleable.SwitchCompat_splitTrack;
-			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_switchMinWidth = global::RadioSequencing.Resource.Styleable.SwitchCompat_switchMinWidth;
-			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_switchPadding = global::RadioSequencing.Resource.Styleable.SwitchCompat_switchPadding;
-			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_switchTextAppearance = global::RadioSequencing.Resource.Styleable.SwitchCompat_switchTextAppearance;
-			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_thumbTextPadding = global::RadioSequencing.Resource.Styleable.SwitchCompat_thumbTextPadding;
-			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_thumbTint = global::RadioSequencing.Resource.Styleable.SwitchCompat_thumbTint;
-			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_thumbTintMode = global::RadioSequencing.Resource.Styleable.SwitchCompat_thumbTintMode;
-			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_track = global::RadioSequencing.Resource.Styleable.SwitchCompat_track;
-			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_trackTint = global::RadioSequencing.Resource.Styleable.SwitchCompat_trackTint;
-			global::CommonAndroidTools.Resource.Styleable.SwitchCompat_trackTintMode = global::RadioSequencing.Resource.Styleable.SwitchCompat_trackTintMode;
-			global::CommonAndroidTools.Resource.Styleable.TextAppearance = global::RadioSequencing.Resource.Styleable.TextAppearance;
-			global::CommonAndroidTools.Resource.Styleable.TextAppearance_android_fontFamily = global::RadioSequencing.Resource.Styleable.TextAppearance_android_fontFamily;
-			global::CommonAndroidTools.Resource.Styleable.TextAppearance_android_shadowColor = global::RadioSequencing.Resource.Styleable.TextAppearance_android_shadowColor;
-			global::CommonAndroidTools.Resource.Styleable.TextAppearance_android_shadowDx = global::RadioSequencing.Resource.Styleable.TextAppearance_android_shadowDx;
-			global::CommonAndroidTools.Resource.Styleable.TextAppearance_android_shadowDy = global::RadioSequencing.Resource.Styleable.TextAppearance_android_shadowDy;
-			global::CommonAndroidTools.Resource.Styleable.TextAppearance_android_shadowRadius = global::RadioSequencing.Resource.Styleable.TextAppearance_android_shadowRadius;
-			global::CommonAndroidTools.Resource.Styleable.TextAppearance_android_textColor = global::RadioSequencing.Resource.Styleable.TextAppearance_android_textColor;
-			global::CommonAndroidTools.Resource.Styleable.TextAppearance_android_textColorHint = global::RadioSequencing.Resource.Styleable.TextAppearance_android_textColorHint;
-			global::CommonAndroidTools.Resource.Styleable.TextAppearance_android_textColorLink = global::RadioSequencing.Resource.Styleable.TextAppearance_android_textColorLink;
-			global::CommonAndroidTools.Resource.Styleable.TextAppearance_android_textSize = global::RadioSequencing.Resource.Styleable.TextAppearance_android_textSize;
-			global::CommonAndroidTools.Resource.Styleable.TextAppearance_android_textStyle = global::RadioSequencing.Resource.Styleable.TextAppearance_android_textStyle;
-			global::CommonAndroidTools.Resource.Styleable.TextAppearance_android_typeface = global::RadioSequencing.Resource.Styleable.TextAppearance_android_typeface;
-			global::CommonAndroidTools.Resource.Styleable.TextAppearance_fontFamily = global::RadioSequencing.Resource.Styleable.TextAppearance_fontFamily;
-			global::CommonAndroidTools.Resource.Styleable.TextAppearance_textAllCaps = global::RadioSequencing.Resource.Styleable.TextAppearance_textAllCaps;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar = global::RadioSequencing.Resource.Styleable.Toolbar;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_android_gravity = global::RadioSequencing.Resource.Styleable.Toolbar_android_gravity;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_android_minHeight = global::RadioSequencing.Resource.Styleable.Toolbar_android_minHeight;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_buttonGravity = global::RadioSequencing.Resource.Styleable.Toolbar_buttonGravity;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_collapseContentDescription = global::RadioSequencing.Resource.Styleable.Toolbar_collapseContentDescription;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_collapseIcon = global::RadioSequencing.Resource.Styleable.Toolbar_collapseIcon;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_contentInsetEnd = global::RadioSequencing.Resource.Styleable.Toolbar_contentInsetEnd;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_contentInsetEndWithActions = global::RadioSequencing.Resource.Styleable.Toolbar_contentInsetEndWithActions;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_contentInsetLeft = global::RadioSequencing.Resource.Styleable.Toolbar_contentInsetLeft;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_contentInsetRight = global::RadioSequencing.Resource.Styleable.Toolbar_contentInsetRight;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_contentInsetStart = global::RadioSequencing.Resource.Styleable.Toolbar_contentInsetStart;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_contentInsetStartWithNavigation = global::RadioSequencing.Resource.Styleable.Toolbar_contentInsetStartWithNavigation;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_logo = global::RadioSequencing.Resource.Styleable.Toolbar_logo;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_logoDescription = global::RadioSequencing.Resource.Styleable.Toolbar_logoDescription;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_maxButtonHeight = global::RadioSequencing.Resource.Styleable.Toolbar_maxButtonHeight;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_navigationContentDescription = global::RadioSequencing.Resource.Styleable.Toolbar_navigationContentDescription;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_navigationIcon = global::RadioSequencing.Resource.Styleable.Toolbar_navigationIcon;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_popupTheme = global::RadioSequencing.Resource.Styleable.Toolbar_popupTheme;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_subtitle = global::RadioSequencing.Resource.Styleable.Toolbar_subtitle;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_subtitleTextAppearance = global::RadioSequencing.Resource.Styleable.Toolbar_subtitleTextAppearance;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_subtitleTextColor = global::RadioSequencing.Resource.Styleable.Toolbar_subtitleTextColor;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_title = global::RadioSequencing.Resource.Styleable.Toolbar_title;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_titleMargin = global::RadioSequencing.Resource.Styleable.Toolbar_titleMargin;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_titleMarginBottom = global::RadioSequencing.Resource.Styleable.Toolbar_titleMarginBottom;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_titleMarginEnd = global::RadioSequencing.Resource.Styleable.Toolbar_titleMarginEnd;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_titleMarginStart = global::RadioSequencing.Resource.Styleable.Toolbar_titleMarginStart;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_titleMarginTop = global::RadioSequencing.Resource.Styleable.Toolbar_titleMarginTop;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_titleMargins = global::RadioSequencing.Resource.Styleable.Toolbar_titleMargins;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_titleTextAppearance = global::RadioSequencing.Resource.Styleable.Toolbar_titleTextAppearance;
-			global::CommonAndroidTools.Resource.Styleable.Toolbar_titleTextColor = global::RadioSequencing.Resource.Styleable.Toolbar_titleTextColor;
-			global::CommonAndroidTools.Resource.Styleable.View = global::RadioSequencing.Resource.Styleable.View;
-			global::CommonAndroidTools.Resource.Styleable.View_android_focusable = global::RadioSequencing.Resource.Styleable.View_android_focusable;
-			global::CommonAndroidTools.Resource.Styleable.View_android_theme = global::RadioSequencing.Resource.Styleable.View_android_theme;
-			global::CommonAndroidTools.Resource.Styleable.View_paddingEnd = global::RadioSequencing.Resource.Styleable.View_paddingEnd;
-			global::CommonAndroidTools.Resource.Styleable.View_paddingStart = global::RadioSequencing.Resource.Styleable.View_paddingStart;
-			global::CommonAndroidTools.Resource.Styleable.View_theme = global::RadioSequencing.Resource.Styleable.View_theme;
-			global::CommonAndroidTools.Resource.Styleable.ViewBackgroundHelper = global::RadioSequencing.Resource.Styleable.ViewBackgroundHelper;
-			global::CommonAndroidTools.Resource.Styleable.ViewBackgroundHelper_android_background = global::RadioSequencing.Resource.Styleable.ViewBackgroundHelper_android_background;
-			global::CommonAndroidTools.Resource.Styleable.ViewBackgroundHelper_backgroundTint = global::RadioSequencing.Resource.Styleable.ViewBackgroundHelper_backgroundTint;
-			global::CommonAndroidTools.Resource.Styleable.ViewBackgroundHelper_backgroundTintMode = global::RadioSequencing.Resource.Styleable.ViewBackgroundHelper_backgroundTintMode;
-			global::CommonAndroidTools.Resource.Styleable.ViewStubCompat = global::RadioSequencing.Resource.Styleable.ViewStubCompat;
-			global::CommonAndroidTools.Resource.Styleable.ViewStubCompat_android_id = global::RadioSequencing.Resource.Styleable.ViewStubCompat_android_id;
-			global::CommonAndroidTools.Resource.Styleable.ViewStubCompat_android_inflatedId = global::RadioSequencing.Resource.Styleable.ViewStubCompat_android_inflatedId;
-			global::CommonAndroidTools.Resource.Styleable.ViewStubCompat_android_layout = global::RadioSequencing.Resource.Styleable.ViewStubCompat_android_layout;
+			global::CommonAndroidTools.Resource.String.ApplicationName = global::RadioSequencing.Resource.String.ApplicationName;
+			global::CommonAndroidTools.Resource.String.Hello = global::RadioSequencing.Resource.String.Hello;
 			global::LogonScreen.Resource.Animation.abc_fade_in = global::RadioSequencing.Resource.Animation.abc_fade_in;
 			global::LogonScreen.Resource.Animation.abc_fade_out = global::RadioSequencing.Resource.Animation.abc_fade_out;
 			global::LogonScreen.Resource.Animation.abc_grow_fade_in_from_bottom = global::RadioSequencing.Resource.Animation.abc_grow_fade_in_from_bottom;
@@ -1527,11 +43,22 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Animation.abc_slide_in_top = global::RadioSequencing.Resource.Animation.abc_slide_in_top;
 			global::LogonScreen.Resource.Animation.abc_slide_out_bottom = global::RadioSequencing.Resource.Animation.abc_slide_out_bottom;
 			global::LogonScreen.Resource.Animation.abc_slide_out_top = global::RadioSequencing.Resource.Animation.abc_slide_out_top;
+			global::LogonScreen.Resource.Animation.abc_tooltip_enter = global::RadioSequencing.Resource.Animation.abc_tooltip_enter;
+			global::LogonScreen.Resource.Animation.abc_tooltip_exit = global::RadioSequencing.Resource.Animation.abc_tooltip_exit;
 			global::LogonScreen.Resource.Animation.design_bottom_sheet_slide_in = global::RadioSequencing.Resource.Animation.design_bottom_sheet_slide_in;
 			global::LogonScreen.Resource.Animation.design_bottom_sheet_slide_out = global::RadioSequencing.Resource.Animation.design_bottom_sheet_slide_out;
 			global::LogonScreen.Resource.Animation.design_snackbar_in = global::RadioSequencing.Resource.Animation.design_snackbar_in;
 			global::LogonScreen.Resource.Animation.design_snackbar_out = global::RadioSequencing.Resource.Animation.design_snackbar_out;
 			global::LogonScreen.Resource.Animator.design_appbar_state_list_animator = global::RadioSequencing.Resource.Animator.design_appbar_state_list_animator;
+			global::LogonScreen.Resource.Animator.design_fab_hide_motion_spec = global::RadioSequencing.Resource.Animator.design_fab_hide_motion_spec;
+			global::LogonScreen.Resource.Animator.design_fab_show_motion_spec = global::RadioSequencing.Resource.Animator.design_fab_show_motion_spec;
+			global::LogonScreen.Resource.Animator.mtrl_btn_state_list_anim = global::RadioSequencing.Resource.Animator.mtrl_btn_state_list_anim;
+			global::LogonScreen.Resource.Animator.mtrl_btn_unelevated_state_list_anim = global::RadioSequencing.Resource.Animator.mtrl_btn_unelevated_state_list_anim;
+			global::LogonScreen.Resource.Animator.mtrl_chip_state_list_anim = global::RadioSequencing.Resource.Animator.mtrl_chip_state_list_anim;
+			global::LogonScreen.Resource.Animator.mtrl_fab_hide_motion_spec = global::RadioSequencing.Resource.Animator.mtrl_fab_hide_motion_spec;
+			global::LogonScreen.Resource.Animator.mtrl_fab_show_motion_spec = global::RadioSequencing.Resource.Animator.mtrl_fab_show_motion_spec;
+			global::LogonScreen.Resource.Animator.mtrl_fab_transformation_sheet_collapse_spec = global::RadioSequencing.Resource.Animator.mtrl_fab_transformation_sheet_collapse_spec;
+			global::LogonScreen.Resource.Animator.mtrl_fab_transformation_sheet_expand_spec = global::RadioSequencing.Resource.Animator.mtrl_fab_transformation_sheet_expand_spec;
 			global::LogonScreen.Resource.Attribute.actionBarDivider = global::RadioSequencing.Resource.Attribute.actionBarDivider;
 			global::LogonScreen.Resource.Attribute.actionBarItemBackground = global::RadioSequencing.Resource.Attribute.actionBarItemBackground;
 			global::LogonScreen.Resource.Attribute.actionBarPopupTheme = global::RadioSequencing.Resource.Attribute.actionBarPopupTheme;
@@ -1588,28 +115,76 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Attribute.backgroundTintMode = global::RadioSequencing.Resource.Attribute.backgroundTintMode;
 			global::LogonScreen.Resource.Attribute.barLength = global::RadioSequencing.Resource.Attribute.barLength;
 			global::LogonScreen.Resource.Attribute.behavior_autoHide = global::RadioSequencing.Resource.Attribute.behavior_autoHide;
+			global::LogonScreen.Resource.Attribute.behavior_fitToContents = global::RadioSequencing.Resource.Attribute.behavior_fitToContents;
 			global::LogonScreen.Resource.Attribute.behavior_hideable = global::RadioSequencing.Resource.Attribute.behavior_hideable;
 			global::LogonScreen.Resource.Attribute.behavior_overlapTop = global::RadioSequencing.Resource.Attribute.behavior_overlapTop;
 			global::LogonScreen.Resource.Attribute.behavior_peekHeight = global::RadioSequencing.Resource.Attribute.behavior_peekHeight;
 			global::LogonScreen.Resource.Attribute.behavior_skipCollapsed = global::RadioSequencing.Resource.Attribute.behavior_skipCollapsed;
 			global::LogonScreen.Resource.Attribute.borderWidth = global::RadioSequencing.Resource.Attribute.borderWidth;
 			global::LogonScreen.Resource.Attribute.borderlessButtonStyle = global::RadioSequencing.Resource.Attribute.borderlessButtonStyle;
+			global::LogonScreen.Resource.Attribute.bottomAppBarStyle = global::RadioSequencing.Resource.Attribute.bottomAppBarStyle;
+			global::LogonScreen.Resource.Attribute.bottomNavigationStyle = global::RadioSequencing.Resource.Attribute.bottomNavigationStyle;
 			global::LogonScreen.Resource.Attribute.bottomSheetDialogTheme = global::RadioSequencing.Resource.Attribute.bottomSheetDialogTheme;
 			global::LogonScreen.Resource.Attribute.bottomSheetStyle = global::RadioSequencing.Resource.Attribute.bottomSheetStyle;
+			global::LogonScreen.Resource.Attribute.boxBackgroundColor = global::RadioSequencing.Resource.Attribute.boxBackgroundColor;
+			global::LogonScreen.Resource.Attribute.boxBackgroundMode = global::RadioSequencing.Resource.Attribute.boxBackgroundMode;
+			global::LogonScreen.Resource.Attribute.boxCollapsedPaddingTop = global::RadioSequencing.Resource.Attribute.boxCollapsedPaddingTop;
+			global::LogonScreen.Resource.Attribute.boxCornerRadiusBottomEnd = global::RadioSequencing.Resource.Attribute.boxCornerRadiusBottomEnd;
+			global::LogonScreen.Resource.Attribute.boxCornerRadiusBottomStart = global::RadioSequencing.Resource.Attribute.boxCornerRadiusBottomStart;
+			global::LogonScreen.Resource.Attribute.boxCornerRadiusTopEnd = global::RadioSequencing.Resource.Attribute.boxCornerRadiusTopEnd;
+			global::LogonScreen.Resource.Attribute.boxCornerRadiusTopStart = global::RadioSequencing.Resource.Attribute.boxCornerRadiusTopStart;
+			global::LogonScreen.Resource.Attribute.boxStrokeColor = global::RadioSequencing.Resource.Attribute.boxStrokeColor;
+			global::LogonScreen.Resource.Attribute.boxStrokeWidth = global::RadioSequencing.Resource.Attribute.boxStrokeWidth;
 			global::LogonScreen.Resource.Attribute.buttonBarButtonStyle = global::RadioSequencing.Resource.Attribute.buttonBarButtonStyle;
 			global::LogonScreen.Resource.Attribute.buttonBarNegativeButtonStyle = global::RadioSequencing.Resource.Attribute.buttonBarNegativeButtonStyle;
 			global::LogonScreen.Resource.Attribute.buttonBarNeutralButtonStyle = global::RadioSequencing.Resource.Attribute.buttonBarNeutralButtonStyle;
 			global::LogonScreen.Resource.Attribute.buttonBarPositiveButtonStyle = global::RadioSequencing.Resource.Attribute.buttonBarPositiveButtonStyle;
 			global::LogonScreen.Resource.Attribute.buttonBarStyle = global::RadioSequencing.Resource.Attribute.buttonBarStyle;
 			global::LogonScreen.Resource.Attribute.buttonGravity = global::RadioSequencing.Resource.Attribute.buttonGravity;
+			global::LogonScreen.Resource.Attribute.buttonIconDimen = global::RadioSequencing.Resource.Attribute.buttonIconDimen;
 			global::LogonScreen.Resource.Attribute.buttonPanelSideLayout = global::RadioSequencing.Resource.Attribute.buttonPanelSideLayout;
 			global::LogonScreen.Resource.Attribute.buttonStyle = global::RadioSequencing.Resource.Attribute.buttonStyle;
 			global::LogonScreen.Resource.Attribute.buttonStyleSmall = global::RadioSequencing.Resource.Attribute.buttonStyleSmall;
 			global::LogonScreen.Resource.Attribute.buttonTint = global::RadioSequencing.Resource.Attribute.buttonTint;
 			global::LogonScreen.Resource.Attribute.buttonTintMode = global::RadioSequencing.Resource.Attribute.buttonTintMode;
+			global::LogonScreen.Resource.Attribute.cardBackgroundColor = global::RadioSequencing.Resource.Attribute.cardBackgroundColor;
+			global::LogonScreen.Resource.Attribute.cardCornerRadius = global::RadioSequencing.Resource.Attribute.cardCornerRadius;
+			global::LogonScreen.Resource.Attribute.cardElevation = global::RadioSequencing.Resource.Attribute.cardElevation;
+			global::LogonScreen.Resource.Attribute.cardMaxElevation = global::RadioSequencing.Resource.Attribute.cardMaxElevation;
+			global::LogonScreen.Resource.Attribute.cardPreventCornerOverlap = global::RadioSequencing.Resource.Attribute.cardPreventCornerOverlap;
+			global::LogonScreen.Resource.Attribute.cardUseCompatPadding = global::RadioSequencing.Resource.Attribute.cardUseCompatPadding;
+			global::LogonScreen.Resource.Attribute.cardViewStyle = global::RadioSequencing.Resource.Attribute.cardViewStyle;
 			global::LogonScreen.Resource.Attribute.checkboxStyle = global::RadioSequencing.Resource.Attribute.checkboxStyle;
+			global::LogonScreen.Resource.Attribute.checkedChip = global::RadioSequencing.Resource.Attribute.checkedChip;
+			global::LogonScreen.Resource.Attribute.checkedIcon = global::RadioSequencing.Resource.Attribute.checkedIcon;
+			global::LogonScreen.Resource.Attribute.checkedIconEnabled = global::RadioSequencing.Resource.Attribute.checkedIconEnabled;
+			global::LogonScreen.Resource.Attribute.checkedIconVisible = global::RadioSequencing.Resource.Attribute.checkedIconVisible;
 			global::LogonScreen.Resource.Attribute.checkedTextViewStyle = global::RadioSequencing.Resource.Attribute.checkedTextViewStyle;
+			global::LogonScreen.Resource.Attribute.chipBackgroundColor = global::RadioSequencing.Resource.Attribute.chipBackgroundColor;
+			global::LogonScreen.Resource.Attribute.chipCornerRadius = global::RadioSequencing.Resource.Attribute.chipCornerRadius;
+			global::LogonScreen.Resource.Attribute.chipEndPadding = global::RadioSequencing.Resource.Attribute.chipEndPadding;
+			global::LogonScreen.Resource.Attribute.chipGroupStyle = global::RadioSequencing.Resource.Attribute.chipGroupStyle;
+			global::LogonScreen.Resource.Attribute.chipIcon = global::RadioSequencing.Resource.Attribute.chipIcon;
+			global::LogonScreen.Resource.Attribute.chipIconEnabled = global::RadioSequencing.Resource.Attribute.chipIconEnabled;
+			global::LogonScreen.Resource.Attribute.chipIconSize = global::RadioSequencing.Resource.Attribute.chipIconSize;
+			global::LogonScreen.Resource.Attribute.chipIconTint = global::RadioSequencing.Resource.Attribute.chipIconTint;
+			global::LogonScreen.Resource.Attribute.chipIconVisible = global::RadioSequencing.Resource.Attribute.chipIconVisible;
+			global::LogonScreen.Resource.Attribute.chipMinHeight = global::RadioSequencing.Resource.Attribute.chipMinHeight;
+			global::LogonScreen.Resource.Attribute.chipSpacing = global::RadioSequencing.Resource.Attribute.chipSpacing;
+			global::LogonScreen.Resource.Attribute.chipSpacingHorizontal = global::RadioSequencing.Resource.Attribute.chipSpacingHorizontal;
+			global::LogonScreen.Resource.Attribute.chipSpacingVertical = global::RadioSequencing.Resource.Attribute.chipSpacingVertical;
+			global::LogonScreen.Resource.Attribute.chipStandaloneStyle = global::RadioSequencing.Resource.Attribute.chipStandaloneStyle;
+			global::LogonScreen.Resource.Attribute.chipStartPadding = global::RadioSequencing.Resource.Attribute.chipStartPadding;
+			global::LogonScreen.Resource.Attribute.chipStrokeColor = global::RadioSequencing.Resource.Attribute.chipStrokeColor;
+			global::LogonScreen.Resource.Attribute.chipStrokeWidth = global::RadioSequencing.Resource.Attribute.chipStrokeWidth;
+			global::LogonScreen.Resource.Attribute.chipStyle = global::RadioSequencing.Resource.Attribute.chipStyle;
 			global::LogonScreen.Resource.Attribute.closeIcon = global::RadioSequencing.Resource.Attribute.closeIcon;
+			global::LogonScreen.Resource.Attribute.closeIconEnabled = global::RadioSequencing.Resource.Attribute.closeIconEnabled;
+			global::LogonScreen.Resource.Attribute.closeIconEndPadding = global::RadioSequencing.Resource.Attribute.closeIconEndPadding;
+			global::LogonScreen.Resource.Attribute.closeIconSize = global::RadioSequencing.Resource.Attribute.closeIconSize;
+			global::LogonScreen.Resource.Attribute.closeIconStartPadding = global::RadioSequencing.Resource.Attribute.closeIconStartPadding;
+			global::LogonScreen.Resource.Attribute.closeIconTint = global::RadioSequencing.Resource.Attribute.closeIconTint;
+			global::LogonScreen.Resource.Attribute.closeIconVisible = global::RadioSequencing.Resource.Attribute.closeIconVisible;
 			global::LogonScreen.Resource.Attribute.closeItemLayout = global::RadioSequencing.Resource.Attribute.closeItemLayout;
 			global::LogonScreen.Resource.Attribute.collapseContentDescription = global::RadioSequencing.Resource.Attribute.collapseContentDescription;
 			global::LogonScreen.Resource.Attribute.collapseIcon = global::RadioSequencing.Resource.Attribute.collapseIcon;
@@ -1625,6 +200,7 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Attribute.colorError = global::RadioSequencing.Resource.Attribute.colorError;
 			global::LogonScreen.Resource.Attribute.colorPrimary = global::RadioSequencing.Resource.Attribute.colorPrimary;
 			global::LogonScreen.Resource.Attribute.colorPrimaryDark = global::RadioSequencing.Resource.Attribute.colorPrimaryDark;
+			global::LogonScreen.Resource.Attribute.colorSecondary = global::RadioSequencing.Resource.Attribute.colorSecondary;
 			global::LogonScreen.Resource.Attribute.colorSwitchThumbNormal = global::RadioSequencing.Resource.Attribute.colorSwitchThumbNormal;
 			global::LogonScreen.Resource.Attribute.commitIcon = global::RadioSequencing.Resource.Attribute.commitIcon;
 			global::LogonScreen.Resource.Attribute.contentDescription = global::RadioSequencing.Resource.Attribute.contentDescription;
@@ -1634,14 +210,22 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Attribute.contentInsetRight = global::RadioSequencing.Resource.Attribute.contentInsetRight;
 			global::LogonScreen.Resource.Attribute.contentInsetStart = global::RadioSequencing.Resource.Attribute.contentInsetStart;
 			global::LogonScreen.Resource.Attribute.contentInsetStartWithNavigation = global::RadioSequencing.Resource.Attribute.contentInsetStartWithNavigation;
+			global::LogonScreen.Resource.Attribute.contentPadding = global::RadioSequencing.Resource.Attribute.contentPadding;
+			global::LogonScreen.Resource.Attribute.contentPaddingBottom = global::RadioSequencing.Resource.Attribute.contentPaddingBottom;
+			global::LogonScreen.Resource.Attribute.contentPaddingLeft = global::RadioSequencing.Resource.Attribute.contentPaddingLeft;
+			global::LogonScreen.Resource.Attribute.contentPaddingRight = global::RadioSequencing.Resource.Attribute.contentPaddingRight;
+			global::LogonScreen.Resource.Attribute.contentPaddingTop = global::RadioSequencing.Resource.Attribute.contentPaddingTop;
 			global::LogonScreen.Resource.Attribute.contentScrim = global::RadioSequencing.Resource.Attribute.contentScrim;
 			global::LogonScreen.Resource.Attribute.controlBackground = global::RadioSequencing.Resource.Attribute.controlBackground;
+			global::LogonScreen.Resource.Attribute.coordinatorLayoutStyle = global::RadioSequencing.Resource.Attribute.coordinatorLayoutStyle;
+			global::LogonScreen.Resource.Attribute.cornerRadius = global::RadioSequencing.Resource.Attribute.cornerRadius;
 			global::LogonScreen.Resource.Attribute.counterEnabled = global::RadioSequencing.Resource.Attribute.counterEnabled;
 			global::LogonScreen.Resource.Attribute.counterMaxLength = global::RadioSequencing.Resource.Attribute.counterMaxLength;
 			global::LogonScreen.Resource.Attribute.counterOverflowTextAppearance = global::RadioSequencing.Resource.Attribute.counterOverflowTextAppearance;
 			global::LogonScreen.Resource.Attribute.counterTextAppearance = global::RadioSequencing.Resource.Attribute.counterTextAppearance;
 			global::LogonScreen.Resource.Attribute.customNavigationLayout = global::RadioSequencing.Resource.Attribute.customNavigationLayout;
 			global::LogonScreen.Resource.Attribute.defaultQueryHint = global::RadioSequencing.Resource.Attribute.defaultQueryHint;
+			global::LogonScreen.Resource.Attribute.dialogCornerRadius = global::RadioSequencing.Resource.Attribute.dialogCornerRadius;
 			global::LogonScreen.Resource.Attribute.dialogPreferredPadding = global::RadioSequencing.Resource.Attribute.dialogPreferredPadding;
 			global::LogonScreen.Resource.Attribute.dialogTheme = global::RadioSequencing.Resource.Attribute.dialogTheme;
 			global::LogonScreen.Resource.Attribute.displayOptions = global::RadioSequencing.Resource.Attribute.displayOptions;
@@ -1657,6 +241,8 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Attribute.editTextColor = global::RadioSequencing.Resource.Attribute.editTextColor;
 			global::LogonScreen.Resource.Attribute.editTextStyle = global::RadioSequencing.Resource.Attribute.editTextStyle;
 			global::LogonScreen.Resource.Attribute.elevation = global::RadioSequencing.Resource.Attribute.elevation;
+			global::LogonScreen.Resource.Attribute.enforceMaterialTheme = global::RadioSequencing.Resource.Attribute.enforceMaterialTheme;
+			global::LogonScreen.Resource.Attribute.enforceTextAppearance = global::RadioSequencing.Resource.Attribute.enforceTextAppearance;
 			global::LogonScreen.Resource.Attribute.errorEnabled = global::RadioSequencing.Resource.Attribute.errorEnabled;
 			global::LogonScreen.Resource.Attribute.errorTextAppearance = global::RadioSequencing.Resource.Attribute.errorTextAppearance;
 			global::LogonScreen.Resource.Attribute.expandActivityOverflowButtonDrawable = global::RadioSequencing.Resource.Attribute.expandActivityOverflowButtonDrawable;
@@ -1668,12 +254,19 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Attribute.expandedTitleMarginStart = global::RadioSequencing.Resource.Attribute.expandedTitleMarginStart;
 			global::LogonScreen.Resource.Attribute.expandedTitleMarginTop = global::RadioSequencing.Resource.Attribute.expandedTitleMarginTop;
 			global::LogonScreen.Resource.Attribute.expandedTitleTextAppearance = global::RadioSequencing.Resource.Attribute.expandedTitleTextAppearance;
+			global::LogonScreen.Resource.Attribute.fabAlignmentMode = global::RadioSequencing.Resource.Attribute.fabAlignmentMode;
+			global::LogonScreen.Resource.Attribute.fabCradleMargin = global::RadioSequencing.Resource.Attribute.fabCradleMargin;
+			global::LogonScreen.Resource.Attribute.fabCradleRoundedCornerRadius = global::RadioSequencing.Resource.Attribute.fabCradleRoundedCornerRadius;
+			global::LogonScreen.Resource.Attribute.fabCradleVerticalOffset = global::RadioSequencing.Resource.Attribute.fabCradleVerticalOffset;
+			global::LogonScreen.Resource.Attribute.fabCustomSize = global::RadioSequencing.Resource.Attribute.fabCustomSize;
 			global::LogonScreen.Resource.Attribute.fabSize = global::RadioSequencing.Resource.Attribute.fabSize;
 			global::LogonScreen.Resource.Attribute.fastScrollEnabled = global::RadioSequencing.Resource.Attribute.fastScrollEnabled;
 			global::LogonScreen.Resource.Attribute.fastScrollHorizontalThumbDrawable = global::RadioSequencing.Resource.Attribute.fastScrollHorizontalThumbDrawable;
 			global::LogonScreen.Resource.Attribute.fastScrollHorizontalTrackDrawable = global::RadioSequencing.Resource.Attribute.fastScrollHorizontalTrackDrawable;
 			global::LogonScreen.Resource.Attribute.fastScrollVerticalThumbDrawable = global::RadioSequencing.Resource.Attribute.fastScrollVerticalThumbDrawable;
 			global::LogonScreen.Resource.Attribute.fastScrollVerticalTrackDrawable = global::RadioSequencing.Resource.Attribute.fastScrollVerticalTrackDrawable;
+			global::LogonScreen.Resource.Attribute.firstBaselineToTopHeight = global::RadioSequencing.Resource.Attribute.firstBaselineToTopHeight;
+			global::LogonScreen.Resource.Attribute.floatingActionButtonStyle = global::RadioSequencing.Resource.Attribute.floatingActionButtonStyle;
 			global::LogonScreen.Resource.Attribute.font = global::RadioSequencing.Resource.Attribute.font;
 			global::LogonScreen.Resource.Attribute.fontFamily = global::RadioSequencing.Resource.Attribute.fontFamily;
 			global::LogonScreen.Resource.Attribute.fontProviderAuthority = global::RadioSequencing.Resource.Attribute.fontProviderAuthority;
@@ -1683,19 +276,31 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Attribute.fontProviderPackage = global::RadioSequencing.Resource.Attribute.fontProviderPackage;
 			global::LogonScreen.Resource.Attribute.fontProviderQuery = global::RadioSequencing.Resource.Attribute.fontProviderQuery;
 			global::LogonScreen.Resource.Attribute.fontStyle = global::RadioSequencing.Resource.Attribute.fontStyle;
+			global::LogonScreen.Resource.Attribute.fontVariationSettings = global::RadioSequencing.Resource.Attribute.fontVariationSettings;
 			global::LogonScreen.Resource.Attribute.fontWeight = global::RadioSequencing.Resource.Attribute.fontWeight;
 			global::LogonScreen.Resource.Attribute.foregroundInsidePadding = global::RadioSequencing.Resource.Attribute.foregroundInsidePadding;
 			global::LogonScreen.Resource.Attribute.gapBetweenBars = global::RadioSequencing.Resource.Attribute.gapBetweenBars;
 			global::LogonScreen.Resource.Attribute.goIcon = global::RadioSequencing.Resource.Attribute.goIcon;
 			global::LogonScreen.Resource.Attribute.headerLayout = global::RadioSequencing.Resource.Attribute.headerLayout;
 			global::LogonScreen.Resource.Attribute.height = global::RadioSequencing.Resource.Attribute.height;
+			global::LogonScreen.Resource.Attribute.helperText = global::RadioSequencing.Resource.Attribute.helperText;
+			global::LogonScreen.Resource.Attribute.helperTextEnabled = global::RadioSequencing.Resource.Attribute.helperTextEnabled;
+			global::LogonScreen.Resource.Attribute.helperTextTextAppearance = global::RadioSequencing.Resource.Attribute.helperTextTextAppearance;
+			global::LogonScreen.Resource.Attribute.hideMotionSpec = global::RadioSequencing.Resource.Attribute.hideMotionSpec;
 			global::LogonScreen.Resource.Attribute.hideOnContentScroll = global::RadioSequencing.Resource.Attribute.hideOnContentScroll;
+			global::LogonScreen.Resource.Attribute.hideOnScroll = global::RadioSequencing.Resource.Attribute.hideOnScroll;
 			global::LogonScreen.Resource.Attribute.hintAnimationEnabled = global::RadioSequencing.Resource.Attribute.hintAnimationEnabled;
 			global::LogonScreen.Resource.Attribute.hintEnabled = global::RadioSequencing.Resource.Attribute.hintEnabled;
 			global::LogonScreen.Resource.Attribute.hintTextAppearance = global::RadioSequencing.Resource.Attribute.hintTextAppearance;
 			global::LogonScreen.Resource.Attribute.homeAsUpIndicator = global::RadioSequencing.Resource.Attribute.homeAsUpIndicator;
 			global::LogonScreen.Resource.Attribute.homeLayout = global::RadioSequencing.Resource.Attribute.homeLayout;
+			global::LogonScreen.Resource.Attribute.hoveredFocusedTranslationZ = global::RadioSequencing.Resource.Attribute.hoveredFocusedTranslationZ;
 			global::LogonScreen.Resource.Attribute.icon = global::RadioSequencing.Resource.Attribute.icon;
+			global::LogonScreen.Resource.Attribute.iconEndPadding = global::RadioSequencing.Resource.Attribute.iconEndPadding;
+			global::LogonScreen.Resource.Attribute.iconGravity = global::RadioSequencing.Resource.Attribute.iconGravity;
+			global::LogonScreen.Resource.Attribute.iconPadding = global::RadioSequencing.Resource.Attribute.iconPadding;
+			global::LogonScreen.Resource.Attribute.iconSize = global::RadioSequencing.Resource.Attribute.iconSize;
+			global::LogonScreen.Resource.Attribute.iconStartPadding = global::RadioSequencing.Resource.Attribute.iconStartPadding;
 			global::LogonScreen.Resource.Attribute.iconTint = global::RadioSequencing.Resource.Attribute.iconTint;
 			global::LogonScreen.Resource.Attribute.iconTintMode = global::RadioSequencing.Resource.Attribute.iconTintMode;
 			global::LogonScreen.Resource.Attribute.iconifiedByDefault = global::RadioSequencing.Resource.Attribute.iconifiedByDefault;
@@ -1705,11 +310,20 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Attribute.insetForeground = global::RadioSequencing.Resource.Attribute.insetForeground;
 			global::LogonScreen.Resource.Attribute.isLightTheme = global::RadioSequencing.Resource.Attribute.isLightTheme;
 			global::LogonScreen.Resource.Attribute.itemBackground = global::RadioSequencing.Resource.Attribute.itemBackground;
+			global::LogonScreen.Resource.Attribute.itemHorizontalPadding = global::RadioSequencing.Resource.Attribute.itemHorizontalPadding;
+			global::LogonScreen.Resource.Attribute.itemHorizontalTranslationEnabled = global::RadioSequencing.Resource.Attribute.itemHorizontalTranslationEnabled;
+			global::LogonScreen.Resource.Attribute.itemIconPadding = global::RadioSequencing.Resource.Attribute.itemIconPadding;
+			global::LogonScreen.Resource.Attribute.itemIconSize = global::RadioSequencing.Resource.Attribute.itemIconSize;
 			global::LogonScreen.Resource.Attribute.itemIconTint = global::RadioSequencing.Resource.Attribute.itemIconTint;
 			global::LogonScreen.Resource.Attribute.itemPadding = global::RadioSequencing.Resource.Attribute.itemPadding;
+			global::LogonScreen.Resource.Attribute.itemSpacing = global::RadioSequencing.Resource.Attribute.itemSpacing;
 			global::LogonScreen.Resource.Attribute.itemTextAppearance = global::RadioSequencing.Resource.Attribute.itemTextAppearance;
+			global::LogonScreen.Resource.Attribute.itemTextAppearanceActive = global::RadioSequencing.Resource.Attribute.itemTextAppearanceActive;
+			global::LogonScreen.Resource.Attribute.itemTextAppearanceInactive = global::RadioSequencing.Resource.Attribute.itemTextAppearanceInactive;
 			global::LogonScreen.Resource.Attribute.itemTextColor = global::RadioSequencing.Resource.Attribute.itemTextColor;
 			global::LogonScreen.Resource.Attribute.keylines = global::RadioSequencing.Resource.Attribute.keylines;
+			global::LogonScreen.Resource.Attribute.labelVisibilityMode = global::RadioSequencing.Resource.Attribute.labelVisibilityMode;
+			global::LogonScreen.Resource.Attribute.lastBaselineToBottomHeight = global::RadioSequencing.Resource.Attribute.lastBaselineToBottomHeight;
 			global::LogonScreen.Resource.Attribute.layout = global::RadioSequencing.Resource.Attribute.layout;
 			global::LogonScreen.Resource.Attribute.layoutManager = global::RadioSequencing.Resource.Attribute.layoutManager;
 			global::LogonScreen.Resource.Attribute.layout_anchor = global::RadioSequencing.Resource.Attribute.layout_anchor;
@@ -1722,6 +336,9 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Attribute.layout_keyline = global::RadioSequencing.Resource.Attribute.layout_keyline;
 			global::LogonScreen.Resource.Attribute.layout_scrollFlags = global::RadioSequencing.Resource.Attribute.layout_scrollFlags;
 			global::LogonScreen.Resource.Attribute.layout_scrollInterpolator = global::RadioSequencing.Resource.Attribute.layout_scrollInterpolator;
+			global::LogonScreen.Resource.Attribute.liftOnScroll = global::RadioSequencing.Resource.Attribute.liftOnScroll;
+			global::LogonScreen.Resource.Attribute.lineHeight = global::RadioSequencing.Resource.Attribute.lineHeight;
+			global::LogonScreen.Resource.Attribute.lineSpacing = global::RadioSequencing.Resource.Attribute.lineSpacing;
 			global::LogonScreen.Resource.Attribute.listChoiceBackgroundIndicator = global::RadioSequencing.Resource.Attribute.listChoiceBackgroundIndicator;
 			global::LogonScreen.Resource.Attribute.listDividerAlertDialog = global::RadioSequencing.Resource.Attribute.listDividerAlertDialog;
 			global::LogonScreen.Resource.Attribute.listItemLayout = global::RadioSequencing.Resource.Attribute.listItemLayout;
@@ -1735,14 +352,18 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Attribute.listPreferredItemPaddingRight = global::RadioSequencing.Resource.Attribute.listPreferredItemPaddingRight;
 			global::LogonScreen.Resource.Attribute.logo = global::RadioSequencing.Resource.Attribute.logo;
 			global::LogonScreen.Resource.Attribute.logoDescription = global::RadioSequencing.Resource.Attribute.logoDescription;
+			global::LogonScreen.Resource.Attribute.materialButtonStyle = global::RadioSequencing.Resource.Attribute.materialButtonStyle;
+			global::LogonScreen.Resource.Attribute.materialCardViewStyle = global::RadioSequencing.Resource.Attribute.materialCardViewStyle;
 			global::LogonScreen.Resource.Attribute.maxActionInlineWidth = global::RadioSequencing.Resource.Attribute.maxActionInlineWidth;
 			global::LogonScreen.Resource.Attribute.maxButtonHeight = global::RadioSequencing.Resource.Attribute.maxButtonHeight;
+			global::LogonScreen.Resource.Attribute.maxImageSize = global::RadioSequencing.Resource.Attribute.maxImageSize;
 			global::LogonScreen.Resource.Attribute.measureWithLargestChild = global::RadioSequencing.Resource.Attribute.measureWithLargestChild;
 			global::LogonScreen.Resource.Attribute.menu = global::RadioSequencing.Resource.Attribute.menu;
 			global::LogonScreen.Resource.Attribute.multiChoiceItemLayout = global::RadioSequencing.Resource.Attribute.multiChoiceItemLayout;
 			global::LogonScreen.Resource.Attribute.navigationContentDescription = global::RadioSequencing.Resource.Attribute.navigationContentDescription;
 			global::LogonScreen.Resource.Attribute.navigationIcon = global::RadioSequencing.Resource.Attribute.navigationIcon;
 			global::LogonScreen.Resource.Attribute.navigationMode = global::RadioSequencing.Resource.Attribute.navigationMode;
+			global::LogonScreen.Resource.Attribute.navigationViewStyle = global::RadioSequencing.Resource.Attribute.navigationViewStyle;
 			global::LogonScreen.Resource.Attribute.numericModifiers = global::RadioSequencing.Resource.Attribute.numericModifiers;
 			global::LogonScreen.Resource.Attribute.overlapAnchor = global::RadioSequencing.Resource.Attribute.overlapAnchor;
 			global::LogonScreen.Resource.Attribute.paddingBottomNoButtons = global::RadioSequencing.Resource.Attribute.paddingBottomNoButtons;
@@ -1773,6 +394,7 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Attribute.reverseLayout = global::RadioSequencing.Resource.Attribute.reverseLayout;
 			global::LogonScreen.Resource.Attribute.rippleColor = global::RadioSequencing.Resource.Attribute.rippleColor;
 			global::LogonScreen.Resource.Attribute.scrimAnimationDuration = global::RadioSequencing.Resource.Attribute.scrimAnimationDuration;
+			global::LogonScreen.Resource.Attribute.scrimBackground = global::RadioSequencing.Resource.Attribute.scrimBackground;
 			global::LogonScreen.Resource.Attribute.scrimVisibleHeightTrigger = global::RadioSequencing.Resource.Attribute.scrimVisibleHeightTrigger;
 			global::LogonScreen.Resource.Attribute.searchHintIcon = global::RadioSequencing.Resource.Attribute.searchHintIcon;
 			global::LogonScreen.Resource.Attribute.searchIcon = global::RadioSequencing.Resource.Attribute.searchIcon;
@@ -1782,9 +404,14 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Attribute.selectableItemBackgroundBorderless = global::RadioSequencing.Resource.Attribute.selectableItemBackgroundBorderless;
 			global::LogonScreen.Resource.Attribute.showAsAction = global::RadioSequencing.Resource.Attribute.showAsAction;
 			global::LogonScreen.Resource.Attribute.showDividers = global::RadioSequencing.Resource.Attribute.showDividers;
+			global::LogonScreen.Resource.Attribute.showMotionSpec = global::RadioSequencing.Resource.Attribute.showMotionSpec;
 			global::LogonScreen.Resource.Attribute.showText = global::RadioSequencing.Resource.Attribute.showText;
 			global::LogonScreen.Resource.Attribute.showTitle = global::RadioSequencing.Resource.Attribute.showTitle;
 			global::LogonScreen.Resource.Attribute.singleChoiceItemLayout = global::RadioSequencing.Resource.Attribute.singleChoiceItemLayout;
+			global::LogonScreen.Resource.Attribute.singleLine = global::RadioSequencing.Resource.Attribute.singleLine;
+			global::LogonScreen.Resource.Attribute.singleSelection = global::RadioSequencing.Resource.Attribute.singleSelection;
+			global::LogonScreen.Resource.Attribute.snackbarButtonStyle = global::RadioSequencing.Resource.Attribute.snackbarButtonStyle;
+			global::LogonScreen.Resource.Attribute.snackbarStyle = global::RadioSequencing.Resource.Attribute.snackbarStyle;
 			global::LogonScreen.Resource.Attribute.spanCount = global::RadioSequencing.Resource.Attribute.spanCount;
 			global::LogonScreen.Resource.Attribute.spinBars = global::RadioSequencing.Resource.Attribute.spinBars;
 			global::LogonScreen.Resource.Attribute.spinnerDropDownItemStyle = global::RadioSequencing.Resource.Attribute.spinnerDropDownItemStyle;
@@ -1795,8 +422,12 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Attribute.state_above_anchor = global::RadioSequencing.Resource.Attribute.state_above_anchor;
 			global::LogonScreen.Resource.Attribute.state_collapsed = global::RadioSequencing.Resource.Attribute.state_collapsed;
 			global::LogonScreen.Resource.Attribute.state_collapsible = global::RadioSequencing.Resource.Attribute.state_collapsible;
+			global::LogonScreen.Resource.Attribute.state_liftable = global::RadioSequencing.Resource.Attribute.state_liftable;
+			global::LogonScreen.Resource.Attribute.state_lifted = global::RadioSequencing.Resource.Attribute.state_lifted;
 			global::LogonScreen.Resource.Attribute.statusBarBackground = global::RadioSequencing.Resource.Attribute.statusBarBackground;
 			global::LogonScreen.Resource.Attribute.statusBarScrim = global::RadioSequencing.Resource.Attribute.statusBarScrim;
+			global::LogonScreen.Resource.Attribute.strokeColor = global::RadioSequencing.Resource.Attribute.strokeColor;
+			global::LogonScreen.Resource.Attribute.strokeWidth = global::RadioSequencing.Resource.Attribute.strokeWidth;
 			global::LogonScreen.Resource.Attribute.subMenuArrow = global::RadioSequencing.Resource.Attribute.subMenuArrow;
 			global::LogonScreen.Resource.Attribute.submitBackground = global::RadioSequencing.Resource.Attribute.submitBackground;
 			global::LogonScreen.Resource.Attribute.subtitle = global::RadioSequencing.Resource.Attribute.subtitle;
@@ -1811,8 +442,15 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Attribute.tabBackground = global::RadioSequencing.Resource.Attribute.tabBackground;
 			global::LogonScreen.Resource.Attribute.tabContentStart = global::RadioSequencing.Resource.Attribute.tabContentStart;
 			global::LogonScreen.Resource.Attribute.tabGravity = global::RadioSequencing.Resource.Attribute.tabGravity;
+			global::LogonScreen.Resource.Attribute.tabIconTint = global::RadioSequencing.Resource.Attribute.tabIconTint;
+			global::LogonScreen.Resource.Attribute.tabIconTintMode = global::RadioSequencing.Resource.Attribute.tabIconTintMode;
+			global::LogonScreen.Resource.Attribute.tabIndicator = global::RadioSequencing.Resource.Attribute.tabIndicator;
+			global::LogonScreen.Resource.Attribute.tabIndicatorAnimationDuration = global::RadioSequencing.Resource.Attribute.tabIndicatorAnimationDuration;
 			global::LogonScreen.Resource.Attribute.tabIndicatorColor = global::RadioSequencing.Resource.Attribute.tabIndicatorColor;
+			global::LogonScreen.Resource.Attribute.tabIndicatorFullWidth = global::RadioSequencing.Resource.Attribute.tabIndicatorFullWidth;
+			global::LogonScreen.Resource.Attribute.tabIndicatorGravity = global::RadioSequencing.Resource.Attribute.tabIndicatorGravity;
 			global::LogonScreen.Resource.Attribute.tabIndicatorHeight = global::RadioSequencing.Resource.Attribute.tabIndicatorHeight;
+			global::LogonScreen.Resource.Attribute.tabInlineLabel = global::RadioSequencing.Resource.Attribute.tabInlineLabel;
 			global::LogonScreen.Resource.Attribute.tabMaxWidth = global::RadioSequencing.Resource.Attribute.tabMaxWidth;
 			global::LogonScreen.Resource.Attribute.tabMinWidth = global::RadioSequencing.Resource.Attribute.tabMinWidth;
 			global::LogonScreen.Resource.Attribute.tabMode = global::RadioSequencing.Resource.Attribute.tabMode;
@@ -1821,20 +459,39 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Attribute.tabPaddingEnd = global::RadioSequencing.Resource.Attribute.tabPaddingEnd;
 			global::LogonScreen.Resource.Attribute.tabPaddingStart = global::RadioSequencing.Resource.Attribute.tabPaddingStart;
 			global::LogonScreen.Resource.Attribute.tabPaddingTop = global::RadioSequencing.Resource.Attribute.tabPaddingTop;
+			global::LogonScreen.Resource.Attribute.tabRippleColor = global::RadioSequencing.Resource.Attribute.tabRippleColor;
 			global::LogonScreen.Resource.Attribute.tabSelectedTextColor = global::RadioSequencing.Resource.Attribute.tabSelectedTextColor;
+			global::LogonScreen.Resource.Attribute.tabStyle = global::RadioSequencing.Resource.Attribute.tabStyle;
 			global::LogonScreen.Resource.Attribute.tabTextAppearance = global::RadioSequencing.Resource.Attribute.tabTextAppearance;
 			global::LogonScreen.Resource.Attribute.tabTextColor = global::RadioSequencing.Resource.Attribute.tabTextColor;
+			global::LogonScreen.Resource.Attribute.tabUnboundedRipple = global::RadioSequencing.Resource.Attribute.tabUnboundedRipple;
 			global::LogonScreen.Resource.Attribute.textAllCaps = global::RadioSequencing.Resource.Attribute.textAllCaps;
+			global::LogonScreen.Resource.Attribute.textAppearanceBody1 = global::RadioSequencing.Resource.Attribute.textAppearanceBody1;
+			global::LogonScreen.Resource.Attribute.textAppearanceBody2 = global::RadioSequencing.Resource.Attribute.textAppearanceBody2;
+			global::LogonScreen.Resource.Attribute.textAppearanceButton = global::RadioSequencing.Resource.Attribute.textAppearanceButton;
+			global::LogonScreen.Resource.Attribute.textAppearanceCaption = global::RadioSequencing.Resource.Attribute.textAppearanceCaption;
+			global::LogonScreen.Resource.Attribute.textAppearanceHeadline1 = global::RadioSequencing.Resource.Attribute.textAppearanceHeadline1;
+			global::LogonScreen.Resource.Attribute.textAppearanceHeadline2 = global::RadioSequencing.Resource.Attribute.textAppearanceHeadline2;
+			global::LogonScreen.Resource.Attribute.textAppearanceHeadline3 = global::RadioSequencing.Resource.Attribute.textAppearanceHeadline3;
+			global::LogonScreen.Resource.Attribute.textAppearanceHeadline4 = global::RadioSequencing.Resource.Attribute.textAppearanceHeadline4;
+			global::LogonScreen.Resource.Attribute.textAppearanceHeadline5 = global::RadioSequencing.Resource.Attribute.textAppearanceHeadline5;
+			global::LogonScreen.Resource.Attribute.textAppearanceHeadline6 = global::RadioSequencing.Resource.Attribute.textAppearanceHeadline6;
 			global::LogonScreen.Resource.Attribute.textAppearanceLargePopupMenu = global::RadioSequencing.Resource.Attribute.textAppearanceLargePopupMenu;
 			global::LogonScreen.Resource.Attribute.textAppearanceListItem = global::RadioSequencing.Resource.Attribute.textAppearanceListItem;
 			global::LogonScreen.Resource.Attribute.textAppearanceListItemSecondary = global::RadioSequencing.Resource.Attribute.textAppearanceListItemSecondary;
 			global::LogonScreen.Resource.Attribute.textAppearanceListItemSmall = global::RadioSequencing.Resource.Attribute.textAppearanceListItemSmall;
+			global::LogonScreen.Resource.Attribute.textAppearanceOverline = global::RadioSequencing.Resource.Attribute.textAppearanceOverline;
 			global::LogonScreen.Resource.Attribute.textAppearancePopupMenuHeader = global::RadioSequencing.Resource.Attribute.textAppearancePopupMenuHeader;
 			global::LogonScreen.Resource.Attribute.textAppearanceSearchResultSubtitle = global::RadioSequencing.Resource.Attribute.textAppearanceSearchResultSubtitle;
 			global::LogonScreen.Resource.Attribute.textAppearanceSearchResultTitle = global::RadioSequencing.Resource.Attribute.textAppearanceSearchResultTitle;
 			global::LogonScreen.Resource.Attribute.textAppearanceSmallPopupMenu = global::RadioSequencing.Resource.Attribute.textAppearanceSmallPopupMenu;
+			global::LogonScreen.Resource.Attribute.textAppearanceSubtitle1 = global::RadioSequencing.Resource.Attribute.textAppearanceSubtitle1;
+			global::LogonScreen.Resource.Attribute.textAppearanceSubtitle2 = global::RadioSequencing.Resource.Attribute.textAppearanceSubtitle2;
 			global::LogonScreen.Resource.Attribute.textColorAlertDialogListItem = global::RadioSequencing.Resource.Attribute.textColorAlertDialogListItem;
 			global::LogonScreen.Resource.Attribute.textColorSearchUrl = global::RadioSequencing.Resource.Attribute.textColorSearchUrl;
+			global::LogonScreen.Resource.Attribute.textEndPadding = global::RadioSequencing.Resource.Attribute.textEndPadding;
+			global::LogonScreen.Resource.Attribute.textInputStyle = global::RadioSequencing.Resource.Attribute.textInputStyle;
+			global::LogonScreen.Resource.Attribute.textStartPadding = global::RadioSequencing.Resource.Attribute.textStartPadding;
 			global::LogonScreen.Resource.Attribute.theme = global::RadioSequencing.Resource.Attribute.theme;
 			global::LogonScreen.Resource.Attribute.thickness = global::RadioSequencing.Resource.Attribute.thickness;
 			global::LogonScreen.Resource.Attribute.thumbTextPadding = global::RadioSequencing.Resource.Attribute.thumbTextPadding;
@@ -1865,7 +522,9 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Attribute.track = global::RadioSequencing.Resource.Attribute.track;
 			global::LogonScreen.Resource.Attribute.trackTint = global::RadioSequencing.Resource.Attribute.trackTint;
 			global::LogonScreen.Resource.Attribute.trackTintMode = global::RadioSequencing.Resource.Attribute.trackTintMode;
+			global::LogonScreen.Resource.Attribute.ttcIndex = global::RadioSequencing.Resource.Attribute.ttcIndex;
 			global::LogonScreen.Resource.Attribute.useCompatPadding = global::RadioSequencing.Resource.Attribute.useCompatPadding;
+			global::LogonScreen.Resource.Attribute.viewInflaterClass = global::RadioSequencing.Resource.Attribute.viewInflaterClass;
 			global::LogonScreen.Resource.Attribute.voiceIcon = global::RadioSequencing.Resource.Attribute.voiceIcon;
 			global::LogonScreen.Resource.Attribute.windowActionBar = global::RadioSequencing.Resource.Attribute.windowActionBar;
 			global::LogonScreen.Resource.Attribute.windowActionBarOverlay = global::RadioSequencing.Resource.Attribute.windowActionBarOverlay;
@@ -1880,6 +539,7 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Boolean.abc_action_bar_embed_tabs = global::RadioSequencing.Resource.Boolean.abc_action_bar_embed_tabs;
 			global::LogonScreen.Resource.Boolean.abc_allow_stacked_button_bar = global::RadioSequencing.Resource.Boolean.abc_allow_stacked_button_bar;
 			global::LogonScreen.Resource.Boolean.abc_config_actionMenuItemAllCaps = global::RadioSequencing.Resource.Boolean.abc_config_actionMenuItemAllCaps;
+			global::LogonScreen.Resource.Boolean.mtrl_btn_textappearance_all_caps = global::RadioSequencing.Resource.Boolean.mtrl_btn_textappearance_all_caps;
 			global::LogonScreen.Resource.Color.abc_background_cache_hint_selector_material_dark = global::RadioSequencing.Resource.Color.abc_background_cache_hint_selector_material_dark;
 			global::LogonScreen.Resource.Color.abc_background_cache_hint_selector_material_light = global::RadioSequencing.Resource.Color.abc_background_cache_hint_selector_material_light;
 			global::LogonScreen.Resource.Color.abc_btn_colored_borderless_text_material = global::RadioSequencing.Resource.Color.abc_btn_colored_borderless_text_material;
@@ -1918,7 +578,13 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Color.bright_foreground_material_light = global::RadioSequencing.Resource.Color.bright_foreground_material_light;
 			global::LogonScreen.Resource.Color.button_material_dark = global::RadioSequencing.Resource.Color.button_material_dark;
 			global::LogonScreen.Resource.Color.button_material_light = global::RadioSequencing.Resource.Color.button_material_light;
+			global::LogonScreen.Resource.Color.cardview_dark_background = global::RadioSequencing.Resource.Color.cardview_dark_background;
+			global::LogonScreen.Resource.Color.cardview_light_background = global::RadioSequencing.Resource.Color.cardview_light_background;
+			global::LogonScreen.Resource.Color.cardview_shadow_end_color = global::RadioSequencing.Resource.Color.cardview_shadow_end_color;
+			global::LogonScreen.Resource.Color.cardview_shadow_start_color = global::RadioSequencing.Resource.Color.cardview_shadow_start_color;
 			global::LogonScreen.Resource.Color.design_bottom_navigation_shadow_color = global::RadioSequencing.Resource.Color.design_bottom_navigation_shadow_color;
+			global::LogonScreen.Resource.Color.design_default_color_primary = global::RadioSequencing.Resource.Color.design_default_color_primary;
+			global::LogonScreen.Resource.Color.design_default_color_primary_dark = global::RadioSequencing.Resource.Color.design_default_color_primary_dark;
 			global::LogonScreen.Resource.Color.design_error = global::RadioSequencing.Resource.Color.design_error;
 			global::LogonScreen.Resource.Color.design_fab_shadow_end_color = global::RadioSequencing.Resource.Color.design_fab_shadow_end_color;
 			global::LogonScreen.Resource.Color.design_fab_shadow_mid_color = global::RadioSequencing.Resource.Color.design_fab_shadow_mid_color;
@@ -1933,6 +599,8 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Color.dim_foreground_disabled_material_light = global::RadioSequencing.Resource.Color.dim_foreground_disabled_material_light;
 			global::LogonScreen.Resource.Color.dim_foreground_material_dark = global::RadioSequencing.Resource.Color.dim_foreground_material_dark;
 			global::LogonScreen.Resource.Color.dim_foreground_material_light = global::RadioSequencing.Resource.Color.dim_foreground_material_light;
+			global::LogonScreen.Resource.Color.error_color_material_dark = global::RadioSequencing.Resource.Color.error_color_material_dark;
+			global::LogonScreen.Resource.Color.error_color_material_light = global::RadioSequencing.Resource.Color.error_color_material_light;
 			global::LogonScreen.Resource.Color.foreground_material_dark = global::RadioSequencing.Resource.Color.foreground_material_dark;
 			global::LogonScreen.Resource.Color.foreground_material_light = global::RadioSequencing.Resource.Color.foreground_material_light;
 			global::LogonScreen.Resource.Color.highlighted_text_material_dark = global::RadioSequencing.Resource.Color.highlighted_text_material_dark;
@@ -1949,6 +617,32 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Color.material_grey_800 = global::RadioSequencing.Resource.Color.material_grey_800;
 			global::LogonScreen.Resource.Color.material_grey_850 = global::RadioSequencing.Resource.Color.material_grey_850;
 			global::LogonScreen.Resource.Color.material_grey_900 = global::RadioSequencing.Resource.Color.material_grey_900;
+			global::LogonScreen.Resource.Color.mtrl_bottom_nav_colored_item_tint = global::RadioSequencing.Resource.Color.mtrl_bottom_nav_colored_item_tint;
+			global::LogonScreen.Resource.Color.mtrl_bottom_nav_item_tint = global::RadioSequencing.Resource.Color.mtrl_bottom_nav_item_tint;
+			global::LogonScreen.Resource.Color.mtrl_btn_bg_color_disabled = global::RadioSequencing.Resource.Color.mtrl_btn_bg_color_disabled;
+			global::LogonScreen.Resource.Color.mtrl_btn_bg_color_selector = global::RadioSequencing.Resource.Color.mtrl_btn_bg_color_selector;
+			global::LogonScreen.Resource.Color.mtrl_btn_ripple_color = global::RadioSequencing.Resource.Color.mtrl_btn_ripple_color;
+			global::LogonScreen.Resource.Color.mtrl_btn_stroke_color_selector = global::RadioSequencing.Resource.Color.mtrl_btn_stroke_color_selector;
+			global::LogonScreen.Resource.Color.mtrl_btn_text_btn_ripple_color = global::RadioSequencing.Resource.Color.mtrl_btn_text_btn_ripple_color;
+			global::LogonScreen.Resource.Color.mtrl_btn_text_color_disabled = global::RadioSequencing.Resource.Color.mtrl_btn_text_color_disabled;
+			global::LogonScreen.Resource.Color.mtrl_btn_text_color_selector = global::RadioSequencing.Resource.Color.mtrl_btn_text_color_selector;
+			global::LogonScreen.Resource.Color.mtrl_btn_transparent_bg_color = global::RadioSequencing.Resource.Color.mtrl_btn_transparent_bg_color;
+			global::LogonScreen.Resource.Color.mtrl_chip_background_color = global::RadioSequencing.Resource.Color.mtrl_chip_background_color;
+			global::LogonScreen.Resource.Color.mtrl_chip_close_icon_tint = global::RadioSequencing.Resource.Color.mtrl_chip_close_icon_tint;
+			global::LogonScreen.Resource.Color.mtrl_chip_ripple_color = global::RadioSequencing.Resource.Color.mtrl_chip_ripple_color;
+			global::LogonScreen.Resource.Color.mtrl_chip_text_color = global::RadioSequencing.Resource.Color.mtrl_chip_text_color;
+			global::LogonScreen.Resource.Color.mtrl_fab_ripple_color = global::RadioSequencing.Resource.Color.mtrl_fab_ripple_color;
+			global::LogonScreen.Resource.Color.mtrl_scrim_color = global::RadioSequencing.Resource.Color.mtrl_scrim_color;
+			global::LogonScreen.Resource.Color.mtrl_tabs_colored_ripple_color = global::RadioSequencing.Resource.Color.mtrl_tabs_colored_ripple_color;
+			global::LogonScreen.Resource.Color.mtrl_tabs_icon_color_selector = global::RadioSequencing.Resource.Color.mtrl_tabs_icon_color_selector;
+			global::LogonScreen.Resource.Color.mtrl_tabs_icon_color_selector_colored = global::RadioSequencing.Resource.Color.mtrl_tabs_icon_color_selector_colored;
+			global::LogonScreen.Resource.Color.mtrl_tabs_legacy_text_color_selector = global::RadioSequencing.Resource.Color.mtrl_tabs_legacy_text_color_selector;
+			global::LogonScreen.Resource.Color.mtrl_tabs_ripple_color = global::RadioSequencing.Resource.Color.mtrl_tabs_ripple_color;
+			global::LogonScreen.Resource.Color.mtrl_text_btn_text_color_selector = global::RadioSequencing.Resource.Color.mtrl_text_btn_text_color_selector;
+			global::LogonScreen.Resource.Color.mtrl_textinput_default_box_stroke_color = global::RadioSequencing.Resource.Color.mtrl_textinput_default_box_stroke_color;
+			global::LogonScreen.Resource.Color.mtrl_textinput_disabled_color = global::RadioSequencing.Resource.Color.mtrl_textinput_disabled_color;
+			global::LogonScreen.Resource.Color.mtrl_textinput_filled_box_default_background_color = global::RadioSequencing.Resource.Color.mtrl_textinput_filled_box_default_background_color;
+			global::LogonScreen.Resource.Color.mtrl_textinput_hovered_box_stroke_color = global::RadioSequencing.Resource.Color.mtrl_textinput_hovered_box_stroke_color;
 			global::LogonScreen.Resource.Color.notification_action_color_filter = global::RadioSequencing.Resource.Color.notification_action_color_filter;
 			global::LogonScreen.Resource.Color.notification_icon_bg_color = global::RadioSequencing.Resource.Color.notification_icon_bg_color;
 			global::LogonScreen.Resource.Color.primary_dark_material_dark = global::RadioSequencing.Resource.Color.primary_dark_material_dark;
@@ -1990,6 +684,7 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Dimension.abc_action_button_min_width_material = global::RadioSequencing.Resource.Dimension.abc_action_button_min_width_material;
 			global::LogonScreen.Resource.Dimension.abc_action_button_min_width_overflow_material = global::RadioSequencing.Resource.Dimension.abc_action_button_min_width_overflow_material;
 			global::LogonScreen.Resource.Dimension.abc_alert_dialog_button_bar_height = global::RadioSequencing.Resource.Dimension.abc_alert_dialog_button_bar_height;
+			global::LogonScreen.Resource.Dimension.abc_alert_dialog_button_dimen = global::RadioSequencing.Resource.Dimension.abc_alert_dialog_button_dimen;
 			global::LogonScreen.Resource.Dimension.abc_button_inset_horizontal_material = global::RadioSequencing.Resource.Dimension.abc_button_inset_horizontal_material;
 			global::LogonScreen.Resource.Dimension.abc_button_inset_vertical_material = global::RadioSequencing.Resource.Dimension.abc_button_inset_vertical_material;
 			global::LogonScreen.Resource.Dimension.abc_button_padding_horizontal_material = global::RadioSequencing.Resource.Dimension.abc_button_padding_horizontal_material;
@@ -1999,6 +694,7 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Dimension.abc_control_corner_material = global::RadioSequencing.Resource.Dimension.abc_control_corner_material;
 			global::LogonScreen.Resource.Dimension.abc_control_inset_material = global::RadioSequencing.Resource.Dimension.abc_control_inset_material;
 			global::LogonScreen.Resource.Dimension.abc_control_padding_material = global::RadioSequencing.Resource.Dimension.abc_control_padding_material;
+			global::LogonScreen.Resource.Dimension.abc_dialog_corner_radius_material = global::RadioSequencing.Resource.Dimension.abc_dialog_corner_radius_material;
 			global::LogonScreen.Resource.Dimension.abc_dialog_fixed_height_major = global::RadioSequencing.Resource.Dimension.abc_dialog_fixed_height_major;
 			global::LogonScreen.Resource.Dimension.abc_dialog_fixed_height_minor = global::RadioSequencing.Resource.Dimension.abc_dialog_fixed_height_minor;
 			global::LogonScreen.Resource.Dimension.abc_dialog_fixed_width_major = global::RadioSequencing.Resource.Dimension.abc_dialog_fixed_width_major;
@@ -2046,16 +742,23 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Dimension.abc_text_size_subtitle_material_toolbar = global::RadioSequencing.Resource.Dimension.abc_text_size_subtitle_material_toolbar;
 			global::LogonScreen.Resource.Dimension.abc_text_size_title_material = global::RadioSequencing.Resource.Dimension.abc_text_size_title_material;
 			global::LogonScreen.Resource.Dimension.abc_text_size_title_material_toolbar = global::RadioSequencing.Resource.Dimension.abc_text_size_title_material_toolbar;
+			global::LogonScreen.Resource.Dimension.cardview_compat_inset_shadow = global::RadioSequencing.Resource.Dimension.cardview_compat_inset_shadow;
+			global::LogonScreen.Resource.Dimension.cardview_default_elevation = global::RadioSequencing.Resource.Dimension.cardview_default_elevation;
+			global::LogonScreen.Resource.Dimension.cardview_default_radius = global::RadioSequencing.Resource.Dimension.cardview_default_radius;
 			global::LogonScreen.Resource.Dimension.compat_button_inset_horizontal_material = global::RadioSequencing.Resource.Dimension.compat_button_inset_horizontal_material;
 			global::LogonScreen.Resource.Dimension.compat_button_inset_vertical_material = global::RadioSequencing.Resource.Dimension.compat_button_inset_vertical_material;
 			global::LogonScreen.Resource.Dimension.compat_button_padding_horizontal_material = global::RadioSequencing.Resource.Dimension.compat_button_padding_horizontal_material;
 			global::LogonScreen.Resource.Dimension.compat_button_padding_vertical_material = global::RadioSequencing.Resource.Dimension.compat_button_padding_vertical_material;
 			global::LogonScreen.Resource.Dimension.compat_control_corner_material = global::RadioSequencing.Resource.Dimension.compat_control_corner_material;
+			global::LogonScreen.Resource.Dimension.compat_notification_large_icon_max_height = global::RadioSequencing.Resource.Dimension.compat_notification_large_icon_max_height;
+			global::LogonScreen.Resource.Dimension.compat_notification_large_icon_max_width = global::RadioSequencing.Resource.Dimension.compat_notification_large_icon_max_width;
 			global::LogonScreen.Resource.Dimension.design_appbar_elevation = global::RadioSequencing.Resource.Dimension.design_appbar_elevation;
 			global::LogonScreen.Resource.Dimension.design_bottom_navigation_active_item_max_width = global::RadioSequencing.Resource.Dimension.design_bottom_navigation_active_item_max_width;
+			global::LogonScreen.Resource.Dimension.design_bottom_navigation_active_item_min_width = global::RadioSequencing.Resource.Dimension.design_bottom_navigation_active_item_min_width;
 			global::LogonScreen.Resource.Dimension.design_bottom_navigation_active_text_size = global::RadioSequencing.Resource.Dimension.design_bottom_navigation_active_text_size;
 			global::LogonScreen.Resource.Dimension.design_bottom_navigation_elevation = global::RadioSequencing.Resource.Dimension.design_bottom_navigation_elevation;
 			global::LogonScreen.Resource.Dimension.design_bottom_navigation_height = global::RadioSequencing.Resource.Dimension.design_bottom_navigation_height;
+			global::LogonScreen.Resource.Dimension.design_bottom_navigation_icon_size = global::RadioSequencing.Resource.Dimension.design_bottom_navigation_icon_size;
 			global::LogonScreen.Resource.Dimension.design_bottom_navigation_item_max_width = global::RadioSequencing.Resource.Dimension.design_bottom_navigation_item_max_width;
 			global::LogonScreen.Resource.Dimension.design_bottom_navigation_item_min_width = global::RadioSequencing.Resource.Dimension.design_bottom_navigation_item_min_width;
 			global::LogonScreen.Resource.Dimension.design_bottom_navigation_margin = global::RadioSequencing.Resource.Dimension.design_bottom_navigation_margin;
@@ -2068,10 +771,13 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Dimension.design_fab_image_size = global::RadioSequencing.Resource.Dimension.design_fab_image_size;
 			global::LogonScreen.Resource.Dimension.design_fab_size_mini = global::RadioSequencing.Resource.Dimension.design_fab_size_mini;
 			global::LogonScreen.Resource.Dimension.design_fab_size_normal = global::RadioSequencing.Resource.Dimension.design_fab_size_normal;
+			global::LogonScreen.Resource.Dimension.design_fab_translation_z_hovered_focused = global::RadioSequencing.Resource.Dimension.design_fab_translation_z_hovered_focused;
 			global::LogonScreen.Resource.Dimension.design_fab_translation_z_pressed = global::RadioSequencing.Resource.Dimension.design_fab_translation_z_pressed;
 			global::LogonScreen.Resource.Dimension.design_navigation_elevation = global::RadioSequencing.Resource.Dimension.design_navigation_elevation;
 			global::LogonScreen.Resource.Dimension.design_navigation_icon_padding = global::RadioSequencing.Resource.Dimension.design_navigation_icon_padding;
 			global::LogonScreen.Resource.Dimension.design_navigation_icon_size = global::RadioSequencing.Resource.Dimension.design_navigation_icon_size;
+			global::LogonScreen.Resource.Dimension.design_navigation_item_horizontal_padding = global::RadioSequencing.Resource.Dimension.design_navigation_item_horizontal_padding;
+			global::LogonScreen.Resource.Dimension.design_navigation_item_icon_padding = global::RadioSequencing.Resource.Dimension.design_navigation_item_icon_padding;
 			global::LogonScreen.Resource.Dimension.design_navigation_max_width = global::RadioSequencing.Resource.Dimension.design_navigation_max_width;
 			global::LogonScreen.Resource.Dimension.design_navigation_padding_bottom = global::RadioSequencing.Resource.Dimension.design_navigation_padding_bottom;
 			global::LogonScreen.Resource.Dimension.design_navigation_separator_vertical_padding = global::RadioSequencing.Resource.Dimension.design_navigation_separator_vertical_padding;
@@ -2089,6 +795,7 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Dimension.design_tab_scrollable_min_width = global::RadioSequencing.Resource.Dimension.design_tab_scrollable_min_width;
 			global::LogonScreen.Resource.Dimension.design_tab_text_size = global::RadioSequencing.Resource.Dimension.design_tab_text_size;
 			global::LogonScreen.Resource.Dimension.design_tab_text_size_2line = global::RadioSequencing.Resource.Dimension.design_tab_text_size_2line;
+			global::LogonScreen.Resource.Dimension.design_textinput_caption_translate_y = global::RadioSequencing.Resource.Dimension.design_textinput_caption_translate_y;
 			global::LogonScreen.Resource.Dimension.disabled_alpha_material_dark = global::RadioSequencing.Resource.Dimension.disabled_alpha_material_dark;
 			global::LogonScreen.Resource.Dimension.disabled_alpha_material_light = global::RadioSequencing.Resource.Dimension.disabled_alpha_material_light;
 			global::LogonScreen.Resource.Dimension.fastscroll_default_thickness = global::RadioSequencing.Resource.Dimension.fastscroll_default_thickness;
@@ -2104,6 +811,54 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame = global::RadioSequencing.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame;
 			global::LogonScreen.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity = global::RadioSequencing.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity;
 			global::LogonScreen.Resource.Dimension.item_touch_helper_swipe_escape_velocity = global::RadioSequencing.Resource.Dimension.item_touch_helper_swipe_escape_velocity;
+			global::LogonScreen.Resource.Dimension.mtrl_bottomappbar_fabOffsetEndMode = global::RadioSequencing.Resource.Dimension.mtrl_bottomappbar_fabOffsetEndMode;
+			global::LogonScreen.Resource.Dimension.mtrl_bottomappbar_fab_cradle_margin = global::RadioSequencing.Resource.Dimension.mtrl_bottomappbar_fab_cradle_margin;
+			global::LogonScreen.Resource.Dimension.mtrl_bottomappbar_fab_cradle_rounded_corner_radius = global::RadioSequencing.Resource.Dimension.mtrl_bottomappbar_fab_cradle_rounded_corner_radius;
+			global::LogonScreen.Resource.Dimension.mtrl_bottomappbar_fab_cradle_vertical_offset = global::RadioSequencing.Resource.Dimension.mtrl_bottomappbar_fab_cradle_vertical_offset;
+			global::LogonScreen.Resource.Dimension.mtrl_bottomappbar_height = global::RadioSequencing.Resource.Dimension.mtrl_bottomappbar_height;
+			global::LogonScreen.Resource.Dimension.mtrl_btn_corner_radius = global::RadioSequencing.Resource.Dimension.mtrl_btn_corner_radius;
+			global::LogonScreen.Resource.Dimension.mtrl_btn_dialog_btn_min_width = global::RadioSequencing.Resource.Dimension.mtrl_btn_dialog_btn_min_width;
+			global::LogonScreen.Resource.Dimension.mtrl_btn_disabled_elevation = global::RadioSequencing.Resource.Dimension.mtrl_btn_disabled_elevation;
+			global::LogonScreen.Resource.Dimension.mtrl_btn_disabled_z = global::RadioSequencing.Resource.Dimension.mtrl_btn_disabled_z;
+			global::LogonScreen.Resource.Dimension.mtrl_btn_elevation = global::RadioSequencing.Resource.Dimension.mtrl_btn_elevation;
+			global::LogonScreen.Resource.Dimension.mtrl_btn_focused_z = global::RadioSequencing.Resource.Dimension.mtrl_btn_focused_z;
+			global::LogonScreen.Resource.Dimension.mtrl_btn_hovered_z = global::RadioSequencing.Resource.Dimension.mtrl_btn_hovered_z;
+			global::LogonScreen.Resource.Dimension.mtrl_btn_icon_btn_padding_left = global::RadioSequencing.Resource.Dimension.mtrl_btn_icon_btn_padding_left;
+			global::LogonScreen.Resource.Dimension.mtrl_btn_icon_padding = global::RadioSequencing.Resource.Dimension.mtrl_btn_icon_padding;
+			global::LogonScreen.Resource.Dimension.mtrl_btn_inset = global::RadioSequencing.Resource.Dimension.mtrl_btn_inset;
+			global::LogonScreen.Resource.Dimension.mtrl_btn_letter_spacing = global::RadioSequencing.Resource.Dimension.mtrl_btn_letter_spacing;
+			global::LogonScreen.Resource.Dimension.mtrl_btn_padding_bottom = global::RadioSequencing.Resource.Dimension.mtrl_btn_padding_bottom;
+			global::LogonScreen.Resource.Dimension.mtrl_btn_padding_left = global::RadioSequencing.Resource.Dimension.mtrl_btn_padding_left;
+			global::LogonScreen.Resource.Dimension.mtrl_btn_padding_right = global::RadioSequencing.Resource.Dimension.mtrl_btn_padding_right;
+			global::LogonScreen.Resource.Dimension.mtrl_btn_padding_top = global::RadioSequencing.Resource.Dimension.mtrl_btn_padding_top;
+			global::LogonScreen.Resource.Dimension.mtrl_btn_pressed_z = global::RadioSequencing.Resource.Dimension.mtrl_btn_pressed_z;
+			global::LogonScreen.Resource.Dimension.mtrl_btn_stroke_size = global::RadioSequencing.Resource.Dimension.mtrl_btn_stroke_size;
+			global::LogonScreen.Resource.Dimension.mtrl_btn_text_btn_icon_padding = global::RadioSequencing.Resource.Dimension.mtrl_btn_text_btn_icon_padding;
+			global::LogonScreen.Resource.Dimension.mtrl_btn_text_btn_padding_left = global::RadioSequencing.Resource.Dimension.mtrl_btn_text_btn_padding_left;
+			global::LogonScreen.Resource.Dimension.mtrl_btn_text_btn_padding_right = global::RadioSequencing.Resource.Dimension.mtrl_btn_text_btn_padding_right;
+			global::LogonScreen.Resource.Dimension.mtrl_btn_text_size = global::RadioSequencing.Resource.Dimension.mtrl_btn_text_size;
+			global::LogonScreen.Resource.Dimension.mtrl_btn_z = global::RadioSequencing.Resource.Dimension.mtrl_btn_z;
+			global::LogonScreen.Resource.Dimension.mtrl_card_elevation = global::RadioSequencing.Resource.Dimension.mtrl_card_elevation;
+			global::LogonScreen.Resource.Dimension.mtrl_card_spacing = global::RadioSequencing.Resource.Dimension.mtrl_card_spacing;
+			global::LogonScreen.Resource.Dimension.mtrl_chip_pressed_translation_z = global::RadioSequencing.Resource.Dimension.mtrl_chip_pressed_translation_z;
+			global::LogonScreen.Resource.Dimension.mtrl_chip_text_size = global::RadioSequencing.Resource.Dimension.mtrl_chip_text_size;
+			global::LogonScreen.Resource.Dimension.mtrl_fab_elevation = global::RadioSequencing.Resource.Dimension.mtrl_fab_elevation;
+			global::LogonScreen.Resource.Dimension.mtrl_fab_translation_z_hovered_focused = global::RadioSequencing.Resource.Dimension.mtrl_fab_translation_z_hovered_focused;
+			global::LogonScreen.Resource.Dimension.mtrl_fab_translation_z_pressed = global::RadioSequencing.Resource.Dimension.mtrl_fab_translation_z_pressed;
+			global::LogonScreen.Resource.Dimension.mtrl_navigation_elevation = global::RadioSequencing.Resource.Dimension.mtrl_navigation_elevation;
+			global::LogonScreen.Resource.Dimension.mtrl_navigation_item_horizontal_padding = global::RadioSequencing.Resource.Dimension.mtrl_navigation_item_horizontal_padding;
+			global::LogonScreen.Resource.Dimension.mtrl_navigation_item_icon_padding = global::RadioSequencing.Resource.Dimension.mtrl_navigation_item_icon_padding;
+			global::LogonScreen.Resource.Dimension.mtrl_snackbar_background_corner_radius = global::RadioSequencing.Resource.Dimension.mtrl_snackbar_background_corner_radius;
+			global::LogonScreen.Resource.Dimension.mtrl_snackbar_margin = global::RadioSequencing.Resource.Dimension.mtrl_snackbar_margin;
+			global::LogonScreen.Resource.Dimension.mtrl_textinput_box_bottom_offset = global::RadioSequencing.Resource.Dimension.mtrl_textinput_box_bottom_offset;
+			global::LogonScreen.Resource.Dimension.mtrl_textinput_box_corner_radius_medium = global::RadioSequencing.Resource.Dimension.mtrl_textinput_box_corner_radius_medium;
+			global::LogonScreen.Resource.Dimension.mtrl_textinput_box_corner_radius_small = global::RadioSequencing.Resource.Dimension.mtrl_textinput_box_corner_radius_small;
+			global::LogonScreen.Resource.Dimension.mtrl_textinput_box_label_cutout_padding = global::RadioSequencing.Resource.Dimension.mtrl_textinput_box_label_cutout_padding;
+			global::LogonScreen.Resource.Dimension.mtrl_textinput_box_padding_end = global::RadioSequencing.Resource.Dimension.mtrl_textinput_box_padding_end;
+			global::LogonScreen.Resource.Dimension.mtrl_textinput_box_stroke_width_default = global::RadioSequencing.Resource.Dimension.mtrl_textinput_box_stroke_width_default;
+			global::LogonScreen.Resource.Dimension.mtrl_textinput_box_stroke_width_focused = global::RadioSequencing.Resource.Dimension.mtrl_textinput_box_stroke_width_focused;
+			global::LogonScreen.Resource.Dimension.mtrl_textinput_outline_box_expanded_padding = global::RadioSequencing.Resource.Dimension.mtrl_textinput_outline_box_expanded_padding;
+			global::LogonScreen.Resource.Dimension.mtrl_toolbar_default_height = global::RadioSequencing.Resource.Dimension.mtrl_toolbar_default_height;
 			global::LogonScreen.Resource.Dimension.notification_action_icon_size = global::RadioSequencing.Resource.Dimension.notification_action_icon_size;
 			global::LogonScreen.Resource.Dimension.notification_action_text_size = global::RadioSequencing.Resource.Dimension.notification_action_text_size;
 			global::LogonScreen.Resource.Dimension.notification_big_circle_margin = global::RadioSequencing.Resource.Dimension.notification_big_circle_margin;
@@ -2167,6 +922,7 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Drawable.abc_ic_voice_search_api_material = global::RadioSequencing.Resource.Drawable.abc_ic_voice_search_api_material;
 			global::LogonScreen.Resource.Drawable.abc_item_background_holo_dark = global::RadioSequencing.Resource.Drawable.abc_item_background_holo_dark;
 			global::LogonScreen.Resource.Drawable.abc_item_background_holo_light = global::RadioSequencing.Resource.Drawable.abc_item_background_holo_light;
+			global::LogonScreen.Resource.Drawable.abc_list_divider_material = global::RadioSequencing.Resource.Drawable.abc_list_divider_material;
 			global::LogonScreen.Resource.Drawable.abc_list_divider_mtrl_alpha = global::RadioSequencing.Resource.Drawable.abc_list_divider_mtrl_alpha;
 			global::LogonScreen.Resource.Drawable.abc_list_focused_holo = global::RadioSequencing.Resource.Drawable.abc_list_focused_holo;
 			global::LogonScreen.Resource.Drawable.abc_list_longpressed_holo = global::RadioSequencing.Resource.Drawable.abc_list_longpressed_holo;
@@ -2224,7 +980,12 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Drawable.design_ic_visibility_off = global::RadioSequencing.Resource.Drawable.design_ic_visibility_off;
 			global::LogonScreen.Resource.Drawable.design_password_eye = global::RadioSequencing.Resource.Drawable.design_password_eye;
 			global::LogonScreen.Resource.Drawable.design_snackbar_background = global::RadioSequencing.Resource.Drawable.design_snackbar_background;
+			global::LogonScreen.Resource.Drawable.ic_mtrl_chip_checked_black = global::RadioSequencing.Resource.Drawable.ic_mtrl_chip_checked_black;
+			global::LogonScreen.Resource.Drawable.ic_mtrl_chip_checked_circle = global::RadioSequencing.Resource.Drawable.ic_mtrl_chip_checked_circle;
+			global::LogonScreen.Resource.Drawable.ic_mtrl_chip_close_circle = global::RadioSequencing.Resource.Drawable.ic_mtrl_chip_close_circle;
 			global::LogonScreen.Resource.Drawable.Logo_Espack_Sistemas_vertical = global::RadioSequencing.Resource.Drawable.Logo_Espack_Sistemas_vertical;
+			global::LogonScreen.Resource.Drawable.mtrl_snackbar_background = global::RadioSequencing.Resource.Drawable.mtrl_snackbar_background;
+			global::LogonScreen.Resource.Drawable.mtrl_tabs_default_indicator = global::RadioSequencing.Resource.Drawable.mtrl_tabs_default_indicator;
 			global::LogonScreen.Resource.Drawable.navigation_empty_icon = global::RadioSequencing.Resource.Drawable.navigation_empty_icon;
 			global::LogonScreen.Resource.Drawable.notification_action_background = global::RadioSequencing.Resource.Drawable.notification_action_background;
 			global::LogonScreen.Resource.Drawable.notification_bg = global::RadioSequencing.Resource.Drawable.notification_bg;
@@ -2287,6 +1048,7 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Id.clip_vertical = global::RadioSequencing.Resource.Id.clip_vertical;
 			global::LogonScreen.Resource.Id.collapseActionView = global::RadioSequencing.Resource.Id.collapseActionView;
 			global::LogonScreen.Resource.Id.container = global::RadioSequencing.Resource.Id.container;
+			global::LogonScreen.Resource.Id.content = global::RadioSequencing.Resource.Id.content;
 			global::LogonScreen.Resource.Id.contentPanel = global::RadioSequencing.Resource.Id.contentPanel;
 			global::LogonScreen.Resource.Id.coordinator = global::RadioSequencing.Resource.Id.coordinator;
 			global::LogonScreen.Resource.Id.custom = global::RadioSequencing.Resource.Id.custom;
@@ -2309,9 +1071,11 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Id.fill = global::RadioSequencing.Resource.Id.fill;
 			global::LogonScreen.Resource.Id.fill_horizontal = global::RadioSequencing.Resource.Id.fill_horizontal;
 			global::LogonScreen.Resource.Id.fill_vertical = global::RadioSequencing.Resource.Id.fill_vertical;
+			global::LogonScreen.Resource.Id.filled = global::RadioSequencing.Resource.Id.filled;
 			global::LogonScreen.Resource.Id.@fixed = global::RadioSequencing.Resource.Id.@fixed;
 			global::LogonScreen.Resource.Id.forever = global::RadioSequencing.Resource.Id.forever;
 			global::LogonScreen.Resource.Id.ghost_view = global::RadioSequencing.Resource.Id.ghost_view;
+			global::LogonScreen.Resource.Id.group_divider = global::RadioSequencing.Resource.Id.group_divider;
 			global::LogonScreen.Resource.Id.home = global::RadioSequencing.Resource.Id.home;
 			global::LogonScreen.Resource.Id.homeAsUp = global::RadioSequencing.Resource.Id.homeAsUp;
 			global::LogonScreen.Resource.Id.icon = global::RadioSequencing.Resource.Id.icon;
@@ -2321,6 +1085,7 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Id.info = global::RadioSequencing.Resource.Id.info;
 			global::LogonScreen.Resource.Id.italic = global::RadioSequencing.Resource.Id.italic;
 			global::LogonScreen.Resource.Id.item_touch_helper_previous_elevation = global::RadioSequencing.Resource.Id.item_touch_helper_previous_elevation;
+			global::LogonScreen.Resource.Id.labeled = global::RadioSequencing.Resource.Id.labeled;
 			global::LogonScreen.Resource.Id.largeLabel = global::RadioSequencing.Resource.Id.largeLabel;
 			global::LogonScreen.Resource.Id.left = global::RadioSequencing.Resource.Id.left;
 			global::LogonScreen.Resource.Id.line1 = global::RadioSequencing.Resource.Id.line1;
@@ -2333,6 +1098,8 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Id.mini = global::RadioSequencing.Resource.Id.mini;
 			global::LogonScreen.Resource.Id.msgPkgInfo = global::RadioSequencing.Resource.Id.msgPkgInfo;
 			global::LogonScreen.Resource.Id.msgText = global::RadioSequencing.Resource.Id.msgText;
+			global::LogonScreen.Resource.Id.mtrl_child_content_container = global::RadioSequencing.Resource.Id.mtrl_child_content_container;
+			global::LogonScreen.Resource.Id.mtrl_internal_children_alpha_tag = global::RadioSequencing.Resource.Id.mtrl_internal_children_alpha_tag;
 			global::LogonScreen.Resource.Id.multiply = global::RadioSequencing.Resource.Id.multiply;
 			global::LogonScreen.Resource.Id.navigation_header_container = global::RadioSequencing.Resource.Id.navigation_header_container;
 			global::LogonScreen.Resource.Id.never = global::RadioSequencing.Resource.Id.never;
@@ -2341,6 +1108,7 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Id.notification_background = global::RadioSequencing.Resource.Id.notification_background;
 			global::LogonScreen.Resource.Id.notification_main_column = global::RadioSequencing.Resource.Id.notification_main_column;
 			global::LogonScreen.Resource.Id.notification_main_column_container = global::RadioSequencing.Resource.Id.notification_main_column_container;
+			global::LogonScreen.Resource.Id.outline = global::RadioSequencing.Resource.Id.outline;
 			global::LogonScreen.Resource.Id.parallax = global::RadioSequencing.Resource.Id.parallax;
 			global::LogonScreen.Resource.Id.parentPanel = global::RadioSequencing.Resource.Id.parentPanel;
 			global::LogonScreen.Resource.Id.parent_matrix = global::RadioSequencing.Resource.Id.parent_matrix;
@@ -2373,6 +1141,7 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Id.search_src_text = global::RadioSequencing.Resource.Id.search_src_text;
 			global::LogonScreen.Resource.Id.search_voice_btn = global::RadioSequencing.Resource.Id.search_voice_btn;
 			global::LogonScreen.Resource.Id.select_dialog_listview = global::RadioSequencing.Resource.Id.select_dialog_listview;
+			global::LogonScreen.Resource.Id.selected = global::RadioSequencing.Resource.Id.selected;
 			global::LogonScreen.Resource.Id.shortcut = global::RadioSequencing.Resource.Id.shortcut;
 			global::LogonScreen.Resource.Id.showCustom = global::RadioSequencing.Resource.Id.showCustom;
 			global::LogonScreen.Resource.Id.showHome = global::RadioSequencing.Resource.Id.showHome;
@@ -2381,23 +1150,29 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Id.snackbar_action = global::RadioSequencing.Resource.Id.snackbar_action;
 			global::LogonScreen.Resource.Id.snackbar_text = global::RadioSequencing.Resource.Id.snackbar_text;
 			global::LogonScreen.Resource.Id.snap = global::RadioSequencing.Resource.Id.snap;
+			global::LogonScreen.Resource.Id.snapMargins = global::RadioSequencing.Resource.Id.snapMargins;
 			global::LogonScreen.Resource.Id.spacer = global::RadioSequencing.Resource.Id.spacer;
 			global::LogonScreen.Resource.Id.split_action_bar = global::RadioSequencing.Resource.Id.split_action_bar;
 			global::LogonScreen.Resource.Id.src_atop = global::RadioSequencing.Resource.Id.src_atop;
 			global::LogonScreen.Resource.Id.src_in = global::RadioSequencing.Resource.Id.src_in;
 			global::LogonScreen.Resource.Id.src_over = global::RadioSequencing.Resource.Id.src_over;
 			global::LogonScreen.Resource.Id.start = global::RadioSequencing.Resource.Id.start;
+			global::LogonScreen.Resource.Id.stretch = global::RadioSequencing.Resource.Id.stretch;
 			global::LogonScreen.Resource.Id.submenuarrow = global::RadioSequencing.Resource.Id.submenuarrow;
 			global::LogonScreen.Resource.Id.submit_area = global::RadioSequencing.Resource.Id.submit_area;
 			global::LogonScreen.Resource.Id.tabMode = global::RadioSequencing.Resource.Id.tabMode;
 			global::LogonScreen.Resource.Id.tag_transition_group = global::RadioSequencing.Resource.Id.tag_transition_group;
+			global::LogonScreen.Resource.Id.tag_unhandled_key_event_manager = global::RadioSequencing.Resource.Id.tag_unhandled_key_event_manager;
+			global::LogonScreen.Resource.Id.tag_unhandled_key_listeners = global::RadioSequencing.Resource.Id.tag_unhandled_key_listeners;
 			global::LogonScreen.Resource.Id.text = global::RadioSequencing.Resource.Id.text;
 			global::LogonScreen.Resource.Id.text2 = global::RadioSequencing.Resource.Id.text2;
 			global::LogonScreen.Resource.Id.textSpacerNoButtons = global::RadioSequencing.Resource.Id.textSpacerNoButtons;
 			global::LogonScreen.Resource.Id.textSpacerNoTitle = global::RadioSequencing.Resource.Id.textSpacerNoTitle;
+			global::LogonScreen.Resource.Id.textStart = global::RadioSequencing.Resource.Id.textStart;
 			global::LogonScreen.Resource.Id.text_input_password_toggle = global::RadioSequencing.Resource.Id.text_input_password_toggle;
 			global::LogonScreen.Resource.Id.textinput_counter = global::RadioSequencing.Resource.Id.textinput_counter;
 			global::LogonScreen.Resource.Id.textinput_error = global::RadioSequencing.Resource.Id.textinput_error;
+			global::LogonScreen.Resource.Id.textinput_helper_text = global::RadioSequencing.Resource.Id.textinput_helper_text;
 			global::LogonScreen.Resource.Id.time = global::RadioSequencing.Resource.Id.time;
 			global::LogonScreen.Resource.Id.title = global::RadioSequencing.Resource.Id.title;
 			global::LogonScreen.Resource.Id.titleDividerNoCustom = global::RadioSequencing.Resource.Id.titleDividerNoCustom;
@@ -2411,6 +1186,7 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Id.transition_scene_layoutid_cache = global::RadioSequencing.Resource.Id.transition_scene_layoutid_cache;
 			global::LogonScreen.Resource.Id.transition_transform = global::RadioSequencing.Resource.Id.transition_transform;
 			global::LogonScreen.Resource.Id.uniform = global::RadioSequencing.Resource.Id.uniform;
+			global::LogonScreen.Resource.Id.unlabeled = global::RadioSequencing.Resource.Id.unlabeled;
 			global::LogonScreen.Resource.Id.up = global::RadioSequencing.Resource.Id.up;
 			global::LogonScreen.Resource.Id.useLogo = global::RadioSequencing.Resource.Id.useLogo;
 			global::LogonScreen.Resource.Id.view_offset_helper = global::RadioSequencing.Resource.Id.view_offset_helper;
@@ -2424,9 +1200,18 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Integer.cancel_button_image_alpha = global::RadioSequencing.Resource.Integer.cancel_button_image_alpha;
 			global::LogonScreen.Resource.Integer.config_tooltipAnimTime = global::RadioSequencing.Resource.Integer.config_tooltipAnimTime;
 			global::LogonScreen.Resource.Integer.design_snackbar_text_max_lines = global::RadioSequencing.Resource.Integer.design_snackbar_text_max_lines;
+			global::LogonScreen.Resource.Integer.design_tab_indicator_anim_duration_ms = global::RadioSequencing.Resource.Integer.design_tab_indicator_anim_duration_ms;
 			global::LogonScreen.Resource.Integer.hide_password_duration = global::RadioSequencing.Resource.Integer.hide_password_duration;
+			global::LogonScreen.Resource.Integer.mtrl_btn_anim_delay_ms = global::RadioSequencing.Resource.Integer.mtrl_btn_anim_delay_ms;
+			global::LogonScreen.Resource.Integer.mtrl_btn_anim_duration_ms = global::RadioSequencing.Resource.Integer.mtrl_btn_anim_duration_ms;
+			global::LogonScreen.Resource.Integer.mtrl_chip_anim_duration = global::RadioSequencing.Resource.Integer.mtrl_chip_anim_duration;
+			global::LogonScreen.Resource.Integer.mtrl_tab_indicator_anim_duration_ms = global::RadioSequencing.Resource.Integer.mtrl_tab_indicator_anim_duration_ms;
 			global::LogonScreen.Resource.Integer.show_password_duration = global::RadioSequencing.Resource.Integer.show_password_duration;
 			global::LogonScreen.Resource.Integer.status_bar_notification_info_maxnum = global::RadioSequencing.Resource.Integer.status_bar_notification_info_maxnum;
+			global::LogonScreen.Resource.Interpolator.mtrl_fast_out_linear_in = global::RadioSequencing.Resource.Interpolator.mtrl_fast_out_linear_in;
+			global::LogonScreen.Resource.Interpolator.mtrl_fast_out_slow_in = global::RadioSequencing.Resource.Interpolator.mtrl_fast_out_slow_in;
+			global::LogonScreen.Resource.Interpolator.mtrl_linear = global::RadioSequencing.Resource.Interpolator.mtrl_linear;
+			global::LogonScreen.Resource.Interpolator.mtrl_linear_out_slow_in = global::RadioSequencing.Resource.Interpolator.mtrl_linear_out_slow_in;
 			global::LogonScreen.Resource.Layout.abc_action_bar_title_item = global::RadioSequencing.Resource.Layout.abc_action_bar_title_item;
 			global::LogonScreen.Resource.Layout.abc_action_bar_up_container = global::RadioSequencing.Resource.Layout.abc_action_bar_up_container;
 			global::LogonScreen.Resource.Layout.abc_action_menu_item_layout = global::RadioSequencing.Resource.Layout.abc_action_menu_item_layout;
@@ -2438,6 +1223,7 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Layout.abc_alert_dialog_button_bar_material = global::RadioSequencing.Resource.Layout.abc_alert_dialog_button_bar_material;
 			global::LogonScreen.Resource.Layout.abc_alert_dialog_material = global::RadioSequencing.Resource.Layout.abc_alert_dialog_material;
 			global::LogonScreen.Resource.Layout.abc_alert_dialog_title_material = global::RadioSequencing.Resource.Layout.abc_alert_dialog_title_material;
+			global::LogonScreen.Resource.Layout.abc_cascading_menu_item_layout = global::RadioSequencing.Resource.Layout.abc_cascading_menu_item_layout;
 			global::LogonScreen.Resource.Layout.abc_dialog_title_material = global::RadioSequencing.Resource.Layout.abc_dialog_title_material;
 			global::LogonScreen.Resource.Layout.abc_expanded_menu_layout = global::RadioSequencing.Resource.Layout.abc_expanded_menu_layout;
 			global::LogonScreen.Resource.Layout.abc_list_menu_item_checkbox = global::RadioSequencing.Resource.Layout.abc_list_menu_item_checkbox;
@@ -2453,6 +1239,7 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Layout.abc_search_dropdown_item_icons_2line = global::RadioSequencing.Resource.Layout.abc_search_dropdown_item_icons_2line;
 			global::LogonScreen.Resource.Layout.abc_search_view = global::RadioSequencing.Resource.Layout.abc_search_view;
 			global::LogonScreen.Resource.Layout.abc_select_dialog_material = global::RadioSequencing.Resource.Layout.abc_select_dialog_material;
+			global::LogonScreen.Resource.Layout.abc_tooltip = global::RadioSequencing.Resource.Layout.abc_tooltip;
 			global::LogonScreen.Resource.Layout.design_bottom_navigation_item = global::RadioSequencing.Resource.Layout.design_bottom_navigation_item;
 			global::LogonScreen.Resource.Layout.design_bottom_sheet_dialog = global::RadioSequencing.Resource.Layout.design_bottom_sheet_dialog;
 			global::LogonScreen.Resource.Layout.design_layout_snackbar = global::RadioSequencing.Resource.Layout.design_layout_snackbar;
@@ -2468,6 +1255,8 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Layout.design_navigation_menu_item = global::RadioSequencing.Resource.Layout.design_navigation_menu_item;
 			global::LogonScreen.Resource.Layout.design_text_input_password_icon = global::RadioSequencing.Resource.Layout.design_text_input_password_icon;
 			global::LogonScreen.Resource.Layout.LogonScreen = global::RadioSequencing.Resource.Layout.LogonScreen;
+			global::LogonScreen.Resource.Layout.mtrl_layout_snackbar = global::RadioSequencing.Resource.Layout.mtrl_layout_snackbar;
+			global::LogonScreen.Resource.Layout.mtrl_layout_snackbar_include = global::RadioSequencing.Resource.Layout.mtrl_layout_snackbar_include;
 			global::LogonScreen.Resource.Layout.notification_action = global::RadioSequencing.Resource.Layout.notification_action;
 			global::LogonScreen.Resource.Layout.notification_action_tombstone = global::RadioSequencing.Resource.Layout.notification_action_tombstone;
 			global::LogonScreen.Resource.Layout.notification_template_custom_big = global::RadioSequencing.Resource.Layout.notification_template_custom_big;
@@ -2483,6 +1272,8 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Raw.Gallium = global::RadioSequencing.Resource.Raw.Gallium;
 			global::LogonScreen.Resource.Raw.TaDa = global::RadioSequencing.Resource.Raw.TaDa;
 			global::LogonScreen.Resource.Raw.Tejat = global::RadioSequencing.Resource.Raw.Tejat;
+			global::LogonScreen.Resource.String.ApplicationName = global::RadioSequencing.Resource.String.ApplicationName;
+			global::LogonScreen.Resource.String.Hello = global::RadioSequencing.Resource.String.Hello;
 			global::LogonScreen.Resource.String.abc_action_bar_home_description = global::RadioSequencing.Resource.String.abc_action_bar_home_description;
 			global::LogonScreen.Resource.String.abc_action_bar_up_description = global::RadioSequencing.Resource.String.abc_action_bar_up_description;
 			global::LogonScreen.Resource.String.abc_action_menu_overflow_description = global::RadioSequencing.Resource.String.abc_action_menu_overflow_description;
@@ -2503,6 +1294,16 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.String.abc_font_family_menu_material = global::RadioSequencing.Resource.String.abc_font_family_menu_material;
 			global::LogonScreen.Resource.String.abc_font_family_subhead_material = global::RadioSequencing.Resource.String.abc_font_family_subhead_material;
 			global::LogonScreen.Resource.String.abc_font_family_title_material = global::RadioSequencing.Resource.String.abc_font_family_title_material;
+			global::LogonScreen.Resource.String.abc_menu_alt_shortcut_label = global::RadioSequencing.Resource.String.abc_menu_alt_shortcut_label;
+			global::LogonScreen.Resource.String.abc_menu_ctrl_shortcut_label = global::RadioSequencing.Resource.String.abc_menu_ctrl_shortcut_label;
+			global::LogonScreen.Resource.String.abc_menu_delete_shortcut_label = global::RadioSequencing.Resource.String.abc_menu_delete_shortcut_label;
+			global::LogonScreen.Resource.String.abc_menu_enter_shortcut_label = global::RadioSequencing.Resource.String.abc_menu_enter_shortcut_label;
+			global::LogonScreen.Resource.String.abc_menu_function_shortcut_label = global::RadioSequencing.Resource.String.abc_menu_function_shortcut_label;
+			global::LogonScreen.Resource.String.abc_menu_meta_shortcut_label = global::RadioSequencing.Resource.String.abc_menu_meta_shortcut_label;
+			global::LogonScreen.Resource.String.abc_menu_shift_shortcut_label = global::RadioSequencing.Resource.String.abc_menu_shift_shortcut_label;
+			global::LogonScreen.Resource.String.abc_menu_space_shortcut_label = global::RadioSequencing.Resource.String.abc_menu_space_shortcut_label;
+			global::LogonScreen.Resource.String.abc_menu_sym_shortcut_label = global::RadioSequencing.Resource.String.abc_menu_sym_shortcut_label;
+			global::LogonScreen.Resource.String.abc_prepend_shortcut_label = global::RadioSequencing.Resource.String.abc_prepend_shortcut_label;
 			global::LogonScreen.Resource.String.abc_search_hint = global::RadioSequencing.Resource.String.abc_search_hint;
 			global::LogonScreen.Resource.String.abc_searchview_description_clear = global::RadioSequencing.Resource.String.abc_searchview_description_clear;
 			global::LogonScreen.Resource.String.abc_searchview_description_query = global::RadioSequencing.Resource.String.abc_searchview_description_query;
@@ -2515,8 +1316,13 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.String.app_name = global::RadioSequencing.Resource.String.app_name;
 			global::LogonScreen.Resource.String.appbar_scrolling_view_behavior = global::RadioSequencing.Resource.String.appbar_scrolling_view_behavior;
 			global::LogonScreen.Resource.String.bottom_sheet_behavior = global::RadioSequencing.Resource.String.bottom_sheet_behavior;
+			global::LogonScreen.Resource.String.character_counter_content_description = global::RadioSequencing.Resource.String.character_counter_content_description;
 			global::LogonScreen.Resource.String.character_counter_pattern = global::RadioSequencing.Resource.String.character_counter_pattern;
+			global::LogonScreen.Resource.String.fab_transformation_scrim_behavior = global::RadioSequencing.Resource.String.fab_transformation_scrim_behavior;
+			global::LogonScreen.Resource.String.fab_transformation_sheet_behavior = global::RadioSequencing.Resource.String.fab_transformation_sheet_behavior;
 			global::LogonScreen.Resource.String.hello = global::RadioSequencing.Resource.String.hello;
+			global::LogonScreen.Resource.String.hide_bottom_view_on_scroll_behavior = global::RadioSequencing.Resource.String.hide_bottom_view_on_scroll_behavior;
+			global::LogonScreen.Resource.String.mtrl_chip_close_icon_content_description = global::RadioSequencing.Resource.String.mtrl_chip_close_icon_content_description;
 			global::LogonScreen.Resource.String.password_toggle_content_description = global::RadioSequencing.Resource.String.password_toggle_content_description;
 			global::LogonScreen.Resource.String.path_password_eye = global::RadioSequencing.Resource.String.path_password_eye;
 			global::LogonScreen.Resource.String.path_password_eye_mask_strike_through = global::RadioSequencing.Resource.String.path_password_eye_mask_strike_through;
@@ -2535,6 +1341,7 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Style.Base_Animation_AppCompat_Dialog = global::RadioSequencing.Resource.Style.Base_Animation_AppCompat_Dialog;
 			global::LogonScreen.Resource.Style.Base_Animation_AppCompat_DropDownUp = global::RadioSequencing.Resource.Style.Base_Animation_AppCompat_DropDownUp;
 			global::LogonScreen.Resource.Style.Base_Animation_AppCompat_Tooltip = global::RadioSequencing.Resource.Style.Base_Animation_AppCompat_Tooltip;
+			global::LogonScreen.Resource.Style.Base_CardView = global::RadioSequencing.Resource.Style.Base_CardView;
 			global::LogonScreen.Resource.Style.Base_DialogWindowTitle_AppCompat = global::RadioSequencing.Resource.Style.Base_DialogWindowTitle_AppCompat;
 			global::LogonScreen.Resource.Style.Base_DialogWindowTitleBackground_AppCompat = global::RadioSequencing.Resource.Style.Base_DialogWindowTitleBackground_AppCompat;
 			global::LogonScreen.Resource.Style.Base_TextAppearance_AppCompat = global::RadioSequencing.Resource.Style.Base_TextAppearance_AppCompat;
@@ -2599,6 +1406,23 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize = global::RadioSequencing.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize;
 			global::LogonScreen.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth = global::RadioSequencing.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth;
 			global::LogonScreen.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge = global::RadioSequencing.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge;
+			global::LogonScreen.Resource.Style.Base_Theme_MaterialComponents = global::RadioSequencing.Resource.Style.Base_Theme_MaterialComponents;
+			global::LogonScreen.Resource.Style.Base_Theme_MaterialComponents_Bridge = global::RadioSequencing.Resource.Style.Base_Theme_MaterialComponents_Bridge;
+			global::LogonScreen.Resource.Style.Base_Theme_MaterialComponents_CompactMenu = global::RadioSequencing.Resource.Style.Base_Theme_MaterialComponents_CompactMenu;
+			global::LogonScreen.Resource.Style.Base_Theme_MaterialComponents_Dialog = global::RadioSequencing.Resource.Style.Base_Theme_MaterialComponents_Dialog;
+			global::LogonScreen.Resource.Style.Base_Theme_MaterialComponents_Dialog_Alert = global::RadioSequencing.Resource.Style.Base_Theme_MaterialComponents_Dialog_Alert;
+			global::LogonScreen.Resource.Style.Base_Theme_MaterialComponents_Dialog_FixedSize = global::RadioSequencing.Resource.Style.Base_Theme_MaterialComponents_Dialog_FixedSize;
+			global::LogonScreen.Resource.Style.Base_Theme_MaterialComponents_Dialog_MinWidth = global::RadioSequencing.Resource.Style.Base_Theme_MaterialComponents_Dialog_MinWidth;
+			global::LogonScreen.Resource.Style.Base_Theme_MaterialComponents_DialogWhenLarge = global::RadioSequencing.Resource.Style.Base_Theme_MaterialComponents_DialogWhenLarge;
+			global::LogonScreen.Resource.Style.Base_Theme_MaterialComponents_Light = global::RadioSequencing.Resource.Style.Base_Theme_MaterialComponents_Light;
+			global::LogonScreen.Resource.Style.Base_Theme_MaterialComponents_Light_Bridge = global::RadioSequencing.Resource.Style.Base_Theme_MaterialComponents_Light_Bridge;
+			global::LogonScreen.Resource.Style.Base_Theme_MaterialComponents_Light_DarkActionBar = global::RadioSequencing.Resource.Style.Base_Theme_MaterialComponents_Light_DarkActionBar;
+			global::LogonScreen.Resource.Style.Base_Theme_MaterialComponents_Light_DarkActionBar_Bridge = global::RadioSequencing.Resource.Style.Base_Theme_MaterialComponents_Light_DarkActionBar_Bridge;
+			global::LogonScreen.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog = global::RadioSequencing.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog;
+			global::LogonScreen.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_Alert = global::RadioSequencing.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_Alert;
+			global::LogonScreen.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_FixedSize = global::RadioSequencing.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_FixedSize;
+			global::LogonScreen.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_MinWidth = global::RadioSequencing.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_MinWidth;
+			global::LogonScreen.Resource.Style.Base_Theme_MaterialComponents_Light_DialogWhenLarge = global::RadioSequencing.Resource.Style.Base_Theme_MaterialComponents_Light_DialogWhenLarge;
 			global::LogonScreen.Resource.Style.Base_ThemeOverlay_AppCompat = global::RadioSequencing.Resource.Style.Base_ThemeOverlay_AppCompat;
 			global::LogonScreen.Resource.Style.Base_ThemeOverlay_AppCompat_ActionBar = global::RadioSequencing.Resource.Style.Base_ThemeOverlay_AppCompat_ActionBar;
 			global::LogonScreen.Resource.Style.Base_ThemeOverlay_AppCompat_Dark = global::RadioSequencing.Resource.Style.Base_ThemeOverlay_AppCompat_Dark;
@@ -2606,6 +1430,17 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog = global::RadioSequencing.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog;
 			global::LogonScreen.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog_Alert = global::RadioSequencing.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog_Alert;
 			global::LogonScreen.Resource.Style.Base_ThemeOverlay_AppCompat_Light = global::RadioSequencing.Resource.Style.Base_ThemeOverlay_AppCompat_Light;
+			global::LogonScreen.Resource.Style.Base_ThemeOverlay_MaterialComponents_Dialog = global::RadioSequencing.Resource.Style.Base_ThemeOverlay_MaterialComponents_Dialog;
+			global::LogonScreen.Resource.Style.Base_ThemeOverlay_MaterialComponents_Dialog_Alert = global::RadioSequencing.Resource.Style.Base_ThemeOverlay_MaterialComponents_Dialog_Alert;
+			global::LogonScreen.Resource.Style.Base_V14_Theme_MaterialComponents = global::RadioSequencing.Resource.Style.Base_V14_Theme_MaterialComponents;
+			global::LogonScreen.Resource.Style.Base_V14_Theme_MaterialComponents_Bridge = global::RadioSequencing.Resource.Style.Base_V14_Theme_MaterialComponents_Bridge;
+			global::LogonScreen.Resource.Style.Base_V14_Theme_MaterialComponents_Dialog = global::RadioSequencing.Resource.Style.Base_V14_Theme_MaterialComponents_Dialog;
+			global::LogonScreen.Resource.Style.Base_V14_Theme_MaterialComponents_Light = global::RadioSequencing.Resource.Style.Base_V14_Theme_MaterialComponents_Light;
+			global::LogonScreen.Resource.Style.Base_V14_Theme_MaterialComponents_Light_Bridge = global::RadioSequencing.Resource.Style.Base_V14_Theme_MaterialComponents_Light_Bridge;
+			global::LogonScreen.Resource.Style.Base_V14_Theme_MaterialComponents_Light_DarkActionBar_Bridge = global::RadioSequencing.Resource.Style.Base_V14_Theme_MaterialComponents_Light_DarkActionBar_Bridge;
+			global::LogonScreen.Resource.Style.Base_V14_Theme_MaterialComponents_Light_Dialog = global::RadioSequencing.Resource.Style.Base_V14_Theme_MaterialComponents_Light_Dialog;
+			global::LogonScreen.Resource.Style.Base_V14_ThemeOverlay_MaterialComponents_Dialog = global::RadioSequencing.Resource.Style.Base_V14_ThemeOverlay_MaterialComponents_Dialog;
+			global::LogonScreen.Resource.Style.Base_V14_ThemeOverlay_MaterialComponents_Dialog_Alert = global::RadioSequencing.Resource.Style.Base_V14_ThemeOverlay_MaterialComponents_Dialog_Alert;
 			global::LogonScreen.Resource.Style.Base_V21_Theme_AppCompat = global::RadioSequencing.Resource.Style.Base_V21_Theme_AppCompat;
 			global::LogonScreen.Resource.Style.Base_V21_Theme_AppCompat_Dialog = global::RadioSequencing.Resource.Style.Base_V21_Theme_AppCompat_Dialog;
 			global::LogonScreen.Resource.Style.Base_V21_Theme_AppCompat_Light = global::RadioSequencing.Resource.Style.Base_V21_Theme_AppCompat_Light;
@@ -2618,6 +1453,8 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Style.Base_V26_Theme_AppCompat = global::RadioSequencing.Resource.Style.Base_V26_Theme_AppCompat;
 			global::LogonScreen.Resource.Style.Base_V26_Theme_AppCompat_Light = global::RadioSequencing.Resource.Style.Base_V26_Theme_AppCompat_Light;
 			global::LogonScreen.Resource.Style.Base_V26_Widget_AppCompat_Toolbar = global::RadioSequencing.Resource.Style.Base_V26_Widget_AppCompat_Toolbar;
+			global::LogonScreen.Resource.Style.Base_V28_Theme_AppCompat = global::RadioSequencing.Resource.Style.Base_V28_Theme_AppCompat;
+			global::LogonScreen.Resource.Style.Base_V28_Theme_AppCompat_Light = global::RadioSequencing.Resource.Style.Base_V28_Theme_AppCompat_Light;
 			global::LogonScreen.Resource.Style.Base_V7_Theme_AppCompat = global::RadioSequencing.Resource.Style.Base_V7_Theme_AppCompat;
 			global::LogonScreen.Resource.Style.Base_V7_Theme_AppCompat_Dialog = global::RadioSequencing.Resource.Style.Base_V7_Theme_AppCompat_Dialog;
 			global::LogonScreen.Resource.Style.Base_V7_Theme_AppCompat_Light = global::RadioSequencing.Resource.Style.Base_V7_Theme_AppCompat_Light;
@@ -2684,8 +1521,18 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Style.Base_Widget_AppCompat_Toolbar = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_Toolbar;
 			global::LogonScreen.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation = global::RadioSequencing.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation;
 			global::LogonScreen.Resource.Style.Base_Widget_Design_TabLayout = global::RadioSequencing.Resource.Style.Base_Widget_Design_TabLayout;
+			global::LogonScreen.Resource.Style.Base_Widget_MaterialComponents_Chip = global::RadioSequencing.Resource.Style.Base_Widget_MaterialComponents_Chip;
+			global::LogonScreen.Resource.Style.Base_Widget_MaterialComponents_TextInputEditText = global::RadioSequencing.Resource.Style.Base_Widget_MaterialComponents_TextInputEditText;
+			global::LogonScreen.Resource.Style.Base_Widget_MaterialComponents_TextInputLayout = global::RadioSequencing.Resource.Style.Base_Widget_MaterialComponents_TextInputLayout;
+			global::LogonScreen.Resource.Style.CardView = global::RadioSequencing.Resource.Style.CardView;
+			global::LogonScreen.Resource.Style.CardView_Dark = global::RadioSequencing.Resource.Style.CardView_Dark;
+			global::LogonScreen.Resource.Style.CardView_Light = global::RadioSequencing.Resource.Style.CardView_Light;
 			global::LogonScreen.Resource.Style.Platform_AppCompat = global::RadioSequencing.Resource.Style.Platform_AppCompat;
 			global::LogonScreen.Resource.Style.Platform_AppCompat_Light = global::RadioSequencing.Resource.Style.Platform_AppCompat_Light;
+			global::LogonScreen.Resource.Style.Platform_MaterialComponents = global::RadioSequencing.Resource.Style.Platform_MaterialComponents;
+			global::LogonScreen.Resource.Style.Platform_MaterialComponents_Dialog = global::RadioSequencing.Resource.Style.Platform_MaterialComponents_Dialog;
+			global::LogonScreen.Resource.Style.Platform_MaterialComponents_Light = global::RadioSequencing.Resource.Style.Platform_MaterialComponents_Light;
+			global::LogonScreen.Resource.Style.Platform_MaterialComponents_Light_Dialog = global::RadioSequencing.Resource.Style.Platform_MaterialComponents_Light_Dialog;
 			global::LogonScreen.Resource.Style.Platform_ThemeOverlay_AppCompat = global::RadioSequencing.Resource.Style.Platform_ThemeOverlay_AppCompat;
 			global::LogonScreen.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark = global::RadioSequencing.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark;
 			global::LogonScreen.Resource.Style.Platform_ThemeOverlay_AppCompat_Light = global::RadioSequencing.Resource.Style.Platform_ThemeOverlay_AppCompat_Light;
@@ -2699,7 +1546,10 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon = global::RadioSequencing.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon;
 			global::LogonScreen.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem = global::RadioSequencing.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem;
 			global::LogonScreen.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup = global::RadioSequencing.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup;
+			global::LogonScreen.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Shortcut = global::RadioSequencing.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Shortcut;
+			global::LogonScreen.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_SubmenuArrow = global::RadioSequencing.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_SubmenuArrow;
 			global::LogonScreen.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text = global::RadioSequencing.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text;
+			global::LogonScreen.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Title = global::RadioSequencing.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Title;
 			global::LogonScreen.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown = global::RadioSequencing.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown;
 			global::LogonScreen.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1 = global::RadioSequencing.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1;
 			global::LogonScreen.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2 = global::RadioSequencing.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2;
@@ -2765,9 +1615,25 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Style.TextAppearance_Design_Counter = global::RadioSequencing.Resource.Style.TextAppearance_Design_Counter;
 			global::LogonScreen.Resource.Style.TextAppearance_Design_Counter_Overflow = global::RadioSequencing.Resource.Style.TextAppearance_Design_Counter_Overflow;
 			global::LogonScreen.Resource.Style.TextAppearance_Design_Error = global::RadioSequencing.Resource.Style.TextAppearance_Design_Error;
+			global::LogonScreen.Resource.Style.TextAppearance_Design_HelperText = global::RadioSequencing.Resource.Style.TextAppearance_Design_HelperText;
 			global::LogonScreen.Resource.Style.TextAppearance_Design_Hint = global::RadioSequencing.Resource.Style.TextAppearance_Design_Hint;
 			global::LogonScreen.Resource.Style.TextAppearance_Design_Snackbar_Message = global::RadioSequencing.Resource.Style.TextAppearance_Design_Snackbar_Message;
 			global::LogonScreen.Resource.Style.TextAppearance_Design_Tab = global::RadioSequencing.Resource.Style.TextAppearance_Design_Tab;
+			global::LogonScreen.Resource.Style.TextAppearance_MaterialComponents_Body1 = global::RadioSequencing.Resource.Style.TextAppearance_MaterialComponents_Body1;
+			global::LogonScreen.Resource.Style.TextAppearance_MaterialComponents_Body2 = global::RadioSequencing.Resource.Style.TextAppearance_MaterialComponents_Body2;
+			global::LogonScreen.Resource.Style.TextAppearance_MaterialComponents_Button = global::RadioSequencing.Resource.Style.TextAppearance_MaterialComponents_Button;
+			global::LogonScreen.Resource.Style.TextAppearance_MaterialComponents_Caption = global::RadioSequencing.Resource.Style.TextAppearance_MaterialComponents_Caption;
+			global::LogonScreen.Resource.Style.TextAppearance_MaterialComponents_Chip = global::RadioSequencing.Resource.Style.TextAppearance_MaterialComponents_Chip;
+			global::LogonScreen.Resource.Style.TextAppearance_MaterialComponents_Headline1 = global::RadioSequencing.Resource.Style.TextAppearance_MaterialComponents_Headline1;
+			global::LogonScreen.Resource.Style.TextAppearance_MaterialComponents_Headline2 = global::RadioSequencing.Resource.Style.TextAppearance_MaterialComponents_Headline2;
+			global::LogonScreen.Resource.Style.TextAppearance_MaterialComponents_Headline3 = global::RadioSequencing.Resource.Style.TextAppearance_MaterialComponents_Headline3;
+			global::LogonScreen.Resource.Style.TextAppearance_MaterialComponents_Headline4 = global::RadioSequencing.Resource.Style.TextAppearance_MaterialComponents_Headline4;
+			global::LogonScreen.Resource.Style.TextAppearance_MaterialComponents_Headline5 = global::RadioSequencing.Resource.Style.TextAppearance_MaterialComponents_Headline5;
+			global::LogonScreen.Resource.Style.TextAppearance_MaterialComponents_Headline6 = global::RadioSequencing.Resource.Style.TextAppearance_MaterialComponents_Headline6;
+			global::LogonScreen.Resource.Style.TextAppearance_MaterialComponents_Overline = global::RadioSequencing.Resource.Style.TextAppearance_MaterialComponents_Overline;
+			global::LogonScreen.Resource.Style.TextAppearance_MaterialComponents_Subtitle1 = global::RadioSequencing.Resource.Style.TextAppearance_MaterialComponents_Subtitle1;
+			global::LogonScreen.Resource.Style.TextAppearance_MaterialComponents_Subtitle2 = global::RadioSequencing.Resource.Style.TextAppearance_MaterialComponents_Subtitle2;
+			global::LogonScreen.Resource.Style.TextAppearance_MaterialComponents_Tab = global::RadioSequencing.Resource.Style.TextAppearance_MaterialComponents_Tab;
 			global::LogonScreen.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::RadioSequencing.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
 			global::LogonScreen.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::RadioSequencing.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
 			global::LogonScreen.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title = global::RadioSequencing.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title;
@@ -2798,6 +1664,27 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Style.Theme_Design_Light_BottomSheetDialog = global::RadioSequencing.Resource.Style.Theme_Design_Light_BottomSheetDialog;
 			global::LogonScreen.Resource.Style.Theme_Design_Light_NoActionBar = global::RadioSequencing.Resource.Style.Theme_Design_Light_NoActionBar;
 			global::LogonScreen.Resource.Style.Theme_Design_NoActionBar = global::RadioSequencing.Resource.Style.Theme_Design_NoActionBar;
+			global::LogonScreen.Resource.Style.Theme_MaterialComponents = global::RadioSequencing.Resource.Style.Theme_MaterialComponents;
+			global::LogonScreen.Resource.Style.Theme_MaterialComponents_BottomSheetDialog = global::RadioSequencing.Resource.Style.Theme_MaterialComponents_BottomSheetDialog;
+			global::LogonScreen.Resource.Style.Theme_MaterialComponents_Bridge = global::RadioSequencing.Resource.Style.Theme_MaterialComponents_Bridge;
+			global::LogonScreen.Resource.Style.Theme_MaterialComponents_CompactMenu = global::RadioSequencing.Resource.Style.Theme_MaterialComponents_CompactMenu;
+			global::LogonScreen.Resource.Style.Theme_MaterialComponents_Dialog = global::RadioSequencing.Resource.Style.Theme_MaterialComponents_Dialog;
+			global::LogonScreen.Resource.Style.Theme_MaterialComponents_Dialog_Alert = global::RadioSequencing.Resource.Style.Theme_MaterialComponents_Dialog_Alert;
+			global::LogonScreen.Resource.Style.Theme_MaterialComponents_Dialog_MinWidth = global::RadioSequencing.Resource.Style.Theme_MaterialComponents_Dialog_MinWidth;
+			global::LogonScreen.Resource.Style.Theme_MaterialComponents_DialogWhenLarge = global::RadioSequencing.Resource.Style.Theme_MaterialComponents_DialogWhenLarge;
+			global::LogonScreen.Resource.Style.Theme_MaterialComponents_Light = global::RadioSequencing.Resource.Style.Theme_MaterialComponents_Light;
+			global::LogonScreen.Resource.Style.Theme_MaterialComponents_Light_BottomSheetDialog = global::RadioSequencing.Resource.Style.Theme_MaterialComponents_Light_BottomSheetDialog;
+			global::LogonScreen.Resource.Style.Theme_MaterialComponents_Light_Bridge = global::RadioSequencing.Resource.Style.Theme_MaterialComponents_Light_Bridge;
+			global::LogonScreen.Resource.Style.Theme_MaterialComponents_Light_DarkActionBar = global::RadioSequencing.Resource.Style.Theme_MaterialComponents_Light_DarkActionBar;
+			global::LogonScreen.Resource.Style.Theme_MaterialComponents_Light_DarkActionBar_Bridge = global::RadioSequencing.Resource.Style.Theme_MaterialComponents_Light_DarkActionBar_Bridge;
+			global::LogonScreen.Resource.Style.Theme_MaterialComponents_Light_Dialog = global::RadioSequencing.Resource.Style.Theme_MaterialComponents_Light_Dialog;
+			global::LogonScreen.Resource.Style.Theme_MaterialComponents_Light_Dialog_Alert = global::RadioSequencing.Resource.Style.Theme_MaterialComponents_Light_Dialog_Alert;
+			global::LogonScreen.Resource.Style.Theme_MaterialComponents_Light_Dialog_MinWidth = global::RadioSequencing.Resource.Style.Theme_MaterialComponents_Light_Dialog_MinWidth;
+			global::LogonScreen.Resource.Style.Theme_MaterialComponents_Light_DialogWhenLarge = global::RadioSequencing.Resource.Style.Theme_MaterialComponents_Light_DialogWhenLarge;
+			global::LogonScreen.Resource.Style.Theme_MaterialComponents_Light_NoActionBar = global::RadioSequencing.Resource.Style.Theme_MaterialComponents_Light_NoActionBar;
+			global::LogonScreen.Resource.Style.Theme_MaterialComponents_Light_NoActionBar_Bridge = global::RadioSequencing.Resource.Style.Theme_MaterialComponents_Light_NoActionBar_Bridge;
+			global::LogonScreen.Resource.Style.Theme_MaterialComponents_NoActionBar = global::RadioSequencing.Resource.Style.Theme_MaterialComponents_NoActionBar;
+			global::LogonScreen.Resource.Style.Theme_MaterialComponents_NoActionBar_Bridge = global::RadioSequencing.Resource.Style.Theme_MaterialComponents_NoActionBar_Bridge;
 			global::LogonScreen.Resource.Style.ThemeOverlay_AppCompat = global::RadioSequencing.Resource.Style.ThemeOverlay_AppCompat;
 			global::LogonScreen.Resource.Style.ThemeOverlay_AppCompat_ActionBar = global::RadioSequencing.Resource.Style.ThemeOverlay_AppCompat_ActionBar;
 			global::LogonScreen.Resource.Style.ThemeOverlay_AppCompat_Dark = global::RadioSequencing.Resource.Style.ThemeOverlay_AppCompat_Dark;
@@ -2805,6 +1692,18 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Style.ThemeOverlay_AppCompat_Dialog = global::RadioSequencing.Resource.Style.ThemeOverlay_AppCompat_Dialog;
 			global::LogonScreen.Resource.Style.ThemeOverlay_AppCompat_Dialog_Alert = global::RadioSequencing.Resource.Style.ThemeOverlay_AppCompat_Dialog_Alert;
 			global::LogonScreen.Resource.Style.ThemeOverlay_AppCompat_Light = global::RadioSequencing.Resource.Style.ThemeOverlay_AppCompat_Light;
+			global::LogonScreen.Resource.Style.ThemeOverlay_MaterialComponents = global::RadioSequencing.Resource.Style.ThemeOverlay_MaterialComponents;
+			global::LogonScreen.Resource.Style.ThemeOverlay_MaterialComponents_ActionBar = global::RadioSequencing.Resource.Style.ThemeOverlay_MaterialComponents_ActionBar;
+			global::LogonScreen.Resource.Style.ThemeOverlay_MaterialComponents_Dark = global::RadioSequencing.Resource.Style.ThemeOverlay_MaterialComponents_Dark;
+			global::LogonScreen.Resource.Style.ThemeOverlay_MaterialComponents_Dark_ActionBar = global::RadioSequencing.Resource.Style.ThemeOverlay_MaterialComponents_Dark_ActionBar;
+			global::LogonScreen.Resource.Style.ThemeOverlay_MaterialComponents_Dialog = global::RadioSequencing.Resource.Style.ThemeOverlay_MaterialComponents_Dialog;
+			global::LogonScreen.Resource.Style.ThemeOverlay_MaterialComponents_Dialog_Alert = global::RadioSequencing.Resource.Style.ThemeOverlay_MaterialComponents_Dialog_Alert;
+			global::LogonScreen.Resource.Style.ThemeOverlay_MaterialComponents_Light = global::RadioSequencing.Resource.Style.ThemeOverlay_MaterialComponents_Light;
+			global::LogonScreen.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText = global::RadioSequencing.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText;
+			global::LogonScreen.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox = global::RadioSequencing.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox;
+			global::LogonScreen.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox_Dense = global::RadioSequencing.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox_Dense;
+			global::LogonScreen.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox = global::RadioSequencing.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox;
+			global::LogonScreen.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox_Dense = global::RadioSequencing.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox_Dense;
 			global::LogonScreen.Resource.Style.Widget_AppCompat_ActionBar = global::RadioSequencing.Resource.Style.Widget_AppCompat_ActionBar;
 			global::LogonScreen.Resource.Style.Widget_AppCompat_ActionBar_Solid = global::RadioSequencing.Resource.Style.Widget_AppCompat_ActionBar_Solid;
 			global::LogonScreen.Resource.Style.Widget_AppCompat_ActionBar_TabBar = global::RadioSequencing.Resource.Style.Widget_AppCompat_ActionBar_TabBar;
@@ -2889,6 +1788,43 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Style.Widget_Design_Snackbar = global::RadioSequencing.Resource.Style.Widget_Design_Snackbar;
 			global::LogonScreen.Resource.Style.Widget_Design_TabLayout = global::RadioSequencing.Resource.Style.Widget_Design_TabLayout;
 			global::LogonScreen.Resource.Style.Widget_Design_TextInputLayout = global::RadioSequencing.Resource.Style.Widget_Design_TextInputLayout;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_BottomAppBar = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_BottomAppBar;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_BottomAppBar_Colored = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_BottomAppBar_Colored;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_BottomNavigationView = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_BottomNavigationView;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_BottomNavigationView_Colored = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_BottomNavigationView_Colored;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_BottomSheet_Modal = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_BottomSheet_Modal;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_Button = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_Button;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_Button_Icon = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_Button_Icon;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_Button_OutlinedButton = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_Button_OutlinedButton;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_Button_OutlinedButton_Icon = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_Button_OutlinedButton_Icon;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_Button_TextButton = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_Button_TextButton;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_Button_TextButton_Dialog = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_Button_TextButton_Dialog;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_Button_TextButton_Dialog_Icon = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_Button_TextButton_Dialog_Icon;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_Button_TextButton_Icon = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_Button_TextButton_Icon;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_Button_UnelevatedButton = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_Button_UnelevatedButton;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_Button_UnelevatedButton_Icon = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_Button_UnelevatedButton_Icon;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_CardView = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_CardView;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_Chip_Action = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_Chip_Action;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_Chip_Choice = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_Chip_Choice;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_Chip_Entry = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_Chip_Entry;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_Chip_Filter = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_Chip_Filter;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_ChipGroup = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_ChipGroup;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_FloatingActionButton = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_FloatingActionButton;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_NavigationView = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_NavigationView;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_Snackbar = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_Snackbar;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_Snackbar_FullWidth = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_Snackbar_FullWidth;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_TabLayout = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_TabLayout;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_TabLayout_Colored = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_TabLayout_Colored;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_TextInputEditText_FilledBox = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_TextInputEditText_FilledBox;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_TextInputEditText_FilledBox_Dense = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_TextInputEditText_FilledBox_Dense;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_TextInputEditText_OutlinedBox = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_TextInputEditText_OutlinedBox;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_TextInputEditText_OutlinedBox_Dense = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_TextInputEditText_OutlinedBox_Dense;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_TextInputLayout_FilledBox = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_TextInputLayout_FilledBox;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_TextInputLayout_FilledBox_Dense = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_TextInputLayout_FilledBox_Dense;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_TextInputLayout_OutlinedBox = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_TextInputLayout_OutlinedBox;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_TextInputLayout_OutlinedBox_Dense = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_TextInputLayout_OutlinedBox_Dense;
+			global::LogonScreen.Resource.Style.Widget_MaterialComponents_Toolbar = global::RadioSequencing.Resource.Style.Widget_MaterialComponents_Toolbar;
+			global::LogonScreen.Resource.Style.Widget_Support_CoordinatorLayout = global::RadioSequencing.Resource.Style.Widget_Support_CoordinatorLayout;
 			global::LogonScreen.Resource.Styleable.ActionBar = global::RadioSequencing.Resource.Styleable.ActionBar;
 			global::LogonScreen.Resource.Styleable.ActionBar_background = global::RadioSequencing.Resource.Styleable.ActionBar_background;
 			global::LogonScreen.Resource.Styleable.ActionBar_backgroundSplit = global::RadioSequencing.Resource.Styleable.ActionBar_backgroundSplit;
@@ -2936,21 +1872,40 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Styleable.ActivityChooserView_initialActivityCount = global::RadioSequencing.Resource.Styleable.ActivityChooserView_initialActivityCount;
 			global::LogonScreen.Resource.Styleable.AlertDialog = global::RadioSequencing.Resource.Styleable.AlertDialog;
 			global::LogonScreen.Resource.Styleable.AlertDialog_android_layout = global::RadioSequencing.Resource.Styleable.AlertDialog_android_layout;
+			global::LogonScreen.Resource.Styleable.AlertDialog_buttonIconDimen = global::RadioSequencing.Resource.Styleable.AlertDialog_buttonIconDimen;
 			global::LogonScreen.Resource.Styleable.AlertDialog_buttonPanelSideLayout = global::RadioSequencing.Resource.Styleable.AlertDialog_buttonPanelSideLayout;
 			global::LogonScreen.Resource.Styleable.AlertDialog_listItemLayout = global::RadioSequencing.Resource.Styleable.AlertDialog_listItemLayout;
 			global::LogonScreen.Resource.Styleable.AlertDialog_listLayout = global::RadioSequencing.Resource.Styleable.AlertDialog_listLayout;
 			global::LogonScreen.Resource.Styleable.AlertDialog_multiChoiceItemLayout = global::RadioSequencing.Resource.Styleable.AlertDialog_multiChoiceItemLayout;
 			global::LogonScreen.Resource.Styleable.AlertDialog_showTitle = global::RadioSequencing.Resource.Styleable.AlertDialog_showTitle;
 			global::LogonScreen.Resource.Styleable.AlertDialog_singleChoiceItemLayout = global::RadioSequencing.Resource.Styleable.AlertDialog_singleChoiceItemLayout;
+			global::LogonScreen.Resource.Styleable.AnimatedStateListDrawableCompat = global::RadioSequencing.Resource.Styleable.AnimatedStateListDrawableCompat;
+			global::LogonScreen.Resource.Styleable.AnimatedStateListDrawableCompat_android_constantSize = global::RadioSequencing.Resource.Styleable.AnimatedStateListDrawableCompat_android_constantSize;
+			global::LogonScreen.Resource.Styleable.AnimatedStateListDrawableCompat_android_dither = global::RadioSequencing.Resource.Styleable.AnimatedStateListDrawableCompat_android_dither;
+			global::LogonScreen.Resource.Styleable.AnimatedStateListDrawableCompat_android_enterFadeDuration = global::RadioSequencing.Resource.Styleable.AnimatedStateListDrawableCompat_android_enterFadeDuration;
+			global::LogonScreen.Resource.Styleable.AnimatedStateListDrawableCompat_android_exitFadeDuration = global::RadioSequencing.Resource.Styleable.AnimatedStateListDrawableCompat_android_exitFadeDuration;
+			global::LogonScreen.Resource.Styleable.AnimatedStateListDrawableCompat_android_variablePadding = global::RadioSequencing.Resource.Styleable.AnimatedStateListDrawableCompat_android_variablePadding;
+			global::LogonScreen.Resource.Styleable.AnimatedStateListDrawableCompat_android_visible = global::RadioSequencing.Resource.Styleable.AnimatedStateListDrawableCompat_android_visible;
+			global::LogonScreen.Resource.Styleable.AnimatedStateListDrawableItem = global::RadioSequencing.Resource.Styleable.AnimatedStateListDrawableItem;
+			global::LogonScreen.Resource.Styleable.AnimatedStateListDrawableItem_android_drawable = global::RadioSequencing.Resource.Styleable.AnimatedStateListDrawableItem_android_drawable;
+			global::LogonScreen.Resource.Styleable.AnimatedStateListDrawableItem_android_id = global::RadioSequencing.Resource.Styleable.AnimatedStateListDrawableItem_android_id;
+			global::LogonScreen.Resource.Styleable.AnimatedStateListDrawableTransition = global::RadioSequencing.Resource.Styleable.AnimatedStateListDrawableTransition;
+			global::LogonScreen.Resource.Styleable.AnimatedStateListDrawableTransition_android_drawable = global::RadioSequencing.Resource.Styleable.AnimatedStateListDrawableTransition_android_drawable;
+			global::LogonScreen.Resource.Styleable.AnimatedStateListDrawableTransition_android_fromId = global::RadioSequencing.Resource.Styleable.AnimatedStateListDrawableTransition_android_fromId;
+			global::LogonScreen.Resource.Styleable.AnimatedStateListDrawableTransition_android_reversible = global::RadioSequencing.Resource.Styleable.AnimatedStateListDrawableTransition_android_reversible;
+			global::LogonScreen.Resource.Styleable.AnimatedStateListDrawableTransition_android_toId = global::RadioSequencing.Resource.Styleable.AnimatedStateListDrawableTransition_android_toId;
 			global::LogonScreen.Resource.Styleable.AppBarLayout = global::RadioSequencing.Resource.Styleable.AppBarLayout;
 			global::LogonScreen.Resource.Styleable.AppBarLayout_android_background = global::RadioSequencing.Resource.Styleable.AppBarLayout_android_background;
 			global::LogonScreen.Resource.Styleable.AppBarLayout_android_keyboardNavigationCluster = global::RadioSequencing.Resource.Styleable.AppBarLayout_android_keyboardNavigationCluster;
 			global::LogonScreen.Resource.Styleable.AppBarLayout_android_touchscreenBlocksFocus = global::RadioSequencing.Resource.Styleable.AppBarLayout_android_touchscreenBlocksFocus;
 			global::LogonScreen.Resource.Styleable.AppBarLayout_elevation = global::RadioSequencing.Resource.Styleable.AppBarLayout_elevation;
 			global::LogonScreen.Resource.Styleable.AppBarLayout_expanded = global::RadioSequencing.Resource.Styleable.AppBarLayout_expanded;
+			global::LogonScreen.Resource.Styleable.AppBarLayout_liftOnScroll = global::RadioSequencing.Resource.Styleable.AppBarLayout_liftOnScroll;
 			global::LogonScreen.Resource.Styleable.AppBarLayoutStates = global::RadioSequencing.Resource.Styleable.AppBarLayoutStates;
 			global::LogonScreen.Resource.Styleable.AppBarLayoutStates_state_collapsed = global::RadioSequencing.Resource.Styleable.AppBarLayoutStates_state_collapsed;
 			global::LogonScreen.Resource.Styleable.AppBarLayoutStates_state_collapsible = global::RadioSequencing.Resource.Styleable.AppBarLayoutStates_state_collapsible;
+			global::LogonScreen.Resource.Styleable.AppBarLayoutStates_state_liftable = global::RadioSequencing.Resource.Styleable.AppBarLayoutStates_state_liftable;
+			global::LogonScreen.Resource.Styleable.AppBarLayoutStates_state_lifted = global::RadioSequencing.Resource.Styleable.AppBarLayoutStates_state_lifted;
 			global::LogonScreen.Resource.Styleable.AppBarLayout_Layout = global::RadioSequencing.Resource.Styleable.AppBarLayout_Layout;
 			global::LogonScreen.Resource.Styleable.AppBarLayout_Layout_layout_scrollFlags = global::RadioSequencing.Resource.Styleable.AppBarLayout_Layout_layout_scrollFlags;
 			global::LogonScreen.Resource.Styleable.AppBarLayout_Layout_layout_scrollInterpolator = global::RadioSequencing.Resource.Styleable.AppBarLayout_Layout_layout_scrollInterpolator;
@@ -2979,7 +1934,10 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Styleable.AppCompatTextView_autoSizePresetSizes = global::RadioSequencing.Resource.Styleable.AppCompatTextView_autoSizePresetSizes;
 			global::LogonScreen.Resource.Styleable.AppCompatTextView_autoSizeStepGranularity = global::RadioSequencing.Resource.Styleable.AppCompatTextView_autoSizeStepGranularity;
 			global::LogonScreen.Resource.Styleable.AppCompatTextView_autoSizeTextType = global::RadioSequencing.Resource.Styleable.AppCompatTextView_autoSizeTextType;
+			global::LogonScreen.Resource.Styleable.AppCompatTextView_firstBaselineToTopHeight = global::RadioSequencing.Resource.Styleable.AppCompatTextView_firstBaselineToTopHeight;
 			global::LogonScreen.Resource.Styleable.AppCompatTextView_fontFamily = global::RadioSequencing.Resource.Styleable.AppCompatTextView_fontFamily;
+			global::LogonScreen.Resource.Styleable.AppCompatTextView_lastBaselineToBottomHeight = global::RadioSequencing.Resource.Styleable.AppCompatTextView_lastBaselineToBottomHeight;
+			global::LogonScreen.Resource.Styleable.AppCompatTextView_lineHeight = global::RadioSequencing.Resource.Styleable.AppCompatTextView_lineHeight;
 			global::LogonScreen.Resource.Styleable.AppCompatTextView_textAllCaps = global::RadioSequencing.Resource.Styleable.AppCompatTextView_textAllCaps;
 			global::LogonScreen.Resource.Styleable.AppCompatTheme = global::RadioSequencing.Resource.Styleable.AppCompatTheme;
 			global::LogonScreen.Resource.Styleable.AppCompatTheme_actionBarDivider = global::RadioSequencing.Resource.Styleable.AppCompatTheme_actionBarDivider;
@@ -3041,6 +1999,7 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Styleable.AppCompatTheme_colorPrimaryDark = global::RadioSequencing.Resource.Styleable.AppCompatTheme_colorPrimaryDark;
 			global::LogonScreen.Resource.Styleable.AppCompatTheme_colorSwitchThumbNormal = global::RadioSequencing.Resource.Styleable.AppCompatTheme_colorSwitchThumbNormal;
 			global::LogonScreen.Resource.Styleable.AppCompatTheme_controlBackground = global::RadioSequencing.Resource.Styleable.AppCompatTheme_controlBackground;
+			global::LogonScreen.Resource.Styleable.AppCompatTheme_dialogCornerRadius = global::RadioSequencing.Resource.Styleable.AppCompatTheme_dialogCornerRadius;
 			global::LogonScreen.Resource.Styleable.AppCompatTheme_dialogPreferredPadding = global::RadioSequencing.Resource.Styleable.AppCompatTheme_dialogPreferredPadding;
 			global::LogonScreen.Resource.Styleable.AppCompatTheme_dialogTheme = global::RadioSequencing.Resource.Styleable.AppCompatTheme_dialogTheme;
 			global::LogonScreen.Resource.Styleable.AppCompatTheme_dividerHorizontal = global::RadioSequencing.Resource.Styleable.AppCompatTheme_dividerHorizontal;
@@ -3091,6 +2050,7 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Styleable.AppCompatTheme_toolbarStyle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_toolbarStyle;
 			global::LogonScreen.Resource.Styleable.AppCompatTheme_tooltipForegroundColor = global::RadioSequencing.Resource.Styleable.AppCompatTheme_tooltipForegroundColor;
 			global::LogonScreen.Resource.Styleable.AppCompatTheme_tooltipFrameBackground = global::RadioSequencing.Resource.Styleable.AppCompatTheme_tooltipFrameBackground;
+			global::LogonScreen.Resource.Styleable.AppCompatTheme_viewInflaterClass = global::RadioSequencing.Resource.Styleable.AppCompatTheme_viewInflaterClass;
 			global::LogonScreen.Resource.Styleable.AppCompatTheme_windowActionBar = global::RadioSequencing.Resource.Styleable.AppCompatTheme_windowActionBar;
 			global::LogonScreen.Resource.Styleable.AppCompatTheme_windowActionBarOverlay = global::RadioSequencing.Resource.Styleable.AppCompatTheme_windowActionBarOverlay;
 			global::LogonScreen.Resource.Styleable.AppCompatTheme_windowActionModeOverlay = global::RadioSequencing.Resource.Styleable.AppCompatTheme_windowActionModeOverlay;
@@ -3101,18 +2061,87 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Styleable.AppCompatTheme_windowMinWidthMajor = global::RadioSequencing.Resource.Styleable.AppCompatTheme_windowMinWidthMajor;
 			global::LogonScreen.Resource.Styleable.AppCompatTheme_windowMinWidthMinor = global::RadioSequencing.Resource.Styleable.AppCompatTheme_windowMinWidthMinor;
 			global::LogonScreen.Resource.Styleable.AppCompatTheme_windowNoTitle = global::RadioSequencing.Resource.Styleable.AppCompatTheme_windowNoTitle;
+			global::LogonScreen.Resource.Styleable.BottomAppBar = global::RadioSequencing.Resource.Styleable.BottomAppBar;
+			global::LogonScreen.Resource.Styleable.BottomAppBar_backgroundTint = global::RadioSequencing.Resource.Styleable.BottomAppBar_backgroundTint;
+			global::LogonScreen.Resource.Styleable.BottomAppBar_fabAlignmentMode = global::RadioSequencing.Resource.Styleable.BottomAppBar_fabAlignmentMode;
+			global::LogonScreen.Resource.Styleable.BottomAppBar_fabCradleMargin = global::RadioSequencing.Resource.Styleable.BottomAppBar_fabCradleMargin;
+			global::LogonScreen.Resource.Styleable.BottomAppBar_fabCradleRoundedCornerRadius = global::RadioSequencing.Resource.Styleable.BottomAppBar_fabCradleRoundedCornerRadius;
+			global::LogonScreen.Resource.Styleable.BottomAppBar_fabCradleVerticalOffset = global::RadioSequencing.Resource.Styleable.BottomAppBar_fabCradleVerticalOffset;
+			global::LogonScreen.Resource.Styleable.BottomAppBar_hideOnScroll = global::RadioSequencing.Resource.Styleable.BottomAppBar_hideOnScroll;
 			global::LogonScreen.Resource.Styleable.BottomNavigationView = global::RadioSequencing.Resource.Styleable.BottomNavigationView;
 			global::LogonScreen.Resource.Styleable.BottomNavigationView_elevation = global::RadioSequencing.Resource.Styleable.BottomNavigationView_elevation;
 			global::LogonScreen.Resource.Styleable.BottomNavigationView_itemBackground = global::RadioSequencing.Resource.Styleable.BottomNavigationView_itemBackground;
+			global::LogonScreen.Resource.Styleable.BottomNavigationView_itemHorizontalTranslationEnabled = global::RadioSequencing.Resource.Styleable.BottomNavigationView_itemHorizontalTranslationEnabled;
+			global::LogonScreen.Resource.Styleable.BottomNavigationView_itemIconSize = global::RadioSequencing.Resource.Styleable.BottomNavigationView_itemIconSize;
 			global::LogonScreen.Resource.Styleable.BottomNavigationView_itemIconTint = global::RadioSequencing.Resource.Styleable.BottomNavigationView_itemIconTint;
+			global::LogonScreen.Resource.Styleable.BottomNavigationView_itemTextAppearanceActive = global::RadioSequencing.Resource.Styleable.BottomNavigationView_itemTextAppearanceActive;
+			global::LogonScreen.Resource.Styleable.BottomNavigationView_itemTextAppearanceInactive = global::RadioSequencing.Resource.Styleable.BottomNavigationView_itemTextAppearanceInactive;
 			global::LogonScreen.Resource.Styleable.BottomNavigationView_itemTextColor = global::RadioSequencing.Resource.Styleable.BottomNavigationView_itemTextColor;
+			global::LogonScreen.Resource.Styleable.BottomNavigationView_labelVisibilityMode = global::RadioSequencing.Resource.Styleable.BottomNavigationView_labelVisibilityMode;
 			global::LogonScreen.Resource.Styleable.BottomNavigationView_menu = global::RadioSequencing.Resource.Styleable.BottomNavigationView_menu;
 			global::LogonScreen.Resource.Styleable.BottomSheetBehavior_Layout = global::RadioSequencing.Resource.Styleable.BottomSheetBehavior_Layout;
+			global::LogonScreen.Resource.Styleable.BottomSheetBehavior_Layout_behavior_fitToContents = global::RadioSequencing.Resource.Styleable.BottomSheetBehavior_Layout_behavior_fitToContents;
 			global::LogonScreen.Resource.Styleable.BottomSheetBehavior_Layout_behavior_hideable = global::RadioSequencing.Resource.Styleable.BottomSheetBehavior_Layout_behavior_hideable;
 			global::LogonScreen.Resource.Styleable.BottomSheetBehavior_Layout_behavior_peekHeight = global::RadioSequencing.Resource.Styleable.BottomSheetBehavior_Layout_behavior_peekHeight;
 			global::LogonScreen.Resource.Styleable.BottomSheetBehavior_Layout_behavior_skipCollapsed = global::RadioSequencing.Resource.Styleable.BottomSheetBehavior_Layout_behavior_skipCollapsed;
 			global::LogonScreen.Resource.Styleable.ButtonBarLayout = global::RadioSequencing.Resource.Styleable.ButtonBarLayout;
 			global::LogonScreen.Resource.Styleable.ButtonBarLayout_allowStacking = global::RadioSequencing.Resource.Styleable.ButtonBarLayout_allowStacking;
+			global::LogonScreen.Resource.Styleable.CardView = global::RadioSequencing.Resource.Styleable.CardView;
+			global::LogonScreen.Resource.Styleable.CardView_android_minHeight = global::RadioSequencing.Resource.Styleable.CardView_android_minHeight;
+			global::LogonScreen.Resource.Styleable.CardView_android_minWidth = global::RadioSequencing.Resource.Styleable.CardView_android_minWidth;
+			global::LogonScreen.Resource.Styleable.CardView_cardBackgroundColor = global::RadioSequencing.Resource.Styleable.CardView_cardBackgroundColor;
+			global::LogonScreen.Resource.Styleable.CardView_cardCornerRadius = global::RadioSequencing.Resource.Styleable.CardView_cardCornerRadius;
+			global::LogonScreen.Resource.Styleable.CardView_cardElevation = global::RadioSequencing.Resource.Styleable.CardView_cardElevation;
+			global::LogonScreen.Resource.Styleable.CardView_cardMaxElevation = global::RadioSequencing.Resource.Styleable.CardView_cardMaxElevation;
+			global::LogonScreen.Resource.Styleable.CardView_cardPreventCornerOverlap = global::RadioSequencing.Resource.Styleable.CardView_cardPreventCornerOverlap;
+			global::LogonScreen.Resource.Styleable.CardView_cardUseCompatPadding = global::RadioSequencing.Resource.Styleable.CardView_cardUseCompatPadding;
+			global::LogonScreen.Resource.Styleable.CardView_contentPadding = global::RadioSequencing.Resource.Styleable.CardView_contentPadding;
+			global::LogonScreen.Resource.Styleable.CardView_contentPaddingBottom = global::RadioSequencing.Resource.Styleable.CardView_contentPaddingBottom;
+			global::LogonScreen.Resource.Styleable.CardView_contentPaddingLeft = global::RadioSequencing.Resource.Styleable.CardView_contentPaddingLeft;
+			global::LogonScreen.Resource.Styleable.CardView_contentPaddingRight = global::RadioSequencing.Resource.Styleable.CardView_contentPaddingRight;
+			global::LogonScreen.Resource.Styleable.CardView_contentPaddingTop = global::RadioSequencing.Resource.Styleable.CardView_contentPaddingTop;
+			global::LogonScreen.Resource.Styleable.Chip = global::RadioSequencing.Resource.Styleable.Chip;
+			global::LogonScreen.Resource.Styleable.Chip_android_checkable = global::RadioSequencing.Resource.Styleable.Chip_android_checkable;
+			global::LogonScreen.Resource.Styleable.Chip_android_ellipsize = global::RadioSequencing.Resource.Styleable.Chip_android_ellipsize;
+			global::LogonScreen.Resource.Styleable.Chip_android_maxWidth = global::RadioSequencing.Resource.Styleable.Chip_android_maxWidth;
+			global::LogonScreen.Resource.Styleable.Chip_android_text = global::RadioSequencing.Resource.Styleable.Chip_android_text;
+			global::LogonScreen.Resource.Styleable.Chip_android_textAppearance = global::RadioSequencing.Resource.Styleable.Chip_android_textAppearance;
+			global::LogonScreen.Resource.Styleable.Chip_checkedIcon = global::RadioSequencing.Resource.Styleable.Chip_checkedIcon;
+			global::LogonScreen.Resource.Styleable.Chip_checkedIconEnabled = global::RadioSequencing.Resource.Styleable.Chip_checkedIconEnabled;
+			global::LogonScreen.Resource.Styleable.Chip_checkedIconVisible = global::RadioSequencing.Resource.Styleable.Chip_checkedIconVisible;
+			global::LogonScreen.Resource.Styleable.Chip_chipBackgroundColor = global::RadioSequencing.Resource.Styleable.Chip_chipBackgroundColor;
+			global::LogonScreen.Resource.Styleable.Chip_chipCornerRadius = global::RadioSequencing.Resource.Styleable.Chip_chipCornerRadius;
+			global::LogonScreen.Resource.Styleable.Chip_chipEndPadding = global::RadioSequencing.Resource.Styleable.Chip_chipEndPadding;
+			global::LogonScreen.Resource.Styleable.Chip_chipIcon = global::RadioSequencing.Resource.Styleable.Chip_chipIcon;
+			global::LogonScreen.Resource.Styleable.Chip_chipIconEnabled = global::RadioSequencing.Resource.Styleable.Chip_chipIconEnabled;
+			global::LogonScreen.Resource.Styleable.Chip_chipIconSize = global::RadioSequencing.Resource.Styleable.Chip_chipIconSize;
+			global::LogonScreen.Resource.Styleable.Chip_chipIconTint = global::RadioSequencing.Resource.Styleable.Chip_chipIconTint;
+			global::LogonScreen.Resource.Styleable.Chip_chipIconVisible = global::RadioSequencing.Resource.Styleable.Chip_chipIconVisible;
+			global::LogonScreen.Resource.Styleable.Chip_chipMinHeight = global::RadioSequencing.Resource.Styleable.Chip_chipMinHeight;
+			global::LogonScreen.Resource.Styleable.Chip_chipStartPadding = global::RadioSequencing.Resource.Styleable.Chip_chipStartPadding;
+			global::LogonScreen.Resource.Styleable.Chip_chipStrokeColor = global::RadioSequencing.Resource.Styleable.Chip_chipStrokeColor;
+			global::LogonScreen.Resource.Styleable.Chip_chipStrokeWidth = global::RadioSequencing.Resource.Styleable.Chip_chipStrokeWidth;
+			global::LogonScreen.Resource.Styleable.Chip_closeIcon = global::RadioSequencing.Resource.Styleable.Chip_closeIcon;
+			global::LogonScreen.Resource.Styleable.Chip_closeIconEnabled = global::RadioSequencing.Resource.Styleable.Chip_closeIconEnabled;
+			global::LogonScreen.Resource.Styleable.Chip_closeIconEndPadding = global::RadioSequencing.Resource.Styleable.Chip_closeIconEndPadding;
+			global::LogonScreen.Resource.Styleable.Chip_closeIconSize = global::RadioSequencing.Resource.Styleable.Chip_closeIconSize;
+			global::LogonScreen.Resource.Styleable.Chip_closeIconStartPadding = global::RadioSequencing.Resource.Styleable.Chip_closeIconStartPadding;
+			global::LogonScreen.Resource.Styleable.Chip_closeIconTint = global::RadioSequencing.Resource.Styleable.Chip_closeIconTint;
+			global::LogonScreen.Resource.Styleable.Chip_closeIconVisible = global::RadioSequencing.Resource.Styleable.Chip_closeIconVisible;
+			global::LogonScreen.Resource.Styleable.Chip_hideMotionSpec = global::RadioSequencing.Resource.Styleable.Chip_hideMotionSpec;
+			global::LogonScreen.Resource.Styleable.Chip_iconEndPadding = global::RadioSequencing.Resource.Styleable.Chip_iconEndPadding;
+			global::LogonScreen.Resource.Styleable.Chip_iconStartPadding = global::RadioSequencing.Resource.Styleable.Chip_iconStartPadding;
+			global::LogonScreen.Resource.Styleable.Chip_rippleColor = global::RadioSequencing.Resource.Styleable.Chip_rippleColor;
+			global::LogonScreen.Resource.Styleable.Chip_showMotionSpec = global::RadioSequencing.Resource.Styleable.Chip_showMotionSpec;
+			global::LogonScreen.Resource.Styleable.Chip_textEndPadding = global::RadioSequencing.Resource.Styleable.Chip_textEndPadding;
+			global::LogonScreen.Resource.Styleable.Chip_textStartPadding = global::RadioSequencing.Resource.Styleable.Chip_textStartPadding;
+			global::LogonScreen.Resource.Styleable.ChipGroup = global::RadioSequencing.Resource.Styleable.ChipGroup;
+			global::LogonScreen.Resource.Styleable.ChipGroup_checkedChip = global::RadioSequencing.Resource.Styleable.ChipGroup_checkedChip;
+			global::LogonScreen.Resource.Styleable.ChipGroup_chipSpacing = global::RadioSequencing.Resource.Styleable.ChipGroup_chipSpacing;
+			global::LogonScreen.Resource.Styleable.ChipGroup_chipSpacingHorizontal = global::RadioSequencing.Resource.Styleable.ChipGroup_chipSpacingHorizontal;
+			global::LogonScreen.Resource.Styleable.ChipGroup_chipSpacingVertical = global::RadioSequencing.Resource.Styleable.ChipGroup_chipSpacingVertical;
+			global::LogonScreen.Resource.Styleable.ChipGroup_singleLine = global::RadioSequencing.Resource.Styleable.ChipGroup_singleLine;
+			global::LogonScreen.Resource.Styleable.ChipGroup_singleSelection = global::RadioSequencing.Resource.Styleable.ChipGroup_singleSelection;
 			global::LogonScreen.Resource.Styleable.CollapsingToolbarLayout = global::RadioSequencing.Resource.Styleable.CollapsingToolbarLayout;
 			global::LogonScreen.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleGravity = global::RadioSequencing.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleGravity;
 			global::LogonScreen.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleTextAppearance = global::RadioSequencing.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleTextAppearance;
@@ -3169,12 +2198,20 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Styleable.FloatingActionButton_backgroundTintMode = global::RadioSequencing.Resource.Styleable.FloatingActionButton_backgroundTintMode;
 			global::LogonScreen.Resource.Styleable.FloatingActionButton_borderWidth = global::RadioSequencing.Resource.Styleable.FloatingActionButton_borderWidth;
 			global::LogonScreen.Resource.Styleable.FloatingActionButton_elevation = global::RadioSequencing.Resource.Styleable.FloatingActionButton_elevation;
+			global::LogonScreen.Resource.Styleable.FloatingActionButton_fabCustomSize = global::RadioSequencing.Resource.Styleable.FloatingActionButton_fabCustomSize;
 			global::LogonScreen.Resource.Styleable.FloatingActionButton_fabSize = global::RadioSequencing.Resource.Styleable.FloatingActionButton_fabSize;
+			global::LogonScreen.Resource.Styleable.FloatingActionButton_hideMotionSpec = global::RadioSequencing.Resource.Styleable.FloatingActionButton_hideMotionSpec;
+			global::LogonScreen.Resource.Styleable.FloatingActionButton_hoveredFocusedTranslationZ = global::RadioSequencing.Resource.Styleable.FloatingActionButton_hoveredFocusedTranslationZ;
+			global::LogonScreen.Resource.Styleable.FloatingActionButton_maxImageSize = global::RadioSequencing.Resource.Styleable.FloatingActionButton_maxImageSize;
 			global::LogonScreen.Resource.Styleable.FloatingActionButton_pressedTranslationZ = global::RadioSequencing.Resource.Styleable.FloatingActionButton_pressedTranslationZ;
 			global::LogonScreen.Resource.Styleable.FloatingActionButton_rippleColor = global::RadioSequencing.Resource.Styleable.FloatingActionButton_rippleColor;
+			global::LogonScreen.Resource.Styleable.FloatingActionButton_showMotionSpec = global::RadioSequencing.Resource.Styleable.FloatingActionButton_showMotionSpec;
 			global::LogonScreen.Resource.Styleable.FloatingActionButton_useCompatPadding = global::RadioSequencing.Resource.Styleable.FloatingActionButton_useCompatPadding;
 			global::LogonScreen.Resource.Styleable.FloatingActionButton_Behavior_Layout = global::RadioSequencing.Resource.Styleable.FloatingActionButton_Behavior_Layout;
 			global::LogonScreen.Resource.Styleable.FloatingActionButton_Behavior_Layout_behavior_autoHide = global::RadioSequencing.Resource.Styleable.FloatingActionButton_Behavior_Layout_behavior_autoHide;
+			global::LogonScreen.Resource.Styleable.FlowLayout = global::RadioSequencing.Resource.Styleable.FlowLayout;
+			global::LogonScreen.Resource.Styleable.FlowLayout_itemSpacing = global::RadioSequencing.Resource.Styleable.FlowLayout_itemSpacing;
+			global::LogonScreen.Resource.Styleable.FlowLayout_lineSpacing = global::RadioSequencing.Resource.Styleable.FlowLayout_lineSpacing;
 			global::LogonScreen.Resource.Styleable.FontFamily = global::RadioSequencing.Resource.Styleable.FontFamily;
 			global::LogonScreen.Resource.Styleable.FontFamily_fontProviderAuthority = global::RadioSequencing.Resource.Styleable.FontFamily_fontProviderAuthority;
 			global::LogonScreen.Resource.Styleable.FontFamily_fontProviderCerts = global::RadioSequencing.Resource.Styleable.FontFamily_fontProviderCerts;
@@ -3185,14 +2222,34 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Styleable.FontFamilyFont = global::RadioSequencing.Resource.Styleable.FontFamilyFont;
 			global::LogonScreen.Resource.Styleable.FontFamilyFont_android_font = global::RadioSequencing.Resource.Styleable.FontFamilyFont_android_font;
 			global::LogonScreen.Resource.Styleable.FontFamilyFont_android_fontStyle = global::RadioSequencing.Resource.Styleable.FontFamilyFont_android_fontStyle;
+			global::LogonScreen.Resource.Styleable.FontFamilyFont_android_fontVariationSettings = global::RadioSequencing.Resource.Styleable.FontFamilyFont_android_fontVariationSettings;
 			global::LogonScreen.Resource.Styleable.FontFamilyFont_android_fontWeight = global::RadioSequencing.Resource.Styleable.FontFamilyFont_android_fontWeight;
+			global::LogonScreen.Resource.Styleable.FontFamilyFont_android_ttcIndex = global::RadioSequencing.Resource.Styleable.FontFamilyFont_android_ttcIndex;
 			global::LogonScreen.Resource.Styleable.FontFamilyFont_font = global::RadioSequencing.Resource.Styleable.FontFamilyFont_font;
 			global::LogonScreen.Resource.Styleable.FontFamilyFont_fontStyle = global::RadioSequencing.Resource.Styleable.FontFamilyFont_fontStyle;
+			global::LogonScreen.Resource.Styleable.FontFamilyFont_fontVariationSettings = global::RadioSequencing.Resource.Styleable.FontFamilyFont_fontVariationSettings;
 			global::LogonScreen.Resource.Styleable.FontFamilyFont_fontWeight = global::RadioSequencing.Resource.Styleable.FontFamilyFont_fontWeight;
+			global::LogonScreen.Resource.Styleable.FontFamilyFont_ttcIndex = global::RadioSequencing.Resource.Styleable.FontFamilyFont_ttcIndex;
 			global::LogonScreen.Resource.Styleable.ForegroundLinearLayout = global::RadioSequencing.Resource.Styleable.ForegroundLinearLayout;
 			global::LogonScreen.Resource.Styleable.ForegroundLinearLayout_android_foreground = global::RadioSequencing.Resource.Styleable.ForegroundLinearLayout_android_foreground;
 			global::LogonScreen.Resource.Styleable.ForegroundLinearLayout_android_foregroundGravity = global::RadioSequencing.Resource.Styleable.ForegroundLinearLayout_android_foregroundGravity;
 			global::LogonScreen.Resource.Styleable.ForegroundLinearLayout_foregroundInsidePadding = global::RadioSequencing.Resource.Styleable.ForegroundLinearLayout_foregroundInsidePadding;
+			global::LogonScreen.Resource.Styleable.GradientColor = global::RadioSequencing.Resource.Styleable.GradientColor;
+			global::LogonScreen.Resource.Styleable.GradientColor_android_centerColor = global::RadioSequencing.Resource.Styleable.GradientColor_android_centerColor;
+			global::LogonScreen.Resource.Styleable.GradientColor_android_centerX = global::RadioSequencing.Resource.Styleable.GradientColor_android_centerX;
+			global::LogonScreen.Resource.Styleable.GradientColor_android_centerY = global::RadioSequencing.Resource.Styleable.GradientColor_android_centerY;
+			global::LogonScreen.Resource.Styleable.GradientColor_android_endColor = global::RadioSequencing.Resource.Styleable.GradientColor_android_endColor;
+			global::LogonScreen.Resource.Styleable.GradientColor_android_endX = global::RadioSequencing.Resource.Styleable.GradientColor_android_endX;
+			global::LogonScreen.Resource.Styleable.GradientColor_android_endY = global::RadioSequencing.Resource.Styleable.GradientColor_android_endY;
+			global::LogonScreen.Resource.Styleable.GradientColor_android_gradientRadius = global::RadioSequencing.Resource.Styleable.GradientColor_android_gradientRadius;
+			global::LogonScreen.Resource.Styleable.GradientColor_android_startColor = global::RadioSequencing.Resource.Styleable.GradientColor_android_startColor;
+			global::LogonScreen.Resource.Styleable.GradientColor_android_startX = global::RadioSequencing.Resource.Styleable.GradientColor_android_startX;
+			global::LogonScreen.Resource.Styleable.GradientColor_android_startY = global::RadioSequencing.Resource.Styleable.GradientColor_android_startY;
+			global::LogonScreen.Resource.Styleable.GradientColor_android_tileMode = global::RadioSequencing.Resource.Styleable.GradientColor_android_tileMode;
+			global::LogonScreen.Resource.Styleable.GradientColor_android_type = global::RadioSequencing.Resource.Styleable.GradientColor_android_type;
+			global::LogonScreen.Resource.Styleable.GradientColorItem = global::RadioSequencing.Resource.Styleable.GradientColorItem;
+			global::LogonScreen.Resource.Styleable.GradientColorItem_android_color = global::RadioSequencing.Resource.Styleable.GradientColorItem_android_color;
+			global::LogonScreen.Resource.Styleable.GradientColorItem_android_offset = global::RadioSequencing.Resource.Styleable.GradientColorItem_android_offset;
 			global::LogonScreen.Resource.Styleable.LinearLayoutCompat = global::RadioSequencing.Resource.Styleable.LinearLayoutCompat;
 			global::LogonScreen.Resource.Styleable.LinearLayoutCompat_android_baselineAligned = global::RadioSequencing.Resource.Styleable.LinearLayoutCompat_android_baselineAligned;
 			global::LogonScreen.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex = global::RadioSequencing.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex;
@@ -3211,6 +2268,59 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Styleable.ListPopupWindow = global::RadioSequencing.Resource.Styleable.ListPopupWindow;
 			global::LogonScreen.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset = global::RadioSequencing.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset;
 			global::LogonScreen.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset = global::RadioSequencing.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset;
+			global::LogonScreen.Resource.Styleable.MaterialButton = global::RadioSequencing.Resource.Styleable.MaterialButton;
+			global::LogonScreen.Resource.Styleable.MaterialButton_android_insetBottom = global::RadioSequencing.Resource.Styleable.MaterialButton_android_insetBottom;
+			global::LogonScreen.Resource.Styleable.MaterialButton_android_insetLeft = global::RadioSequencing.Resource.Styleable.MaterialButton_android_insetLeft;
+			global::LogonScreen.Resource.Styleable.MaterialButton_android_insetRight = global::RadioSequencing.Resource.Styleable.MaterialButton_android_insetRight;
+			global::LogonScreen.Resource.Styleable.MaterialButton_android_insetTop = global::RadioSequencing.Resource.Styleable.MaterialButton_android_insetTop;
+			global::LogonScreen.Resource.Styleable.MaterialButton_backgroundTint = global::RadioSequencing.Resource.Styleable.MaterialButton_backgroundTint;
+			global::LogonScreen.Resource.Styleable.MaterialButton_backgroundTintMode = global::RadioSequencing.Resource.Styleable.MaterialButton_backgroundTintMode;
+			global::LogonScreen.Resource.Styleable.MaterialButton_cornerRadius = global::RadioSequencing.Resource.Styleable.MaterialButton_cornerRadius;
+			global::LogonScreen.Resource.Styleable.MaterialButton_icon = global::RadioSequencing.Resource.Styleable.MaterialButton_icon;
+			global::LogonScreen.Resource.Styleable.MaterialButton_iconGravity = global::RadioSequencing.Resource.Styleable.MaterialButton_iconGravity;
+			global::LogonScreen.Resource.Styleable.MaterialButton_iconPadding = global::RadioSequencing.Resource.Styleable.MaterialButton_iconPadding;
+			global::LogonScreen.Resource.Styleable.MaterialButton_iconSize = global::RadioSequencing.Resource.Styleable.MaterialButton_iconSize;
+			global::LogonScreen.Resource.Styleable.MaterialButton_iconTint = global::RadioSequencing.Resource.Styleable.MaterialButton_iconTint;
+			global::LogonScreen.Resource.Styleable.MaterialButton_iconTintMode = global::RadioSequencing.Resource.Styleable.MaterialButton_iconTintMode;
+			global::LogonScreen.Resource.Styleable.MaterialButton_rippleColor = global::RadioSequencing.Resource.Styleable.MaterialButton_rippleColor;
+			global::LogonScreen.Resource.Styleable.MaterialButton_strokeColor = global::RadioSequencing.Resource.Styleable.MaterialButton_strokeColor;
+			global::LogonScreen.Resource.Styleable.MaterialButton_strokeWidth = global::RadioSequencing.Resource.Styleable.MaterialButton_strokeWidth;
+			global::LogonScreen.Resource.Styleable.MaterialCardView = global::RadioSequencing.Resource.Styleable.MaterialCardView;
+			global::LogonScreen.Resource.Styleable.MaterialCardView_strokeColor = global::RadioSequencing.Resource.Styleable.MaterialCardView_strokeColor;
+			global::LogonScreen.Resource.Styleable.MaterialCardView_strokeWidth = global::RadioSequencing.Resource.Styleable.MaterialCardView_strokeWidth;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_bottomSheetDialogTheme = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_bottomSheetDialogTheme;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_bottomSheetStyle = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_bottomSheetStyle;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_chipGroupStyle = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_chipGroupStyle;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_chipStandaloneStyle = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_chipStandaloneStyle;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_chipStyle = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_chipStyle;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_colorAccent = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_colorAccent;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_colorBackgroundFloating = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_colorBackgroundFloating;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_colorPrimary = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_colorPrimary;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_colorPrimaryDark = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_colorPrimaryDark;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_colorSecondary = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_colorSecondary;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_editTextStyle = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_editTextStyle;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_floatingActionButtonStyle = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_floatingActionButtonStyle;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_materialButtonStyle = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_materialButtonStyle;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_materialCardViewStyle = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_materialCardViewStyle;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_navigationViewStyle = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_navigationViewStyle;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_scrimBackground = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_scrimBackground;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_snackbarButtonStyle = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_snackbarButtonStyle;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_tabStyle = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_tabStyle;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_textAppearanceBody1 = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_textAppearanceBody1;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_textAppearanceBody2 = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_textAppearanceBody2;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_textAppearanceButton = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_textAppearanceButton;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_textAppearanceCaption = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_textAppearanceCaption;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline1 = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline1;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline2 = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline2;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline3 = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline3;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline4 = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline4;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline5 = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline5;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline6 = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline6;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_textAppearanceOverline = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_textAppearanceOverline;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_textAppearanceSubtitle1 = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_textAppearanceSubtitle1;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_textAppearanceSubtitle2 = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_textAppearanceSubtitle2;
+			global::LogonScreen.Resource.Styleable.MaterialComponentsTheme_textInputStyle = global::RadioSequencing.Resource.Styleable.MaterialComponentsTheme_textInputStyle;
 			global::LogonScreen.Resource.Styleable.MenuGroup = global::RadioSequencing.Resource.Styleable.MenuGroup;
 			global::LogonScreen.Resource.Styleable.MenuGroup_android_checkableBehavior = global::RadioSequencing.Resource.Styleable.MenuGroup_android_checkableBehavior;
 			global::LogonScreen.Resource.Styleable.MenuGroup_android_enabled = global::RadioSequencing.Resource.Styleable.MenuGroup_android_enabled;
@@ -3259,6 +2369,8 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Styleable.NavigationView_elevation = global::RadioSequencing.Resource.Styleable.NavigationView_elevation;
 			global::LogonScreen.Resource.Styleable.NavigationView_headerLayout = global::RadioSequencing.Resource.Styleable.NavigationView_headerLayout;
 			global::LogonScreen.Resource.Styleable.NavigationView_itemBackground = global::RadioSequencing.Resource.Styleable.NavigationView_itemBackground;
+			global::LogonScreen.Resource.Styleable.NavigationView_itemHorizontalPadding = global::RadioSequencing.Resource.Styleable.NavigationView_itemHorizontalPadding;
+			global::LogonScreen.Resource.Styleable.NavigationView_itemIconPadding = global::RadioSequencing.Resource.Styleable.NavigationView_itemIconPadding;
 			global::LogonScreen.Resource.Styleable.NavigationView_itemIconTint = global::RadioSequencing.Resource.Styleable.NavigationView_itemIconTint;
 			global::LogonScreen.Resource.Styleable.NavigationView_itemTextAppearance = global::RadioSequencing.Resource.Styleable.NavigationView_itemTextAppearance;
 			global::LogonScreen.Resource.Styleable.NavigationView_itemTextColor = global::RadioSequencing.Resource.Styleable.NavigationView_itemTextColor;
@@ -3306,6 +2418,9 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Styleable.SearchView_submitBackground = global::RadioSequencing.Resource.Styleable.SearchView_submitBackground;
 			global::LogonScreen.Resource.Styleable.SearchView_suggestionRowLayout = global::RadioSequencing.Resource.Styleable.SearchView_suggestionRowLayout;
 			global::LogonScreen.Resource.Styleable.SearchView_voiceIcon = global::RadioSequencing.Resource.Styleable.SearchView_voiceIcon;
+			global::LogonScreen.Resource.Styleable.Snackbar = global::RadioSequencing.Resource.Styleable.Snackbar;
+			global::LogonScreen.Resource.Styleable.Snackbar_snackbarButtonStyle = global::RadioSequencing.Resource.Styleable.Snackbar_snackbarButtonStyle;
+			global::LogonScreen.Resource.Styleable.Snackbar_snackbarStyle = global::RadioSequencing.Resource.Styleable.Snackbar_snackbarStyle;
 			global::LogonScreen.Resource.Styleable.SnackbarLayout = global::RadioSequencing.Resource.Styleable.SnackbarLayout;
 			global::LogonScreen.Resource.Styleable.SnackbarLayout_android_maxWidth = global::RadioSequencing.Resource.Styleable.SnackbarLayout_android_maxWidth;
 			global::LogonScreen.Resource.Styleable.SnackbarLayout_elevation = global::RadioSequencing.Resource.Styleable.SnackbarLayout_elevation;
@@ -3316,6 +2431,15 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Styleable.Spinner_android_popupBackground = global::RadioSequencing.Resource.Styleable.Spinner_android_popupBackground;
 			global::LogonScreen.Resource.Styleable.Spinner_android_prompt = global::RadioSequencing.Resource.Styleable.Spinner_android_prompt;
 			global::LogonScreen.Resource.Styleable.Spinner_popupTheme = global::RadioSequencing.Resource.Styleable.Spinner_popupTheme;
+			global::LogonScreen.Resource.Styleable.StateListDrawable = global::RadioSequencing.Resource.Styleable.StateListDrawable;
+			global::LogonScreen.Resource.Styleable.StateListDrawable_android_constantSize = global::RadioSequencing.Resource.Styleable.StateListDrawable_android_constantSize;
+			global::LogonScreen.Resource.Styleable.StateListDrawable_android_dither = global::RadioSequencing.Resource.Styleable.StateListDrawable_android_dither;
+			global::LogonScreen.Resource.Styleable.StateListDrawable_android_enterFadeDuration = global::RadioSequencing.Resource.Styleable.StateListDrawable_android_enterFadeDuration;
+			global::LogonScreen.Resource.Styleable.StateListDrawable_android_exitFadeDuration = global::RadioSequencing.Resource.Styleable.StateListDrawable_android_exitFadeDuration;
+			global::LogonScreen.Resource.Styleable.StateListDrawable_android_variablePadding = global::RadioSequencing.Resource.Styleable.StateListDrawable_android_variablePadding;
+			global::LogonScreen.Resource.Styleable.StateListDrawable_android_visible = global::RadioSequencing.Resource.Styleable.StateListDrawable_android_visible;
+			global::LogonScreen.Resource.Styleable.StateListDrawableItem = global::RadioSequencing.Resource.Styleable.StateListDrawableItem;
+			global::LogonScreen.Resource.Styleable.StateListDrawableItem_android_drawable = global::RadioSequencing.Resource.Styleable.StateListDrawableItem_android_drawable;
 			global::LogonScreen.Resource.Styleable.SwitchCompat = global::RadioSequencing.Resource.Styleable.SwitchCompat;
 			global::LogonScreen.Resource.Styleable.SwitchCompat_android_textOff = global::RadioSequencing.Resource.Styleable.SwitchCompat_android_textOff;
 			global::LogonScreen.Resource.Styleable.SwitchCompat_android_textOn = global::RadioSequencing.Resource.Styleable.SwitchCompat_android_textOn;
@@ -3339,8 +2463,15 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Styleable.TabLayout_tabBackground = global::RadioSequencing.Resource.Styleable.TabLayout_tabBackground;
 			global::LogonScreen.Resource.Styleable.TabLayout_tabContentStart = global::RadioSequencing.Resource.Styleable.TabLayout_tabContentStart;
 			global::LogonScreen.Resource.Styleable.TabLayout_tabGravity = global::RadioSequencing.Resource.Styleable.TabLayout_tabGravity;
+			global::LogonScreen.Resource.Styleable.TabLayout_tabIconTint = global::RadioSequencing.Resource.Styleable.TabLayout_tabIconTint;
+			global::LogonScreen.Resource.Styleable.TabLayout_tabIconTintMode = global::RadioSequencing.Resource.Styleable.TabLayout_tabIconTintMode;
+			global::LogonScreen.Resource.Styleable.TabLayout_tabIndicator = global::RadioSequencing.Resource.Styleable.TabLayout_tabIndicator;
+			global::LogonScreen.Resource.Styleable.TabLayout_tabIndicatorAnimationDuration = global::RadioSequencing.Resource.Styleable.TabLayout_tabIndicatorAnimationDuration;
 			global::LogonScreen.Resource.Styleable.TabLayout_tabIndicatorColor = global::RadioSequencing.Resource.Styleable.TabLayout_tabIndicatorColor;
+			global::LogonScreen.Resource.Styleable.TabLayout_tabIndicatorFullWidth = global::RadioSequencing.Resource.Styleable.TabLayout_tabIndicatorFullWidth;
+			global::LogonScreen.Resource.Styleable.TabLayout_tabIndicatorGravity = global::RadioSequencing.Resource.Styleable.TabLayout_tabIndicatorGravity;
 			global::LogonScreen.Resource.Styleable.TabLayout_tabIndicatorHeight = global::RadioSequencing.Resource.Styleable.TabLayout_tabIndicatorHeight;
+			global::LogonScreen.Resource.Styleable.TabLayout_tabInlineLabel = global::RadioSequencing.Resource.Styleable.TabLayout_tabInlineLabel;
 			global::LogonScreen.Resource.Styleable.TabLayout_tabMaxWidth = global::RadioSequencing.Resource.Styleable.TabLayout_tabMaxWidth;
 			global::LogonScreen.Resource.Styleable.TabLayout_tabMinWidth = global::RadioSequencing.Resource.Styleable.TabLayout_tabMinWidth;
 			global::LogonScreen.Resource.Styleable.TabLayout_tabMode = global::RadioSequencing.Resource.Styleable.TabLayout_tabMode;
@@ -3349,9 +2480,11 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Styleable.TabLayout_tabPaddingEnd = global::RadioSequencing.Resource.Styleable.TabLayout_tabPaddingEnd;
 			global::LogonScreen.Resource.Styleable.TabLayout_tabPaddingStart = global::RadioSequencing.Resource.Styleable.TabLayout_tabPaddingStart;
 			global::LogonScreen.Resource.Styleable.TabLayout_tabPaddingTop = global::RadioSequencing.Resource.Styleable.TabLayout_tabPaddingTop;
+			global::LogonScreen.Resource.Styleable.TabLayout_tabRippleColor = global::RadioSequencing.Resource.Styleable.TabLayout_tabRippleColor;
 			global::LogonScreen.Resource.Styleable.TabLayout_tabSelectedTextColor = global::RadioSequencing.Resource.Styleable.TabLayout_tabSelectedTextColor;
 			global::LogonScreen.Resource.Styleable.TabLayout_tabTextAppearance = global::RadioSequencing.Resource.Styleable.TabLayout_tabTextAppearance;
 			global::LogonScreen.Resource.Styleable.TabLayout_tabTextColor = global::RadioSequencing.Resource.Styleable.TabLayout_tabTextColor;
+			global::LogonScreen.Resource.Styleable.TabLayout_tabUnboundedRipple = global::RadioSequencing.Resource.Styleable.TabLayout_tabUnboundedRipple;
 			global::LogonScreen.Resource.Styleable.TextAppearance = global::RadioSequencing.Resource.Styleable.TextAppearance;
 			global::LogonScreen.Resource.Styleable.TextAppearance_android_fontFamily = global::RadioSequencing.Resource.Styleable.TextAppearance_android_fontFamily;
 			global::LogonScreen.Resource.Styleable.TextAppearance_android_shadowColor = global::RadioSequencing.Resource.Styleable.TextAppearance_android_shadowColor;
@@ -3369,12 +2502,24 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Styleable.TextInputLayout = global::RadioSequencing.Resource.Styleable.TextInputLayout;
 			global::LogonScreen.Resource.Styleable.TextInputLayout_android_hint = global::RadioSequencing.Resource.Styleable.TextInputLayout_android_hint;
 			global::LogonScreen.Resource.Styleable.TextInputLayout_android_textColorHint = global::RadioSequencing.Resource.Styleable.TextInputLayout_android_textColorHint;
+			global::LogonScreen.Resource.Styleable.TextInputLayout_boxBackgroundColor = global::RadioSequencing.Resource.Styleable.TextInputLayout_boxBackgroundColor;
+			global::LogonScreen.Resource.Styleable.TextInputLayout_boxBackgroundMode = global::RadioSequencing.Resource.Styleable.TextInputLayout_boxBackgroundMode;
+			global::LogonScreen.Resource.Styleable.TextInputLayout_boxCollapsedPaddingTop = global::RadioSequencing.Resource.Styleable.TextInputLayout_boxCollapsedPaddingTop;
+			global::LogonScreen.Resource.Styleable.TextInputLayout_boxCornerRadiusBottomEnd = global::RadioSequencing.Resource.Styleable.TextInputLayout_boxCornerRadiusBottomEnd;
+			global::LogonScreen.Resource.Styleable.TextInputLayout_boxCornerRadiusBottomStart = global::RadioSequencing.Resource.Styleable.TextInputLayout_boxCornerRadiusBottomStart;
+			global::LogonScreen.Resource.Styleable.TextInputLayout_boxCornerRadiusTopEnd = global::RadioSequencing.Resource.Styleable.TextInputLayout_boxCornerRadiusTopEnd;
+			global::LogonScreen.Resource.Styleable.TextInputLayout_boxCornerRadiusTopStart = global::RadioSequencing.Resource.Styleable.TextInputLayout_boxCornerRadiusTopStart;
+			global::LogonScreen.Resource.Styleable.TextInputLayout_boxStrokeColor = global::RadioSequencing.Resource.Styleable.TextInputLayout_boxStrokeColor;
+			global::LogonScreen.Resource.Styleable.TextInputLayout_boxStrokeWidth = global::RadioSequencing.Resource.Styleable.TextInputLayout_boxStrokeWidth;
 			global::LogonScreen.Resource.Styleable.TextInputLayout_counterEnabled = global::RadioSequencing.Resource.Styleable.TextInputLayout_counterEnabled;
 			global::LogonScreen.Resource.Styleable.TextInputLayout_counterMaxLength = global::RadioSequencing.Resource.Styleable.TextInputLayout_counterMaxLength;
 			global::LogonScreen.Resource.Styleable.TextInputLayout_counterOverflowTextAppearance = global::RadioSequencing.Resource.Styleable.TextInputLayout_counterOverflowTextAppearance;
 			global::LogonScreen.Resource.Styleable.TextInputLayout_counterTextAppearance = global::RadioSequencing.Resource.Styleable.TextInputLayout_counterTextAppearance;
 			global::LogonScreen.Resource.Styleable.TextInputLayout_errorEnabled = global::RadioSequencing.Resource.Styleable.TextInputLayout_errorEnabled;
 			global::LogonScreen.Resource.Styleable.TextInputLayout_errorTextAppearance = global::RadioSequencing.Resource.Styleable.TextInputLayout_errorTextAppearance;
+			global::LogonScreen.Resource.Styleable.TextInputLayout_helperText = global::RadioSequencing.Resource.Styleable.TextInputLayout_helperText;
+			global::LogonScreen.Resource.Styleable.TextInputLayout_helperTextEnabled = global::RadioSequencing.Resource.Styleable.TextInputLayout_helperTextEnabled;
+			global::LogonScreen.Resource.Styleable.TextInputLayout_helperTextTextAppearance = global::RadioSequencing.Resource.Styleable.TextInputLayout_helperTextTextAppearance;
 			global::LogonScreen.Resource.Styleable.TextInputLayout_hintAnimationEnabled = global::RadioSequencing.Resource.Styleable.TextInputLayout_hintAnimationEnabled;
 			global::LogonScreen.Resource.Styleable.TextInputLayout_hintEnabled = global::RadioSequencing.Resource.Styleable.TextInputLayout_hintEnabled;
 			global::LogonScreen.Resource.Styleable.TextInputLayout_hintTextAppearance = global::RadioSequencing.Resource.Styleable.TextInputLayout_hintTextAppearance;
@@ -3383,6 +2528,10 @@ namespace RadioSequencing
 			global::LogonScreen.Resource.Styleable.TextInputLayout_passwordToggleEnabled = global::RadioSequencing.Resource.Styleable.TextInputLayout_passwordToggleEnabled;
 			global::LogonScreen.Resource.Styleable.TextInputLayout_passwordToggleTint = global::RadioSequencing.Resource.Styleable.TextInputLayout_passwordToggleTint;
 			global::LogonScreen.Resource.Styleable.TextInputLayout_passwordToggleTintMode = global::RadioSequencing.Resource.Styleable.TextInputLayout_passwordToggleTintMode;
+			global::LogonScreen.Resource.Styleable.ThemeEnforcement = global::RadioSequencing.Resource.Styleable.ThemeEnforcement;
+			global::LogonScreen.Resource.Styleable.ThemeEnforcement_android_textAppearance = global::RadioSequencing.Resource.Styleable.ThemeEnforcement_android_textAppearance;
+			global::LogonScreen.Resource.Styleable.ThemeEnforcement_enforceMaterialTheme = global::RadioSequencing.Resource.Styleable.ThemeEnforcement_enforceMaterialTheme;
+			global::LogonScreen.Resource.Styleable.ThemeEnforcement_enforceTextAppearance = global::RadioSequencing.Resource.Styleable.ThemeEnforcement_enforceTextAppearance;
 			global::LogonScreen.Resource.Styleable.Toolbar = global::RadioSequencing.Resource.Styleable.Toolbar;
 			global::LogonScreen.Resource.Styleable.Toolbar_android_gravity = global::RadioSequencing.Resource.Styleable.Toolbar_android_gravity;
 			global::LogonScreen.Resource.Styleable.Toolbar_android_minHeight = global::RadioSequencing.Resource.Styleable.Toolbar_android_minHeight;
@@ -3436,8 +2585,6 @@ namespace RadioSequencing
 			global::Scanner.Resource.Raw.Tejat = global::RadioSequencing.Resource.Raw.Tejat;
 			global::Scanner.Resource.String.ApplicationName = global::RadioSequencing.Resource.String.ApplicationName;
 			global::Scanner.Resource.String.Hello = global::RadioSequencing.Resource.String.Hello;
-			global::Scanner.Resource.String.app_name = global::RadioSequencing.Resource.String.app_name;
-			global::Scanner.Resource.String.hello = global::RadioSequencing.Resource.String.hello;
 			global::Xamarin.Essentials.Resource.Attribute.alpha = global::RadioSequencing.Resource.Attribute.alpha;
 			global::Xamarin.Essentials.Resource.Attribute.coordinatorLayoutStyle = global::RadioSequencing.Resource.Attribute.coordinatorLayoutStyle;
 			global::Xamarin.Essentials.Resource.Attribute.font = global::RadioSequencing.Resource.Attribute.font;
@@ -6767,119 +5914,119 @@ namespace RadioSequencing
 			// aapt resource value: 0x7f0b0039
 			public const int ALT = 2131427385;
 			
-			// aapt resource value: 0x7f0b0118
-			public const int Anio1 = 2131427608;
-			
-			// aapt resource value: 0x7f0b011c
-			public const int Anio2 = 2131427612;
-			
-			// aapt resource value: 0x7f0b0120
-			public const int Anio3 = 2131427616;
+			// aapt resource value: 0x7f0b0122
+			public const int Anio1 = 2131427618;
 			
 			// aapt resource value: 0x7f0b0126
-			public const int Anio4 = 2131427622;
-			
-			// aapt resource value: 0x7f0b0124
-			public const int Bronce3 = 2131427620;
+			public const int Anio2 = 2131427622;
 			
 			// aapt resource value: 0x7f0b012a
-			public const int Bronce4 = 2131427626;
+			public const int Anio3 = 2131427626;
 			
-			// aapt resource value: 0x7f0b0131
-			public const int BronceTotal = 2131427633;
+			// aapt resource value: 0x7f0b0130
+			public const int Anio4 = 2131427632;
+			
+			// aapt resource value: 0x7f0b012e
+			public const int Bronce3 = 2131427630;
+			
+			// aapt resource value: 0x7f0b0134
+			public const int Bronce4 = 2131427636;
+			
+			// aapt resource value: 0x7f0b013b
+			public const int BronceTotal = 2131427643;
 			
 			// aapt resource value: 0x7f0b003a
 			public const int CTRL = 2131427386;
 			
-			// aapt resource value: 0x7f0b010f
-			public const int Cabecera = 2131427599;
-			
-			// aapt resource value: 0x7f0b0110
-			public const int ColumnaAnio = 2131427600;
-			
-			// aapt resource value: 0x7f0b0114
-			public const int ColumnaBronce = 2131427604;
-			
-			// aapt resource value: 0x7f0b0111
-			public const int ColumnaCiudad = 2131427601;
-			
-			// aapt resource value: 0x7f0b0112
-			public const int ColumnaOro = 2131427602;
-			
-			// aapt resource value: 0x7f0b0113
-			public const int ColumnaPlata = 2131427603;
-			
 			// aapt resource value: 0x7f0b0119
-			public const int Cuidad1 = 2131427609;
+			public const int Cabecera = 2131427609;
+			
+			// aapt resource value: 0x7f0b011a
+			public const int ColumnaAnio = 2131427610;
+			
+			// aapt resource value: 0x7f0b011e
+			public const int ColumnaBronce = 2131427614;
+			
+			// aapt resource value: 0x7f0b011b
+			public const int ColumnaCiudad = 2131427611;
+			
+			// aapt resource value: 0x7f0b011c
+			public const int ColumnaOro = 2131427612;
 			
 			// aapt resource value: 0x7f0b011d
-			public const int Cuidad2 = 2131427613;
+			public const int ColumnaPlata = 2131427613;
 			
-			// aapt resource value: 0x7f0b0121
-			public const int Cuidad3 = 2131427617;
+			// aapt resource value: 0x7f0b0123
+			public const int Cuidad1 = 2131427619;
 			
 			// aapt resource value: 0x7f0b0127
-			public const int Cuidad4 = 2131427623;
+			public const int Cuidad2 = 2131427623;
 			
-			// aapt resource value: 0x7f0b00ff
-			public const int DebugFragment = 2131427583;
+			// aapt resource value: 0x7f0b012b
+			public const int Cuidad3 = 2131427627;
+			
+			// aapt resource value: 0x7f0b0131
+			public const int Cuidad4 = 2131427633;
+			
+			// aapt resource value: 0x7f0b0109
+			public const int DebugFragment = 2131427593;
 			
 			// aapt resource value: 0x7f0b003b
 			public const int FUNCTION = 2131427387;
 			
-			// aapt resource value: 0x7f0b0117
-			public const int Fila1 = 2131427607;
-			
-			// aapt resource value: 0x7f0b011b
-			public const int Fila2 = 2131427611;
-			
-			// aapt resource value: 0x7f0b011f
-			public const int Fila3 = 2131427615;
+			// aapt resource value: 0x7f0b0121
+			public const int Fila1 = 2131427617;
 			
 			// aapt resource value: 0x7f0b0125
-			public const int Fila4 = 2131427621;
+			public const int Fila2 = 2131427621;
+			
+			// aapt resource value: 0x7f0b0129
+			public const int Fila3 = 2131427625;
+			
+			// aapt resource value: 0x7f0b012f
+			public const int Fila4 = 2131427631;
+			
+			// aapt resource value: 0x7f0b0108
+			public const int InfoFragment = 2131427592;
+			
+			// aapt resource value: 0x7f0b0120
+			public const int LineaCabecera = 2131427616;
+			
+			// aapt resource value: 0x7f0b0136
+			public const int LineaTotales = 2131427638;
 			
 			// aapt resource value: 0x7f0b00fe
-			public const int InfoFragment = 2131427582;
-			
-			// aapt resource value: 0x7f0b0116
-			public const int LineaCabecera = 2131427606;
-			
-			// aapt resource value: 0x7f0b012c
-			public const int LineaTotales = 2131427628;
-			
-			// aapt resource value: 0x7f0b00f5
-			public const int LogonScreen = 2131427573;
+			public const int LogonScreen = 2131427582;
 			
 			// aapt resource value: 0x7f0b003c
 			public const int META = 2131427388;
 			
-			// aapt resource value: 0x7f0b011a
-			public const int Oro1 = 2131427610;
+			// aapt resource value: 0x7f0b0124
+			public const int Oro1 = 2131427620;
 			
-			// aapt resource value: 0x7f0b0122
-			public const int Oro3 = 2131427618;
+			// aapt resource value: 0x7f0b012c
+			public const int Oro3 = 2131427628;
+			
+			// aapt resource value: 0x7f0b0132
+			public const int Oro4 = 2131427634;
+			
+			// aapt resource value: 0x7f0b0139
+			public const int OroTotal = 2131427641;
+			
+			// aapt resource value: 0x7f0b0101
+			public const int Password = 2131427585;
 			
 			// aapt resource value: 0x7f0b0128
-			public const int Oro4 = 2131427624;
+			public const int Plata2 = 2131427624;
 			
-			// aapt resource value: 0x7f0b012f
-			public const int OroTotal = 2131427631;
+			// aapt resource value: 0x7f0b012d
+			public const int Plata3 = 2131427629;
 			
-			// aapt resource value: 0x7f0b00f8
-			public const int Password = 2131427576;
+			// aapt resource value: 0x7f0b0133
+			public const int Plata4 = 2131427635;
 			
-			// aapt resource value: 0x7f0b011e
-			public const int Plata2 = 2131427614;
-			
-			// aapt resource value: 0x7f0b0123
-			public const int Plata3 = 2131427619;
-			
-			// aapt resource value: 0x7f0b0129
-			public const int Plata4 = 2131427625;
-			
-			// aapt resource value: 0x7f0b0130
-			public const int PlataTotal = 2131427632;
+			// aapt resource value: 0x7f0b013a
+			public const int PlataTotal = 2131427642;
 			
 			// aapt resource value: 0x7f0b00b9
 			public const int Row0 = 2131427513;
@@ -6926,26 +6073,26 @@ namespace RadioSequencing
 			// aapt resource value: 0x7f0b003e
 			public const int SYM = 2131427390;
 			
-			// aapt resource value: 0x7f0b0115
-			public const int SeparadorCabecera = 2131427605;
+			// aapt resource value: 0x7f0b011f
+			public const int SeparadorCabecera = 2131427615;
 			
-			// aapt resource value: 0x7f0b012b
-			public const int SeparadorTotales = 2131427627;
+			// aapt resource value: 0x7f0b0135
+			public const int SeparadorTotales = 2131427637;
 			
-			// aapt resource value: 0x7f0b0100
-			public const int StatusFragment = 2131427584;
+			// aapt resource value: 0x7f0b010a
+			public const int StatusFragment = 2131427594;
 			
 			// aapt resource value: 0x7f0b00b5
 			public const int Tabla = 2131427509;
 			
-			// aapt resource value: 0x7f0b012e
-			public const int TextoTotal = 2131427630;
+			// aapt resource value: 0x7f0b0138
+			public const int TextoTotal = 2131427640;
 			
-			// aapt resource value: 0x7f0b012d
-			public const int Totales = 2131427629;
+			// aapt resource value: 0x7f0b0137
+			public const int Totales = 2131427639;
 			
-			// aapt resource value: 0x7f0b00f7
-			public const int User = 2131427575;
+			// aapt resource value: 0x7f0b0100
+			public const int User = 2131427584;
 			
 			// aapt resource value: 0x7f0b008d
 			public const int action_bar = 2131427469;
@@ -6968,17 +6115,17 @@ namespace RadioSequencing
 			// aapt resource value: 0x7f0b0069
 			public const int action_bar_title = 2131427433;
 			
-			// aapt resource value: 0x7f0b0101
-			public const int action_container = 2131427585;
+			// aapt resource value: 0x7f0b010b
+			public const int action_container = 2131427595;
 			
 			// aapt resource value: 0x7f0b008e
 			public const int action_context_bar = 2131427470;
 			
-			// aapt resource value: 0x7f0b010c
-			public const int action_divider = 2131427596;
+			// aapt resource value: 0x7f0b0116
+			public const int action_divider = 2131427606;
 			
-			// aapt resource value: 0x7f0b0102
-			public const int action_image = 2131427586;
+			// aapt resource value: 0x7f0b010c
+			public const int action_image = 2131427596;
 			
 			// aapt resource value: 0x7f0b0003
 			public const int action_menu_divider = 2131427331;
@@ -6995,11 +6142,11 @@ namespace RadioSequencing
 			// aapt resource value: 0x7f0b006b
 			public const int action_mode_close_button = 2131427435;
 			
-			// aapt resource value: 0x7f0b0103
-			public const int action_text = 2131427587;
-			
 			// aapt resource value: 0x7f0b010d
-			public const int actions = 2131427597;
+			public const int action_text = 2131427597;
+			
+			// aapt resource value: 0x7f0b0117
+			public const int actions = 2131427607;
 			
 			// aapt resource value: 0x7f0b006c
 			public const int activity_chooser_view_content = 2131427436;
@@ -7021,6 +6168,9 @@ namespace RadioSequencing
 			
 			// aapt resource value: 0x7f0b004d
 			public const int auto = 2131427405;
+			
+			// aapt resource value: 0x7f0b00fc
+			public const int batch = 2131427580;
 			
 			// aapt resource value: 0x7f0b0036
 			public const int beginning = 2131427382;
@@ -7205,11 +6355,8 @@ namespace RadioSequencing
 			// aapt resource value: 0x7f0b0086
 			public const int checkbox = 2131427462;
 			
-			// aapt resource value: 0x7f0b0134
-			public const int checkingsInfo = 2131427636;
-			
-			// aapt resource value: 0x7f0b010b
-			public const int chronometer = 2131427595;
+			// aapt resource value: 0x7f0b0115
+			public const int chronometer = 2131427605;
 			
 			// aapt resource value: 0x7f0b0061
 			public const int clip_horizontal = 2131427425;
@@ -7241,8 +6388,8 @@ namespace RadioSequencing
 			// aapt resource value: 0x7f0b00ae
 			public const int data = 2131427502;
 			
-			// aapt resource value: 0x7f0b00fd
-			public const int dataInputFragment = 2131427581;
+			// aapt resource value: 0x7f0b0106
+			public const int dataInputFragment = 2131427590;
 			
 			// aapt resource value: 0x7f0b008b
 			public const int decor_content_parent = 2131427467;
@@ -7307,14 +6454,50 @@ namespace RadioSequencing
 			// aapt resource value: 0x7f0b0067
 			public const int forever = 2131427431;
 			
+			// aapt resource value: 0x7f0b0140
+			public const int g01 = 2131427648;
+			
+			// aapt resource value: 0x7f0b0141
+			public const int g02 = 2131427649;
+			
+			// aapt resource value: 0x7f0b0142
+			public const int g03 = 2131427650;
+			
+			// aapt resource value: 0x7f0b0143
+			public const int g04 = 2131427651;
+			
+			// aapt resource value: 0x7f0b0144
+			public const int g05 = 2131427652;
+			
+			// aapt resource value: 0x7f0b0145
+			public const int g06 = 2131427653;
+			
+			// aapt resource value: 0x7f0b0146
+			public const int g07 = 2131427654;
+			
+			// aapt resource value: 0x7f0b0147
+			public const int g08 = 2131427655;
+			
+			// aapt resource value: 0x7f0b0148
+			public const int g09 = 2131427656;
+			
+			// aapt resource value: 0x7f0b0149
+			public const int g10 = 2131427657;
+			
+			// aapt resource value: 0x7f0b014a
+			public const int g11 = 2131427658;
+			
+			// aapt resource value: 0x7f0b014b
+			public const int g12 = 2131427659;
+			
 			// aapt resource value: 0x7f0b000a
 			public const int ghost_view = 2131427338;
 			
 			// aapt resource value: 0x7f0b0081
 			public const int group_divider = 2131427457;
 			
-			// aapt resource value: 0x7f0b00fc
-			public const int headerFragment = 2131427580;
+			// aapt resource value: 0x7f0b0105
+			public const int headerFragment = 2131427589;
 			
 			// aapt resource value: 0x7f0b0005
 			public const int home = 2131427333;
@@ -7325,8 +6508,8 @@ namespace RadioSequencing
 			// aapt resource value: 0x7f0b0071
 			public const int icon = 2131427441;
 			
-			// aapt resource value: 0x7f0b010e
-			public const int icon_group = 2131427598;
+			// aapt resource value: 0x7f0b0118
+			public const int icon_group = 2131427608;
 			
 			// aapt resource value: 0x7f0b0041
 			public const int ifRoom = 2131427393;
@@ -7334,8 +6517,8 @@ namespace RadioSequencing
 			// aapt resource value: 0x7f0b006e
 			public const int image = 2131427438;
 			
-			// aapt resource value: 0x7f0b0107
-			public const int info = 2131427591;
+			// aapt resource value: 0x7f0b0111
+			public const int info = 2131427601;
 			
 			// aapt resource value: 0x7f0b0068
 			public const int italic = 2131427432;
@@ -7358,14 +6541,23 @@ namespace RadioSequencing
 			// aapt resource value: 0x7f0b001d
 			public const int line3 = 2131427357;
 			
+			// aapt resource value: 0x7f0b00f5
+			public const int linearLayout1 = 2131427573;
+			
+			// aapt resource value: 0x7f0b00f6
+			public const int linearLayout2 = 2131427574;
+			
+			// aapt resource value: 0x7f0b00fa
+			public const int linearLayout3 = 2131427578;
+			
 			// aapt resource value: 0x7f0b00b8
 			public const int linedown = 2131427512;
 			
 			// aapt resource value: 0x7f0b00b6
 			public const int lineup = 2131427510;
 			
-			// aapt resource value: 0x7f0b0132
-			public const int list = 2131427634;
+			// aapt resource value: 0x7f0b013c
+			public const int list = 2131427644;
 			
 			// aapt resource value: 0x7f0b0024
 			public const int listMode = 2131427364;
@@ -7373,14 +6565,14 @@ namespace RadioSequencing
 			// aapt resource value: 0x7f0b0070
 			public const int list_item = 2131427440;
 			
-			// aapt resource value: 0x7f0b0135
-			public const int locationInfo = 2131427637;
+			// aapt resource value: 0x7f0b013e
+			public const int locationInfo = 2131427646;
 			
-			// aapt resource value: 0x7f0b0139
-			public const int mainMenu = 2131427641;
+			// aapt resource value: 0x7f0b014e
+			public const int mainMenu = 2131427662;
 			
-			// aapt resource value: 0x7f0b0138
-			public const int masked = 2131427640;
+			// aapt resource value: 0x7f0b014d
+			public const int masked = 2131427661;
 			
 			// aapt resource value: 0x7f0b009c
 			public const int message = 2131427484;
@@ -7391,23 +6583,23 @@ namespace RadioSequencing
 			// aapt resource value: 0x7f0b0059
 			public const int mini = 2131427417;
 			
-			// aapt resource value: 0x7f0b013d
-			public const int mnuclose = 2131427645;
+			// aapt resource value: 0x7f0b0152
+			public const int mnuclose = 2131427666;
 			
-			// aapt resource value: 0x7f0b013c
-			public const int mnuloads = 2131427644;
+			// aapt resource value: 0x7f0b0151
+			public const int mnuloads = 2131427665;
 			
-			// aapt resource value: 0x7f0b013a
-			public const int mnumain = 2131427642;
+			// aapt resource value: 0x7f0b014f
+			public const int mnumain = 2131427663;
 			
-			// aapt resource value: 0x7f0b013b
-			public const int mnurepair = 2131427643;
+			// aapt resource value: 0x7f0b0150
+			public const int mnurepair = 2131427664;
 			
-			// aapt resource value: 0x7f0b00f6
-			public const int msgPkgInfo = 2131427574;
+			// aapt resource value: 0x7f0b00ff
+			public const int msgPkgInfo = 2131427583;
 			
-			// aapt resource value: 0x7f0b00f9
-			public const int msgText = 2131427577;
+			// aapt resource value: 0x7f0b0102
+			public const int msgText = 2131427586;
 			
 			// aapt resource value: 0x7f0b0014
 			public const int mtrl_child_content_container = 2131427348;
@@ -7430,14 +6622,14 @@ namespace RadioSequencing
 			// aapt resource value: 0x7f0b0025
 			public const int normal = 2131427365;
 			
-			// aapt resource value: 0x7f0b0109
-			public const int notification_background = 2131427593;
+			// aapt resource value: 0x7f0b0113
+			public const int notification_background = 2131427603;
 			
-			// aapt resource value: 0x7f0b0105
-			public const int notification_main_column = 2131427589;
+			// aapt resource value: 0x7f0b010f
+			public const int notification_main_column = 2131427599;
 			
-			// aapt resource value: 0x7f0b0104
-			public const int notification_main_column_container = 2131427588;
+			// aapt resource value: 0x7f0b010e
+			public const int notification_main_column_container = 2131427598;
 			
 			// aapt resource value: 0x7f0b00af
 			public const int orderNumber = 2131427503;
@@ -7454,14 +6646,17 @@ namespace RadioSequencing
 			// aapt resource value: 0x7f0b000b
 			public const int parent_matrix = 2131427339;
 			
+			// aapt resource value: 0x7f0b00fb
+			public const int partnumber = 2131427579;
+			
 			// aapt resource value: 0x7f0b0058
 			public const int pin = 2131427416;
 			
-			// aapt resource value: 0x7f0b00fb
-			public const int progress = 2131427579;
+			// aapt resource value: 0x7f0b0104
+			public const int progress = 2131427588;
 			
-			// aapt resource value: 0x7f0b00fa
-			public const int progressBarHolder = 2131427578;
+			// aapt resource value: 0x7f0b0103
+			public const int progressBarHolder = 2131427587;
 			
 			// aapt resource value: 0x7f0b0006
 			public const int progress_circular = 2131427334;
@@ -7469,20 +6664,23 @@ namespace RadioSequencing
 			// aapt resource value: 0x7f0b0007
 			public const int progress_horizontal = 2131427335;
 			
+			// aapt resource value: 0x7f0b00fd
+			public const int qty = 2131427581;
+			
 			// aapt resource value: 0x7f0b0087
 			public const int radio = 2131427463;
 			
-			// aapt resource value: 0x7f0b0133
-			public const int readingsInfo = 2131427635;
+			// aapt resource value: 0x7f0b013d
+			public const int readingsInfo = 2131427645;
 			
 			// aapt resource value: 0x7f0b0055
 			public const int right = 2131427413;
 			
-			// aapt resource value: 0x7f0b0108
-			public const int right_icon = 2131427592;
+			// aapt resource value: 0x7f0b0112
+			public const int right_icon = 2131427602;
 			
-			// aapt resource value: 0x7f0b0106
-			public const int right_side = 2131427590;
+			// aapt resource value: 0x7f0b0110
+			public const int right_side = 2131427600;
 			
 			// aapt resource value: 0x7f0b000c
 			public const int save_image_matrix = 2131427340;
@@ -7547,6 +6745,9 @@ namespace RadioSequencing
 			// aapt resource value: 0x7f0b004f
 			public const int selected = 2131427407;
 			
+			// aapt resource value: 0x7f0b00f8
+			public const int seqnr = 2131427576;
+			
 			// aapt resource value: 0x7f0b0083
 			public const int shortcut = 2131427459;
 			
@@ -7574,8 +6775,8 @@ namespace RadioSequencing
 			// aapt resource value: 0x7f0b004b
 			public const int snapMargins = 2131427403;
 			
-			// aapt resource value: 0x7f0b0136
-			public const int socksProgress = 2131427638;
+			// aapt resource value: 0x7f0b013f
+			public const int socksProgress = 2131427647;
 			
 			// aapt resource value: 0x7f0b0073
 			public const int spacer = 2131427443;
@@ -7658,8 +6859,8 @@ namespace RadioSequencing
 			// aapt resource value: 0x7f0b001a
 			public const int textinput_helper_text = 2131427354;
 			
-			// aapt resource value: 0x7f0b010a
-			public const int time = 2131427594;
+			// aapt resource value: 0x7f0b0114
+			public const int time = 2131427604;
 			
 			// aapt resource value: 0x7f0b0023
 			public const int title = 2131427363;
@@ -7694,6 +6895,12 @@ namespace RadioSequencing
 			// aapt resource value: 0x7f0b0013
 			public const int transition_transform = 2131427347;
 			
+			// aapt resource value: 0x7f0b00f7
+			public const int trolley = 2131427575;
+			
+			// aapt resource value: 0x7f0b0107
+			public const int trolleyFragment = 2131427591;
+			
 			// aapt resource value: 0x7f0b0034
 			public const int uniform = 2131427380;
 			
@@ -7709,8 +6916,11 @@ namespace RadioSequencing
 			// aapt resource value: 0x7f0b001b
 			public const int view_offset_helper = 2131427355;
 			
-			// aapt resource value: 0x7f0b0137
-			public const int visible = 2131427639;
+			// aapt resource value: 0x7f0b00f9
+			public const int vin = 2131427577;
+			
+			// aapt resource value: 0x7f0b014c
+			public const int visible = 2131427660;
 			
 			// aapt resource value: 0x7f0b0043
 			public const int withText = 2131427395;
@@ -7962,55 +7172,61 @@ namespace RadioSequencing
 			public const int infoFt = 2130968624;
 			
 			// aapt resource value: 0x7f040031
-			public const int LogonScreen = 2130968625;
+			public const int infoSeqFt = 2130968625;
 			
 			// aapt resource value: 0x7f040032
-			public const int mainLayout = 2130968626;
+			public const int LogonScreen = 2130968626;
 			
 			// aapt resource value: 0x7f040033
-			public const int mtrl_layout_snackbar = 2130968627;
+			public const int mainLayout = 2130968627;
 			
 			// aapt resource value: 0x7f040034
-			public const int mtrl_layout_snackbar_include = 2130968628;
+			public const int mtrl_layout_snackbar = 2130968628;
 			
 			// aapt resource value: 0x7f040035
-			public const int notification_action = 2130968629;
+			public const int mtrl_layout_snackbar_include = 2130968629;
 			
 			// aapt resource value: 0x7f040036
-			public const int notification_action_tombstone = 2130968630;
+			public const int notification_action = 2130968630;
 			
 			// aapt resource value: 0x7f040037
-			public const int notification_template_custom_big = 2130968631;
+			public const int notification_action_tombstone = 2130968631;
 			
 			// aapt resource value: 0x7f040038
-			public const int notification_template_icon_group = 2130968632;
+			public const int notification_template_custom_big = 2130968632;
 			
 			// aapt resource value: 0x7f040039
-			public const int notification_template_part_chronometer = 2130968633;
+			public const int notification_template_icon_group = 2130968633;
 			
 			// aapt resource value: 0x7f04003a
-			public const int notification_template_part_time = 2130968634;
+			public const int notification_template_part_chronometer = 2130968634;
 			
 			// aapt resource value: 0x7f04003b
-			public const int sampleTableLayout = 2130968635;
+			public const int notification_template_part_time = 2130968635;
 			
 			// aapt resource value: 0x7f04003c
-			public const int select_dialog_item_material = 2130968636;
+			public const int sampleTableLayout = 2130968636;
 			
 			// aapt resource value: 0x7f04003d
-			public const int select_dialog_multichoice_material = 2130968637;
+			public const int select_dialog_item_material = 2130968637;
 			
 			// aapt resource value: 0x7f04003e
-			public const int select_dialog_singlechoice_material = 2130968638;
+			public const int select_dialog_multichoice_material = 2130968638;
 			
 			// aapt resource value: 0x7f04003f
-			public const int SimpleList = 2130968639;
+			public const int select_dialog_singlechoice_material = 2130968639;
 			
 			// aapt resource value: 0x7f040040
-			public const int statusFragment = 2130968640;
+			public const int SimpleList = 2130968640;
 			
 			// aapt resource value: 0x7f040041
-			public const int support_simple_spinner_dropdown_item = 2130968641;
+			public const int statusFragment = 2130968641;
+			
+			// aapt resource value: 0x7f040042
+			public const int support_simple_spinner_dropdown_item = 2130968642;
+			
+			// aapt resource value: 0x7f040043
+			public const int trolleyFt = 2130968643;
 			
 			static Layout()
 			{

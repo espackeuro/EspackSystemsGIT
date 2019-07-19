@@ -29,6 +29,7 @@ namespace NetworkDetection
                 return _state;
             }
         }
+
         public void UpdateNetworkStatus()
         {
             if (context==null)

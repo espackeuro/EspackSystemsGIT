@@ -32,25 +32,30 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
+    <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
-    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+    <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
     <AotAssemblies>false</AotAssemblies>
     <EnableLLVM>false</EnableLLVM>
     <BundleAssemblies>false</BundleAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
-    <DebugType>portable</DebugType>
-    <Optimize>True</Optimize>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
-    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
-    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <BundleAssemblies>false</BundleAssemblies>
+    <AndroidSupportedAbis>armeabi-v7a;x86_64;arm64-v8a</AndroidSupportedAbis>
+    <MandroidI18n>West</MandroidI18n>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -67,8 +72,10 @@
     <Compile Include="2.1 -headerFragment.cs" />
     <Compile Include="2.2 -orderFragment.cs" />
     <Compile Include="2.2.1 -EnterDataFragment.cs" />
+    <Compile Include="2.3.1 -infoFragmentSequence.cs" />
     <Compile Include="2.3 -infoFragment.cs" />
     <Compile Include="2.4 -statusFragment.cs" />
+    <Compile Include="2.5 - trolleyFragment.cs" />
     <Compile Include="DataTransferManager.cs" />
     <Compile Include="LocatorService.cs" />
     <Compile Include="Readings Classes\cData.cs" />
@@ -413,7 +420,7 @@
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\infoFt.axml">
+    <AndroidResource Include="Resources\layout\infoSeqFt.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -434,6 +441,13 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\menu\mainMenu.xml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\trolleyFt.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\infoFt.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -459,13 +473,13 @@
       <Project>{c7587a97-8d82-4a8b-a472-89198666fd22}</Project>
       <Name>NetworkDetection</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\BitmapHelpers\CommonAndroidTools.csproj">
+      <Project>{FE45781B-38CB-44F0-9DE7-08E15E0C53BD}</Project>
+      <Name>CommonAndroidTools</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\DataWedge\Scanner.csproj">
       <Project>{6d6d5061-87e6-42ce-aed2-a631b5a25979}</Project>
       <Name>Scanner</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CommonAndroidTools\CommonAndroidTools.csproj">
-      <Project>{2515369e-2ec4-4459-b58e-8b6b6b1d619b}</Project>
-      <Name>CommonAndroidTools</Name>
     </ProjectReference>
     <ProjectReference Include="..\LogonScreen\LogonScreen.csproj">
       <Project>{8e78daf8-0422-4883-94f9-b4ae14dd9360}</Project>

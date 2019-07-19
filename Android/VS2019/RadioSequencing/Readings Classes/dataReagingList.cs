@@ -26,9 +26,10 @@ namespace RadioSequencing
         {
             return GetEnumerator();
         }
-        public void Add(cData d)
+        public async Task Add(cData d)
         {
             dataList.Add(d);
+            await d.ToDB();
         }
 
         public bool Processing { get; set; } = false;

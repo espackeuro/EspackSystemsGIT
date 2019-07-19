@@ -110,7 +110,7 @@ namespace Simplistica
         {
             if (e.ColumnIndex == VS.Columns["Partnumber"].Index)
             {
-                if (VS[e.ColumnIndex, e.RowIndex].Value.ToString()!="")
+                if (VS[e.ColumnIndex, e.RowIndex].Value?.ToString()!="")
                 {
                     using (var _rs = new StaticRS(string.Format("Select Descripcion from Referencias where partnumber='{0}' and Servicio='{1}'", VS[e.ColumnIndex, e.RowIndex].Value, cboServicio.Value), Values.gDatos))
                     {

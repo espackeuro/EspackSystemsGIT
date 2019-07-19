@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +29,8 @@ namespace RadioSequencing
         public static int SequenceIndex { get; set; } = 1;
         public static ReadingStatusEnum Status { get; set; } = ReadingStatusEnum.TROLL;
         public static DataReading CurrentData { get; set; } = new DataReading();
+        public static string CurrentTrolley { get; set; }
+        public static string CurrentGap { get; set; }
         public static void Next()
         {
             switch (Status)
@@ -74,32 +76,60 @@ namespace RadioSequencing
                 }
             }
         }
-        public static void AddData(string text)
+        public async static Task AddData(string text)
         {
-            if (text == "xxx") //reset reading
+            if (text == "007") //reset reading
             {
                 CurrentData = new DataReading();
                 Status = ReadingStatusEnum.TROLL;
             }
-            var ticketPattern = @"(.*)(?:\ *|%)(\d\d\d\d)(?:\ *|%)(.*)";
+            //ticket
+            var ticketPattern = @"(.*)(?:\ +|%)(\d\d\d\d)(?:\ +|%)(.*)";
             var ticketMatch = Regex.Match(text, ticketPattern);
             if (ticketMatch.Success) //ticket
             {
                 if (Status != ReadingStatusEnum.TICKET)
                     throw new Exception($"Wrong data, expecting {Status.ToString()}");
-                CurrentData.VINNr = ticketMatch.Groups[1].ToString().Replace("%","");
-                CurrentData.SequenceNumber = ticketMatch.Groups[2].ToString().Replace("%", "");
-                CurrentData.PartnumberSeqLabel = ticketMatch.Groups[3].ToString().Replace("%", "");
-                iFt.pushInfo("Ticket", CurrentData.VINNr, CurrentData.SequenceNumber, CurrentData.PartnumberSeqLabel);
+                var ticketVINNr = ticketMatch.Groups[1].ToString().Replace("%", "");
+                var ticketSequenceNumber = ticketMatch.Groups[2].ToString().Replace("%", "");
+                var ticketPartnumberSeqLabel = ticketMatch.Groups[3].ToString().Replace("%", "");
+                //check if already read
+                if (await SQLidb.db.Table<ScannedData>().Where(o => o.VINNr == ticketVINNr && o.SequenceNumber==ticketSequenceNumber && o.PartnumberSeqLabel==ticketPartnumberSeqLabel).CountAsync() != 0)
+                    throw new Exception($"Wrong ticket, already scanned.");
+                CurrentData.VINNr = ticketVINNr;
+                CurrentData.SequenceNumber = ticketSequenceNumber;
+                CurrentData.PartnumberSeqLabel = ticketPartnumberSeqLabel;
+                iFt.InfoSeqNr.Text = $"SeqNr: { CurrentData.SequenceNumber}";
+                iFt.InfoVIN.Text = $"VIN: { CurrentData.VINNr}";
+                iFt.InfoPartnumber.Text = $"Partnumber: { CurrentData.PartnumberSeqLabel}";
                 return;
             }
-            var trollPattern = "T..-..";
-            if (Regex.Match(text,trollPattern).Success) //troll
+            //trolley
+            var trollPattern = "(T..)-(..)";
+            var trollMatch = Regex.Match(text, trollPattern);
+            if (trollMatch.Success) //troll
             {
                 if (Status != ReadingStatusEnum.TROLL)
                     throw new Exception($"Wrong data, expecting {Status.ToString()}");
+                if (CurrentTrolley == null)
+                {
+                    CurrentTrolley = trollMatch.Groups[1].ToString();
+                    hFt.t3.Text = $"Trolley: {CurrentTrolley}";
+                    hFt.t4.Text = $"Gap: {CurrentGap}";
+                }
+                else if (CurrentTrolley!= trollMatch.Groups[1].ToString())
+                {
+                    throw new Exception($"Wrong trolley, expecting {CurrentTrolley}");
+                }
+                CurrentGap = $"g{trollMatch.Groups[2].ToString()}";
+                if (await SQLidb.db.Table<ScannedData>().Where(o =>o.TrollLocation==text).CountAsync() != 0)
+                //if (Values.DataReadingList.OfType<ScannedData>().Where(o => o.TrollLocation==text).Count() != 0)
+                    throw new Exception($"Wrong trolley, already scanned.");
                 CurrentData.TrollLocation = text;
-                iFt.pushInfo("Trolley", text);
+
+                iFt.Clear();
+                iFt.InfoTrolley.Text = $"Trolley: {text}";
+                tFt.SetStatus(CurrentGap, GapStatus.FILLING);
                 return;
             }
             if (text.IsNumeric()) //QTY
@@ -107,6 +137,8 @@ namespace RadioSequencing
                 if (Status != ReadingStatusEnum.QTY)
                     throw new Exception($"Wrong data, expecting {Status.ToString()}");
                 CurrentData.Qty = text.ToInt();
+                iFt.InfoQTY.Text = "Qty: "+ text;
+                return;
             }
             //partnumber
             if (Status == ReadingStatusEnum.PARTNUMBER)
@@ -123,7 +155,8 @@ namespace RadioSequencing
                 }
                 CurrentData.PartnumberLabel = partnumber;
                 CurrentData.Batch = batch;
-                iFt.pushInfo("Part:", partnumber, batch);
+                iFt.InfoPartnumber.Text = $"Partnumber: {partnumber}✓";
+                iFt.InfoBatch.Text = $"Batch: {batch}";
                 return;
             }
             throw new Exception($"'{text}' wrong data, expecting {Status.ToString()}");
@@ -164,32 +197,50 @@ namespace RadioSequencing
             //var _query = await Values.SQLidb.db.QueryAsync<QueryResult>("Select 'test', 10 ");//Rack, count(*) from ScannedData group by Rack order by idreg desc limit 3");
 
 
-            Values.iFt.SetMessage(ReadingStatus.MessageStatus);
+            iFt.SetMessage(ReadingStatus.MessageStatus);
+            hFt.Clear();
+            tFt.Clear();
+            var oldElements = Values.SQLidb.db.Table<ScannedData>().ToListAsync().Result;
+            oldElements.ForEach(o =>
+            {
+                DataReading data = new DataReading() { SequenceNumber = o.SequenceNumber, VINNr = o.VINNr, PartnumberSeqLabel = o.PartnumberSeqLabel, PartnumberLabel = o.PartnumberLabel, Batch = o.Batch, TrollLocation = o.TrollLocation, Qty = o.Qty };
+                tFt.FillData($"g{o.TrollLocation.Substring(4, 2)}", data);
+                hFt.t3.Text = $"Trolley: {o.TrollLocation.Substring(0, 3)}";
+
+            });
             return _root;
         }
 
 
-        private void Scanner_AfterReceive(object sender, ReceiveEventArgs e)
+        private async void Scanner_AfterReceive(object sender, ReceiveEventArgs e)
         {
             if (Values.DataReadingList.Processing)
                 return;
             ((FragmentActivity)sender).RunOnUiThread(() =>
             {
+                cSounds.Scan(Activity);
                 ElData.Enabled = false;
                 ElData.Tag = "SCAN";
             });
             Values.DataReadingList.Context = (FragmentActivity)sender;
             DataTransferManager.Active = false;
+            await Process(e.ReceivedData);
+        }
+
+        public async Task Process(string data)
+        {
             try
             {
-                ReadingStatus.AddData(e.ReceivedData);
+                await ReadingStatus.AddData(data);
                 if (ReadingStatus.Status == ReadingStatusEnum.QTY)
                 {
-                    Values.DataReadingList.Add(ReadingStatus.CurrentData);
+                    cSounds.Correct(Activity);
+                    await Values.DataReadingList.Add(ReadingStatus.CurrentData);
+                    tFt.FillData(ReadingStatus.CurrentGap, ReadingStatus.CurrentData);
                 }
                 Values.DataReadingList.Processing = false;
                 DataTransferManager.Active = true;
-                ((FragmentActivity)sender).RunOnUiThread(() =>
+                Activity.RunOnUiThread(() =>
                 {
                     ElData.Enabled = true;
                     ElData.Text = "";
@@ -199,7 +250,7 @@ namespace RadioSequencing
                 Values.iFt.SetMessage(ReadingStatus.MessageStatus);
                 if (ReadingStatus.Status == ReadingStatusEnum.FINISHED)
                 {
-                    ((FragmentActivity)sender).RunOnUiThread(async () =>
+                    Activity.RunOnUiThread(async () =>
                     {
                         await Values.DataReadingList.Add(Values.CloseCode);
                     });
@@ -210,7 +261,7 @@ namespace RadioSequencing
             {
                 Values.DataReadingList.Processing = false;
                 DataTransferManager.Active = true;
-                ((FragmentActivity)sender).RunOnUiThread(() =>
+                Activity.RunOnUiThread(() =>
                 {
                     cSounds.Error(Activity);
                     Toast.MakeText(Activity, "Error reading scan." + ex.Message, ToastLength.Long).Show();
@@ -219,15 +270,8 @@ namespace RadioSequencing
                 });
             }
         }
-
         
     
-
-        private void RadioReading_CheckedChange(object sender, CompoundButton.CheckedChangeEventArgs e)
-        {
-            Values.WorkMode = e.IsChecked ? WorkModes.READING : WorkModes.CHECKING;
-            ElData.RequestFocus();
-        }
 
         public override void OnDestroyView()
         {
@@ -268,13 +312,9 @@ namespace RadioSequencing
                         return;
                     }
                     ElData.Enabled = false;
-
-                    Values.DataReadingList.Context = Activity;
-                    await Values.DataReadingList.Add(ElData.Text);
-                    ElData.Text = "";
-                    ElData.ClearFocus();
-                    ElData.Enabled = true;
                     sScanner.IsBusy = false;
+                    Values.DataReadingList.Context = Activity;
+                    await Process(ElData.Text);
                     e.Handled = true;
                 }
                 else

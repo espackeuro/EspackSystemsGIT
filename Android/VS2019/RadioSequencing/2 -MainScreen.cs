@@ -29,7 +29,9 @@ namespace RadioSequencing
     [Activity(Label = "Radio LOGISTICA sequencing", WindowSoftInputMode = SoftInput.AdjustPan)]
     public class MainScreen : AppCompatActivity
     {
-       
+        private string _mainScreenMode;
+
+
         protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -37,28 +39,32 @@ namespace RadioSequencing
             // Create your application here
 
 
-            string _mainScreenMode = Intent.GetStringExtra("MainScreenMode");
+            _mainScreenMode = Intent.GetStringExtra("MainScreenMode");
 
 
             var ft = SupportFragmentManager.BeginTransaction();
 
-            Values.iFt = new infoFragment(8);
+            Values.iFt = new infoFragmentSequence();
             ft.Replace(Resource.Id.InfoFragment, Values.iFt);
 
             Values.hFt = new headerFragment();
             ft.Replace(Resource.Id.headerFragment, Values.hFt);
             //ft.Commit();
 
-            var edFt = new EnterDataFragment();
-            ft.Replace(Resource.Id.dataInputFragment, edFt);
-
             Values.dFt = new infoFragment(5);
             ft.Replace(Resource.Id.DebugFragment, Values.dFt);
+
+            Values.tFt = new trolleyFragment();
+            ft.Replace(Resource.Id.trolleyFragment, Values.tFt);
 
             Values.sFt = new statusFragment();
             ft.Replace(Resource.Id.StatusFragment, Values.sFt);
             ft.Commit();
 
+            ft = SupportFragmentManager.BeginTransaction();
+            var edFt = new EnterDataFragment();
+            ft.Replace(Resource.Id.dataInputFragment, edFt);
+            ft.Commit();
             //Values.dtm = new DataTransferManager();
             //start the transmission service
             //await ActionGo();
@@ -66,11 +72,14 @@ namespace RadioSequencing
 
             try
             {
-                await ActionGo();
+                if (Values.Session == null)
+                    await ActionGo();
             } catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+
+
 
 
             EspackCommServer.Server.PropertyChanged += ConnectionServer_PropertyChanged;
@@ -153,6 +162,7 @@ namespace RadioSequencing
             Session = _sp.LastMsg.Substring(3);
             //hFt.t2.Text = string.Format("Session: {0}", Values.Session);
             //get if service should have gps control
+            /*
             using (var rs = new XMLRS($"Select GEO=dbo.CheckFlag(flags,'GEO'), COD3 from {Values.System}..Servicios WHERE Codigo='{CustomerService}'", Values.gDatos))
             {
                 await rs.OpenAsync();
@@ -192,9 +202,10 @@ namespace RadioSequencing
                 }
 
                 Values.gDatos.DataBase = "LOGISTICA";
-
+                
+        
             }
-
+            */
             //update database data
             //await Values.sFt.ChangeProgressVisibility(true);
             var _settings = new Settings { User = Values.gDatos.User, Password = gDatos.Password, Session = Session, Service = CustomerService, COD3 = COD3 };

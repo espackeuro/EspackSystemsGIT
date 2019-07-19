@@ -16,7 +16,7 @@
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -78,8 +78,8 @@
       <Project>{D02927AD-1FA5-4A61-9A49-942574AB9FA9}</Project>
       <Name>ObjectFactory</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CommonAndroidTools\CommonAndroidTools.csproj">
-      <Project>{2515369E-2EC4-4459-B58E-8B6B6B1D619B}</Project>
+    <ProjectReference Include="..\..\BitmapHelpers\CommonAndroidTools.csproj">
+      <Project>{FE45781B-38CB-44F0-9DE7-08E15E0C53BD}</Project>
       <Name>CommonAndroidTools</Name>
     </ProjectReference>
   </ItemGroup>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+    
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/g01"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_width="0px"
+            android:gravity="center"
+            android:text="-"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/g02"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_width="0px"
+            android:gravity="center"
+            android:text="-"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/g03"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_width="0px"
+            android:gravity="center"
+            android:text="-"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/g04"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_width="0px"
+            android:gravity="center"
+            android:text="-"
+            android:textSize="16sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/g05"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_width="0px"
+            android:gravity="center"
+            android:text="-"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/g06"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_width="0px"
+            android:gravity="center"
+            android:text="-"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/g07"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_width="0px"
+            android:gravity="center"
+            android:text="-"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/g08"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_width="0px"
+            android:gravity="center"
+            android:text="-"
+            android:textSize="16sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/g09"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_width="0px"
+            android:gravity="center"
+            android:text="-"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/g10"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_width="0px"
+            android:gravity="center"
+            android:text="-"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/g11"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_width="0px"
+            android:gravity="center"
+            android:text="-"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/g12"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_width="0px"
+            android:gravity="center"
+            android:text="-"
+            android:textSize="16sp" />
+    </LinearLayout>
+</LinearLayout>

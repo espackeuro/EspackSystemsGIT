@@ -23,7 +23,7 @@ namespace RadioSequencing
     public class DataTransferManager : Service
     {
         private cAccesoDatosXML ServiceConnection = new cAccesoDatosXML(Values.gDatos) { DataBase="PROCESOS" };
-        public NetworkStatusMonitor monitor { get; set; }
+        public NetworkStatusMonitor Monitor { get; set; }
         //public Context Context { get; set; }
         public bool Transmitting { get; private set; } = false;
         //public DataTransferManager(Context _context)
@@ -36,7 +36,7 @@ namespace RadioSequencing
         public static bool Active { get; set; } = false;
         private async void Monitor_NetworkStatusChanged(object sender, EventArgs e)
         {
-            if (monitor.State != NetworkState.ConnectedData && monitor.State != NetworkState.ConnectedWifi)
+            if (Monitor.State != NetworkState.ConnectedData && Monitor.State != NetworkState.ConnectedWifi)
             {
                 await Values.sFt.commProgressStatus(ProgressStatusEnum.DISCONNECTED);
             } else
@@ -76,7 +76,7 @@ namespace RadioSequencing
                         //Values.dFt.Clear();
                         //q.ForEach(async z => await Values.dFt.pushInfo(z.Action, z.LabelRack+z.Serial, z.Partnumber, z.Qty.ToString()));
                         //Thread.Sleep(500);
-                        if (monitor.State == NetworkState.ConnectedData || monitor.State == NetworkState.ConnectedWifi)
+                        if (Monitor.State == NetworkState.ConnectedData || Monitor.State == NetworkState.ConnectedWifi)
                         {
                             //Values.sFt.socksProgress.Visibility = ViewStates.Visible;
                             
@@ -150,7 +150,7 @@ namespace RadioSequencing
                         //Values.dFt.Clear();
                         //q.ForEach(async z => await Values.dFt.pushInfo(z.Action, z.LabelRack+z.Serial, z.Partnumber, z.Qty.ToString()));
                         //Thread.Sleep(500);
-                        if (monitor.State == NetworkState.ConnectedData || monitor.State == NetworkState.ConnectedWifi)
+                        if (Monitor.State == NetworkState.ConnectedData || Monitor.State == NetworkState.ConnectedWifi)
                         {
                             //Values.sFt.socksProgress.Visibility = ViewStates.Visible;
                             //ServiceConnection.DataBase = "PROCESOS";
@@ -220,9 +220,9 @@ namespace RadioSequencing
         }
         public override StartCommandResult OnStartCommand(Intent intent, StartCommandFlags flags, int startId)
         {
-            monitor = new NetworkStatusMonitor(this);
-            monitor.NetworkStatusChanged += Monitor_NetworkStatusChanged;
-            monitor.Start();
+            Monitor = new NetworkStatusMonitor(this);
+            Monitor.NetworkStatusChanged += Monitor_NetworkStatusChanged;
+            Monitor.Start();
             new Task(async () => await DoWork()).Start();
             return StartCommandResult.Sticky;
         }

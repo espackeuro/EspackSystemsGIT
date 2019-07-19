@@ -35,7 +35,7 @@ namespace RadioSequencing
             get => _session;
             set
             {
-                if (hFt.t2?.Text != null)
+                if (hFt?.t2?.Text != null)
                     hFt.t2.Text = $"Session: {value}";
                 _session = value;
             }
@@ -54,10 +54,11 @@ namespace RadioSequencing
         //    });
         //}
         public static headerFragment hFt { get; set; }
-        public static infoFragment iFt { get; set; }
+        public static infoFragmentSequence iFt { get; set; }
         public static infoFragment dFt { get; set; }
         public static statusFragment sFt { get; set; }
-        public static DataTransferManager dtm { get; set; }
+        public static trolleyFragment tFt { get; set; }
+       // public static DataTransferManager dtm { get; set; }
         public static LocatorService ls { get; set; }
         public static Intent elIntent { get; set; }
         public static SQLiteDatabase SQLidb { get; set; }
@@ -108,7 +109,7 @@ namespace RadioSequencing
             dtDateTime = dtDateTime.AddSeconds(Math.Round(time / 1000D)).ToLocalTime();
             zf.Close();
             Values.Version = string.Format("{0}.{1}", Values.Version, dtDateTime.ToString("yyyyMMdd.Hmmss"));
-#if DEBUG
+
             var intent = new Intent(this, typeof(LogonScreenClass));
             intent.SetAction(Intent.ActionMain);
             intent.AddCategory(Intent.CategoryLauncher);
@@ -116,18 +117,6 @@ namespace RadioSequencing
             intent.PutExtra("Version", Values.Version);
             intent.PutExtra("PackageName", "Radio Sequencing");
             StartActivityForResult(intent, 0);
-            Values.WorkMode = WorkModes.READING;
-#else
-            Values.gDatos.DataBase = "SEQUENCING";
-            Values.gDatos.Server = "net.espackeuro.com";
-            Values.gDatos.User = "SA";
-            Values.gDatos.Password = "5380";
-            string _mainScreenMode = "NEW";
-            Values.SQLidb = new SQLiteDatabase("SEQUENCING");
-            var intent = new Intent(this, typeof(MainScreen));
-            intent.PutExtra("MainScreenMode", _mainScreenMode);
-            StartActivityForResult(intent, 1);
-#endif
         }
         protected override async void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {

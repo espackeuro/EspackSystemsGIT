@@ -50,14 +50,15 @@
             // toolStrip
             // 
             this.toolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnReceived,
             this.btnLabelCMs,
             this.toolStripSeparator1,
             this.btnACheck});
-            this.toolStrip.Location = new System.Drawing.Point(327, 17);
+            this.toolStrip.Location = new System.Drawing.Point(436, 21);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(199, 25);
+            this.toolStrip.Size = new System.Drawing.Size(241, 27);
             this.toolStrip.TabIndex = 30;
             this.toolStrip.Text = "toolStrip1";
             // 
@@ -67,7 +68,7 @@
             this.btnReceived.Image = ((System.Drawing.Image)(resources.GetObject("btnReceived.Image")));
             this.btnReceived.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnReceived.Name = "btnReceived";
-            this.btnReceived.Size = new System.Drawing.Size(58, 22);
+            this.btnReceived.Size = new System.Drawing.Size(73, 24);
             this.btnReceived.Text = "Received";
             this.btnReceived.Click += new System.EventHandler(this.btnReceived_Click);
             // 
@@ -77,14 +78,14 @@
             this.btnLabelCMs.Image = ((System.Drawing.Image)(resources.GetObject("btnLabelCMs.Image")));
             this.btnLabelCMs.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnLabelCMs.Name = "btnLabelCMs";
-            this.btnLabelCMs.Size = new System.Drawing.Size(66, 22);
+            this.btnLabelCMs.Size = new System.Drawing.Size(81, 24);
             this.btnLabelCMs.Text = "Label CMs";
             this.btnLabelCMs.Click += new System.EventHandler(this.btnLabelCMs_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // btnACheck
             // 
@@ -92,7 +93,7 @@
             this.btnACheck.Image = ((System.Drawing.Image)(resources.GetObject("btnACheck.Image")));
             this.btnACheck.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnACheck.Name = "btnACheck";
-            this.btnACheck.Size = new System.Drawing.Size(57, 22);
+            this.btnACheck.Size = new System.Drawing.Size(68, 24);
             this.btnACheck.Text = "A-Check";
             this.btnACheck.Click += new System.EventHandler(this.btnACheck_Click);
             // 
@@ -114,8 +115,8 @@
             this.lstFlags.ForeColor = System.Drawing.Color.Black;
             this.lstFlags.FormattingEnabled = true;
             this.lstFlags.IsCTLMOwned = false;
-            this.lstFlags.Location = new System.Drawing.Point(11, 241);
-            this.lstFlags.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.lstFlags.Location = new System.Drawing.Point(15, 297);
+            this.lstFlags.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
             this.lstFlags.MultiColumn = false;
             this.lstFlags.Name = "lstFlags";
             this.lstFlags.Order = 0;
@@ -127,7 +128,7 @@
             this.lstFlags.Search = false;
             this.lstFlags.SelectedItem = null;
             this.lstFlags.SelectedValue = null;
-            this.lstFlags.Size = new System.Drawing.Size(540, 57);
+            this.lstFlags.Size = new System.Drawing.Size(720, 66);
             this.lstFlags.Status = CommonTools.EnumStatus.ADDNEW;
             this.lstFlags.TabIndex = 31;
             this.lstFlags.TBDescription = null;
@@ -152,8 +153,8 @@
             this.txtDesServicio.ForeColor = System.Drawing.Color.Black;
             this.txtDesServicio.IsCTLMOwned = false;
             this.txtDesServicio.IsPassword = false;
-            this.txtDesServicio.Location = new System.Drawing.Point(168, 156);
-            this.txtDesServicio.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtDesServicio.Location = new System.Drawing.Point(224, 173);
+            this.txtDesServicio.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
             this.txtDesServicio.Multiline = true;
             this.txtDesServicio.Name = "txtDesServicio";
             this.txtDesServicio.Order = 0;
@@ -163,7 +164,7 @@
             this.txtDesServicio.Protected = false;
             this.txtDesServicio.ReadOnly = false;
             this.txtDesServicio.Search = false;
-            this.txtDesServicio.Size = new System.Drawing.Size(382, 23);
+            this.txtDesServicio.Size = new System.Drawing.Size(509, 47);
             this.txtDesServicio.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtDesServicio.TabIndex = 15;
             this.txtDesServicio.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -191,8 +192,8 @@
             this.cboServicio.ForeColor = System.Drawing.Color.Black;
             this.cboServicio.FormattingEnabled = true;
             this.cboServicio.IsCTLMOwned = false;
-            this.cboServicio.Location = new System.Drawing.Point(11, 153);
-            this.cboServicio.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.cboServicio.Location = new System.Drawing.Point(17, 173);
+            this.cboServicio.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
             this.cboServicio.Name = "cboServicio";
             this.cboServicio.Order = 0;
             this.cboServicio.ParentConn = null;
@@ -203,7 +204,7 @@
             this.cboServicio.Search = false;
             this.cboServicio.SelectedItem = null;
             this.cboServicio.SelectedValue = null;
-            this.cboServicio.Size = new System.Drawing.Size(130, 40);
+            this.cboServicio.Size = new System.Drawing.Size(173, 47);
             this.cboServicio.Status = CommonTools.EnumStatus.ADDNEW;
             this.cboServicio.TabIndex = 13;
             this.cboServicio.TBDescription = null;
@@ -228,8 +229,8 @@
             this.txtNotes.ForeColor = System.Drawing.Color.Black;
             this.txtNotes.IsCTLMOwned = false;
             this.txtNotes.IsPassword = false;
-            this.txtNotes.Location = new System.Drawing.Point(168, 198);
-            this.txtNotes.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtNotes.Location = new System.Drawing.Point(222, 234);
+            this.txtNotes.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
             this.txtNotes.Multiline = false;
             this.txtNotes.Name = "txtNotes";
             this.txtNotes.Order = 0;
@@ -239,7 +240,7 @@
             this.txtNotes.Protected = false;
             this.txtNotes.ReadOnly = false;
             this.txtNotes.Search = false;
-            this.txtNotes.Size = new System.Drawing.Size(383, 17);
+            this.txtNotes.Size = new System.Drawing.Size(511, 49);
             this.txtNotes.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtNotes.TabIndex = 11;
             this.txtNotes.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -264,8 +265,8 @@
             this.txtSuppDoc.ForeColor = System.Drawing.Color.Black;
             this.txtSuppDoc.IsCTLMOwned = false;
             this.txtSuppDoc.IsPassword = false;
-            this.txtSuppDoc.Location = new System.Drawing.Point(12, 198);
-            this.txtSuppDoc.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtSuppDoc.Location = new System.Drawing.Point(17, 234);
+            this.txtSuppDoc.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
             this.txtSuppDoc.Multiline = false;
             this.txtSuppDoc.Name = "txtSuppDoc";
             this.txtSuppDoc.Order = 0;
@@ -275,7 +276,7 @@
             this.txtSuppDoc.Protected = false;
             this.txtSuppDoc.ReadOnly = false;
             this.txtSuppDoc.Search = false;
-            this.txtSuppDoc.Size = new System.Drawing.Size(121, 17);
+            this.txtSuppDoc.Size = new System.Drawing.Size(174, 49);
             this.txtSuppDoc.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtSuppDoc.TabIndex = 7;
             this.txtSuppDoc.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -302,8 +303,8 @@
             this.txtFecha.ForeColor = System.Drawing.Color.Black;
             this.txtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.txtFecha.IsCTLMOwned = false;
-            this.txtFecha.Location = new System.Drawing.Point(388, 113);
-            this.txtFecha.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtFecha.Location = new System.Drawing.Point(224, 113);
+            this.txtFecha.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
             this.txtFecha.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Nullable = true;
@@ -315,7 +316,7 @@
             this.txtFecha.ReadOnly = false;
             this.txtFecha.Search = false;
             this.txtFecha.ShowCheckBox = true;
-            this.txtFecha.Size = new System.Drawing.Size(163, 39);
+            this.txtFecha.Size = new System.Drawing.Size(509, 47);
             this.txtFecha.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtFecha.TabIndex = 5;
             this.txtFecha.Text = "22/06/2016 13:36";
@@ -339,8 +340,8 @@
             this.txtEntrada.ForeColor = System.Drawing.Color.Black;
             this.txtEntrada.IsCTLMOwned = false;
             this.txtEntrada.IsPassword = false;
-            this.txtEntrada.Location = new System.Drawing.Point(11, 110);
-            this.txtEntrada.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtEntrada.Location = new System.Drawing.Point(17, 113);
+            this.txtEntrada.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
             this.txtEntrada.Multiline = true;
             this.txtEntrada.Name = "txtEntrada";
             this.txtEntrada.Order = 0;
@@ -350,7 +351,7 @@
             this.txtEntrada.Protected = false;
             this.txtEntrada.ReadOnly = false;
             this.txtEntrada.Search = false;
-            this.txtEntrada.Size = new System.Drawing.Size(121, 24);
+            this.txtEntrada.Size = new System.Drawing.Size(171, 51);
             this.txtEntrada.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtEntrada.TabIndex = 1;
             this.txtEntrada.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -367,12 +368,13 @@
             this.CTLM.Clear = false;
             this.CTLM.Conn = null;
             this.CTLM.DBTable = null;
-            this.CTLM.Location = new System.Drawing.Point(13, 13);
+            this.CTLM.Location = new System.Drawing.Point(17, 16);
+            this.CTLM.Margin = new System.Windows.Forms.Padding(4);
             this.CTLM.MsgStatusInfoLabel = null;
             this.CTLM.MsgStatusLabel = null;
             this.CTLM.Name = "CTLM";
             this.CTLM.ReQuery = false;
-            this.CTLM.Size = new System.Drawing.Size(300, 31);
+            this.CTLM.Size = new System.Drawing.Size(310, 31);
             this.CTLM.sSPAdd = "";
             this.CTLM.sSPDel = "";
             this.CTLM.sSPUpp = "";
@@ -407,7 +409,8 @@
             this.VS.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.VS.HorizontalScrollingOffset = 0;
             this.VS.IsCTLMOwned = false;
-            this.VS.Location = new System.Drawing.Point(12, 305);
+            this.VS.Location = new System.Drawing.Point(16, 375);
+            this.VS.Margin = new System.Windows.Forms.Padding(5);
             this.VS.MsgStatusLabel = null;
             this.VS.Name = "VS";
             this.VS.NumPages = 0;
@@ -420,9 +423,10 @@
             this.VS.Protected = false;
             this.VS.RowCount = 0;
             this.VS.RowHeadersVisible = false;
+            dataGridViewRow1.Height = 24;
             this.VS.RowTemplate = dataGridViewRow1;
             this.VS.Search = false;
-            this.VS.Size = new System.Drawing.Size(538, 308);
+            this.VS.Size = new System.Drawing.Size(717, 336);
             this.VS.SQL = null;
             this.VS.sSPAdd = "";
             this.VS.sSPDel = "";
@@ -434,9 +438,9 @@
             // 
             // fSimpleReceivals
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(575, 650);
+            this.ClientSize = new System.Drawing.Size(767, 800);
             this.Controls.Add(this.VS);
             this.Controls.Add(this.lstFlags);
             this.Controls.Add(this.toolStrip);
@@ -447,6 +451,7 @@
             this.Controls.Add(this.txtFecha);
             this.Controls.Add(this.txtEntrada);
             this.Controls.Add(this.CTLM);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "fSimpleReceivals";
             this.ShowIcon = false;
             this.Text = "Receivals";

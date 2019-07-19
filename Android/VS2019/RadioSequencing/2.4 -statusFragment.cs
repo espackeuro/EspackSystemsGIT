@@ -21,7 +21,6 @@ namespace RadioSequencing
     {
         public ProgressBar socksProgress { get; set; }
         public TextView readingsInfo { get; set; }
-        public TextView checkingsInfo { get; set; }
         private TextView locationInfo { get; set; }
         public void SetLocationInfo(DataLocation loc = null)
         {
@@ -77,7 +76,6 @@ namespace RadioSequencing
             Activity.RunOnUiThread(() =>
             {
                 readingsInfo.Text = readingsInfoText;
-                checkingsInfo.Text = checkingsInfoText;
             });
         }
         public void Clear()
@@ -85,7 +83,6 @@ namespace RadioSequencing
             Activity.RunOnUiThread(() =>
             {
                 readingsInfo.Text = "";
-                checkingsInfo.Text = "";
             });
         }
         private string readingsInfoText
@@ -126,7 +123,6 @@ namespace RadioSequencing
             //socksProgress.ProgressDrawable.SetColorFilter(Color.Red, PorterDuff.Mode.SrcIn);
             socksProgress.Visibility = ViewStates.Gone;
             readingsInfo = _root.FindViewById<TextView>(Resource.Id.readingsInfo);
-            checkingsInfo = _root.FindViewById<TextView>(Resource.Id.checkingsInfo);
             locationInfo = _root.FindViewById<TextView>(Resource.Id.locationInfo);
             LocationVisibility = false;
             UpdateInfo();

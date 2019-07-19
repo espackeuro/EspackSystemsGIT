@@ -450,9 +450,13 @@ namespace AccesoDatosXML
             oServer.Resolve = false;
         }
 
-        public cAccesoDatosXML(cAccesoDatosXML parent) : base(parent)
+        public cAccesoDatosXML(cAccesoDatosXML parent) 
         {
             oServer.Resolve = false;
+            Server = parent.Server;
+            DataBase = parent.DataBase;
+            User = parent.User;
+            Password = parent.Password;
         }
 
     }
@@ -994,7 +998,7 @@ namespace AccesoDatosXML
             if (IPServerList.Count == 0)
             {
 #if DEBUG
-                IPServerList.Add(IPAddress.Parse("10.200.90.19"));
+                //IPServerList.Add(IPAddress.Parse("10.200.90.19"));
 #endif
                 IPServerList.Add(IPAddress.Parse("213.0.111.218"));
 #if !DEBUG
@@ -1040,7 +1044,7 @@ namespace AccesoDatosXML
 
                 string _sIP = (from _par in _parameters where _par.Element("Name").Value.ToString() == "@ExternalIP" select _par.Element("Value").Value).First();
 #if DEBUG
-                _sIP = "10.200.90.19";//"46.24.173.2";
+                //_sIP = "10.200.90.19";//"46.24.173.2";
 #endif
                 var _COD3 = (from _par in _parameters where _par.Element("Name").Value.ToString() == "@COD3" select _par.Element("Value").Value).First();
                 _session = (from _par in _parameters where _par.Element("Name").Value.ToString() == "@SessionNumber" select _par.Element("Value").Value).First();
