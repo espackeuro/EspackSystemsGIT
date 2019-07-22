@@ -997,8 +997,8 @@ namespace AccesoDatosXML
             };
             if (IPServerList.Count == 0)
             {
-#if DEBUG
-                //IPServerList.Add(IPAddress.Parse("10.200.90.19"));
+#if !DEBUG
+                IPServerList.Add(IPAddress.Parse("10.200.90.19"));
 #endif
                 IPServerList.Add(IPAddress.Parse("213.0.111.218"));
 #if !DEBUG
@@ -1016,16 +1016,19 @@ namespace AccesoDatosXML
             _message.SetSession("");
             XDocument _msgOut= new XDocument();
             Port = 17011;
+            string _ip = "";
+            string _messages = "";
             foreach (var _IP in IPServerList)
             {
+                _ip = $"{_ip}-{_IP.ToString()}";
                 IP = _IP;
                 try
                 {
                     _msgOut = await Transmit(_message);
                     break;
-                } catch
+                } catch (Exception ex)
                 {
-
+                    _messages = $"{_messages}-{ex.Message}";
                 }
             }
             
@@ -1036,7 +1039,7 @@ namespace AccesoDatosXML
             if (_result == null || _result.Value.Substring(0, 5) == "ERROR")
             {
                 _session = null;
-                throw new Exception(_result?.Value ?? "Cannot connect to any server.");
+                throw new Exception(_result?.Value ?? $"Cannot connect to any server. Last IP {_ip}, messages received: {_messages}");
             }
             else
             {

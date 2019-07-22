@@ -190,7 +190,8 @@ namespace LogonScreen
                             version = string.Format("{0}.{1}", versionArray[0], versionArray[1]);
                             _packageName = LogonSP.ReturnValues()["@PackageName"].ToString();
 #if DEBUG
-                            if (false)
+                            if (true)
+                            //if(_version != version)
 #else
                             if (_version != version)
 #endif
@@ -280,7 +281,13 @@ namespace LogonScreen
             {
                 var URL = string.Format("http://portal.espackeuro.com/{0}.apk", packageName);
                 var _local = string.Format("{0}/{1}.apk", Android.OS.Environment.ExternalStorageDirectory.Path, packageName);
-                await c.DownloadFileTaskAsync(URL, _local);
+                try
+                {
+                    await c.DownloadFileTaskAsync(URL, _local);
+                } catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
                 if (!File.Exists(_local))
                 {
                     var builder = new Android.Support.V7.App.AlertDialog.Builder(this);

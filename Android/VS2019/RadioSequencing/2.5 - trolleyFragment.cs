@@ -17,14 +17,16 @@ using CommonAndroidTools;
 
 namespace RadioSequencing
 {
-    public enum GapStatus { EMPTY, FILLING, FILLED, ERROR }
+    public enum GapStatus { EMPTY, FILLING, FILLED, ERASED, ERROR }
 
     public class TrolleyGap
     {
         public DataReading Data { get; set; }
         public TextView Visual { get; set; }
+        public GapStatus Status { get; private set; }
         public void SetStatus(GapStatus status, Context context)
         {
+            Status = status;
             ((FragmentActivity)context).RunOnUiThread(() =>
             {
                 switch (status)
@@ -41,6 +43,11 @@ namespace RadioSequencing
                     case GapStatus.FILLED:
                         Visual.SetBackgroundColor(Color.LightBlue);
                         Visual.SetTextColor(Color.Black);
+                        break;
+                    case GapStatus.ERASED:
+                        Visual.SetBackgroundColor(Color.White);
+                        Visual.SetTextColor(Color.Black);
+                        Visual.Text = "-";
                         break;
                     case GapStatus.ERROR:
                         Visual.SetBackgroundColor(Color.Red);
@@ -67,6 +74,11 @@ namespace RadioSequencing
             SetStatus(GapStatus.EMPTY, context);
             Data = null;
         }
+        public void Erase(Context context = null)
+        {
+            SetStatus(GapStatus.ERASED, context);
+            Data = null;
+        }
     }
     
 
@@ -81,6 +93,14 @@ namespace RadioSequencing
                 if (hFt?.t2?.Text != null)
                     hFt.t2.Text = $"Trolley: {value}";
                 _trolleyNumber = value;
+            }
+        }
+
+        public static int UsedGaps
+        {
+            get
+            {
+                return Gaps.Where(x => x.Value.Status == GapStatus.FILLED || x.Value.Status == GapStatus.ERROR).Count();
             }
         }
 
@@ -114,7 +134,7 @@ namespace RadioSequencing
         }
         public trolleyFragment()
         {
-            for (int j = 1; j <= 12; j++)
+            for (int j = 1; j <= Values.MaxSequencesPerSession; j++)
             {
                 var location = string.Format("g{0}", j.ToString("D2"));
                 Trolley.Gaps[location] = new TrolleyGap();
@@ -126,7 +146,7 @@ namespace RadioSequencing
             var _root = inflater.Inflate(Resource.Layout.trolleyFt, container, false);
             // Use this to return your custom view for this Fragment
             // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
-            for (int j = 1; j <= 12; j++)
+            for (int j = 1; j <= Values.MaxSequencesPerSession; j++)
             {
                 var location = string.Format("g{0}", j.ToString("D2"));
                 int resId = Resources.GetIdentifier(location, "id", Activity.PackageName);
@@ -155,7 +175,7 @@ namespace RadioSequencing
                         if (answer2)
                         {
                             await Values.SQLidb.db.Table<ScannedData>().DeleteAsync(r => r.TrollLocation == gap.Value.Data.TrollLocation);
-                            gap.Value.Clear(Activity);
+                            gap.Value.Erase(Activity);
                         }
                         IsBeingTouched = false;
                     }

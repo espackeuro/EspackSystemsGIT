@@ -1,37 +1,25 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿using Android.OS;
 using Android.Support.V4.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Util;
 using Android.Views;
 using Android.Widget;
 using CommonAndroidTools;
-using System.Threading.Tasks;
 using Scanner;
+using System;
 using System.Text.RegularExpressions;
-using CommonTools;
-using AccesoDatosXML;
+using System.Threading.Tasks;
 using static RadioSequencing.Values;
-using Android.Views.InputMethods;
-using Xamarin.Essentials;
 
 namespace RadioSequencing
 {
-    public enum ReadingStatusEnum { TROLL,TICKET,PARTNUMBER,QTY,FINISHED}
-    public static class ReadingStatus
+    public enum ReadingStatusEnum { TROLL,TICKET,PARTNUMBER,FINISHED}
+    public class ReadingStatus
     {
-        public static int SequenceIndex { get; set; } = 1;
-        public static ReadingStatusEnum Status { get; set; } = ReadingStatusEnum.TROLL;
-        public static DataReading CurrentData { get; set; } = new DataReading();
-        public static string CurrentTrolley { get; set; }
-        public static string CurrentGap { get; set; }
-        public static void Next()
+        //public static int SequenceIndex { get; set; } = 1;
+        public ReadingStatusEnum Status { get; set; } = ReadingStatusEnum.TROLL;
+        public DataReading CurrentData { get; set; } = new DataReading();
+        public string CurrentTrolley { get; set; }
+        public string CurrentGap { get; set; }
+        public void Next()
         {
             switch (Status)
             {
@@ -42,12 +30,8 @@ namespace RadioSequencing
                     Status = ReadingStatusEnum.PARTNUMBER;
                     break;
                 case ReadingStatusEnum.PARTNUMBER:
-                    Status = ReadingStatusEnum.QTY;
-                    break;
-                case ReadingStatusEnum.QTY:
-                    if (SequenceIndex < Values.MaxSequencesPerSession)
+                    if (Trolley.UsedGaps < Values.MaxSequencesPerSession)
                     {
-                        SequenceIndex++;
                         Status = ReadingStatusEnum.TROLL;
                     }
                     else
@@ -55,7 +39,7 @@ namespace RadioSequencing
                     break;
             }
         }
-        public static string MessageStatus
+        public string MessageStatus
         {
             get
             {
@@ -66,9 +50,7 @@ namespace RadioSequencing
                     case ReadingStatusEnum.TICKET:
                         return "Now scan SEQUENCING TICKET";
                     case ReadingStatusEnum.PARTNUMBER:
-                        return "Now scan PARTNUMBER 2D LABEL";
-                    case ReadingStatusEnum.QTY:
-                        return "Now enter the QTY (0 if no stock)";
+                        return "Now scan PARTNUMBER 2D LABEL or NO STOCK code";
                     case ReadingStatusEnum.FINISHED:
                         return "Sequence session finished";
                     default:
@@ -76,13 +58,10 @@ namespace RadioSequencing
                 }
             }
         }
-        public async static Task AddData(string text)
+        public async Task AddData(string text)
         {
-            if (text == "007") //reset reading
-            {
-                CurrentData = new DataReading();
+            if (Status == ReadingStatusEnum.FINISHED)
                 Status = ReadingStatusEnum.TROLL;
-            }
             //ticket
             var ticketPattern = @"(.*)(?:\ +|%)(\d\d\d\d)(?:\ +|%)(.*)";
             var ticketMatch = Regex.Match(text, ticketPattern);
@@ -96,6 +75,9 @@ namespace RadioSequencing
                 //check if already read
                 if (await SQLidb.db.Table<ScannedData>().Where(o => o.VINNr == ticketVINNr && o.SequenceNumber==ticketSequenceNumber && o.PartnumberSeqLabel==ticketPartnumberSeqLabel).CountAsync() != 0)
                     throw new Exception($"Wrong ticket, already scanned.");
+                if (ticketSequenceNumber!="0001" && Trolley.UsedGaps!=0)
+                    if (Convert.ToInt32(ticketSequenceNumber)!= (Convert.ToInt32(CurrentData.SequenceNumber)+1))
+                        throw new Exception($"Wrong ticket, Sequence Numbers should be consecutive or 0001.");
                 CurrentData.VINNr = ticketVINNr;
                 CurrentData.SequenceNumber = ticketSequenceNumber;
                 CurrentData.PartnumberSeqLabel = ticketPartnumberSeqLabel;
@@ -111,6 +93,11 @@ namespace RadioSequencing
             {
                 if (Status != ReadingStatusEnum.TROLL)
                     throw new Exception($"Wrong data, expecting {Status.ToString()}");
+                var _previousGap = Convert.ToInt32(CurrentGap?.Substring(1, 2) ?? "0");
+                var _curGap = trollMatch.Groups[2].ToString();
+                if ((Trolley.Gaps[$"g{_curGap}"].Status != GapStatus.ERASED) && Convert.ToInt32(_curGap) != _previousGap + 1)
+                    throw new Exception($"Wrong gap, please follow order, next gap expected is {_previousGap + 1}");
+                CurrentGap = $"g{_curGap}";
                 if (CurrentTrolley == null)
                 {
                     CurrentTrolley = trollMatch.Groups[1].ToString();
@@ -132,17 +119,26 @@ namespace RadioSequencing
                 tFt.SetStatus(CurrentGap, GapStatus.FILLING);
                 return;
             }
-            if (text.IsNumeric()) //QTY
-            {
-                if (Status != ReadingStatusEnum.QTY)
-                    throw new Exception($"Wrong data, expecting {Status.ToString()}");
-                CurrentData.Qty = text.ToInt();
-                iFt.InfoQTY.Text = "Qty: "+ text;
-                return;
-            }
+            //if (text==) //QTY
+            //{
+            //    if (Status != ReadingStatusEnum.QTY)
+            //        throw new Exception($"Wrong data, expecting {Status.ToString()}");
+            //    CurrentData.Qty = text.ToInt();
+            //    iFt.InfoQTY.Text = "Qty: "+ text;
+            //    return;
+            //}
             //partnumber
             if (Status == ReadingStatusEnum.PARTNUMBER)
             {
+                if (text== "icugoxaco9")
+                {
+                    CurrentData.Qty = 0;
+                    CurrentData.PartnumberLabel = "NO-STOCK";
+                    //iFt.InfoPartnumber.Text = $"Partnumber: {partnumber}✓";
+                    iFt.InfoBatch.Text = $"Batch: --";
+                    iFt.InfoQTY.Text = "Qty: NO STOCK";
+                    return;
+                }
                 var labelPattern = @"(.*)(?:\r\n|\n)(.*)(?:\r\n|\n|)";
                 var match = Regex.Match(text, labelPattern, RegexOptions.Singleline);
                 if (!match.Success)
@@ -155,8 +151,10 @@ namespace RadioSequencing
                 }
                 CurrentData.PartnumberLabel = partnumber;
                 CurrentData.Batch = batch;
+                CurrentData.Qty = 1;
                 iFt.InfoPartnumber.Text = $"Partnumber: {partnumber}✓";
                 iFt.InfoBatch.Text = $"Batch: {batch}";
+                iFt.InfoQTY.Text = "Qty: OK";
                 return;
             }
             throw new Exception($"'{text}' wrong data, expecting {Status.ToString()}");
@@ -172,41 +170,53 @@ namespace RadioSequencing
             base.OnCreate(savedInstanceState);
             // Create your fragment here
         }
-        public static EditText ElData { get; private set; }
+        //public static EditText ElData { get; private set; }
         //public RadioGroup rg { get; private set; }
+        public static TextView EftMessage { get; set; }
+        public void SetMessage(string message)
+        {
+            Activity.RunOnUiThread(() =>
+            {
+                EftMessage.Text = message;
+            });
+        }
 
+        private ReadingStatus RS;
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             // Use this to return your custom view for this Fragment
             // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
             MainScreen = (MainScreen)Activity;
             var _root = inflater.Inflate(Resource.Layout.enterDataFt, container, false);
+            EftMessage = _root.FindViewById<TextView>(Resource.Id.eftmessage);
+            RS = new ReadingStatus();
             //edittext to enter data
-            ElData = _root.FindViewById<EditText>(Resource.Id.data);
-            ElData.KeyPress += ElData_KeyPress;
-            ElData.ClearFocus();
+            //ElData = _root.FindViewById<EditText>(Resource.Id.data);
+            //ElData.KeyPress += ElData_KeyPress;
+            //ElData.ClearFocus();
 
             //scanner intent
 
             sScanner.RegisterScannerActivity(Activity, _root, true, Silent: true);
             sScanner.AfterReceive += Scanner_AfterReceive;
-            
-            ElData.RequestFocus();
+
+            //ElData.RequestFocus();
             //end
 
             //var _query = await Values.SQLidb.db.QueryAsync<QueryResult>("Select 'test', 10 ");//Rack, count(*) from ScannedData group by Rack order by idreg desc limit 3");
-
-
-            iFt.SetMessage(ReadingStatus.MessageStatus);
+            SetMessage(RS.MessageStatus);
             hFt.Clear();
             tFt.Clear();
-            var oldElements = Values.SQLidb.db.Table<ScannedData>().ToListAsync().Result;
+            hFt.t1.Text = string.Format("User: {0}", Values.gDatos.User);
+            hFt.t2.Text = string.Format("Session: {0}", Values.Session);
+            var oldElements = Values.SQLidb.db.Table<ScannedData>().OrderBy(t => t.TrollLocation).ToListAsync().Result;
             oldElements.ForEach(o =>
             {
                 DataReading data = new DataReading() { SequenceNumber = o.SequenceNumber, VINNr = o.VINNr, PartnumberSeqLabel = o.PartnumberSeqLabel, PartnumberLabel = o.PartnumberLabel, Batch = o.Batch, TrollLocation = o.TrollLocation, Qty = o.Qty };
-                tFt.FillData($"g{o.TrollLocation.Substring(4, 2)}", data);
+                RS.CurrentGap = $"g{ o.TrollLocation.Substring(4, 2)}";
+                RS.CurrentData.SequenceNumber = o.SequenceNumber;
+                tFt.FillData(RS.CurrentGap, data);
                 hFt.t3.Text = $"Trolley: {o.TrollLocation.Substring(0, 3)}";
-
             });
             return _root;
         }
@@ -219,8 +229,8 @@ namespace RadioSequencing
             ((FragmentActivity)sender).RunOnUiThread(() =>
             {
                 cSounds.Scan(Activity);
-                ElData.Enabled = false;
-                ElData.Tag = "SCAN";
+                //ElData.Enabled = false;
+                //ElData.Tag = "SCAN";
             });
             Values.DataReadingList.Context = (FragmentActivity)sender;
             DataTransferManager.Active = false;
@@ -231,24 +241,24 @@ namespace RadioSequencing
         {
             try
             {
-                await ReadingStatus.AddData(data);
-                if (ReadingStatus.Status == ReadingStatusEnum.QTY)
+                await RS.AddData(data);
+                if (RS.Status == ReadingStatusEnum.PARTNUMBER)
                 {
                     cSounds.Correct(Activity);
-                    await Values.DataReadingList.Add(ReadingStatus.CurrentData);
-                    tFt.FillData(ReadingStatus.CurrentGap, ReadingStatus.CurrentData);
+                    await Values.DataReadingList.Add(RS.CurrentData);
+                    tFt.FillData(RS.CurrentGap, RS.CurrentData);
                 }
                 Values.DataReadingList.Processing = false;
                 DataTransferManager.Active = true;
-                Activity.RunOnUiThread(() =>
-                {
-                    ElData.Enabled = true;
-                    ElData.Text = "";
-                });
+                //Activity.RunOnUiThread(() =>
+                //{
+                //    ElData.Enabled = true;
+                //    ElData.Text = "";
+                //});
 
-                ReadingStatus.Next();
-                Values.iFt.SetMessage(ReadingStatus.MessageStatus);
-                if (ReadingStatus.Status == ReadingStatusEnum.FINISHED)
+                RS.Next();
+                SetMessage(RS.MessageStatus);
+                if (RS.Status == ReadingStatusEnum.FINISHED)
                 {
                     Activity.RunOnUiThread(async () =>
                     {
@@ -265,8 +275,8 @@ namespace RadioSequencing
                 {
                     cSounds.Error(Activity);
                     Toast.MakeText(Activity, "Error reading scan." + ex.Message, ToastLength.Long).Show();
-                    ElData.Enabled = true;
-                    ElData.Text = "";
+                    //ElData.Enabled = true;
+                    //ElData.Text = "";
                 });
             }
         }
@@ -282,52 +292,52 @@ namespace RadioSequencing
         
 
 
-        private async void ElData_KeyPress(object sender, View.KeyEventArgs e)
-        {
-            try
-            {
-                if (sScanner.IsBusy)
-                {
-                    e.Handled = true;
-                    return;
-                }
-                sScanner.IsBusy = true;
-                if (e.Event.Action == KeyEventActions.Down && (e.KeyCode == Keycode.Enter || e.KeyCode == Keycode.Tab))
-                {
+        //private async void ElData_KeyPress(object sender, View.KeyEventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (sScanner.IsBusy)
+        //        {
+        //            e.Handled = true;
+        //            return;
+        //        }
+        //        sScanner.IsBusy = true;
+        //        if (e.Event.Action == KeyEventActions.Down && (e.KeyCode == Keycode.Enter || e.KeyCode == Keycode.Tab))
+        //        {
 
-                    //ignore intent from scanner
-                    if (ElData.Text == "" && ElData.Tag.ToString() == "SCAN")
-                    {
-                        ElData.Tag = null;
-                        e.Handled = true;
-                        sScanner.IsBusy = false;
-                        return;
-                    }
-                    //discriminator
-                    if (ElData.Text == "")
-                    {
-                        Toast.MakeText(Activity, "Please enter valid data", ToastLength.Long).Show();
-                        e.Handled = true;
-                        sScanner.IsBusy = false;
-                        return;
-                    }
-                    ElData.Enabled = false;
-                    sScanner.IsBusy = false;
-                    Values.DataReadingList.Context = Activity;
-                    await Process(ElData.Text);
-                    e.Handled = true;
-                }
-                else
-                {
-                    e.Handled = false;
-                    sScanner.IsBusy = false;
-                }
-            } catch
-            {
-                e.Handled = true;
-                sScanner.IsBusy = false;
-            }
-        }
+        //            //ignore intent from scanner
+        //            if (ElData.Text == "" && ElData.Tag.ToString() == "SCAN")
+        //            {
+        //                ElData.Tag = null;
+        //                e.Handled = true;
+        //                sScanner.IsBusy = false;
+        //                return;
+        //            }
+        //            //discriminator
+        //            if (ElData.Text == "")
+        //            {
+        //                Toast.MakeText(Activity, "Please enter valid data", ToastLength.Long).Show();
+        //                e.Handled = true;
+        //                sScanner.IsBusy = false;
+        //                return;
+        //            }
+        //            ElData.Enabled = false;
+        //            sScanner.IsBusy = false;
+        //            Values.DataReadingList.Context = Activity;
+        //            await Process(ElData.Text);
+        //            e.Handled = true;
+        //        }
+        //        else
+        //        {
+        //            e.Handled = false;
+        //            sScanner.IsBusy = false;
+        //        }
+        //    } catch
+        //    {
+        //        e.Handled = true;
+        //        sScanner.IsBusy = false;
+        //    }
+        //}
 
         public override void OnResume()
         {

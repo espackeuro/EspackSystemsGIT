@@ -6385,9 +6385,6 @@ namespace RadioSequencing
 			// aapt resource value: 0x7f0b007b
 			public const int customPanel = 2131427451;
 			
-			// aapt resource value: 0x7f0b00ae
-			public const int data = 2131427502;
-			
 			// aapt resource value: 0x7f0b0106
 			public const int dataInputFragment = 2131427590;
 			
@@ -6417,6 +6414,9 @@ namespace RadioSequencing
 			
 			// aapt resource value: 0x7f0b008f
 			public const int edit_query = 2131427471;
+			
+			// aapt resource value: 0x7f0b00ae
+			public const int eftmessage = 2131427502;
 			
 			// aapt resource value: 0x7f0b0037
 			public const int end = 2131427383;
