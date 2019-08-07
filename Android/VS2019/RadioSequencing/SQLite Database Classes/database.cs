@@ -50,7 +50,14 @@ namespace RadioSequencing
     /*
     //table Referencias
     */
-
+    public class Tickets
+    {
+        [PrimaryKey, AutoIncrement]
+        public int idreg { get; set; }
+        public string SequenceNumber { get; set; }
+        public string TicketVIN { get; set; }
+        public string TicketPartnumber { get; set; }
+    }
     public class Referencias
     {
         [PrimaryKey]
@@ -131,7 +138,7 @@ namespace RadioSequencing
     {
         public static string ProcedureParameters(this ScannedData SD)
         {
-            return string.Format($"@IdSession='{SD.Session}',@SequenceNumber='{SD.SequenceNumber}',@TicketVIN='{SD.VINNr}',@TicketPartnumber='{SD.PartnumberSeqLabel}',@TicketExtraData='',@LabelPartnumber='{SD.PartnumberLabel}',@LabelExtraData='|BATCH:{SD.Batch}|',@Flags='',@ExtraData=''");
+            return string.Format($"@IdSession='{SD.Session}',@SequenceNumber='{SD.SequenceNumber}',@TicketVIN='{SD.VINNr}',@TicketPartnumber='{SD.PartnumberSeqLabel}',@TicketExtraData='',@LabelPartnumber='{SD.PartnumberLabel}',@LabelExtraData='|BATCH:{SD.Batch}|TOLLEYLOCATION:{SD.TrollLocation}|',@Flags='',@ExtraData=''");
         }
         public static  infoData ToInfoData(this ScannedData SD)
         {

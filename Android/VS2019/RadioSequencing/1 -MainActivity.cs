@@ -70,7 +70,8 @@ namespace RadioSequencing
             await SQLidb.db.CreateTableAsync<Referencias>();
             await SQLidb.db.CreateTableAsync<ScannedData>();
             await SQLidb.db.CreateTableAsync<Settings>();
-            
+            await SQLidb.db.CreateTableAsync<Tickets>();
+
             // to do what to do when readings exist
         }
         public async static Task EmptyDatabase()
@@ -83,6 +84,8 @@ namespace RadioSequencing
             await SQLidb.db.DropTableAsync<Settings>();
             await SQLidb.db.ExecuteAsync("Delete from DeviceLocation ");
             await SQLidb.db.DropTableAsync<DeviceLocation>();
+            await SQLidb.db.ExecuteAsync("Delete from Tickets ");
+            await SQLidb.db.DropTableAsync<Tickets>();
 
         }
         public static WorkModes WorkMode { get; set; }

@@ -1,4 +1,5 @@
-﻿using Android.OS;
+﻿using Android.Content;
+using Android.OS;
 using Android.Support.V4.App;
 using Android.Views;
 using Android.Widget;
@@ -30,7 +31,7 @@ namespace RadioSequencing
                     Status = ReadingStatusEnum.PARTNUMBER;
                     break;
                 case ReadingStatusEnum.PARTNUMBER:
-                    if (Trolley.UsedGaps < Values.MaxSequencesPerSession)
+                    if (tFt.Trolley.UsedGaps < Values.MaxSequencesPerSession)
                     {
                         Status = ReadingStatusEnum.TROLL;
                     }
@@ -58,7 +59,7 @@ namespace RadioSequencing
                 }
             }
         }
-        public async Task AddData(string text)
+        public async Task AddData(string text, Context context)
         {
             if (Status == ReadingStatusEnum.FINISHED)
                 Status = ReadingStatusEnum.TROLL;
@@ -71,13 +72,28 @@ namespace RadioSequencing
                     throw new Exception($"Wrong data, expecting {Status.ToString()}");
                 var ticketVINNr = ticketMatch.Groups[1].ToString().Replace("%", "");
                 var ticketSequenceNumber = ticketMatch.Groups[2].ToString().Replace("%", "");
-                var ticketPartnumberSeqLabel = ticketMatch.Groups[3].ToString().Replace("%", "");
+                var ticketPartnumberSeqLabel = ticketMatch.Groups[3].ToString().Replace("%", "").Replace(" ","");
                 //check if already read
+                if (await SQLidb.db.Table<Tickets>().FirstOrDefaultAsync(o => o.SequenceNumber == ticketSequenceNumber && o.TicketVIN==ticketVINNr && o.TicketPartnumber==ticketPartnumberSeqLabel) != null)
+                    throw new Exception($"This Ticket has already been read today in a different session.");
                 if (await SQLidb.db.Table<ScannedData>().Where(o => o.VINNr == ticketVINNr && o.SequenceNumber==ticketSequenceNumber && o.PartnumberSeqLabel==ticketPartnumberSeqLabel).CountAsync() != 0)
                     throw new Exception($"Wrong ticket, already scanned.");
-                if (ticketSequenceNumber!="0001" && Trolley.UsedGaps!=0)
-                    if (Convert.ToInt32(ticketSequenceNumber)!= (Convert.ToInt32(CurrentData.SequenceNumber)+1))
+                if (ticketSequenceNumber == "0001" && tFt.Trolley.UsedGaps != 0)
+                {
+                    bool dialogResult = await AlertDialogHelper.ShowAsync(context, "New sequence number start", "This sequence means the end of the previous day and the start of a new group of sequence numbers. Are you sure?", "Yes", "No");
+
+                    if (!dialogResult)
+                    {
+                        throw new Exception($"Cancelled the new sequence number group.");
+                    }
+                }
+                var _usedGaps = tFt.Trolley.UsedGaps;
+                if (ticketSequenceNumber != "0001" && _usedGaps != 0)
+                {
+                    var _prevSeqNum = tFt.Trolley[_usedGaps].SequenceNumber;
+                    if (Convert.ToInt32(ticketSequenceNumber) != (Convert.ToInt32(_prevSeqNum) + 1))
                         throw new Exception($"Wrong ticket, Sequence Numbers should be consecutive or 0001.");
+                }
                 CurrentData.VINNr = ticketVINNr;
                 CurrentData.SequenceNumber = ticketSequenceNumber;
                 CurrentData.PartnumberSeqLabel = ticketPartnumberSeqLabel;
@@ -95,7 +111,7 @@ namespace RadioSequencing
                     throw new Exception($"Wrong data, expecting {Status.ToString()}");
                 var _previousGap = Convert.ToInt32(CurrentGap?.Substring(1, 2) ?? "0");
                 var _curGap = trollMatch.Groups[2].ToString();
-                if ((Trolley.Gaps[$"g{_curGap}"].Status != GapStatus.ERASED) && Convert.ToInt32(_curGap) != _previousGap + 1)
+                if ((tFt.Trolley.Gaps[$"g{_curGap}"].Status != GapStatus.ERASED) && Convert.ToInt32(_curGap) != _previousGap + 1)
                     throw new Exception($"Wrong gap, please follow order, next gap expected is {_previousGap + 1}");
                 CurrentGap = $"g{_curGap}";
                 if (CurrentTrolley == null)
@@ -139,7 +155,7 @@ namespace RadioSequencing
                     iFt.InfoQTY.Text = "Qty: NO STOCK";
                     return;
                 }
-                var labelPattern = @"(.*)(?:\r\n|\n)(.*)(?:\r\n|\n|)";
+                var labelPattern = @"(.*)(?:\r\n|\r|\n)(.*)(?:\r\n|\r|)";
                 var match = Regex.Match(text, labelPattern, RegexOptions.Singleline);
                 if (!match.Success)
                     throw new Exception($"'{text}' wrong data, expecting {Status.ToString()}");
@@ -241,11 +257,13 @@ namespace RadioSequencing
         {
             try
             {
-                await RS.AddData(data);
+                tFt.EnableDeleting = false;
+                await RS.AddData(data, Activity);
                 if (RS.Status == ReadingStatusEnum.PARTNUMBER)
                 {
                     cSounds.Correct(Activity);
                     await Values.DataReadingList.Add(RS.CurrentData);
+                    tFt.EnableDeleting = true;
                     tFt.FillData(RS.CurrentGap, RS.CurrentData);
                 }
                 Values.DataReadingList.Processing = false;

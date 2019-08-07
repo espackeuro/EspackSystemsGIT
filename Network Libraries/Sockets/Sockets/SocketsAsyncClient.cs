@@ -77,8 +77,7 @@ public class StateObject
                 }
                 catch (Exception ex)
                 {
-                    return $"ERROR CONNECTING: {ex.Message};";
-                    throw ex;
+                    throw new Exception($"ERROR CONNECTING: {ex.Message};");
                 }
                 //LogMessage("Connected to Server");
                 using (var networkStream = client.GetStream())

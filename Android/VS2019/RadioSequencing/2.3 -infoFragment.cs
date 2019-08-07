@@ -12,6 +12,9 @@ using Android.Views;
 using Android.Widget;
 using System.Threading.Tasks;
 using Android.Graphics;
+using Nito.AsyncEx;
+using Android.Views.InputMethods;
+using AccesoDatosXML;
 
 namespace RadioSequencing
 {
@@ -50,6 +53,17 @@ namespace RadioSequencing
                 }
             infoMessage = _root.FindViewById<TextView>(Resource.Id.message);
             infoMessage.SetTextColor(Color.White);
+
+            try
+            {
+                AsyncContext.Run(getDataFromServer);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+
             return _root;
         }
         //max number of lines present in the xml is 12
@@ -123,6 +137,58 @@ namespace RadioSequencing
         {
             updateMainLine(d.c0, d.c1, d.c2, d.c3);
         }
+        private async Task getDataFromServer()
+        {
+            //Dismiss Keybaord
+            InputMethodManager imm = (InputMethodManager)Activity.GetSystemService(Context.InputMethodService);
+            //get location
+            int _progress = 0;
+
+            Values.iFt.SetMessage("Getting Sequence Numbers table");
+            //data from RacksBlocks table
+            using (var _rs = new XMLRS($"select distinct SequenceNumber,TicketVIN,TicketPartnumber from SequencingSessionDet where CONVERT(varchar(10),xfec,103)=CONVERT(varchar(10),getdate(),103) order by SequenceNumber", Values.gDatos))
+            {
+                await _rs.OpenAsync();/*
+                Values.sFt.socksProgress.Indeterminate = false;
+                Values.sFt.socksProgress.Max = _rs.RecordCount / 5;
+                Values.sFt.socksProgress.Progress = 0;
+                */
+                foreach (var r in _rs.Rows)
+                {
+                    await Values.SQLidb.db.InsertAsync(new Tickets { SequenceNumber = r["SequenceNumber"].ToString(), TicketVIN= r["TicketVIN"].ToString(), TicketPartnumber= r["TicketPartnumber"].ToString(), });
+                    //_progress++;
+                    //if (_progress % 5 == 0)
+                    //    Values.sFt.socksProgress.Progress++;
+                }
+            }
+            //Values.sFt.socksProgress.Indeterminate = true;
+            Values.iFt.SetMessage("Done");
+            /*
+            Values.iFt.pushInfo("Getting PartnumberRacks table");
+            //data from RacksBlocks table
+            using (var _rs = new XMLRS(string.Format("Select p.Rack,Partnumber,MinBoxes,MaxBoxes,p.flags from LOGISTICA..PartnumbersRacks p inner join LOGISTICA..RacksBlocks r on r.Rack=p.Rack where p.service='{0}' and dbo.CheckFlag(r.flags,'OBS')=0", Values.gService), Values.gDatos))
+            {
+                await _rs.OpenAsync();
+                Values.sFt.socksProgress.Indeterminate = false;
+                Values.sFt.socksProgress.Max = _rs.RecordCount / 5;
+                Values.sFt.socksProgress.Progress = 0;
+                foreach (var r in _rs.Rows)
+                {
+                    await Values.SQLidb.db.InsertAsync(new PartnumbersRacks { Rack = r["Rack"].ToString(), Partnumber = r["Partnumber"].ToString(), MinBoxes = r["MinBoxes"].ToInt(), MaxBoxes = r["MaxBoxes"].ToInt() });
+                    _progress++;
+                    if (_progress % 5 == 0)
+                        Values.sFt.socksProgress.Progress++;
+                }
+            }
+            Values.sFt.socksProgress.Indeterminate = true;
+            Values.iFt.pushInfo("Done loading database data");
+            */
+            Values.elIntent = new Intent(Activity, typeof(DataTransferManager));
+            Activity.StartService(Values.elIntent);
+            DataTransferManager.Active = true;
+        }
     }
-    
+
+
+
 }

@@ -21,6 +21,7 @@ namespace RadioSequencing
 
     public class TrolleyGap
     {
+        public int Order { get; set; }
         public DataReading Data { get; set; }
         public TextView Visual { get; set; }
         public GapStatus Status { get; private set; }
@@ -82,10 +83,10 @@ namespace RadioSequencing
     }
     
 
-    public static class Trolley
+    public class TrolleyClass
     {
-        private static string _trolleyNumber;
-        public static string TrolleyNumber
+        private string _trolleyNumber;
+        public string TrolleyNumber
         {
             get => _trolleyNumber;
             set
@@ -96,7 +97,7 @@ namespace RadioSequencing
             }
         }
 
-        public static int UsedGaps
+        public int UsedGaps
         {
             get
             {
@@ -104,21 +105,30 @@ namespace RadioSequencing
             }
         }
 
-        public static Dictionary<string, TrolleyGap> Gaps = new Dictionary<string, TrolleyGap>();
+        public DataReading this[int i]
+        {
+            get
+            {
+                var _key = string.Format("g{0}", i.ToString("D2"));
+                return Gaps[_key].Data;
+            }
+        }
 
-        public static void Clear(Context context)
+        public Dictionary<string, TrolleyGap> Gaps = new Dictionary<string, TrolleyGap>();
+
+        public void Clear(Context context)
         {
             foreach (var g in Gaps.Values)
             {
                 g.Clear(context);
             }
         }
-        public static void FillData(string location, DataReading data, Context context=null)
+        public void FillData(string location, DataReading data, Context context=null)
         {
             Gaps[location].FillData(data, context);
         }
-        static Trolley() { }
-        public static void SetStatus(string location, GapStatus status, Context context)
+        
+        public void SetStatus(string location, GapStatus status, Context context)
         {
             Gaps[location].SetStatus(status, context);
         }
@@ -126,6 +136,7 @@ namespace RadioSequencing
 
     public class trolleyFragment : Fragment
     {
+        public TrolleyClass Trolley { get; set; } = new TrolleyClass();
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -137,7 +148,7 @@ namespace RadioSequencing
             for (int j = 1; j <= Values.MaxSequencesPerSession; j++)
             {
                 var location = string.Format("g{0}", j.ToString("D2"));
-                Trolley.Gaps[location] = new TrolleyGap();
+                Trolley.Gaps[location] = new TrolleyGap() { Order = j };
             }
         }
 
@@ -160,14 +171,23 @@ namespace RadioSequencing
         }
         //to avoid repeated touches
         private bool IsBeingTouched = false;
+        public bool EnableDeleting { get; set; } = true;
         private async void TrolleyFragment_Touch(object sender, View.TouchEventArgs e)
         {
-            if (!IsBeingTouched)
+            if (!IsBeingTouched && EnableDeleting)
             {
                 try
                 {
                     IsBeingTouched = true;
                     var gap = Trolley.Gaps.Where(g => g.Value.Visual.Text == ((TextView)sender).Text).FirstOrDefault();
+                    //check if it is the last gap with data
+                    if (Trolley.Gaps.Values.Where(o => o.Order > gap.Value.Order && o.Data != null).FirstOrDefault() != null)
+                    {
+                        IsBeingTouched = false;
+                        return;
+                    }
+
+
                     var answer = await AlertDialogHelper.ShowAsync(Activity, $"Warning", $"Do you want to remove the data for sequence {gap.Value.Data.SequenceNumber} in Trolley tray {gap.Value.Data.TrollLocation}?", "ERASE", "CANCEL");
                     if (answer) //ERASE
                     {
@@ -177,8 +197,8 @@ namespace RadioSequencing
                             await Values.SQLidb.db.Table<ScannedData>().DeleteAsync(r => r.TrollLocation == gap.Value.Data.TrollLocation);
                             gap.Value.Erase(Activity);
                         }
-                        IsBeingTouched = false;
                     }
+                    IsBeingTouched = false;
                 } catch (Exception ex)
                 {
                     IsBeingTouched = false;

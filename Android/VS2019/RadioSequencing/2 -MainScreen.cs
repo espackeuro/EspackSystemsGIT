@@ -21,6 +21,7 @@ using CommonAndroidTools;
 using static RadioSequencing.Values;
 using CommonTools;
 using Android.Views.InputMethods;
+using Nito.AsyncEx;
 
 namespace RadioSequencing
 {
@@ -32,7 +33,7 @@ namespace RadioSequencing
         private string _mainScreenMode;
 
 
-        protected override async void OnCreate(Bundle savedInstanceState)
+        protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.mainLayout);
@@ -68,17 +69,17 @@ namespace RadioSequencing
             //Values.dtm = new DataTransferManager();
             //start the transmission service
             //await ActionGo();
-
+            
 
             try
             {
                 if (Values.Session == null)
-                    await ActionGo();
+                    AsyncContext.Run(ActionGo);
             } catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-
+            
 
 
 
@@ -88,6 +89,8 @@ namespace RadioSequencing
             DataTransferManager.Active = true;
 
         }
+
+
 
         //public override View OnCreateView(string name, Context context, IAttributeSet attrs)
         //{
@@ -141,8 +144,11 @@ namespace RadioSequencing
         {
             //buttonOk.Enabled = false;
             Values.gDatos.DataBase = "SEQUENCING";
+            //await getDataFromServer();
             //Values.iFt.pushInfo("Creating Session");
+            //string _msg = "";
             var _sp = new SPXML(Values.gDatos, "SEQUENCING..pSequencingSessionCabAdd");
+            //_sp.AddParameterValue("msg", _msg);
             _sp.AddParameterValue("System", Values.System);
             _sp.AddParameterValue("CustomerService", CustomerService);
             _sp.AddParameterValue("COD3", COD3);
@@ -211,7 +217,6 @@ namespace RadioSequencing
             var _settings = new Settings { User = Values.gDatos.User, Password = gDatos.Password, Session = Session, Service = CustomerService, COD3 = COD3 };
             await Values.SQLidb.db.ExecuteAsync("DELETE FROM Settings");
             await Values.SQLidb.db.InsertAsync(_settings);
-            await getDataFromServer();
             Values.SQLidb.Complete = true;
             //await Values.sFt.ChangeProgressVisibility(false);
             return true;
@@ -220,81 +225,6 @@ namespace RadioSequencing
         }
 
         //method to get all the data from sql server
-        private async Task getDataFromServer()
-        {
-            //Dismiss Keybaord
-            InputMethodManager imm = (InputMethodManager)GetSystemService(Context.InputMethodService);
-            //get location
-            if (Values.IsLocationService)
-            {
-                using (var rs = new XMLRS("Select CMP_INTEGER from Datos_Empresa where Codigo='LOC_TIME'", Values.gDatos))
-                {
-                    await rs.OpenAsync();
-                    if (rs.RecordCount != 0)
-                        Values.LocTime = rs["CMP_INTEGER"].ToInt();
-                }
-                var request = new GeolocationRequest(GeolocationAccuracy.Lowest, TimeSpan.FromSeconds(5));
-                //var ini = await Geolocation.GetLastKnownLocationAsync();
-                Location location = null;
-                try
-                {
-                    RunOnUiThread(async () => location = await Geolocation.GetLocationAsync(request));
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-                if (location != null)
-                {
-                    var _locData = new DataLocation() { Accuracy = location.Accuracy, Course = location.Course, Altitude = location.Altitude, Latitude = location.Latitude, Longitude = location.Longitude, Speed = location.Speed, Timestamp = location.Timestamp };
-                    await _locData.ToDB();
-                }
-                StartService(new Intent(this, typeof(LocatorService)));
-                LocatorService.Active = true;
-            }
-            /*
-            int _progress = 0;
-            
-            Values.iFt.pushInfo("Getting RacksBlocks table");
-            //data from RacksBlocks table
-            using (var _rs = new XMLRS(string.Format("select Block,Rack from LOGISTICA..RacksBlocks where service='{0}' and dbo.CheckFlag(flags,'OBS')=0", Values.gService), Values.gDatos))
-            {
-                await _rs.OpenAsync();
-                Values.sFt.socksProgress.Indeterminate = false;
-                Values.sFt.socksProgress.Max = _rs.RecordCount / 5;
-                Values.sFt.socksProgress.Progress = 0;
-                foreach (var r in _rs.Rows)
-                {
-                    await Values.SQLidb.db.InsertAsync(new RacksBlocks { Block = r["Block"].ToString(), Rack = r["Rack"].ToString() });
-                    _progress++;
-                    if (_progress % 5 == 0)
-                        Values.sFt.socksProgress.Progress++;
-                }
-            }
-            Values.sFt.socksProgress.Indeterminate = true;
-            Values.iFt.pushInfo("Done");
-            Values.iFt.pushInfo("Getting PartnumberRacks table");
-            //data from RacksBlocks table
-            using (var _rs = new XMLRS(string.Format("Select p.Rack,Partnumber,MinBoxes,MaxBoxes,p.flags from LOGISTICA..PartnumbersRacks p inner join LOGISTICA..RacksBlocks r on r.Rack=p.Rack where p.service='{0}' and dbo.CheckFlag(r.flags,'OBS')=0", Values.gService), Values.gDatos))
-            {
-                await _rs.OpenAsync();
-                Values.sFt.socksProgress.Indeterminate = false;
-                Values.sFt.socksProgress.Max = _rs.RecordCount / 5;
-                Values.sFt.socksProgress.Progress = 0;
-                foreach (var r in _rs.Rows)
-                {
-                    await Values.SQLidb.db.InsertAsync(new PartnumbersRacks { Rack = r["Rack"].ToString(), Partnumber = r["Partnumber"].ToString(), MinBoxes = r["MinBoxes"].ToInt(), MaxBoxes = r["MaxBoxes"].ToInt() });
-                    _progress++;
-                    if (_progress % 5 == 0)
-                        Values.sFt.socksProgress.Progress++;
-                }
-            }
-            Values.sFt.socksProgress.Indeterminate = true;
-            Values.iFt.pushInfo("Done loading database data");
-            */
-            Values.elIntent = new Intent(this, typeof(DataTransferManager));
-            StartService(Values.elIntent);
-            DataTransferManager.Active = true;
-        }
+
     }
 }

@@ -144,7 +144,11 @@ New-ADObject -Name '{0}' -Type '{1}' -Path '{2}';
 
         public static string CleanGroup(string GroupName)
         {
-            return string.Format(@"Get-ADGroupMember '{0}'| ForEach-Object {{Remove-ADGroupMember '{0}' $_ -Confirm:$false}}", GroupName);
+            return string.Format(@"
+Get-ADGroupMember '{0}'| ForEach-Object {{Remove-ADGroupMember '{0}' $_ -Confirm:$false}};
+$memberof=get-adgroup '{0}' |select -expandproperty distinguishedname;
+Get-ADObject -Filter {{memberof -eq $memberof -and (objectClass -eq ""user"" -or ObjectClass -eq ""contact"")}} | ForEach-Object {{Get-ADGroup 'po_lineas_tw' | Set-ADObject -Remove @{{'member'=""$_""}}}};
+", GroupName);
         }
 
         public static async Task<bool> Commit(Collection<ServiceCommand> serviceCommands)
