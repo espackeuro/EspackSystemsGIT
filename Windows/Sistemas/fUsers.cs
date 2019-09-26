@@ -250,7 +250,7 @@ namespace Sistemas
                     return;
                 }
                 //var sshCommand = string.Format(@"sshpass -p {3} ssh -o StrictHostKeyChecking=no {2}@proxy.val.local ""nohup imapsync --host1 mail.espackeuro.com --port1 993 --ssl1 --user1 {0}@espackeuro.com --password1 {1} --host2 exchange01.systems.espackeuro.com --port2 143 --user2 {0} --password2 {1} --exchange2 --exclude '(?i)\b(Junk|Spam|Trash|Deleted\ Items)\b' --errorsmax 1000 & """, txtUserCode.Text, txtPWD.Text, Values.DefaultUserForServers, Values.DefaultPasswordForServers);
-                sshCommand = string.Format(@"imapsync --host1 mail.espackeuro.com --port1 993 --ssl1 --user1 {0}@espackeuro.com --password1 {1} --host2 exchange01.systems.espackeuro.com --port2 143 --user2 {0} --password2 {1} --exchange2 --exclude '(?i)\b(Junk|Spam|Trash|Deleted\ Items)\b' --errorsmax 1000 > {0}.log 2>&1 & ", txtUserCode.Text, txtPWD.Text);
+                sshCommand = string.Format(@"imapsync --host1 mail.espackeuro.com --port1 993 --ssl1 --user1 {0}@espackeuro.com --password1 {1} --host2 exchange01.systems.espackeuro.com --port2 143 --user2 {0} --password2 {1} --exchange2 --exclude '(?i)\b(Junk|Spam|Trash|Deleted\ Items)\b' --errorsmax 1000 --addheader > {0}.log 2>&1 & ", txtUserCode.Text, txtPWD.Text);
                 result = client.RunCommand(sshCommand);
 
                 //var result = client.RunCommand(string.Format("/root/imapsync.sh {0} {1}", txtUserCode.Text, txtPWD.Text));
