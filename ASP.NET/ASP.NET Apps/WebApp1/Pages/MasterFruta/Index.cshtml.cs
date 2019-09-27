@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using WebApp1.Data;
+using WebApp1.Models;
 
-namespace WebApp1.Models
+namespace WebApp1.Pages.MasterFruta
 {
     public class IndexModel : PageModel
     {
@@ -18,7 +19,7 @@ namespace WebApp1.Models
             _context = context;
         }
 
-        public IList<MasterFruta> MasterFruta { get;set; }
+        public IList<WebApp1.Models.MasterFruta> MasterFruta { get;set; }
 
         public async Task OnGetAsync()
         {

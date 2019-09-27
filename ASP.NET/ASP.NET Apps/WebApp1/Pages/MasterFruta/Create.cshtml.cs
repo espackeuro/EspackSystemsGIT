@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using WebApp1.Data;
+using WebApp1.Models;
 
-namespace WebApp1.Models
+namespace WebApp1.Pages.MasterFruta
 {
     public class CreateModel : PageModel
     {
@@ -24,7 +25,7 @@ namespace WebApp1.Models
         }
 
         [BindProperty]
-        public MasterFruta MasterFruta { get; set; }
+        public WebApp1.Models.MasterFruta MasterFruta { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
