@@ -19,7 +19,7 @@ namespace Personal
             var iniYear = DateTime.Now.Year - 1;
             var yearRange = 11;
             cboYear.DataSource = Enumerable.Range(iniYear, yearRange).ToList();
-            cboCOD3.Source($"Select valor,valor from dbo.Split((Select COD3 from SISTEMAS.dbo.Users where UserCode='{conn.User}'),'|') order by Valor", conn);
+            // cboCOD3.Source($"Select valor,valor from dbo.Split((Select COD3 from SISTEMAS.dbo.Users where UserCode='{conn.User}'),'|') order by Valor", conn);
             cboCOD3.Update();
             /*
             yearCalendar.MinDate = new System.DateTime(DateTime.Now.Year, 1, 1, 0, 0, 0, 0);
