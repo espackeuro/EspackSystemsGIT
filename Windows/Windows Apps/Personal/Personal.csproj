@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\MiMonthCalendar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="fLocalHolidays.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,12 +63,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Year Control\YearControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Year Control\YearControl.Designer.cs">
-      <DependentUpon>YearControl.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="fLocalHolidays.resx">
       <DependentUpon>fLocalHolidays.cs</DependentUpon>
     </EmbeddedResource>
@@ -81,9 +78,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Year Control\YearControl.resx">
-      <DependentUpon>YearControl.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -30,7 +30,8 @@
         {
             this.cboYear = new EspackFormControlsNS.EspackComboBox();
             this.cboCOD3 = new EspackFormControlsNS.EspackComboBox();
-            this.yearCalendar = new System.Windows.Forms.MonthCalendar();
+            this.yearCalendar = new Personal.MiMonthCalendar();
+            this.chkWeekEnds = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // cboYear
@@ -117,18 +118,33 @@
             this.yearCalendar.ShowToday = false;
             this.yearCalendar.TabIndex = 2;
             // 
+            // chkWeekEnds
+            // 
+            this.chkWeekEnds.AutoSize = true;
+            this.chkWeekEnds.Checked = true;
+            this.chkWeekEnds.CheckState = System.Windows.Forms.CheckState.Indeterminate;
+            this.chkWeekEnds.Location = new System.Drawing.Point(303, 46);
+            this.chkWeekEnds.Name = "chkWeekEnds";
+            this.chkWeekEnds.Size = new System.Drawing.Size(97, 21);
+            this.chkWeekEnds.TabIndex = 3;
+            this.chkWeekEnds.Text = "Weekends";
+            this.chkWeekEnds.ThreeState = true;
+            this.chkWeekEnds.UseVisualStyleBackColor = true;
+            this.chkWeekEnds.CheckedChanged += new System.EventHandler(this.ChkWeekEnds_CheckedChanged);
+            // 
             // fLocalHolidays
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1185, 877);
+            this.Controls.Add(this.chkWeekEnds);
             this.Controls.Add(this.yearCalendar);
             this.Controls.Add(this.cboCOD3);
             this.Controls.Add(this.cboYear);
             this.Name = "fLocalHolidays";
             this.Text = "fLocalHolidays";
-            this.Load += new System.EventHandler(this.FLocalHolidays_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -136,6 +152,7 @@
 
         private EspackFormControlsNS.EspackComboBox cboYear;
         private EspackFormControlsNS.EspackComboBox cboCOD3;
-        private System.Windows.Forms.MonthCalendar yearCalendar;
+        private MiMonthCalendar yearCalendar;
+        private System.Windows.Forms.CheckBox chkWeekEnds;
     }
 }
