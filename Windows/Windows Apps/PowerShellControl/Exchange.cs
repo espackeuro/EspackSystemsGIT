@@ -18,7 +18,7 @@ namespace PowerShellControl
         }
         public static string EnableGroup(string GroupCode)
         {
-            return string.Format(@"if (![bool](Get-DistributionGroup -Identity '{0}' -ErrorAction SilentlyContinue)) {{Enable-DistributionGroup -Identity '{0}';}}", GroupCode);
+            return string.Format(@"if (![bool](Get-DistributionGroup -Identity '{0}' -ErrorAction SilentlyContinue)) {{Enable-DistributionGroup -Identity '{0}'; Set-DistributionGroup -Identity '{0}' -RequireSenderAuthenticationEnabled $false }}", GroupCode);
         }
         public static async Task<bool> Commit(Collection<ServiceCommand> serviceCommands)
         {

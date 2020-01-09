@@ -52,6 +52,12 @@ namespace ExchangeService
 
         public bool InteractGroup(EspackGroup Group)
         {
+            Exchange.EC.ServerName = ServerName;
+            Group.ServiceCommands.Add(new ServiceCommand()
+            {
+                Command = Exchange.EnableGroup(Group.GroupCode)
+
+            });
             //for the moment we are going to do nothing, after all mails are in exchange we wil cover this part
             return true;
         }
