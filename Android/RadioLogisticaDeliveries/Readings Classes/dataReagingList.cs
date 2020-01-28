@@ -213,6 +213,10 @@ namespace RadioLogisticaDeliveries
                     dataList.Clear();
                     position = -1;
                     Values.SetCurrentRack("");
+                    if (LocatorService.Started)
+                        LocatorService.Kill = true;
+                    if (DataTransferManager.Started)
+                        DataTransferManager.Kill = true;
                     //change to enter order fragment
 
                     var intent = new Intent(Context, typeof(MainActivity));

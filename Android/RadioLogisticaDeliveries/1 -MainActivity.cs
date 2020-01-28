@@ -64,8 +64,9 @@ namespace RadioLogisticaDeliveries
         public static infoFragment iFt { get; set; }
         public static infoFragment dFt { get; set; }
         public static statusFragment sFt { get; set; }
-        public static DataTransferManager dtm { get; set; }
-        public static LocatorService ls { get; set; }
+        public static orderFragment oFt { get; set; }
+        //public static DataTransferManager dtm { get; set; }
+        //public static LocatorService ls { get; set; }
         public static Intent elIntent { get; set; }
         public static SQLiteDatabase SQLidb { get; set; }
 
@@ -133,7 +134,7 @@ namespace RadioLogisticaDeliveries
             intent.AddCategory(Intent.CategoryLauncher);
             intent.PutExtra("ConnectionType", "Socks");
             intent.PutExtra("Version", Values.Version);
-            intent.PutExtra("PackageName", "Radio Deliveries");
+            intent.PutExtra("PackageName", "Radio Deliveries GEO");
             StartActivityForResult(intent, 0);
             Values.WorkMode = WorkModes.READING;
 

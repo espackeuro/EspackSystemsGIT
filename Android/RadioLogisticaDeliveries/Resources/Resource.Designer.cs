@@ -26,6 +26,13 @@ namespace RadioLogisticaDeliveries
 		
 		public static void UpdateIdValues()
 		{
+			global::CommonAndroidTools.Resource.Raw.Antares = global::RadioLogisticaDeliveries.Resource.Raw.Antares;
+			global::CommonAndroidTools.Resource.Raw.decodeshort = global::RadioLogisticaDeliveries.Resource.Raw.decodeshort;
+			global::CommonAndroidTools.Resource.Raw.Gallium = global::RadioLogisticaDeliveries.Resource.Raw.Gallium;
+			global::CommonAndroidTools.Resource.Raw.TaDa = global::RadioLogisticaDeliveries.Resource.Raw.TaDa;
+			global::CommonAndroidTools.Resource.Raw.Tejat = global::RadioLogisticaDeliveries.Resource.Raw.Tejat;
+			global::CommonAndroidTools.Resource.String.ApplicationName = global::RadioLogisticaDeliveries.Resource.String.ApplicationName;
+			global::CommonAndroidTools.Resource.String.Hello = global::RadioLogisticaDeliveries.Resource.String.Hello;
 			global::LogonScreen.Resource.Animation.abc_fade_in = global::RadioLogisticaDeliveries.Resource.Animation.abc_fade_in;
 			global::LogonScreen.Resource.Animation.abc_fade_out = global::RadioLogisticaDeliveries.Resource.Animation.abc_fade_out;
 			global::LogonScreen.Resource.Animation.abc_grow_fade_in_from_bottom = global::RadioLogisticaDeliveries.Resource.Animation.abc_grow_fade_in_from_bottom;
@@ -40,6 +47,8 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Animation.design_bottom_sheet_slide_out = global::RadioLogisticaDeliveries.Resource.Animation.design_bottom_sheet_slide_out;
 			global::LogonScreen.Resource.Animation.design_snackbar_in = global::RadioLogisticaDeliveries.Resource.Animation.design_snackbar_in;
 			global::LogonScreen.Resource.Animation.design_snackbar_out = global::RadioLogisticaDeliveries.Resource.Animation.design_snackbar_out;
+			global::LogonScreen.Resource.Animation.tooltip_enter = global::RadioLogisticaDeliveries.Resource.Animation.tooltip_enter;
+			global::LogonScreen.Resource.Animation.tooltip_exit = global::RadioLogisticaDeliveries.Resource.Animation.tooltip_exit;
 			global::LogonScreen.Resource.Animator.design_appbar_state_list_animator = global::RadioLogisticaDeliveries.Resource.Animator.design_appbar_state_list_animator;
 			global::LogonScreen.Resource.Attribute.actionBarDivider = global::RadioLogisticaDeliveries.Resource.Attribute.actionBarDivider;
 			global::LogonScreen.Resource.Attribute.actionBarItemBackground = global::RadioLogisticaDeliveries.Resource.Attribute.actionBarItemBackground;
@@ -188,6 +197,7 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Attribute.expandedTitleMarginStart = global::RadioLogisticaDeliveries.Resource.Attribute.expandedTitleMarginStart;
 			global::LogonScreen.Resource.Attribute.expandedTitleMarginTop = global::RadioLogisticaDeliveries.Resource.Attribute.expandedTitleMarginTop;
 			global::LogonScreen.Resource.Attribute.expandedTitleTextAppearance = global::RadioLogisticaDeliveries.Resource.Attribute.expandedTitleTextAppearance;
+			global::LogonScreen.Resource.Attribute.externalRouteEnabledDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.externalRouteEnabledDrawable;
 			global::LogonScreen.Resource.Attribute.fabSize = global::RadioLogisticaDeliveries.Resource.Attribute.fabSize;
 			global::LogonScreen.Resource.Attribute.fastScrollEnabled = global::RadioLogisticaDeliveries.Resource.Attribute.fastScrollEnabled;
 			global::LogonScreen.Resource.Attribute.fastScrollHorizontalThumbDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.fastScrollHorizontalThumbDrawable;
@@ -258,6 +268,19 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Attribute.maxActionInlineWidth = global::RadioLogisticaDeliveries.Resource.Attribute.maxActionInlineWidth;
 			global::LogonScreen.Resource.Attribute.maxButtonHeight = global::RadioLogisticaDeliveries.Resource.Attribute.maxButtonHeight;
 			global::LogonScreen.Resource.Attribute.measureWithLargestChild = global::RadioLogisticaDeliveries.Resource.Attribute.measureWithLargestChild;
+			global::LogonScreen.Resource.Attribute.mediaRouteAudioTrackDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRouteAudioTrackDrawable;
+			global::LogonScreen.Resource.Attribute.mediaRouteButtonStyle = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRouteButtonStyle;
+			global::LogonScreen.Resource.Attribute.mediaRouteButtonTint = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRouteButtonTint;
+			global::LogonScreen.Resource.Attribute.mediaRouteCloseDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRouteCloseDrawable;
+			global::LogonScreen.Resource.Attribute.mediaRouteControlPanelThemeOverlay = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRouteControlPanelThemeOverlay;
+			global::LogonScreen.Resource.Attribute.mediaRouteDefaultIconDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRouteDefaultIconDrawable;
+			global::LogonScreen.Resource.Attribute.mediaRoutePauseDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRoutePauseDrawable;
+			global::LogonScreen.Resource.Attribute.mediaRoutePlayDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRoutePlayDrawable;
+			global::LogonScreen.Resource.Attribute.mediaRouteSpeakerGroupIconDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRouteSpeakerGroupIconDrawable;
+			global::LogonScreen.Resource.Attribute.mediaRouteSpeakerIconDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRouteSpeakerIconDrawable;
+			global::LogonScreen.Resource.Attribute.mediaRouteStopDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRouteStopDrawable;
+			global::LogonScreen.Resource.Attribute.mediaRouteTheme = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRouteTheme;
+			global::LogonScreen.Resource.Attribute.mediaRouteTvIconDrawable = global::RadioLogisticaDeliveries.Resource.Attribute.mediaRouteTvIconDrawable;
 			global::LogonScreen.Resource.Attribute.menu = global::RadioLogisticaDeliveries.Resource.Attribute.menu;
 			global::LogonScreen.Resource.Attribute.multiChoiceItemLayout = global::RadioLogisticaDeliveries.Resource.Attribute.multiChoiceItemLayout;
 			global::LogonScreen.Resource.Attribute.navigationContentDescription = global::RadioLogisticaDeliveries.Resource.Attribute.navigationContentDescription;
@@ -354,6 +377,7 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Attribute.textAppearanceSearchResultTitle = global::RadioLogisticaDeliveries.Resource.Attribute.textAppearanceSearchResultTitle;
 			global::LogonScreen.Resource.Attribute.textAppearanceSmallPopupMenu = global::RadioLogisticaDeliveries.Resource.Attribute.textAppearanceSmallPopupMenu;
 			global::LogonScreen.Resource.Attribute.textColorAlertDialogListItem = global::RadioLogisticaDeliveries.Resource.Attribute.textColorAlertDialogListItem;
+			global::LogonScreen.Resource.Attribute.textColorError = global::RadioLogisticaDeliveries.Resource.Attribute.textColorError;
 			global::LogonScreen.Resource.Attribute.textColorSearchUrl = global::RadioLogisticaDeliveries.Resource.Attribute.textColorSearchUrl;
 			global::LogonScreen.Resource.Attribute.theme = global::RadioLogisticaDeliveries.Resource.Attribute.theme;
 			global::LogonScreen.Resource.Attribute.thickness = global::RadioLogisticaDeliveries.Resource.Attribute.thickness;
@@ -400,6 +424,8 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Boolean.abc_action_bar_embed_tabs = global::RadioLogisticaDeliveries.Resource.Boolean.abc_action_bar_embed_tabs;
 			global::LogonScreen.Resource.Boolean.abc_allow_stacked_button_bar = global::RadioLogisticaDeliveries.Resource.Boolean.abc_allow_stacked_button_bar;
 			global::LogonScreen.Resource.Boolean.abc_config_actionMenuItemAllCaps = global::RadioLogisticaDeliveries.Resource.Boolean.abc_config_actionMenuItemAllCaps;
+			global::LogonScreen.Resource.Boolean.abc_config_closeDialogWhenTouchOutside = global::RadioLogisticaDeliveries.Resource.Boolean.abc_config_closeDialogWhenTouchOutside;
+			global::LogonScreen.Resource.Boolean.abc_config_showMenuShortcutsWhenKeyboardPresent = global::RadioLogisticaDeliveries.Resource.Boolean.abc_config_showMenuShortcutsWhenKeyboardPresent;
 			global::LogonScreen.Resource.Color.abc_background_cache_hint_selector_material_dark = global::RadioLogisticaDeliveries.Resource.Color.abc_background_cache_hint_selector_material_dark;
 			global::LogonScreen.Resource.Color.abc_background_cache_hint_selector_material_light = global::RadioLogisticaDeliveries.Resource.Color.abc_background_cache_hint_selector_material_light;
 			global::LogonScreen.Resource.Color.abc_btn_colored_borderless_text_material = global::RadioLogisticaDeliveries.Resource.Color.abc_btn_colored_borderless_text_material;
@@ -457,6 +483,7 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Color.dim_foreground_disabled_material_light = global::RadioLogisticaDeliveries.Resource.Color.dim_foreground_disabled_material_light;
 			global::LogonScreen.Resource.Color.dim_foreground_material_dark = global::RadioLogisticaDeliveries.Resource.Color.dim_foreground_material_dark;
 			global::LogonScreen.Resource.Color.dim_foreground_material_light = global::RadioLogisticaDeliveries.Resource.Color.dim_foreground_material_light;
+			global::LogonScreen.Resource.Color.error_color_material = global::RadioLogisticaDeliveries.Resource.Color.error_color_material;
 			global::LogonScreen.Resource.Color.foreground_material_dark = global::RadioLogisticaDeliveries.Resource.Color.foreground_material_dark;
 			global::LogonScreen.Resource.Color.foreground_material_light = global::RadioLogisticaDeliveries.Resource.Color.foreground_material_light;
 			global::LogonScreen.Resource.Color.highlighted_text_material_dark = global::RadioLogisticaDeliveries.Resource.Color.highlighted_text_material_dark;
@@ -475,6 +502,7 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Color.material_grey_900 = global::RadioLogisticaDeliveries.Resource.Color.material_grey_900;
 			global::LogonScreen.Resource.Color.notification_action_color_filter = global::RadioLogisticaDeliveries.Resource.Color.notification_action_color_filter;
 			global::LogonScreen.Resource.Color.notification_icon_bg_color = global::RadioLogisticaDeliveries.Resource.Color.notification_icon_bg_color;
+			global::LogonScreen.Resource.Color.notification_material_background_media_default_color = global::RadioLogisticaDeliveries.Resource.Color.notification_material_background_media_default_color;
 			global::LogonScreen.Resource.Color.primary_dark_material_dark = global::RadioLogisticaDeliveries.Resource.Color.primary_dark_material_dark;
 			global::LogonScreen.Resource.Color.primary_dark_material_light = global::RadioLogisticaDeliveries.Resource.Color.primary_dark_material_light;
 			global::LogonScreen.Resource.Color.primary_material_dark = global::RadioLogisticaDeliveries.Resource.Color.primary_material_dark;
@@ -506,6 +534,7 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Dimension.abc_action_bar_icon_vertical_padding_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_action_bar_icon_vertical_padding_material;
 			global::LogonScreen.Resource.Dimension.abc_action_bar_overflow_padding_end_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_action_bar_overflow_padding_end_material;
 			global::LogonScreen.Resource.Dimension.abc_action_bar_overflow_padding_start_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_action_bar_overflow_padding_start_material;
+			global::LogonScreen.Resource.Dimension.abc_action_bar_progress_bar_size = global::RadioLogisticaDeliveries.Resource.Dimension.abc_action_bar_progress_bar_size;
 			global::LogonScreen.Resource.Dimension.abc_action_bar_stacked_max_height = global::RadioLogisticaDeliveries.Resource.Dimension.abc_action_bar_stacked_max_height;
 			global::LogonScreen.Resource.Dimension.abc_action_bar_stacked_tab_max_width = global::RadioLogisticaDeliveries.Resource.Dimension.abc_action_bar_stacked_tab_max_width;
 			global::LogonScreen.Resource.Dimension.abc_action_bar_subtitle_bottom_margin_material = global::RadioLogisticaDeliveries.Resource.Dimension.abc_action_bar_subtitle_bottom_margin_material;
@@ -631,6 +660,12 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame = global::RadioLogisticaDeliveries.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame;
 			global::LogonScreen.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity = global::RadioLogisticaDeliveries.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity;
 			global::LogonScreen.Resource.Dimension.item_touch_helper_swipe_escape_velocity = global::RadioLogisticaDeliveries.Resource.Dimension.item_touch_helper_swipe_escape_velocity;
+			global::LogonScreen.Resource.Dimension.mr_controller_volume_group_list_item_height = global::RadioLogisticaDeliveries.Resource.Dimension.mr_controller_volume_group_list_item_height;
+			global::LogonScreen.Resource.Dimension.mr_controller_volume_group_list_item_icon_size = global::RadioLogisticaDeliveries.Resource.Dimension.mr_controller_volume_group_list_item_icon_size;
+			global::LogonScreen.Resource.Dimension.mr_controller_volume_group_list_max_height = global::RadioLogisticaDeliveries.Resource.Dimension.mr_controller_volume_group_list_max_height;
+			global::LogonScreen.Resource.Dimension.mr_controller_volume_group_list_padding_top = global::RadioLogisticaDeliveries.Resource.Dimension.mr_controller_volume_group_list_padding_top;
+			global::LogonScreen.Resource.Dimension.mr_dialog_fixed_width_major = global::RadioLogisticaDeliveries.Resource.Dimension.mr_dialog_fixed_width_major;
+			global::LogonScreen.Resource.Dimension.mr_dialog_fixed_width_minor = global::RadioLogisticaDeliveries.Resource.Dimension.mr_dialog_fixed_width_minor;
 			global::LogonScreen.Resource.Dimension.notification_action_icon_size = global::RadioLogisticaDeliveries.Resource.Dimension.notification_action_icon_size;
 			global::LogonScreen.Resource.Dimension.notification_action_text_size = global::RadioLogisticaDeliveries.Resource.Dimension.notification_action_text_size;
 			global::LogonScreen.Resource.Dimension.notification_big_circle_margin = global::RadioLogisticaDeliveries.Resource.Dimension.notification_big_circle_margin;
@@ -751,7 +786,204 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Drawable.design_ic_visibility_off = global::RadioLogisticaDeliveries.Resource.Drawable.design_ic_visibility_off;
 			global::LogonScreen.Resource.Drawable.design_password_eye = global::RadioLogisticaDeliveries.Resource.Drawable.design_password_eye;
 			global::LogonScreen.Resource.Drawable.design_snackbar_background = global::RadioLogisticaDeliveries.Resource.Drawable.design_snackbar_background;
+			global::LogonScreen.Resource.Drawable.ic_audiotrack_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_audiotrack_dark;
+			global::LogonScreen.Resource.Drawable.ic_audiotrack_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_audiotrack_light;
+			global::LogonScreen.Resource.Drawable.ic_dialog_close_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_dialog_close_dark;
+			global::LogonScreen.Resource.Drawable.ic_dialog_close_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_dialog_close_light;
+			global::LogonScreen.Resource.Drawable.ic_group_collapse_00 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_00;
+			global::LogonScreen.Resource.Drawable.ic_group_collapse_01 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_01;
+			global::LogonScreen.Resource.Drawable.ic_group_collapse_02 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_02;
+			global::LogonScreen.Resource.Drawable.ic_group_collapse_03 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_03;
+			global::LogonScreen.Resource.Drawable.ic_group_collapse_04 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_04;
+			global::LogonScreen.Resource.Drawable.ic_group_collapse_05 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_05;
+			global::LogonScreen.Resource.Drawable.ic_group_collapse_06 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_06;
+			global::LogonScreen.Resource.Drawable.ic_group_collapse_07 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_07;
+			global::LogonScreen.Resource.Drawable.ic_group_collapse_08 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_08;
+			global::LogonScreen.Resource.Drawable.ic_group_collapse_09 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_09;
+			global::LogonScreen.Resource.Drawable.ic_group_collapse_10 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_10;
+			global::LogonScreen.Resource.Drawable.ic_group_collapse_11 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_11;
+			global::LogonScreen.Resource.Drawable.ic_group_collapse_12 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_12;
+			global::LogonScreen.Resource.Drawable.ic_group_collapse_13 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_13;
+			global::LogonScreen.Resource.Drawable.ic_group_collapse_14 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_14;
+			global::LogonScreen.Resource.Drawable.ic_group_collapse_15 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_collapse_15;
+			global::LogonScreen.Resource.Drawable.ic_group_expand_00 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_00;
+			global::LogonScreen.Resource.Drawable.ic_group_expand_01 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_01;
+			global::LogonScreen.Resource.Drawable.ic_group_expand_02 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_02;
+			global::LogonScreen.Resource.Drawable.ic_group_expand_03 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_03;
+			global::LogonScreen.Resource.Drawable.ic_group_expand_04 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_04;
+			global::LogonScreen.Resource.Drawable.ic_group_expand_05 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_05;
+			global::LogonScreen.Resource.Drawable.ic_group_expand_06 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_06;
+			global::LogonScreen.Resource.Drawable.ic_group_expand_07 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_07;
+			global::LogonScreen.Resource.Drawable.ic_group_expand_08 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_08;
+			global::LogonScreen.Resource.Drawable.ic_group_expand_09 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_09;
+			global::LogonScreen.Resource.Drawable.ic_group_expand_10 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_10;
+			global::LogonScreen.Resource.Drawable.ic_group_expand_11 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_11;
+			global::LogonScreen.Resource.Drawable.ic_group_expand_12 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_12;
+			global::LogonScreen.Resource.Drawable.ic_group_expand_13 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_13;
+			global::LogonScreen.Resource.Drawable.ic_group_expand_14 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_14;
+			global::LogonScreen.Resource.Drawable.ic_group_expand_15 = global::RadioLogisticaDeliveries.Resource.Drawable.ic_group_expand_15;
+			global::LogonScreen.Resource.Drawable.ic_media_pause_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_media_pause_dark;
+			global::LogonScreen.Resource.Drawable.ic_media_pause_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_media_pause_light;
+			global::LogonScreen.Resource.Drawable.ic_media_play_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_media_play_dark;
+			global::LogonScreen.Resource.Drawable.ic_media_play_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_media_play_light;
+			global::LogonScreen.Resource.Drawable.ic_media_stop_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_media_stop_dark;
+			global::LogonScreen.Resource.Drawable.ic_media_stop_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_media_stop_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_00_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_00_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_00_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_00_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_01_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_01_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_01_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_01_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_02_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_02_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_02_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_02_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_03_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_03_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_03_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_03_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_04_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_04_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_04_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_04_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_05_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_05_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_05_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_05_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_06_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_06_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_06_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_06_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_07_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_07_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_07_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_07_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_08_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_08_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_08_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_08_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_09_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_09_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_09_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_09_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_10_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_10_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_10_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_10_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_11_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_11_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_11_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_11_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_12_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_12_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_12_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_12_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_13_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_13_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_13_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_13_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_14_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_14_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_14_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_14_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_15_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_15_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_15_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_15_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_16_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_16_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_16_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_16_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_17_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_17_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_17_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_17_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_18_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_18_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_18_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_18_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_19_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_19_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_19_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_19_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_20_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_20_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_20_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_20_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_21_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_21_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_21_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_21_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_22_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_22_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_22_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_22_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_23_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_23_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_23_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_23_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_24_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_24_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_24_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_24_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_25_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_25_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_25_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_25_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_26_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_26_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_26_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_26_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_27_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_27_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_27_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_27_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_28_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_28_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_28_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_28_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_29_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_29_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_29_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_29_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_30_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_30_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connected_30_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connected_30_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_00_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_00_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_00_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_00_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_01_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_01_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_01_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_01_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_02_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_02_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_02_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_02_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_03_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_03_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_03_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_03_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_04_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_04_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_04_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_04_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_05_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_05_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_05_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_05_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_06_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_06_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_06_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_06_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_07_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_07_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_07_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_07_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_08_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_08_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_08_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_08_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_09_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_09_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_09_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_09_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_10_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_10_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_10_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_10_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_11_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_11_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_11_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_11_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_12_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_12_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_12_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_12_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_13_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_13_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_13_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_13_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_14_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_14_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_14_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_14_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_15_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_15_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_15_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_15_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_16_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_16_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_16_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_16_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_17_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_17_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_17_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_17_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_18_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_18_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_18_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_18_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_19_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_19_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_19_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_19_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_20_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_20_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_20_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_20_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_21_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_21_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_21_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_21_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_22_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_22_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_22_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_22_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_23_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_23_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_23_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_23_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_24_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_24_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_24_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_24_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_25_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_25_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_25_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_25_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_26_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_26_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_26_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_26_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_27_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_27_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_27_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_27_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_28_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_28_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_28_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_28_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_29_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_29_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_29_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_29_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_30_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_30_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_connecting_30_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_connecting_30_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_disabled_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_disabled_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_disabled_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_disabled_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_disconnected_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_disconnected_dark;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_disconnected_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_disconnected_light;
+			global::LogonScreen.Resource.Drawable.ic_mr_button_grey = global::RadioLogisticaDeliveries.Resource.Drawable.ic_mr_button_grey;
+			global::LogonScreen.Resource.Drawable.ic_vol_type_speaker_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_vol_type_speaker_dark;
+			global::LogonScreen.Resource.Drawable.ic_vol_type_speaker_group_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_vol_type_speaker_group_dark;
+			global::LogonScreen.Resource.Drawable.ic_vol_type_speaker_group_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_vol_type_speaker_group_light;
+			global::LogonScreen.Resource.Drawable.ic_vol_type_speaker_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_vol_type_speaker_light;
+			global::LogonScreen.Resource.Drawable.ic_vol_type_tv_dark = global::RadioLogisticaDeliveries.Resource.Drawable.ic_vol_type_tv_dark;
+			global::LogonScreen.Resource.Drawable.ic_vol_type_tv_light = global::RadioLogisticaDeliveries.Resource.Drawable.ic_vol_type_tv_light;
 			global::LogonScreen.Resource.Drawable.Logo_Espack_Sistemas_vertical = global::RadioLogisticaDeliveries.Resource.Drawable.Logo_Espack_Sistemas_vertical;
+			global::LogonScreen.Resource.Drawable.mr_button_connected_dark = global::RadioLogisticaDeliveries.Resource.Drawable.mr_button_connected_dark;
+			global::LogonScreen.Resource.Drawable.mr_button_connected_light = global::RadioLogisticaDeliveries.Resource.Drawable.mr_button_connected_light;
+			global::LogonScreen.Resource.Drawable.mr_button_connecting_dark = global::RadioLogisticaDeliveries.Resource.Drawable.mr_button_connecting_dark;
+			global::LogonScreen.Resource.Drawable.mr_button_connecting_light = global::RadioLogisticaDeliveries.Resource.Drawable.mr_button_connecting_light;
+			global::LogonScreen.Resource.Drawable.mr_button_dark = global::RadioLogisticaDeliveries.Resource.Drawable.mr_button_dark;
+			global::LogonScreen.Resource.Drawable.mr_button_light = global::RadioLogisticaDeliveries.Resource.Drawable.mr_button_light;
+			global::LogonScreen.Resource.Drawable.mr_dialog_close_dark = global::RadioLogisticaDeliveries.Resource.Drawable.mr_dialog_close_dark;
+			global::LogonScreen.Resource.Drawable.mr_dialog_close_light = global::RadioLogisticaDeliveries.Resource.Drawable.mr_dialog_close_light;
+			global::LogonScreen.Resource.Drawable.mr_dialog_material_background_dark = global::RadioLogisticaDeliveries.Resource.Drawable.mr_dialog_material_background_dark;
+			global::LogonScreen.Resource.Drawable.mr_dialog_material_background_light = global::RadioLogisticaDeliveries.Resource.Drawable.mr_dialog_material_background_light;
+			global::LogonScreen.Resource.Drawable.mr_group_collapse = global::RadioLogisticaDeliveries.Resource.Drawable.mr_group_collapse;
+			global::LogonScreen.Resource.Drawable.mr_group_expand = global::RadioLogisticaDeliveries.Resource.Drawable.mr_group_expand;
+			global::LogonScreen.Resource.Drawable.mr_media_pause_dark = global::RadioLogisticaDeliveries.Resource.Drawable.mr_media_pause_dark;
+			global::LogonScreen.Resource.Drawable.mr_media_pause_light = global::RadioLogisticaDeliveries.Resource.Drawable.mr_media_pause_light;
+			global::LogonScreen.Resource.Drawable.mr_media_play_dark = global::RadioLogisticaDeliveries.Resource.Drawable.mr_media_play_dark;
+			global::LogonScreen.Resource.Drawable.mr_media_play_light = global::RadioLogisticaDeliveries.Resource.Drawable.mr_media_play_light;
+			global::LogonScreen.Resource.Drawable.mr_media_stop_dark = global::RadioLogisticaDeliveries.Resource.Drawable.mr_media_stop_dark;
+			global::LogonScreen.Resource.Drawable.mr_media_stop_light = global::RadioLogisticaDeliveries.Resource.Drawable.mr_media_stop_light;
+			global::LogonScreen.Resource.Drawable.mr_vol_type_audiotrack_dark = global::RadioLogisticaDeliveries.Resource.Drawable.mr_vol_type_audiotrack_dark;
+			global::LogonScreen.Resource.Drawable.mr_vol_type_audiotrack_light = global::RadioLogisticaDeliveries.Resource.Drawable.mr_vol_type_audiotrack_light;
 			global::LogonScreen.Resource.Drawable.navigation_empty_icon = global::RadioLogisticaDeliveries.Resource.Drawable.navigation_empty_icon;
 			global::LogonScreen.Resource.Drawable.notification_action_background = global::RadioLogisticaDeliveries.Resource.Drawable.notification_action_background;
 			global::LogonScreen.Resource.Drawable.notification_bg = global::RadioLogisticaDeliveries.Resource.Drawable.notification_bg;
@@ -776,6 +1008,7 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Id.SHIFT = global::RadioLogisticaDeliveries.Resource.Id.SHIFT;
 			global::LogonScreen.Resource.Id.SYM = global::RadioLogisticaDeliveries.Resource.Id.SYM;
 			global::LogonScreen.Resource.Id.User = global::RadioLogisticaDeliveries.Resource.Id.User;
+			global::LogonScreen.Resource.Id.action0 = global::RadioLogisticaDeliveries.Resource.Id.action0;
 			global::LogonScreen.Resource.Id.action_bar = global::RadioLogisticaDeliveries.Resource.Id.action_bar;
 			global::LogonScreen.Resource.Id.action_bar_activity_content = global::RadioLogisticaDeliveries.Resource.Id.action_bar_activity_content;
 			global::LogonScreen.Resource.Id.action_bar_container = global::RadioLogisticaDeliveries.Resource.Id.action_bar_container;
@@ -805,6 +1038,7 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Id.blocking = global::RadioLogisticaDeliveries.Resource.Id.blocking;
 			global::LogonScreen.Resource.Id.bottom = global::RadioLogisticaDeliveries.Resource.Id.bottom;
 			global::LogonScreen.Resource.Id.buttonPanel = global::RadioLogisticaDeliveries.Resource.Id.buttonPanel;
+			global::LogonScreen.Resource.Id.cancel_action = global::RadioLogisticaDeliveries.Resource.Id.cancel_action;
 			global::LogonScreen.Resource.Id.center = global::RadioLogisticaDeliveries.Resource.Id.center;
 			global::LogonScreen.Resource.Id.center_horizontal = global::RadioLogisticaDeliveries.Resource.Id.center_horizontal;
 			global::LogonScreen.Resource.Id.center_vertical = global::RadioLogisticaDeliveries.Resource.Id.center_vertical;
@@ -828,6 +1062,7 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Id.disableHome = global::RadioLogisticaDeliveries.Resource.Id.disableHome;
 			global::LogonScreen.Resource.Id.edit_query = global::RadioLogisticaDeliveries.Resource.Id.edit_query;
 			global::LogonScreen.Resource.Id.end = global::RadioLogisticaDeliveries.Resource.Id.end;
+			global::LogonScreen.Resource.Id.end_padder = global::RadioLogisticaDeliveries.Resource.Id.end_padder;
 			global::LogonScreen.Resource.Id.enterAlways = global::RadioLogisticaDeliveries.Resource.Id.enterAlways;
 			global::LogonScreen.Resource.Id.enterAlwaysCollapsed = global::RadioLogisticaDeliveries.Resource.Id.enterAlwaysCollapsed;
 			global::LogonScreen.Resource.Id.exitUntilCollapsed = global::RadioLogisticaDeliveries.Resource.Id.exitUntilCollapsed;
@@ -855,9 +1090,35 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Id.listMode = global::RadioLogisticaDeliveries.Resource.Id.listMode;
 			global::LogonScreen.Resource.Id.list_item = global::RadioLogisticaDeliveries.Resource.Id.list_item;
 			global::LogonScreen.Resource.Id.masked = global::RadioLogisticaDeliveries.Resource.Id.masked;
+			global::LogonScreen.Resource.Id.media_actions = global::RadioLogisticaDeliveries.Resource.Id.media_actions;
 			global::LogonScreen.Resource.Id.message = global::RadioLogisticaDeliveries.Resource.Id.message;
 			global::LogonScreen.Resource.Id.middle = global::RadioLogisticaDeliveries.Resource.Id.middle;
 			global::LogonScreen.Resource.Id.mini = global::RadioLogisticaDeliveries.Resource.Id.mini;
+			global::LogonScreen.Resource.Id.mr_art = global::RadioLogisticaDeliveries.Resource.Id.mr_art;
+			global::LogonScreen.Resource.Id.mr_chooser_list = global::RadioLogisticaDeliveries.Resource.Id.mr_chooser_list;
+			global::LogonScreen.Resource.Id.mr_chooser_route_desc = global::RadioLogisticaDeliveries.Resource.Id.mr_chooser_route_desc;
+			global::LogonScreen.Resource.Id.mr_chooser_route_icon = global::RadioLogisticaDeliveries.Resource.Id.mr_chooser_route_icon;
+			global::LogonScreen.Resource.Id.mr_chooser_route_name = global::RadioLogisticaDeliveries.Resource.Id.mr_chooser_route_name;
+			global::LogonScreen.Resource.Id.mr_chooser_title = global::RadioLogisticaDeliveries.Resource.Id.mr_chooser_title;
+			global::LogonScreen.Resource.Id.mr_close = global::RadioLogisticaDeliveries.Resource.Id.mr_close;
+			global::LogonScreen.Resource.Id.mr_control_divider = global::RadioLogisticaDeliveries.Resource.Id.mr_control_divider;
+			global::LogonScreen.Resource.Id.mr_control_playback_ctrl = global::RadioLogisticaDeliveries.Resource.Id.mr_control_playback_ctrl;
+			global::LogonScreen.Resource.Id.mr_control_subtitle = global::RadioLogisticaDeliveries.Resource.Id.mr_control_subtitle;
+			global::LogonScreen.Resource.Id.mr_control_title = global::RadioLogisticaDeliveries.Resource.Id.mr_control_title;
+			global::LogonScreen.Resource.Id.mr_control_title_container = global::RadioLogisticaDeliveries.Resource.Id.mr_control_title_container;
+			global::LogonScreen.Resource.Id.mr_custom_control = global::RadioLogisticaDeliveries.Resource.Id.mr_custom_control;
+			global::LogonScreen.Resource.Id.mr_default_control = global::RadioLogisticaDeliveries.Resource.Id.mr_default_control;
+			global::LogonScreen.Resource.Id.mr_dialog_area = global::RadioLogisticaDeliveries.Resource.Id.mr_dialog_area;
+			global::LogonScreen.Resource.Id.mr_expandable_area = global::RadioLogisticaDeliveries.Resource.Id.mr_expandable_area;
+			global::LogonScreen.Resource.Id.mr_group_expand_collapse = global::RadioLogisticaDeliveries.Resource.Id.mr_group_expand_collapse;
+			global::LogonScreen.Resource.Id.mr_media_main_control = global::RadioLogisticaDeliveries.Resource.Id.mr_media_main_control;
+			global::LogonScreen.Resource.Id.mr_name = global::RadioLogisticaDeliveries.Resource.Id.mr_name;
+			global::LogonScreen.Resource.Id.mr_playback_control = global::RadioLogisticaDeliveries.Resource.Id.mr_playback_control;
+			global::LogonScreen.Resource.Id.mr_title_bar = global::RadioLogisticaDeliveries.Resource.Id.mr_title_bar;
+			global::LogonScreen.Resource.Id.mr_volume_control = global::RadioLogisticaDeliveries.Resource.Id.mr_volume_control;
+			global::LogonScreen.Resource.Id.mr_volume_group_list = global::RadioLogisticaDeliveries.Resource.Id.mr_volume_group_list;
+			global::LogonScreen.Resource.Id.mr_volume_item_icon = global::RadioLogisticaDeliveries.Resource.Id.mr_volume_item_icon;
+			global::LogonScreen.Resource.Id.mr_volume_slider = global::RadioLogisticaDeliveries.Resource.Id.mr_volume_slider;
 			global::LogonScreen.Resource.Id.msgPkgInfo = global::RadioLogisticaDeliveries.Resource.Id.msgPkgInfo;
 			global::LogonScreen.Resource.Id.msgText = global::RadioLogisticaDeliveries.Resource.Id.msgText;
 			global::LogonScreen.Resource.Id.multiply = global::RadioLogisticaDeliveries.Resource.Id.multiply;
@@ -914,10 +1175,10 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Id.src_in = global::RadioLogisticaDeliveries.Resource.Id.src_in;
 			global::LogonScreen.Resource.Id.src_over = global::RadioLogisticaDeliveries.Resource.Id.src_over;
 			global::LogonScreen.Resource.Id.start = global::RadioLogisticaDeliveries.Resource.Id.start;
+			global::LogonScreen.Resource.Id.status_bar_latest_event_content = global::RadioLogisticaDeliveries.Resource.Id.status_bar_latest_event_content;
 			global::LogonScreen.Resource.Id.submenuarrow = global::RadioLogisticaDeliveries.Resource.Id.submenuarrow;
 			global::LogonScreen.Resource.Id.submit_area = global::RadioLogisticaDeliveries.Resource.Id.submit_area;
 			global::LogonScreen.Resource.Id.tabMode = global::RadioLogisticaDeliveries.Resource.Id.tabMode;
-			global::LogonScreen.Resource.Id.tag_transition_group = global::RadioLogisticaDeliveries.Resource.Id.tag_transition_group;
 			global::LogonScreen.Resource.Id.text = global::RadioLogisticaDeliveries.Resource.Id.text;
 			global::LogonScreen.Resource.Id.text2 = global::RadioLogisticaDeliveries.Resource.Id.text2;
 			global::LogonScreen.Resource.Id.textSpacerNoButtons = global::RadioLogisticaDeliveries.Resource.Id.textSpacerNoButtons;
@@ -942,6 +1203,7 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Id.useLogo = global::RadioLogisticaDeliveries.Resource.Id.useLogo;
 			global::LogonScreen.Resource.Id.view_offset_helper = global::RadioLogisticaDeliveries.Resource.Id.view_offset_helper;
 			global::LogonScreen.Resource.Id.visible = global::RadioLogisticaDeliveries.Resource.Id.visible;
+			global::LogonScreen.Resource.Id.volume_item_container = global::RadioLogisticaDeliveries.Resource.Id.volume_item_container;
 			global::LogonScreen.Resource.Id.withText = global::RadioLogisticaDeliveries.Resource.Id.withText;
 			global::LogonScreen.Resource.Id.wrap_content = global::RadioLogisticaDeliveries.Resource.Id.wrap_content;
 			global::LogonScreen.Resource.Integer.abc_config_activityDefaultDur = global::RadioLogisticaDeliveries.Resource.Integer.abc_config_activityDefaultDur;
@@ -952,8 +1214,13 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Integer.config_tooltipAnimTime = global::RadioLogisticaDeliveries.Resource.Integer.config_tooltipAnimTime;
 			global::LogonScreen.Resource.Integer.design_snackbar_text_max_lines = global::RadioLogisticaDeliveries.Resource.Integer.design_snackbar_text_max_lines;
 			global::LogonScreen.Resource.Integer.hide_password_duration = global::RadioLogisticaDeliveries.Resource.Integer.hide_password_duration;
+			global::LogonScreen.Resource.Integer.mr_controller_volume_group_list_animation_duration_ms = global::RadioLogisticaDeliveries.Resource.Integer.mr_controller_volume_group_list_animation_duration_ms;
+			global::LogonScreen.Resource.Integer.mr_controller_volume_group_list_fade_in_duration_ms = global::RadioLogisticaDeliveries.Resource.Integer.mr_controller_volume_group_list_fade_in_duration_ms;
+			global::LogonScreen.Resource.Integer.mr_controller_volume_group_list_fade_out_duration_ms = global::RadioLogisticaDeliveries.Resource.Integer.mr_controller_volume_group_list_fade_out_duration_ms;
 			global::LogonScreen.Resource.Integer.show_password_duration = global::RadioLogisticaDeliveries.Resource.Integer.show_password_duration;
 			global::LogonScreen.Resource.Integer.status_bar_notification_info_maxnum = global::RadioLogisticaDeliveries.Resource.Integer.status_bar_notification_info_maxnum;
+			global::LogonScreen.Resource.Interpolator.mr_fast_out_slow_in = global::RadioLogisticaDeliveries.Resource.Interpolator.mr_fast_out_slow_in;
+			global::LogonScreen.Resource.Interpolator.mr_linear_out_slow_in = global::RadioLogisticaDeliveries.Resource.Interpolator.mr_linear_out_slow_in;
 			global::LogonScreen.Resource.Layout.abc_action_bar_title_item = global::RadioLogisticaDeliveries.Resource.Layout.abc_action_bar_title_item;
 			global::LogonScreen.Resource.Layout.abc_action_bar_up_container = global::RadioLogisticaDeliveries.Resource.Layout.abc_action_bar_up_container;
 			global::LogonScreen.Resource.Layout.abc_action_menu_item_layout = global::RadioLogisticaDeliveries.Resource.Layout.abc_action_menu_item_layout;
@@ -995,16 +1262,37 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Layout.design_navigation_menu_item = global::RadioLogisticaDeliveries.Resource.Layout.design_navigation_menu_item;
 			global::LogonScreen.Resource.Layout.design_text_input_password_icon = global::RadioLogisticaDeliveries.Resource.Layout.design_text_input_password_icon;
 			global::LogonScreen.Resource.Layout.LogonScreen = global::RadioLogisticaDeliveries.Resource.Layout.LogonScreen;
+			global::LogonScreen.Resource.Layout.mr_chooser_dialog = global::RadioLogisticaDeliveries.Resource.Layout.mr_chooser_dialog;
+			global::LogonScreen.Resource.Layout.mr_chooser_list_item = global::RadioLogisticaDeliveries.Resource.Layout.mr_chooser_list_item;
+			global::LogonScreen.Resource.Layout.mr_controller_material_dialog_b = global::RadioLogisticaDeliveries.Resource.Layout.mr_controller_material_dialog_b;
+			global::LogonScreen.Resource.Layout.mr_controller_volume_item = global::RadioLogisticaDeliveries.Resource.Layout.mr_controller_volume_item;
+			global::LogonScreen.Resource.Layout.mr_playback_control = global::RadioLogisticaDeliveries.Resource.Layout.mr_playback_control;
+			global::LogonScreen.Resource.Layout.mr_volume_control = global::RadioLogisticaDeliveries.Resource.Layout.mr_volume_control;
 			global::LogonScreen.Resource.Layout.notification_action = global::RadioLogisticaDeliveries.Resource.Layout.notification_action;
 			global::LogonScreen.Resource.Layout.notification_action_tombstone = global::RadioLogisticaDeliveries.Resource.Layout.notification_action_tombstone;
+			global::LogonScreen.Resource.Layout.notification_media_action = global::RadioLogisticaDeliveries.Resource.Layout.notification_media_action;
+			global::LogonScreen.Resource.Layout.notification_media_cancel_action = global::RadioLogisticaDeliveries.Resource.Layout.notification_media_cancel_action;
+			global::LogonScreen.Resource.Layout.notification_template_big_media = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_big_media;
+			global::LogonScreen.Resource.Layout.notification_template_big_media_custom = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_big_media_custom;
+			global::LogonScreen.Resource.Layout.notification_template_big_media_narrow = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_big_media_narrow;
+			global::LogonScreen.Resource.Layout.notification_template_big_media_narrow_custom = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_big_media_narrow_custom;
 			global::LogonScreen.Resource.Layout.notification_template_custom_big = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_custom_big;
 			global::LogonScreen.Resource.Layout.notification_template_icon_group = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_icon_group;
+			global::LogonScreen.Resource.Layout.notification_template_lines_media = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_lines_media;
+			global::LogonScreen.Resource.Layout.notification_template_media = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_media;
+			global::LogonScreen.Resource.Layout.notification_template_media_custom = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_media_custom;
 			global::LogonScreen.Resource.Layout.notification_template_part_chronometer = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_part_chronometer;
 			global::LogonScreen.Resource.Layout.notification_template_part_time = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_part_time;
 			global::LogonScreen.Resource.Layout.select_dialog_item_material = global::RadioLogisticaDeliveries.Resource.Layout.select_dialog_item_material;
 			global::LogonScreen.Resource.Layout.select_dialog_multichoice_material = global::RadioLogisticaDeliveries.Resource.Layout.select_dialog_multichoice_material;
 			global::LogonScreen.Resource.Layout.select_dialog_singlechoice_material = global::RadioLogisticaDeliveries.Resource.Layout.select_dialog_singlechoice_material;
 			global::LogonScreen.Resource.Layout.support_simple_spinner_dropdown_item = global::RadioLogisticaDeliveries.Resource.Layout.support_simple_spinner_dropdown_item;
+			global::LogonScreen.Resource.Layout.tooltip = global::RadioLogisticaDeliveries.Resource.Layout.tooltip;
+			global::LogonScreen.Resource.Raw.Antares = global::RadioLogisticaDeliveries.Resource.Raw.Antares;
+			global::LogonScreen.Resource.Raw.decodeshort = global::RadioLogisticaDeliveries.Resource.Raw.decodeshort;
+			global::LogonScreen.Resource.Raw.Gallium = global::RadioLogisticaDeliveries.Resource.Raw.Gallium;
+			global::LogonScreen.Resource.Raw.TaDa = global::RadioLogisticaDeliveries.Resource.Raw.TaDa;
+			global::LogonScreen.Resource.Raw.Tejat = global::RadioLogisticaDeliveries.Resource.Raw.Tejat;
 			global::LogonScreen.Resource.String.ApplicationName = global::RadioLogisticaDeliveries.Resource.String.ApplicationName;
 			global::LogonScreen.Resource.String.Hello = global::RadioLogisticaDeliveries.Resource.String.Hello;
 			global::LogonScreen.Resource.String.abc_action_bar_home_description = global::RadioLogisticaDeliveries.Resource.String.abc_action_bar_home_description;
@@ -1036,11 +1324,30 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.String.abc_shareactionprovider_share_with = global::RadioLogisticaDeliveries.Resource.String.abc_shareactionprovider_share_with;
 			global::LogonScreen.Resource.String.abc_shareactionprovider_share_with_application = global::RadioLogisticaDeliveries.Resource.String.abc_shareactionprovider_share_with_application;
 			global::LogonScreen.Resource.String.abc_toolbar_collapse_description = global::RadioLogisticaDeliveries.Resource.String.abc_toolbar_collapse_description;
-			global::LogonScreen.Resource.String.app_name = global::RadioLogisticaDeliveries.Resource.String.app_name;
 			global::LogonScreen.Resource.String.appbar_scrolling_view_behavior = global::RadioLogisticaDeliveries.Resource.String.appbar_scrolling_view_behavior;
 			global::LogonScreen.Resource.String.bottom_sheet_behavior = global::RadioLogisticaDeliveries.Resource.String.bottom_sheet_behavior;
 			global::LogonScreen.Resource.String.character_counter_pattern = global::RadioLogisticaDeliveries.Resource.String.character_counter_pattern;
-			global::LogonScreen.Resource.String.hello = global::RadioLogisticaDeliveries.Resource.String.hello;
+			global::LogonScreen.Resource.String.mr_button_content_description = global::RadioLogisticaDeliveries.Resource.String.mr_button_content_description;
+			global::LogonScreen.Resource.String.mr_cast_button_connected = global::RadioLogisticaDeliveries.Resource.String.mr_cast_button_connected;
+			global::LogonScreen.Resource.String.mr_cast_button_connecting = global::RadioLogisticaDeliveries.Resource.String.mr_cast_button_connecting;
+			global::LogonScreen.Resource.String.mr_cast_button_disconnected = global::RadioLogisticaDeliveries.Resource.String.mr_cast_button_disconnected;
+			global::LogonScreen.Resource.String.mr_chooser_searching = global::RadioLogisticaDeliveries.Resource.String.mr_chooser_searching;
+			global::LogonScreen.Resource.String.mr_chooser_title = global::RadioLogisticaDeliveries.Resource.String.mr_chooser_title;
+			global::LogonScreen.Resource.String.mr_controller_album_art = global::RadioLogisticaDeliveries.Resource.String.mr_controller_album_art;
+			global::LogonScreen.Resource.String.mr_controller_casting_screen = global::RadioLogisticaDeliveries.Resource.String.mr_controller_casting_screen;
+			global::LogonScreen.Resource.String.mr_controller_close_description = global::RadioLogisticaDeliveries.Resource.String.mr_controller_close_description;
+			global::LogonScreen.Resource.String.mr_controller_collapse_group = global::RadioLogisticaDeliveries.Resource.String.mr_controller_collapse_group;
+			global::LogonScreen.Resource.String.mr_controller_disconnect = global::RadioLogisticaDeliveries.Resource.String.mr_controller_disconnect;
+			global::LogonScreen.Resource.String.mr_controller_expand_group = global::RadioLogisticaDeliveries.Resource.String.mr_controller_expand_group;
+			global::LogonScreen.Resource.String.mr_controller_no_info_available = global::RadioLogisticaDeliveries.Resource.String.mr_controller_no_info_available;
+			global::LogonScreen.Resource.String.mr_controller_no_media_selected = global::RadioLogisticaDeliveries.Resource.String.mr_controller_no_media_selected;
+			global::LogonScreen.Resource.String.mr_controller_pause = global::RadioLogisticaDeliveries.Resource.String.mr_controller_pause;
+			global::LogonScreen.Resource.String.mr_controller_play = global::RadioLogisticaDeliveries.Resource.String.mr_controller_play;
+			global::LogonScreen.Resource.String.mr_controller_stop = global::RadioLogisticaDeliveries.Resource.String.mr_controller_stop;
+			global::LogonScreen.Resource.String.mr_controller_stop_casting = global::RadioLogisticaDeliveries.Resource.String.mr_controller_stop_casting;
+			global::LogonScreen.Resource.String.mr_controller_volume_slider = global::RadioLogisticaDeliveries.Resource.String.mr_controller_volume_slider;
+			global::LogonScreen.Resource.String.mr_system_route_name = global::RadioLogisticaDeliveries.Resource.String.mr_system_route_name;
+			global::LogonScreen.Resource.String.mr_user_route_category_name = global::RadioLogisticaDeliveries.Resource.String.mr_user_route_category_name;
 			global::LogonScreen.Resource.String.password_toggle_content_description = global::RadioLogisticaDeliveries.Resource.String.password_toggle_content_description;
 			global::LogonScreen.Resource.String.path_password_eye = global::RadioLogisticaDeliveries.Resource.String.path_password_eye;
 			global::LogonScreen.Resource.String.path_password_eye_mask_strike_through = global::RadioLogisticaDeliveries.Resource.String.path_password_eye_mask_strike_through;
@@ -1131,11 +1438,18 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog;
 			global::LogonScreen.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog_Alert = global::RadioLogisticaDeliveries.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog_Alert;
 			global::LogonScreen.Resource.Style.Base_ThemeOverlay_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Base_ThemeOverlay_AppCompat_Light;
+			global::LogonScreen.Resource.Style.Base_V11_Theme_AppCompat_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Base_V11_Theme_AppCompat_Dialog;
+			global::LogonScreen.Resource.Style.Base_V11_Theme_AppCompat_Light_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Base_V11_Theme_AppCompat_Light_Dialog;
+			global::LogonScreen.Resource.Style.Base_V11_ThemeOverlay_AppCompat_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Base_V11_ThemeOverlay_AppCompat_Dialog;
+			global::LogonScreen.Resource.Style.Base_V12_Widget_AppCompat_AutoCompleteTextView = global::RadioLogisticaDeliveries.Resource.Style.Base_V12_Widget_AppCompat_AutoCompleteTextView;
+			global::LogonScreen.Resource.Style.Base_V12_Widget_AppCompat_EditText = global::RadioLogisticaDeliveries.Resource.Style.Base_V12_Widget_AppCompat_EditText;
+			global::LogonScreen.Resource.Style.Base_V14_Widget_Design_AppBarLayout = global::RadioLogisticaDeliveries.Resource.Style.Base_V14_Widget_Design_AppBarLayout;
 			global::LogonScreen.Resource.Style.Base_V21_Theme_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Base_V21_Theme_AppCompat;
 			global::LogonScreen.Resource.Style.Base_V21_Theme_AppCompat_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Base_V21_Theme_AppCompat_Dialog;
 			global::LogonScreen.Resource.Style.Base_V21_Theme_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Base_V21_Theme_AppCompat_Light;
 			global::LogonScreen.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog;
 			global::LogonScreen.Resource.Style.Base_V21_ThemeOverlay_AppCompat_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Base_V21_ThemeOverlay_AppCompat_Dialog;
+			global::LogonScreen.Resource.Style.Base_V21_Widget_Design_AppBarLayout = global::RadioLogisticaDeliveries.Resource.Style.Base_V21_Widget_Design_AppBarLayout;
 			global::LogonScreen.Resource.Style.Base_V22_Theme_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Base_V22_Theme_AppCompat;
 			global::LogonScreen.Resource.Style.Base_V22_Theme_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Base_V22_Theme_AppCompat_Light;
 			global::LogonScreen.Resource.Style.Base_V23_Theme_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Base_V23_Theme_AppCompat;
@@ -1143,6 +1457,7 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Style.Base_V26_Theme_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Base_V26_Theme_AppCompat;
 			global::LogonScreen.Resource.Style.Base_V26_Theme_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Base_V26_Theme_AppCompat_Light;
 			global::LogonScreen.Resource.Style.Base_V26_Widget_AppCompat_Toolbar = global::RadioLogisticaDeliveries.Resource.Style.Base_V26_Widget_AppCompat_Toolbar;
+			global::LogonScreen.Resource.Style.Base_V26_Widget_Design_AppBarLayout = global::RadioLogisticaDeliveries.Resource.Style.Base_V26_Widget_Design_AppBarLayout;
 			global::LogonScreen.Resource.Style.Base_V7_Theme_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Base_V7_Theme_AppCompat;
 			global::LogonScreen.Resource.Style.Base_V7_Theme_AppCompat_Dialog = global::RadioLogisticaDeliveries.Resource.Style.Base_V7_Theme_AppCompat_Dialog;
 			global::LogonScreen.Resource.Style.Base_V7_Theme_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Base_V7_Theme_AppCompat_Light;
@@ -1208,6 +1523,7 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Style.Base_Widget_AppCompat_TextView_SpinnerItem = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_TextView_SpinnerItem;
 			global::LogonScreen.Resource.Style.Base_Widget_AppCompat_Toolbar = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_Toolbar;
 			global::LogonScreen.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation;
+			global::LogonScreen.Resource.Style.Base_Widget_Design_AppBarLayout = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_Design_AppBarLayout;
 			global::LogonScreen.Resource.Style.Base_Widget_Design_TabLayout = global::RadioLogisticaDeliveries.Resource.Style.Base_Widget_Design_TabLayout;
 			global::LogonScreen.Resource.Style.CardView = global::RadioLogisticaDeliveries.Resource.Style.CardView;
 			global::LogonScreen.Resource.Style.CardView_Dark = global::RadioLogisticaDeliveries.Resource.Style.CardView_Dark;
@@ -1217,6 +1533,10 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Style.Platform_ThemeOverlay_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Platform_ThemeOverlay_AppCompat;
 			global::LogonScreen.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark = global::RadioLogisticaDeliveries.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark;
 			global::LogonScreen.Resource.Style.Platform_ThemeOverlay_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Platform_ThemeOverlay_AppCompat_Light;
+			global::LogonScreen.Resource.Style.Platform_V11_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Platform_V11_AppCompat;
+			global::LogonScreen.Resource.Style.Platform_V11_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Platform_V11_AppCompat_Light;
+			global::LogonScreen.Resource.Style.Platform_V14_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Platform_V14_AppCompat;
+			global::LogonScreen.Resource.Style.Platform_V14_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Platform_V14_AppCompat_Light;
 			global::LogonScreen.Resource.Style.Platform_V21_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Platform_V21_AppCompat;
 			global::LogonScreen.Resource.Style.Platform_V21_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.Platform_V21_AppCompat_Light;
 			global::LogonScreen.Resource.Style.Platform_V25_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.Platform_V25_AppCompat;
@@ -1286,9 +1606,14 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Style.TextAppearance_AppCompat_Widget_TextView_SpinnerItem = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_AppCompat_Widget_TextView_SpinnerItem;
 			global::LogonScreen.Resource.Style.TextAppearance_Compat_Notification = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification;
 			global::LogonScreen.Resource.Style.TextAppearance_Compat_Notification_Info = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Info;
+			global::LogonScreen.Resource.Style.TextAppearance_Compat_Notification_Info_Media = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Info_Media;
 			global::LogonScreen.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Line2;
+			global::LogonScreen.Resource.Style.TextAppearance_Compat_Notification_Line2_Media = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Line2_Media;
+			global::LogonScreen.Resource.Style.TextAppearance_Compat_Notification_Media = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Media;
 			global::LogonScreen.Resource.Style.TextAppearance_Compat_Notification_Time = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Time;
+			global::LogonScreen.Resource.Style.TextAppearance_Compat_Notification_Time_Media = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Time_Media;
 			global::LogonScreen.Resource.Style.TextAppearance_Compat_Notification_Title = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Title;
+			global::LogonScreen.Resource.Style.TextAppearance_Compat_Notification_Title_Media = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Title_Media;
 			global::LogonScreen.Resource.Style.TextAppearance_Design_CollapsingToolbar_Expanded = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Design_CollapsingToolbar_Expanded;
 			global::LogonScreen.Resource.Style.TextAppearance_Design_Counter = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Design_Counter;
 			global::LogonScreen.Resource.Style.TextAppearance_Design_Counter_Overflow = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Design_Counter_Overflow;
@@ -1296,6 +1621,9 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Style.TextAppearance_Design_Hint = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Design_Hint;
 			global::LogonScreen.Resource.Style.TextAppearance_Design_Snackbar_Message = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Design_Snackbar_Message;
 			global::LogonScreen.Resource.Style.TextAppearance_Design_Tab = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Design_Tab;
+			global::LogonScreen.Resource.Style.TextAppearance_MediaRouter_PrimaryText = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_MediaRouter_PrimaryText;
+			global::LogonScreen.Resource.Style.TextAppearance_MediaRouter_SecondaryText = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_MediaRouter_SecondaryText;
+			global::LogonScreen.Resource.Style.TextAppearance_MediaRouter_Title = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_MediaRouter_Title;
 			global::LogonScreen.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
 			global::LogonScreen.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
 			global::LogonScreen.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title;
@@ -1326,6 +1654,10 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Style.Theme_Design_Light_BottomSheetDialog = global::RadioLogisticaDeliveries.Resource.Style.Theme_Design_Light_BottomSheetDialog;
 			global::LogonScreen.Resource.Style.Theme_Design_Light_NoActionBar = global::RadioLogisticaDeliveries.Resource.Style.Theme_Design_Light_NoActionBar;
 			global::LogonScreen.Resource.Style.Theme_Design_NoActionBar = global::RadioLogisticaDeliveries.Resource.Style.Theme_Design_NoActionBar;
+			global::LogonScreen.Resource.Style.Theme_MediaRouter = global::RadioLogisticaDeliveries.Resource.Style.Theme_MediaRouter;
+			global::LogonScreen.Resource.Style.Theme_MediaRouter_Light = global::RadioLogisticaDeliveries.Resource.Style.Theme_MediaRouter_Light;
+			global::LogonScreen.Resource.Style.Theme_MediaRouter_Light_DarkControlPanel = global::RadioLogisticaDeliveries.Resource.Style.Theme_MediaRouter_Light_DarkControlPanel;
+			global::LogonScreen.Resource.Style.Theme_MediaRouter_LightControlPanel = global::RadioLogisticaDeliveries.Resource.Style.Theme_MediaRouter_LightControlPanel;
 			global::LogonScreen.Resource.Style.ThemeOverlay_AppCompat = global::RadioLogisticaDeliveries.Resource.Style.ThemeOverlay_AppCompat;
 			global::LogonScreen.Resource.Style.ThemeOverlay_AppCompat_ActionBar = global::RadioLogisticaDeliveries.Resource.Style.ThemeOverlay_AppCompat_ActionBar;
 			global::LogonScreen.Resource.Style.ThemeOverlay_AppCompat_Dark = global::RadioLogisticaDeliveries.Resource.Style.ThemeOverlay_AppCompat_Dark;
@@ -1333,6 +1665,8 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Style.ThemeOverlay_AppCompat_Dialog = global::RadioLogisticaDeliveries.Resource.Style.ThemeOverlay_AppCompat_Dialog;
 			global::LogonScreen.Resource.Style.ThemeOverlay_AppCompat_Dialog_Alert = global::RadioLogisticaDeliveries.Resource.Style.ThemeOverlay_AppCompat_Dialog_Alert;
 			global::LogonScreen.Resource.Style.ThemeOverlay_AppCompat_Light = global::RadioLogisticaDeliveries.Resource.Style.ThemeOverlay_AppCompat_Light;
+			global::LogonScreen.Resource.Style.ThemeOverlay_MediaRouter_Dark = global::RadioLogisticaDeliveries.Resource.Style.ThemeOverlay_MediaRouter_Dark;
+			global::LogonScreen.Resource.Style.ThemeOverlay_MediaRouter_Light = global::RadioLogisticaDeliveries.Resource.Style.ThemeOverlay_MediaRouter_Light;
 			global::LogonScreen.Resource.Style.Widget_AppCompat_ActionBar = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ActionBar;
 			global::LogonScreen.Resource.Style.Widget_AppCompat_ActionBar_Solid = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ActionBar_Solid;
 			global::LogonScreen.Resource.Style.Widget_AppCompat_ActionBar_TabBar = global::RadioLogisticaDeliveries.Resource.Style.Widget_AppCompat_ActionBar_TabBar;
@@ -1411,12 +1745,15 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Style.Widget_Design_BottomNavigationView = global::RadioLogisticaDeliveries.Resource.Style.Widget_Design_BottomNavigationView;
 			global::LogonScreen.Resource.Style.Widget_Design_BottomSheet_Modal = global::RadioLogisticaDeliveries.Resource.Style.Widget_Design_BottomSheet_Modal;
 			global::LogonScreen.Resource.Style.Widget_Design_CollapsingToolbar = global::RadioLogisticaDeliveries.Resource.Style.Widget_Design_CollapsingToolbar;
+			global::LogonScreen.Resource.Style.Widget_Design_CoordinatorLayout = global::RadioLogisticaDeliveries.Resource.Style.Widget_Design_CoordinatorLayout;
 			global::LogonScreen.Resource.Style.Widget_Design_FloatingActionButton = global::RadioLogisticaDeliveries.Resource.Style.Widget_Design_FloatingActionButton;
 			global::LogonScreen.Resource.Style.Widget_Design_NavigationView = global::RadioLogisticaDeliveries.Resource.Style.Widget_Design_NavigationView;
 			global::LogonScreen.Resource.Style.Widget_Design_ScrimInsetsFrameLayout = global::RadioLogisticaDeliveries.Resource.Style.Widget_Design_ScrimInsetsFrameLayout;
 			global::LogonScreen.Resource.Style.Widget_Design_Snackbar = global::RadioLogisticaDeliveries.Resource.Style.Widget_Design_Snackbar;
 			global::LogonScreen.Resource.Style.Widget_Design_TabLayout = global::RadioLogisticaDeliveries.Resource.Style.Widget_Design_TabLayout;
 			global::LogonScreen.Resource.Style.Widget_Design_TextInputLayout = global::RadioLogisticaDeliveries.Resource.Style.Widget_Design_TextInputLayout;
+			global::LogonScreen.Resource.Style.Widget_MediaRouter_Light_MediaRouteButton = global::RadioLogisticaDeliveries.Resource.Style.Widget_MediaRouter_Light_MediaRouteButton;
+			global::LogonScreen.Resource.Style.Widget_MediaRouter_MediaRouteButton = global::RadioLogisticaDeliveries.Resource.Style.Widget_MediaRouter_MediaRouteButton;
 			global::LogonScreen.Resource.Styleable.ActionBar = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar;
 			global::LogonScreen.Resource.Styleable.ActionBar_background = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_background;
 			global::LogonScreen.Resource.Styleable.ActionBar_backgroundSplit = global::RadioLogisticaDeliveries.Resource.Styleable.ActionBar_backgroundSplit;
@@ -1697,6 +2034,7 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Styleable.DesignTheme = global::RadioLogisticaDeliveries.Resource.Styleable.DesignTheme;
 			global::LogonScreen.Resource.Styleable.DesignTheme_bottomSheetDialogTheme = global::RadioLogisticaDeliveries.Resource.Styleable.DesignTheme_bottomSheetDialogTheme;
 			global::LogonScreen.Resource.Styleable.DesignTheme_bottomSheetStyle = global::RadioLogisticaDeliveries.Resource.Styleable.DesignTheme_bottomSheetStyle;
+			global::LogonScreen.Resource.Styleable.DesignTheme_textColorError = global::RadioLogisticaDeliveries.Resource.Styleable.DesignTheme_textColorError;
 			global::LogonScreen.Resource.Styleable.DrawerArrowToggle = global::RadioLogisticaDeliveries.Resource.Styleable.DrawerArrowToggle;
 			global::LogonScreen.Resource.Styleable.DrawerArrowToggle_arrowHeadLength = global::RadioLogisticaDeliveries.Resource.Styleable.DrawerArrowToggle_arrowHeadLength;
 			global::LogonScreen.Resource.Styleable.DrawerArrowToggle_arrowShaftLength = global::RadioLogisticaDeliveries.Resource.Styleable.DrawerArrowToggle_arrowShaftLength;
@@ -1725,9 +2063,6 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Styleable.FontFamily_fontProviderPackage = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily_fontProviderPackage;
 			global::LogonScreen.Resource.Styleable.FontFamily_fontProviderQuery = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily_fontProviderQuery;
 			global::LogonScreen.Resource.Styleable.FontFamilyFont = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont;
-			global::LogonScreen.Resource.Styleable.FontFamilyFont_android_font = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont_android_font;
-			global::LogonScreen.Resource.Styleable.FontFamilyFont_android_fontStyle = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont_android_fontStyle;
-			global::LogonScreen.Resource.Styleable.FontFamilyFont_android_fontWeight = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont_android_fontWeight;
 			global::LogonScreen.Resource.Styleable.FontFamilyFont_font = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont_font;
 			global::LogonScreen.Resource.Styleable.FontFamilyFont_fontStyle = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont_fontStyle;
 			global::LogonScreen.Resource.Styleable.FontFamilyFont_fontWeight = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont_fontWeight;
@@ -1753,6 +2088,11 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Styleable.ListPopupWindow = global::RadioLogisticaDeliveries.Resource.Styleable.ListPopupWindow;
 			global::LogonScreen.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset = global::RadioLogisticaDeliveries.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset;
 			global::LogonScreen.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset = global::RadioLogisticaDeliveries.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset;
+			global::LogonScreen.Resource.Styleable.MediaRouteButton = global::RadioLogisticaDeliveries.Resource.Styleable.MediaRouteButton;
+			global::LogonScreen.Resource.Styleable.MediaRouteButton_android_minHeight = global::RadioLogisticaDeliveries.Resource.Styleable.MediaRouteButton_android_minHeight;
+			global::LogonScreen.Resource.Styleable.MediaRouteButton_android_minWidth = global::RadioLogisticaDeliveries.Resource.Styleable.MediaRouteButton_android_minWidth;
+			global::LogonScreen.Resource.Styleable.MediaRouteButton_externalRouteEnabledDrawable = global::RadioLogisticaDeliveries.Resource.Styleable.MediaRouteButton_externalRouteEnabledDrawable;
+			global::LogonScreen.Resource.Styleable.MediaRouteButton_mediaRouteButtonTint = global::RadioLogisticaDeliveries.Resource.Styleable.MediaRouteButton_mediaRouteButtonTint;
 			global::LogonScreen.Resource.Styleable.MenuGroup = global::RadioLogisticaDeliveries.Resource.Styleable.MenuGroup;
 			global::LogonScreen.Resource.Styleable.MenuGroup_android_checkableBehavior = global::RadioLogisticaDeliveries.Resource.Styleable.MenuGroup_android_checkableBehavior;
 			global::LogonScreen.Resource.Styleable.MenuGroup_android_enabled = global::RadioLogisticaDeliveries.Resource.Styleable.MenuGroup_android_enabled;
@@ -1971,106 +2311,13 @@ namespace RadioLogisticaDeliveries
 			global::LogonScreen.Resource.Styleable.ViewStubCompat_android_layout = global::RadioLogisticaDeliveries.Resource.Styleable.ViewStubCompat_android_layout;
 			global::NetworkDetection.Resource.String.ApplicationName = global::RadioLogisticaDeliveries.Resource.String.ApplicationName;
 			global::NetworkDetection.Resource.String.Hello = global::RadioLogisticaDeliveries.Resource.String.Hello;
+			global::Scanner.Resource.Raw.Antares = global::RadioLogisticaDeliveries.Resource.Raw.Antares;
+			global::Scanner.Resource.Raw.decodeshort = global::RadioLogisticaDeliveries.Resource.Raw.decodeshort;
+			global::Scanner.Resource.Raw.Gallium = global::RadioLogisticaDeliveries.Resource.Raw.Gallium;
+			global::Scanner.Resource.Raw.TaDa = global::RadioLogisticaDeliveries.Resource.Raw.TaDa;
+			global::Scanner.Resource.Raw.Tejat = global::RadioLogisticaDeliveries.Resource.Raw.Tejat;
 			global::Scanner.Resource.String.ApplicationName = global::RadioLogisticaDeliveries.Resource.String.ApplicationName;
 			global::Scanner.Resource.String.Hello = global::RadioLogisticaDeliveries.Resource.String.Hello;
-			global::Xamarin.Essentials.Resource.Attribute.font = global::RadioLogisticaDeliveries.Resource.Attribute.font;
-			global::Xamarin.Essentials.Resource.Attribute.fontProviderAuthority = global::RadioLogisticaDeliveries.Resource.Attribute.fontProviderAuthority;
-			global::Xamarin.Essentials.Resource.Attribute.fontProviderCerts = global::RadioLogisticaDeliveries.Resource.Attribute.fontProviderCerts;
-			global::Xamarin.Essentials.Resource.Attribute.fontProviderFetchStrategy = global::RadioLogisticaDeliveries.Resource.Attribute.fontProviderFetchStrategy;
-			global::Xamarin.Essentials.Resource.Attribute.fontProviderFetchTimeout = global::RadioLogisticaDeliveries.Resource.Attribute.fontProviderFetchTimeout;
-			global::Xamarin.Essentials.Resource.Attribute.fontProviderPackage = global::RadioLogisticaDeliveries.Resource.Attribute.fontProviderPackage;
-			global::Xamarin.Essentials.Resource.Attribute.fontProviderQuery = global::RadioLogisticaDeliveries.Resource.Attribute.fontProviderQuery;
-			global::Xamarin.Essentials.Resource.Attribute.fontStyle = global::RadioLogisticaDeliveries.Resource.Attribute.fontStyle;
-			global::Xamarin.Essentials.Resource.Attribute.fontWeight = global::RadioLogisticaDeliveries.Resource.Attribute.fontWeight;
-			global::Xamarin.Essentials.Resource.Boolean.abc_action_bar_embed_tabs = global::RadioLogisticaDeliveries.Resource.Boolean.abc_action_bar_embed_tabs;
-			global::Xamarin.Essentials.Resource.Color.notification_action_color_filter = global::RadioLogisticaDeliveries.Resource.Color.notification_action_color_filter;
-			global::Xamarin.Essentials.Resource.Color.notification_icon_bg_color = global::RadioLogisticaDeliveries.Resource.Color.notification_icon_bg_color;
-			global::Xamarin.Essentials.Resource.Color.ripple_material_light = global::RadioLogisticaDeliveries.Resource.Color.ripple_material_light;
-			global::Xamarin.Essentials.Resource.Color.secondary_text_default_material_light = global::RadioLogisticaDeliveries.Resource.Color.secondary_text_default_material_light;
-			global::Xamarin.Essentials.Resource.Dimension.compat_button_inset_horizontal_material = global::RadioLogisticaDeliveries.Resource.Dimension.compat_button_inset_horizontal_material;
-			global::Xamarin.Essentials.Resource.Dimension.compat_button_inset_vertical_material = global::RadioLogisticaDeliveries.Resource.Dimension.compat_button_inset_vertical_material;
-			global::Xamarin.Essentials.Resource.Dimension.compat_button_padding_horizontal_material = global::RadioLogisticaDeliveries.Resource.Dimension.compat_button_padding_horizontal_material;
-			global::Xamarin.Essentials.Resource.Dimension.compat_button_padding_vertical_material = global::RadioLogisticaDeliveries.Resource.Dimension.compat_button_padding_vertical_material;
-			global::Xamarin.Essentials.Resource.Dimension.compat_control_corner_material = global::RadioLogisticaDeliveries.Resource.Dimension.compat_control_corner_material;
-			global::Xamarin.Essentials.Resource.Dimension.notification_action_icon_size = global::RadioLogisticaDeliveries.Resource.Dimension.notification_action_icon_size;
-			global::Xamarin.Essentials.Resource.Dimension.notification_action_text_size = global::RadioLogisticaDeliveries.Resource.Dimension.notification_action_text_size;
-			global::Xamarin.Essentials.Resource.Dimension.notification_big_circle_margin = global::RadioLogisticaDeliveries.Resource.Dimension.notification_big_circle_margin;
-			global::Xamarin.Essentials.Resource.Dimension.notification_content_margin_start = global::RadioLogisticaDeliveries.Resource.Dimension.notification_content_margin_start;
-			global::Xamarin.Essentials.Resource.Dimension.notification_large_icon_height = global::RadioLogisticaDeliveries.Resource.Dimension.notification_large_icon_height;
-			global::Xamarin.Essentials.Resource.Dimension.notification_large_icon_width = global::RadioLogisticaDeliveries.Resource.Dimension.notification_large_icon_width;
-			global::Xamarin.Essentials.Resource.Dimension.notification_main_column_padding_top = global::RadioLogisticaDeliveries.Resource.Dimension.notification_main_column_padding_top;
-			global::Xamarin.Essentials.Resource.Dimension.notification_media_narrow_margin = global::RadioLogisticaDeliveries.Resource.Dimension.notification_media_narrow_margin;
-			global::Xamarin.Essentials.Resource.Dimension.notification_right_icon_size = global::RadioLogisticaDeliveries.Resource.Dimension.notification_right_icon_size;
-			global::Xamarin.Essentials.Resource.Dimension.notification_right_side_padding_top = global::RadioLogisticaDeliveries.Resource.Dimension.notification_right_side_padding_top;
-			global::Xamarin.Essentials.Resource.Dimension.notification_small_icon_background_padding = global::RadioLogisticaDeliveries.Resource.Dimension.notification_small_icon_background_padding;
-			global::Xamarin.Essentials.Resource.Dimension.notification_small_icon_size_as_large = global::RadioLogisticaDeliveries.Resource.Dimension.notification_small_icon_size_as_large;
-			global::Xamarin.Essentials.Resource.Dimension.notification_subtext_size = global::RadioLogisticaDeliveries.Resource.Dimension.notification_subtext_size;
-			global::Xamarin.Essentials.Resource.Dimension.notification_top_pad = global::RadioLogisticaDeliveries.Resource.Dimension.notification_top_pad;
-			global::Xamarin.Essentials.Resource.Dimension.notification_top_pad_large_text = global::RadioLogisticaDeliveries.Resource.Dimension.notification_top_pad_large_text;
-			global::Xamarin.Essentials.Resource.Drawable.notification_action_background = global::RadioLogisticaDeliveries.Resource.Drawable.notification_action_background;
-			global::Xamarin.Essentials.Resource.Drawable.notification_bg = global::RadioLogisticaDeliveries.Resource.Drawable.notification_bg;
-			global::Xamarin.Essentials.Resource.Drawable.notification_bg_low = global::RadioLogisticaDeliveries.Resource.Drawable.notification_bg_low;
-			global::Xamarin.Essentials.Resource.Drawable.notification_bg_low_normal = global::RadioLogisticaDeliveries.Resource.Drawable.notification_bg_low_normal;
-			global::Xamarin.Essentials.Resource.Drawable.notification_bg_low_pressed = global::RadioLogisticaDeliveries.Resource.Drawable.notification_bg_low_pressed;
-			global::Xamarin.Essentials.Resource.Drawable.notification_bg_normal = global::RadioLogisticaDeliveries.Resource.Drawable.notification_bg_normal;
-			global::Xamarin.Essentials.Resource.Drawable.notification_bg_normal_pressed = global::RadioLogisticaDeliveries.Resource.Drawable.notification_bg_normal_pressed;
-			global::Xamarin.Essentials.Resource.Drawable.notification_icon_background = global::RadioLogisticaDeliveries.Resource.Drawable.notification_icon_background;
-			global::Xamarin.Essentials.Resource.Drawable.notification_template_icon_bg = global::RadioLogisticaDeliveries.Resource.Drawable.notification_template_icon_bg;
-			global::Xamarin.Essentials.Resource.Drawable.notification_template_icon_low_bg = global::RadioLogisticaDeliveries.Resource.Drawable.notification_template_icon_low_bg;
-			global::Xamarin.Essentials.Resource.Drawable.notification_tile_bg = global::RadioLogisticaDeliveries.Resource.Drawable.notification_tile_bg;
-			global::Xamarin.Essentials.Resource.Drawable.notify_panel_notification_icon_bg = global::RadioLogisticaDeliveries.Resource.Drawable.notify_panel_notification_icon_bg;
-			global::Xamarin.Essentials.Resource.Id.action_container = global::RadioLogisticaDeliveries.Resource.Id.action_container;
-			global::Xamarin.Essentials.Resource.Id.action_divider = global::RadioLogisticaDeliveries.Resource.Id.action_divider;
-			global::Xamarin.Essentials.Resource.Id.action_image = global::RadioLogisticaDeliveries.Resource.Id.action_image;
-			global::Xamarin.Essentials.Resource.Id.action_text = global::RadioLogisticaDeliveries.Resource.Id.action_text;
-			global::Xamarin.Essentials.Resource.Id.actions = global::RadioLogisticaDeliveries.Resource.Id.actions;
-			global::Xamarin.Essentials.Resource.Id.async = global::RadioLogisticaDeliveries.Resource.Id.async;
-			global::Xamarin.Essentials.Resource.Id.blocking = global::RadioLogisticaDeliveries.Resource.Id.blocking;
-			global::Xamarin.Essentials.Resource.Id.chronometer = global::RadioLogisticaDeliveries.Resource.Id.chronometer;
-			global::Xamarin.Essentials.Resource.Id.forever = global::RadioLogisticaDeliveries.Resource.Id.forever;
-			global::Xamarin.Essentials.Resource.Id.icon = global::RadioLogisticaDeliveries.Resource.Id.icon;
-			global::Xamarin.Essentials.Resource.Id.icon_group = global::RadioLogisticaDeliveries.Resource.Id.icon_group;
-			global::Xamarin.Essentials.Resource.Id.info = global::RadioLogisticaDeliveries.Resource.Id.info;
-			global::Xamarin.Essentials.Resource.Id.italic = global::RadioLogisticaDeliveries.Resource.Id.italic;
-			global::Xamarin.Essentials.Resource.Id.line1 = global::RadioLogisticaDeliveries.Resource.Id.line1;
-			global::Xamarin.Essentials.Resource.Id.line3 = global::RadioLogisticaDeliveries.Resource.Id.line3;
-			global::Xamarin.Essentials.Resource.Id.normal = global::RadioLogisticaDeliveries.Resource.Id.normal;
-			global::Xamarin.Essentials.Resource.Id.notification_background = global::RadioLogisticaDeliveries.Resource.Id.notification_background;
-			global::Xamarin.Essentials.Resource.Id.notification_main_column = global::RadioLogisticaDeliveries.Resource.Id.notification_main_column;
-			global::Xamarin.Essentials.Resource.Id.notification_main_column_container = global::RadioLogisticaDeliveries.Resource.Id.notification_main_column_container;
-			global::Xamarin.Essentials.Resource.Id.right_icon = global::RadioLogisticaDeliveries.Resource.Id.right_icon;
-			global::Xamarin.Essentials.Resource.Id.right_side = global::RadioLogisticaDeliveries.Resource.Id.right_side;
-			global::Xamarin.Essentials.Resource.Id.text = global::RadioLogisticaDeliveries.Resource.Id.text;
-			global::Xamarin.Essentials.Resource.Id.text2 = global::RadioLogisticaDeliveries.Resource.Id.text2;
-			global::Xamarin.Essentials.Resource.Id.time = global::RadioLogisticaDeliveries.Resource.Id.time;
-			global::Xamarin.Essentials.Resource.Id.title = global::RadioLogisticaDeliveries.Resource.Id.title;
-			global::Xamarin.Essentials.Resource.Integer.status_bar_notification_info_maxnum = global::RadioLogisticaDeliveries.Resource.Integer.status_bar_notification_info_maxnum;
-			global::Xamarin.Essentials.Resource.Layout.notification_action = global::RadioLogisticaDeliveries.Resource.Layout.notification_action;
-			global::Xamarin.Essentials.Resource.Layout.notification_action_tombstone = global::RadioLogisticaDeliveries.Resource.Layout.notification_action_tombstone;
-			global::Xamarin.Essentials.Resource.Layout.notification_template_custom_big = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_custom_big;
-			global::Xamarin.Essentials.Resource.Layout.notification_template_icon_group = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_icon_group;
-			global::Xamarin.Essentials.Resource.Layout.notification_template_part_chronometer = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_part_chronometer;
-			global::Xamarin.Essentials.Resource.Layout.notification_template_part_time = global::RadioLogisticaDeliveries.Resource.Layout.notification_template_part_time;
-			global::Xamarin.Essentials.Resource.String.status_bar_notification_info_overflow = global::RadioLogisticaDeliveries.Resource.String.status_bar_notification_info_overflow;
-			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification;
-			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Info = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Info;
-			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Line2;
-			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Time = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Time;
-			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Title = global::RadioLogisticaDeliveries.Resource.Style.TextAppearance_Compat_Notification_Title;
-			global::Xamarin.Essentials.Resource.Style.Widget_Compat_NotificationActionContainer = global::RadioLogisticaDeliveries.Resource.Style.Widget_Compat_NotificationActionContainer;
-			global::Xamarin.Essentials.Resource.Style.Widget_Compat_NotificationActionText = global::RadioLogisticaDeliveries.Resource.Style.Widget_Compat_NotificationActionText;
-			global::Xamarin.Essentials.Resource.Xml.xamarin_essentials_fileprovider_file_paths = global::RadioLogisticaDeliveries.Resource.Xml.xamarin_essentials_fileprovider_file_paths;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderAuthority = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily_fontProviderAuthority;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderCerts = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily_fontProviderCerts;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderPackage = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily_fontProviderPackage;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderQuery = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamily_fontProviderQuery;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_font = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont_font;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_fontStyle = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont_fontStyle;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_fontWeight = global::RadioLogisticaDeliveries.Resource.Styleable.FontFamilyFont_fontWeight;
 		}
 		
 		public partial class Animation
@@ -5185,260 +5432,119 @@ namespace RadioLogisticaDeliveries
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f090144
-			public const int 01 = 2131296580;
-			
-			// aapt resource value: 0x7f090145
-			public const int 02 = 2131296581;
-			
-			// aapt resource value: 0x7f090146
-			public const int 03 = 2131296582;
-			
-			// aapt resource value: 0x7f090147
-			public const int 04 = 2131296583;
-			
-			// aapt resource value: 0x7f090148
-			public const int 05 = 2131296584;
-			
-			// aapt resource value: 0x7f090149
-			public const int 06 = 2131296585;
-			
-			// aapt resource value: 0x7f09014a
-			public const int 07 = 2131296586;
-			
-			// aapt resource value: 0x7f09014b
-			public const int 08 = 2131296587;
-			
-			// aapt resource value: 0x7f09014c
-			public const int 09 = 2131296588;
-			
-			// aapt resource value: 0x7f09014d
-			public const int 10 = 2131296589;
-			
-			// aapt resource value: 0x7f09014e
-			public const int 11 = 2131296590;
-			
-			// aapt resource value: 0x7f09014f
-			public const int 12 = 2131296591;
+			// aapt resource value: 0x7f090031
+			public const int ALT = 2131296305;
 			
 			// aapt resource value: 0x7f090032
-			public const int ALT = 2131296306;
-			
-			// aapt resource value: 0x7f090125
-			public const int Anio1 = 2131296549;
-			
-			// aapt resource value: 0x7f090129
-			public const int Anio2 = 2131296553;
-			
-			// aapt resource value: 0x7f09012d
-			public const int Anio3 = 2131296557;
-			
-			// aapt resource value: 0x7f090133
-			public const int Anio4 = 2131296563;
-			
-			// aapt resource value: 0x7f090131
-			public const int Bronce3 = 2131296561;
-			
-			// aapt resource value: 0x7f090137
-			public const int Bronce4 = 2131296567;
-			
-			// aapt resource value: 0x7f09013e
-			public const int BronceTotal = 2131296574;
-			
-			// aapt resource value: 0x7f090033
-			public const int CTRL = 2131296307;
-			
-			// aapt resource value: 0x7f09011c
-			public const int Cabecera = 2131296540;
-			
-			// aapt resource value: 0x7f09011d
-			public const int ColumnaAnio = 2131296541;
-			
-			// aapt resource value: 0x7f090121
-			public const int ColumnaBronce = 2131296545;
-			
-			// aapt resource value: 0x7f09011e
-			public const int ColumnaCiudad = 2131296542;
-			
-			// aapt resource value: 0x7f09011f
-			public const int ColumnaOro = 2131296543;
-			
-			// aapt resource value: 0x7f090120
-			public const int ColumnaPlata = 2131296544;
-			
-			// aapt resource value: 0x7f090126
-			public const int Cuidad1 = 2131296550;
-			
-			// aapt resource value: 0x7f09012a
-			public const int Cuidad2 = 2131296554;
-			
-			// aapt resource value: 0x7f09012e
-			public const int Cuidad3 = 2131296558;
-			
-			// aapt resource value: 0x7f090134
-			public const int Cuidad4 = 2131296564;
-			
-			// aapt resource value: 0x7f0900ed
-			public const int DebugFragment = 2131296493;
-			
-			// aapt resource value: 0x7f090034
-			public const int FUNCTION = 2131296308;
-			
-			// aapt resource value: 0x7f090124
-			public const int Fila1 = 2131296548;
-			
-			// aapt resource value: 0x7f090128
-			public const int Fila2 = 2131296552;
-			
-			// aapt resource value: 0x7f09012c
-			public const int Fila3 = 2131296556;
-			
-			// aapt resource value: 0x7f090132
-			public const int Fila4 = 2131296562;
+			public const int CTRL = 2131296306;
 			
 			// aapt resource value: 0x7f0900ec
-			public const int InfoFragment = 2131296492;
+			public const int DebugFragment = 2131296492;
 			
-			// aapt resource value: 0x7f090123
-			public const int LineaCabecera = 2131296547;
+			// aapt resource value: 0x7f090033
+			public const int FUNCTION = 2131296307;
 			
-			// aapt resource value: 0x7f090139
-			public const int LineaTotales = 2131296569;
+			// aapt resource value: 0x7f0900eb
+			public const int InfoFragment = 2131296491;
 			
-			// aapt resource value: 0x7f0900e3
-			public const int LogonScreen = 2131296483;
+			// aapt resource value: 0x7f0900e2
+			public const int LogonScreen = 2131296482;
 			
-			// aapt resource value: 0x7f090035
-			public const int META = 2131296309;
-			
-			// aapt resource value: 0x7f090127
-			public const int Oro1 = 2131296551;
-			
-			// aapt resource value: 0x7f09012f
-			public const int Oro3 = 2131296559;
-			
-			// aapt resource value: 0x7f090135
-			public const int Oro4 = 2131296565;
-			
-			// aapt resource value: 0x7f09013c
-			public const int OroTotal = 2131296572;
-			
-			// aapt resource value: 0x7f0900e6
-			public const int Password = 2131296486;
-			
-			// aapt resource value: 0x7f09012b
-			public const int Plata2 = 2131296555;
-			
-			// aapt resource value: 0x7f090130
-			public const int Plata3 = 2131296560;
-			
-			// aapt resource value: 0x7f090136
-			public const int Plata4 = 2131296566;
-			
-			// aapt resource value: 0x7f09013d
-			public const int PlataTotal = 2131296573;
-			
-			// aapt resource value: 0x7f0900a7
-			public const int Row0 = 2131296423;
-			
-			// aapt resource value: 0x7f0900ac
-			public const int Row1 = 2131296428;
-			
-			// aapt resource value: 0x7f0900d9
-			public const int Row10 = 2131296473;
-			
-			// aapt resource value: 0x7f0900de
-			public const int Row11 = 2131296478;
-			
-			// aapt resource value: 0x7f0900b1
-			public const int Row2 = 2131296433;
-			
-			// aapt resource value: 0x7f0900b6
-			public const int Row3 = 2131296438;
-			
-			// aapt resource value: 0x7f0900bb
-			public const int Row4 = 2131296443;
-			
-			// aapt resource value: 0x7f0900c0
-			public const int Row5 = 2131296448;
-			
-			// aapt resource value: 0x7f0900c5
-			public const int Row6 = 2131296453;
-			
-			// aapt resource value: 0x7f0900ca
-			public const int Row7 = 2131296458;
-			
-			// aapt resource value: 0x7f0900cf
-			public const int Row8 = 2131296463;
-			
-			// aapt resource value: 0x7f0900d4
-			public const int Row9 = 2131296468;
-			
-			// aapt resource value: 0x7f0900a4
-			public const int RowMessage = 2131296420;
-			
-			// aapt resource value: 0x7f090036
-			public const int SHIFT = 2131296310;
-			
-			// aapt resource value: 0x7f090037
-			public const int SYM = 2131296311;
-			
-			// aapt resource value: 0x7f090122
-			public const int SeparadorCabecera = 2131296546;
-			
-			// aapt resource value: 0x7f090138
-			public const int SeparadorTotales = 2131296568;
-			
-			// aapt resource value: 0x7f0900ee
-			public const int StatusFragment = 2131296494;
-			
-			// aapt resource value: 0x7f0900a2
-			public const int Tabla = 2131296418;
-			
-			// aapt resource value: 0x7f09013b
-			public const int TextoTotal = 2131296571;
-			
-			// aapt resource value: 0x7f09013a
-			public const int Totales = 2131296570;
+			// aapt resource value: 0x7f090034
+			public const int META = 2131296308;
 			
 			// aapt resource value: 0x7f0900e5
-			public const int User = 2131296485;
+			public const int Password = 2131296485;
 			
-			// aapt resource value: 0x7f09010c
-			public const int action0 = 2131296524;
+			// aapt resource value: 0x7f0900a6
+			public const int Row0 = 2131296422;
 			
-			// aapt resource value: 0x7f09007c
-			public const int action_bar = 2131296380;
+			// aapt resource value: 0x7f0900ab
+			public const int Row1 = 2131296427;
+			
+			// aapt resource value: 0x7f0900d8
+			public const int Row10 = 2131296472;
+			
+			// aapt resource value: 0x7f0900dd
+			public const int Row11 = 2131296477;
+			
+			// aapt resource value: 0x7f0900b0
+			public const int Row2 = 2131296432;
+			
+			// aapt resource value: 0x7f0900b5
+			public const int Row3 = 2131296437;
+			
+			// aapt resource value: 0x7f0900ba
+			public const int Row4 = 2131296442;
+			
+			// aapt resource value: 0x7f0900bf
+			public const int Row5 = 2131296447;
+			
+			// aapt resource value: 0x7f0900c4
+			public const int Row6 = 2131296452;
+			
+			// aapt resource value: 0x7f0900c9
+			public const int Row7 = 2131296457;
+			
+			// aapt resource value: 0x7f0900ce
+			public const int Row8 = 2131296462;
+			
+			// aapt resource value: 0x7f0900d3
+			public const int Row9 = 2131296467;
+			
+			// aapt resource value: 0x7f0900a3
+			public const int RowMessage = 2131296419;
+			
+			// aapt resource value: 0x7f090035
+			public const int SHIFT = 2131296309;
+			
+			// aapt resource value: 0x7f090036
+			public const int SYM = 2131296310;
+			
+			// aapt resource value: 0x7f0900ed
+			public const int StatusFragment = 2131296493;
+			
+			// aapt resource value: 0x7f0900a1
+			public const int Tabla = 2131296417;
+			
+			// aapt resource value: 0x7f0900e4
+			public const int User = 2131296484;
+			
+			// aapt resource value: 0x7f09010b
+			public const int action0 = 2131296523;
+			
+			// aapt resource value: 0x7f09007b
+			public const int action_bar = 2131296379;
 			
 			// aapt resource value: 0x7f090001
 			public const int action_bar_activity_content = 2131296257;
 			
-			// aapt resource value: 0x7f09007b
-			public const int action_bar_container = 2131296379;
+			// aapt resource value: 0x7f09007a
+			public const int action_bar_container = 2131296378;
 			
-			// aapt resource value: 0x7f090077
-			public const int action_bar_root = 2131296375;
+			// aapt resource value: 0x7f090076
+			public const int action_bar_root = 2131296374;
 			
 			// aapt resource value: 0x7f090002
 			public const int action_bar_spinner = 2131296258;
 			
-			// aapt resource value: 0x7f09005b
-			public const int action_bar_subtitle = 2131296347;
-			
 			// aapt resource value: 0x7f09005a
-			public const int action_bar_title = 2131296346;
+			public const int action_bar_subtitle = 2131296346;
+			
+			// aapt resource value: 0x7f090059
+			public const int action_bar_title = 2131296345;
+			
+			// aapt resource value: 0x7f090108
+			public const int action_container = 2131296520;
+			
+			// aapt resource value: 0x7f09007c
+			public const int action_context_bar = 2131296380;
+			
+			// aapt resource value: 0x7f09010f
+			public const int action_divider = 2131296527;
 			
 			// aapt resource value: 0x7f090109
-			public const int action_container = 2131296521;
-			
-			// aapt resource value: 0x7f09007d
-			public const int action_context_bar = 2131296381;
-			
-			// aapt resource value: 0x7f090110
-			public const int action_divider = 2131296528;
-			
-			// aapt resource value: 0x7f09010a
-			public const int action_image = 2131296522;
+			public const int action_image = 2131296521;
 			
 			// aapt resource value: 0x7f090003
 			public const int action_menu_divider = 2131296259;
@@ -5446,350 +5552,350 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f090004
 			public const int action_menu_presenter = 2131296260;
 			
-			// aapt resource value: 0x7f090079
-			public const int action_mode_bar = 2131296377;
-			
 			// aapt resource value: 0x7f090078
-			public const int action_mode_bar_stub = 2131296376;
+			public const int action_mode_bar = 2131296376;
+			
+			// aapt resource value: 0x7f090077
+			public const int action_mode_bar_stub = 2131296375;
+			
+			// aapt resource value: 0x7f09005b
+			public const int action_mode_close_button = 2131296347;
+			
+			// aapt resource value: 0x7f09010a
+			public const int action_text = 2131296522;
+			
+			// aapt resource value: 0x7f090118
+			public const int actions = 2131296536;
 			
 			// aapt resource value: 0x7f09005c
-			public const int action_mode_close_button = 2131296348;
+			public const int activity_chooser_view_content = 2131296348;
 			
-			// aapt resource value: 0x7f09010b
-			public const int action_text = 2131296523;
+			// aapt resource value: 0x7f09002b
+			public const int add = 2131296299;
 			
-			// aapt resource value: 0x7f090119
-			public const int actions = 2131296537;
-			
-			// aapt resource value: 0x7f09005d
-			public const int activity_chooser_view_content = 2131296349;
-			
-			// aapt resource value: 0x7f090027
-			public const int add = 2131296295;
-			
-			// aapt resource value: 0x7f090070
-			public const int alertTitle = 2131296368;
-			
-			// aapt resource value: 0x7f090052
-			public const int all = 2131296338;
-			
-			// aapt resource value: 0x7f090038
-			public const int always = 2131296312;
-			
-			// aapt resource value: 0x7f090056
-			public const int async = 2131296342;
-			
-			// aapt resource value: 0x7f090044
-			public const int auto = 2131296324;
-			
-			// aapt resource value: 0x7f09002f
-			public const int beginning = 2131296303;
-			
-			// aapt resource value: 0x7f090057
-			public const int blocking = 2131296343;
-			
-			// aapt resource value: 0x7f09003d
-			public const int bottom = 2131296317;
-			
-			// aapt resource value: 0x7f090063
-			public const int buttonPanel = 2131296355;
-			
-			// aapt resource value: 0x7f0900a8
-			public const int c00 = 2131296424;
-			
-			// aapt resource value: 0x7f0900a9
-			public const int c01 = 2131296425;
-			
-			// aapt resource value: 0x7f0900aa
-			public const int c02 = 2131296426;
-			
-			// aapt resource value: 0x7f0900ab
-			public const int c03 = 2131296427;
-			
-			// aapt resource value: 0x7f0900ad
-			public const int c10 = 2131296429;
-			
-			// aapt resource value: 0x7f0900da
-			public const int c100 = 2131296474;
-			
-			// aapt resource value: 0x7f0900db
-			public const int c101 = 2131296475;
-			
-			// aapt resource value: 0x7f0900dc
-			public const int c102 = 2131296476;
-			
-			// aapt resource value: 0x7f0900dd
-			public const int c103 = 2131296477;
-			
-			// aapt resource value: 0x7f0900ae
-			public const int c11 = 2131296430;
-			
-			// aapt resource value: 0x7f0900df
-			public const int c110 = 2131296479;
-			
-			// aapt resource value: 0x7f0900e0
-			public const int c111 = 2131296480;
-			
-			// aapt resource value: 0x7f0900e1
-			public const int c112 = 2131296481;
-			
-			// aapt resource value: 0x7f0900e2
-			public const int c113 = 2131296482;
-			
-			// aapt resource value: 0x7f0900af
-			public const int c12 = 2131296431;
-			
-			// aapt resource value: 0x7f0900b0
-			public const int c13 = 2131296432;
-			
-			// aapt resource value: 0x7f0900b2
-			public const int c20 = 2131296434;
-			
-			// aapt resource value: 0x7f0900b3
-			public const int c21 = 2131296435;
-			
-			// aapt resource value: 0x7f0900b4
-			public const int c22 = 2131296436;
-			
-			// aapt resource value: 0x7f0900b5
-			public const int c23 = 2131296437;
-			
-			// aapt resource value: 0x7f0900b7
-			public const int c30 = 2131296439;
-			
-			// aapt resource value: 0x7f0900b8
-			public const int c31 = 2131296440;
-			
-			// aapt resource value: 0x7f0900b9
-			public const int c32 = 2131296441;
-			
-			// aapt resource value: 0x7f0900ba
-			public const int c33 = 2131296442;
-			
-			// aapt resource value: 0x7f0900bc
-			public const int c40 = 2131296444;
-			
-			// aapt resource value: 0x7f0900bd
-			public const int c41 = 2131296445;
-			
-			// aapt resource value: 0x7f0900be
-			public const int c42 = 2131296446;
-			
-			// aapt resource value: 0x7f0900bf
-			public const int c43 = 2131296447;
-			
-			// aapt resource value: 0x7f0900c1
-			public const int c50 = 2131296449;
-			
-			// aapt resource value: 0x7f0900c2
-			public const int c51 = 2131296450;
-			
-			// aapt resource value: 0x7f0900c3
-			public const int c52 = 2131296451;
-			
-			// aapt resource value: 0x7f0900c4
-			public const int c53 = 2131296452;
-			
-			// aapt resource value: 0x7f0900c6
-			public const int c60 = 2131296454;
-			
-			// aapt resource value: 0x7f0900c7
-			public const int c61 = 2131296455;
-			
-			// aapt resource value: 0x7f0900c8
-			public const int c62 = 2131296456;
-			
-			// aapt resource value: 0x7f0900c9
-			public const int c63 = 2131296457;
-			
-			// aapt resource value: 0x7f0900cb
-			public const int c70 = 2131296459;
-			
-			// aapt resource value: 0x7f0900cc
-			public const int c71 = 2131296460;
-			
-			// aapt resource value: 0x7f0900cd
-			public const int c72 = 2131296461;
-			
-			// aapt resource value: 0x7f0900ce
-			public const int c73 = 2131296462;
-			
-			// aapt resource value: 0x7f0900d0
-			public const int c80 = 2131296464;
-			
-			// aapt resource value: 0x7f0900d1
-			public const int c81 = 2131296465;
-			
-			// aapt resource value: 0x7f0900d2
-			public const int c82 = 2131296466;
-			
-			// aapt resource value: 0x7f0900d3
-			public const int c83 = 2131296467;
-			
-			// aapt resource value: 0x7f0900d5
-			public const int c90 = 2131296469;
-			
-			// aapt resource value: 0x7f0900d6
-			public const int c91 = 2131296470;
-			
-			// aapt resource value: 0x7f0900d7
-			public const int c92 = 2131296471;
-			
-			// aapt resource value: 0x7f0900d8
-			public const int c93 = 2131296472;
-			
-			// aapt resource value: 0x7f09010d
-			public const int cancel_action = 2131296525;
-			
-			// aapt resource value: 0x7f090045
-			public const int center = 2131296325;
-			
-			// aapt resource value: 0x7f090046
-			public const int center_horizontal = 2131296326;
-			
-			// aapt resource value: 0x7f090047
-			public const int center_vertical = 2131296327;
-			
-			// aapt resource value: 0x7f090073
-			public const int checkbox = 2131296371;
-			
-			// aapt resource value: 0x7f090141
-			public const int checkingsInfo = 2131296577;
-			
-			// aapt resource value: 0x7f090115
-			public const int chronometer = 2131296533;
-			
-			// aapt resource value: 0x7f09004e
-			public const int clip_horizontal = 2131296334;
-			
-			// aapt resource value: 0x7f09004f
-			public const int clip_vertical = 2131296335;
-			
-			// aapt resource value: 0x7f090039
-			public const int collapseActionView = 2131296313;
-			
-			// aapt resource value: 0x7f09008d
-			public const int container = 2131296397;
-			
-			// aapt resource value: 0x7f090066
-			public const int contentPanel = 2131296358;
-			
-			// aapt resource value: 0x7f09008e
-			public const int coordinator = 2131296398;
-			
-			// aapt resource value: 0x7f09006d
-			public const int custom = 2131296365;
-			
-			// aapt resource value: 0x7f09006c
-			public const int customPanel = 2131296364;
-			
-			// aapt resource value: 0x7f090099
-			public const int data = 2131296409;
-			
-			// aapt resource value: 0x7f0900eb
-			public const int dataInputFragment = 2131296491;
-			
-			// aapt resource value: 0x7f09007a
-			public const int decor_content_parent = 2131296378;
-			
-			// aapt resource value: 0x7f090060
-			public const int default_activity_button = 2131296352;
-			
-			// aapt resource value: 0x7f090090
-			public const int design_bottom_sheet = 2131296400;
-			
-			// aapt resource value: 0x7f090097
-			public const int design_menu_item_action_area = 2131296407;
-			
-			// aapt resource value: 0x7f090096
-			public const int design_menu_item_action_area_stub = 2131296406;
-			
-			// aapt resource value: 0x7f090095
-			public const int design_menu_item_text = 2131296405;
-			
-			// aapt resource value: 0x7f090094
-			public const int design_navigation_view = 2131296404;
-			
-			// aapt resource value: 0x7f090020
-			public const int disableHome = 2131296288;
-			
-			// aapt resource value: 0x7f09007e
-			public const int edit_query = 2131296382;
-			
-			// aapt resource value: 0x7f090030
-			public const int end = 2131296304;
-			
-			// aapt resource value: 0x7f09011b
-			public const int end_padder = 2131296539;
-			
-			// aapt resource value: 0x7f09003f
-			public const int enterAlways = 2131296319;
-			
-			// aapt resource value: 0x7f090040
-			public const int enterAlwaysCollapsed = 2131296320;
-			
-			// aapt resource value: 0x7f090041
-			public const int exitUntilCollapsed = 2131296321;
-			
-			// aapt resource value: 0x7f09005e
-			public const int expand_activities_button = 2131296350;
-			
-			// aapt resource value: 0x7f090072
-			public const int expanded_menu = 2131296370;
-			
-			// aapt resource value: 0x7f090050
-			public const int fill = 2131296336;
+			// aapt resource value: 0x7f09006f
+			public const int alertTitle = 2131296367;
 			
 			// aapt resource value: 0x7f090051
-			public const int fill_horizontal = 2131296337;
+			public const int all = 2131296337;
 			
-			// aapt resource value: 0x7f090048
-			public const int fill_vertical = 2131296328;
+			// aapt resource value: 0x7f090037
+			public const int always = 2131296311;
 			
-			// aapt resource value: 0x7f090054
-			public const int @fixed = 2131296340;
+			// aapt resource value: 0x7f090055
+			public const int async = 2131296341;
 			
-			// aapt resource value: 0x7f090058
-			public const int forever = 2131296344;
+			// aapt resource value: 0x7f090043
+			public const int auto = 2131296323;
+			
+			// aapt resource value: 0x7f09002e
+			public const int beginning = 2131296302;
+			
+			// aapt resource value: 0x7f090056
+			public const int blocking = 2131296342;
+			
+			// aapt resource value: 0x7f09003c
+			public const int bottom = 2131296316;
+			
+			// aapt resource value: 0x7f090062
+			public const int buttonPanel = 2131296354;
+			
+			// aapt resource value: 0x7f0900a7
+			public const int c00 = 2131296423;
+			
+			// aapt resource value: 0x7f0900a8
+			public const int c01 = 2131296424;
+			
+			// aapt resource value: 0x7f0900a9
+			public const int c02 = 2131296425;
+			
+			// aapt resource value: 0x7f0900aa
+			public const int c03 = 2131296426;
+			
+			// aapt resource value: 0x7f0900ac
+			public const int c10 = 2131296428;
+			
+			// aapt resource value: 0x7f0900d9
+			public const int c100 = 2131296473;
+			
+			// aapt resource value: 0x7f0900da
+			public const int c101 = 2131296474;
+			
+			// aapt resource value: 0x7f0900db
+			public const int c102 = 2131296475;
+			
+			// aapt resource value: 0x7f0900dc
+			public const int c103 = 2131296476;
+			
+			// aapt resource value: 0x7f0900ad
+			public const int c11 = 2131296429;
+			
+			// aapt resource value: 0x7f0900de
+			public const int c110 = 2131296478;
+			
+			// aapt resource value: 0x7f0900df
+			public const int c111 = 2131296479;
+			
+			// aapt resource value: 0x7f0900e0
+			public const int c112 = 2131296480;
+			
+			// aapt resource value: 0x7f0900e1
+			public const int c113 = 2131296481;
+			
+			// aapt resource value: 0x7f0900ae
+			public const int c12 = 2131296430;
+			
+			// aapt resource value: 0x7f0900af
+			public const int c13 = 2131296431;
+			
+			// aapt resource value: 0x7f0900b1
+			public const int c20 = 2131296433;
+			
+			// aapt resource value: 0x7f0900b2
+			public const int c21 = 2131296434;
+			
+			// aapt resource value: 0x7f0900b3
+			public const int c22 = 2131296435;
+			
+			// aapt resource value: 0x7f0900b4
+			public const int c23 = 2131296436;
+			
+			// aapt resource value: 0x7f0900b6
+			public const int c30 = 2131296438;
+			
+			// aapt resource value: 0x7f0900b7
+			public const int c31 = 2131296439;
+			
+			// aapt resource value: 0x7f0900b8
+			public const int c32 = 2131296440;
+			
+			// aapt resource value: 0x7f0900b9
+			public const int c33 = 2131296441;
+			
+			// aapt resource value: 0x7f0900bb
+			public const int c40 = 2131296443;
+			
+			// aapt resource value: 0x7f0900bc
+			public const int c41 = 2131296444;
+			
+			// aapt resource value: 0x7f0900bd
+			public const int c42 = 2131296445;
+			
+			// aapt resource value: 0x7f0900be
+			public const int c43 = 2131296446;
+			
+			// aapt resource value: 0x7f0900c0
+			public const int c50 = 2131296448;
+			
+			// aapt resource value: 0x7f0900c1
+			public const int c51 = 2131296449;
+			
+			// aapt resource value: 0x7f0900c2
+			public const int c52 = 2131296450;
+			
+			// aapt resource value: 0x7f0900c3
+			public const int c53 = 2131296451;
+			
+			// aapt resource value: 0x7f0900c5
+			public const int c60 = 2131296453;
+			
+			// aapt resource value: 0x7f0900c6
+			public const int c61 = 2131296454;
+			
+			// aapt resource value: 0x7f0900c7
+			public const int c62 = 2131296455;
+			
+			// aapt resource value: 0x7f0900c8
+			public const int c63 = 2131296456;
+			
+			// aapt resource value: 0x7f0900ca
+			public const int c70 = 2131296458;
+			
+			// aapt resource value: 0x7f0900cb
+			public const int c71 = 2131296459;
+			
+			// aapt resource value: 0x7f0900cc
+			public const int c72 = 2131296460;
+			
+			// aapt resource value: 0x7f0900cd
+			public const int c73 = 2131296461;
+			
+			// aapt resource value: 0x7f0900cf
+			public const int c80 = 2131296463;
+			
+			// aapt resource value: 0x7f0900d0
+			public const int c81 = 2131296464;
+			
+			// aapt resource value: 0x7f0900d1
+			public const int c82 = 2131296465;
+			
+			// aapt resource value: 0x7f0900d2
+			public const int c83 = 2131296466;
+			
+			// aapt resource value: 0x7f0900d4
+			public const int c90 = 2131296468;
+			
+			// aapt resource value: 0x7f0900d5
+			public const int c91 = 2131296469;
+			
+			// aapt resource value: 0x7f0900d6
+			public const int c92 = 2131296470;
+			
+			// aapt resource value: 0x7f0900d7
+			public const int c93 = 2131296471;
+			
+			// aapt resource value: 0x7f09010c
+			public const int cancel_action = 2131296524;
+			
+			// aapt resource value: 0x7f090044
+			public const int center = 2131296324;
+			
+			// aapt resource value: 0x7f090045
+			public const int center_horizontal = 2131296325;
+			
+			// aapt resource value: 0x7f090046
+			public const int center_vertical = 2131296326;
+			
+			// aapt resource value: 0x7f090072
+			public const int checkbox = 2131296370;
+			
+			// aapt resource value: 0x7f09011d
+			public const int checkingsInfo = 2131296541;
+			
+			// aapt resource value: 0x7f090114
+			public const int chronometer = 2131296532;
+			
+			// aapt resource value: 0x7f09004d
+			public const int clip_horizontal = 2131296333;
+			
+			// aapt resource value: 0x7f09004e
+			public const int clip_vertical = 2131296334;
+			
+			// aapt resource value: 0x7f090038
+			public const int collapseActionView = 2131296312;
+			
+			// aapt resource value: 0x7f09008c
+			public const int container = 2131296396;
+			
+			// aapt resource value: 0x7f090065
+			public const int contentPanel = 2131296357;
+			
+			// aapt resource value: 0x7f09008d
+			public const int coordinator = 2131296397;
+			
+			// aapt resource value: 0x7f09006c
+			public const int custom = 2131296364;
+			
+			// aapt resource value: 0x7f09006b
+			public const int customPanel = 2131296363;
+			
+			// aapt resource value: 0x7f090098
+			public const int data = 2131296408;
+			
+			// aapt resource value: 0x7f0900ea
+			public const int dataInputFragment = 2131296490;
+			
+			// aapt resource value: 0x7f090079
+			public const int decor_content_parent = 2131296377;
+			
+			// aapt resource value: 0x7f09005f
+			public const int default_activity_button = 2131296351;
+			
+			// aapt resource value: 0x7f09008f
+			public const int design_bottom_sheet = 2131296399;
+			
+			// aapt resource value: 0x7f090096
+			public const int design_menu_item_action_area = 2131296406;
+			
+			// aapt resource value: 0x7f090095
+			public const int design_menu_item_action_area_stub = 2131296405;
+			
+			// aapt resource value: 0x7f090094
+			public const int design_menu_item_text = 2131296404;
+			
+			// aapt resource value: 0x7f090093
+			public const int design_navigation_view = 2131296403;
+			
+			// aapt resource value: 0x7f09001f
+			public const int disableHome = 2131296287;
+			
+			// aapt resource value: 0x7f09007d
+			public const int edit_query = 2131296381;
+			
+			// aapt resource value: 0x7f09002f
+			public const int end = 2131296303;
+			
+			// aapt resource value: 0x7f09011a
+			public const int end_padder = 2131296538;
+			
+			// aapt resource value: 0x7f09003e
+			public const int enterAlways = 2131296318;
+			
+			// aapt resource value: 0x7f09003f
+			public const int enterAlwaysCollapsed = 2131296319;
+			
+			// aapt resource value: 0x7f090040
+			public const int exitUntilCollapsed = 2131296320;
+			
+			// aapt resource value: 0x7f09005d
+			public const int expand_activities_button = 2131296349;
+			
+			// aapt resource value: 0x7f090071
+			public const int expanded_menu = 2131296369;
+			
+			// aapt resource value: 0x7f09004f
+			public const int fill = 2131296335;
+			
+			// aapt resource value: 0x7f090050
+			public const int fill_horizontal = 2131296336;
+			
+			// aapt resource value: 0x7f090047
+			public const int fill_vertical = 2131296327;
+			
+			// aapt resource value: 0x7f090053
+			public const int @fixed = 2131296339;
+			
+			// aapt resource value: 0x7f090057
+			public const int forever = 2131296343;
 			
 			// aapt resource value: 0x7f09000a
 			public const int ghost_view = 2131296266;
 			
-			// aapt resource value: 0x7f0900ea
-			public const int headerFragment = 2131296490;
+			// aapt resource value: 0x7f0900e9
+			public const int headerFragment = 2131296489;
 			
 			// aapt resource value: 0x7f090005
 			public const int home = 2131296261;
 			
-			// aapt resource value: 0x7f090021
-			public const int homeAsUp = 2131296289;
+			// aapt resource value: 0x7f090020
+			public const int homeAsUp = 2131296288;
 			
-			// aapt resource value: 0x7f090062
-			public const int icon = 2131296354;
+			// aapt resource value: 0x7f090061
+			public const int icon = 2131296353;
 			
-			// aapt resource value: 0x7f09011a
-			public const int icon_group = 2131296538;
+			// aapt resource value: 0x7f090119
+			public const int icon_group = 2131296537;
 			
-			// aapt resource value: 0x7f09003a
-			public const int ifRoom = 2131296314;
+			// aapt resource value: 0x7f090039
+			public const int ifRoom = 2131296313;
 			
-			// aapt resource value: 0x7f09005f
-			public const int image = 2131296351;
+			// aapt resource value: 0x7f09005e
+			public const int image = 2131296350;
 			
-			// aapt resource value: 0x7f090116
-			public const int info = 2131296534;
+			// aapt resource value: 0x7f090115
+			public const int info = 2131296533;
 			
-			// aapt resource value: 0x7f090059
-			public const int italic = 2131296345;
+			// aapt resource value: 0x7f090058
+			public const int italic = 2131296344;
 			
 			// aapt resource value: 0x7f090000
 			public const int item_touch_helper_previous_elevation = 2131296256;
 			
-			// aapt resource value: 0x7f09008c
-			public const int largeLabel = 2131296396;
+			// aapt resource value: 0x7f09008b
+			public const int largeLabel = 2131296395;
 			
-			// aapt resource value: 0x7f090049
-			public const int left = 2131296329;
+			// aapt resource value: 0x7f090048
+			public const int left = 2131296328;
 			
 			// aapt resource value: 0x7f090017
 			public const int line1 = 2131296279;
@@ -5797,179 +5903,179 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f090018
 			public const int line3 = 2131296280;
 			
-			// aapt resource value: 0x7f0900a6
-			public const int linedown = 2131296422;
-			
-			// aapt resource value: 0x7f0900a3
-			public const int lineup = 2131296419;
-			
-			// aapt resource value: 0x7f09013f
-			public const int list = 2131296575;
-			
-			// aapt resource value: 0x7f09001d
-			public const int listMode = 2131296285;
-			
-			// aapt resource value: 0x7f090061
-			public const int list_item = 2131296353;
-			
-			// aapt resource value: 0x7f090142
-			public const int locationInfo = 2131296578;
-			
-			// aapt resource value: 0x7f090152
-			public const int mainMenu = 2131296594;
-			
-			// aapt resource value: 0x7f090151
-			public const int masked = 2131296593;
-			
-			// aapt resource value: 0x7f09010f
-			public const int media_actions = 2131296527;
-			
 			// aapt resource value: 0x7f0900a5
-			public const int message = 2131296421;
+			public const int linedown = 2131296421;
 			
-			// aapt resource value: 0x7f090031
-			public const int middle = 2131296305;
+			// aapt resource value: 0x7f0900a2
+			public const int lineup = 2131296418;
 			
-			// aapt resource value: 0x7f090053
-			public const int mini = 2131296339;
+			// aapt resource value: 0x7f09011b
+			public const int list = 2131296539;
 			
-			// aapt resource value: 0x7f090156
-			public const int mnuclose = 2131296598;
+			// aapt resource value: 0x7f09001c
+			public const int listMode = 2131296284;
 			
-			// aapt resource value: 0x7f090155
-			public const int mnuloads = 2131296597;
+			// aapt resource value: 0x7f090060
+			public const int list_item = 2131296352;
 			
-			// aapt resource value: 0x7f090153
-			public const int mnumain = 2131296595;
+			// aapt resource value: 0x7f09011e
+			public const int locationInfo = 2131296542;
 			
-			// aapt resource value: 0x7f090154
-			public const int mnurepair = 2131296596;
+			// aapt resource value: 0x7f090122
+			public const int mainMenu = 2131296546;
 			
-			// aapt resource value: 0x7f0900fb
-			public const int mr_art = 2131296507;
+			// aapt resource value: 0x7f090121
+			public const int masked = 2131296545;
 			
-			// aapt resource value: 0x7f0900f0
-			public const int mr_chooser_list = 2131296496;
+			// aapt resource value: 0x7f09010e
+			public const int media_actions = 2131296526;
 			
-			// aapt resource value: 0x7f0900f3
-			public const int mr_chooser_route_desc = 2131296499;
+			// aapt resource value: 0x7f0900a4
+			public const int message = 2131296420;
 			
-			// aapt resource value: 0x7f0900f1
-			public const int mr_chooser_route_icon = 2131296497;
+			// aapt resource value: 0x7f090030
+			public const int middle = 2131296304;
 			
-			// aapt resource value: 0x7f0900f2
-			public const int mr_chooser_route_name = 2131296498;
+			// aapt resource value: 0x7f090052
+			public const int mini = 2131296338;
 			
-			// aapt resource value: 0x7f0900ef
-			public const int mr_chooser_title = 2131296495;
+			// aapt resource value: 0x7f090126
+			public const int mnuclose = 2131296550;
 			
-			// aapt resource value: 0x7f0900f8
-			public const int mr_close = 2131296504;
+			// aapt resource value: 0x7f090125
+			public const int mnuloads = 2131296549;
 			
-			// aapt resource value: 0x7f0900fe
-			public const int mr_control_divider = 2131296510;
+			// aapt resource value: 0x7f090123
+			public const int mnumain = 2131296547;
 			
-			// aapt resource value: 0x7f090104
-			public const int mr_control_playback_ctrl = 2131296516;
-			
-			// aapt resource value: 0x7f090107
-			public const int mr_control_subtitle = 2131296519;
-			
-			// aapt resource value: 0x7f090106
-			public const int mr_control_title = 2131296518;
-			
-			// aapt resource value: 0x7f090105
-			public const int mr_control_title_container = 2131296517;
-			
-			// aapt resource value: 0x7f0900f9
-			public const int mr_custom_control = 2131296505;
+			// aapt resource value: 0x7f090124
+			public const int mnurepair = 2131296548;
 			
 			// aapt resource value: 0x7f0900fa
-			public const int mr_default_control = 2131296506;
+			public const int mr_art = 2131296506;
 			
-			// aapt resource value: 0x7f0900f5
-			public const int mr_dialog_area = 2131296501;
+			// aapt resource value: 0x7f0900ef
+			public const int mr_chooser_list = 2131296495;
 			
-			// aapt resource value: 0x7f0900f4
-			public const int mr_expandable_area = 2131296500;
+			// aapt resource value: 0x7f0900f2
+			public const int mr_chooser_route_desc = 2131296498;
 			
-			// aapt resource value: 0x7f090108
-			public const int mr_group_expand_collapse = 2131296520;
+			// aapt resource value: 0x7f0900f0
+			public const int mr_chooser_route_icon = 2131296496;
 			
-			// aapt resource value: 0x7f0900fc
-			public const int mr_media_main_control = 2131296508;
+			// aapt resource value: 0x7f0900f1
+			public const int mr_chooser_route_name = 2131296497;
+			
+			// aapt resource value: 0x7f0900ee
+			public const int mr_chooser_title = 2131296494;
 			
 			// aapt resource value: 0x7f0900f7
-			public const int mr_name = 2131296503;
+			public const int mr_close = 2131296503;
 			
 			// aapt resource value: 0x7f0900fd
-			public const int mr_playback_control = 2131296509;
-			
-			// aapt resource value: 0x7f0900f6
-			public const int mr_title_bar = 2131296502;
-			
-			// aapt resource value: 0x7f0900ff
-			public const int mr_volume_control = 2131296511;
-			
-			// aapt resource value: 0x7f090100
-			public const int mr_volume_group_list = 2131296512;
-			
-			// aapt resource value: 0x7f090102
-			public const int mr_volume_item_icon = 2131296514;
+			public const int mr_control_divider = 2131296509;
 			
 			// aapt resource value: 0x7f090103
-			public const int mr_volume_slider = 2131296515;
+			public const int mr_control_playback_ctrl = 2131296515;
 			
-			// aapt resource value: 0x7f0900e4
-			public const int msgPkgInfo = 2131296484;
+			// aapt resource value: 0x7f090106
+			public const int mr_control_subtitle = 2131296518;
 			
-			// aapt resource value: 0x7f0900e7
-			public const int msgText = 2131296487;
+			// aapt resource value: 0x7f090105
+			public const int mr_control_title = 2131296517;
 			
-			// aapt resource value: 0x7f090028
-			public const int multiply = 2131296296;
+			// aapt resource value: 0x7f090104
+			public const int mr_control_title_container = 2131296516;
 			
-			// aapt resource value: 0x7f090093
-			public const int navigation_header_container = 2131296403;
+			// aapt resource value: 0x7f0900f8
+			public const int mr_custom_control = 2131296504;
 			
-			// aapt resource value: 0x7f09003b
-			public const int never = 2131296315;
+			// aapt resource value: 0x7f0900f9
+			public const int mr_default_control = 2131296505;
 			
-			// aapt resource value: 0x7f090022
-			public const int none = 2131296290;
+			// aapt resource value: 0x7f0900f4
+			public const int mr_dialog_area = 2131296500;
 			
-			// aapt resource value: 0x7f09001e
-			public const int normal = 2131296286;
+			// aapt resource value: 0x7f0900f3
+			public const int mr_expandable_area = 2131296499;
 			
-			// aapt resource value: 0x7f090118
-			public const int notification_background = 2131296536;
+			// aapt resource value: 0x7f090107
+			public const int mr_group_expand_collapse = 2131296519;
 			
-			// aapt resource value: 0x7f090112
-			public const int notification_main_column = 2131296530;
+			// aapt resource value: 0x7f0900fb
+			public const int mr_media_main_control = 2131296507;
+			
+			// aapt resource value: 0x7f0900f6
+			public const int mr_name = 2131296502;
+			
+			// aapt resource value: 0x7f0900fc
+			public const int mr_playback_control = 2131296508;
+			
+			// aapt resource value: 0x7f0900f5
+			public const int mr_title_bar = 2131296501;
+			
+			// aapt resource value: 0x7f0900fe
+			public const int mr_volume_control = 2131296510;
+			
+			// aapt resource value: 0x7f0900ff
+			public const int mr_volume_group_list = 2131296511;
+			
+			// aapt resource value: 0x7f090101
+			public const int mr_volume_item_icon = 2131296513;
+			
+			// aapt resource value: 0x7f090102
+			public const int mr_volume_slider = 2131296514;
+			
+			// aapt resource value: 0x7f0900e3
+			public const int msgPkgInfo = 2131296483;
+			
+			// aapt resource value: 0x7f0900e6
+			public const int msgText = 2131296486;
+			
+			// aapt resource value: 0x7f090026
+			public const int multiply = 2131296294;
+			
+			// aapt resource value: 0x7f090092
+			public const int navigation_header_container = 2131296402;
+			
+			// aapt resource value: 0x7f09003a
+			public const int never = 2131296314;
+			
+			// aapt resource value: 0x7f090021
+			public const int none = 2131296289;
+			
+			// aapt resource value: 0x7f09001d
+			public const int normal = 2131296285;
+			
+			// aapt resource value: 0x7f090117
+			public const int notification_background = 2131296535;
 			
 			// aapt resource value: 0x7f090111
-			public const int notification_main_column_container = 2131296529;
+			public const int notification_main_column = 2131296529;
 			
-			// aapt resource value: 0x7f09009c
-			public const int orderNumber = 2131296412;
+			// aapt resource value: 0x7f090110
+			public const int notification_main_column_container = 2131296528;
 			
-			// aapt resource value: 0x7f09004c
-			public const int parallax = 2131296332;
+			// aapt resource value: 0x7f09009b
+			public const int orderNumber = 2131296411;
 			
-			// aapt resource value: 0x7f090065
-			public const int parentPanel = 2131296357;
+			// aapt resource value: 0x7f09004b
+			public const int parallax = 2131296331;
+			
+			// aapt resource value: 0x7f090064
+			public const int parentPanel = 2131296356;
 			
 			// aapt resource value: 0x7f09000b
 			public const int parent_matrix = 2131296267;
 			
-			// aapt resource value: 0x7f09004d
-			public const int pin = 2131296333;
-			
-			// aapt resource value: 0x7f0900e9
-			public const int progress = 2131296489;
+			// aapt resource value: 0x7f09004c
+			public const int pin = 2131296332;
 			
 			// aapt resource value: 0x7f0900e8
-			public const int progressBarHolder = 2131296488;
+			public const int progress = 2131296488;
+			
+			// aapt resource value: 0x7f0900e7
+			public const int progressBarHolder = 2131296487;
 			
 			// aapt resource value: 0x7f090006
 			public const int progress_circular = 2131296262;
@@ -5977,26 +6083,26 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f090007
 			public const int progress_horizontal = 2131296263;
 			
-			// aapt resource value: 0x7f090075
-			public const int radio = 2131296373;
-			
-			// aapt resource value: 0x7f09009b
-			public const int radioChecking = 2131296411;
+			// aapt resource value: 0x7f090074
+			public const int radio = 2131296372;
 			
 			// aapt resource value: 0x7f09009a
-			public const int radioReading = 2131296410;
+			public const int radioChecking = 2131296410;
 			
-			// aapt resource value: 0x7f090140
-			public const int readingsInfo = 2131296576;
+			// aapt resource value: 0x7f090099
+			public const int radioReading = 2131296409;
 			
-			// aapt resource value: 0x7f09004a
-			public const int right = 2131296330;
+			// aapt resource value: 0x7f09011c
+			public const int readingsInfo = 2131296540;
 			
-			// aapt resource value: 0x7f090117
-			public const int right_icon = 2131296535;
+			// aapt resource value: 0x7f090049
+			public const int right = 2131296329;
 			
-			// aapt resource value: 0x7f090113
-			public const int right_side = 2131296531;
+			// aapt resource value: 0x7f090116
+			public const int right_icon = 2131296534;
+			
+			// aapt resource value: 0x7f090112
+			public const int right_side = 2131296530;
 			
 			// aapt resource value: 0x7f09000c
 			public const int save_image_matrix = 2131296268;
@@ -6007,146 +6113,143 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f09000e
 			public const int save_scale_type = 2131296270;
 			
-			// aapt resource value: 0x7f090029
-			public const int screen = 2131296297;
+			// aapt resource value: 0x7f090027
+			public const int screen = 2131296295;
 			
-			// aapt resource value: 0x7f090042
-			public const int scroll = 2131296322;
+			// aapt resource value: 0x7f090041
+			public const int scroll = 2131296321;
 			
-			// aapt resource value: 0x7f09006b
-			public const int scrollIndicatorDown = 2131296363;
+			// aapt resource value: 0x7f09006a
+			public const int scrollIndicatorDown = 2131296362;
+			
+			// aapt resource value: 0x7f090066
+			public const int scrollIndicatorUp = 2131296358;
 			
 			// aapt resource value: 0x7f090067
-			public const int scrollIndicatorUp = 2131296359;
+			public const int scrollView = 2131296359;
 			
-			// aapt resource value: 0x7f090068
-			public const int scrollView = 2131296360;
-			
-			// aapt resource value: 0x7f090055
-			public const int scrollable = 2131296341;
-			
-			// aapt resource value: 0x7f090080
-			public const int search_badge = 2131296384;
+			// aapt resource value: 0x7f090054
+			public const int scrollable = 2131296340;
 			
 			// aapt resource value: 0x7f09007f
-			public const int search_bar = 2131296383;
+			public const int search_badge = 2131296383;
 			
-			// aapt resource value: 0x7f090081
-			public const int search_button = 2131296385;
+			// aapt resource value: 0x7f09007e
+			public const int search_bar = 2131296382;
 			
-			// aapt resource value: 0x7f090086
-			public const int search_close_btn = 2131296390;
-			
-			// aapt resource value: 0x7f090082
-			public const int search_edit_frame = 2131296386;
-			
-			// aapt resource value: 0x7f090088
-			public const int search_go_btn = 2131296392;
-			
-			// aapt resource value: 0x7f090083
-			public const int search_mag_icon = 2131296387;
-			
-			// aapt resource value: 0x7f090084
-			public const int search_plate = 2131296388;
+			// aapt resource value: 0x7f090080
+			public const int search_button = 2131296384;
 			
 			// aapt resource value: 0x7f090085
-			public const int search_src_text = 2131296389;
+			public const int search_close_btn = 2131296389;
+			
+			// aapt resource value: 0x7f090081
+			public const int search_edit_frame = 2131296385;
+			
+			// aapt resource value: 0x7f090087
+			public const int search_go_btn = 2131296391;
+			
+			// aapt resource value: 0x7f090082
+			public const int search_mag_icon = 2131296386;
+			
+			// aapt resource value: 0x7f090083
+			public const int search_plate = 2131296387;
+			
+			// aapt resource value: 0x7f090084
+			public const int search_src_text = 2131296388;
+			
+			// aapt resource value: 0x7f090088
+			public const int search_voice_btn = 2131296392;
 			
 			// aapt resource value: 0x7f090089
-			public const int search_voice_btn = 2131296393;
+			public const int select_dialog_listview = 2131296393;
 			
-			// aapt resource value: 0x7f09008a
-			public const int select_dialog_listview = 2131296394;
+			// aapt resource value: 0x7f090073
+			public const int shortcut = 2131296371;
 			
-			// aapt resource value: 0x7f090074
-			public const int shortcut = 2131296372;
+			// aapt resource value: 0x7f090022
+			public const int showCustom = 2131296290;
 			
 			// aapt resource value: 0x7f090023
-			public const int showCustom = 2131296291;
+			public const int showHome = 2131296291;
 			
 			// aapt resource value: 0x7f090024
-			public const int showHome = 2131296292;
+			public const int showTitle = 2131296292;
 			
-			// aapt resource value: 0x7f090025
-			public const int showTitle = 2131296293;
-			
-			// aapt resource value: 0x7f09008b
-			public const int smallLabel = 2131296395;
-			
-			// aapt resource value: 0x7f090092
-			public const int snackbar_action = 2131296402;
+			// aapt resource value: 0x7f09008a
+			public const int smallLabel = 2131296394;
 			
 			// aapt resource value: 0x7f090091
-			public const int snackbar_text = 2131296401;
+			public const int snackbar_action = 2131296401;
 			
-			// aapt resource value: 0x7f090043
-			public const int snap = 2131296323;
+			// aapt resource value: 0x7f090090
+			public const int snackbar_text = 2131296400;
 			
-			// aapt resource value: 0x7f090143
-			public const int socksProgress = 2131296579;
+			// aapt resource value: 0x7f090042
+			public const int snap = 2131296322;
 			
-			// aapt resource value: 0x7f090064
-			public const int spacer = 2131296356;
+			// aapt resource value: 0x7f09011f
+			public const int socksProgress = 2131296543;
+			
+			// aapt resource value: 0x7f090063
+			public const int spacer = 2131296355;
 			
 			// aapt resource value: 0x7f090008
 			public const int split_action_bar = 2131296264;
 			
+			// aapt resource value: 0x7f090028
+			public const int src_atop = 2131296296;
+			
+			// aapt resource value: 0x7f090029
+			public const int src_in = 2131296297;
+			
 			// aapt resource value: 0x7f09002a
-			public const int src_atop = 2131296298;
+			public const int src_over = 2131296298;
 			
-			// aapt resource value: 0x7f09002b
-			public const int src_in = 2131296299;
+			// aapt resource value: 0x7f09004a
+			public const int start = 2131296330;
 			
-			// aapt resource value: 0x7f09002c
-			public const int src_over = 2131296300;
+			// aapt resource value: 0x7f09010d
+			public const int status_bar_latest_event_content = 2131296525;
 			
-			// aapt resource value: 0x7f09004b
-			public const int start = 2131296331;
+			// aapt resource value: 0x7f090075
+			public const int submenuarrow = 2131296373;
 			
-			// aapt resource value: 0x7f09010e
-			public const int status_bar_latest_event_content = 2131296526;
+			// aapt resource value: 0x7f090086
+			public const int submit_area = 2131296390;
 			
-			// aapt resource value: 0x7f090076
-			public const int submenuarrow = 2131296374;
-			
-			// aapt resource value: 0x7f090087
-			public const int submit_area = 2131296391;
+			// aapt resource value: 0x7f09009c
+			public const int t1 = 2131296412;
 			
 			// aapt resource value: 0x7f09009d
-			public const int t1 = 2131296413;
+			public const int t2 = 2131296413;
 			
 			// aapt resource value: 0x7f09009e
-			public const int t2 = 2131296414;
+			public const int t3 = 2131296414;
 			
 			// aapt resource value: 0x7f09009f
-			public const int t3 = 2131296415;
+			public const int t4 = 2131296415;
 			
 			// aapt resource value: 0x7f0900a0
-			public const int t4 = 2131296416;
+			public const int t5 = 2131296416;
 			
-			// aapt resource value: 0x7f0900a1
-			public const int t5 = 2131296417;
-			
-			// aapt resource value: 0x7f09001f
-			public const int tabMode = 2131296287;
+			// aapt resource value: 0x7f09001e
+			public const int tabMode = 2131296286;
 			
 			// aapt resource value: 0x7f090019
-			public const int tag_transition_group = 2131296281;
+			public const int text = 2131296281;
 			
 			// aapt resource value: 0x7f09001a
-			public const int text = 2131296282;
-			
-			// aapt resource value: 0x7f09001b
-			public const int text2 = 2131296283;
-			
-			// aapt resource value: 0x7f09006a
-			public const int textSpacerNoButtons = 2131296362;
+			public const int text2 = 2131296282;
 			
 			// aapt resource value: 0x7f090069
-			public const int textSpacerNoTitle = 2131296361;
+			public const int textSpacerNoButtons = 2131296361;
 			
-			// aapt resource value: 0x7f090098
-			public const int text_input_password_toggle = 2131296408;
+			// aapt resource value: 0x7f090068
+			public const int textSpacerNoTitle = 2131296360;
+			
+			// aapt resource value: 0x7f090097
+			public const int text_input_password_toggle = 2131296407;
 			
 			// aapt resource value: 0x7f090014
 			public const int textinput_counter = 2131296276;
@@ -6154,26 +6257,26 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f090015
 			public const int textinput_error = 2131296277;
 			
-			// aapt resource value: 0x7f090114
-			public const int time = 2131296532;
+			// aapt resource value: 0x7f090113
+			public const int time = 2131296531;
 			
-			// aapt resource value: 0x7f09001c
-			public const int title = 2131296284;
+			// aapt resource value: 0x7f09001b
+			public const int title = 2131296283;
 			
-			// aapt resource value: 0x7f090071
-			public const int titleDividerNoCustom = 2131296369;
-			
-			// aapt resource value: 0x7f09006f
-			public const int title_template = 2131296367;
-			
-			// aapt resource value: 0x7f09003e
-			public const int top = 2131296318;
+			// aapt resource value: 0x7f090070
+			public const int titleDividerNoCustom = 2131296368;
 			
 			// aapt resource value: 0x7f09006e
-			public const int topPanel = 2131296366;
+			public const int title_template = 2131296366;
 			
-			// aapt resource value: 0x7f09008f
-			public const int touch_outside = 2131296399;
+			// aapt resource value: 0x7f09003d
+			public const int top = 2131296317;
+			
+			// aapt resource value: 0x7f09006d
+			public const int topPanel = 2131296365;
+			
+			// aapt resource value: 0x7f09008e
+			public const int touch_outside = 2131296398;
 			
 			// aapt resource value: 0x7f09000f
 			public const int transition_current_scene = 2131296271;
@@ -6190,29 +6293,29 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f090013
 			public const int transition_transform = 2131296275;
 			
-			// aapt resource value: 0x7f09002d
-			public const int uniform = 2131296301;
+			// aapt resource value: 0x7f09002c
+			public const int uniform = 2131296300;
 			
 			// aapt resource value: 0x7f090009
 			public const int up = 2131296265;
 			
-			// aapt resource value: 0x7f090026
-			public const int useLogo = 2131296294;
+			// aapt resource value: 0x7f090025
+			public const int useLogo = 2131296293;
 			
 			// aapt resource value: 0x7f090016
 			public const int view_offset_helper = 2131296278;
 			
-			// aapt resource value: 0x7f090150
-			public const int visible = 2131296592;
+			// aapt resource value: 0x7f090120
+			public const int visible = 2131296544;
 			
-			// aapt resource value: 0x7f090101
-			public const int volume_item_container = 2131296513;
+			// aapt resource value: 0x7f090100
+			public const int volume_item_container = 2131296512;
 			
-			// aapt resource value: 0x7f09003c
-			public const int withText = 2131296316;
+			// aapt resource value: 0x7f09003b
+			public const int withText = 2131296315;
 			
-			// aapt resource value: 0x7f09002e
-			public const int wrap_content = 2131296302;
+			// aapt resource value: 0x7f09002d
+			public const int wrap_content = 2131296301;
 			
 			static Id()
 			{
@@ -6305,202 +6408,202 @@ namespace RadioLogisticaDeliveries
 			public const int abc_action_bar_up_container = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int abc_action_menu_item_layout = 2130903042;
+			public const int abc_action_bar_view_list_nav_layout = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int abc_action_menu_layout = 2130903043;
+			public const int abc_action_menu_item_layout = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int abc_action_mode_bar = 2130903044;
+			public const int abc_action_menu_layout = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int abc_action_mode_close_item_material = 2130903045;
+			public const int abc_action_mode_bar = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int abc_activity_chooser_view = 2130903046;
+			public const int abc_action_mode_close_item_material = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int abc_activity_chooser_view_list_item = 2130903047;
+			public const int abc_activity_chooser_view = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int abc_alert_dialog_button_bar_material = 2130903048;
+			public const int abc_activity_chooser_view_list_item = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int abc_alert_dialog_material = 2130903049;
+			public const int abc_alert_dialog_button_bar_material = 2130903049;
 			
 			// aapt resource value: 0x7f03000a
-			public const int abc_alert_dialog_title_material = 2130903050;
+			public const int abc_alert_dialog_material = 2130903050;
 			
 			// aapt resource value: 0x7f03000b
-			public const int abc_dialog_title_material = 2130903051;
+			public const int abc_alert_dialog_title_material = 2130903051;
 			
 			// aapt resource value: 0x7f03000c
-			public const int abc_expanded_menu_layout = 2130903052;
+			public const int abc_dialog_title_material = 2130903052;
 			
 			// aapt resource value: 0x7f03000d
-			public const int abc_list_menu_item_checkbox = 2130903053;
+			public const int abc_expanded_menu_layout = 2130903053;
 			
 			// aapt resource value: 0x7f03000e
-			public const int abc_list_menu_item_icon = 2130903054;
+			public const int abc_list_menu_item_checkbox = 2130903054;
 			
 			// aapt resource value: 0x7f03000f
-			public const int abc_list_menu_item_layout = 2130903055;
+			public const int abc_list_menu_item_icon = 2130903055;
 			
 			// aapt resource value: 0x7f030010
-			public const int abc_list_menu_item_radio = 2130903056;
+			public const int abc_list_menu_item_layout = 2130903056;
 			
 			// aapt resource value: 0x7f030011
-			public const int abc_popup_menu_header_item_layout = 2130903057;
+			public const int abc_list_menu_item_radio = 2130903057;
 			
 			// aapt resource value: 0x7f030012
-			public const int abc_popup_menu_item_layout = 2130903058;
+			public const int abc_popup_menu_header_item_layout = 2130903058;
 			
 			// aapt resource value: 0x7f030013
-			public const int abc_screen_content_include = 2130903059;
+			public const int abc_popup_menu_item_layout = 2130903059;
 			
 			// aapt resource value: 0x7f030014
-			public const int abc_screen_simple = 2130903060;
+			public const int abc_screen_content_include = 2130903060;
 			
 			// aapt resource value: 0x7f030015
-			public const int abc_screen_simple_overlay_action_mode = 2130903061;
+			public const int abc_screen_simple = 2130903061;
 			
 			// aapt resource value: 0x7f030016
-			public const int abc_screen_toolbar = 2130903062;
+			public const int abc_screen_simple_overlay_action_mode = 2130903062;
 			
 			// aapt resource value: 0x7f030017
-			public const int abc_search_dropdown_item_icons_2line = 2130903063;
+			public const int abc_screen_toolbar = 2130903063;
 			
 			// aapt resource value: 0x7f030018
-			public const int abc_search_view = 2130903064;
+			public const int abc_search_dropdown_item_icons_2line = 2130903064;
 			
 			// aapt resource value: 0x7f030019
-			public const int abc_select_dialog_material = 2130903065;
+			public const int abc_search_view = 2130903065;
 			
 			// aapt resource value: 0x7f03001a
-			public const int design_bottom_navigation_item = 2130903066;
+			public const int abc_select_dialog_material = 2130903066;
 			
 			// aapt resource value: 0x7f03001b
-			public const int design_bottom_sheet_dialog = 2130903067;
+			public const int design_bottom_navigation_item = 2130903067;
 			
 			// aapt resource value: 0x7f03001c
-			public const int design_layout_snackbar = 2130903068;
+			public const int design_bottom_sheet_dialog = 2130903068;
 			
 			// aapt resource value: 0x7f03001d
-			public const int design_layout_snackbar_include = 2130903069;
+			public const int design_layout_snackbar = 2130903069;
 			
 			// aapt resource value: 0x7f03001e
-			public const int design_layout_tab_icon = 2130903070;
+			public const int design_layout_snackbar_include = 2130903070;
 			
 			// aapt resource value: 0x7f03001f
-			public const int design_layout_tab_text = 2130903071;
+			public const int design_layout_tab_icon = 2130903071;
 			
 			// aapt resource value: 0x7f030020
-			public const int design_menu_item_action_area = 2130903072;
+			public const int design_layout_tab_text = 2130903072;
 			
 			// aapt resource value: 0x7f030021
-			public const int design_navigation_item = 2130903073;
+			public const int design_menu_item_action_area = 2130903073;
 			
 			// aapt resource value: 0x7f030022
-			public const int design_navigation_item_header = 2130903074;
+			public const int design_navigation_item = 2130903074;
 			
 			// aapt resource value: 0x7f030023
-			public const int design_navigation_item_separator = 2130903075;
+			public const int design_navigation_item_header = 2130903075;
 			
 			// aapt resource value: 0x7f030024
-			public const int design_navigation_item_subheader = 2130903076;
+			public const int design_navigation_item_separator = 2130903076;
 			
 			// aapt resource value: 0x7f030025
-			public const int design_navigation_menu = 2130903077;
+			public const int design_navigation_item_subheader = 2130903077;
 			
 			// aapt resource value: 0x7f030026
-			public const int design_navigation_menu_item = 2130903078;
+			public const int design_navigation_menu = 2130903078;
 			
 			// aapt resource value: 0x7f030027
-			public const int design_text_input_password_icon = 2130903079;
+			public const int design_navigation_menu_item = 2130903079;
 			
 			// aapt resource value: 0x7f030028
-			public const int enterDataFt = 2130903080;
+			public const int design_text_input_password_icon = 2130903080;
 			
 			// aapt resource value: 0x7f030029
-			public const int enterOrderFt = 2130903081;
+			public const int enterDataFt = 2130903081;
 			
 			// aapt resource value: 0x7f03002a
-			public const int headerFt = 2130903082;
+			public const int enterOrderFt = 2130903082;
 			
 			// aapt resource value: 0x7f03002b
-			public const int infoFt = 2130903083;
+			public const int headerFt = 2130903083;
 			
 			// aapt resource value: 0x7f03002c
-			public const int LogonScreen = 2130903084;
+			public const int infoFt = 2130903084;
 			
 			// aapt resource value: 0x7f03002d
-			public const int mainLayout = 2130903085;
+			public const int LogonScreen = 2130903085;
 			
 			// aapt resource value: 0x7f03002e
-			public const int mr_chooser_dialog = 2130903086;
+			public const int mainLayout = 2130903086;
 			
 			// aapt resource value: 0x7f03002f
-			public const int mr_chooser_list_item = 2130903087;
+			public const int mr_chooser_dialog = 2130903087;
 			
 			// aapt resource value: 0x7f030030
-			public const int mr_controller_material_dialog_b = 2130903088;
+			public const int mr_chooser_list_item = 2130903088;
 			
 			// aapt resource value: 0x7f030031
-			public const int mr_controller_volume_item = 2130903089;
+			public const int mr_controller_material_dialog_b = 2130903089;
 			
 			// aapt resource value: 0x7f030032
-			public const int mr_playback_control = 2130903090;
+			public const int mr_controller_volume_item = 2130903090;
 			
 			// aapt resource value: 0x7f030033
-			public const int mr_volume_control = 2130903091;
+			public const int mr_playback_control = 2130903091;
 			
 			// aapt resource value: 0x7f030034
-			public const int notification_action = 2130903092;
+			public const int mr_volume_control = 2130903092;
 			
 			// aapt resource value: 0x7f030035
-			public const int notification_action_tombstone = 2130903093;
+			public const int notification_action = 2130903093;
 			
 			// aapt resource value: 0x7f030036
-			public const int notification_media_action = 2130903094;
+			public const int notification_action_tombstone = 2130903094;
 			
 			// aapt resource value: 0x7f030037
-			public const int notification_media_cancel_action = 2130903095;
+			public const int notification_media_action = 2130903095;
 			
 			// aapt resource value: 0x7f030038
-			public const int notification_template_big_media = 2130903096;
+			public const int notification_media_cancel_action = 2130903096;
 			
 			// aapt resource value: 0x7f030039
-			public const int notification_template_big_media_custom = 2130903097;
+			public const int notification_template_big_media = 2130903097;
 			
 			// aapt resource value: 0x7f03003a
-			public const int notification_template_big_media_narrow = 2130903098;
+			public const int notification_template_big_media_custom = 2130903098;
 			
 			// aapt resource value: 0x7f03003b
-			public const int notification_template_big_media_narrow_custom = 2130903099;
+			public const int notification_template_big_media_narrow = 2130903099;
 			
 			// aapt resource value: 0x7f03003c
-			public const int notification_template_custom_big = 2130903100;
+			public const int notification_template_big_media_narrow_custom = 2130903100;
 			
 			// aapt resource value: 0x7f03003d
-			public const int notification_template_icon_group = 2130903101;
+			public const int notification_template_custom_big = 2130903101;
 			
 			// aapt resource value: 0x7f03003e
-			public const int notification_template_lines_media = 2130903102;
+			public const int notification_template_icon_group = 2130903102;
 			
 			// aapt resource value: 0x7f03003f
-			public const int notification_template_media = 2130903103;
+			public const int notification_template_lines_media = 2130903103;
 			
 			// aapt resource value: 0x7f030040
-			public const int notification_template_media_custom = 2130903104;
+			public const int notification_template_media = 2130903104;
 			
 			// aapt resource value: 0x7f030041
-			public const int notification_template_part_chronometer = 2130903105;
+			public const int notification_template_media_custom = 2130903105;
 			
 			// aapt resource value: 0x7f030042
-			public const int notification_template_part_time = 2130903106;
+			public const int notification_template_part_chronometer = 2130903106;
 			
 			// aapt resource value: 0x7f030043
-			public const int sampleTableLayout = 2130903107;
+			public const int notification_template_part_time = 2130903107;
 			
 			// aapt resource value: 0x7f030044
 			public const int select_dialog_item_material = 2130903108;
@@ -6522,9 +6625,6 @@ namespace RadioLogisticaDeliveries
 			
 			// aapt resource value: 0x7f03004a
 			public const int tooltip = 2130903114;
-			
-			// aapt resource value: 0x7f03004b
-			public const int trolleyFt = 2130903115;
 			
 			static Layout()
 			{
@@ -6552,14 +6652,42 @@ namespace RadioLogisticaDeliveries
 			}
 		}
 		
+		public partial class Raw
+		{
+			
+			// aapt resource value: 0x7f070000
+			public const int Antares = 2131165184;
+			
+			// aapt resource value: 0x7f070001
+			public const int decodeshort = 2131165185;
+			
+			// aapt resource value: 0x7f070002
+			public const int Gallium = 2131165186;
+			
+			// aapt resource value: 0x7f070003
+			public const int TaDa = 2131165187;
+			
+			// aapt resource value: 0x7f070004
+			public const int Tejat = 2131165188;
+			
+			static Raw()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Raw()
+			{
+			}
+		}
+		
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f0a003d
-			public const int ApplicationName = 2131361853;
+			// aapt resource value: 0x7f0a003f
+			public const int ApplicationName = 2131361855;
 			
-			// aapt resource value: 0x7f0a003c
-			public const int Hello = 2131361852;
+			// aapt resource value: 0x7f0a003e
+			public const int Hello = 2131361854;
 			
 			// aapt resource value: 0x7f0a0040
 			public const int Next = 2131361856;
@@ -6568,103 +6696,103 @@ namespace RadioLogisticaDeliveries
 			public const int abc_action_bar_home_description = 2131361813;
 			
 			// aapt resource value: 0x7f0a0016
-			public const int abc_action_bar_up_description = 2131361814;
+			public const int abc_action_bar_home_description_format = 2131361814;
 			
 			// aapt resource value: 0x7f0a0017
-			public const int abc_action_menu_overflow_description = 2131361815;
+			public const int abc_action_bar_home_subtitle_description_format = 2131361815;
 			
 			// aapt resource value: 0x7f0a0018
-			public const int abc_action_mode_done = 2131361816;
+			public const int abc_action_bar_up_description = 2131361816;
 			
 			// aapt resource value: 0x7f0a0019
-			public const int abc_activity_chooser_view_see_all = 2131361817;
+			public const int abc_action_menu_overflow_description = 2131361817;
 			
 			// aapt resource value: 0x7f0a001a
-			public const int abc_activitychooserview_choose_application = 2131361818;
+			public const int abc_action_mode_done = 2131361818;
 			
 			// aapt resource value: 0x7f0a001b
-			public const int abc_capital_off = 2131361819;
+			public const int abc_activity_chooser_view_see_all = 2131361819;
 			
 			// aapt resource value: 0x7f0a001c
-			public const int abc_capital_on = 2131361820;
-			
-			// aapt resource value: 0x7f0a0027
-			public const int abc_font_family_body_1_material = 2131361831;
-			
-			// aapt resource value: 0x7f0a0028
-			public const int abc_font_family_body_2_material = 2131361832;
-			
-			// aapt resource value: 0x7f0a0029
-			public const int abc_font_family_button_material = 2131361833;
-			
-			// aapt resource value: 0x7f0a002a
-			public const int abc_font_family_caption_material = 2131361834;
-			
-			// aapt resource value: 0x7f0a002b
-			public const int abc_font_family_display_1_material = 2131361835;
-			
-			// aapt resource value: 0x7f0a002c
-			public const int abc_font_family_display_2_material = 2131361836;
-			
-			// aapt resource value: 0x7f0a002d
-			public const int abc_font_family_display_3_material = 2131361837;
-			
-			// aapt resource value: 0x7f0a002e
-			public const int abc_font_family_display_4_material = 2131361838;
-			
-			// aapt resource value: 0x7f0a002f
-			public const int abc_font_family_headline_material = 2131361839;
-			
-			// aapt resource value: 0x7f0a0030
-			public const int abc_font_family_menu_material = 2131361840;
-			
-			// aapt resource value: 0x7f0a0031
-			public const int abc_font_family_subhead_material = 2131361841;
-			
-			// aapt resource value: 0x7f0a0032
-			public const int abc_font_family_title_material = 2131361842;
+			public const int abc_activitychooserview_choose_application = 2131361820;
 			
 			// aapt resource value: 0x7f0a001d
-			public const int abc_search_hint = 2131361821;
+			public const int abc_capital_off = 2131361821;
 			
 			// aapt resource value: 0x7f0a001e
-			public const int abc_searchview_description_clear = 2131361822;
+			public const int abc_capital_on = 2131361822;
 			
-			// aapt resource value: 0x7f0a001f
-			public const int abc_searchview_description_query = 2131361823;
+			// aapt resource value: 0x7f0a002a
+			public const int abc_font_family_body_1_material = 2131361834;
 			
-			// aapt resource value: 0x7f0a0020
-			public const int abc_searchview_description_search = 2131361824;
+			// aapt resource value: 0x7f0a002b
+			public const int abc_font_family_body_2_material = 2131361835;
 			
-			// aapt resource value: 0x7f0a0021
-			public const int abc_searchview_description_submit = 2131361825;
+			// aapt resource value: 0x7f0a002c
+			public const int abc_font_family_button_material = 2131361836;
 			
-			// aapt resource value: 0x7f0a0022
-			public const int abc_searchview_description_voice = 2131361826;
+			// aapt resource value: 0x7f0a002d
+			public const int abc_font_family_caption_material = 2131361837;
 			
-			// aapt resource value: 0x7f0a0023
-			public const int abc_shareactionprovider_share_with = 2131361827;
+			// aapt resource value: 0x7f0a002e
+			public const int abc_font_family_display_1_material = 2131361838;
 			
-			// aapt resource value: 0x7f0a0024
-			public const int abc_shareactionprovider_share_with_application = 2131361828;
+			// aapt resource value: 0x7f0a002f
+			public const int abc_font_family_display_2_material = 2131361839;
 			
-			// aapt resource value: 0x7f0a0025
-			public const int abc_toolbar_collapse_description = 2131361829;
+			// aapt resource value: 0x7f0a0030
+			public const int abc_font_family_display_3_material = 2131361840;
 			
-			// aapt resource value: 0x7f0a003f
-			public const int app_name = 2131361855;
+			// aapt resource value: 0x7f0a0031
+			public const int abc_font_family_display_4_material = 2131361841;
+			
+			// aapt resource value: 0x7f0a0032
+			public const int abc_font_family_headline_material = 2131361842;
 			
 			// aapt resource value: 0x7f0a0033
-			public const int appbar_scrolling_view_behavior = 2131361843;
+			public const int abc_font_family_menu_material = 2131361843;
 			
 			// aapt resource value: 0x7f0a0034
-			public const int bottom_sheet_behavior = 2131361844;
+			public const int abc_font_family_subhead_material = 2131361844;
 			
 			// aapt resource value: 0x7f0a0035
-			public const int character_counter_pattern = 2131361845;
+			public const int abc_font_family_title_material = 2131361845;
 			
-			// aapt resource value: 0x7f0a003e
-			public const int hello = 2131361854;
+			// aapt resource value: 0x7f0a001f
+			public const int abc_search_hint = 2131361823;
+			
+			// aapt resource value: 0x7f0a0020
+			public const int abc_searchview_description_clear = 2131361824;
+			
+			// aapt resource value: 0x7f0a0021
+			public const int abc_searchview_description_query = 2131361825;
+			
+			// aapt resource value: 0x7f0a0022
+			public const int abc_searchview_description_search = 2131361826;
+			
+			// aapt resource value: 0x7f0a0023
+			public const int abc_searchview_description_submit = 2131361827;
+			
+			// aapt resource value: 0x7f0a0024
+			public const int abc_searchview_description_voice = 2131361828;
+			
+			// aapt resource value: 0x7f0a0025
+			public const int abc_shareactionprovider_share_with = 2131361829;
+			
+			// aapt resource value: 0x7f0a0026
+			public const int abc_shareactionprovider_share_with_application = 2131361830;
+			
+			// aapt resource value: 0x7f0a0027
+			public const int abc_toolbar_collapse_description = 2131361831;
+			
+			// aapt resource value: 0x7f0a0036
+			public const int appbar_scrolling_view_behavior = 2131361846;
+			
+			// aapt resource value: 0x7f0a0037
+			public const int bottom_sheet_behavior = 2131361847;
+			
+			// aapt resource value: 0x7f0a0038
+			public const int character_counter_pattern = 2131361848;
 			
 			// aapt resource value: 0x7f0a0000
 			public const int mr_button_content_description = 2131361792;
@@ -6729,26 +6857,26 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0a0014
 			public const int mr_user_route_category_name = 2131361812;
 			
-			// aapt resource value: 0x7f0a0036
-			public const int password_toggle_content_description = 2131361846;
-			
-			// aapt resource value: 0x7f0a0037
-			public const int path_password_eye = 2131361847;
-			
-			// aapt resource value: 0x7f0a0038
-			public const int path_password_eye_mask_strike_through = 2131361848;
-			
 			// aapt resource value: 0x7f0a0039
-			public const int path_password_eye_mask_visible = 2131361849;
+			public const int password_toggle_content_description = 2131361849;
 			
 			// aapt resource value: 0x7f0a003a
-			public const int path_password_strike_through = 2131361850;
-			
-			// aapt resource value: 0x7f0a0026
-			public const int search_menu_title = 2131361830;
+			public const int path_password_eye = 2131361850;
 			
 			// aapt resource value: 0x7f0a003b
-			public const int status_bar_notification_info_overflow = 2131361851;
+			public const int path_password_eye_mask_strike_through = 2131361851;
+			
+			// aapt resource value: 0x7f0a003c
+			public const int path_password_eye_mask_visible = 2131361852;
+			
+			// aapt resource value: 0x7f0a003d
+			public const int path_password_strike_through = 2131361853;
+			
+			// aapt resource value: 0x7f0a0028
+			public const int search_menu_title = 2131361832;
+			
+			// aapt resource value: 0x7f0a0029
+			public const int status_bar_notification_info_overflow = 2131361833;
 			
 			static String()
 			{
@@ -6763,50 +6891,50 @@ namespace RadioLogisticaDeliveries
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f0c00a4
-			public const int AlertDialog_AppCompat = 2131493028;
-			
-			// aapt resource value: 0x7f0c00a5
-			public const int AlertDialog_AppCompat_Light = 2131493029;
-			
-			// aapt resource value: 0x7f0c00a6
-			public const int Animation_AppCompat_Dialog = 2131493030;
-			
-			// aapt resource value: 0x7f0c00a7
-			public const int Animation_AppCompat_DropDownUp = 2131493031;
-			
-			// aapt resource value: 0x7f0c00a8
-			public const int Animation_AppCompat_Tooltip = 2131493032;
-			
-			// aapt resource value: 0x7f0c016e
-			public const int Animation_Design_BottomSheetDialog = 2131493230;
-			
-			// aapt resource value: 0x7f0c018f
-			public const int AppTheme = 2131493263;
-			
-			// aapt resource value: 0x7f0c00a9
-			public const int Base_AlertDialog_AppCompat = 2131493033;
-			
-			// aapt resource value: 0x7f0c00aa
-			public const int Base_AlertDialog_AppCompat_Light = 2131493034;
-			
-			// aapt resource value: 0x7f0c00ab
-			public const int Base_Animation_AppCompat_Dialog = 2131493035;
-			
 			// aapt resource value: 0x7f0c00ac
-			public const int Base_Animation_AppCompat_DropDownUp = 2131493036;
+			public const int AlertDialog_AppCompat = 2131493036;
 			
 			// aapt resource value: 0x7f0c00ad
-			public const int Base_Animation_AppCompat_Tooltip = 2131493037;
+			public const int AlertDialog_AppCompat_Light = 2131493037;
+			
+			// aapt resource value: 0x7f0c00ae
+			public const int Animation_AppCompat_Dialog = 2131493038;
+			
+			// aapt resource value: 0x7f0c00af
+			public const int Animation_AppCompat_DropDownUp = 2131493039;
+			
+			// aapt resource value: 0x7f0c00b0
+			public const int Animation_AppCompat_Tooltip = 2131493040;
+			
+			// aapt resource value: 0x7f0c0178
+			public const int Animation_Design_BottomSheetDialog = 2131493240;
+			
+			// aapt resource value: 0x7f0c0199
+			public const int AppTheme = 2131493273;
+			
+			// aapt resource value: 0x7f0c00b1
+			public const int Base_AlertDialog_AppCompat = 2131493041;
+			
+			// aapt resource value: 0x7f0c00b2
+			public const int Base_AlertDialog_AppCompat_Light = 2131493042;
+			
+			// aapt resource value: 0x7f0c00b3
+			public const int Base_Animation_AppCompat_Dialog = 2131493043;
+			
+			// aapt resource value: 0x7f0c00b4
+			public const int Base_Animation_AppCompat_DropDownUp = 2131493044;
+			
+			// aapt resource value: 0x7f0c00b5
+			public const int Base_Animation_AppCompat_Tooltip = 2131493045;
 			
 			// aapt resource value: 0x7f0c000c
 			public const int Base_CardView = 2131492876;
 			
-			// aapt resource value: 0x7f0c00ae
-			public const int Base_DialogWindowTitle_AppCompat = 2131493038;
+			// aapt resource value: 0x7f0c00b6
+			public const int Base_DialogWindowTitle_AppCompat = 2131493046;
 			
-			// aapt resource value: 0x7f0c00af
-			public const int Base_DialogWindowTitleBackground_AppCompat = 2131493039;
+			// aapt resource value: 0x7f0c00b7
+			public const int Base_DialogWindowTitleBackground_AppCompat = 2131493047;
 			
 			// aapt resource value: 0x7f0c0048
 			public const int Base_TextAppearance_AppCompat = 2131492936;
@@ -6862,8 +6990,8 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c0055
 			public const int Base_TextAppearance_AppCompat_Menu = 2131492949;
 			
-			// aapt resource value: 0x7f0c00b0
-			public const int Base_TextAppearance_AppCompat_SearchResult = 2131493040;
+			// aapt resource value: 0x7f0c00b8
+			public const int Base_TextAppearance_AppCompat_SearchResult = 2131493048;
 			
 			// aapt resource value: 0x7f0c0056
 			public const int Base_TextAppearance_AppCompat_SearchResult_Subtitle = 2131492950;
@@ -6889,11 +7017,11 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c001f
 			public const int Base_TextAppearance_AppCompat_Title_Inverse = 2131492895;
 			
-			// aapt resource value: 0x7f0c00b1
-			public const int Base_TextAppearance_AppCompat_Tooltip = 2131493041;
+			// aapt resource value: 0x7f0c00b9
+			public const int Base_TextAppearance_AppCompat_Tooltip = 2131493049;
 			
-			// aapt resource value: 0x7f0c0095
-			public const int Base_TextAppearance_AppCompat_Widget_ActionBar_Menu = 2131493013;
+			// aapt resource value: 0x7f0c009d
+			public const int Base_TextAppearance_AppCompat_Widget_ActionBar_Menu = 2131493021;
 			
 			// aapt resource value: 0x7f0c005b
 			public const int Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle = 2131492955;
@@ -6916,17 +7044,17 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c0061
 			public const int Base_TextAppearance_AppCompat_Widget_Button = 2131492961;
 			
-			// aapt resource value: 0x7f0c009c
-			public const int Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored = 2131493020;
+			// aapt resource value: 0x7f0c00a4
+			public const int Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored = 2131493028;
 			
-			// aapt resource value: 0x7f0c009d
-			public const int Base_TextAppearance_AppCompat_Widget_Button_Colored = 2131493021;
+			// aapt resource value: 0x7f0c00a5
+			public const int Base_TextAppearance_AppCompat_Widget_Button_Colored = 2131493029;
 			
-			// aapt resource value: 0x7f0c0096
-			public const int Base_TextAppearance_AppCompat_Widget_Button_Inverse = 2131493014;
+			// aapt resource value: 0x7f0c009e
+			public const int Base_TextAppearance_AppCompat_Widget_Button_Inverse = 2131493022;
 			
-			// aapt resource value: 0x7f0c00b2
-			public const int Base_TextAppearance_AppCompat_Widget_DropDownItem = 2131493042;
+			// aapt resource value: 0x7f0c00ba
+			public const int Base_TextAppearance_AppCompat_Widget_DropDownItem = 2131493050;
 			
 			// aapt resource value: 0x7f0c0062
 			public const int Base_TextAppearance_AppCompat_Widget_PopupMenu_Header = 2131492962;
@@ -6943,8 +7071,8 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c0066
 			public const int Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem = 2131492966;
 			
-			// aapt resource value: 0x7f0c00b3
-			public const int Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item = 2131493043;
+			// aapt resource value: 0x7f0c00bb
+			public const int Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item = 2131493051;
 			
 			// aapt resource value: 0x7f0c0067
 			public const int Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle = 2131492967;
@@ -6955,8 +7083,8 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c0069
 			public const int Base_Theme_AppCompat = 2131492969;
 			
-			// aapt resource value: 0x7f0c00b4
-			public const int Base_Theme_AppCompat_CompactMenu = 2131493044;
+			// aapt resource value: 0x7f0c00bc
+			public const int Base_Theme_AppCompat_CompactMenu = 2131493052;
 			
 			// aapt resource value: 0x7f0c0020
 			public const int Base_Theme_AppCompat_Dialog = 2131492896;
@@ -6964,8 +7092,8 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c0021
 			public const int Base_Theme_AppCompat_Dialog_Alert = 2131492897;
 			
-			// aapt resource value: 0x7f0c00b5
-			public const int Base_Theme_AppCompat_Dialog_FixedSize = 2131493045;
+			// aapt resource value: 0x7f0c00bd
+			public const int Base_Theme_AppCompat_Dialog_FixedSize = 2131493053;
 			
 			// aapt resource value: 0x7f0c0022
 			public const int Base_Theme_AppCompat_Dialog_MinWidth = 2131492898;
@@ -6976,8 +7104,8 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c006a
 			public const int Base_Theme_AppCompat_Light = 2131492970;
 			
-			// aapt resource value: 0x7f0c00b6
-			public const int Base_Theme_AppCompat_Light_DarkActionBar = 2131493046;
+			// aapt resource value: 0x7f0c00be
+			public const int Base_Theme_AppCompat_Light_DarkActionBar = 2131493054;
 			
 			// aapt resource value: 0x7f0c0023
 			public const int Base_Theme_AppCompat_Light_Dialog = 2131492899;
@@ -6985,8 +7113,8 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c0024
 			public const int Base_Theme_AppCompat_Light_Dialog_Alert = 2131492900;
 			
-			// aapt resource value: 0x7f0c00b7
-			public const int Base_Theme_AppCompat_Light_Dialog_FixedSize = 2131493047;
+			// aapt resource value: 0x7f0c00bf
+			public const int Base_Theme_AppCompat_Light_Dialog_FixedSize = 2131493055;
 			
 			// aapt resource value: 0x7f0c0025
 			public const int Base_Theme_AppCompat_Light_Dialog_MinWidth = 2131492901;
@@ -6994,17 +7122,17 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c0011
 			public const int Base_Theme_AppCompat_Light_DialogWhenLarge = 2131492881;
 			
-			// aapt resource value: 0x7f0c00b8
-			public const int Base_ThemeOverlay_AppCompat = 2131493048;
+			// aapt resource value: 0x7f0c00c0
+			public const int Base_ThemeOverlay_AppCompat = 2131493056;
 			
-			// aapt resource value: 0x7f0c00b9
-			public const int Base_ThemeOverlay_AppCompat_ActionBar = 2131493049;
+			// aapt resource value: 0x7f0c00c1
+			public const int Base_ThemeOverlay_AppCompat_ActionBar = 2131493057;
 			
-			// aapt resource value: 0x7f0c00ba
-			public const int Base_ThemeOverlay_AppCompat_Dark = 2131493050;
+			// aapt resource value: 0x7f0c00c2
+			public const int Base_ThemeOverlay_AppCompat_Dark = 2131493058;
 			
-			// aapt resource value: 0x7f0c00bb
-			public const int Base_ThemeOverlay_AppCompat_Dark_ActionBar = 2131493051;
+			// aapt resource value: 0x7f0c00c3
+			public const int Base_ThemeOverlay_AppCompat_Dark_ActionBar = 2131493059;
 			
 			// aapt resource value: 0x7f0c0026
 			public const int Base_ThemeOverlay_AppCompat_Dialog = 2131492902;
@@ -7012,8 +7140,8 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c0027
 			public const int Base_ThemeOverlay_AppCompat_Dialog_Alert = 2131492903;
 			
-			// aapt resource value: 0x7f0c00bc
-			public const int Base_ThemeOverlay_AppCompat_Light = 2131493052;
+			// aapt resource value: 0x7f0c00c4
+			public const int Base_ThemeOverlay_AppCompat_Light = 2131493060;
 			
 			// aapt resource value: 0x7f0c0028
 			public const int Base_V11_Theme_AppCompat_Dialog = 2131492904;
@@ -7030,8 +7158,8 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c0033
 			public const int Base_V12_Widget_AppCompat_EditText = 2131492915;
 			
-			// aapt resource value: 0x7f0c016f
-			public const int Base_V14_Widget_Design_AppBarLayout = 2131493231;
+			// aapt resource value: 0x7f0c0179
+			public const int Base_V14_Widget_Design_AppBarLayout = 2131493241;
 			
 			// aapt resource value: 0x7f0c006b
 			public const int Base_V21_Theme_AppCompat = 2131492971;
@@ -7048,65 +7176,65 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c006f
 			public const int Base_V21_ThemeOverlay_AppCompat_Dialog = 2131492975;
 			
-			// aapt resource value: 0x7f0c016b
-			public const int Base_V21_Widget_Design_AppBarLayout = 2131493227;
+			// aapt resource value: 0x7f0c0175
+			public const int Base_V21_Widget_Design_AppBarLayout = 2131493237;
 			
-			// aapt resource value: 0x7f0c0093
-			public const int Base_V22_Theme_AppCompat = 2131493011;
+			// aapt resource value: 0x7f0c009b
+			public const int Base_V22_Theme_AppCompat = 2131493019;
 			
-			// aapt resource value: 0x7f0c0094
-			public const int Base_V22_Theme_AppCompat_Light = 2131493012;
+			// aapt resource value: 0x7f0c009c
+			public const int Base_V22_Theme_AppCompat_Light = 2131493020;
 			
-			// aapt resource value: 0x7f0c0097
-			public const int Base_V23_Theme_AppCompat = 2131493015;
-			
-			// aapt resource value: 0x7f0c0098
-			public const int Base_V23_Theme_AppCompat_Light = 2131493016;
+			// aapt resource value: 0x7f0c009f
+			public const int Base_V23_Theme_AppCompat = 2131493023;
 			
 			// aapt resource value: 0x7f0c00a0
-			public const int Base_V26_Theme_AppCompat = 2131493024;
+			public const int Base_V23_Theme_AppCompat_Light = 2131493024;
 			
-			// aapt resource value: 0x7f0c00a1
-			public const int Base_V26_Theme_AppCompat_Light = 2131493025;
+			// aapt resource value: 0x7f0c00a8
+			public const int Base_V26_Theme_AppCompat = 2131493032;
 			
-			// aapt resource value: 0x7f0c00a2
-			public const int Base_V26_Widget_AppCompat_Toolbar = 2131493026;
+			// aapt resource value: 0x7f0c00a9
+			public const int Base_V26_Theme_AppCompat_Light = 2131493033;
 			
-			// aapt resource value: 0x7f0c016d
-			public const int Base_V26_Widget_Design_AppBarLayout = 2131493229;
+			// aapt resource value: 0x7f0c00aa
+			public const int Base_V26_Widget_AppCompat_Toolbar = 2131493034;
 			
-			// aapt resource value: 0x7f0c00bd
-			public const int Base_V7_Theme_AppCompat = 2131493053;
-			
-			// aapt resource value: 0x7f0c00be
-			public const int Base_V7_Theme_AppCompat_Dialog = 2131493054;
-			
-			// aapt resource value: 0x7f0c00bf
-			public const int Base_V7_Theme_AppCompat_Light = 2131493055;
-			
-			// aapt resource value: 0x7f0c00c0
-			public const int Base_V7_Theme_AppCompat_Light_Dialog = 2131493056;
-			
-			// aapt resource value: 0x7f0c00c1
-			public const int Base_V7_ThemeOverlay_AppCompat_Dialog = 2131493057;
-			
-			// aapt resource value: 0x7f0c00c2
-			public const int Base_V7_Widget_AppCompat_AutoCompleteTextView = 2131493058;
-			
-			// aapt resource value: 0x7f0c00c3
-			public const int Base_V7_Widget_AppCompat_EditText = 2131493059;
-			
-			// aapt resource value: 0x7f0c00c4
-			public const int Base_V7_Widget_AppCompat_Toolbar = 2131493060;
+			// aapt resource value: 0x7f0c0177
+			public const int Base_V26_Widget_Design_AppBarLayout = 2131493239;
 			
 			// aapt resource value: 0x7f0c00c5
-			public const int Base_Widget_AppCompat_ActionBar = 2131493061;
+			public const int Base_V7_Theme_AppCompat = 2131493061;
 			
 			// aapt resource value: 0x7f0c00c6
-			public const int Base_Widget_AppCompat_ActionBar_Solid = 2131493062;
+			public const int Base_V7_Theme_AppCompat_Dialog = 2131493062;
 			
 			// aapt resource value: 0x7f0c00c7
-			public const int Base_Widget_AppCompat_ActionBar_TabBar = 2131493063;
+			public const int Base_V7_Theme_AppCompat_Light = 2131493063;
+			
+			// aapt resource value: 0x7f0c00c8
+			public const int Base_V7_Theme_AppCompat_Light_Dialog = 2131493064;
+			
+			// aapt resource value: 0x7f0c00c9
+			public const int Base_V7_ThemeOverlay_AppCompat_Dialog = 2131493065;
+			
+			// aapt resource value: 0x7f0c00ca
+			public const int Base_V7_Widget_AppCompat_AutoCompleteTextView = 2131493066;
+			
+			// aapt resource value: 0x7f0c00cb
+			public const int Base_V7_Widget_AppCompat_EditText = 2131493067;
+			
+			// aapt resource value: 0x7f0c00cc
+			public const int Base_V7_Widget_AppCompat_Toolbar = 2131493068;
+			
+			// aapt resource value: 0x7f0c00cd
+			public const int Base_Widget_AppCompat_ActionBar = 2131493069;
+			
+			// aapt resource value: 0x7f0c00ce
+			public const int Base_Widget_AppCompat_ActionBar_Solid = 2131493070;
+			
+			// aapt resource value: 0x7f0c00cf
+			public const int Base_Widget_AppCompat_ActionBar_TabBar = 2131493071;
 			
 			// aapt resource value: 0x7f0c0070
 			public const int Base_Widget_AppCompat_ActionBar_TabText = 2131492976;
@@ -7123,11 +7251,11 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c0074
 			public const int Base_Widget_AppCompat_ActionButton_Overflow = 2131492980;
 			
-			// aapt resource value: 0x7f0c00c8
-			public const int Base_Widget_AppCompat_ActionMode = 2131493064;
+			// aapt resource value: 0x7f0c00d0
+			public const int Base_Widget_AppCompat_ActionMode = 2131493072;
 			
-			// aapt resource value: 0x7f0c00c9
-			public const int Base_Widget_AppCompat_ActivityChooserView = 2131493065;
+			// aapt resource value: 0x7f0c00d1
+			public const int Base_Widget_AppCompat_ActivityChooserView = 2131493073;
 			
 			// aapt resource value: 0x7f0c0034
 			public const int Base_Widget_AppCompat_AutoCompleteTextView = 2131492916;
@@ -7141,11 +7269,11 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c0077
 			public const int Base_Widget_AppCompat_Button_Borderless_Colored = 2131492983;
 			
-			// aapt resource value: 0x7f0c00ca
-			public const int Base_Widget_AppCompat_Button_ButtonBar_AlertDialog = 2131493066;
+			// aapt resource value: 0x7f0c00d2
+			public const int Base_Widget_AppCompat_Button_ButtonBar_AlertDialog = 2131493074;
 			
-			// aapt resource value: 0x7f0c0099
-			public const int Base_Widget_AppCompat_Button_Colored = 2131493017;
+			// aapt resource value: 0x7f0c00a1
+			public const int Base_Widget_AppCompat_Button_Colored = 2131493025;
 			
 			// aapt resource value: 0x7f0c0078
 			public const int Base_Widget_AppCompat_Button_Small = 2131492984;
@@ -7153,8 +7281,8 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c0079
 			public const int Base_Widget_AppCompat_ButtonBar = 2131492985;
 			
-			// aapt resource value: 0x7f0c00cb
-			public const int Base_Widget_AppCompat_ButtonBar_AlertDialog = 2131493067;
+			// aapt resource value: 0x7f0c00d3
+			public const int Base_Widget_AppCompat_ButtonBar_AlertDialog = 2131493075;
 			
 			// aapt resource value: 0x7f0c007a
 			public const int Base_Widget_AppCompat_CompoundButton_CheckBox = 2131492986;
@@ -7162,14 +7290,14 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c007b
 			public const int Base_Widget_AppCompat_CompoundButton_RadioButton = 2131492987;
 			
-			// aapt resource value: 0x7f0c00cc
-			public const int Base_Widget_AppCompat_CompoundButton_Switch = 2131493068;
+			// aapt resource value: 0x7f0c00d4
+			public const int Base_Widget_AppCompat_CompoundButton_Switch = 2131493076;
 			
 			// aapt resource value: 0x7f0c000f
 			public const int Base_Widget_AppCompat_DrawerArrowToggle = 2131492879;
 			
-			// aapt resource value: 0x7f0c00cd
-			public const int Base_Widget_AppCompat_DrawerArrowToggle_Common = 2131493069;
+			// aapt resource value: 0x7f0c00d5
+			public const int Base_Widget_AppCompat_DrawerArrowToggle_Common = 2131493077;
 			
 			// aapt resource value: 0x7f0c007c
 			public const int Base_Widget_AppCompat_DropDownItem_Spinner = 2131492988;
@@ -7180,14 +7308,14 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c007d
 			public const int Base_Widget_AppCompat_ImageButton = 2131492989;
 			
-			// aapt resource value: 0x7f0c00ce
-			public const int Base_Widget_AppCompat_Light_ActionBar = 2131493070;
+			// aapt resource value: 0x7f0c00d6
+			public const int Base_Widget_AppCompat_Light_ActionBar = 2131493078;
 			
-			// aapt resource value: 0x7f0c00cf
-			public const int Base_Widget_AppCompat_Light_ActionBar_Solid = 2131493071;
+			// aapt resource value: 0x7f0c00d7
+			public const int Base_Widget_AppCompat_Light_ActionBar_Solid = 2131493079;
 			
-			// aapt resource value: 0x7f0c00d0
-			public const int Base_Widget_AppCompat_Light_ActionBar_TabBar = 2131493072;
+			// aapt resource value: 0x7f0c00d8
+			public const int Base_Widget_AppCompat_Light_ActionBar_TabBar = 2131493080;
 			
 			// aapt resource value: 0x7f0c007e
 			public const int Base_Widget_AppCompat_Light_ActionBar_TabText = 2131492990;
@@ -7204,8 +7332,8 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c0082
 			public const int Base_Widget_AppCompat_Light_PopupMenu_Overflow = 2131492994;
 			
-			// aapt resource value: 0x7f0c00d1
-			public const int Base_Widget_AppCompat_ListMenuView = 2131493073;
+			// aapt resource value: 0x7f0c00d9
+			public const int Base_Widget_AppCompat_ListMenuView = 2131493081;
 			
 			// aapt resource value: 0x7f0c0083
 			public const int Base_Widget_AppCompat_ListPopupWindow = 2131492995;
@@ -7225,8 +7353,8 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c0088
 			public const int Base_Widget_AppCompat_PopupMenu_Overflow = 2131493000;
 			
-			// aapt resource value: 0x7f0c00d2
-			public const int Base_Widget_AppCompat_PopupWindow = 2131493074;
+			// aapt resource value: 0x7f0c00da
+			public const int Base_Widget_AppCompat_PopupWindow = 2131493082;
 			
 			// aapt resource value: 0x7f0c002b
 			public const int Base_Widget_AppCompat_ProgressBar = 2131492907;
@@ -7237,23 +7365,23 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c0089
 			public const int Base_Widget_AppCompat_RatingBar = 2131493001;
 			
-			// aapt resource value: 0x7f0c009a
-			public const int Base_Widget_AppCompat_RatingBar_Indicator = 2131493018;
+			// aapt resource value: 0x7f0c00a2
+			public const int Base_Widget_AppCompat_RatingBar_Indicator = 2131493026;
 			
-			// aapt resource value: 0x7f0c009b
-			public const int Base_Widget_AppCompat_RatingBar_Small = 2131493019;
+			// aapt resource value: 0x7f0c00a3
+			public const int Base_Widget_AppCompat_RatingBar_Small = 2131493027;
 			
-			// aapt resource value: 0x7f0c00d3
-			public const int Base_Widget_AppCompat_SearchView = 2131493075;
+			// aapt resource value: 0x7f0c00db
+			public const int Base_Widget_AppCompat_SearchView = 2131493083;
 			
-			// aapt resource value: 0x7f0c00d4
-			public const int Base_Widget_AppCompat_SearchView_ActionBar = 2131493076;
+			// aapt resource value: 0x7f0c00dc
+			public const int Base_Widget_AppCompat_SearchView_ActionBar = 2131493084;
 			
 			// aapt resource value: 0x7f0c008a
 			public const int Base_Widget_AppCompat_SeekBar = 2131493002;
 			
-			// aapt resource value: 0x7f0c00d5
-			public const int Base_Widget_AppCompat_SeekBar_Discrete = 2131493077;
+			// aapt resource value: 0x7f0c00dd
+			public const int Base_Widget_AppCompat_SeekBar_Discrete = 2131493085;
 			
 			// aapt resource value: 0x7f0c008b
 			public const int Base_Widget_AppCompat_Spinner = 2131493003;
@@ -7264,17 +7392,17 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c008c
 			public const int Base_Widget_AppCompat_TextView_SpinnerItem = 2131493004;
 			
-			// aapt resource value: 0x7f0c00a3
-			public const int Base_Widget_AppCompat_Toolbar = 2131493027;
+			// aapt resource value: 0x7f0c00ab
+			public const int Base_Widget_AppCompat_Toolbar = 2131493035;
 			
 			// aapt resource value: 0x7f0c008d
 			public const int Base_Widget_AppCompat_Toolbar_Button_Navigation = 2131493005;
 			
-			// aapt resource value: 0x7f0c016c
-			public const int Base_Widget_Design_AppBarLayout = 2131493228;
+			// aapt resource value: 0x7f0c0176
+			public const int Base_Widget_Design_AppBarLayout = 2131493238;
 			
-			// aapt resource value: 0x7f0c0170
-			public const int Base_Widget_Design_TabLayout = 2131493232;
+			// aapt resource value: 0x7f0c017a
+			public const int Base_Widget_Design_TabLayout = 2131493242;
 			
 			// aapt resource value: 0x7f0c000b
 			public const int CardView = 2131492875;
@@ -7318,11 +7446,11 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c0092
 			public const int Platform_V21_AppCompat_Light = 2131493010;
 			
-			// aapt resource value: 0x7f0c009e
-			public const int Platform_V25_AppCompat = 2131493022;
+			// aapt resource value: 0x7f0c00a6
+			public const int Platform_V25_AppCompat = 2131493030;
 			
-			// aapt resource value: 0x7f0c009f
-			public const int Platform_V25_AppCompat_Light = 2131493023;
+			// aapt resource value: 0x7f0c00a7
+			public const int Platform_V25_AppCompat_Light = 2131493031;
 			
 			// aapt resource value: 0x7f0c0031
 			public const int Platform_Widget_AppCompat_Spinner = 2131492913;
@@ -7369,200 +7497,230 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c0047
 			public const int RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = 2131492935;
 			
-			// aapt resource value: 0x7f0c00d6
-			public const int TextAppearance_AppCompat = 2131493078;
-			
-			// aapt resource value: 0x7f0c00d7
-			public const int TextAppearance_AppCompat_Body1 = 2131493079;
-			
-			// aapt resource value: 0x7f0c00d8
-			public const int TextAppearance_AppCompat_Body2 = 2131493080;
-			
-			// aapt resource value: 0x7f0c00d9
-			public const int TextAppearance_AppCompat_Button = 2131493081;
-			
-			// aapt resource value: 0x7f0c00da
-			public const int TextAppearance_AppCompat_Caption = 2131493082;
-			
-			// aapt resource value: 0x7f0c00db
-			public const int TextAppearance_AppCompat_Display1 = 2131493083;
-			
-			// aapt resource value: 0x7f0c00dc
-			public const int TextAppearance_AppCompat_Display2 = 2131493084;
-			
-			// aapt resource value: 0x7f0c00dd
-			public const int TextAppearance_AppCompat_Display3 = 2131493085;
-			
 			// aapt resource value: 0x7f0c00de
-			public const int TextAppearance_AppCompat_Display4 = 2131493086;
+			public const int TextAppearance_AppCompat = 2131493086;
 			
 			// aapt resource value: 0x7f0c00df
-			public const int TextAppearance_AppCompat_Headline = 2131493087;
+			public const int TextAppearance_AppCompat_Body1 = 2131493087;
 			
 			// aapt resource value: 0x7f0c00e0
-			public const int TextAppearance_AppCompat_Inverse = 2131493088;
+			public const int TextAppearance_AppCompat_Body2 = 2131493088;
 			
 			// aapt resource value: 0x7f0c00e1
-			public const int TextAppearance_AppCompat_Large = 2131493089;
+			public const int TextAppearance_AppCompat_Button = 2131493089;
 			
 			// aapt resource value: 0x7f0c00e2
-			public const int TextAppearance_AppCompat_Large_Inverse = 2131493090;
+			public const int TextAppearance_AppCompat_Caption = 2131493090;
 			
 			// aapt resource value: 0x7f0c00e3
-			public const int TextAppearance_AppCompat_Light_SearchResult_Subtitle = 2131493091;
+			public const int TextAppearance_AppCompat_Display1 = 2131493091;
 			
 			// aapt resource value: 0x7f0c00e4
-			public const int TextAppearance_AppCompat_Light_SearchResult_Title = 2131493092;
+			public const int TextAppearance_AppCompat_Display2 = 2131493092;
 			
 			// aapt resource value: 0x7f0c00e5
-			public const int TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = 2131493093;
+			public const int TextAppearance_AppCompat_Display3 = 2131493093;
 			
 			// aapt resource value: 0x7f0c00e6
-			public const int TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = 2131493094;
+			public const int TextAppearance_AppCompat_Display4 = 2131493094;
 			
 			// aapt resource value: 0x7f0c00e7
-			public const int TextAppearance_AppCompat_Medium = 2131493095;
+			public const int TextAppearance_AppCompat_Headline = 2131493095;
 			
 			// aapt resource value: 0x7f0c00e8
-			public const int TextAppearance_AppCompat_Medium_Inverse = 2131493096;
+			public const int TextAppearance_AppCompat_Inverse = 2131493096;
 			
 			// aapt resource value: 0x7f0c00e9
-			public const int TextAppearance_AppCompat_Menu = 2131493097;
+			public const int TextAppearance_AppCompat_Large = 2131493097;
 			
 			// aapt resource value: 0x7f0c00ea
-			public const int TextAppearance_AppCompat_SearchResult_Subtitle = 2131493098;
+			public const int TextAppearance_AppCompat_Large_Inverse = 2131493098;
 			
 			// aapt resource value: 0x7f0c00eb
-			public const int TextAppearance_AppCompat_SearchResult_Title = 2131493099;
+			public const int TextAppearance_AppCompat_Light_SearchResult_Subtitle = 2131493099;
 			
 			// aapt resource value: 0x7f0c00ec
-			public const int TextAppearance_AppCompat_Small = 2131493100;
+			public const int TextAppearance_AppCompat_Light_SearchResult_Title = 2131493100;
 			
 			// aapt resource value: 0x7f0c00ed
-			public const int TextAppearance_AppCompat_Small_Inverse = 2131493101;
+			public const int TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = 2131493101;
 			
 			// aapt resource value: 0x7f0c00ee
-			public const int TextAppearance_AppCompat_Subhead = 2131493102;
+			public const int TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = 2131493102;
 			
 			// aapt resource value: 0x7f0c00ef
-			public const int TextAppearance_AppCompat_Subhead_Inverse = 2131493103;
+			public const int TextAppearance_AppCompat_Medium = 2131493103;
 			
 			// aapt resource value: 0x7f0c00f0
-			public const int TextAppearance_AppCompat_Title = 2131493104;
+			public const int TextAppearance_AppCompat_Medium_Inverse = 2131493104;
 			
 			// aapt resource value: 0x7f0c00f1
-			public const int TextAppearance_AppCompat_Title_Inverse = 2131493105;
+			public const int TextAppearance_AppCompat_Menu = 2131493105;
+			
+			// aapt resource value: 0x7f0c0093
+			public const int TextAppearance_AppCompat_Notification = 2131493011;
+			
+			// aapt resource value: 0x7f0c0094
+			public const int TextAppearance_AppCompat_Notification_Info = 2131493012;
+			
+			// aapt resource value: 0x7f0c0095
+			public const int TextAppearance_AppCompat_Notification_Info_Media = 2131493013;
+			
+			// aapt resource value: 0x7f0c00f2
+			public const int TextAppearance_AppCompat_Notification_Line2 = 2131493106;
+			
+			// aapt resource value: 0x7f0c00f3
+			public const int TextAppearance_AppCompat_Notification_Line2_Media = 2131493107;
+			
+			// aapt resource value: 0x7f0c0096
+			public const int TextAppearance_AppCompat_Notification_Media = 2131493014;
+			
+			// aapt resource value: 0x7f0c0097
+			public const int TextAppearance_AppCompat_Notification_Time = 2131493015;
+			
+			// aapt resource value: 0x7f0c0098
+			public const int TextAppearance_AppCompat_Notification_Time_Media = 2131493016;
+			
+			// aapt resource value: 0x7f0c0099
+			public const int TextAppearance_AppCompat_Notification_Title = 2131493017;
+			
+			// aapt resource value: 0x7f0c009a
+			public const int TextAppearance_AppCompat_Notification_Title_Media = 2131493018;
+			
+			// aapt resource value: 0x7f0c00f4
+			public const int TextAppearance_AppCompat_SearchResult_Subtitle = 2131493108;
+			
+			// aapt resource value: 0x7f0c00f5
+			public const int TextAppearance_AppCompat_SearchResult_Title = 2131493109;
+			
+			// aapt resource value: 0x7f0c00f6
+			public const int TextAppearance_AppCompat_Small = 2131493110;
+			
+			// aapt resource value: 0x7f0c00f7
+			public const int TextAppearance_AppCompat_Small_Inverse = 2131493111;
+			
+			// aapt resource value: 0x7f0c00f8
+			public const int TextAppearance_AppCompat_Subhead = 2131493112;
+			
+			// aapt resource value: 0x7f0c00f9
+			public const int TextAppearance_AppCompat_Subhead_Inverse = 2131493113;
+			
+			// aapt resource value: 0x7f0c00fa
+			public const int TextAppearance_AppCompat_Title = 2131493114;
+			
+			// aapt resource value: 0x7f0c00fb
+			public const int TextAppearance_AppCompat_Title_Inverse = 2131493115;
 			
 			// aapt resource value: 0x7f0c0039
 			public const int TextAppearance_AppCompat_Tooltip = 2131492921;
 			
-			// aapt resource value: 0x7f0c00f2
-			public const int TextAppearance_AppCompat_Widget_ActionBar_Menu = 2131493106;
-			
-			// aapt resource value: 0x7f0c00f3
-			public const int TextAppearance_AppCompat_Widget_ActionBar_Subtitle = 2131493107;
-			
-			// aapt resource value: 0x7f0c00f4
-			public const int TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = 2131493108;
-			
-			// aapt resource value: 0x7f0c00f5
-			public const int TextAppearance_AppCompat_Widget_ActionBar_Title = 2131493109;
-			
-			// aapt resource value: 0x7f0c00f6
-			public const int TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = 2131493110;
-			
-			// aapt resource value: 0x7f0c00f7
-			public const int TextAppearance_AppCompat_Widget_ActionMode_Subtitle = 2131493111;
-			
-			// aapt resource value: 0x7f0c00f8
-			public const int TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse = 2131493112;
-			
-			// aapt resource value: 0x7f0c00f9
-			public const int TextAppearance_AppCompat_Widget_ActionMode_Title = 2131493113;
-			
-			// aapt resource value: 0x7f0c00fa
-			public const int TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse = 2131493114;
-			
-			// aapt resource value: 0x7f0c00fb
-			public const int TextAppearance_AppCompat_Widget_Button = 2131493115;
-			
 			// aapt resource value: 0x7f0c00fc
-			public const int TextAppearance_AppCompat_Widget_Button_Borderless_Colored = 2131493116;
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Menu = 2131493116;
 			
 			// aapt resource value: 0x7f0c00fd
-			public const int TextAppearance_AppCompat_Widget_Button_Colored = 2131493117;
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Subtitle = 2131493117;
 			
 			// aapt resource value: 0x7f0c00fe
-			public const int TextAppearance_AppCompat_Widget_Button_Inverse = 2131493118;
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = 2131493118;
 			
 			// aapt resource value: 0x7f0c00ff
-			public const int TextAppearance_AppCompat_Widget_DropDownItem = 2131493119;
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Title = 2131493119;
 			
 			// aapt resource value: 0x7f0c0100
-			public const int TextAppearance_AppCompat_Widget_PopupMenu_Header = 2131493120;
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = 2131493120;
 			
 			// aapt resource value: 0x7f0c0101
-			public const int TextAppearance_AppCompat_Widget_PopupMenu_Large = 2131493121;
+			public const int TextAppearance_AppCompat_Widget_ActionMode_Subtitle = 2131493121;
 			
 			// aapt resource value: 0x7f0c0102
-			public const int TextAppearance_AppCompat_Widget_PopupMenu_Small = 2131493122;
+			public const int TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse = 2131493122;
 			
 			// aapt resource value: 0x7f0c0103
-			public const int TextAppearance_AppCompat_Widget_Switch = 2131493123;
+			public const int TextAppearance_AppCompat_Widget_ActionMode_Title = 2131493123;
 			
 			// aapt resource value: 0x7f0c0104
-			public const int TextAppearance_AppCompat_Widget_TextView_SpinnerItem = 2131493124;
+			public const int TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse = 2131493124;
 			
-			// aapt resource value: 0x7f0c0188
-			public const int TextAppearance_Compat_Notification = 2131493256;
+			// aapt resource value: 0x7f0c0105
+			public const int TextAppearance_AppCompat_Widget_Button = 2131493125;
 			
-			// aapt resource value: 0x7f0c0189
-			public const int TextAppearance_Compat_Notification_Info = 2131493257;
+			// aapt resource value: 0x7f0c0106
+			public const int TextAppearance_AppCompat_Widget_Button_Borderless_Colored = 2131493126;
 			
-			// aapt resource value: 0x7f0c0165
-			public const int TextAppearance_Compat_Notification_Info_Media = 2131493221;
+			// aapt resource value: 0x7f0c0107
+			public const int TextAppearance_AppCompat_Widget_Button_Colored = 2131493127;
 			
-			// aapt resource value: 0x7f0c018e
-			public const int TextAppearance_Compat_Notification_Line2 = 2131493262;
+			// aapt resource value: 0x7f0c0108
+			public const int TextAppearance_AppCompat_Widget_Button_Inverse = 2131493128;
 			
-			// aapt resource value: 0x7f0c0169
-			public const int TextAppearance_Compat_Notification_Line2_Media = 2131493225;
+			// aapt resource value: 0x7f0c0109
+			public const int TextAppearance_AppCompat_Widget_DropDownItem = 2131493129;
 			
-			// aapt resource value: 0x7f0c0166
-			public const int TextAppearance_Compat_Notification_Media = 2131493222;
+			// aapt resource value: 0x7f0c010a
+			public const int TextAppearance_AppCompat_Widget_PopupMenu_Header = 2131493130;
 			
-			// aapt resource value: 0x7f0c018a
-			public const int TextAppearance_Compat_Notification_Time = 2131493258;
+			// aapt resource value: 0x7f0c010b
+			public const int TextAppearance_AppCompat_Widget_PopupMenu_Large = 2131493131;
 			
-			// aapt resource value: 0x7f0c0167
-			public const int TextAppearance_Compat_Notification_Time_Media = 2131493223;
+			// aapt resource value: 0x7f0c010c
+			public const int TextAppearance_AppCompat_Widget_PopupMenu_Small = 2131493132;
 			
-			// aapt resource value: 0x7f0c018b
-			public const int TextAppearance_Compat_Notification_Title = 2131493259;
+			// aapt resource value: 0x7f0c010d
+			public const int TextAppearance_AppCompat_Widget_Switch = 2131493133;
 			
-			// aapt resource value: 0x7f0c0168
-			public const int TextAppearance_Compat_Notification_Title_Media = 2131493224;
+			// aapt resource value: 0x7f0c010e
+			public const int TextAppearance_AppCompat_Widget_TextView_SpinnerItem = 2131493134;
 			
-			// aapt resource value: 0x7f0c0171
-			public const int TextAppearance_Design_CollapsingToolbar_Expanded = 2131493233;
+			// aapt resource value: 0x7f0c0192
+			public const int TextAppearance_Compat_Notification = 2131493266;
 			
-			// aapt resource value: 0x7f0c0172
-			public const int TextAppearance_Design_Counter = 2131493234;
+			// aapt resource value: 0x7f0c0193
+			public const int TextAppearance_Compat_Notification_Info = 2131493267;
+			
+			// aapt resource value: 0x7f0c016f
+			public const int TextAppearance_Compat_Notification_Info_Media = 2131493231;
+			
+			// aapt resource value: 0x7f0c0198
+			public const int TextAppearance_Compat_Notification_Line2 = 2131493272;
 			
 			// aapt resource value: 0x7f0c0173
-			public const int TextAppearance_Design_Counter_Overflow = 2131493235;
+			public const int TextAppearance_Compat_Notification_Line2_Media = 2131493235;
 			
-			// aapt resource value: 0x7f0c0174
-			public const int TextAppearance_Design_Error = 2131493236;
+			// aapt resource value: 0x7f0c0170
+			public const int TextAppearance_Compat_Notification_Media = 2131493232;
 			
-			// aapt resource value: 0x7f0c0175
-			public const int TextAppearance_Design_Hint = 2131493237;
+			// aapt resource value: 0x7f0c0194
+			public const int TextAppearance_Compat_Notification_Time = 2131493268;
 			
-			// aapt resource value: 0x7f0c0176
-			public const int TextAppearance_Design_Snackbar_Message = 2131493238;
+			// aapt resource value: 0x7f0c0171
+			public const int TextAppearance_Compat_Notification_Time_Media = 2131493233;
 			
-			// aapt resource value: 0x7f0c0177
-			public const int TextAppearance_Design_Tab = 2131493239;
+			// aapt resource value: 0x7f0c0195
+			public const int TextAppearance_Compat_Notification_Title = 2131493269;
+			
+			// aapt resource value: 0x7f0c0172
+			public const int TextAppearance_Compat_Notification_Title_Media = 2131493234;
+			
+			// aapt resource value: 0x7f0c017b
+			public const int TextAppearance_Design_CollapsingToolbar_Expanded = 2131493243;
+			
+			// aapt resource value: 0x7f0c017c
+			public const int TextAppearance_Design_Counter = 2131493244;
+			
+			// aapt resource value: 0x7f0c017d
+			public const int TextAppearance_Design_Counter_Overflow = 2131493245;
+			
+			// aapt resource value: 0x7f0c017e
+			public const int TextAppearance_Design_Error = 2131493246;
+			
+			// aapt resource value: 0x7f0c017f
+			public const int TextAppearance_Design_Hint = 2131493247;
+			
+			// aapt resource value: 0x7f0c0180
+			public const int TextAppearance_Design_Snackbar_Message = 2131493248;
+			
+			// aapt resource value: 0x7f0c0181
+			public const int TextAppearance_Design_Tab = 2131493249;
 			
 			// aapt resource value: 0x7f0c0000
 			public const int TextAppearance_MediaRouter_PrimaryText = 2131492864;
@@ -7573,20 +7731,20 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c0002
 			public const int TextAppearance_MediaRouter_Title = 2131492866;
 			
-			// aapt resource value: 0x7f0c0105
-			public const int TextAppearance_Widget_AppCompat_ExpandedMenu_Item = 2131493125;
+			// aapt resource value: 0x7f0c010f
+			public const int TextAppearance_Widget_AppCompat_ExpandedMenu_Item = 2131493135;
 			
-			// aapt resource value: 0x7f0c0106
-			public const int TextAppearance_Widget_AppCompat_Toolbar_Subtitle = 2131493126;
+			// aapt resource value: 0x7f0c0110
+			public const int TextAppearance_Widget_AppCompat_Toolbar_Subtitle = 2131493136;
 			
-			// aapt resource value: 0x7f0c0107
-			public const int TextAppearance_Widget_AppCompat_Toolbar_Title = 2131493127;
+			// aapt resource value: 0x7f0c0111
+			public const int TextAppearance_Widget_AppCompat_Toolbar_Title = 2131493137;
 			
-			// aapt resource value: 0x7f0c0108
-			public const int Theme_AppCompat = 2131493128;
+			// aapt resource value: 0x7f0c0112
+			public const int Theme_AppCompat = 2131493138;
 			
-			// aapt resource value: 0x7f0c0109
-			public const int Theme_AppCompat_CompactMenu = 2131493129;
+			// aapt resource value: 0x7f0c0113
+			public const int Theme_AppCompat_CompactMenu = 2131493139;
 			
 			// aapt resource value: 0x7f0c0013
 			public const int Theme_AppCompat_DayNight = 2131492883;
@@ -7609,59 +7767,59 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c0019
 			public const int Theme_AppCompat_DayNight_NoActionBar = 2131492889;
 			
-			// aapt resource value: 0x7f0c010a
-			public const int Theme_AppCompat_Dialog = 2131493130;
-			
-			// aapt resource value: 0x7f0c010b
-			public const int Theme_AppCompat_Dialog_Alert = 2131493131;
-			
-			// aapt resource value: 0x7f0c010c
-			public const int Theme_AppCompat_Dialog_MinWidth = 2131493132;
-			
-			// aapt resource value: 0x7f0c010d
-			public const int Theme_AppCompat_DialogWhenLarge = 2131493133;
-			
-			// aapt resource value: 0x7f0c010e
-			public const int Theme_AppCompat_Light = 2131493134;
-			
-			// aapt resource value: 0x7f0c010f
-			public const int Theme_AppCompat_Light_DarkActionBar = 2131493135;
-			
-			// aapt resource value: 0x7f0c0110
-			public const int Theme_AppCompat_Light_Dialog = 2131493136;
-			
-			// aapt resource value: 0x7f0c0111
-			public const int Theme_AppCompat_Light_Dialog_Alert = 2131493137;
-			
-			// aapt resource value: 0x7f0c0112
-			public const int Theme_AppCompat_Light_Dialog_MinWidth = 2131493138;
-			
-			// aapt resource value: 0x7f0c0113
-			public const int Theme_AppCompat_Light_DialogWhenLarge = 2131493139;
-			
 			// aapt resource value: 0x7f0c0114
-			public const int Theme_AppCompat_Light_NoActionBar = 2131493140;
+			public const int Theme_AppCompat_Dialog = 2131493140;
 			
 			// aapt resource value: 0x7f0c0115
-			public const int Theme_AppCompat_NoActionBar = 2131493141;
+			public const int Theme_AppCompat_Dialog_Alert = 2131493141;
 			
-			// aapt resource value: 0x7f0c0178
-			public const int Theme_Design = 2131493240;
+			// aapt resource value: 0x7f0c0116
+			public const int Theme_AppCompat_Dialog_MinWidth = 2131493142;
 			
-			// aapt resource value: 0x7f0c0179
-			public const int Theme_Design_BottomSheetDialog = 2131493241;
+			// aapt resource value: 0x7f0c0117
+			public const int Theme_AppCompat_DialogWhenLarge = 2131493143;
 			
-			// aapt resource value: 0x7f0c017a
-			public const int Theme_Design_Light = 2131493242;
+			// aapt resource value: 0x7f0c0118
+			public const int Theme_AppCompat_Light = 2131493144;
 			
-			// aapt resource value: 0x7f0c017b
-			public const int Theme_Design_Light_BottomSheetDialog = 2131493243;
+			// aapt resource value: 0x7f0c0119
+			public const int Theme_AppCompat_Light_DarkActionBar = 2131493145;
 			
-			// aapt resource value: 0x7f0c017c
-			public const int Theme_Design_Light_NoActionBar = 2131493244;
+			// aapt resource value: 0x7f0c011a
+			public const int Theme_AppCompat_Light_Dialog = 2131493146;
 			
-			// aapt resource value: 0x7f0c017d
-			public const int Theme_Design_NoActionBar = 2131493245;
+			// aapt resource value: 0x7f0c011b
+			public const int Theme_AppCompat_Light_Dialog_Alert = 2131493147;
+			
+			// aapt resource value: 0x7f0c011c
+			public const int Theme_AppCompat_Light_Dialog_MinWidth = 2131493148;
+			
+			// aapt resource value: 0x7f0c011d
+			public const int Theme_AppCompat_Light_DialogWhenLarge = 2131493149;
+			
+			// aapt resource value: 0x7f0c011e
+			public const int Theme_AppCompat_Light_NoActionBar = 2131493150;
+			
+			// aapt resource value: 0x7f0c011f
+			public const int Theme_AppCompat_NoActionBar = 2131493151;
+			
+			// aapt resource value: 0x7f0c0182
+			public const int Theme_Design = 2131493250;
+			
+			// aapt resource value: 0x7f0c0183
+			public const int Theme_Design_BottomSheetDialog = 2131493251;
+			
+			// aapt resource value: 0x7f0c0184
+			public const int Theme_Design_Light = 2131493252;
+			
+			// aapt resource value: 0x7f0c0185
+			public const int Theme_Design_Light_BottomSheetDialog = 2131493253;
+			
+			// aapt resource value: 0x7f0c0186
+			public const int Theme_Design_Light_NoActionBar = 2131493254;
+			
+			// aapt resource value: 0x7f0c0187
+			public const int Theme_Design_NoActionBar = 2131493255;
 			
 			// aapt resource value: 0x7f0c0003
 			public const int Theme_MediaRouter = 2131492867;
@@ -7675,26 +7833,26 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c0006
 			public const int Theme_MediaRouter_LightControlPanel = 2131492870;
 			
-			// aapt resource value: 0x7f0c0116
-			public const int ThemeOverlay_AppCompat = 2131493142;
+			// aapt resource value: 0x7f0c0120
+			public const int ThemeOverlay_AppCompat = 2131493152;
 			
-			// aapt resource value: 0x7f0c0117
-			public const int ThemeOverlay_AppCompat_ActionBar = 2131493143;
+			// aapt resource value: 0x7f0c0121
+			public const int ThemeOverlay_AppCompat_ActionBar = 2131493153;
 			
-			// aapt resource value: 0x7f0c0118
-			public const int ThemeOverlay_AppCompat_Dark = 2131493144;
+			// aapt resource value: 0x7f0c0122
+			public const int ThemeOverlay_AppCompat_Dark = 2131493154;
 			
-			// aapt resource value: 0x7f0c0119
-			public const int ThemeOverlay_AppCompat_Dark_ActionBar = 2131493145;
+			// aapt resource value: 0x7f0c0123
+			public const int ThemeOverlay_AppCompat_Dark_ActionBar = 2131493155;
 			
-			// aapt resource value: 0x7f0c011a
-			public const int ThemeOverlay_AppCompat_Dialog = 2131493146;
+			// aapt resource value: 0x7f0c0124
+			public const int ThemeOverlay_AppCompat_Dialog = 2131493156;
 			
-			// aapt resource value: 0x7f0c011b
-			public const int ThemeOverlay_AppCompat_Dialog_Alert = 2131493147;
+			// aapt resource value: 0x7f0c0125
+			public const int ThemeOverlay_AppCompat_Dialog_Alert = 2131493157;
 			
-			// aapt resource value: 0x7f0c011c
-			public const int ThemeOverlay_AppCompat_Light = 2131493148;
+			// aapt resource value: 0x7f0c0126
+			public const int ThemeOverlay_AppCompat_Light = 2131493158;
 			
 			// aapt resource value: 0x7f0c0007
 			public const int ThemeOverlay_MediaRouter_Dark = 2131492871;
@@ -7702,260 +7860,260 @@ namespace RadioLogisticaDeliveries
 			// aapt resource value: 0x7f0c0008
 			public const int ThemeOverlay_MediaRouter_Light = 2131492872;
 			
-			// aapt resource value: 0x7f0c011d
-			public const int Widget_AppCompat_ActionBar = 2131493149;
-			
-			// aapt resource value: 0x7f0c011e
-			public const int Widget_AppCompat_ActionBar_Solid = 2131493150;
-			
-			// aapt resource value: 0x7f0c011f
-			public const int Widget_AppCompat_ActionBar_TabBar = 2131493151;
-			
-			// aapt resource value: 0x7f0c0120
-			public const int Widget_AppCompat_ActionBar_TabText = 2131493152;
-			
-			// aapt resource value: 0x7f0c0121
-			public const int Widget_AppCompat_ActionBar_TabView = 2131493153;
-			
-			// aapt resource value: 0x7f0c0122
-			public const int Widget_AppCompat_ActionButton = 2131493154;
-			
-			// aapt resource value: 0x7f0c0123
-			public const int Widget_AppCompat_ActionButton_CloseMode = 2131493155;
-			
-			// aapt resource value: 0x7f0c0124
-			public const int Widget_AppCompat_ActionButton_Overflow = 2131493156;
-			
-			// aapt resource value: 0x7f0c0125
-			public const int Widget_AppCompat_ActionMode = 2131493157;
-			
-			// aapt resource value: 0x7f0c0126
-			public const int Widget_AppCompat_ActivityChooserView = 2131493158;
-			
 			// aapt resource value: 0x7f0c0127
-			public const int Widget_AppCompat_AutoCompleteTextView = 2131493159;
+			public const int Widget_AppCompat_ActionBar = 2131493159;
 			
 			// aapt resource value: 0x7f0c0128
-			public const int Widget_AppCompat_Button = 2131493160;
+			public const int Widget_AppCompat_ActionBar_Solid = 2131493160;
 			
 			// aapt resource value: 0x7f0c0129
-			public const int Widget_AppCompat_Button_Borderless = 2131493161;
+			public const int Widget_AppCompat_ActionBar_TabBar = 2131493161;
 			
 			// aapt resource value: 0x7f0c012a
-			public const int Widget_AppCompat_Button_Borderless_Colored = 2131493162;
+			public const int Widget_AppCompat_ActionBar_TabText = 2131493162;
 			
 			// aapt resource value: 0x7f0c012b
-			public const int Widget_AppCompat_Button_ButtonBar_AlertDialog = 2131493163;
+			public const int Widget_AppCompat_ActionBar_TabView = 2131493163;
 			
 			// aapt resource value: 0x7f0c012c
-			public const int Widget_AppCompat_Button_Colored = 2131493164;
+			public const int Widget_AppCompat_ActionButton = 2131493164;
 			
 			// aapt resource value: 0x7f0c012d
-			public const int Widget_AppCompat_Button_Small = 2131493165;
+			public const int Widget_AppCompat_ActionButton_CloseMode = 2131493165;
 			
 			// aapt resource value: 0x7f0c012e
-			public const int Widget_AppCompat_ButtonBar = 2131493166;
+			public const int Widget_AppCompat_ActionButton_Overflow = 2131493166;
 			
 			// aapt resource value: 0x7f0c012f
-			public const int Widget_AppCompat_ButtonBar_AlertDialog = 2131493167;
+			public const int Widget_AppCompat_ActionMode = 2131493167;
 			
 			// aapt resource value: 0x7f0c0130
-			public const int Widget_AppCompat_CompoundButton_CheckBox = 2131493168;
+			public const int Widget_AppCompat_ActivityChooserView = 2131493168;
 			
 			// aapt resource value: 0x7f0c0131
-			public const int Widget_AppCompat_CompoundButton_RadioButton = 2131493169;
+			public const int Widget_AppCompat_AutoCompleteTextView = 2131493169;
 			
 			// aapt resource value: 0x7f0c0132
-			public const int Widget_AppCompat_CompoundButton_Switch = 2131493170;
+			public const int Widget_AppCompat_Button = 2131493170;
 			
 			// aapt resource value: 0x7f0c0133
-			public const int Widget_AppCompat_DrawerArrowToggle = 2131493171;
+			public const int Widget_AppCompat_Button_Borderless = 2131493171;
 			
 			// aapt resource value: 0x7f0c0134
-			public const int Widget_AppCompat_DropDownItem_Spinner = 2131493172;
+			public const int Widget_AppCompat_Button_Borderless_Colored = 2131493172;
 			
 			// aapt resource value: 0x7f0c0135
-			public const int Widget_AppCompat_EditText = 2131493173;
+			public const int Widget_AppCompat_Button_ButtonBar_AlertDialog = 2131493173;
 			
 			// aapt resource value: 0x7f0c0136
-			public const int Widget_AppCompat_ImageButton = 2131493174;
+			public const int Widget_AppCompat_Button_Colored = 2131493174;
 			
 			// aapt resource value: 0x7f0c0137
-			public const int Widget_AppCompat_Light_ActionBar = 2131493175;
+			public const int Widget_AppCompat_Button_Small = 2131493175;
 			
 			// aapt resource value: 0x7f0c0138
-			public const int Widget_AppCompat_Light_ActionBar_Solid = 2131493176;
+			public const int Widget_AppCompat_ButtonBar = 2131493176;
 			
 			// aapt resource value: 0x7f0c0139
-			public const int Widget_AppCompat_Light_ActionBar_Solid_Inverse = 2131493177;
+			public const int Widget_AppCompat_ButtonBar_AlertDialog = 2131493177;
 			
 			// aapt resource value: 0x7f0c013a
-			public const int Widget_AppCompat_Light_ActionBar_TabBar = 2131493178;
+			public const int Widget_AppCompat_CompoundButton_CheckBox = 2131493178;
 			
 			// aapt resource value: 0x7f0c013b
-			public const int Widget_AppCompat_Light_ActionBar_TabBar_Inverse = 2131493179;
+			public const int Widget_AppCompat_CompoundButton_RadioButton = 2131493179;
 			
 			// aapt resource value: 0x7f0c013c
-			public const int Widget_AppCompat_Light_ActionBar_TabText = 2131493180;
+			public const int Widget_AppCompat_CompoundButton_Switch = 2131493180;
 			
 			// aapt resource value: 0x7f0c013d
-			public const int Widget_AppCompat_Light_ActionBar_TabText_Inverse = 2131493181;
+			public const int Widget_AppCompat_DrawerArrowToggle = 2131493181;
 			
 			// aapt resource value: 0x7f0c013e
-			public const int Widget_AppCompat_Light_ActionBar_TabView = 2131493182;
+			public const int Widget_AppCompat_DropDownItem_Spinner = 2131493182;
 			
 			// aapt resource value: 0x7f0c013f
-			public const int Widget_AppCompat_Light_ActionBar_TabView_Inverse = 2131493183;
+			public const int Widget_AppCompat_EditText = 2131493183;
 			
 			// aapt resource value: 0x7f0c0140
-			public const int Widget_AppCompat_Light_ActionButton = 2131493184;
+			public const int Widget_AppCompat_ImageButton = 2131493184;
 			
 			// aapt resource value: 0x7f0c0141
-			public const int Widget_AppCompat_Light_ActionButton_CloseMode = 2131493185;
+			public const int Widget_AppCompat_Light_ActionBar = 2131493185;
 			
 			// aapt resource value: 0x7f0c0142
-			public const int Widget_AppCompat_Light_ActionButton_Overflow = 2131493186;
+			public const int Widget_AppCompat_Light_ActionBar_Solid = 2131493186;
 			
 			// aapt resource value: 0x7f0c0143
-			public const int Widget_AppCompat_Light_ActionMode_Inverse = 2131493187;
+			public const int Widget_AppCompat_Light_ActionBar_Solid_Inverse = 2131493187;
 			
 			// aapt resource value: 0x7f0c0144
-			public const int Widget_AppCompat_Light_ActivityChooserView = 2131493188;
+			public const int Widget_AppCompat_Light_ActionBar_TabBar = 2131493188;
 			
 			// aapt resource value: 0x7f0c0145
-			public const int Widget_AppCompat_Light_AutoCompleteTextView = 2131493189;
+			public const int Widget_AppCompat_Light_ActionBar_TabBar_Inverse = 2131493189;
 			
 			// aapt resource value: 0x7f0c0146
-			public const int Widget_AppCompat_Light_DropDownItem_Spinner = 2131493190;
+			public const int Widget_AppCompat_Light_ActionBar_TabText = 2131493190;
 			
 			// aapt resource value: 0x7f0c0147
-			public const int Widget_AppCompat_Light_ListPopupWindow = 2131493191;
+			public const int Widget_AppCompat_Light_ActionBar_TabText_Inverse = 2131493191;
 			
 			// aapt resource value: 0x7f0c0148
-			public const int Widget_AppCompat_Light_ListView_DropDown = 2131493192;
+			public const int Widget_AppCompat_Light_ActionBar_TabView = 2131493192;
 			
 			// aapt resource value: 0x7f0c0149
-			public const int Widget_AppCompat_Light_PopupMenu = 2131493193;
+			public const int Widget_AppCompat_Light_ActionBar_TabView_Inverse = 2131493193;
 			
 			// aapt resource value: 0x7f0c014a
-			public const int Widget_AppCompat_Light_PopupMenu_Overflow = 2131493194;
+			public const int Widget_AppCompat_Light_ActionButton = 2131493194;
 			
 			// aapt resource value: 0x7f0c014b
-			public const int Widget_AppCompat_Light_SearchView = 2131493195;
+			public const int Widget_AppCompat_Light_ActionButton_CloseMode = 2131493195;
 			
 			// aapt resource value: 0x7f0c014c
-			public const int Widget_AppCompat_Light_Spinner_DropDown_ActionBar = 2131493196;
+			public const int Widget_AppCompat_Light_ActionButton_Overflow = 2131493196;
 			
 			// aapt resource value: 0x7f0c014d
-			public const int Widget_AppCompat_ListMenuView = 2131493197;
+			public const int Widget_AppCompat_Light_ActionMode_Inverse = 2131493197;
 			
 			// aapt resource value: 0x7f0c014e
-			public const int Widget_AppCompat_ListPopupWindow = 2131493198;
+			public const int Widget_AppCompat_Light_ActivityChooserView = 2131493198;
 			
 			// aapt resource value: 0x7f0c014f
-			public const int Widget_AppCompat_ListView = 2131493199;
+			public const int Widget_AppCompat_Light_AutoCompleteTextView = 2131493199;
 			
 			// aapt resource value: 0x7f0c0150
-			public const int Widget_AppCompat_ListView_DropDown = 2131493200;
+			public const int Widget_AppCompat_Light_DropDownItem_Spinner = 2131493200;
 			
 			// aapt resource value: 0x7f0c0151
-			public const int Widget_AppCompat_ListView_Menu = 2131493201;
+			public const int Widget_AppCompat_Light_ListPopupWindow = 2131493201;
 			
 			// aapt resource value: 0x7f0c0152
-			public const int Widget_AppCompat_PopupMenu = 2131493202;
+			public const int Widget_AppCompat_Light_ListView_DropDown = 2131493202;
 			
 			// aapt resource value: 0x7f0c0153
-			public const int Widget_AppCompat_PopupMenu_Overflow = 2131493203;
+			public const int Widget_AppCompat_Light_PopupMenu = 2131493203;
 			
 			// aapt resource value: 0x7f0c0154
-			public const int Widget_AppCompat_PopupWindow = 2131493204;
+			public const int Widget_AppCompat_Light_PopupMenu_Overflow = 2131493204;
 			
 			// aapt resource value: 0x7f0c0155
-			public const int Widget_AppCompat_ProgressBar = 2131493205;
+			public const int Widget_AppCompat_Light_SearchView = 2131493205;
 			
 			// aapt resource value: 0x7f0c0156
-			public const int Widget_AppCompat_ProgressBar_Horizontal = 2131493206;
+			public const int Widget_AppCompat_Light_Spinner_DropDown_ActionBar = 2131493206;
 			
 			// aapt resource value: 0x7f0c0157
-			public const int Widget_AppCompat_RatingBar = 2131493207;
+			public const int Widget_AppCompat_ListMenuView = 2131493207;
 			
 			// aapt resource value: 0x7f0c0158
-			public const int Widget_AppCompat_RatingBar_Indicator = 2131493208;
+			public const int Widget_AppCompat_ListPopupWindow = 2131493208;
 			
 			// aapt resource value: 0x7f0c0159
-			public const int Widget_AppCompat_RatingBar_Small = 2131493209;
+			public const int Widget_AppCompat_ListView = 2131493209;
 			
 			// aapt resource value: 0x7f0c015a
-			public const int Widget_AppCompat_SearchView = 2131493210;
+			public const int Widget_AppCompat_ListView_DropDown = 2131493210;
 			
 			// aapt resource value: 0x7f0c015b
-			public const int Widget_AppCompat_SearchView_ActionBar = 2131493211;
+			public const int Widget_AppCompat_ListView_Menu = 2131493211;
 			
 			// aapt resource value: 0x7f0c015c
-			public const int Widget_AppCompat_SeekBar = 2131493212;
+			public const int Widget_AppCompat_PopupMenu = 2131493212;
 			
 			// aapt resource value: 0x7f0c015d
-			public const int Widget_AppCompat_SeekBar_Discrete = 2131493213;
+			public const int Widget_AppCompat_PopupMenu_Overflow = 2131493213;
 			
 			// aapt resource value: 0x7f0c015e
-			public const int Widget_AppCompat_Spinner = 2131493214;
+			public const int Widget_AppCompat_PopupWindow = 2131493214;
 			
 			// aapt resource value: 0x7f0c015f
-			public const int Widget_AppCompat_Spinner_DropDown = 2131493215;
+			public const int Widget_AppCompat_ProgressBar = 2131493215;
 			
 			// aapt resource value: 0x7f0c0160
-			public const int Widget_AppCompat_Spinner_DropDown_ActionBar = 2131493216;
+			public const int Widget_AppCompat_ProgressBar_Horizontal = 2131493216;
 			
 			// aapt resource value: 0x7f0c0161
-			public const int Widget_AppCompat_Spinner_Underlined = 2131493217;
+			public const int Widget_AppCompat_RatingBar = 2131493217;
 			
 			// aapt resource value: 0x7f0c0162
-			public const int Widget_AppCompat_TextView_SpinnerItem = 2131493218;
+			public const int Widget_AppCompat_RatingBar_Indicator = 2131493218;
 			
 			// aapt resource value: 0x7f0c0163
-			public const int Widget_AppCompat_Toolbar = 2131493219;
+			public const int Widget_AppCompat_RatingBar_Small = 2131493219;
 			
 			// aapt resource value: 0x7f0c0164
-			public const int Widget_AppCompat_Toolbar_Button_Navigation = 2131493220;
+			public const int Widget_AppCompat_SearchView = 2131493220;
 			
-			// aapt resource value: 0x7f0c018c
-			public const int Widget_Compat_NotificationActionContainer = 2131493260;
+			// aapt resource value: 0x7f0c0165
+			public const int Widget_AppCompat_SearchView_ActionBar = 2131493221;
 			
-			// aapt resource value: 0x7f0c018d
-			public const int Widget_Compat_NotificationActionText = 2131493261;
+			// aapt resource value: 0x7f0c0166
+			public const int Widget_AppCompat_SeekBar = 2131493222;
 			
-			// aapt resource value: 0x7f0c017e
-			public const int Widget_Design_AppBarLayout = 2131493246;
+			// aapt resource value: 0x7f0c0167
+			public const int Widget_AppCompat_SeekBar_Discrete = 2131493223;
 			
-			// aapt resource value: 0x7f0c017f
-			public const int Widget_Design_BottomNavigationView = 2131493247;
+			// aapt resource value: 0x7f0c0168
+			public const int Widget_AppCompat_Spinner = 2131493224;
 			
-			// aapt resource value: 0x7f0c0180
-			public const int Widget_Design_BottomSheet_Modal = 2131493248;
-			
-			// aapt resource value: 0x7f0c0181
-			public const int Widget_Design_CollapsingToolbar = 2131493249;
-			
-			// aapt resource value: 0x7f0c0182
-			public const int Widget_Design_CoordinatorLayout = 2131493250;
-			
-			// aapt resource value: 0x7f0c0183
-			public const int Widget_Design_FloatingActionButton = 2131493251;
-			
-			// aapt resource value: 0x7f0c0184
-			public const int Widget_Design_NavigationView = 2131493252;
-			
-			// aapt resource value: 0x7f0c0185
-			public const int Widget_Design_ScrimInsetsFrameLayout = 2131493253;
-			
-			// aapt resource value: 0x7f0c0186
-			public const int Widget_Design_Snackbar = 2131493254;
+			// aapt resource value: 0x7f0c0169
+			public const int Widget_AppCompat_Spinner_DropDown = 2131493225;
 			
 			// aapt resource value: 0x7f0c016a
-			public const int Widget_Design_TabLayout = 2131493226;
+			public const int Widget_AppCompat_Spinner_DropDown_ActionBar = 2131493226;
 			
-			// aapt resource value: 0x7f0c0187
-			public const int Widget_Design_TextInputLayout = 2131493255;
+			// aapt resource value: 0x7f0c016b
+			public const int Widget_AppCompat_Spinner_Underlined = 2131493227;
+			
+			// aapt resource value: 0x7f0c016c
+			public const int Widget_AppCompat_TextView_SpinnerItem = 2131493228;
+			
+			// aapt resource value: 0x7f0c016d
+			public const int Widget_AppCompat_Toolbar = 2131493229;
+			
+			// aapt resource value: 0x7f0c016e
+			public const int Widget_AppCompat_Toolbar_Button_Navigation = 2131493230;
+			
+			// aapt resource value: 0x7f0c0196
+			public const int Widget_Compat_NotificationActionContainer = 2131493270;
+			
+			// aapt resource value: 0x7f0c0197
+			public const int Widget_Compat_NotificationActionText = 2131493271;
+			
+			// aapt resource value: 0x7f0c0188
+			public const int Widget_Design_AppBarLayout = 2131493256;
+			
+			// aapt resource value: 0x7f0c0189
+			public const int Widget_Design_BottomNavigationView = 2131493257;
+			
+			// aapt resource value: 0x7f0c018a
+			public const int Widget_Design_BottomSheet_Modal = 2131493258;
+			
+			// aapt resource value: 0x7f0c018b
+			public const int Widget_Design_CollapsingToolbar = 2131493259;
+			
+			// aapt resource value: 0x7f0c018c
+			public const int Widget_Design_CoordinatorLayout = 2131493260;
+			
+			// aapt resource value: 0x7f0c018d
+			public const int Widget_Design_FloatingActionButton = 2131493261;
+			
+			// aapt resource value: 0x7f0c018e
+			public const int Widget_Design_NavigationView = 2131493262;
+			
+			// aapt resource value: 0x7f0c018f
+			public const int Widget_Design_ScrimInsetsFrameLayout = 2131493263;
+			
+			// aapt resource value: 0x7f0c0190
+			public const int Widget_Design_Snackbar = 2131493264;
+			
+			// aapt resource value: 0x7f0c0174
+			public const int Widget_Design_TabLayout = 2131493236;
+			
+			// aapt resource value: 0x7f0c0191
+			public const int Widget_Design_TextInputLayout = 2131493265;
 			
 			// aapt resource value: 0x7f0c0009
 			public const int Widget_MediaRouter_Light_MediaRouteButton = 2131492873;
@@ -7969,22 +8127,6 @@ namespace RadioLogisticaDeliveries
 			}
 			
 			private Style()
-			{
-			}
-		}
-		
-		public partial class Xml
-		{
-			
-			// aapt resource value: 0x7f070000
-			public const int xamarin_essentials_fileprovider_file_paths = 2131165184;
-			
-			static Xml()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
-			
-			private Xml()
 			{
 			}
 		}
@@ -9165,30 +9307,18 @@ namespace RadioLogisticaDeliveries
 			public const int FontFamily_fontProviderQuery = 2;
 			
 			public static int[] FontFamilyFont = new int[] {
-					16844082,
-					16844083,
-					16844095,
 					2130772336,
 					2130772337,
 					2130772338};
 			
+			// aapt resource value: 1
+			public const int FontFamilyFont_font = 1;
+			
 			// aapt resource value: 0
-			public const int FontFamilyFont_android_font = 0;
+			public const int FontFamilyFont_fontStyle = 0;
 			
 			// aapt resource value: 2
-			public const int FontFamilyFont_android_fontStyle = 2;
-			
-			// aapt resource value: 1
-			public const int FontFamilyFont_android_fontWeight = 1;
-			
-			// aapt resource value: 4
-			public const int FontFamilyFont_font = 4;
-			
-			// aapt resource value: 3
-			public const int FontFamilyFont_fontStyle = 3;
-			
-			// aapt resource value: 5
-			public const int FontFamilyFont_fontWeight = 5;
+			public const int FontFamilyFont_fontWeight = 2;
 			
 			public static int[] ForegroundLinearLayout = new int[] {
 					16843017,

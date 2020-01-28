@@ -230,7 +230,7 @@ namespace LogonScreen
                         cUser.Text = "";
                         cPassword.Text = "";
 #if DEBUG
-                        cUser.Text = "restelles";
+                        cUser.Text = "cacota";
                         cPassword.Text = "1312";
 #endif
                         cUser.RequestFocus();

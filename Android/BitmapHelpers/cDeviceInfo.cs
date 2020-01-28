@@ -15,20 +15,20 @@ namespace CommonAndroidTools
 {
     public static class cDeviceInfo
     {
-        public static String getDeviceID(Context p_context)
-        {
-            String m_deviceID = null;
-            TelephonyManager m_telephonyManager = null;
-            m_telephonyManager = (TelephonyManager)p_context.GetSystemService(Context.TelephonyService);
-            m_deviceID = m_telephonyManager.Imei;
+        //public static String getDeviceID(Context p_context)
+        //{
+        //    String m_deviceID = null;
+        //    TelephonyManager m_telephonyManager = null;
+        //    m_telephonyManager = (TelephonyManager)p_context.GetSystemService(Context.TelephonyService);
+        //    m_deviceID = m_telephonyManager.Imei;
 
-            if (m_deviceID == null || "00000000000000".Equals(m_deviceID))
-            {
-                m_deviceID = "AAAAAAA";
-            }
+        //    if (m_deviceID == null || "00000000000000".Equals(m_deviceID))
+        //    {
+        //        m_deviceID = "AAAAAAA";
+        //    }
 
-            return m_deviceID;
-        }
+        //    return m_deviceID;
+        //}
         public static string Serial
         {
             get

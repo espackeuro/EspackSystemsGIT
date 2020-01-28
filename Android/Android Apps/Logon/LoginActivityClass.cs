@@ -58,7 +58,7 @@ namespace logon
             txtPwd.EditorAction += TxtPwd_EditorAction;
             txtPkgInfo.Text = string.Format("{0} Version {1}", packageName, oldVersion);
 #if DEBUG
-            txtUser.Text = "restelles";
+            txtUser.Text = "caca";
             txtPwd.Text = "1312";
 #endif
         }
@@ -102,7 +102,7 @@ namespace logon
                     txtUser.Text = "";
                     txtPwd.Text = "";
 #if DEBUG
-                    txtUser.Text = "restelles";
+                    txtUser.Text = "cacota";
                     txtPwd.Text = "1312";
 #endif
                     txtUser.RequestFocus();

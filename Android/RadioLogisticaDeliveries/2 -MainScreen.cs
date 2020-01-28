@@ -53,7 +53,6 @@ namespace RadioLogisticaDeliveries
                 ft.Replace(Resource.Id.dataInputFragment, edFt);
                 Values.elIntent = new Intent(this, typeof(DataTransferManager));
                 StartService(Values.elIntent);
-                DataTransferManager.Active = true;
             }
 
 
@@ -123,8 +122,14 @@ namespace RadioLogisticaDeliveries
         {
             using (var ft = SupportFragmentManager.BeginTransaction())
             {
-                var oFt = new orderFragment();
-                ft.Replace(Resource.Id.dataInputFragment, oFt);
+                if (Values.oFt != null)
+                    Values.oFt.Dispose();
+                if (LocatorService.Started)
+                    LocatorService.Kill = true;
+                if (DataTransferManager.Started)
+                    DataTransferManager.Kill = true;
+                Values.oFt = new orderFragment();
+                ft.Replace(Resource.Id.dataInputFragment, Values.oFt);
                 ft.Commit();
             }
         }

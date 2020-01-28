@@ -188,31 +188,37 @@ namespace RadioLogisticaDeliveries
         {
             //Dismiss Keybaord
             InputMethodManager imm = (InputMethodManager)Activity.GetSystemService(Context.InputMethodService);
-            //get location
-            using (var rs= new XMLRS("Select CMP_INTEGER from Datos_Empresa where Codigo='LOC_TIME'",Values.gDatos))
+            //get location if android >= 5.1
+            var androindVersion = Android.OS.Build.VERSION.SdkInt;
+            if (androindVersion >= BuildVersionCodes.LollipopMr1)
             {
-                await rs.OpenAsync();
-                if (rs.RecordCount != 0)
-                    Values.LocTime = rs["CMP_INTEGER"].ToInt();
-            }
-            var request = new GeolocationRequest(GeolocationAccuracy.High, TimeSpan.FromSeconds(30));
-            var ini = await Geolocation.GetLastKnownLocationAsync();
-            Location location = null;
-            try
-            {
-                location = await Geolocation.GetLocationAsync(request);
-            } catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            if (location != null)
-            {
-                var _locData = new DataLocation() { Accuracy = location.Accuracy, Course = location.Course, Altitude = location.Altitude, Latitude = location.Latitude, Longitude = location.Longitude, Speed = location.Speed, Timestamp = location.Timestamp };
-                await _locData.ToDB();
-            }
-            Activity.StartService(new Intent(Activity, typeof(LocatorService)));
-            LocatorService.Active = true;
 
+
+                using (var rs = new XMLRS("Select CMP_INTEGER from Datos_Empresa where Codigo='LOC_TIME'", Values.gDatos))
+                {
+                    await rs.OpenAsync();
+                    if (rs.RecordCount != 0)
+                        Values.LocTime = rs["CMP_INTEGER"].ToInt();
+                }
+                var request = new GeolocationRequest(GeolocationAccuracy.High, TimeSpan.FromSeconds(30));
+                var ini = await Geolocation.GetLastKnownLocationAsync();
+                Location location = null;
+                try
+                {
+                    location = await Geolocation.GetLocationAsync(request);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                if (location != null)
+                {
+                    var _locData = new DataLocation() { Accuracy = location.Accuracy, Course = location.Course, Altitude = location.Altitude, Latitude = location.Latitude, Longitude = location.Longitude, Speed = location.Speed, Timestamp = location.Timestamp };
+                    await _locData.ToDB();
+                }
+                Activity.StartService(new Intent(Activity, typeof(LocatorService)));
+                LocatorService.Active = true;
+            }
             imm.HideSoftInputFromWindow(orderNumberET.WindowToken, 0);
             int _progress = 0;
             if (Values.gOrderNumber!=0)
