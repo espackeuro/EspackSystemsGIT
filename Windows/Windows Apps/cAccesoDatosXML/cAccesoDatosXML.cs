@@ -458,7 +458,10 @@ namespace AccesoDatosXML
             User = parent.User;
             Password = parent.Password;
         }
-
+        public new cAccesoDatosXML Clone()
+        {
+            return (cAccesoDatosXML)this.MemberwiseClone();
+        }
     }
 
 

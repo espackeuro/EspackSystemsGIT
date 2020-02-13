@@ -1,8 +1,9 @@
 
 using SQLite;
 using System;
+using System.Globalization;
 using System.IO;
-
+using System.Threading;
 
 namespace RadioLogisticaDeliveries
 {
@@ -121,6 +122,7 @@ namespace RadioLogisticaDeliveries
     {
         public static string ProcedureParameters(this ScannedData SD)
         {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-GB");
             return string.Format("@action='{0}', @Service='{1}', @Session='{2}', @Rack='{3}', @Partnumber='{4}', @Qty={5}, @LabelRack='{6}', @Serial='{7}'", SD.Action, SD.Service, SD.Session, SD.Rack, SD.Partnumber, SD.Qty, SD.LabelRack, SD.Serial);
         }
         public static  infoData ToInfoData(this ScannedData SD)
@@ -152,6 +154,7 @@ namespace RadioLogisticaDeliveries
     {
         public static string ProcedureParameters(this DeviceLocation DL)
         {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-GB");
             return $"@Session={DL.Session}, @Accuracy={DL.Accuracy},@Altitude={DL.Altitude ?? -1},@Course={DL.Course ?? -1},@Latitude={DL.Latitude},@Longitude={DL.Longitude},@Speed={DL.Speed ?? -1},@Timestamp='{DL.Timestamp.DateTime}'";
         }
     }

@@ -116,7 +116,7 @@ namespace RadioLogisticaDeliveries
                 {
                     try
                     {
-                        var query = await Values.SQLidb.db.Table<ScannedData>().Where(r => r.Transmitted == false).ToListAsync();
+                        var query = await Values.SQLidb.db.Table<ScannedData>().Where(r => r.Transmitted == false).OrderBy( o => o.idreg).ToListAsync();
                         if (query.Count == 0)
                             break;
                         foreach (var r in query)
@@ -190,7 +190,7 @@ namespace RadioLogisticaDeliveries
                 {
                     try
                     {
-                        var query = await Values.SQLidb.db.Table<DeviceLocation>().Where(r => r.Transmitted == false).ToListAsync();
+                        var query = await Values.SQLidb.db.Table<DeviceLocation>().Where(r => r.Transmitted == false).OrderBy(o => o.idreg).ToListAsync();
                         if (query.Count == 0)
                             break;
                         foreach (var r in query)

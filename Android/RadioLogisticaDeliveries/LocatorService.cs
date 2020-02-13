@@ -11,7 +11,9 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Xamarin.Essentials;
-
+using Android.Gms.Common;
+using Android.Gms.Location;
+/*
 namespace RadioLogisticaDeliveries
 {
     [Service]
@@ -34,6 +36,7 @@ namespace RadioLogisticaDeliveries
         //    }
         //}
         private System.Timers.Timer elTimer;
+        private FusedLocationProviderClient fusedLocationProviderClient;
         public override StartCommandResult OnStartCommand(Intent intent, StartCommandFlags flags, int startId)
         {
             //new Task(async () => await DoWork()).Start();
@@ -42,11 +45,13 @@ namespace RadioLogisticaDeliveries
             elTimer.Elapsed += ElTimer_Elapsed;
             elTimer.AutoReset = true;
             elTimer.Enabled = true;
+            fusedLocationProviderClient = LocationServices.GetFusedLocationProviderClient(this);
             Started = true;
             Kill = false;
             return StartCommandResult.Sticky;
 
         }
+
         public override void OnDestroy()
         {
             elTimer.Stop();
@@ -117,4 +122,4 @@ namespace RadioLogisticaDeliveries
     }
 
 
-}
+}*/
