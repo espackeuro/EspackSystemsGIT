@@ -89,58 +89,64 @@ namespace ADService
             }
         }
 
-        public bool InteractGroup(EspackGroup Group)
-        {
-#if DEBUG
-            Console.WriteLine(Group.GroupCode);
-#endif
-            AD.EC.ServerName = ServerName;
-            try
-            {
-                Group.ServiceCommands.Add(new ServiceCommand()
-                {
-                    Command = AD.CreateGroup(Group.GroupCode, Group.GroupCode, "distribution", AD.DefaultPathAliases, new Dictionary<string, string> { { "mail", Group.GroupMail } })
-                });
-                Group.ServiceCommands.Add(new ServiceCommand()
-                {
-                    Command = AD.CleanGroup(Group.GroupCode)
-                });
-                if (Group.GroupMembers.Count() != 0)
-                {
+//        public bool InteractGroup(EspackGroup Group)
+//        {
+//            //moved to exchange
+//#if DEBUG
+//            Console.WriteLine(Group.GroupCode);
+//#endif
+//            AD.EC.ServerName = ServerName;
+//            try
+//            {
+//                Group.ServiceCommands.Add(new ServiceCommand()
+//                {
+//                    Command = AD.CreateGroup(Group.GroupCode, Group.GroupCode, "distribution", AD.DefaultPathAliases, new Dictionary<string, string> { { "mail", Group.GroupMail } })
+//                });
+//                Group.ServiceCommands.Add(new ServiceCommand()
+//                {
+//                    Command = AD.CleanGroup(Group.GroupCode)
+//                });
+//                if (Group.GroupMembers.Count() != 0)
+//                {
 
-                    foreach (var _member in Group.GroupMembers)
-                    {
-                        var _memberName = _member.Split('@')[0];
-                        bool _isContact = false;
-                        //var _path = AD.DefaultPath;
-                        if (!Domains.Contains(_member.Split('@')[1]))
-                        {
-                            _memberName = _member.ToUpper().Replace("@", "_AT_");
-                            Group.ServiceCommands.Add(new ServiceCommand()
-                            {
-                                Command = AD.CreateObject(_memberName, "contact", AD.DefaultPathContacts, new Dictionary<string, string> { { "mail", _member } })
-                            });
-                            _isContact = true;
-                        }
-                        Group.ServiceCommands.Add(new ServiceCommand()
-                        {
-                            Command = AD.AddUserToGroup(_memberName, Group.GroupCode, _isContact)
-                        });
-                    }
-                }
+//                    foreach (var _member in Group.GroupMembers)
+//                    {
+//                        var _memberName = _member.Split('@')[0];
+//                        bool _isContact = false;
+//                        //var _path = AD.DefaultPath;
+//                        if (!Domains.Contains(_member.Split('@')[1]))
+//                        {
+//                            _memberName = _member.ToUpper().Replace("@", "_AT_");
+//                            Group.ServiceCommands.Add(new ServiceCommand()
+//                            {
+//                                Command = AD.CreateObject(_memberName, "contact", AD.DefaultPathContacts, new Dictionary<string, string> { { "mail", _member } })
+//                            });
+//                            _isContact = true;
+//                        }
+//                        Group.ServiceCommands.Add(new ServiceCommand()
+//                        {
+//                            Command = AD.AddUserToGroup(_memberName, Group.GroupCode, _isContact)
+//                        });
+//                    }
+//                }
 
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-                throw ex;
-            }
-        }
+//                return true;
+//            }
+//            catch (Exception ex)
+//            {
+//                return false;
+//                throw ex;
+//            }
+//        }
         public async Task<bool> Commit(Collection<ServiceCommand> serviceCommands)
         {
             if (serviceCommands.Count>0)
                 return await AD.Commit(serviceCommands);
+            return true;
+        }
+
+        public bool InteractGroup(EspackGroup Group)
+        {
             return true;
         }
     }

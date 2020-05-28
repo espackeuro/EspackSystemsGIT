@@ -42,6 +42,18 @@ namespace PowerShellControl
                 return ws;
             }
         }
+        public static WSManConnectionInfo PowerShellConnectionInformation(string serverUrl, PSCredential psCredentials)
+        {
+            var connectionInfo = new WSManConnectionInfo(new Uri(serverUrl), "http://schemas.microsoft.com/powershell/Microsoft.Exchange", psCredentials);
+            //var connectionInfo = new WSManConnectionInfo(new Uri(serverUrl), "http://schemas.microsoft.com/powershell", psCredentials);
+            connectionInfo.AuthenticationMechanism = AuthenticationMechanism.Basic;
+            connectionInfo.SkipCACheck = true;
+            connectionInfo.SkipCNCheck = true;
+            connectionInfo.SkipRevocationCheck = true;
+            connectionInfo.MaximumConnectionRedirectionCount = 5;
+            connectionInfo.OperationTimeout = 150000;
+            return connectionInfo;
+        }
     }
 
 
@@ -61,11 +73,11 @@ namespace PowerShellControl
                 return _res;
             }
         }
-        public async Task<bool> InvokeAsync()
+        public async Task<bool> InvokeAsync(WSManConnectionInfo ws)
         {
             try
             {
-                using (var runspace = RunspaceFactory.CreateRunspace(EC.WSMan))
+                using (var runspace = RunspaceFactory.CreateRunspace(ws))
                 using (var powershell = PowerShell.Create())
                 {
                     runspace.Open();
@@ -88,11 +100,11 @@ namespace PowerShellControl
             }
         }
 
-        public async Task<bool> InvokeList(Collection<ServiceCommand> commandCollection)
+        public async Task<bool> InvokeList(Collection<ServiceCommand> commandCollection, WSManConnectionInfo ws)
         {
             try
             {
-                using (var runspace = RunspaceFactory.CreateRunspace(EC.WSMan))
+                using (var runspace = RunspaceFactory.CreateRunspace(ws))
                 {
                     runspace.Open();
                     foreach (var command in commandCollection)
@@ -120,29 +132,42 @@ namespace PowerShellControl
                 throw ex;
             }
         }
+
         public async Task<bool> InvokeListExchange(Collection<ServiceCommand> commandCollection)
         {
+            RunspaceConfiguration runspaceConfig = RunspaceConfiguration.Create();
+            PSSnapInException snapInException = null;
+
+
+
             try
             {
-                using (var runspace = RunspaceFactory.CreateRunspace(EC.WSManExchange))
-                using (var powershell = PowerShell.Create())
+                using (Runspace runspace = RunspaceFactory.CreateRunspace(runspaceConfig))
                 {
                     runspace.Open();
-                    powershell.Runspace = runspace;
+                    Pipeline pipeline = runspace.CreatePipeline();
+                    string serverFqdn = "EXCHANGE01";
+                    pipeline.Commands.AddScript(string.Format("$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri http://{0}/PowerShell/ -Authentication Kerberos", serverFqdn));
+                    var res = pipeline.Invoke();
                     foreach (var command in commandCollection)
                     {
-                        powershell.AddScript(command.Command);
-                        Results = await Task.Factory.FromAsync(powershell.BeginInvoke(), pResult => powershell.EndInvoke(pResult));
-                        if (powershell.HadErrors)
-                        {
-                            command.Result = powershell.Streams.Error[0].Exception.Message;
-                        }
-                        else
-                            command.Result = "OK";
-                    }
-                    return true;
 
+                        using (var powershell = PowerShell.Create())
+                        {
+                            powershell.Runspace = runspace;
+                            powershell.AddScript(string.Format("$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri http://{0}/PowerShell/ -Authentication Kerberos", serverFqdn));
+                            powershell.AddScript(command.Command);
+                            Results = await Task.Factory.FromAsync(powershell.BeginInvoke(), pResult => powershell.EndInvoke(pResult));
+                            if (powershell.HadErrors)
+                            {
+                                command.Result = powershell.Streams.Error[0].Exception.Message;
+                            }
+                            else
+                                command.Result = "OK";
+                        }
+                    }
                 }
+                return true;
             }
             catch (Exception ex)
             {
@@ -150,32 +175,62 @@ namespace PowerShellControl
                 throw ex;
             }
         }
-        public async Task<bool> InvokeAsyncExchange()
-        {
-            //PSSnapInException psException;
-            try
-            {
-                using (var runspace = RunspaceFactory.CreateRunspace(EC.WSManExchange))
-                using (var powershell = PowerShell.Create())
-                {
-                    runspace.Open();
-                    powershell.Runspace = runspace;
-                    powershell.AddScript(Command);
-                    Results = await Task.Factory.FromAsync(powershell.BeginInvoke(), pResult => powershell.EndInvoke(pResult));
-                    if (powershell.HadErrors)
-                    {
-                        throw powershell.Streams.Error[0].Exception;
-                    }
-                    return true;
+        //public async Task<bool> InvokeListExchange(Collection<ServiceCommand> commandCollection)
+        //{
+        //    try
+        //    {
+        //        using (var runspace = RunspaceFactory.CreateRunspace(EC.WSManExchange))
+        //        using (var powershell = PowerShell.Create())
+        //        {
+        //            runspace.Open();
+        //            powershell.Runspace = runspace;
+        //            foreach (var command in commandCollection)
+        //            {
+        //                powershell.AddScript(command.Command);
+        //                Results = await Task.Factory.FromAsync(powershell.BeginInvoke(), pResult => powershell.EndInvoke(pResult));
+        //                if (powershell.HadErrors)
+        //                {
+        //                    command.Result = powershell.Streams.Error[0].Exception.Message;
+        //                }
+        //                else
+        //                    command.Result = "OK";
+        //            }
+        //            return true;
 
-                }
-            }
-            catch (Exception ex)
-            {
-                //return false;
-                throw ex;
-            }
-        }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return false;
+        //        throw ex;
+        //    }
+        //}
+        //public async Task<bool> InvokeAsyncExchange()
+        //{
+        //    //PSSnapInException psException;
+        //    try
+        //    {
+        //        using (var runspace = RunspaceFactory.CreateRunspace(EC.WSManExchange))
+        //        using (var powershell = PowerShell.Create())
+        //        {
+        //            runspace.Open();
+        //            powershell.Runspace = runspace;
+        //            powershell.AddScript(Command);
+        //            Results = await Task.Factory.FromAsync(powershell.BeginInvoke(), pResult => powershell.EndInvoke(pResult));
+        //            if (powershell.HadErrors)
+        //            {
+        //                throw powershell.Streams.Error[0].Exception;
+        //            }
+        //            return true;
+
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        //return false;
+        //        throw ex;
+        //    }
+        //}
     }
 
 }

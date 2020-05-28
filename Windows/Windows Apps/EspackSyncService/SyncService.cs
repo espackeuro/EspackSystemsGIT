@@ -303,23 +303,24 @@ namespace EspackSyncService
                         }
                         var _alList = tAliases.Rows.OfType<DataRow>().Select(a => string.Format("{0}@{1}", a["local_part_goto"], CleanDomain(a["domain_goto"].ToString()))).ToArray();
                         //create the group object
-                        var _group = new EspackGroup()
-                        {
-                            GroupCode = r["local_part"].ToString() != "" ? r["local_part"].ToString() : r["address"].ToString().Replace('@', '_').ToUpper(),
-                            GroupMail = r["address"].ToString(),
-                            GroupMembers = _alList
-                        };
+
                         foreach (var s in SyncedServices)
                         {
+                            var _group = new EspackGroup()
+                            {
+                                GroupCode = r["local_part"].ToString() != "" ? r["local_part"].ToString() : r["address"].ToString().Replace('@', '_').ToUpper(),
+                                GroupMail = r["address"].ToString(),
+                                GroupMembers = _alList
+                            };
                             if (_flags.Contains(s.ServiceName))
                             {
                                 s.InteractGroup(_group);
                                 groups.Add(_group);
                             }
-                            var commandCollection = groups.SelectMany(u => u.ServiceCommands).ToCollection();
+                            //var commandCollection = _group.SelectMany(u => u.ServiceCommands).ToCollection();
                             try
                             {
-                                await s.Commit(commandCollection);
+                                await s.Commit(_group.ServiceCommands);
                             }
                             catch (Exception ex)
                             {
