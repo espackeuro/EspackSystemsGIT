@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fUsers));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtUserNumber = new EspackFormControlsNS.EspackNumericTextBox();
             this.txtSurname2 = new EspackFormControlsNS.EspackTextBox();
@@ -273,7 +274,7 @@
             this.groupBox2.Location = new System.Drawing.Point(16, 161);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(528, 316);
+            this.groupBox2.Size = new System.Drawing.Size(528, 420);
             this.groupBox2.TabIndex = 147;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Where";
@@ -297,7 +298,7 @@
             this.cboArea.ForeColor = System.Drawing.Color.Black;
             this.cboArea.FormattingEnabled = true;
             this.cboArea.IsCTLMOwned = false;
-            this.cboArea.Location = new System.Drawing.Point(351, 275);
+            this.cboArea.Location = new System.Drawing.Point(351, 378);
             this.cboArea.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.cboArea.Name = "cboArea";
             this.cboArea.Order = 0;
@@ -336,7 +337,7 @@
             this.cboPositionLevel.ForeColor = System.Drawing.Color.Black;
             this.cboPositionLevel.FormattingEnabled = true;
             this.cboPositionLevel.IsCTLMOwned = false;
-            this.cboPositionLevel.Location = new System.Drawing.Point(23, 275);
+            this.cboPositionLevel.Location = new System.Drawing.Point(23, 378);
             this.cboPositionLevel.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.cboPositionLevel.Name = "cboPositionLevel";
             this.cboPositionLevel.Order = 0;
@@ -372,7 +373,7 @@
             this.txtPosition.ForeColor = System.Drawing.Color.Gray;
             this.txtPosition.IsCTLMOwned = false;
             this.txtPosition.IsPassword = false;
-            this.txtPosition.Location = new System.Drawing.Point(183, 247);
+            this.txtPosition.Location = new System.Drawing.Point(183, 350);
             this.txtPosition.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtPosition.Multiline = true;
             this.txtPosition.Name = "txtPosition";
@@ -411,7 +412,7 @@
             this.cboSecurityLevel.ForeColor = System.Drawing.Color.Black;
             this.cboSecurityLevel.FormattingEnabled = true;
             this.cboSecurityLevel.IsCTLMOwned = false;
-            this.cboSecurityLevel.Location = new System.Drawing.Point(188, 275);
+            this.cboSecurityLevel.Location = new System.Drawing.Point(188, 378);
             this.cboSecurityLevel.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.cboSecurityLevel.Name = "cboSecurityLevel";
             this.cboSecurityLevel.Order = 0;
@@ -536,7 +537,7 @@
             this.listCOD3.Search = false;
             this.listCOD3.SelectedItem = null;
             this.listCOD3.SelectedValue = null;
-            this.listCOD3.Size = new System.Drawing.Size(482, 124);
+            this.listCOD3.Size = new System.Drawing.Size(482, 232);
             this.listCOD3.Status = CommonTools.EnumStatus.ADDNEW;
             this.listCOD3.TabIndex = 7;
             this.listCOD3.TBDescription = null;
@@ -563,7 +564,7 @@
             this.cboPosition.ForeColor = System.Drawing.Color.Black;
             this.cboPosition.FormattingEnabled = true;
             this.cboPosition.IsCTLMOwned = false;
-            this.cboPosition.Location = new System.Drawing.Point(23, 232);
+            this.cboPosition.Location = new System.Drawing.Point(23, 334);
             this.cboPosition.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.cboPosition.Name = "cboPosition";
             this.cboPosition.Order = 0;
@@ -595,10 +596,10 @@
             this.groupBox3.Controls.Add(this.lstFlags);
             this.groupBox3.Controls.Add(this.txtPWD);
             this.groupBox3.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.groupBox3.Location = new System.Drawing.Point(16, 493);
+            this.groupBox3.Location = new System.Drawing.Point(550, 49);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(528, 296);
+            this.groupBox3.Size = new System.Drawing.Size(528, 532);
             this.groupBox3.TabIndex = 153;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Systems data";
@@ -621,7 +622,7 @@
             this.txtTicketExp.ForeColor = System.Drawing.Color.Black;
             this.txtTicketExp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.txtTicketExp.IsCTLMOwned = false;
-            this.txtTicketExp.Location = new System.Drawing.Point(188, 254);
+            this.txtTicketExp.Location = new System.Drawing.Point(183, 490);
             this.txtTicketExp.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtTicketExp.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.txtTicketExp.Name = "txtTicketExp";
@@ -657,7 +658,7 @@
             this.txtTicket.ForeColor = System.Drawing.Color.Gray;
             this.txtTicket.IsCTLMOwned = false;
             this.txtTicket.IsPassword = false;
-            this.txtTicket.Location = new System.Drawing.Point(23, 254);
+            this.txtTicket.Location = new System.Drawing.Point(23, 489);
             this.txtTicket.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtTicket.Multiline = true;
             this.txtTicket.Name = "txtTicket";
@@ -898,7 +899,7 @@
             this.lstFlags.Search = false;
             this.lstFlags.SelectedItem = null;
             this.lstFlags.SelectedValue = null;
-            this.lstFlags.Size = new System.Drawing.Size(482, 106);
+            this.lstFlags.Size = new System.Drawing.Size(482, 340);
             this.lstFlags.Status = CommonTools.EnumStatus.ADDNEW;
             this.lstFlags.TabIndex = 14;
             this.lstFlags.TBDescription = null;
@@ -944,7 +945,7 @@
             // lstEmailAliases
             // 
             this.lstEmailAliases.Add = false;
-            this.lstEmailAliases.Caption = "";
+            this.lstEmailAliases.Caption = "Lists";
             this.lstEmailAliases.CheckOnClick = true;
             this.lstEmailAliases.ColumnWidth = 0;
             this.lstEmailAliases.DataSource = null;
@@ -958,7 +959,7 @@
             this.lstEmailAliases.ForeColor = System.Drawing.Color.Black;
             this.lstEmailAliases.FormattingEnabled = true;
             this.lstEmailAliases.IsCTLMOwned = false;
-            this.lstEmailAliases.Location = new System.Drawing.Point(550, 48);
+            this.lstEmailAliases.Location = new System.Drawing.Point(1085, 49);
             this.lstEmailAliases.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.lstEmailAliases.MultiColumn = false;
             this.lstEmailAliases.Name = "lstEmailAliases";
@@ -971,7 +972,7 @@
             this.lstEmailAliases.Search = false;
             this.lstEmailAliases.SelectedItem = null;
             this.lstEmailAliases.SelectedValue = null;
-            this.lstEmailAliases.Size = new System.Drawing.Size(292, 738);
+            this.lstEmailAliases.Size = new System.Drawing.Size(292, 502);
             this.lstEmailAliases.Status = CommonTools.EnumStatus.ADDNEW;
             this.lstEmailAliases.TabIndex = 15;
             this.lstEmailAliases.TBDescription = null;
@@ -1002,29 +1003,31 @@
             // 
             // btnMigrateToExchange
             // 
-            this.btnMigrateToExchange.Location = new System.Drawing.Point(861, 48);
+            this.btnMigrateToExchange.Location = new System.Drawing.Point(1407, 718);
             this.btnMigrateToExchange.Name = "btnMigrateToExchange";
             this.btnMigrateToExchange.Size = new System.Drawing.Size(154, 23);
             this.btnMigrateToExchange.TabIndex = 154;
             this.btnMigrateToExchange.Text = "Migrate to Exchange";
             this.btnMigrateToExchange.UseVisualStyleBackColor = true;
-            this.btnMigrateToExchange.Click += new System.EventHandler(this.btnMigrateToExchange_Click);
+            this.btnMigrateToExchange.Visible = false;
             // 
             // lblStatus
             // 
             this.lblStatus.BackColor = System.Drawing.Color.White;
-            this.lblStatus.Location = new System.Drawing.Point(858, 90);
+            this.lblStatus.Location = new System.Drawing.Point(1404, 759);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(157, 65);
             this.lblStatus.TabIndex = 155;
             this.lblStatus.Text = "...";
+            this.lblStatus.Visible = false;
             // 
             // fUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(1264, 839);
+            this.ClientSize = new System.Drawing.Size(1582, 839);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.btnMigrateToExchange);
             this.Controls.Add(this.lstEmailAliases);
@@ -1033,10 +1036,12 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.CTLM);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "fUsers";
             this.ShowIcon = false;
             this.Text = "Users";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);

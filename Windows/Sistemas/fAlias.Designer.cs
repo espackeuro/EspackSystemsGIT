@@ -54,7 +54,6 @@
             this.CTLM.Conn = null;
             this.CTLM.DBTable = null;
             this.CTLM.Location = new System.Drawing.Point(0, 0);
-            this.CTLM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CTLM.MsgStatusInfoLabel = null;
             this.CTLM.MsgStatusLabel = null;
             this.CTLM.Name = "CTLM";
@@ -73,11 +72,9 @@
             this.groupBox1.Controls.Add(this.txtLocalPart);
             this.groupBox1.Controls.Add(this.txtAddress);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.groupBox1.Location = new System.Drawing.Point(17, 46);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(13, 37);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(789, 161);
+            this.groupBox1.Size = new System.Drawing.Size(592, 131);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Header";
@@ -98,8 +95,8 @@
             this.txtDomain.ForeColor = System.Drawing.Color.Gray;
             this.txtDomain.IsCTLMOwned = false;
             this.txtDomain.IsPassword = false;
-            this.txtDomain.Location = new System.Drawing.Point(457, 92);
-            this.txtDomain.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
+            this.txtDomain.Location = new System.Drawing.Point(343, 75);
+            this.txtDomain.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtDomain.Multiline = true;
             this.txtDomain.Name = "txtDomain";
             this.txtDomain.Order = 0;
@@ -109,7 +106,7 @@
             this.txtDomain.Protected = false;
             this.txtDomain.ReadOnly = true;
             this.txtDomain.Search = false;
-            this.txtDomain.Size = new System.Drawing.Size(300, 53);
+            this.txtDomain.Size = new System.Drawing.Size(225, 43);
             this.txtDomain.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtDomain.TabIndex = 18;
             this.txtDomain.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -133,8 +130,8 @@
             this.txtLocalPart.ForeColor = System.Drawing.Color.Gray;
             this.txtLocalPart.IsCTLMOwned = false;
             this.txtLocalPart.IsPassword = false;
-            this.txtLocalPart.Location = new System.Drawing.Point(37, 92);
-            this.txtLocalPart.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
+            this.txtLocalPart.Location = new System.Drawing.Point(28, 75);
+            this.txtLocalPart.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtLocalPart.Multiline = true;
             this.txtLocalPart.Name = "txtLocalPart";
             this.txtLocalPart.Order = 0;
@@ -144,7 +141,7 @@
             this.txtLocalPart.Protected = false;
             this.txtLocalPart.ReadOnly = true;
             this.txtLocalPart.Search = false;
-            this.txtLocalPart.Size = new System.Drawing.Size(300, 53);
+            this.txtLocalPart.Size = new System.Drawing.Size(225, 43);
             this.txtLocalPart.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtLocalPart.TabIndex = 16;
             this.txtLocalPart.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -168,8 +165,8 @@
             this.txtAddress.ForeColor = System.Drawing.Color.Gray;
             this.txtAddress.IsCTLMOwned = false;
             this.txtAddress.IsPassword = false;
-            this.txtAddress.Location = new System.Drawing.Point(37, 39);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
+            this.txtAddress.Location = new System.Drawing.Point(28, 32);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Order = 0;
@@ -179,7 +176,7 @@
             this.txtAddress.Protected = false;
             this.txtAddress.ReadOnly = true;
             this.txtAddress.Search = false;
-            this.txtAddress.Size = new System.Drawing.Size(720, 47);
+            this.txtAddress.Size = new System.Drawing.Size(540, 38);
             this.txtAddress.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtAddress.TabIndex = 0;
             this.txtAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -193,11 +190,9 @@
             this.groupBox2.Controls.Add(this.lstCOD3);
             this.groupBox2.Controls.Add(this.lstFlags);
             this.groupBox2.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.groupBox2.Location = new System.Drawing.Point(17, 214);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Location = new System.Drawing.Point(13, 174);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Size = new System.Drawing.Size(789, 287);
+            this.groupBox2.Size = new System.Drawing.Size(592, 233);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Various";
@@ -219,8 +214,8 @@
             this.lstCOD3.ForeColor = System.Drawing.Color.Black;
             this.lstCOD3.FormattingEnabled = true;
             this.lstCOD3.IsCTLMOwned = false;
-            this.lstCOD3.Location = new System.Drawing.Point(37, 156);
-            this.lstCOD3.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
+            this.lstCOD3.Location = new System.Drawing.Point(28, 109);
+            this.lstCOD3.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.lstCOD3.MultiColumn = true;
             this.lstCOD3.Name = "lstCOD3";
             this.lstCOD3.Order = 0;
@@ -232,7 +227,7 @@
             this.lstCOD3.Search = false;
             this.lstCOD3.SelectedItem = null;
             this.lstCOD3.SelectedValue = null;
-            this.lstCOD3.Size = new System.Drawing.Size(720, 86);
+            this.lstCOD3.Size = new System.Drawing.Size(540, 124);
             this.lstCOD3.Status = CommonTools.EnumStatus.ADDNEW;
             this.lstCOD3.TabIndex = 2;
             this.lstCOD3.TBDescription = null;
@@ -257,8 +252,8 @@
             this.lstFlags.ForeColor = System.Drawing.Color.Black;
             this.lstFlags.FormattingEnabled = true;
             this.lstFlags.IsCTLMOwned = false;
-            this.lstFlags.Location = new System.Drawing.Point(37, 39);
-            this.lstFlags.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
+            this.lstFlags.Location = new System.Drawing.Point(28, 20);
+            this.lstFlags.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.lstFlags.MultiColumn = true;
             this.lstFlags.Name = "lstFlags";
             this.lstFlags.Order = 0;
@@ -270,7 +265,7 @@
             this.lstFlags.Search = false;
             this.lstFlags.SelectedItem = null;
             this.lstFlags.SelectedValue = null;
-            this.lstFlags.Size = new System.Drawing.Size(720, 64);
+            this.lstFlags.Size = new System.Drawing.Size(540, 88);
             this.lstFlags.Status = CommonTools.EnumStatus.ADDNEW;
             this.lstFlags.TabIndex = 0;
             this.lstFlags.TBDescription = null;
@@ -306,8 +301,8 @@
             this.VS.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.VS.HorizontalScrollingOffset = 0;
             this.VS.IsCTLMOwned = false;
-            this.VS.Location = new System.Drawing.Point(16, 508);
-            this.VS.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.VS.Location = new System.Drawing.Point(22, 450);
+            this.VS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.VS.MsgStatusLabel = null;
             this.VS.Name = "VS";
             this.VS.NumPages = 0;
@@ -323,7 +318,7 @@
             dataGridViewRow1.Height = 24;
             this.VS.RowTemplate = dataGridViewRow1;
             this.VS.Search = false;
-            this.VS.Size = new System.Drawing.Size(371, 216);
+            this.VS.Size = new System.Drawing.Size(278, 168);
             this.VS.SQL = null;
             this.VS.sSPAdd = "";
             this.VS.sSPDel = "";
@@ -361,8 +356,8 @@
             this.VSExceptions.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.VSExceptions.HorizontalScrollingOffset = 0;
             this.VSExceptions.IsCTLMOwned = false;
-            this.VSExceptions.Location = new System.Drawing.Point(437, 508);
-            this.VSExceptions.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.VSExceptions.Location = new System.Drawing.Point(308, 450);
+            this.VSExceptions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.VSExceptions.MsgStatusLabel = null;
             this.VSExceptions.Name = "VSExceptions";
             this.VSExceptions.NumPages = 0;
@@ -378,7 +373,7 @@
             dataGridViewRow2.Height = 24;
             this.VSExceptions.RowTemplate = dataGridViewRow2;
             this.VSExceptions.Search = false;
-            this.VSExceptions.Size = new System.Drawing.Size(369, 216);
+            this.VSExceptions.Size = new System.Drawing.Size(277, 168);
             this.VSExceptions.SQL = null;
             this.VSExceptions.sSPAdd = "";
             this.VSExceptions.sSPDel = "";
@@ -390,16 +385,15 @@
             // 
             // fAlias
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(823, 800);
+            this.ClientSize = new System.Drawing.Size(617, 650);
             this.Controls.Add(this.VSExceptions);
             this.Controls.Add(this.VS);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.CTLM);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "fAlias";
             this.ShowIcon = false;
             this.Text = "Aliases";

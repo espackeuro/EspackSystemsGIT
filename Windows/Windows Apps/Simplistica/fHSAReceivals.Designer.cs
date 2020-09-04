@@ -47,9 +47,9 @@
             this.tmrRobot = new System.Windows.Forms.Timer(this.components);
             this.pctRobotStatus = new System.Windows.Forms.PictureBox();
             this.txtPortDepartureDate = new EspackFormControlsNS.EspackTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
             this.toolStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctRobotStatus)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.pctRobotStatus)).BeginInit();
             this.SuspendLayout();
             // 
             // CTLM
@@ -456,10 +456,10 @@
             this.Name = "fHSAReceivals";
             this.ShowIcon = false;
             this.Text = "HSA Receivals";
-            ((System.ComponentModel.ISupportInitialize)(this.VS)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.VS)).EndInit();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctRobotStatus)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.pctRobotStatus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

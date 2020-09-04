@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\CommonTools\CommonTools.csproj" />
+    <ProjectReference Include="..\..\Database\cAccesoDatos.Net\cAccesoDatos.Net.csproj" />
+    <ProjectReference Include="..\..\Database\cAccesoDatos\cAccesoDatos.csproj" />
+    <ProjectReference Include="..\..\Network\SocketsClient\SocketsClient.csproj" />
+    <ProjectReference Include="..\Compression\Compression.csproj" />
+    <ProjectReference Include="..\Encryption\Encryption.csproj" />
+  </ItemGroup>
+
+</Project>

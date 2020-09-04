@@ -153,111 +153,111 @@ namespace Sistemas
             if (lstFlags.CheckedValues.Contains("EMAIL"))
                 if (lstFlags.CheckedValues.Contains("EXCHANGE"))
                     lblStatus.Text = "MIGRATED";
-                else if (lstFlags.CheckedValues.Contains("MIGRATING"))
-                {
-                    using (var client = new SshClient("proxy.val.local", Values.DefaultUserForServers, Values.DefaultPasswordForServers))
-                    {
-                        client.Connect();
-                        var sshCommand = string.Format("pgrep -f imapsync.*{0}", txtUserCode.Text);
-                        var result = client.RunCommand(sshCommand);
-                        if (result.Result != "")
-                        {
-                            lblStatus.Text = "MIGRATION CURRENTLY RUNNING.";
-                        }
-                        else
-                        {
-                            lblStatus.Text = "MIGRATION PROCESS FINISHED, CHECK LOGS.";
-                        }
-                    }
-                    btnMigrateToExchange.Enabled = true;
-                }
-                else
-                {
-                    btnMigrateToExchange.Enabled = true;
-                }
+                //else if (lstFlags.CheckedValues.Contains("MIGRATING"))
+                //{
+                //    using (var client = new SshClient("proxy.val.local", Values.DefaultUserForServers, Values.DefaultPasswordForServers))
+                //    {
+                //        client.Connect();
+                //        var sshCommand = string.Format("pgrep -f imapsync.*{0}", txtUserCode.Text);
+                //        var result = client.RunCommand(sshCommand);
+                //        if (result.Result != "")
+                //        {
+                //            lblStatus.Text = "MIGRATION CURRENTLY RUNNING.";
+                //        }
+                //        else
+                //        {
+                //            lblStatus.Text = "MIGRATION PROCESS FINISHED, CHECK LOGS.";
+                //        }
+                //    }
+                //    btnMigrateToExchange.Enabled = true;
+                //}
+                //else
+                //{
+                //    btnMigrateToExchange.Enabled = true;
+                //}
 
         }
+        // commented as the migration finished
+        //private async void btnMigrateToExchange_Click(object sender, EventArgs e)
+        //{
+        //    var _listFlags = lstFlags.Text.Split('|');
+        //    if (_listFlags.Contains("EXCHANGE"))
+        //    {
+        //        MsgError("This account is already in Exchange.");
+        //        return;
 
-        private async void btnMigrateToExchange_Click(object sender, EventArgs e)
-        {
-            var _listFlags = lstFlags.Text.Split('|');
-            if (_listFlags.Contains("EXCHANGE"))
-            {
-                MsgError("This account is already in Exchange.");
-                return;
-
-            }
-            if (_listFlags.Contains("MIGRATING"))
-            {
-                using (var client = new SshClient("proxy.val.local", Values.DefaultUserForServers, Values.DefaultPasswordForServers))
-                {
-                    client.Connect();
-                    var sshCommand = string.Format("pgrep -f imapsync.*{0}", txtUserCode.Text);
-                    var result = client.RunCommand(sshCommand);
-                    if (result.Result != "")
-                    {
-                        MsgError("Migration has not yet finished for this user.");
-                        return;
-                    }
-                    if (MessageBox.Show("The process has finished, do you want to see the log file?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    {
-                        using (var scpClient = new ScpClient("proxy.val.local", Values.DefaultUserForServers, Values.DefaultPasswordForServers))
-                        {
-                            try
-                            {
-                                scpClient.Connect();
-                                scpClient.Download(string.Format("/root/{0}.log", txtUserCode.Text), new DirectoryInfo(Path.GetTempPath()));
-                                System.Diagnostics.Process.Start("notepad.exe", string.Format("{0}{1}.log", Path.GetTempPath(), txtUserCode.Text));
-                            } catch (Exception ex)
-                            {
-                                if (MessageBox.Show(string.Format("log file error: {0}, do you want to continue?", ex.Message), "", MessageBoxButtons.YesNo) == DialogResult.No)
-                                    return;
-                            }
-                        }
-                        if (MessageBox.Show("Do you want to finish the migration process?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                        {
-                            await changeUserFlag("EXCHANGE");
-                            MsgError(string.Format("Don't forget to setup forward from horde to {0}@systems.espackeuro.com.",txtUserCode.Text));
-                            return;
-                        }
-                    }
-                    else return;
-                    if (MessageBox.Show("Do you want to relaunch the sync process?", "", MessageBoxButtons.YesNo) == DialogResult.No)
-                        return;
+        //    }
+        //    if (_listFlags.Contains("MIGRATING"))
+        //    {
+        //        using (var client = new SshClient("proxy.val.local", Values.DefaultUserForServers, Values.DefaultPasswordForServers))
+        //        {
+        //            client.Connect();
+        //            var sshCommand = string.Format("pgrep -f imapsync.*{0}", txtUserCode.Text);
+        //            var result = client.RunCommand(sshCommand);
+        //            if (result.Result != "")
+        //            {
+        //                MsgError("Migration has not yet finished for this user.");
+        //                return;
+        //            }
+        //            if (MessageBox.Show("The process has finished, do you want to see the log file?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+        //            {
+        //                using (var scpClient = new ScpClient("proxy.val.local", Values.DefaultUserForServers, Values.DefaultPasswordForServers))
+        //                {
+        //                    try
+        //                    {
+        //                        scpClient.Connect();
+        //                        scpClient.Download(string.Format("/root/{0}.log", txtUserCode.Text), new DirectoryInfo(Path.GetTempPath()));
+        //                        System.Diagnostics.Process.Start("notepad.exe", string.Format("{0}{1}.log", Path.GetTempPath(), txtUserCode.Text));
+        //                    } catch (Exception ex)
+        //                    {
+        //                        if (MessageBox.Show(string.Format("log file error: {0}, do you want to continue?", ex.Message), "", MessageBoxButtons.YesNo) == DialogResult.No)
+        //                            return;
+        //                    }
+        //                }
+        //                if (MessageBox.Show("Do you want to finish the migration process?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+        //                {
+        //                    await changeUserFlag("EXCHANGE");
+        //                    MsgError(string.Format("Don't forget to setup forward from horde to {0}@systems.espackeuro.com.",txtUserCode.Text));
+        //                    return;
+        //                }
+        //            }
+        //            else return;
+        //            if (MessageBox.Show("Do you want to relaunch the sync process?", "", MessageBoxButtons.YesNo) == DialogResult.No)
+        //                return;
 
 
-                }
-            }
-            await changeUserFlag("MIGRATING");
-            AD.EC.ServerName = "EXCHANGE01";
-            AD.EC.UserName = @"SYSTEMS\administrador";
-            AD.EC.Password = "Y?D6d#b@";
-            var command = new PowerShellCommand();
-            command.EC = AD.EC;
-            var c = string.Format(@"if (![bool](Get-Mailbox -Identity '{0}'  -ErrorAction SilentlyContinue)) {{Enable-Mailbox -Identity '{0}';}}", txtUserCode.Text);
-            command.Command = c;
-            var res = await command.InvokeAsyncExchange();
-            var Results = command.SResults;
-            // now the sync
-            using (var client = new SshClient("proxy.val.local", Values.DefaultUserForServers, Values.DefaultPasswordForServers))
-            {
-                client.Connect();
-                var sshCommand = string.Format("pgrep -f imapsync.*{0}", txtUserCode.Text);
-                var result = client.RunCommand(sshCommand);
-                if (result.Result != "")
-                {
-                    MsgError("There is a running sync process for this user, aborting.");
-                    return;
-                }
-                //var sshCommand = string.Format(@"sshpass -p {3} ssh -o StrictHostKeyChecking=no {2}@proxy.val.local ""nohup imapsync --host1 mail.espackeuro.com --port1 993 --ssl1 --user1 {0}@espackeuro.com --password1 {1} --host2 exchange01.systems.espackeuro.com --port2 143 --user2 {0} --password2 {1} --exchange2 --exclude '(?i)\b(Junk|Spam|Trash|Deleted\ Items)\b' --errorsmax 1000 & """, txtUserCode.Text, txtPWD.Text, Values.DefaultUserForServers, Values.DefaultPasswordForServers);
-                sshCommand = string.Format(@"imapsync --host1 mail.espackeuro.com --port1 993 --ssl1 --user1 {0}@espackeuro.com --password1 {1} --host2 exchange01.systems.espackeuro.com --port2 143 --user2 {0} --password2 {1} --exchange2 --exclude '(?i)\b(Junk|Spam|Trash|Deleted\ Items)\b' --errorsmax 1000 --addheader > {0}.log 2>&1 & ", txtUserCode.Text, txtPWD.Text);
-                result = client.RunCommand(sshCommand);
+        //        }
+        //    }
+        //    await changeUserFlag("MIGRATING");
+        //    AD.EC.ServerName = "EXCHANGE01";
+        //    AD.EC.UserName = @"SYSTEMS\administrador";
+        //    AD.EC.Password = "Y?D6d#b@";
+        //    var command = new PowerShellCommand();
+        //    command.EC = AD.EC;
+        //    var c = string.Format(@"if (![bool](Get-Mailbox -Identity '{0}'  -ErrorAction SilentlyContinue)) {{Enable-Mailbox -Identity '{0}';}}", txtUserCode.Text);
+        //    command.Command = c;
+        //    var res = await command.InvokeAsyncExchange();
+        //    var Results = command.SResults;
+        //    // now the sync
+        //    using (var client = new SshClient("proxy.val.local", Values.DefaultUserForServers, Values.DefaultPasswordForServers))
+        //    {
+        //        client.Connect();
+        //        var sshCommand = string.Format("pgrep -f imapsync.*{0}", txtUserCode.Text);
+        //        var result = client.RunCommand(sshCommand);
+        //        if (result.Result != "")
+        //        {
+        //            MsgError("There is a running sync process for this user, aborting.");
+        //            return;
+        //        }
+        //        //var sshCommand = string.Format(@"sshpass -p {3} ssh -o StrictHostKeyChecking=no {2}@proxy.val.local ""nohup imapsync --host1 mail.espackeuro.com --port1 993 --ssl1 --user1 {0}@espackeuro.com --password1 {1} --host2 exchange01.systems.espackeuro.com --port2 143 --user2 {0} --password2 {1} --exchange2 --exclude '(?i)\b(Junk|Spam|Trash|Deleted\ Items)\b' --errorsmax 1000 & """, txtUserCode.Text, txtPWD.Text, Values.DefaultUserForServers, Values.DefaultPasswordForServers);
+        //        sshCommand = string.Format(@"imapsync --host1 mail.espackeuro.com --port1 993 --ssl1 --user1 {0}@espackeuro.com --password1 {1} --host2 exchange01.systems.espackeuro.com --port2 143 --user2 {0} --password2 {1} --exchange2 --exclude '(?i)\b(Junk|Spam|Trash|Deleted\ Items)\b' --errorsmax 1000 --addheader > {0}.log 2>&1 & ", txtUserCode.Text, txtPWD.Text);
+        //        result = client.RunCommand(sshCommand);
 
-                //var result = client.RunCommand(string.Format("/root/imapsync.sh {0} {1}", txtUserCode.Text, txtPWD.Text));
-                client.Disconnect();
-                lblStatus.Text = "MIGRATION CURRENTLY RUNNING.";
-            }
-        }
+        //        //var result = client.RunCommand(string.Format("/root/imapsync.sh {0} {1}", txtUserCode.Text, txtPWD.Text));
+        //        client.Disconnect();
+        //        lblStatus.Text = "MIGRATION CURRENTLY RUNNING.";
+        //    }
+        //}
 
 
 

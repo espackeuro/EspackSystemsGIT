@@ -16,7 +16,7 @@
     <AndroidApplication>true</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v5.1</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -330,8 +330,8 @@
       <Project>{6d6d5061-87e6-42ce-aed2-a631b5a25979}</Project>
       <Name>Scanner</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LogonScreen\LogonScreen.csproj">
-      <Project>{59692ac9-88fb-40fc-bb6c-e76ac5575758}</Project>
+    <ProjectReference Include="..\VS2019\LogonScreen\LogonScreen.csproj">
+      <Project>{8e78daf8-0422-4883-94f9-b4ae14dd9360}</Project>
       <Name>LogonScreen</Name>
     </ProjectReference>
   </ItemGroup>

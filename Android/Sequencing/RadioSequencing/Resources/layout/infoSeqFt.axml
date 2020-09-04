@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/Tabla"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:stretchColumns="*">
+    <TextView
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/message" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="3"
+        android:id="@+id/linearLayout1" >
+        <LinearLayout
+            android:orientation="vertical"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_weight="1"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:id="@+id/linearLayout2" >
+            <TextView
+                android:text="Trolley:"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:id="@+id/trolley" />
+            <TextView
+                android:text="SeqNr:"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:id="@+id/seqnr" />
+            <TextView
+                android:text="VIN:"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:id="@+id/vin" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_weight="2"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:id="@+id/linearLayout3" >
+            <TextView
+                android:text="Partnumber:"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="0px"
+                android:id="@+id/partnumber" />
+            <TextView
+                android:text="Batch:"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="0px"
+                android:id="@+id/batch" />
+            <TextView
+                android:text="Qty:"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="0px"
+                android:id="@+id/qty" />        
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,8 +42,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EspackMenu.cs" />
+    <Compile Include="EspackMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EspackMenuContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EspackMenuContainer.Designer.cs">
+      <DependentUpon>EspackMenuContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EspackToolStripItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Database and tools\CommonTools\CommonTools.csproj">
+      <Project>{9148F7E6-31F6-4F96-B7DC-AFEA449998C7}</Project>
+      <Name>CommonTools</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EspackMenuContainer.resx">
+      <DependentUpon>EspackMenuContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

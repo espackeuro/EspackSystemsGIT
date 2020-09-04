@@ -16,6 +16,7 @@ namespace Sistemas
 
     public partial class fMain : Form
     {
+        public Form CurrentForm { get; set; }
         public fMain(string[] args)
         {
             InitializeComponent();
@@ -68,6 +69,7 @@ namespace Sistemas
             }
             Values.DefaultUserForServers = cSettings.readSetting("DefaultUserForServers");
             Values.DefaultPasswordForServers = cSettings.readSetting("DefaultPasswordForServers");
+            
         }
 
         public void AddStatusStip()
@@ -89,115 +91,137 @@ namespace Sistemas
             Controls.Add(mDefaultStatusStrip);
             KeyPreview = true;
         }
-        private void mnuTowns_Click(object sender, EventArgs e)
-        {
-            openForm(sender);
-        }
+        //private void mnuTowns_Click(object sender, EventArgs e)
+        //{
+        //    openForm(sender);
+        //}
 
-        private void openForm(object menuOption)
-        {
-            var formName = ((ToolStripMenuItem)menuOption).Tag.ToString();
-            var form = (Form)GetChildInstance(formName);
-            form.WindowState = FormWindowState.Maximized;
-        }
+        //private void openForm(object menuOption)
+        //{
+        //    var formName = ((ToolStripMenuItem)menuOption).Tag.ToString();
+        //    var form = (Form)GetChildInstance(formName);
+        //    form.MaximizeBox = false;
+        //    form.MinimizeBox = false;
+        //    form.ControlBox = false;
+        //    form.FormBorderStyle = FormBorderStyle.None;
+        //    form.AutoScroll = true;
+        //    form.Dock = DockStyle.Fill;
+        //    this.Text = string.Format("Sistemas Build {0} - ({1:yyyyMMdd}) - {2}", Assembly.GetExecutingAssembly().GetName().Version.ToString(), CT.GetBuildDateTime(Assembly.GetExecutingAssembly()), form.Text);
+        //    form.WindowState = FormWindowState.Normal;
+        //    form.Activated -= Form_Activated;
+        //    form.Activated += Form_Activated;
+        //}
 
-        private void mnuZones_Click(object sender, EventArgs e)
-        {
-            openForm(sender);
-        }
+        //private void Form_Activated(object sender, EventArgs e)
+        //{
+        //    CurrentForm = (Form)sender;
+        //    this.Text = string.Format("Sistemas Build {0} - ({1:yyyyMMdd}) - {2}", Assembly.GetExecutingAssembly().GetName().Version.ToString(), CT.GetBuildDateTime(Assembly.GetExecutingAssembly()), CurrentForm.Text);
+        //    btnCloseForm.Enabled = true;
+        //    btnCloseForm.Text = $"Close {CurrentForm.Text}";
+        //}
 
-        private void mnuItems_Click(object sender, EventArgs e)
-        {
-            openForm(sender);
-        }
+        //private void mnuZones_Click(object sender, EventArgs e)
+        //{
+        //    openForm(sender);
+        //}
 
-        private void dHCPControlToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openForm(sender);
+        //private void mnuItems_Click(object sender, EventArgs e)
+        //{
+        //    openForm(sender);
+        //}
 
-        }
+        //private void dHCPControlToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    openForm(sender);
+
+        //}
 
         //private void tasksToolStripMenuItem_Click(object sender, EventArgs e)
         //{
         //    fTasks fTasks = (fTasks)GetChildInstance("fTasks");
         //}
 
-        private void tasksToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openForm(sender);
-        }
+        //private void tasksToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    openForm(sender);
+        //}
 
-        private static Dictionary<string, Form> InstancedForms= new Dictionary<string, Form>();
+        //private static Dictionary<string, Form> InstancedForms= new Dictionary<string, Form>();
 
-        private object GetChildInstance(String pFormName)
-        {
-            Form _Form;
-            if (!InstancedForms.TryGetValue(pFormName, out _Form))
-            {
-                _Form = (Form)Activator.CreateInstance(Type.GetType("Sistemas."+pFormName));
-                _Form.MdiParent = this;
-                InstancedForms.Add(pFormName, _Form);
-            }
-            InstancedForms[pFormName].Show();
-            InstancedForms[pFormName].WindowState= FormWindowState.Normal;
-            InstancedForms[pFormName].FormClosed += delegate (object source,FormClosedEventArgs e)
-             {
-                 InstancedForms.Remove(pFormName);
-                 //base.FormClosed(source, e);
-             };
-            return InstancedForms[pFormName];  //just created or created earlier.Return it+69
-        }
+        //private object GetChildInstance(String pFormName)
+        //{
+        //    Form _Form;
+        //    if (!InstancedForms.TryGetValue(pFormName, out _Form))
+        //    {
+        //        _Form = (Form)Activator.CreateInstance(Type.GetType("Sistemas."+pFormName));
+        //        _Form.MdiParent = this;
+        //        InstancedForms.Add(pFormName, _Form);
+        //    }
+        //    InstancedForms[pFormName].Show();
+        //    InstancedForms[pFormName].WindowState= FormWindowState.Normal;
+        //    InstancedForms[pFormName].FormClosed += delegate (object source,FormClosedEventArgs e)
+        //     {
+        //         InstancedForms.Remove(pFormName);
+        //         //base.FormClosed(source, e);
+        //     };
+        //    return InstancedForms[pFormName];  //just created or created earlier.Return it+69
+        //}
 
-        private object GetFormInstance(string pFormName)
-        {
-            return Application.OpenForms.Cast<Form>().Where(form => form.Name == pFormName).FirstOrDefault();
-        }
+        //private object GetFormInstance(string pFormName)
+        //{
+        //    return Application.OpenForms.Cast<Form>().Where(form => form.Name == pFormName).FirstOrDefault();
+        //}
 
-        private void fMain_Load(object sender, EventArgs e)
-        {
-        }
+        //private void fMain_Load(object sender, EventArgs e)
+        //{
+        //}
 
-        private void flagsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openForm(sender);
-        }
+        //private void flagsToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    openForm(sender);
+        //}
 
-        private void servicesToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            openForm(sender);
-        }
+        //private void servicesToolStripMenuItem1_Click(object sender, EventArgs e)
+        //{
+        //    openForm(sender);
+        //}
 
-        private void usersToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            openForm(sender);
-        }
+        //private void usersToolStripMenuItem1_Click(object sender, EventArgs e)
+        //{
+        //    openForm(sender);
+        //}
 
-        private void aliasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openForm(sender);
-        }
+        //private void aliasToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    openForm(sender);
+        //}
 
-        private void securityProfilesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openForm(sender);
-        }
+        //private void securityProfilesToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    openForm(sender);
+        //}
 
-        private void dNSControlToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openForm(sender);
-        }
+        //private void dNSControlToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    openForm(sender);
+        //}
 
 
-        private void systemsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openForm(sender);
-        }
+        //private void systemsToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    openForm(sender);
+        //}
 
-        private void windowToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        //private void windowToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
+        //private void BtnCloseForm_Click(object sender, EventArgs e)
+        //{
+        //    CurrentForm.Close();
+        //    btnCloseForm.Enabled = false;
+        //}
     }
 
     public static class Values

@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Espack Eurologistica S.L.")]
 [assembly: AssemblyProduct("Sistemas")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCopyright("Copyright ©  2016/2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

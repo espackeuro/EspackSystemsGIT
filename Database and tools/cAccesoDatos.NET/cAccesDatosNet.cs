@@ -571,12 +571,38 @@ namespace AccesoDatosNet
             }
         }
 
+        private void DeNULLify(DataTable dt)
+        {
+            int i, j;
+            for (i = 0; i < dt.Columns.Count; i++)
+            {
+                for (j = 0; j < dt.Rows.Count; j++)
+                {
+                    if (dt.Columns[i].DataType.ToString() == "System.Int32" || dt.Columns[i].DataType.ToString() == "System.Single" || dt.Columns[i].DataType.ToString() == "System.Double" || dt.Columns[i].DataType.ToString() == "System.Decimal")
+                    {
+                        if (dt.Rows[j][i] == DBNull.Value)
+                            dt.Rows[j][i] = 0;
+
+
+                    }
+                    else if (dt.Columns[i].DataType.ToString() == "System.String")
+                    {
+
+
+                        if (dt.Rows[j][i] == DBNull.Value || dt.Rows[j][i].ToString().Trim() == "")
+                            dt.Rows[j][i] = "";
+                    }
+                }
+            }
+        }
+
         public XDocument XMLData
         {
             get
             {
                 using (var _stream = new MemoryStream())
                 {
+                    DeNULLify(mDS.Tables["Result"]);
                     mDS.Tables["Result"].WriteXml(_stream);
                     _stream.Position = 0;
                     XmlReaderSettings settings = new XmlReaderSettings();
@@ -584,7 +610,7 @@ namespace AccesoDatosNet
                     settings.CheckCharacters = false;
                     XmlReader reader = XmlReader.Create(_stream, settings);
                     reader.MoveToContent();
-                    if (reader.IsEmptyElement) { reader.Read(); return null; }
+                    //if (reader.IsEmptyElement) { reader.Read(); return null; }
                     try
                     {
                         var _res = XDocument.Load(reader);

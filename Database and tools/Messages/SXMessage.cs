@@ -3,8 +3,10 @@ using CommonTools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Xml.Linq;
 
 namespace Messages
@@ -133,6 +135,8 @@ namespace Messages
             string _dataBase = _xconn.Element("DataBase").Value.ToString(); //get the database
             var _server = new cServer(_xconn.Element("server")); //create the server object from the connection data
             string _sql = xmlMsgIn.Data.Element("sql").Value.ToString(); //get the sql
+            //lets remove the html escape characters:
+            _sql = WebUtility.HtmlDecode(_sql);
             using (var _conn = new cAccesoDatosNet(_server, _dataBase)) //create the normal connection
 
             using (var _rs = new DynamicRS(_sql, _conn)) // create the normal recordset
@@ -140,7 +144,7 @@ namespace Messages
                 try
                 {
                     await _rs.OpenAsync(); //execute the recordset
-                    xmlMsgOut = _rs.XMLData; //create the msgout xml data
+                    xmlMsgOut = _rs.XMLData; // ?? XDocument.Parse((new XElement("result", "Null")).ToString()); //create the msgout xml data
                     xmlMsgOut.Root.Name = "result";
                 }
                 catch (Exception ex)

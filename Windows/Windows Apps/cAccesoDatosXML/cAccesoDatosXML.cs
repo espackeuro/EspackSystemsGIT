@@ -1000,15 +1000,16 @@ namespace AccesoDatosXML
             };
             if (IPServerList.Count == 0)
             {
-#if !DEBUG
+#if DEBUG
                 IPServerList.Add(IPAddress.Parse("10.200.90.19"));
-#endif
+#else
                 IPServerList.Add(IPAddress.Parse("213.0.111.218"));
-#if !DEBUG
+
                 IPServerList.Add(IPAddress.Parse("46.24.173.2"));
-#endif
+
                 IPServerList.Add(IPAddress.Parse("81.150.8.34"));
                 IPServerList.Add(IPAddress.Parse("81.12.170.94"));
+#endif
             }
 
 
