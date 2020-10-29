@@ -14,7 +14,7 @@ using EspackFormControlsNS;
 using PowerShellControl;
 using static Sistemas.Values;
 using static CommonToolsWin.CTWin;
-using Renci.SshNet;
+
 
 namespace Sistemas
 {

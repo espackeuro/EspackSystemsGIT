@@ -17,7 +17,6 @@ using System.Xml.Linq;
 using SharpSvn;
 using SharpSvn.UI;
 using static Sistemas.Values;
-using Renci.SshNet;
 using System.Threading;
 using EspackFormControlsNS;
 

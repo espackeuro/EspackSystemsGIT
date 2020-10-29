@@ -29,41 +29,29 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EspackMenuContainer));
-            this.ElPanel = new System.Windows.Forms.Panel();
             this.ElMenu = new EspackMenuNS.EspackMenu();
             this.Menu1 = new EspackMenuNS.EspackToolStripItem();
             this.CloseButton = new EspackMenuNS.EspackToolStripItem();
-            this.ElPanel.SuspendLayout();
             this.ElMenu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // ElPanel
-            // 
-            this.ElPanel.AutoSize = true;
-            this.ElPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ElPanel.Controls.Add(this.ElMenu);
-            this.ElPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ElPanel.Location = new System.Drawing.Point(0, 0);
-            this.ElPanel.Name = "ElPanel";
-            this.ElPanel.Size = new System.Drawing.Size(415, 24);
-            this.ElPanel.TabIndex = 0;
-            // 
             // ElMenu
             // 
+            this.ElMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.ElMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Menu1,
             this.CloseButton});
             this.ElMenu.Location = new System.Drawing.Point(0, 0);
             this.ElMenu.Name = "ElMenu";
-            this.ElMenu.Size = new System.Drawing.Size(415, 24);
-            this.ElMenu.TabIndex = 0;
+            this.ElMenu.Size = new System.Drawing.Size(553, 28);
+            this.ElMenu.TabIndex = 1;
             this.ElMenu.Tag = "-";
             this.ElMenu.Text = "ElMenu";
             // 
             // Menu1
             // 
             this.Menu1.Name = "Menu1";
-            this.Menu1.Size = new System.Drawing.Size(50, 20);
+            this.Menu1.Size = new System.Drawing.Size(60, 24);
             this.Menu1.Tag = "-";
             this.Menu1.Text = "Menu";
             // 
@@ -75,20 +63,18 @@
             this.CloseButton.Image = ((System.Drawing.Image)(resources.GetObject("CloseButton.Image")));
             this.CloseButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(28, 20);
-            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
+            this.CloseButton.Size = new System.Drawing.Size(34, 24);
             // 
             // EspackMenuContainer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.Controls.Add(this.ElPanel);
-            this.MinimumSize = new System.Drawing.Size(100, 24);
+            this.Controls.Add(this.ElMenu);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(133, 30);
             this.Name = "EspackMenuContainer";
-            this.Size = new System.Drawing.Size(415, 24);
-            this.ElPanel.ResumeLayout(false);
-            this.ElPanel.PerformLayout();
+            this.Size = new System.Drawing.Size(553, 34);
             this.ElMenu.ResumeLayout(false);
             this.ElMenu.PerformLayout();
             this.ResumeLayout(false);
@@ -98,9 +84,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel ElPanel;
-        private EspackMenuNS.EspackMenu ElMenu;
-        private EspackMenuNS.EspackToolStripItem Menu1;
-        private EspackMenuNS.EspackToolStripItem CloseButton;
+        private EspackMenu ElMenu;
+        private EspackToolStripItem Menu1;
+        private EspackToolStripItem CloseButton;
     }
 }

@@ -26,14 +26,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Reflection;
+using System.ComponentModel.Design;
 
 namespace EspackMenuNS
 {
     public interface EspackMenuItem
     {
-        Form MDIParent();
+        Form MDIParent { get; }
     }
-
+    /*
+    [Designer("System.Windows.Forms.Design.ParentControlDesigner, System.Design", typeof(IDesigner))]
     public partial class EspackMenuContainer : UserControl
     {
         public EspackToolStripItem GetCloseButton
@@ -66,12 +68,16 @@ namespace EspackMenuNS
         {
             get; set;
         }
-
+        public Form MDIForm
+        {
+            get => (Form)Parent;
+        }
         private void CloseButton_Click(object sender, EventArgs e)
         {
             CurrentForm?.Close();
         }
     }
+    */
 }
 
 

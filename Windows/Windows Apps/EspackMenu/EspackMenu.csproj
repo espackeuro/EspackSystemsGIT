@@ -45,12 +45,7 @@
     <Compile Include="EspackMenu.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="EspackMenuContainer.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="EspackMenuContainer.Designer.cs">
-      <DependentUpon>EspackMenuContainer.cs</DependentUpon>
-    </Compile>
+    <Compile Include="EspackMenuItem.cs" />
     <Compile Include="EspackToolStripItem.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -68,9 +63,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="EspackMenuContainer.resx">
-      <DependentUpon>EspackMenuContainer.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

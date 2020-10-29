@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMain));
-
             this.mnuNetwork = new EspackMenuNS.EspackToolStripItem();
             this.mnuTowns = new EspackMenuNS.EspackToolStripItem();
             this.mnuZones = new EspackMenuNS.EspackToolStripItem();
@@ -45,23 +44,12 @@
             this.usersToolStripMenuItem1 = new EspackMenuNS.EspackToolStripItem();
             this.aliasToolStripMenuItem = new EspackMenuNS.EspackToolStripItem();
             this.securityProfilesToolStripMenuItem = new EspackMenuNS.EspackToolStripItem();
-            this.windowToolStripMenuItem = new EspackMenuNS.EspackToolStripItem();
             this.espackToolStripItem1 = new EspackMenuNS.EspackToolStripItem();
             this.espackToolStripItem2 = new EspackMenuNS.EspackToolStripItem();
-            //this.espackMenu1 = new EspackMenu.EspackMenu();
-            this.ElContenedor = new EspackMenuNS.EspackMenuContainer();
-            this.ElContenedor.SuspendLayout();
+            this.ElMenu = new EspackMenuNS.EspackMenu();
+            this.mnuWindow = new System.Windows.Forms.ToolStripMenuItem();
+            this.ElMenu.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // EspackMenu
-            // 
-            this.ElContenedor.GetEspackMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuNetwork,
-            this.actionsToolStripMenuItem,
-            this.tasksToolStripMenuItem,
-            this.controlToolStripMenuItem,
-            this.windowToolStripMenuItem,
-            this.espackToolStripItem1});
             // 
             // mnuNetwork
             // 
@@ -71,7 +59,7 @@
             this.mnuItems,
             this.systemsToolStripMenuItem});
             this.mnuNetwork.Name = "mnuNetwork";
-            this.mnuNetwork.Size = new System.Drawing.Size(74, 24);
+            this.mnuNetwork.Size = new System.Drawing.Size(74, 26);
             this.mnuNetwork.Tag = "-";
             this.mnuNetwork.Text = "Masters";
             // 
@@ -109,7 +97,7 @@
             this.dHCPControlToolStripMenuItem,
             this.dNSControlToolStripMenuItem});
             this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
-            this.actionsToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
+            this.actionsToolStripMenuItem.Size = new System.Drawing.Size(72, 26);
             this.actionsToolStripMenuItem.Tag = "-";
             this.actionsToolStripMenuItem.Text = "Actions";
             // 
@@ -130,7 +118,7 @@
             // tasksToolStripMenuItem
             // 
             this.tasksToolStripMenuItem.Name = "tasksToolStripMenuItem";
-            this.tasksToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
+            this.tasksToolStripMenuItem.Size = new System.Drawing.Size(56, 26);
             this.tasksToolStripMenuItem.Tag = "fTasks";
             this.tasksToolStripMenuItem.Text = "Tasks";
             // 
@@ -143,7 +131,7 @@
             this.aliasToolStripMenuItem,
             this.securityProfilesToolStripMenuItem});
             this.controlToolStripMenuItem.Name = "controlToolStripMenuItem";
-            this.controlToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
+            this.controlToolStripMenuItem.Size = new System.Drawing.Size(72, 26);
             this.controlToolStripMenuItem.Tag = "-";
             this.controlToolStripMenuItem.Text = "Control";
             // 
@@ -182,18 +170,12 @@
             this.securityProfilesToolStripMenuItem.Tag = "fProfiles";
             this.securityProfilesToolStripMenuItem.Text = "Security Profiles";
             // 
-            // windowToolStripMenuItem
-            // 
-            this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
-            this.windowToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
-            this.windowToolStripMenuItem.Text = "Window";
-            // 
             // espackToolStripItem1
             // 
             this.espackToolStripItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.espackToolStripItem2});
             this.espackToolStripItem1.Name = "espackToolStripItem1";
-            this.espackToolStripItem1.Size = new System.Drawing.Size(58, 24);
+            this.espackToolStripItem1.Size = new System.Drawing.Size(58, 26);
             this.espackToolStripItem1.Tag = "-";
             this.espackToolStripItem1.Text = "Tools";
             // 
@@ -203,35 +185,50 @@
             this.espackToolStripItem2.Size = new System.Drawing.Size(145, 26);
             this.espackToolStripItem2.Tag = "fSettings";
             this.espackToolStripItem2.Text = "Settings";
-
             // 
-            // ElContenedor
+            // ElMenu
             // 
-            this.ElContenedor.AutoSize = true;
-            this.ElContenedor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ElContenedor.Location = new System.Drawing.Point(0, 0);
-            this.ElContenedor.Margin = new System.Windows.Forms.Padding(0);
-            this.ElContenedor.Name = "ElContenedor";
-            this.ElContenedor.Size = new System.Drawing.Size(1675, 0);
-            this.ElContenedor.TabIndex = 10;
+            this.ElMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ElMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuNetwork,
+            this.actionsToolStripMenuItem,
+            this.tasksToolStripMenuItem,
+            this.controlToolStripMenuItem,
+            this.espackToolStripItem1,
+            this.mnuWindow});
+            this.ElMenu.Location = new System.Drawing.Point(0, 0);
+            this.ElMenu.Margin = new System.Windows.Forms.Padding(4);
+            this.ElMenu.MdiWindowListItem = this.mnuWindow;
+            this.ElMenu.MinimumSize = new System.Drawing.Size(133, 30);
+            this.ElMenu.Name = "ElMenu";
+            this.ElMenu.Size = new System.Drawing.Size(1675, 30);
+            this.ElMenu.TabIndex = 10;
+            this.ElMenu.Tag = "-";
+            this.ElMenu.Text = "ElMenu";
+            // 
+            // mnuWindow
+            // 
+            this.mnuWindow.Name = "mnuWindow";
+            this.mnuWindow.Size = new System.Drawing.Size(84, 26);
+            this.mnuWindow.Text = "Windows";
             // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1675, 887);
-            this.Controls.Add(this.ElContenedor);
+            this.Controls.Add(this.ElMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.KeyPreview = true;
-            this.MainMenuStrip = this.ElContenedor.GetEspackMenu;
+            this.MainMenuStrip = this.ElMenu;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "fMain";
             this.ShowIcon = false;
             this.Text = "Sistemas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.ElContenedor.ResumeLayout(false);
-            this.ElContenedor.PerformLayout();
+            this.ElMenu.ResumeLayout(false);
+            this.ElMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,10 +252,10 @@
         private EspackMenuNS.EspackToolStripItem usersToolStripMenuItem1;
         private EspackMenuNS.EspackToolStripItem aliasToolStripMenuItem;
         private EspackMenuNS.EspackToolStripItem securityProfilesToolStripMenuItem;
-        private EspackMenuNS.EspackToolStripItem windowToolStripMenuItem;
         private EspackMenuNS.EspackToolStripItem espackToolStripItem1;
         private EspackMenuNS.EspackToolStripItem espackToolStripItem2;
-        private EspackMenuNS.EspackMenuContainer ElContenedor;
+        private EspackMenuNS.EspackMenu ElMenu;
+        private System.Windows.Forms.ToolStripMenuItem mnuWindow;
     }
 }
 
