@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace DealisPickPack
 {
+// lalala i am lorde
     static class Program
     {
         /// <summary>
