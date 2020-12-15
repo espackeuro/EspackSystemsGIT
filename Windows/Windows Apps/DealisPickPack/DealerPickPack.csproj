@@ -6,12 +6,13 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C17BAB42-8D60-48DB-ADD6-C815221B33F4}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>DealisPickPack</RootNamespace>
-    <AssemblyName>DealisPickPack</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>DealerPickPack</RootNamespace>
+    <AssemblyName>DealerPickPack</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -74,6 +75,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -125,6 +127,10 @@
       <Project>{8c6814fe-bba2-4450-9077-51b2879cc90b}</Project>
       <Name>CTLMantenimiento</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EspackDataGridViewControl\EspackDataGridViewControl.csproj">
+      <Project>{7b49f1dd-dda5-4cc1-95cd-4a6eef81bf0b}</Project>
+      <Name>EspackDataGridViewControl</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EspackFormControlsCommon\EspackFormControlsCommon.csproj">
       <Project>{e73bea4d-371e-413f-9316-4b53e4a935a3}</Project>
       <Name>EspackFormControlsCommon</Name>
@@ -132,6 +138,10 @@
     <ProjectReference Include="..\EspackMenu\EspackMenu.csproj">
       <Project>{f58c64dc-f90a-4732-8afa-24db566247f9}</Project>
       <Name>EspackMenu</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EspackTextBoxControls\EspackFormControls.csproj">
+      <Project>{ff2efef1-a838-438a-88bd-bc5f0f8d6f15}</Project>
+      <Name>EspackFormControls</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

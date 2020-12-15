@@ -159,7 +159,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Personal", "Personal\Person
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogisticaMapsWinforms", "LogisticaMapsWinforms\LogisticaMapsWinforms.csproj", "{0F11FA91-7CB4-4401-BA63-F1EA2364223B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DealisPickPack", "DealisPickPack\DealisPickPack.csproj", "{C17BAB42-8D60-48DB-ADD6-C815221B33F4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DealerPickPack", "DealisPickPack\DealerPickPack.csproj", "{C17BAB42-8D60-48DB-ADD6-C815221B33F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

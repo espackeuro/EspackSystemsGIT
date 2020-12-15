@@ -20,5 +20,9 @@ namespace DealisPickPack
             }
             base.Dispose(disposing);
         }
+
+        private EspackFormControlsNS.CTLMantenimiento ctlMantenimiento1;
+        private EspackFormControlsNS.EspackTextBox espackTextBox1;
+        private EspackFormControlsNS.CTLMantenimiento ctlMantenimiento2;
     }
 }
