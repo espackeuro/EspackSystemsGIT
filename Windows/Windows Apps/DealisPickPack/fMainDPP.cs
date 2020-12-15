@@ -111,35 +111,18 @@ namespace DealisPickPack
             form.WindowState = FormWindowState.Maximized;
         }
 
-        private void referencesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void pendingWorkToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //fSimpleReferences fSimpleReferences = (fSimpleReferences)GetChildInstance("fSimpleReferences");
-            openForm(sender);
-        }
-        /*
-        private void simpleProductionOrderToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //fProductionOrders fProductionOrders = (fProductionOrders)GetChildInstance("fProductionOrders");
             openForm(sender);
         }
 
-        private void simpleExpeditionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //fSimpleDeliveriesEPC fSimpleExpeditions = (fSimpleDeliveriesEPC)GetChildInstance("fSimpleDeliveriesEPC");
-            openForm(sender);
-        }
-        private void hSAReceivalsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //fHSAReceivals fHSAReceivals = (fHSAReceivals)GetChildInstance("fHSAReceivals");
-            openForm(sender);
-        }
-        */
+       
     }
     public static class Values
     {
         public static cAccesoDatosNet gDatos = new cAccesoDatosNet();
         public static string LabelPrinterAddress = "";
-        public static string COD3 = "";
+        public static string COD3 = "VAL";
         public static string ProjectName = "";
     }
 }

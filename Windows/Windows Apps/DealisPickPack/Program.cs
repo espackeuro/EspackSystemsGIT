@@ -1,14 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Reflection;
 using System.Windows.Forms;
+using CommonTools;
+using CommonToolsWin;
 
 namespace DealisPickPack
 {
-// lalala i am lorde
     static class Program
     {
+        public static fMainDPP fMain { get; set; }
+
+        public static string VersionNumber
+        {
+            get
+            {
+                return string.Format("{0} Build {1} - ({2:yyyyMMdd})*", Values.ProjectName, Assembly.GetExecutingAssembly().GetName().Version.ToString(), CT.GetBuildDateTime(Assembly.GetExecutingAssembly()));
+            }
+        }
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -17,7 +26,10 @@ namespace DealisPickPack
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fMain(args));
+            new frmSplash(args).ShowDialog();
+
+            fMain = new fMainDPP(args);
+            Application.Run(fMain);
         }
     }
 }

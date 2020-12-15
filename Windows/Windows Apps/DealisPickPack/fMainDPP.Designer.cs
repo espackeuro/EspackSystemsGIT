@@ -32,11 +32,11 @@
             this.inboundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.receivalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.processingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pendingWorkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.husToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.containersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.outboundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deliveriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.husToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pendingWorkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,7 +64,7 @@
             // receivalsToolStripMenuItem
             // 
             this.receivalsToolStripMenuItem.Name = "receivalsToolStripMenuItem";
-            this.receivalsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.receivalsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.receivalsToolStripMenuItem.Tag = "fSimpleReceivals";
             this.receivalsToolStripMenuItem.Text = "Receivals";
             // 
@@ -78,10 +78,25 @@
             this.processingToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.processingToolStripMenuItem.Text = "Processing";
             // 
+            // pendingWorkToolStripMenuItem
+            // 
+            this.pendingWorkToolStripMenuItem.Name = "pendingWorkToolStripMenuItem";
+            this.pendingWorkToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pendingWorkToolStripMenuItem.Tag = "fPendingWork";
+            this.pendingWorkToolStripMenuItem.Text = "Pending Work";
+            this.pendingWorkToolStripMenuItem.Click += new System.EventHandler(this.pendingWorkToolStripMenuItem_Click);
+            // 
+            // husToolStripMenuItem
+            // 
+            this.husToolStripMenuItem.Name = "husToolStripMenuItem";
+            this.husToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.husToolStripMenuItem.Tag = "fHUs";
+            this.husToolStripMenuItem.Text = "HU\'s";
+            // 
             // containersToolStripMenuItem
             // 
             this.containersToolStripMenuItem.Name = "containersToolStripMenuItem";
-            this.containersToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.containersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.containersToolStripMenuItem.Tag = "fContainers";
             this.containersToolStripMenuItem.Text = "Containers";
             // 
@@ -100,21 +115,7 @@
             this.deliveriesToolStripMenuItem.Tag = "fDeliveries";
             this.deliveriesToolStripMenuItem.Text = "Deliveries";
             // 
-            // husToolStripMenuItem
-            // 
-            this.husToolStripMenuItem.Name = "husToolStripMenuItem";
-            this.husToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
-            this.husToolStripMenuItem.Tag = "fHUs";
-            this.husToolStripMenuItem.Text = "HU\'s";
-            // 
-            // pendingWorkToolStripMenuItem
-            // 
-            this.pendingWorkToolStripMenuItem.Name = "pendingWorkToolStripMenuItem";
-            this.pendingWorkToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.pendingWorkToolStripMenuItem.Tag = "fPendingWork";
-            this.pendingWorkToolStripMenuItem.Text = "Pending Work";
-            // 
-            // fMain
+            // fMainDPP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -122,8 +123,8 @@
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "fMain";
-            this.Text = "Form1";
+            this.Name = "fMainDPP";
+            this.Text = "Dealis Pick Pack";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

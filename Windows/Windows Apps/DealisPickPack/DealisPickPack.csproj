@@ -46,16 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="fMain.cs">
+    <Compile Include="fMainDPP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fMain.Designer.cs">
-      <DependentUpon>fMain.cs</DependentUpon>
+    <Compile Include="fMainDPP.Designer.cs">
+      <DependentUpon>fMainDPP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fPendingWork.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fPendingWork.Designer.cs">
+      <DependentUpon>fPendingWork.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="fMain.resx">
-      <DependentUpon>fMain.cs</DependentUpon>
+    <EmbeddedResource Include="fMainDPP.resx">
+      <DependentUpon>fMainDPP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fPendingWork.resx">
+      <DependentUpon>fPendingWork.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -92,6 +101,18 @@
       <Project>{9148f7e6-31f6-4f96-b7dc-afea449998c7}</Project>
       <Name>CommonTools</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Database and tools\RawPrinterHelper\RawPrinterHelper\RawPrinterHelper.csproj">
+      <Project>{265be0fe-a0b7-4a6f-84a3-2364a5cf865e}</Project>
+      <Name>RawPrinterHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\EspackClasses\EspackClasses.csproj">
+      <Project>{60c3af59-c083-4db1-a9ff-ddec1e429029}</Project>
+      <Name>EspackClasses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\EspackControls\DiverseControls\DiverseControls\DiverseControls.csproj">
+      <Project>{005bd28a-42c7-4785-9eb1-bd6f2b7564c3}</Project>
+      <Name>DiverseControls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\EspackControls\EspackControls\EspackControls.csproj">
       <Project>{ece9aa32-f756-4be3-a926-b0771e69066b}</Project>
       <Name>EspackControls</Name>
@@ -104,10 +125,6 @@
       <Project>{8c6814fe-bba2-4450-9077-51b2879cc90b}</Project>
       <Name>CTLMantenimiento</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EspackDataGridViewControl\EspackDataGridViewControl.csproj">
-      <Project>{7b49f1dd-dda5-4cc1-95cd-4a6eef81bf0b}</Project>
-      <Name>EspackDataGridViewControl</Name>
-    </ProjectReference>
     <ProjectReference Include="..\EspackFormControlsCommon\EspackFormControlsCommon.csproj">
       <Project>{e73bea4d-371e-413f-9316-4b53e4a935a3}</Project>
       <Name>EspackFormControlsCommon</Name>
@@ -115,10 +132,6 @@
     <ProjectReference Include="..\EspackMenu\EspackMenu.csproj">
       <Project>{f58c64dc-f90a-4732-8afa-24db566247f9}</Project>
       <Name>EspackMenu</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EspackTextBoxControls\EspackFormControls.csproj">
-      <Project>{ff2efef1-a838-438a-88bd-bc5f0f8d6f15}</Project>
-      <Name>EspackFormControls</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
