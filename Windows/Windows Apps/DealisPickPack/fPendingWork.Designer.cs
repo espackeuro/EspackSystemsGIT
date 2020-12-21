@@ -27,12 +27,66 @@ namespace DealisPickPack
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewRow dataGridViewRow1 = new System.Windows.Forms.DataGridViewRow();
-            this.cboRoute = new EspackFormControlsNS.EspackComboBox();
-            this.txtRouteDescription = new EspackFormControlsNS.EspackTextBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.VS = new EspackDataGridView.EspackDataGridViewControl();
+            this.txtRouteDescription = new EspackFormControlsNS.EspackTextBox();
+            this.cboRoute = new EspackFormControlsNS.EspackComboBox();
+            this.VS = new System.Windows.Forms.DataGridView();
+            this.Route = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Finis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QtyPending = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dealer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DealerDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderItemNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
             this.SuspendLayout();
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Image = global::DealerPickPack.Properties.Resources.reload_24;
+            this.btnRefresh.Location = new System.Drawing.Point(477, 53);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(39, 24);
+            this.btnRefresh.TabIndex = 14;
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // txtRouteDescription
+            // 
+            this.txtRouteDescription.Add = false;
+            this.txtRouteDescription.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtRouteDescription.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtRouteDescription.Caption = "Description";
+            this.txtRouteDescription.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtRouteDescription.DBField = null;
+            this.txtRouteDescription.DBFieldType = null;
+            this.txtRouteDescription.DefaultValue = null;
+            this.txtRouteDescription.Del = false;
+            this.txtRouteDescription.DependingRS = null;
+            this.txtRouteDescription.ExtraDataLink = null;
+            this.txtRouteDescription.ForeColor = System.Drawing.Color.Gray;
+            this.txtRouteDescription.IsCTLMOwned = false;
+            this.txtRouteDescription.IsPassword = false;
+            this.txtRouteDescription.Location = new System.Drawing.Point(148, 39);
+            this.txtRouteDescription.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtRouteDescription.Multiline = true;
+            this.txtRouteDescription.Name = "txtRouteDescription";
+            this.txtRouteDescription.Order = 0;
+            this.txtRouteDescription.ParentConn = null;
+            this.txtRouteDescription.ParentDA = null;
+            this.txtRouteDescription.PK = false;
+            this.txtRouteDescription.Protected = false;
+            this.txtRouteDescription.ReadOnly = true;
+            this.txtRouteDescription.Search = false;
+            this.txtRouteDescription.Size = new System.Drawing.Size(322, 38);
+            this.txtRouteDescription.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtRouteDescription.TabIndex = 13;
+            this.txtRouteDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtRouteDescription.Upp = false;
+            this.txtRouteDescription.Value = "";
+            this.txtRouteDescription.WordWrap = true;
             // 
             // cboRoute
             // 
@@ -70,103 +124,84 @@ namespace DealisPickPack
             this.cboRoute.Value = "";
             this.cboRoute.ValueMember = "";
             // 
-            // txtRouteDescription
-            // 
-            this.txtRouteDescription.Add = false;
-            this.txtRouteDescription.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.txtRouteDescription.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txtRouteDescription.Caption = "Description";
-            this.txtRouteDescription.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtRouteDescription.DBField = null;
-            this.txtRouteDescription.DBFieldType = null;
-            this.txtRouteDescription.DefaultValue = null;
-            this.txtRouteDescription.Del = false;
-            this.txtRouteDescription.DependingRS = null;
-            this.txtRouteDescription.ExtraDataLink = null;
-            this.txtRouteDescription.ForeColor = System.Drawing.Color.Gray;
-            this.txtRouteDescription.IsCTLMOwned = false;
-            this.txtRouteDescription.IsPassword = false;
-            this.txtRouteDescription.Location = new System.Drawing.Point(148, 39);
-            this.txtRouteDescription.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
-            this.txtRouteDescription.Multiline = true;
-            this.txtRouteDescription.Name = "txtRouteDescription";
-            this.txtRouteDescription.Order = 0;
-            this.txtRouteDescription.ParentConn = null;
-            this.txtRouteDescription.ParentDA = null;
-            this.txtRouteDescription.PK = false;
-            this.txtRouteDescription.Protected = false;
-            this.txtRouteDescription.ReadOnly = true;
-            this.txtRouteDescription.Search = false;
-            this.txtRouteDescription.Size = new System.Drawing.Size(322, 38);
-            this.txtRouteDescription.Status = CommonTools.EnumStatus.ADDNEW;
-            this.txtRouteDescription.TabIndex = 13;
-            this.txtRouteDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtRouteDescription.Upp = false;
-            this.txtRouteDescription.Value = "";
-            this.txtRouteDescription.WordWrap = true;
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Image = global::DealerPickPack.Properties.Resources.reload_24;
-            this.btnRefresh.Location = new System.Drawing.Point(477, 53);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(39, 24);
-            this.btnRefresh.TabIndex = 14;
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
             // VS
             // 
-            this.VS.Add = false;
-            this.VS.AllowDelete = false;
-            this.VS.AllowInsert = false;
-            this.VS.AllowUpdate = false;
             this.VS.AllowUserToAddRows = false;
-            this.VS.AllowUserToResizeColumns = true;
-            this.VS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.VS.Caption = "";
-            this.VS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.VS.ColumnHeadersVisible = true;
-            this.VS.Conn = null;
-            this.VS.CurrentCell = null;
-            this.VS.DataSource = null;
-            this.VS.DBField = null;
-            this.VS.DBFieldType = null;
-            this.VS.DBTable = null;
-            this.VS.DefaultValue = null;
-            this.VS.Del = false;
-            this.VS.DependingRS = null;
-            this.VS.DGFocused = false;
-            this.VS.Dirty = false;
-            this.VS.EspackControlParent = null;
-            this.VS.ExtraDataLink = null;
-            this.VS.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.VS.HorizontalScrollingOffset = 0;
-            this.VS.IsCTLMOwned = false;
-            this.VS.Location = new System.Drawing.Point(12, 83);
-            this.VS.MsgStatusLabel = null;
+            this.VS.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.VS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Route,
+            this.Finis,
+            this.Qty,
+            this.QtyPending,
+            this.Dealer,
+            this.DealerDesc,
+            this.OrderNumber,
+            this.OrderItemNumber});
+            this.VS.Location = new System.Drawing.Point(13, 84);
             this.VS.Name = "VS";
-            this.VS.NumPages = 0;
-            this.VS.Order = 0;
-            this.VS.Page = 0;
-            this.VS.Paginate = false;
-            this.VS.ParentConn = null;
-            this.VS.ParentDA = null;
-            this.VS.PK = false;
-            this.VS.Protected = false;
-            this.VS.RowCount = 0;
-            this.VS.RowHeadersVisible = false;
-            this.VS.RowTemplate = dataGridViewRow1;
-            this.VS.Search = false;
-            this.VS.Size = new System.Drawing.Size(656, 308);
-            this.VS.SQL = null;
-            this.VS.sSPAdd = "";
-            this.VS.sSPDel = "";
-            this.VS.sSPUpp = "";
-            this.VS.Status = CommonTools.EnumStatus.SEARCH;
-            this.VS.TabIndex = 155;
-            this.VS.Upp = false;
-            this.VS.Value = null;
+            this.VS.ReadOnly = true;
+            this.VS.Size = new System.Drawing.Size(775, 276);
+            this.VS.TabIndex = 15;
+            // 
+            // Route
+            // 
+            this.Route.HeaderText = "ROUTE";
+            this.Route.Name = "Route";
+            this.Route.ReadOnly = true;
+            this.Route.Width = 70;
+            // 
+            // Finis
+            // 
+            this.Finis.HeaderText = "FINIS";
+            this.Finis.Name = "Finis";
+            this.Finis.ReadOnly = true;
+            this.Finis.Width = 70;
+            // 
+            // Qty
+            // 
+            this.Qty.HeaderText = "QTY";
+            this.Qty.Name = "Qty";
+            this.Qty.ReadOnly = true;
+            this.Qty.Width = 50;
+            // 
+            // QtyPending
+            // 
+            this.QtyPending.HeaderText = "PENDING QTY";
+            this.QtyPending.Name = "QtyPending";
+            this.QtyPending.ReadOnly = true;
+            this.QtyPending.Width = 105;
+            // 
+            // Dealer
+            // 
+            this.Dealer.HeaderText = "DEALER";
+            this.Dealer.Name = "Dealer";
+            this.Dealer.ReadOnly = true;
+            // 
+            // DealerDesc
+            // 
+            this.DealerDesc.HeaderText = "DESCRIPTION";
+            this.DealerDesc.Name = "DealerDesc";
+            this.DealerDesc.ReadOnly = true;
+            // 
+            // OrderNumber
+            // 
+            this.OrderNumber.HeaderText = "ORDER NUMBER";
+            this.OrderNumber.Name = "OrderNumber";
+            this.OrderNumber.ReadOnly = true;
+            // 
+            // OrderItemNumber
+            // 
+            this.OrderItemNumber.HeaderText = "ORDER ITEM";
+            this.OrderItemNumber.Name = "OrderItemNumber";
+            this.OrderItemNumber.ReadOnly = true;
             // 
             // fPendingWork
             // 
@@ -180,6 +215,7 @@ namespace DealisPickPack
             this.Controls.Add(this.cboRoute);
             this.Name = "fPendingWork";
             this.Text = "fPendingWork";
+            ((System.ComponentModel.ISupportInitialize)(this.VS)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -187,6 +223,14 @@ namespace DealisPickPack
         private EspackFormControlsNS.EspackComboBox cboRoute;
         private EspackFormControlsNS.EspackTextBox txtRouteDescription;
         private System.Windows.Forms.Button btnRefresh;
-        private EspackDataGridView.EspackDataGridViewControl VS;
+        private System.Windows.Forms.DataGridView VS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Route;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Finis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QtyPending;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dealer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DealerDesc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderItemNumber;
     }
 }

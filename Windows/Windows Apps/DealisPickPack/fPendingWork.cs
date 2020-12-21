@@ -26,36 +26,39 @@ namespace DealisPickPack
             cboRoute.Source("Select RouteCode,Description from MasterRoutes where cod3='" + Values.COD3 + "' order by RouteCode", txtRouteDescription);
             cboRoute.SelectedValueChanged += CboRoute_SelectedValueChanged;
 
-            // VS
-            VS.Conn = Values.gDatos;
-            VS.AddColumn("Code", txtCode, "@Code", "@Code", "@Code");
-            VS.AddColumn("Line", "Line", "@Line", "@Line", "@Line", true, false, true, pWidth: 100);
-            VS.AddColumn("Type", "Type", "@Type", "", "", true, false, false, "Select Code from ItemTypes order by Code", pWidth: 200);
-            VS.AddColumn("Description", "Description", "@Description", "@Description", pWidth: 100);
-            VS.AddColumn("Value1", "Value1", "@Value1", "@Value1", "", pWidth: 100);
-            VS.AddColumn("Value2", "Value2", "@Value2", "@Value2", "", pAutoSizeMode: DataGridViewAutoSizeColumnMode.Fill);
-            VS.DBTable = "ItemsDet";
         }
 
 
         private void CboRoute_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (cboRoute.Text != "")
-            {
-                btnRefresh_Click(sender, e);
-            } 
-            else
-            {
-                VS.ClearEspackControl();
-            }   
+            btnRefresh_Click(sender, e);
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            
+            VS_Show();
+
         }
 
-        
+        private void VS_Show()
+        {
+            VS.Rows.Clear();
+
+            using (var _rs = new StaticRS("select Route,Finis,Qty,QtyPending,Dealer,DealerDesc,OrderNumber,OrderItemNumber from vPendingLines " + (cboRoute.Text != "" ? "where Route='" + cboRoute.Text + "' " : "") + "order by Route,Dealer,OrderNumber,OrderItemNumber,Finis", Values.gDatos))
+            {
+                _rs.Open();
+                while (!_rs.EOF)
+                {
+                    VS.Rows.Add(_rs.ToString());
+                    _rs.MoveNext();
+                }
+            }
+
+            VS.Refresh();
+
+
+        }
+
     }
 
 }
