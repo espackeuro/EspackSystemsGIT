@@ -64,7 +64,7 @@
             // receivalsToolStripMenuItem
             // 
             this.receivalsToolStripMenuItem.Name = "receivalsToolStripMenuItem";
-            this.receivalsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.receivalsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.receivalsToolStripMenuItem.Tag = "fSimpleReceivals";
             this.receivalsToolStripMenuItem.Text = "Receivals";
             // 
@@ -81,7 +81,7 @@
             // pendingWorkToolStripMenuItem
             // 
             this.pendingWorkToolStripMenuItem.Name = "pendingWorkToolStripMenuItem";
-            this.pendingWorkToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pendingWorkToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.pendingWorkToolStripMenuItem.Tag = "fPendingWork";
             this.pendingWorkToolStripMenuItem.Text = "Pending Work";
             this.pendingWorkToolStripMenuItem.Click += new System.EventHandler(this.pendingWorkToolStripMenuItem_Click);
@@ -89,14 +89,14 @@
             // husToolStripMenuItem
             // 
             this.husToolStripMenuItem.Name = "husToolStripMenuItem";
-            this.husToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.husToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.husToolStripMenuItem.Tag = "fHUs";
             this.husToolStripMenuItem.Text = "HU\'s";
             // 
             // containersToolStripMenuItem
             // 
             this.containersToolStripMenuItem.Name = "containersToolStripMenuItem";
-            this.containersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.containersToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.containersToolStripMenuItem.Tag = "fContainers";
             this.containersToolStripMenuItem.Text = "Containers";
             // 
@@ -124,7 +124,9 @@
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fMainDPP";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dealis Pick Pack";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
