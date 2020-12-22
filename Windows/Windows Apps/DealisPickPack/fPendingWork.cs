@@ -48,12 +48,12 @@ namespace DealisPickPack
             VS.Rows.Clear();
 
             // Add the results of the query to the DataGrid            
-            using (var _rs = new StaticRS("select Route,Finis,Qty,QtyPending,Dealer,DealerDesc,OrderNumber,OrderItemNumber from vPendingLines where cod3='" + Values.COD3 + "' " + (cboRoute.Text != "" ? "and Route='" + cboRoute.Text + "' " : "") + "order by Route,Dealer,OrderNumber,OrderItemNumber,Finis", Values.gDatos))
+            using (var _rs = new StaticRS("select Route,Finis,Qty,QtyPending,Dealer,DealerDesc,OrderNumber,OrderItemNumber,ReceivalCode,Line from vPendingLines where cod3='" + Values.COD3 + "' " + (cboRoute.Text != "" ? "and Route='" + cboRoute.Text + "' " : "") + "order by Route,Dealer,OrderNumber,OrderItemNumber,Finis", Values.gDatos))
             {
                 _rs.Open();
                 while (!_rs.EOF)
                 {
-                    VS.Rows.Add(_rs["Route"], _rs["Finis"], _rs["Qty"], _rs["QtyPending"], _rs["Dealer"], _rs["DealerDesc"], _rs["OrderNumber"], _rs["OrderItemNumber"]);
+                    VS.Rows.Add(_rs["Route"], _rs["Finis"], _rs["Qty"], _rs["QtyPending"], _rs["Dealer"], _rs["DealerDesc"], _rs["OrderNumber"], _rs["OrderItemNumber"],_rs["ReceivalCode"],_rs["Line"]);
                     _rs.MoveNext();
                 }
             }
@@ -81,14 +81,17 @@ namespace DealisPickPack
         private void VSHUDet_Show()
         {
             VSHUDet.Rows.Clear();
-            // Add the results of the query to the DataGrid            
-            using (var _rs = new StaticRS("select HU,Finis,Qty,ReceivalCode,Receival from HUDet where cod3='" + Values.COD3 + "' " + (cboRoute.Text != "" ? "and HU='" + VSHUCab["HU", VSHUCab.CurrentRow.Index].Value + "' " : "") + "order Finis,Qty,ReceivalCode,Receival", Values.gDatos))
+            // Add the results of the query to the DataGrid       
+            if (VSHUCab.Rows.Count > 0)
             {
-                _rs.Open();
-                while (!_rs.EOF)
+                using (var _rs = new StaticRS("select HU,Finis,Qty,ReceivalCode,ReceivalLine from HUDet where cod3='" + Values.COD3 + "' " + (cboRoute.Text != "" ? "and HU='" + VSHUCab["HUCab", VSHUCab.CurrentRow.Index].Value + "' " : "") + "order Finis,Qty,ReceivalCode,Receival", Values.gDatos))
                 {
-                    VSHUDet.Rows.Add(_rs["HU"], _rs["Finis"], _rs["Qty"], _rs["ReceivalCode"], _rs["Receival"]);
-                    _rs.MoveNext();
+                    _rs.Open();
+                    while (!_rs.EOF && _rs.Rows !=null)
+                    {
+                        VSHUDet.Rows.Add(_rs["HU"], _rs["Finis"], _rs["Qty"], _rs["ReceivalCode"], _rs["ReceivalLine"]);
+                        _rs.MoveNext();
+                    }
                 }
             }
             VSHUDet.Refresh();
@@ -108,9 +111,9 @@ namespace DealisPickPack
         {
             using (var _sp = new SP(Values.gDatos, "pHUDetAdd"))
             {
-                _sp.AddParameterValue("@HU", VSHUCab["HU", VSHUCab.CurrentRow.Index].Value);
-                _sp.AddParameterValue("@Receival", VSHUCab["ReceivalCode", VSHUCab.CurrentRow.Index].Value);
-                _sp.AddParameterValue("@Line", VSHUCab["Line", VSHUCab.CurrentRow.Index].Value);
+                _sp.AddParameterValue("@HU", VSHUCab["HUCab", VSHUCab.CurrentRow.Index].Value);
+                _sp.AddParameterValue("@Receival", VS["ReceivalCode", VS.CurrentRow.Index].Value);
+                _sp.AddParameterValue("@Line", VS["Line", VS.CurrentRow.Index].Value);
                 _sp.AddParameterValue("@Qty", qty);
                 _sp.AddParameterValue("@cod3", Values.COD3);
                 try
@@ -135,9 +138,9 @@ namespace DealisPickPack
         {
             using (var _sp = new SP(Values.gDatos, "pHUDetDel"))
             {
-                _sp.AddParameterValue("@HU", VSHUDet["HU", VSHUDet.CurrentRow.Index].Value);
-                _sp.AddParameterValue("@Receival", VSHUDet["ReceivalCode", VSHUDet.CurrentRow.Index].Value);
-                _sp.AddParameterValue("@Line", VSHUCab["Line", VSHUDet.CurrentRow.Index].Value);
+                _sp.AddParameterValue("@HU", VSHUDet["HUDet", VSHUDet.CurrentRow.Index].Value);
+                _sp.AddParameterValue("@Receival", VSHUDet["HURecCode", VSHUDet.CurrentRow.Index].Value);
+                _sp.AddParameterValue("@Line", VSHUDet["HURecLine", VSHUDet.CurrentRow.Index].Value);
                 _sp.AddParameterValue("@cod3", Values.COD3);
                 try
                 {
