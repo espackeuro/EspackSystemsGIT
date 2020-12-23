@@ -63,9 +63,19 @@ namespace DealerPickPack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap reload_24 {
+        internal static System.Drawing.Bitmap edit_add {
             get {
-                object obj = ResourceManager.GetObject("reload_24", resourceCulture);
+                object obj = ResourceManager.GetObject("edit_add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap quick_restart_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("quick_restart_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

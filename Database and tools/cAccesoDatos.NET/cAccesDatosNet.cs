@@ -329,7 +329,7 @@ namespace AccesoDatosNet
         {
             get
             {
-                return Result.Count;
+                return Result?.Count ?? 0;
             }
         }
 
@@ -377,7 +377,7 @@ namespace AccesoDatosNet
                 dT = new DataTable();
                 dT.Load(mDR);
                 Result = dT.Rows.OfType<DataRow>().ToList();
-                EOF = Result.Count() == 0;
+                EOF = RecordCount == 0;
                 Index = 0;
             }
             catch (Exception ex)
@@ -406,10 +406,10 @@ namespace AccesoDatosNet
             try
             {
                 mDR = await Cmd.ExecuteReaderAsync();
-                var _dt = new DataTable();
-                await Task.Run(() => _dt.Load(mDR));
-                Result = _dt.Rows.OfType<DataRow>().ToList();
-                EOF = Result.Count() == 0;
+                dT = new DataTable();
+                await Task.Run(() => dT.Load(mDR));
+                Result = dT.Rows.OfType<DataRow>().ToList();
+                EOF = RecordCount == 0;
                 Index = 0;
             }
             catch (Exception ex)
