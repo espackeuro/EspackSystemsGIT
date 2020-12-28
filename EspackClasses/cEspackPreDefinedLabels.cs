@@ -9,12 +9,12 @@ namespace EspackClasses
     interface cEspackPreDefinedLabels
     {
         cLabel Label { get; set; }
-        Dictionary<string,string> Parameters { get; set; }
+        Dictionary<string, string> Parameters { get; set; }
         string ToString();
 
     }
 
-    public class MicroCM:cEspackPreDefinedLabels
+    public class MicroCM : cEspackPreDefinedLabels
     {
         public cLabel Label { get; set; }
         public Dictionary<string, string> Parameters { get; set; } = new Dictionary<string, string>();
@@ -48,7 +48,7 @@ namespace EspackClasses
             return Label.ToString(Parameters);
         }
     }
-    public class SingleBarcode:cEspackPreDefinedLabels
+    public class SingleBarcode : cEspackPreDefinedLabels
     {
         public cLabel Label { get; set; }
         public Dictionary<string, string> Parameters { get; set; } = new Dictionary<string, string>();
@@ -85,9 +85,35 @@ namespace EspackClasses
             var _middle = Convert.ToInt32(Label.width / 2f);
             var _right = Convert.ToInt32(Label.width) - 3;
             var _height = Convert.ToInt32(Label.height);
-            Label.addLine(_middle, 13, 0, "C", "", "[VALUE]", 85, rotated:true);
-            Label.addLine(_right, 75, 0, "I", "", "[BC][HASHVAL]", 0, _height / 4 , 2, false, true);
+            Label.addLine(_middle, 13, 0, "C", "", "[VALUE]", 85, rotated: true);
+            Label.addLine(_right, 75, 0, "I", "", "[BC][HASHVAL]", 0, _height / 4, 2, false, true);
 
+        }
+        public override string ToString()
+        {
+            return Label.ToString(Parameters);
+        }
+    }
+
+    public class DealerPickPackHULabel : cEspackPreDefinedLabels
+    {
+        public cLabel Label { get; set; }
+        public Dictionary<string, string> Parameters { get; set; } = new Dictionary<string, string>();
+        public DealerPickPackHULabel(cLabel pLabel)
+        {
+            //Assignments
+            Label = pLabel;
+            //Parameters
+            Parameters.Add("HU", "");
+            Parameters.Add("ROUTE", "");
+            Parameters.Add("DEALER", "");
+            //Label Design
+            var _middle = Convert.ToInt32(Label.width / 2f);
+            var _right = Convert.ToInt32(Label.width) - 3;
+            var _height = Convert.ToInt32(Label.height);
+            Label.addLine(0,0, 70, "I", "", "[BC][HU]", 85,10,2, humanReadable: true);
+            Label.addLine(0, 10, 70, "I", "", "ROUTE : [ROUTE]",70);
+            Label.addLine(0, 20, 70, "I", "", "DEALER: [DEALER]",70);
         }
         public override string ToString()
         {

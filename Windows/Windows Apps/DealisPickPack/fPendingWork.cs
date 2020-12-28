@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using AccesoDatosNet;
 using CommonToolsWin;
 using EspackDataGridView;
+using EspackClasses;
 using RawPrinterHelper;
 using System.Threading;
 using System.Data.SqlClient;
@@ -47,12 +48,10 @@ namespace DealisPickPack
             _toolTip1.InitialDelay = 1000;
             _toolTip1.ReshowDelay = 500;
 
-            // btnRefresh
+            // Button tooltips
             _toolTip1.SetToolTip(btnRefresh, "Refresh");
-
-            // btnNewHU
             _toolTip1.SetToolTip(btnNewHU, "New HU");
-
+            _toolTip1.SetToolTip(btnPrintHULabel, "Print HU");
         }
 
         ////////// EVENTS //////////
@@ -104,11 +103,17 @@ namespace DealisPickPack
         private void btnNewHU_Click(object sender, EventArgs e)
         {
             pHUCabAdd();
+            PrintHULabel(sender, e);
         }
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             VS_Show();
             VSHUCab_Show();
+        }
+
+        private void btnPrintHULabel_Click(object sender, EventArgs e)
+        {
+            PrintHULabel(sender, e);
         }
 
         ////////// FUNCTIONS //////////
@@ -164,6 +169,51 @@ namespace DealisPickPack
             VSHUDet.CurrentCell = null;
             VSHUDet.Refresh();
         }
+
+        private void PrintHULabel(object sender, EventArgs e)
+        {
+            if (1==1)
+            {
+                int _labelInit = 0;
+
+                //txtPrinter.Text = Values.LabelPrinterAddress.ToString();
+
+                string _printerAddress = "\\\\valsrv02\\INFORMATICA_ELTRON"; //VALLBLPRN003
+
+                int _printerResolution = 203;
+                //using (var _RS = new DynamicRS(string.Format("select descripcion,cmp_varchar,cmp_integer from ETIQUETAS..datosEmpresa where codigo='{0}'", Values.LabelPrinterAddress), Values.gDatos))
+                //{
+                //    _RS.Open();
+                //    _printerAddress = _RS["cmp_varchar"].ToString();
+                //    _printerResolution = Convert.ToInt32(_RS["cmp_integer"]);
+                //    //_printerType = _RS["descripcion"].ToString().Split('|')[0];
+                //}
+
+                var _label = new ZPLLabel(70, 32, 3, _printerResolution);
+                var _unitLabel = new DealerPickPackHULabel(_label);
+
+                //_label.addLine(35, 3, 0, "C", "", "[BC][UNITNUMBER]", 0, 2.5F, 1,true);
+                //var _param = new Dictionary<string, string>();
+                using (var _printer = new cRawPrinterHelper(_printerAddress))
+                {
+                    //var _delimiterLabel = new ZPLLabel(_unitLabel.Label.width, _unitLabel.Label.height, 3, _unitLabel.Label.dpi);
+                    //delimiterLabel.delim(_delimiterLabel, "START UNIT LABELS", "-");
+                    //_printer.SendUTF8StringToPrinter(_delimiterLabel.ToString(), 1);
+                    ////for (var i = _labelInit; i < _labelInit + Convert.ToInt32(txtQty.Value); i++)
+                    //for (var i = _labelInit + Convert.ToInt32(1) - 1; i >= _labelInit; i--)
+                    //{
+                    _unitLabel.Parameters["HU"] = "TEST00001"; //+ i.ToString().PadLeft(8, '0');
+                    _unitLabel.Parameters["ROUTE"] = "RUTALAPUTA";
+                    _unitLabel.Parameters["DEALER"] = "ES12220";
+                    //for (var j = 0; j < Convert.ToInt32(1); j++)
+                    _printer.SendUTF8StringToPrinter(_unitLabel.ToString(), 1);
+                    //}
+                    //delimiterLabel.delim(_delimiterLabel, "END UNIT LABLES", "-");
+                    //_printer.SendUTF8StringToPrinter(_delimiterLabel.ToString(), 1);
+                }
+            }
+        }
+
         ////////// SPs //////////
         private void pHUCabAdd()
         {
@@ -243,6 +293,7 @@ namespace DealisPickPack
                 VSHUDet_Show();
             }
         }
+
 
     }
 
