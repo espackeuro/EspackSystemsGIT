@@ -1,5 +1,5 @@
 ﻿
-namespace DealisPickPack
+namespace DealerPickPack
 {
     partial class fPendingWork
     {

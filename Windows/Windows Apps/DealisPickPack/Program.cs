@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using CommonTools;
 using CommonToolsWin;
 
-namespace DealisPickPack
+namespace DealerPickPack
 {
     static class Program
     {

@@ -1,4 +1,4 @@
-﻿namespace DealisPickPack
+﻿namespace DealerPickPack
 {
     partial class fMainDPP
     {

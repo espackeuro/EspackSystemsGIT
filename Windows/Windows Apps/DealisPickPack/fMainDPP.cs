@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DealisPickPack
+namespace DealerPickPack
 {
     public partial class fMainDPP : Form
     {
@@ -19,7 +19,7 @@ namespace DealisPickPack
             InitializeComponent();
 
             var espackArgs = CT.LoadVars(args);
-            Values.ProjectName = "DealisPickPack";
+            Values.ProjectName = "DealerPickPack";
             Values.gDatos.DataBase = espackArgs.DataBase;
             Values.gDatos.Server = espackArgs.Server;
             Values.gDatos.User = espackArgs.User;

@@ -15,7 +15,7 @@ using RawPrinterHelper;
 using System.Threading;
 using System.Data.SqlClient;
 
-namespace DealisPickPack
+namespace DealerPickPack
 {
     public partial class fPendingWork : Form
     {
