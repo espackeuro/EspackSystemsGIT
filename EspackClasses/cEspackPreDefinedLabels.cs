@@ -111,9 +111,12 @@ namespace EspackClasses
             var _middle = Convert.ToInt32(Label.width / 2f);
             var _right = Convert.ToInt32(Label.width) - 3;
             var _height = Convert.ToInt32(Label.height);
-            Label.addLine(0,0, 70, "I", "", "[BC][HU]", 85,10,2, humanReadable: true);
-            Label.addLine(0, 10, 70, "I", "", "ROUTE : [ROUTE]",70);
-            Label.addLine(0, 20, 70, "I", "", "DEALER: [DEALER]",70);
+            Label.addLine(2, 4, 0, "I", "", "Dealer Pick Pack", 8);
+            Label.addLine(68, 4, 0, "D", "", "Espack",8);
+            Label.addLine(_middle, 12, 0, "C", "", "[HU]", 22);
+            Label.addLine(_middle, 14, 66, "C", "", "[BC][HU]", 0, 10, 2);//, 85,10);
+            Label.addLine(2, 30, 0, "I", "", "[DEALER]", 14);
+            Label.addLine(68, 30, 0, "D", "", "([ROUTE])", 14);
         }
         public override string ToString()
         {

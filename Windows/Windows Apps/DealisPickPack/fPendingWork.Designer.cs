@@ -27,21 +27,23 @@ namespace DealisPickPack
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.VS = new System.Windows.Forms.DataGridView();
             this.VSHUCab = new System.Windows.Forms.DataGridView();
             this.VSHUDet = new System.Windows.Forms.DataGridView();
             this.lblPendingHU = new System.Windows.Forms.Label();
             this.txtRouteDescription = new EspackFormControlsNS.EspackTextBox();
             this.cboRoute = new EspackFormControlsNS.EspackComboBox();
-            this.btnNewHU = new System.Windows.Forms.Button();
-            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnHUCabDel = new System.Windows.Forms.Button();
             this.btnPrintHULabel = new System.Windows.Forms.Button();
+            this.btnHUCabAdd = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnHUDetDel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VSHUCab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VSHUDet)).BeginInit();
@@ -53,14 +55,14 @@ namespace DealisPickPack
             this.VS.AllowUserToDeleteRows = false;
             this.VS.AllowUserToResizeRows = false;
             this.VS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.VS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.VS.ColumnHeadersHeight = 29;
             this.VS.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.VS.EnableHeadersVisualStyles = false;
@@ -69,14 +71,14 @@ namespace DealisPickPack
             this.VS.MultiSelect = false;
             this.VS.Name = "VS";
             this.VS.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.VS.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VS.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.VS.RowHeadersVisible = false;
             this.VS.RowHeadersWidth = 51;
             this.VS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -89,14 +91,14 @@ namespace DealisPickPack
             this.VSHUCab.AllowUserToDeleteRows = false;
             this.VSHUCab.AllowUserToResizeRows = false;
             this.VSHUCab.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.VSHUCab.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VSHUCab.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.VSHUCab.ColumnHeadersHeight = 29;
             this.VSHUCab.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.VSHUCab.EnableHeadersVisualStyles = false;
@@ -105,14 +107,14 @@ namespace DealisPickPack
             this.VSHUCab.MultiSelect = false;
             this.VSHUCab.Name = "VSHUCab";
             this.VSHUCab.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.VSHUCab.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VSHUCab.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.VSHUCab.RowHeadersVisible = false;
             this.VSHUCab.RowHeadersWidth = 51;
             this.VSHUCab.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -125,14 +127,14 @@ namespace DealisPickPack
             this.VSHUDet.AllowUserToDeleteRows = false;
             this.VSHUDet.AllowUserToResizeRows = false;
             this.VSHUDet.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.VSHUDet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VSHUDet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.VSHUDet.ColumnHeadersHeight = 29;
             this.VSHUDet.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.VSHUDet.EnableHeadersVisualStyles = false;
@@ -141,14 +143,14 @@ namespace DealisPickPack
             this.VSHUDet.MultiSelect = false;
             this.VSHUDet.Name = "VSHUDet";
             this.VSHUDet.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.VSHUDet.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VSHUDet.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.VSHUDet.RowHeadersVisible = false;
             this.VSHUDet.RowHeadersWidth = 51;
             this.VSHUDet.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -239,16 +241,38 @@ namespace DealisPickPack
             this.cboRoute.Value = "";
             this.cboRoute.ValueMember = "";
             // 
-            // btnNewHU
+            // btnHUCabDel
             // 
-            this.btnNewHU.Image = global::DealerPickPack.Properties.Resources.edit_add;
-            this.btnNewHU.Location = new System.Drawing.Point(13, 820);
-            this.btnNewHU.Margin = new System.Windows.Forms.Padding(4);
-            this.btnNewHU.Name = "btnNewHU";
-            this.btnNewHU.Size = new System.Drawing.Size(52, 30);
-            this.btnNewHU.TabIndex = 19;
-            this.btnNewHU.UseVisualStyleBackColor = true;
-            this.btnNewHU.Click += new System.EventHandler(this.btnNewHU_Click);
+            this.btnHUCabDel.Image = global::DealerPickPack.Properties.Resources.edit_remove_16x16;
+            this.btnHUCabDel.Location = new System.Drawing.Point(73, 820);
+            this.btnHUCabDel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHUCabDel.Name = "btnHUCabDel";
+            this.btnHUCabDel.Size = new System.Drawing.Size(52, 30);
+            this.btnHUCabDel.TabIndex = 21;
+            this.btnHUCabDel.UseVisualStyleBackColor = true;
+            this.btnHUCabDel.Click += new System.EventHandler(this.btnHUCabDel_Click);
+            // 
+            // btnPrintHULabel
+            // 
+            this.btnPrintHULabel.Image = global::DealerPickPack.Properties.Resources.printer_16x16;
+            this.btnPrintHULabel.Location = new System.Drawing.Point(133, 820);
+            this.btnPrintHULabel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrintHULabel.Name = "btnPrintHULabel";
+            this.btnPrintHULabel.Size = new System.Drawing.Size(52, 30);
+            this.btnPrintHULabel.TabIndex = 20;
+            this.btnPrintHULabel.UseVisualStyleBackColor = true;
+            this.btnPrintHULabel.Click += new System.EventHandler(this.btnPrintHULabel_Click);
+            // 
+            // btnHUCabAdd
+            // 
+            this.btnHUCabAdd.Image = global::DealerPickPack.Properties.Resources.edit_add;
+            this.btnHUCabAdd.Location = new System.Drawing.Point(13, 820);
+            this.btnHUCabAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHUCabAdd.Name = "btnHUCabAdd";
+            this.btnHUCabAdd.Size = new System.Drawing.Size(52, 30);
+            this.btnHUCabAdd.TabIndex = 19;
+            this.btnHUCabAdd.UseVisualStyleBackColor = true;
+            this.btnHUCabAdd.Click += new System.EventHandler(this.btnHUCabAdd_Click);
             // 
             // btnRefresh
             // 
@@ -261,16 +285,16 @@ namespace DealisPickPack
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // btnPrintHULabel
+            // btnHUDetDel
             // 
-            this.btnPrintHULabel.Image = global::DealerPickPack.Properties.Resources.printer_16x16;
-            this.btnPrintHULabel.Location = new System.Drawing.Point(73, 820);
-            this.btnPrintHULabel.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPrintHULabel.Name = "btnPrintHULabel";
-            this.btnPrintHULabel.Size = new System.Drawing.Size(52, 30);
-            this.btnPrintHULabel.TabIndex = 20;
-            this.btnPrintHULabel.UseVisualStyleBackColor = true;
-            this.btnPrintHULabel.Click += new System.EventHandler(this.btnPrintHULabel_Click);
+            this.btnHUDetDel.Image = global::DealerPickPack.Properties.Resources.edit_remove_16x16;
+            this.btnHUDetDel.Location = new System.Drawing.Point(537, 820);
+            this.btnHUDetDel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHUDetDel.Name = "btnHUDetDel";
+            this.btnHUDetDel.Size = new System.Drawing.Size(52, 30);
+            this.btnHUDetDel.TabIndex = 22;
+            this.btnHUDetDel.UseVisualStyleBackColor = true;
+            this.btnHUDetDel.Click += new System.EventHandler(this.btnHUDetDel_Click);
             // 
             // fPendingWork
             // 
@@ -278,8 +302,10 @@ namespace DealisPickPack
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1123, 867);
+            this.Controls.Add(this.btnHUDetDel);
+            this.Controls.Add(this.btnHUCabDel);
             this.Controls.Add(this.btnPrintHULabel);
-            this.Controls.Add(this.btnNewHU);
+            this.Controls.Add(this.btnHUCabAdd);
             this.Controls.Add(this.lblPendingHU);
             this.Controls.Add(this.VSHUDet);
             this.Controls.Add(this.VSHUCab);
@@ -306,7 +332,9 @@ namespace DealisPickPack
         private System.Windows.Forms.DataGridView VSHUCab;
         private System.Windows.Forms.DataGridView VSHUDet;
         private System.Windows.Forms.Label lblPendingHU;
-        private System.Windows.Forms.Button btnNewHU;
+        private System.Windows.Forms.Button btnHUCabAdd;
         private System.Windows.Forms.Button btnPrintHULabel;
+        private System.Windows.Forms.Button btnHUCabDel;
+        private System.Windows.Forms.Button btnHUDetDel;
     }
 }
