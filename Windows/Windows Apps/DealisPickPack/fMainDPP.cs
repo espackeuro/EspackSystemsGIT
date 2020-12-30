@@ -25,7 +25,6 @@ namespace DealerPickPack
             Values.gDatos.User = espackArgs.User;
             Values.gDatos.Password = espackArgs.Password;
 
-
             try
             {
                 Values.gDatos.Connect();
@@ -36,53 +35,8 @@ namespace DealerPickPack
                 Application.Exit();
             }
             Values.gDatos.Close();
-            //check settings file
-            //if (!cSettings.SettingFileNameExists)
-            //{
-            //    fSettings fSettings = new fSettings();
-            //    fSettings.ShowDialog();
-            //}
-            //Values.LabelPrinterAddress = cSettings.readSetting("labelPrinter");
-            //Values.COD3 = cSettings.readSetting("COD3");
-            //Text = string.Format("{0} - {1} Warehouse", Program.VersionNumber, Values.COD3);
         }
-        /*
-        private void simpleReceivalsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //fSimpleReceivals fSimpleReceivals = new fSimpleReceivals();
-            //fSimpleReceivals.MdiParent = this;
-            //fSimpleReceivals.Show();
-            openForm(sender);
-            //fSimpleReceivals fSimpleReceivals = (fSimpleReceivals)GetChildInstance("fSimpleReceivals");
-        }
-
-        private void printRepairsUnitLabelsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //fPrintUnitLabels fPrintUnitLabels = new fPrintUnitLabels();
-            //fPrintUnitLabels.Show();
-            openForm(sender);
-            //fPrintUnitLabels fPrintUnitLabels = (fPrintUnitLabels)GetChildInstance("fPrintUnitLabels");
-        }
-
-        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //fSettings fSettings = new fSettings();
-            //fSettings.ShowDialog();
-            openForm(sender);
-            //fSettings fSettings = (fSettings)GetChildInstance("fSettings");
-        }
-
-        private void printRackLabelsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openForm(sender);
-            //fRackLabels fRackLabels = (fRackLabels)GetChildInstance("fRackLabels");
-            //fRackLabels fRackLabels = new fRackLabels();
-            //fRackLabels.MdiParent = this;
-            //fRackLabels.Show();
-        }
-
-        */
-        //form opening control
+        
         private static Dictionary<string, Form> InstancedForms = new Dictionary<string, Form>();
 
         private object GetChildInstance(String pFormName)
@@ -116,7 +70,11 @@ namespace DealerPickPack
             openForm(sender);
         }
 
-       
+        private void husToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openForm(sender);
+        }
+
     }
     public static class Values
     {

@@ -23,6 +23,10 @@ namespace DealerPickPack
         {
             InitializeComponent();
 
+            // Fill the routes combo
+            cboRoute.ParentConn = Values.gDatos;
+            cboRoute.Source($"select RouteCode='' union all Select RouteCode from MasterRoutes where cod3='{Values.COD3}' order by RouteCode");
+
             //CTLM Definitions
             CTLM.Conn = Values.gDatos;
             CTLM.sSPAdd = "";
@@ -32,47 +36,30 @@ namespace DealerPickPack
 
             //Header
             CTLM.AddItem(txtHU, "HU", false, false, true, 1, true, true);
+            CTLM.AddItem(Values.COD3, "cod3", false, false, true, 0, false, true);
+            CTLM.AddItem(txtDate, "Date", false, false, false, 0, false, false);
             CTLM.AddItem(txtDealer, "Dealer", false, false, false, 0, false, true);
             CTLM.AddItem(cboRoute, "Route", false, false, false, 0, false, true);
-
-            //empty header values
-            //CTLM.AddItem("", "transportista", true, true, false, 0, false, false);
-            //CTLM.AddItem("", "matricula", true, true, false, 0, false, false);
-            //CTLM.AddItem("@@@", "conductor", true, true, false, 0, false, false);
-            //CTLM.AddItem("", "documento_aduana", true, true, false, 0, false, false);
-            //CTLM.AddItem("01/01/2001 00:00", "fecha_doc_proveedor", true, true, false, 0, false, false);
-
-            //fields
-            //cboServicio.Source("Select Codigo,Nombre from Servicios where dbo.CheckFlag(flags,'SIMPLE')=1 and cod3='" + Values.COD3 + "' order by codigo", txtDesServicio);
-            //cboServicio.SelectedValueChanged += CboServicio_SelectedValueChanged;
-            //lstFlags.Source("Select codigo,DescFlagEng from flags where Tabla='Cab_Recepcion'");
-
-
 
             //VS Definitions
             VS.Conn = Values.gDatos;
             VS.sSPAdd = "";
             VS.sSPUpp = "";
-            VS.sSPDel = "pHUDetDel";
+            VS.sSPDel = "";
             VS.DBTable = "HUDet";
 
             //VS Details
-            VS.AddColumn("HU", txtHU, "", "", "@HU", pVisible: false);
-            VS.AddColumn("cod3", "cod3", "", "", "@cod3", pVisible: false);
-            VS.AddColumn("FINIS", "Finis", "", "", "");
-            VS.AddColumn("Qty", "qty", "","","");
+            VS.AddColumn("HU", txtHU, pVisible: false);
+            VS.AddColumn("cod3", "cod3", pVisible: false);
+            VS.AddColumn("FINIS", "Finis");
+            VS.AddColumn("QTY", "qty");
 
             //Various
             CTLM.AddDefaultStatusStrip();
+            CTLM.btnUpp.Enabled = false;
             CTLM.AddItem(VS);
             CTLM.Start();
-            CTLM.AfterButtonClick += CTLM_AfterButtonClick; ;
-
         }
 
-        private void CTLM_AfterButtonClick(object sender, EspackFormControlsNS.CTLMEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

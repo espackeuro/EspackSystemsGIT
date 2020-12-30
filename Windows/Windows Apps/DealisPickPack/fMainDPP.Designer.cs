@@ -92,6 +92,7 @@
             this.husToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.husToolStripMenuItem.Tag = "fHUs";
             this.husToolStripMenuItem.Text = "HU\'s";
+            this.husToolStripMenuItem.Click += new System.EventHandler(this.husToolStripMenuItem_Click);
             // 
             // containersToolStripMenuItem
             // 
@@ -132,6 +133,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void HusToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
 
         #endregion
