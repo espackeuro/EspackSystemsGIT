@@ -57,24 +57,24 @@ namespace DealerPickPack
             };
             return InstancedForms[pFormName];  //just created or created earlier.Return it+69
         }
-
         private void openForm(object menuOption)
         {
             var formName = ((ToolStripMenuItem)menuOption).Tag.ToString();
             var form = (Form)GetChildInstance(formName);
             form.WindowState = FormWindowState.Maximized;
         }
-
         private void pendingWorkToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openForm(sender);
         }
-
         private void husToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openForm(sender);
         }
-
+        private void deliveriesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openForm(sender);
+        }
     }
     public static class Values
     {

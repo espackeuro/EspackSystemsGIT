@@ -39,7 +39,7 @@ namespace DealerPickPack
             CTLM.AddItem(Values.COD3, "cod3", false, false, true, 0, false, true);
             CTLM.AddItem(txtDate, "Date", false, false, false, 0, false, false);
             CTLM.AddItem(txtDealer, "Dealer", false, false, false, 0, false, true);
-            CTLM.AddItem(cboRoute, "Route", false, false, false, 0, false, true);
+            CTLM.AddItem(cboRoute, "Route", true, true, true, 0, false, true);
 
             //VS Definitions
             VS.Conn = Values.gDatos;

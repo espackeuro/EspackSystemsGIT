@@ -27,6 +27,8 @@ namespace DealerPickPack
             cboRoute.ParentConn = Values.gDatos;
             cboRoute.Source($"select RouteCode='',Description='' union all Select RouteCode,Description from MasterRoutes where cod3='{Values.COD3}' order by RouteCode", txtRouteDescription);
             cboRoute.SelectedValueChanged += CboRoute_SelectedValueChanged;
+            cboHUType.ParentConn = Values.gDatos;
+            cboHUType.Source($"select distinct DealisPackCode,Descripcion from SELECCION..bultoscm where dealispackcode is not null order by DealisPackCode", txtHUTypeDescription);
 
             // VS
             VS_Show();
@@ -94,13 +96,10 @@ namespace DealerPickPack
                 }
             }
         }
-
         private void VSHUCab_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Delete) btnHUCabDel_Click(sender, e);
         }
-
-
         private void VSHUDet_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Delete) btnHUDetDel_Click(sender, e);
@@ -111,7 +110,7 @@ namespace DealerPickPack
         {
             if (VS.CurrentRow != null)
             {
-                pHUCabAdd();
+                pHUCabAdd(cboHUType.Text);
                 PrintHULabel(sender, e);
             }
         }
@@ -134,7 +133,6 @@ namespace DealerPickPack
                 if (MessageBox.Show("Are you sure you want to remove this line?", "Remove line from HU", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) pHUDetDel();
             }
         }
-
         private void btnPrintHULabel_Click(object sender, EventArgs e)
         {
             PrintHULabel(sender, e);
@@ -180,7 +178,6 @@ namespace DealerPickPack
             catch { }
             VSHUCab.Refresh();
         }
-
         private void VSHUDet_Show()
         {
             // Add the results of the query to the DataGrid       
@@ -193,7 +190,6 @@ namespace DealerPickPack
             VSHUDet.CurrentCell = null;
             VSHUDet.Refresh();
         }
-
         private void PrintHULabel(object sender, EventArgs e)
         {
             if (1==1)
@@ -228,12 +224,13 @@ namespace DealerPickPack
         }
 
         ////////// SPs //////////
-        private void pHUCabAdd()
+        private void pHUCabAdd(string HUType)
         {
             using (var _sp = new SP(Values.gDatos, "pHUCabAdd"))
             {
                 _sp.AddParameterValue("@Dealer", VS["DEALER", VS.CurrentRow.Index].Value);
                 _sp.AddParameterValue("@Route", VS["ROUTE", VS.CurrentRow.Index].Value);
+                _sp.AddParameterValue("@Type", HUType);
                 _sp.AddParameterValue("@cod3", Values.COD3);
                 try
                 {

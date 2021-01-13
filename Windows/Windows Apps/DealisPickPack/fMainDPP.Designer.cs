@@ -94,6 +94,13 @@
             this.husToolStripMenuItem.Text = "HU\'s";
             this.husToolStripMenuItem.Click += new System.EventHandler(this.husToolStripMenuItem_Click);
             // 
+            // deliveriesToolStripMenuItem
+            // 
+            this.deliveriesToolStripMenuItem.Name = "deliveriesToolStripMenuItem";
+            this.deliveriesToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.deliveriesToolStripMenuItem.Tag = "fDeliveries";
+            this.deliveriesToolStripMenuItem.Text = "Deliveries";
+            this.deliveriesToolStripMenuItem.Click += new System.EventHandler(this.deliveriesToolStripMenuItem_Click);            // 
             // containersToolStripMenuItem
             // 
             this.containersToolStripMenuItem.Name = "containersToolStripMenuItem";
