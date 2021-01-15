@@ -28,7 +28,7 @@ namespace DealerPickPack
             cboRoute.Source($"select RouteCode='',Description='' union all Select RouteCode,Description from MasterRoutes where cod3='{Values.COD3}' order by RouteCode", txtRouteDescription);
             cboRoute.SelectedValueChanged += CboRoute_SelectedValueChanged;
             cboHUType.ParentConn = Values.gDatos;
-            cboHUType.Source($"select distinct DealisPackCode,Descripcion from SELECCION..bultoscm where dealispackcode is not null order by DealisPackCode", txtHUTypeDescription);
+            cboHUType.Source($"select distinct DealisPackCode,descripcion from SELECCION..bultoscm where dealispackcode is not null and len(codigo)<7 order by DealisPackCode", txtHUTypeDescription);
 
             // VS
             VS_Show();
