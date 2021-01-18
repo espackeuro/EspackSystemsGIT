@@ -14,6 +14,7 @@ using EspackClasses;
 using RawPrinterHelper;
 using System.Threading;
 using System.Data.SqlClient;
+using Windows.UI.Xaml.Controls;
 
 namespace DealerPickPack
 {
@@ -27,9 +28,10 @@ namespace DealerPickPack
             cboRoute.ParentConn = Values.gDatos;
             cboRoute.Source($"select RouteCode='',Description='' union all Select RouteCode,Description from MasterRoutes where cod3='{Values.COD3}' order by RouteCode", txtRouteDescription);
             cboRoute.SelectedValueChanged += CboRoute_SelectedValueChanged;
+            cboRoute.Validated += CboRoute_Validated;
             cboHUType.ParentConn = Values.gDatos;
             cboHUType.Source($"select distinct DealisPackCode,descripcion from SELECCION..bultoscm where dealispackcode is not null and len(codigo)<7 order by DealisPackCode", txtHUTypeDescription);
-
+            cboHUType.Validated += CboHUType_Validated;
             // VS
             VS_Show();
             VS.CellDoubleClick += VS_CellDoubleClick;
@@ -44,7 +46,7 @@ namespace DealerPickPack
             VSHUDet.KeyDown += VSHUDet_KeyDown;
 
             // Tooltips
-            ToolTip _toolTip1 = new ToolTip();
+            System.Windows.Forms.ToolTip _toolTip1 = new System.Windows.Forms.ToolTip();
 
             // Set up the delays for the ToolTip.
             _toolTip1.AutoPopDelay = 5000;
@@ -60,22 +62,34 @@ namespace DealerPickPack
             
         }
 
+        private void CboRoute_Validated(object sender, EventArgs e)
+        {
+            if (cboRoute.ComboBox.FindStringExact(cboRoute.Text) == -1)
+            {
+                txtRouteDescription.Text = "";
+            }
+        }
+        private void CboHUType_Validated(object sender, EventArgs e)
+        {
+            if (cboHUType.ComboBox.FindStringExact(cboHUType.Text)==-1)
+            {
+                txtHUTypeDescription.Text = "";
+            }
+        }
+
         ////////// EVENTS //////////
         private void VSHUCab_SelectionChanged(object sender, EventArgs e)
         {
             VSHUDet_Show();
         }
-
         private void CboRoute_SelectedValueChanged(object sender, EventArgs e)
         {
             btnRefresh_Click(sender, e);
         }
-
         private void VS_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             pHUDetAdd(Convert.ToInt32(VS["PENDING QTY", VS.CurrentRow.Index].Value));
         }
-
         private void VS_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Space && VS.CurrentCell != null)
@@ -159,7 +173,7 @@ namespace DealerPickPack
             //string _route = (VS.CurrentRow == null ? String.Empty : VS["ROUTE", VS.CurrentRow.Index].Value.ToString());
 
             // Add the results of the query to the DataGrid            
-            using (var _rs = new StaticRS($"select HU,ROUTE,DEALER,DATE from HUCab where InDelivery is null and cod3='{Values.COD3}' and (Route='{cboRoute.Text}' or '{cboRoute.Text}'='') order by HU,Route,Dealer", Values.gDatos))
+            using (var _rs = new StaticRS($"select HU,ROUTE,TYPE=HUTYPE,DEALER,DATE from HUCab where InDelivery is null and cod3='{Values.COD3}' and (Route='{cboRoute.Text}' or '{cboRoute.Text}'='') order by HU,Route,Dealer", Values.gDatos))
             {
                 _rs.Open();
                 VSHUCab.DataSource = _rs.DataObject;

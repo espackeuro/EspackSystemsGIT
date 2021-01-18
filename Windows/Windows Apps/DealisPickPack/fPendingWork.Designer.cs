@@ -44,8 +44,8 @@ namespace DealerPickPack
             this.btnHUCabAdd = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnHUDetDel = new System.Windows.Forms.Button();
-            this.cboHUType = new EspackFormControlsNS.EspackComboBox();
             this.txtHUTypeDescription = new EspackFormControlsNS.EspackTextBox();
+            this.cboHUType = new EspackFormControlsNS.EspackComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VSHUCab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VSHUDet)).BeginInit();
@@ -68,7 +68,7 @@ namespace DealerPickPack
             this.VS.ColumnHeadersHeight = 29;
             this.VS.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.VS.EnableHeadersVisualStyles = false;
-            this.VS.Location = new System.Drawing.Point(10, 84);
+            this.VS.Location = new System.Drawing.Point(10, 104);
             this.VS.MultiSelect = false;
             this.VS.Name = "VS";
             this.VS.ReadOnly = true;
@@ -103,7 +103,7 @@ namespace DealerPickPack
             this.VSHUCab.ColumnHeadersHeight = 29;
             this.VSHUCab.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.VSHUCab.EnableHeadersVisualStyles = false;
-            this.VSHUCab.Location = new System.Drawing.Point(10, 382);
+            this.VSHUCab.Location = new System.Drawing.Point(10, 399);
             this.VSHUCab.MultiSelect = false;
             this.VSHUCab.Name = "VSHUCab";
             this.VSHUCab.ReadOnly = true;
@@ -138,7 +138,7 @@ namespace DealerPickPack
             this.VSHUDet.ColumnHeadersHeight = 29;
             this.VSHUDet.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.VSHUDet.EnableHeadersVisualStyles = false;
-            this.VSHUDet.Location = new System.Drawing.Point(403, 382);
+            this.VSHUDet.Location = new System.Drawing.Point(401, 399);
             this.VSHUDet.MultiSelect = false;
             this.VSHUDet.Name = "VSHUDet";
             this.VSHUDet.ReadOnly = true;
@@ -153,7 +153,7 @@ namespace DealerPickPack
             this.VSHUDet.RowHeadersVisible = false;
             this.VSHUDet.RowHeadersWidth = 51;
             this.VSHUDet.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.VSHUDet.Size = new System.Drawing.Size(406, 236);
+            this.VSHUDet.Size = new System.Drawing.Size(408, 236);
             this.VSHUDet.TabIndex = 17;
             // 
             // lblPendingHU
@@ -161,7 +161,7 @@ namespace DealerPickPack
             this.lblPendingHU.AutoSize = true;
             this.lblPendingHU.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPendingHU.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblPendingHU.Location = new System.Drawing.Point(8, 366);
+            this.lblPendingHU.Location = new System.Drawing.Point(7, 383);
             this.lblPendingHU.Name = "lblPendingHU";
             this.lblPendingHU.Size = new System.Drawing.Size(71, 13);
             this.lblPendingHU.TabIndex = 18;
@@ -183,7 +183,7 @@ namespace DealerPickPack
             this.txtRouteDescription.ForeColor = System.Drawing.Color.Gray;
             this.txtRouteDescription.IsCTLMOwned = false;
             this.txtRouteDescription.IsPassword = false;
-            this.txtRouteDescription.Location = new System.Drawing.Point(145, 39);
+            this.txtRouteDescription.Location = new System.Drawing.Point(126, 13);
             this.txtRouteDescription.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtRouteDescription.Multiline = true;
             this.txtRouteDescription.Name = "txtRouteDescription";
@@ -219,7 +219,7 @@ namespace DealerPickPack
             this.cboRoute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboRoute.FormattingEnabled = false;
             this.cboRoute.IsCTLMOwned = false;
-            this.cboRoute.Location = new System.Drawing.Point(10, 38);
+            this.cboRoute.Location = new System.Drawing.Point(12, 12);
             this.cboRoute.Name = "cboRoute";
             this.cboRoute.Order = 0;
             this.cboRoute.ParentConn = null;
@@ -230,7 +230,7 @@ namespace DealerPickPack
             this.cboRoute.Search = false;
             this.cboRoute.SelectedItem = null;
             this.cboRoute.SelectedValue = null;
-            this.cboRoute.Size = new System.Drawing.Size(130, 40);
+            this.cboRoute.Size = new System.Drawing.Size(108, 40);
             this.cboRoute.Status = CommonTools.EnumStatus.ADDNEW;
             this.cboRoute.TabIndex = 0;
             this.cboRoute.TBDescription = null;
@@ -241,7 +241,7 @@ namespace DealerPickPack
             // btnHUCabDel
             // 
             this.btnHUCabDel.Image = global::DealerPickPack.Properties.Resources.edit_remove_16x16;
-            this.btnHUCabDel.Location = new System.Drawing.Point(55, 666);
+            this.btnHUCabDel.Location = new System.Drawing.Point(55, 641);
             this.btnHUCabDel.Name = "btnHUCabDel";
             this.btnHUCabDel.Size = new System.Drawing.Size(39, 24);
             this.btnHUCabDel.TabIndex = 21;
@@ -251,7 +251,7 @@ namespace DealerPickPack
             // btnPrintHULabel
             // 
             this.btnPrintHULabel.Image = global::DealerPickPack.Properties.Resources.printer_16x16;
-            this.btnPrintHULabel.Location = new System.Drawing.Point(100, 666);
+            this.btnPrintHULabel.Location = new System.Drawing.Point(100, 641);
             this.btnPrintHULabel.Name = "btnPrintHULabel";
             this.btnPrintHULabel.Size = new System.Drawing.Size(39, 24);
             this.btnPrintHULabel.TabIndex = 20;
@@ -261,7 +261,7 @@ namespace DealerPickPack
             // btnHUCabAdd
             // 
             this.btnHUCabAdd.Image = global::DealerPickPack.Properties.Resources.edit_add;
-            this.btnHUCabAdd.Location = new System.Drawing.Point(10, 666);
+            this.btnHUCabAdd.Location = new System.Drawing.Point(10, 641);
             this.btnHUCabAdd.Name = "btnHUCabAdd";
             this.btnHUCabAdd.Size = new System.Drawing.Size(39, 24);
             this.btnHUCabAdd.TabIndex = 19;
@@ -271,7 +271,7 @@ namespace DealerPickPack
             // btnRefresh
             // 
             this.btnRefresh.Image = global::DealerPickPack.Properties.Resources.quick_restart_16x16;
-            this.btnRefresh.Location = new System.Drawing.Point(473, 53);
+            this.btnRefresh.Location = new System.Drawing.Point(454, 28);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(39, 24);
             this.btnRefresh.TabIndex = 14;
@@ -281,12 +281,47 @@ namespace DealerPickPack
             // btnHUDetDel
             // 
             this.btnHUDetDel.Image = global::DealerPickPack.Properties.Resources.edit_remove_16x16;
-            this.btnHUDetDel.Location = new System.Drawing.Point(770, 620);
+            this.btnHUDetDel.Location = new System.Drawing.Point(401, 641);
             this.btnHUDetDel.Name = "btnHUDetDel";
             this.btnHUDetDel.Size = new System.Drawing.Size(39, 24);
             this.btnHUDetDel.TabIndex = 22;
             this.btnHUDetDel.UseVisualStyleBackColor = true;
             this.btnHUDetDel.Click += new System.EventHandler(this.btnHUDetDel_Click);
+            // 
+            // txtHUTypeDescription
+            // 
+            this.txtHUTypeDescription.Add = false;
+            this.txtHUTypeDescription.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtHUTypeDescription.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtHUTypeDescription.Caption = "Description";
+            this.txtHUTypeDescription.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtHUTypeDescription.DBField = null;
+            this.txtHUTypeDescription.DBFieldType = null;
+            this.txtHUTypeDescription.DefaultValue = null;
+            this.txtHUTypeDescription.Del = false;
+            this.txtHUTypeDescription.DependingRS = null;
+            this.txtHUTypeDescription.ExtraDataLink = null;
+            this.txtHUTypeDescription.ForeColor = System.Drawing.Color.Gray;
+            this.txtHUTypeDescription.IsCTLMOwned = false;
+            this.txtHUTypeDescription.IsPassword = false;
+            this.txtHUTypeDescription.Location = new System.Drawing.Point(126, 58);
+            this.txtHUTypeDescription.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtHUTypeDescription.Multiline = true;
+            this.txtHUTypeDescription.Name = "txtHUTypeDescription";
+            this.txtHUTypeDescription.Order = 0;
+            this.txtHUTypeDescription.ParentConn = null;
+            this.txtHUTypeDescription.ParentDA = null;
+            this.txtHUTypeDescription.PK = false;
+            this.txtHUTypeDescription.Protected = false;
+            this.txtHUTypeDescription.ReadOnly = true;
+            this.txtHUTypeDescription.Search = false;
+            this.txtHUTypeDescription.Size = new System.Drawing.Size(322, 40);
+            this.txtHUTypeDescription.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtHUTypeDescription.TabIndex = 26;
+            this.txtHUTypeDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtHUTypeDescription.Upp = false;
+            this.txtHUTypeDescription.Value = "";
+            this.txtHUTypeDescription.WordWrap = true;
             // 
             // cboHUType
             // 
@@ -305,7 +340,7 @@ namespace DealerPickPack
             this.cboHUType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboHUType.FormattingEnabled = false;
             this.cboHUType.IsCTLMOwned = false;
-            this.cboHUType.Location = new System.Drawing.Point(10, 620);
+            this.cboHUType.Location = new System.Drawing.Point(10, 58);
             this.cboHUType.Name = "cboHUType";
             this.cboHUType.Order = 0;
             this.cboHUType.ParentConn = null;
@@ -318,53 +353,18 @@ namespace DealerPickPack
             this.cboHUType.SelectedValue = null;
             this.cboHUType.Size = new System.Drawing.Size(108, 40);
             this.cboHUType.Status = CommonTools.EnumStatus.ADDNEW;
-            this.cboHUType.TabIndex = 23;
+            this.cboHUType.TabIndex = 25;
             this.cboHUType.TBDescription = null;
             this.cboHUType.Upp = false;
             this.cboHUType.Value = "";
             this.cboHUType.ValueMember = "";
-            // 
-            // txtHUTypeDescription
-            // 
-            this.txtHUTypeDescription.Add = false;
-            this.txtHUTypeDescription.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.txtHUTypeDescription.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txtHUTypeDescription.Caption = "Description";
-            this.txtHUTypeDescription.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtHUTypeDescription.DBField = null;
-            this.txtHUTypeDescription.DBFieldType = null;
-            this.txtHUTypeDescription.DefaultValue = null;
-            this.txtHUTypeDescription.Del = false;
-            this.txtHUTypeDescription.DependingRS = null;
-            this.txtHUTypeDescription.ExtraDataLink = null;
-            this.txtHUTypeDescription.ForeColor = System.Drawing.Color.Gray;
-            this.txtHUTypeDescription.IsCTLMOwned = false;
-            this.txtHUTypeDescription.IsPassword = false;
-            this.txtHUTypeDescription.Location = new System.Drawing.Point(124, 620);
-            this.txtHUTypeDescription.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
-            this.txtHUTypeDescription.Multiline = true;
-            this.txtHUTypeDescription.Name = "txtHUTypeDescription";
-            this.txtHUTypeDescription.Order = 0;
-            this.txtHUTypeDescription.ParentConn = null;
-            this.txtHUTypeDescription.ParentDA = null;
-            this.txtHUTypeDescription.PK = false;
-            this.txtHUTypeDescription.Protected = false;
-            this.txtHUTypeDescription.ReadOnly = true;
-            this.txtHUTypeDescription.Search = false;
-            this.txtHUTypeDescription.Size = new System.Drawing.Size(271, 40);
-            this.txtHUTypeDescription.Status = CommonTools.EnumStatus.ADDNEW;
-            this.txtHUTypeDescription.TabIndex = 24;
-            this.txtHUTypeDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtHUTypeDescription.Upp = false;
-            this.txtHUTypeDescription.Value = "";
-            this.txtHUTypeDescription.WordWrap = true;
             // 
             // fPendingWork
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(842, 704);
+            this.ClientSize = new System.Drawing.Size(822, 675);
             this.Controls.Add(this.txtHUTypeDescription);
             this.Controls.Add(this.cboHUType);
             this.Controls.Add(this.btnHUDetDel);
@@ -400,7 +400,7 @@ namespace DealerPickPack
         private System.Windows.Forms.Button btnPrintHULabel;
         private System.Windows.Forms.Button btnHUCabDel;
         private System.Windows.Forms.Button btnHUDetDel;
-        private EspackFormControlsNS.EspackComboBox cboHUType;
         private EspackFormControlsNS.EspackTextBox txtHUTypeDescription;
+        private EspackFormControlsNS.EspackComboBox cboHUType;
     }
 }
