@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AccesoDatosNet;
+using CommonToolsWin;
 
 namespace DealerPickPack
 {
@@ -49,19 +51,49 @@ namespace DealerPickPack
             VS.DBTable = "DeliveriesDet";
 
             //VS Details
-            VS.AddColumn("DeliveryCode", txtDelivery, pVisible: false);
-            VS.AddColumn("HU", "HU");
+            VS.AddColumn("DeliveryCode", "DeliveryCode",pSPDel:"@DeliveryCode", pVisible: true);
+            VS.AddColumn("HU", "HU", pSPDel: "@HU");
             //VS.AddColumn("Finis", "Finis");
             //VS.AddColumn("Qty", "Qty");
             VS.AddColumn("InContainer", "InContainer");
-            VS.AddColumn("cod3", "cod3", pVisible: false);
+            VS.AddColumn("cod3", "cod3", pSPDel: "@cod3",pVisible: false);
 
 
             //Various
             CTLM.AddDefaultStatusStrip();
-            CTLM.btnUpp.Enabled = false;
+            //CTLM.btnUpp.Enabled = false;
             CTLM.AddItem(VS);
             CTLM.Start();
+            //CTLM.AfterButtonClick += CTLM_AfterButtonClick;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            if (txtDelivery.Text != "")
+            {
+                if (MessageBox.Show("This action can't be undone. Are you sure?", "Close Delivery", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    using (var _sp = new SP(Values.gDatos, "pDeliveryClose"))
+                    {
+                        _sp.AddParameterValue("@DeliveryCode", txtDelivery.Value.ToString());
+                        _sp.AddParameterValue("@cod3", Values.COD3);
+                        try
+                        {
+                            _sp.Execute();
+                        }
+                        catch (Exception ex)
+                        {
+                            CTWin.MsgError(ex.Message);
+                            return;
+                        }
+                        if (_sp.LastMsg.Substring(0, 2) != "OK")
+                        {
+                            CTWin.MsgError(_sp.LastMsg);
+                            return;
+                        }
+                    }
+                }
+            }
         }
     }
 }

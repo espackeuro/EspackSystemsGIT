@@ -59,9 +59,11 @@ namespace DealerPickPack
             _toolTip1.SetToolTip(btnHUCabDel, "Delete HU");
             _toolTip1.SetToolTip(btnPrintHULabel, "Print HU");
             _toolTip1.SetToolTip(btnHUDetDel, "Delete line from HU");
-            
+
         }
 
+        ////////// EVENTS //////////
+        ///        
         private void CboRoute_Validated(object sender, EventArgs e)
         {
             if (cboRoute.ComboBox.FindStringExact(cboRoute.Text) == -1)
@@ -71,13 +73,11 @@ namespace DealerPickPack
         }
         private void CboHUType_Validated(object sender, EventArgs e)
         {
-            if (cboHUType.ComboBox.FindStringExact(cboHUType.Text)==-1)
+            if (cboHUType.ComboBox.FindStringExact(cboHUType.Text) == -1)
             {
                 txtHUTypeDescription.Text = "";
             }
         }
-
-        ////////// EVENTS //////////
         private void VSHUCab_SelectionChanged(object sender, EventArgs e)
         {
             VSHUDet_Show();

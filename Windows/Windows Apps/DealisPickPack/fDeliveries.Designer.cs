@@ -39,6 +39,9 @@ namespace DealerPickPack
             this.txtCarrierDescription = new EspackFormControlsNS.EspackTextBox();
             this.txtPlate = new EspackFormControlsNS.EspackTextBox();
             this.txtDate = new EspackFormControlsNS.EspackTextBox();
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.btnClose = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtDelivery
@@ -141,7 +144,7 @@ namespace DealerPickPack
             this.VS.HorizontalScrollingOffset = 0;
             this.VS.IsCTLMOwned = false;
             this.VS.Location = new System.Drawing.Point(10, 149);
-            this.VS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.VS.Margin = new System.Windows.Forms.Padding(4);
             this.VS.MsgStatusLabel = null;
             this.VS.Name = "VS";
             this.VS.NumPages = 0;
@@ -367,11 +370,33 @@ namespace DealerPickPack
             this.txtDate.Value = "";
             this.txtDate.WordWrap = true;
             // 
+            // toolStrip
+            // 
+            this.toolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnClose});
+            this.toolStrip.Location = new System.Drawing.Point(429, 15);
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.Size = new System.Drawing.Size(103, 27);
+            this.toolStrip.TabIndex = 58;
+            this.toolStrip.Text = "toolStrip1";
+            // 
+            // btnClose
+            // 
+            this.btnClose.Image = global::DealerPickPack.Properties.Resources.close_36x36;
+            this.btnClose.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(60, 24);
+            this.btnClose.Text = "Close";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // fDeliveries
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(516, 402);
+            this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.txtPlate);
             this.Controls.Add(this.txtCarrierDescription);
@@ -383,6 +408,8 @@ namespace DealerPickPack
             this.Controls.Add(this.CTLM);
             this.Name = "fDeliveries";
             this.Text = "Deliveries";
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -399,5 +426,7 @@ namespace DealerPickPack
         private EspackFormControlsNS.EspackTextBox txtCarrierDescription;
         private EspackFormControlsNS.EspackTextBox txtPlate;
         private EspackFormControlsNS.EspackTextBox txtDate;
+        private System.Windows.Forms.ToolStrip toolStrip;
+        private System.Windows.Forms.ToolStripButton btnClose;
     }
 }
