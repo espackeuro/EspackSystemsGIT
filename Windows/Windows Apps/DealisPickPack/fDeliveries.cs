@@ -51,20 +51,26 @@ namespace DealerPickPack
             VS.DBTable = "DeliveriesDet";
 
             //VS Details
-            VS.AddColumn("DeliveryCode", "DeliveryCode",pSPDel:"@DeliveryCode", pVisible: true);
+            VS.AddColumn("DeliveryCode", txtDelivery,pSPDel:"@DeliveryCode", pVisible: false);
+            //VS.AddColumn("DeliveryCode", txtDelivery, "@DeliveryCode", "", "@DeliveryCode", pVisible: false);
+            
             VS.AddColumn("HU", "HU", pSPDel: "@HU");
             //VS.AddColumn("Finis", "Finis");
             //VS.AddColumn("Qty", "Qty");
             VS.AddColumn("InContainer", "InContainer");
             VS.AddColumn("cod3", "cod3", pSPDel: "@cod3",pVisible: false);
 
-
             //Various
             CTLM.AddDefaultStatusStrip();
-            //CTLM.btnUpp.Enabled = false;
             CTLM.AddItem(VS);
             CTLM.Start();
-            //CTLM.AfterButtonClick += CTLM_AfterButtonClick;
+            CTLM.BeforeButtonClick += CTLM_BeforeButtonClick;
+
+        }
+
+        private void CTLM_BeforeButtonClick(object sender, EspackFormControlsNS.CTLMEventArgs e)
+        {
+            int p = 0;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
