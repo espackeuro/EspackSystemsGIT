@@ -48,15 +48,17 @@ namespace DealerPickPack
             VS.sSPAdd = "";
             VS.sSPUpp = "";
             VS.sSPDel = "pDeliveriesDetDel";
-            VS.DBTable = "DeliveriesDet";
+            VS.DBTable = "vDeliveriesCabDet";
 
             //VS Details
             VS.AddColumn("DeliveryCode", txtDelivery,pSPDel:"@DeliveryCode", pVisible: false);
             //VS.AddColumn("DeliveryCode", txtDelivery, "@DeliveryCode", "", "@DeliveryCode", pVisible: false);
             
             VS.AddColumn("HU", "HU", pSPDel: "@HU");
-            //VS.AddColumn("Finis", "Finis");
-            //VS.AddColumn("Qty", "Qty");
+            VS.AddColumn("Type", "HUType", pSPDel: "@HU");
+            VS.AddColumn("Finis", "Finis");
+            VS.AddColumn("Qty", "Qty");
+            VS.AddColumn("Dealer", "Dealer");
             VS.AddColumn("InContainer", "InContainer");
             VS.AddColumn("cod3", "cod3", pSPDel: "@cod3",pVisible: false);
 
@@ -64,19 +66,24 @@ namespace DealerPickPack
             CTLM.AddDefaultStatusStrip();
             CTLM.AddItem(VS);
             CTLM.Start();
-            CTLM.BeforeButtonClick += CTLM_BeforeButtonClick;
+            CTLM.AfterButtonClick += CTLM_AfterButtonClick; ;
 
         }
 
-        private void CTLM_BeforeButtonClick(object sender, EspackFormControlsNS.CTLMEventArgs e)
+        private void CTLM_AfterButtonClick(object sender, EspackFormControlsNS.CTLMEventArgs e)
         {
-            int p = 0;
+            VS.Size = new Size(491, 240);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             if (txtDelivery.Text != "")
             {
+                if (txtClosedDate.Text.Trim()!="")
+                {
+                    CTWin.MsgError("The delivery is already closed.");
+                    return;
+                }
                 if (MessageBox.Show("This action can't be undone. Are you sure?", "Close Delivery", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     using (var _sp = new SP(Values.gDatos, "pDeliveryClose"))
@@ -98,6 +105,15 @@ namespace DealerPickPack
                             return;
                         }
                     }
+                    using (var _rs = new StaticRS(string.Format("select ClosedDate from DeliveriesCab where DeliveryCode='{0}' and cod3='{1}'", txtDelivery.Text,Values.COD3), Values.gDatos))
+                    {
+                        _rs.Open();
+                        if (_rs.RecordCount != 0)
+                        {
+                            txtClosedDate.Text = _rs["ClosedDate"].ToString();
+                        }
+                    }
+                    MessageBox.Show("Delivery closed correctly.", "Close Delivery", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
