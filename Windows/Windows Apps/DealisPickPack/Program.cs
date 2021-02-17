@@ -9,6 +9,7 @@ namespace DealerPickPack
     static class Program
     {
         public static fMainDPP fMain { get; set; }
+        public static fDeliveries fDeliveries;
 
         public static string VersionNumber
         {

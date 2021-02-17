@@ -41,6 +41,8 @@ namespace DealerPickPack
             this.txtDate = new EspackFormControlsNS.EspackTextBox();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.btnClose = new System.Windows.Forms.ToolStripButton();
+            this.btnPrint = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -375,10 +377,12 @@ namespace DealerPickPack
             this.toolStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnPrint,
+            this.toolStripSeparator1,
             this.btnClose});
-            this.toolStrip.Location = new System.Drawing.Point(429, 15);
+            this.toolStrip.Location = new System.Drawing.Point(368, 15);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(103, 27);
+            this.toolStrip.Size = new System.Drawing.Size(165, 27);
             this.toolStrip.TabIndex = 58;
             this.toolStrip.Text = "toolStrip1";
             // 
@@ -390,6 +394,20 @@ namespace DealerPickPack
             this.btnClose.Size = new System.Drawing.Size(60, 24);
             this.btnClose.Text = "Close";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Image = global::DealerPickPack.Properties.Resources.printer_16x16;
+            this.btnPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(56, 24);
+            this.btnPrint.Text = "Print";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // fDeliveries
             // 
@@ -428,5 +446,7 @@ namespace DealerPickPack
         private EspackFormControlsNS.EspackTextBox txtDate;
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton btnClose;
+        private System.Windows.Forms.ToolStripButton btnPrint;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
