@@ -177,6 +177,7 @@ namespace DiverseControls
         public const float RIGHT_MARGIN = 15F;
         public const float FOOTER_TOP = 20F;
 
+        public int PageCounter { get; set; } = 0;
         public float CurrentX { get; set; }
         public float CurrentY { get; set; }
         public PrintableLineList HeaderList { get; set; } = new PrintableLineList();
@@ -326,8 +327,16 @@ namespace DiverseControls
                 PrintDocumentLine(l, g, ref _y);
             });
 
-            // are going to be more pages?
-            e.HasMorePages = (BodyList.LastPrintedLine < BodyList.Lines.Count);
+            if (PageCounter != 0)
+            {
+                var _pCounter = new PrintableLine();
+                _pCounter.Add(new PrintableText(string.Format("Page {0}", PageCounter), new Font("Courier New", 12, FontStyle.Bold)));
+                PrintDocumentLine(_pCounter, g, ref _y);
+                PageCounter++;
+            }
+
+                // are going to be more pages?
+                e.HasMorePages = (BodyList.LastPrintedLine < BodyList.Lines.Count);
 
             base.OnPrintPage(e);
         }

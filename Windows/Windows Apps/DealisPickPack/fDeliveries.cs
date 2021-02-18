@@ -159,21 +159,22 @@ namespace DealerPickPack
     }
     public class PrintPage : EspackPrintDocument
     {
-        private int PageNumber { get; set; } = 0;
+        private bool FirstPage { get; set; } = true;
 
         // On each printed page...
         protected override void OnPrintPage(PrintPageEventArgs e)
         {
-            // Inc. counter
-            PageNumber++;
+
             Graphics graphics = e.Graphics;
 
             // Only on first page
-            if (PageNumber == 1)
+            if (FirstPage)
             {
                 Header();
                 Body();
                 Footer();
+                PageCounter = 1;
+                FirstPage = false;
             }
             
             // Base code
@@ -181,7 +182,7 @@ namespace DealerPickPack
         }
 
         // Each area of the document
-        
+
         // Header
         private void Header()
         {
@@ -191,112 +192,58 @@ namespace DealerPickPack
             // Add header lines
             NewLine(false, EnumDocumentParts.HEADER);
             Add(string.Format("DEALER PICK PACK LIST"));
-            NewLine(false, EnumDocumentParts.HEADER);
-            Add(string.Format("DELIVERY: {0}",Program.fDeliveries.Delivery), new Font("Courier New", 22, FontStyle.Bold));
-            //NewLine(false, EnumDocumentParts.HEADER);
+
+            using (var _rs = new StaticRS(string.Format("select Route,ClosedDate=convert(varchar(10),ClosedDate,103),Plate,CarrierDesc from DeliveriesCab where DeliveryCode='{0}' and cod3='{1}'", Program.fDeliveries.Delivery,Values.COD3), Values.gDatos))
+            {
+                _rs.Open();
+                if (_rs.RecordCount!=0)
+                {
+                    // Set font 
+                    this.CurrentFont = new Font("Courier New", 15, FontStyle.Regular);
+                    NewLine(false, EnumDocumentParts.HEADER);
+                    Add(string.Format("DELIVERY: {0,-12} ROUTE: {1,-8} DATE: {2,-10}", Program.fDeliveries.Delivery, _rs["Route"], _rs["ClosedDate"]));
+                    NewLine(false, EnumDocumentParts.HEADER);
+                    Add(string.Format("   PLATE: {0,-10} CARRIER: {1}", _rs["Plate"], _rs["CarrierDesc"]));
+                    
+                    // Separator
+                    this.CurrentFont = new Font("Courier New", 12, FontStyle.Regular);
+                    NewLine(false, EnumDocumentParts.HEADER);
+
+                }
+            }
         }
 
         private void Footer()
         {
             // Set font
             this.CurrentFont = new Font("Courier New", 12, FontStyle.Bold);
-            
+
             // Add footer lines
             NewLine(false, EnumDocumentParts.FOOTER);
-            Add(string.Format("Page {0}", PageNumber));
+
         }
 
         public void Body()
         {
-            // Set font
-            this.CurrentFont = new Font("Courier New", 12, FontStyle.Regular);
-
             // Loop through each row of the recordset
-            using (var _rs = new StaticRS(string.Format("select * from DeliveriesDet where DeliveryCode='{0}' and cod3='{1}'", Program.fDeliveries.Delivery, Values.COD3), Values.gDatos))
+            using (var _rs = new StaticRS(string.Format("select dd.HU,dd.InContainer,hd.Finis,hd.qty from DeliveriesDet dd inner join HUDet hd on hd.HU=dd.HU and hd.cod3=dd.cod3 where dd.DeliveryCode='{0}' and dd.cod3='{1}' order by dd.InContainer,dd.HU,hd.finis", Program.fDeliveries.Delivery, Values.COD3), Values.gDatos))
             {
                 _rs.Open();
                 if (_rs.RecordCount != 0)
                 {
-                    string _strLine = "";
-                    foreach (var _field in _rs.Fields)
-                    {
-                        _strLine += _field.ToString()+"\t";
-                    }
-                    this.NewLine(true);
-                    this.Add(_strLine);
-                    
+                    // Set font & add column names
+                    this.CurrentFont = new Font("Courier New", 12, FontStyle.Bold);
+                    NewLine(true);
+                    Add(new String(' ',10)+string.Format("{0,-12} {1,-10} {2,-7} {3,5}", "HU", "CONTAINER", "FINIS", "QTY")+ new String(' ', 10) );
+
+                    // Set font & add data lines
+                    this.CurrentFont = new Font("Courier New", 12, FontStyle.Regular);
                     while (!_rs.EOF)
                     {
-                        _strLine = "";
-                        foreach (var _field in _rs.Fields)
-                        {
-                            _strLine += _field. ToString() + "\t";
-                        }
-                        this.NewLine(true);
-                        this.Add(_strLine);
+                        NewLine(true);
+                        Add(string.Format(new String(' ', 10) + "{0,-12} {1,-10} {2,-7} {3,5:G}", _rs["HU"], _rs["INCONTAINER"], _rs["FINIS"], _rs["QTY"])+ new String(' ', 10) );
                         _rs.MoveNext();
                     }
-                    
-                    /*
-                                 p.NewLine(true);
-                                List<int> _colWidths = new List<int>();
-                                List<char> _colAligns = new List<char>();
-                                // get the col max widths
-                                Columns.Cast<CtlVSColumn>().ToList().ForEach(x =>
-                                {
-                                    _colWidths.Add(x.MaxWidth);
-                                    _colAligns.Add(x.IsNumeric ? 'R' : 'L');
-
-                                });
-                                //headers
-                                var _font = p.CurrentFont;
-                                p.CurrentFont = new Font(_font, FontStyle.Bold);
-                                Columns.OfType<DataGridViewColumn>().Where(x => ((CtlVSColumn)x).Print == true).ToList().ForEach(x =>
-                                {
-                                    if (_colAligns[x.Index] == 'L')
-                                        p.Add(x.HeaderCell.Value.ToString().PadRight(_colWidths[x.Index]));
-                                    else
-                                        p.Add(x.HeaderCell.Value.ToString().PadLeft(_colWidths[x.Index]));
-                                });
-
-                                p.CurrentFont = _font;
-                                p.NewLine(true);
-                                Rows.OfType<DataGridViewRow>().ToList().ForEach(r =>
-                                {
-                                    r.Cells.OfType<DataGridViewCell>().Where(x => ((CtlVSColumn)x.OwningColumn).Print == true).ToList().ForEach(x =>
-                                    {
-                                        if (_colAligns[x.ColumnIndex] == 'L')
-                                            p.Add(x.Value.ToString().PadRight(_colWidths[x.ColumnIndex]));
-                                        else
-                                            p.Add(x.Value.ToString().PadLeft(_colWidths[x.ColumnIndex]));
-                                    });
-                                    p.NewLine(true);
-                                });
-                                p.NewLine();
-                                //aggregates
-                                p.CurrentFont = new Font(_font, FontStyle.Bold);
-                                var _aggregateList = new AggregateItemList();
-                                //Columns.OfType<DataGridViewColumn>().Where(x => ((CtlVSColumn)x).Print == true).ToList().ForEach(x => {
-                                //    string _value = ((CtlVSColumn)x).Aggregate != AggregateOperations.NONE ? ((CtlVSColumn)x).AggregateValue.ToString() : " ";
-                                //    if (_colAligns[x.Index] == 'L')
-                                //        p.Add(_value.PadRight(_colWidths[x.Index]));
-                                //    else
-                                //        p.Add(_value.PadLeft(_colWidths[x.Index]));
-                                //});
-                                Columns.OfType<CtlVSColumn>().Where(x => x.Aggregate != AggregateOperations.NONE).ToList().ForEach(x => _aggregateList.Items.Add(new AggregateItem() { Aggregate = x.Aggregate, FieldName = ((DataGridViewColumn)x).HeaderCell.Value.ToString(), Value = x.AggregateValue }));
-                                //Columns.OfType<CtlVSColumn>().Where(x => x.Aggregate != AggregateOperations.NONE).ToList().ForEach(x => _aggregates[string.Format("{0}({1})", x.Aggregate.ToString(), ((DataGridViewColumn)x).HeaderCell.Value.ToString())] = x.AggregateValue.ToString());
-                                //_aggregates.Select(x => )
-                                //p.Add(string.Format("{0}({1}) = {2}", x.Aggregate.ToString(), ((DataGridViewColumn)x).HeaderCell.Value.ToString(), x.AggregateValue));
-                                //    p.NewLine(true);
-                                //});
-                                _aggregateList.Items.ForEach(a => {
-                                    p.Add(a.Title.PadLeft(_aggregateList.LenghtTitle));
-                                    p.Add("=");
-                                    p.Add(a.StringValue.PadLeft(_aggregateList.LenghtValue));
-                                    p.NewLine();
-                                });
-                                p.CurrentFont = _font;
-                     */
                 }
             }
         }
