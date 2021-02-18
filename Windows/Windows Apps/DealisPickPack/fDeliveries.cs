@@ -80,7 +80,7 @@ namespace DealerPickPack
             CTLM.AddItem(VS);
             CTLM.Start();
             CTLM.AfterButtonClick += CTLM_AfterButtonClick; ;
-
+            Program.fDeliveries = this;
         }
 
         private void CTLM_AfterButtonClick(object sender, EspackFormControlsNS.CTLMEventArgs e)
@@ -159,74 +159,84 @@ namespace DealerPickPack
     }
     public class PrintPage : EspackPrintDocument
     {
-
-        public string SQLParameterString { get; set; }
-        public string SQLSelect { get; set; }
         private int PageNumber { get; set; } = 0;
-        //public List<string> Groups { get; set; }
-        public string group { get; set; }
-        //PrintDocument pdoc  = null;
 
+        // On each printed page...
         protected override void OnPrintPage(PrintPageEventArgs e)
         {
+            // Inc. counter
             PageNumber++;
             Graphics graphics = e.Graphics;
 
+            // Only on first page
             if (PageNumber == 1)
             {
                 Header();
-                this.CurrentFont = new Font("Courier New", 10);
-
                 Body();
-
-                //                Program.fMain.LabelsGrid.Print(this);
                 Footer();
             }
+            
+            // Base code
             base.OnPrintPage(e);
         }
 
+        // Each area of the document
+        
+        // Header
         private void Header()
         {
+            // Set font 
+            this.CurrentFont = new Font("Courier New", 22, FontStyle.Bold);
 
-            this.CurrentFont = new Font("Courier New", 16, FontStyle.Bold);
-
+            // Add header lines
             NewLine(false, EnumDocumentParts.HEADER);
-            Add(string.Format("Parameters:"));
+            Add(string.Format("DEALER PICK PACK LIST"));
             NewLine(false, EnumDocumentParts.HEADER);
-            //if (Program.fMain.ParametersGrid.RowCount == 0)
-            //{
-            //    Add(string.Format("{0}", Program.fMain.SQLParameterString.Replace(" WHERE ", "")));
-            //    NewLine(false, EnumDocumentParts.HEADER);
-            //}
-            //else
-            //{
-            //    Program.fMain.ParametersGrid.ToList().ForEach(x =>
-            //    {
-            //        Add(string.Format("{0}={1}", x.Cells[0].Value, x.Cells[1].Value));
-            //        NewLine(false, EnumDocumentParts.HEADER);
-            //    });
-            //}
-            //if (Program.fMain.SQLGroup != "")
-            //{
-            //    Add(string.Format("{0}={1}", Program.fMain.GroupsGrid.Columns[0].HeaderCell.Value.ToString(), Program.fMain.GroupsGrid.CurrentCell.Value.ToString()));
-            //    NewLine(false, EnumDocumentParts.HEADER);
-            //}
+            Add(string.Format("DELIVERY: {0}",Program.fDeliveries.Delivery), new Font("Courier New", 22, FontStyle.Bold));
+            //NewLine(false, EnumDocumentParts.HEADER);
         }
 
         private void Footer()
         {
+            // Set font
             this.CurrentFont = new Font("Courier New", 12, FontStyle.Bold);
+            
+            // Add footer lines
             NewLine(false, EnumDocumentParts.FOOTER);
-            Add(string.Format("Page {0}", 1));
+            Add(string.Format("Page {0}", PageNumber));
         }
 
         public void Body()
         {
-            using (var _rs = new StaticRS(string.Format("select ClosedDate from DeliveriesCab where DeliveryCode='{0}' and cod3='{1}'", Program.fDeliveries.Delivery, Values.COD3), Values.gDatos))
+            // Set font
+            this.CurrentFont = new Font("Courier New", 12, FontStyle.Regular);
+
+            // Loop through each row of the recordset
+            using (var _rs = new StaticRS(string.Format("select * from DeliveriesDet where DeliveryCode='{0}' and cod3='{1}'", Program.fDeliveries.Delivery, Values.COD3), Values.gDatos))
             {
                 _rs.Open();
                 if (_rs.RecordCount != 0)
                 {
+                    string _strLine = "";
+                    foreach (var _field in _rs.Fields)
+                    {
+                        _strLine += _field.ToString()+"\t";
+                    }
+                    this.NewLine(true);
+                    this.Add(_strLine);
+                    
+                    while (!_rs.EOF)
+                    {
+                        _strLine = "";
+                        foreach (var _field in _rs.Fields)
+                        {
+                            _strLine += _field. ToString() + "\t";
+                        }
+                        this.NewLine(true);
+                        this.Add(_strLine);
+                        _rs.MoveNext();
+                    }
+                    
                     /*
                                  p.NewLine(true);
                                 List<int> _colWidths = new List<int>();
