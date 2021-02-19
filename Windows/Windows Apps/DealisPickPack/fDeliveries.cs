@@ -130,9 +130,15 @@ namespace DealerPickPack
                 }
             }
         }
-
         private void btnPrint_Click(object sender, EventArgs e)
         {
+
+            using (var _rs = new StaticRS(string.Format("select 0 from DeliveriesDet where DeliveryCode='{0}' and cod3='{1}'", txtDelivery.Text, Values.COD3), Values.gDatos))
+            {
+                _rs.Open();
+                if (_rs.RecordCount == 0) return;
+            }
+
             SetFormEnabled(false);
             using (var pd = new PrintDialog())
             {
@@ -148,14 +154,12 @@ namespace DealerPickPack
             }
             SetFormEnabled(true);
         }
-
         private void SetFormEnabled(bool pValue)
         {
             Cursor.Current = pValue ? Cursors.Default : Cursors.WaitCursor;
             //(from Control control in this.Controls select control).ToList().ForEach(x => x.Enabled = pValue);
             this.Controls.Cast<Control>().ToList().ForEach(x => x.Enabled = pValue);
         }
-
     }
     public class PrintPage : EspackPrintDocument
     {
@@ -171,6 +175,7 @@ namespace DealerPickPack
             if (FirstPage)
             {
                 Header();
+                BodyXOffset = 20;
                 Body();
                 Footer();
                 PageCounter = 1;
@@ -199,12 +204,23 @@ namespace DealerPickPack
                 if (_rs.RecordCount!=0)
                 {
                     // Set font 
-                    this.CurrentFont = new Font("Courier New", 15, FontStyle.Regular);
+                    //this.CurrentFont = new Font("Courier New", 15, FontStyle.Bold);
                     NewLine(false, EnumDocumentParts.HEADER);
-                    Add(string.Format("DELIVERY: {0,-12} ROUTE: {1,-8} DATE: {2,-10}", Program.fDeliveries.Delivery, _rs["Route"], _rs["ClosedDate"]));
+                    //Add(string.Format("DELIVERY: {0,-12} ROUTE: {1,-8} DATE: {2,-10}", Program.fDeliveries.Delivery, _rs["Route"], _rs["ClosedDate"]));
+                    Add("DELIVERY:", new Font("Courier New", 15, FontStyle.Bold));
+                    Add($"{Program.fDeliveries.Delivery,-10}", new Font("Courier New", 15, FontStyle.Regular));
+                    Add("ROUTE:", new Font("Courier New", 15, FontStyle.Bold));
+                    Add($"{_rs["Route"],-8}", new Font("Courier New", 15, FontStyle.Regular));
+                    Add("DATE:", new Font("Courier New", 15, FontStyle.Bold));
+                    Add($"{(_rs["ClosedDate"].ToString()==""?"NOT CLOSED":_rs["ClosedDate"]),-10}", new Font("Courier New", 15, FontStyle.Regular));
+
                     NewLine(false, EnumDocumentParts.HEADER);
-                    Add(string.Format("   PLATE: {0,-10} CARRIER: {1}", _rs["Plate"], _rs["CarrierDesc"]));
-                    
+                    //                    Add(string.Format("   PLATE: {0,-10} CARRIER: {1}", _rs["Plate"], _rs["CarrierDesc"]));
+                    Add("   PLATE:", new Font("Courier New", 15, FontStyle.Bold));
+                    Add($"{_rs["Plate"],-10}", new Font("Courier New", 15, FontStyle.Regular));
+                    Add("CARRIER:", new Font("Courier New", 15, FontStyle.Bold));
+                    Add($"{_rs["CarrierDesc"]}", new Font("Courier New", 15, FontStyle.Regular));
+
                     // Separator
                     this.CurrentFont = new Font("Courier New", 12, FontStyle.Regular);
                     NewLine(false, EnumDocumentParts.HEADER);
@@ -213,6 +229,7 @@ namespace DealerPickPack
             }
         }
 
+        // Footer
         private void Footer()
         {
             // Set font
@@ -220,9 +237,9 @@ namespace DealerPickPack
 
             // Add footer lines
             NewLine(false, EnumDocumentParts.FOOTER);
-
         }
 
+        // Body
         public void Body()
         {
             // Loop through each row of the recordset
@@ -234,14 +251,14 @@ namespace DealerPickPack
                     // Set font & add column names
                     this.CurrentFont = new Font("Courier New", 12, FontStyle.Bold);
                     NewLine(true);
-                    Add(new String(' ',10)+string.Format("{0,-12} {1,-10} {2,-7} {3,5}", "HU", "CONTAINER", "FINIS", "QTY")+ new String(' ', 10) );
+                    Add(string.Format(" {0,-12} {1,-10} {2,-7} {3,5} ", "HU", "CONTAINER", "FINIS", "QTY"));
 
                     // Set font & add data lines
                     this.CurrentFont = new Font("Courier New", 12, FontStyle.Regular);
                     while (!_rs.EOF)
                     {
                         NewLine(true);
-                        Add(string.Format(new String(' ', 10) + "{0,-12} {1,-10} {2,-7} {3,5:G}", _rs["HU"], _rs["INCONTAINER"], _rs["FINIS"], _rs["QTY"])+ new String(' ', 10) );
+                        Add(string.Format(" {0,-12} {1,-10} {2,-7} {3,5:G} ", _rs["HU"], _rs["INCONTAINER"], _rs["FINIS"], _rs["QTY"]));
                         _rs.MoveNext();
                     }
                 }

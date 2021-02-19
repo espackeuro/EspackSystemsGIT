@@ -177,6 +177,7 @@ namespace DiverseControls
         public const float RIGHT_MARGIN = 15F;
         public const float FOOTER_TOP = 20F;
 
+        public float BodyXOffset { get; set; } =0;
         public int PageCounter { get; set; } = 0;
         public float CurrentX { get; set; }
         public float CurrentY { get; set; }
@@ -313,10 +314,12 @@ namespace DiverseControls
 
             // lets print the lines
             if (BodyList.LastPrintedLine > 1)
-                PrintDocumentLine(BodyList.Lines[1], g, ref _y); // column titles in following new pages
+                PrintDocumentLine(BodyList.Lines[1], g, ref _y, BodyXOffset); // column titles in following new pages
+
             while (_y <= YMax && BodyList.LastPrintedLine < BodyList.Lines.Count)
             {
-                PrintDocumentLine(BodyList.Lines[BodyList.LastPrintedLine], g, ref _y);
+
+                PrintDocumentLine(BodyList.Lines[BodyList.LastPrintedLine], g, ref _y, BodyXOffset);
                 BodyList.LastPrintedLine++;
             }
 
@@ -340,17 +343,17 @@ namespace DiverseControls
 
             base.OnPrintPage(e);
         }
-        private void PrintDocumentLine(PrintableLine Line, Graphics g, ref float _y)
+        private void PrintDocumentLine(PrintableLine Line, Graphics g, ref float _y,float xOffset=0)
         {
             //var l = BodyList.Lines[BodyList.LastPrintedLine];
             Line.Graphics = g;
             var _x = XMin;
             var __y = _y;
             if (Line.Banding && (Line.LineNumber % 2 == 0))
-                g.FillRectangle(new SolidBrush(Color.GhostWhite), XMin, _y, Line.Width, Line.Height);
+                g.FillRectangle(new SolidBrush(Color.GhostWhite), XMin + xOffset, _y, Line.Width, Line.Height);
             Line.Things.ForEach(t =>
             {
-                t.Draw(_x, __y);
+                t.Draw(_x+xOffset, __y);
                 _x += t.Width;
             });
 
