@@ -85,6 +85,12 @@
     <Compile Include="fHUs.Designer.cs">
       <DependentUpon>fHUs.cs</DependentUpon>
     </Compile>
+    <Compile Include="fReceivals.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fReceivals.Designer.cs">
+      <DependentUpon>fReceivals.cs</DependentUpon>
+    </Compile>
     <Compile Include="fPendingWork.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fHUs.resx">
       <DependentUpon>fHUs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fReceivals.resx">
+      <DependentUpon>fReceivals.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fPendingWork.resx">
       <DependentUpon>fPendingWork.cs</DependentUpon>

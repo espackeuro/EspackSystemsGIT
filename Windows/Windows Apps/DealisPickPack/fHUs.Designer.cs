@@ -29,7 +29,7 @@ namespace DealerPickPack
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewRow dataGridViewRow1 = new System.Windows.Forms.DataGridViewRow();
+            System.Windows.Forms.DataGridViewRow dataGridViewRow2 = new System.Windows.Forms.DataGridViewRow();
             this.CTLM = new EspackFormControlsNS.CTLMantenimiento();
             this.VS = new EspackDataGridView.EspackDataGridViewControl();
             this.cboRoute = new EspackFormControlsNS.EspackComboBox();
@@ -47,13 +47,12 @@ namespace DealerPickPack
             this.CTLM.Clear = false;
             this.CTLM.Conn = null;
             this.CTLM.DBTable = null;
-            this.CTLM.Location = new System.Drawing.Point(13, 13);
-            this.CTLM.Margin = new System.Windows.Forms.Padding(4);
+            this.CTLM.Location = new System.Drawing.Point(10, 11);
             this.CTLM.MsgStatusInfoLabel = null;
             this.CTLM.MsgStatusLabel = null;
             this.CTLM.Name = "CTLM";
             this.CTLM.ReQuery = false;
-            this.CTLM.Size = new System.Drawing.Size(310, 31);
+            this.CTLM.Size = new System.Drawing.Size(300, 31);
             this.CTLM.sSPAdd = "";
             this.CTLM.sSPDel = "";
             this.CTLM.sSPUpp = "";
@@ -88,8 +87,8 @@ namespace DealerPickPack
             this.VS.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.VS.HorizontalScrollingOffset = 0;
             this.VS.IsCTLMOwned = false;
-            this.VS.Location = new System.Drawing.Point(13, 172);
-            this.VS.Margin = new System.Windows.Forms.Padding(5);
+            this.VS.Location = new System.Drawing.Point(10, 130);
+            this.VS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.VS.MsgStatusLabel = null;
             this.VS.Name = "VS";
             this.VS.NumPages = 0;
@@ -102,10 +101,10 @@ namespace DealerPickPack
             this.VS.Protected = false;
             this.VS.RowCount = 0;
             this.VS.RowHeadersVisible = false;
-            dataGridViewRow1.Height = 24;
-            this.VS.RowTemplate = dataGridViewRow1;
+            dataGridViewRow2.Height = 24;
+            this.VS.RowTemplate = dataGridViewRow2;
             this.VS.Search = false;
-            this.VS.Size = new System.Drawing.Size(335, 264);
+            this.VS.Size = new System.Drawing.Size(251, 192);
             this.VS.SQL = null;
             this.VS.sSPAdd = "";
             this.VS.sSPDel = "";
@@ -132,8 +131,7 @@ namespace DealerPickPack
             this.cboRoute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboRoute.FormattingEnabled = false;
             this.cboRoute.IsCTLMOwned = false;
-            this.cboRoute.Location = new System.Drawing.Point(173, 116);
-            this.cboRoute.Margin = new System.Windows.Forms.Padding(4);
+            this.cboRoute.Location = new System.Drawing.Point(130, 83);
             this.cboRoute.Name = "cboRoute";
             this.cboRoute.Order = 0;
             this.cboRoute.ParentConn = null;
@@ -144,7 +142,7 @@ namespace DealerPickPack
             this.cboRoute.Search = false;
             this.cboRoute.SelectedItem = null;
             this.cboRoute.SelectedValue = null;
-            this.cboRoute.Size = new System.Drawing.Size(175, 47);
+            this.cboRoute.Size = new System.Drawing.Size(131, 40);
             this.cboRoute.Status = CommonTools.EnumStatus.ADDNEW;
             this.cboRoute.TabIndex = 44;
             this.cboRoute.TBDescription = null;
@@ -168,8 +166,8 @@ namespace DealerPickPack
             this.txtHU.ForeColor = System.Drawing.SystemColors.GrayText;
             this.txtHU.IsCTLMOwned = false;
             this.txtHU.IsPassword = false;
-            this.txtHU.Location = new System.Drawing.Point(13, 58);
-            this.txtHU.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
+            this.txtHU.Location = new System.Drawing.Point(10, 47);
+            this.txtHU.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtHU.Multiline = true;
             this.txtHU.Name = "txtHU";
             this.txtHU.Order = 0;
@@ -179,7 +177,7 @@ namespace DealerPickPack
             this.txtHU.Protected = false;
             this.txtHU.ReadOnly = false;
             this.txtHU.Search = false;
-            this.txtHU.Size = new System.Drawing.Size(152, 47);
+            this.txtHU.Size = new System.Drawing.Size(114, 38);
             this.txtHU.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtHU.TabIndex = 46;
             this.txtHU.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -203,8 +201,8 @@ namespace DealerPickPack
             this.txtDealer.ForeColor = System.Drawing.SystemColors.GrayText;
             this.txtDealer.IsCTLMOwned = false;
             this.txtDealer.IsPassword = false;
-            this.txtDealer.Location = new System.Drawing.Point(13, 116);
-            this.txtDealer.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
+            this.txtDealer.Location = new System.Drawing.Point(10, 85);
+            this.txtDealer.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtDealer.Multiline = true;
             this.txtDealer.Name = "txtDealer";
             this.txtDealer.Order = 0;
@@ -214,7 +212,7 @@ namespace DealerPickPack
             this.txtDealer.Protected = false;
             this.txtDealer.ReadOnly = false;
             this.txtDealer.Search = false;
-            this.txtDealer.Size = new System.Drawing.Size(152, 47);
+            this.txtDealer.Size = new System.Drawing.Size(114, 38);
             this.txtDealer.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtDealer.TabIndex = 47;
             this.txtDealer.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -240,8 +238,8 @@ namespace DealerPickPack
             this.txtDate.ForeColor = System.Drawing.Color.Black;
             this.txtDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.txtDate.IsCTLMOwned = false;
-            this.txtDate.Location = new System.Drawing.Point(173, 58);
-            this.txtDate.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
+            this.txtDate.Location = new System.Drawing.Point(130, 46);
+            this.txtDate.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.txtDate.Name = "txtDate";
             this.txtDate.Nullable = true;
@@ -253,7 +251,7 @@ namespace DealerPickPack
             this.txtDate.ReadOnly = false;
             this.txtDate.Search = false;
             this.txtDate.ShowCheckBox = true;
-            this.txtDate.Size = new System.Drawing.Size(175, 47);
+            this.txtDate.Size = new System.Drawing.Size(136, 39);
             this.txtDate.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtDate.TabIndex = 53;
             this.txtDate.Text = " ";
@@ -262,16 +260,18 @@ namespace DealerPickPack
             // 
             // fHUs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(371, 455);
+            this.ClientSize = new System.Drawing.Size(278, 341);
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.txtDealer);
             this.Controls.Add(this.txtHU);
             this.Controls.Add(this.cboRoute);
             this.Controls.Add(this.VS);
             this.Controls.Add(this.CTLM);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "fHUs";
+            this.Tag = "fHUs";
             this.Text = "HUs";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -75,6 +75,11 @@ namespace DealerPickPack
         {
             openForm(sender);
         }
+
+        private void receivalsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openForm(sender);
+        }
     }
     public static class Values
     {

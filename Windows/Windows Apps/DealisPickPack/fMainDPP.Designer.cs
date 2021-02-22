@@ -64,9 +64,10 @@
             // receivalsToolStripMenuItem
             // 
             this.receivalsToolStripMenuItem.Name = "receivalsToolStripMenuItem";
-            this.receivalsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.receivalsToolStripMenuItem.Tag = "fSimpleReceivals";
+            this.receivalsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.receivalsToolStripMenuItem.Tag = "fReceivals";
             this.receivalsToolStripMenuItem.Text = "Receivals";
+            this.receivalsToolStripMenuItem.Click += new System.EventHandler(this.receivalsToolStripMenuItem_Click);
             // 
             // processingToolStripMenuItem
             // 
@@ -94,13 +95,6 @@
             this.husToolStripMenuItem.Text = "HU\'s";
             this.husToolStripMenuItem.Click += new System.EventHandler(this.husToolStripMenuItem_Click);
             // 
-            // deliveriesToolStripMenuItem
-            // 
-            this.deliveriesToolStripMenuItem.Name = "deliveriesToolStripMenuItem";
-            this.deliveriesToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.deliveriesToolStripMenuItem.Tag = "fDeliveries";
-            this.deliveriesToolStripMenuItem.Text = "Deliveries";
-            this.deliveriesToolStripMenuItem.Click += new System.EventHandler(this.deliveriesToolStripMenuItem_Click);            // 
             // containersToolStripMenuItem
             // 
             this.containersToolStripMenuItem.Name = "containersToolStripMenuItem";
@@ -122,6 +116,7 @@
             this.deliveriesToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.deliveriesToolStripMenuItem.Tag = "fDeliveries";
             this.deliveriesToolStripMenuItem.Text = "Deliveries";
+            this.deliveriesToolStripMenuItem.Click += new System.EventHandler(this.deliveriesToolStripMenuItem_Click);
             // 
             // fMainDPP
             // 
