@@ -39,7 +39,7 @@ namespace DealerPickPack
             CTLM.AddItem(Values.COD3, "cod3", false, false, true, 0, false, true);
             CTLM.AddItem(txtDate, "Date", false, false, false, 0, false, false);
             CTLM.AddItem(txtDealer, "Dealer", false, false, false, 0, false, true);
-            CTLM.AddItem(cboRoute, "Route", true, true, true, 0, false, true);
+            CTLM.AddItem(cboRoute, "Route", false,false, false, 0, false, true);
 
             //VS Definitions
             VS.Conn = Values.gDatos;
@@ -56,10 +56,36 @@ namespace DealerPickPack
 
             //Various
             CTLM.AddDefaultStatusStrip();
-            CTLM.btnUpp.Enabled = false;
             CTLM.AddItem(VS);
             CTLM.Start();
         }
 
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            if (txtHU.Text!="")
+            {
+
+                string _printerAddress = Values.LabelPrinterAddress.ToString();
+                int _printerResolution;
+
+                // Get settings for the printer
+                using (var _RS = new DynamicRS(string.Format("select descripcion,cmp_varchar,cmp_integer from ETIQUETAS..datosEmpresa where codigo='{0}'", Values.LabelPrinterAddress), Values.gDatos))
+                {
+                    _RS.Open();
+                    _printerAddress = _RS["cmp_varchar"].ToString(); // "\\\\valsrv02\\VALLBLPRN003"; 
+                    _printerResolution = Convert.ToInt32(_RS["cmp_integer"]);
+                }
+
+                // Create and configurate label
+                var _HULabel = new DealerPickPackHULabel(new ZPLLabel(70, 32, 3, _printerResolution));
+                using (var _printer = new cRawPrinterHelper(_printerAddress))
+                {
+                    _HULabel.Parameters["HU"] = txtHU.Text;
+                    _HULabel.Parameters["ROUTE"] =cboRoute.Text;
+                    _HULabel.Parameters["DEALER"] = txtDealer.Text;
+                    _printer.SendUTF8StringToPrinter(_HULabel.ToString(), 1);
+                }
+            }
+        }
     }
 }

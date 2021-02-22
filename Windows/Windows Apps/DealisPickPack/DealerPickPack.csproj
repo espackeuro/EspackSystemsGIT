@@ -73,6 +73,12 @@
     <Compile Include="fDeliveries.Designer.cs">
       <DependentUpon>fDeliveries.cs</DependentUpon>
     </Compile>
+    <Compile Include="fContainers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fContainers.Designer.cs">
+      <DependentUpon>fContainers.cs</DependentUpon>
+    </Compile>
     <Compile Include="fMainDPP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,10 +103,19 @@
     <Compile Include="fPendingWork.Designer.cs">
       <DependentUpon>fPendingWork.cs</DependentUpon>
     </Compile>
+    <Compile Include="fSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fSettings.Designer.cs">
+      <DependentUpon>fSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fDeliveries.resx">
       <DependentUpon>fDeliveries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fContainers.resx">
+      <DependentUpon>fContainers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fMainDPP.resx">
       <DependentUpon>fMainDPP.cs</DependentUpon>
@@ -113,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fPendingWork.resx">
       <DependentUpon>fPendingWork.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fSettings.resx">
+      <DependentUpon>fSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

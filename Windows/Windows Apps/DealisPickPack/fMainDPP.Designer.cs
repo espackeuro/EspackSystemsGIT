@@ -37,6 +37,8 @@
             this.containersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.outboundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deliveriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +48,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inboundToolStripMenuItem,
             this.processingToolStripMenuItem,
-            this.outboundToolStripMenuItem});
+            this.outboundToolStripMenuItem,
+            this.toolsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(600, 24);
@@ -64,7 +67,7 @@
             // receivalsToolStripMenuItem
             // 
             this.receivalsToolStripMenuItem.Name = "receivalsToolStripMenuItem";
-            this.receivalsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.receivalsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.receivalsToolStripMenuItem.Tag = "fReceivals";
             this.receivalsToolStripMenuItem.Text = "Receivals";
             this.receivalsToolStripMenuItem.Click += new System.EventHandler(this.receivalsToolStripMenuItem_Click);
@@ -82,7 +85,7 @@
             // pendingWorkToolStripMenuItem
             // 
             this.pendingWorkToolStripMenuItem.Name = "pendingWorkToolStripMenuItem";
-            this.pendingWorkToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.pendingWorkToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pendingWorkToolStripMenuItem.Tag = "fPendingWork";
             this.pendingWorkToolStripMenuItem.Text = "Pending Work";
             this.pendingWorkToolStripMenuItem.Click += new System.EventHandler(this.pendingWorkToolStripMenuItem_Click);
@@ -90,7 +93,7 @@
             // husToolStripMenuItem
             // 
             this.husToolStripMenuItem.Name = "husToolStripMenuItem";
-            this.husToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.husToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.husToolStripMenuItem.Tag = "fHUs";
             this.husToolStripMenuItem.Text = "HU\'s";
             this.husToolStripMenuItem.Click += new System.EventHandler(this.husToolStripMenuItem_Click);
@@ -98,9 +101,10 @@
             // containersToolStripMenuItem
             // 
             this.containersToolStripMenuItem.Name = "containersToolStripMenuItem";
-            this.containersToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.containersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.containersToolStripMenuItem.Tag = "fContainers";
             this.containersToolStripMenuItem.Text = "Containers";
+            this.containersToolStripMenuItem.Click += new System.EventHandler(this.containersToolStripMenuItem_Click);
             // 
             // outboundToolStripMenuItem
             // 
@@ -117,6 +121,22 @@
             this.deliveriesToolStripMenuItem.Tag = "fDeliveries";
             this.deliveriesToolStripMenuItem.Text = "Deliveries";
             this.deliveriesToolStripMenuItem.Click += new System.EventHandler(this.deliveriesToolStripMenuItem_Click);
+            // 
+            // toolsToolStripMenuItem
+            // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settingsToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.toolsToolStripMenuItem.Text = "Tools";
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.settingsToolStripMenuItem.Tag = "fSettings";
+            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // fMainDPP
             // 
@@ -153,6 +173,8 @@
         private System.Windows.Forms.ToolStripMenuItem deliveriesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem husToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pendingWorkToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
     }
 }
 

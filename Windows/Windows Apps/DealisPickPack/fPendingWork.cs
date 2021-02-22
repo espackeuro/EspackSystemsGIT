@@ -206,27 +206,22 @@ namespace DealerPickPack
         }
         private void PrintHULabel(object sender, EventArgs e)
         {
-            if (1==1)
+            if (VSHUCab.CurrentRow != null)
             {
-                int _labelInit = 0;
 
-                //txtPrinter.Text = Values.LabelPrinterAddress.ToString();
+                string _printerAddress = Values.LabelPrinterAddress.ToString();
+                int _printerResolution;
 
-                string _printerAddress = "\\\\valsrv02\\VALLBLPRN003"; 
+                // Get settings for the printer
+                using (var _RS = new DynamicRS(string.Format("select descripcion,cmp_varchar,cmp_integer from ETIQUETAS..datosEmpresa where codigo='{0}'", Values.LabelPrinterAddress), Values.gDatos))
+                {
+                    _RS.Open();
+                    _printerAddress = _RS["cmp_varchar"].ToString(); // "\\\\valsrv02\\VALLBLPRN003"; 
+                    _printerResolution = Convert.ToInt32(_RS["cmp_integer"]);
+                }
 
-                int _printerResolution = 300;
-                //using (var _RS = new DynamicRS(string.Format("select descripcion,cmp_varchar,cmp_integer from ETIQUETAS..datosEmpresa where codigo='{0}'", Values.LabelPrinterAddress), Values.gDatos))
-                //{
-                //    _RS.Open();
-                //    _printerAddress = _RS["cmp_varchar"].ToString();
-                //    _printerResolution = Convert.ToInt32(_RS["cmp_integer"]);
-                //    //_printerType = _RS["descripcion"].ToString().Split('|')[0];
-                //}
-
-                //var _label = new ZPLLabel(70, 32, 3, _printerResolution);
-
+                 // Create and configurate label
                 var _HULabel = new DealerPickPackHULabel(new ZPLLabel(70, 32, 3, _printerResolution));
-
                 using (var _printer = new cRawPrinterHelper(_printerAddress))
                 {
                     _HULabel.Parameters["HU"] = VSHUCab["HU", VSHUCab.CurrentRow.Index].Value.ToString();

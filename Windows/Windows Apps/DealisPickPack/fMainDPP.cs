@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CommonToolsWin;
 
 namespace DealerPickPack
 {
@@ -35,7 +36,18 @@ namespace DealerPickPack
                 Application.Exit();
             }
             Values.gDatos.Close();
+            
+            //check settings file
+            if (!cSettings.SettingFileNameExists)
+            {
+                fSettings fSettings = new fSettings();
+                fSettings.ShowDialog();
+            }
+            Values.LabelPrinterAddress = cSettings.readSetting("labelPrinter");
+            Values.COD3 = cSettings.readSetting("COD3");
+            Text = string.Format("{0} - {1} Warehouse", Program.VersionNumber, Values.COD3);
         }
+
         
         private static Dictionary<string, Form> InstancedForms = new Dictionary<string, Form>();
 
@@ -77,6 +89,16 @@ namespace DealerPickPack
         }
 
         private void receivalsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openForm(sender);
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openForm(sender);
+        }
+
+        private void containersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openForm(sender);
         }
