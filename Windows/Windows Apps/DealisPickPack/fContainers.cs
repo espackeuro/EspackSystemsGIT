@@ -28,8 +28,8 @@ namespace DealerPickPack
 
             //CTLM Definitions
             CTLM.Conn = Values.gDatos;
-            CTLM.sSPAdd = "";
-            CTLM.sSPUpp = "";
+            CTLM.sSPAdd = "pContainersCabAdd";
+            CTLM.sSPUpp = "pContainersCabUpp";
             CTLM.sSPDel = "pContainersCabDel";
             CTLM.DBTable = "(Select * from ContainersCab where cod3='" + Values.COD3 + "') a";
 
