@@ -42,7 +42,7 @@ namespace DealerPickPack
 
             //VS Definitions
             VS.Conn = Values.gDatos;
-            VS.sSPAdd = "";
+            VS.sSPAdd = "pContainersDetAdd";
             VS.sSPUpp = "";
             VS.sSPDel = "pContainersDetDel";
             VS.DBTable = "ContainersDet";
