@@ -133,10 +133,16 @@ namespace DealerPickPack
         private void btnPrint_Click(object sender, EventArgs e)
         {
 
-            using (var _rs = new StaticRS(string.Format("select 0 from DeliveriesDet where DeliveryCode='{0}' and cod3='{1}'", txtDelivery.Text, Values.COD3), Values.gDatos))
+            using (var _rs = new StaticRS(string.Format("select dc.Route,DateClosed=convert(varchar(10),dc.ClosedDate,103),dc.Plate,dc.CarrierDesc from DeliveriesCab dc inner join DeliveriesDet dd on dd.DeliveryCode=dc.DeliveryCode and dd.cod3=dc.cod3 where dc.DeliveryCode='{0}' and dc.cod3='{1}'", txtDelivery.Text, Values.COD3), Values.gDatos))
             {
                 _rs.Open();
                 if (_rs.RecordCount == 0) return;
+
+                // Refresh the form data from DB values
+                cboRoute.Text = _rs["Route"].ToString();
+                txtClosedDate.Text = _rs["ClosedDate"].ToString();
+                txtPlate.Text = _rs["Plate"].ToString();
+                txtCarrierDescription.Text = _rs["CarrierDesc"].ToString();
             }
 
             SetFormEnabled(false);
@@ -144,8 +150,14 @@ namespace DealerPickPack
             {
                 if (pd.ShowDialog() == DialogResult.OK)
                 {
-                    using (var _printIt = new PrintPage())
+                    using (var _printIt = new PrintDelivery())
                     {
+                        // Copy values into the object properties & print
+                        _printIt.DeliveryCode = txtDelivery.Text;
+                        _printIt.Route = cboRoute.Text;
+                        _printIt.ClosedDate = txtClosedDate.Text;
+                        _printIt.Plate = txtPlate.Text;
+                        _printIt.CarrierDesc = txtCarrierDescription.Text;
                         _printIt.PrinterSettings = pd.PrinterSettings;
                         pd.Document = _printIt;
                         _printIt.Print();
@@ -161,9 +173,14 @@ namespace DealerPickPack
             this.Controls.Cast<Control>().ToList().ForEach(x => x.Enabled = pValue);
         }
     }
-    public class PrintPage : EspackPrintDocument
+    public class PrintDelivery : EspackPrintDocument
     {
         private bool FirstPage { get; set; } = true;
+        public string DeliveryCode { get; set; }
+        public string Route { get; set; }
+        public string ClosedDate { get; set; }
+        public string Plate { get; set; }
+        public string CarrierDesc { get; set; }
 
         // On each printed page...
         protected override void OnPrintPage(PrintPageEventArgs e)
@@ -198,35 +215,27 @@ namespace DealerPickPack
             NewLine(false, EnumDocumentParts.HEADER);
             Add(string.Format("DEALER PICK PACK LIST"));
 
-            using (var _rs = new StaticRS(string.Format("select Route,ClosedDate=convert(varchar(10),ClosedDate,103),Plate,CarrierDesc from DeliveriesCab where DeliveryCode='{0}' and cod3='{1}'", Program.fDeliveries.Delivery,Values.COD3), Values.gDatos))
-            {
-                _rs.Open();
-                if (_rs.RecordCount!=0)
-                {
-                    // Set font 
-                    //this.CurrentFont = new Font("Courier New", 15, FontStyle.Bold);
-                    NewLine(false, EnumDocumentParts.HEADER);
-                    //Add(string.Format("DELIVERY: {0,-12} ROUTE: {1,-8} DATE: {2,-10}", Program.fDeliveries.Delivery, _rs["Route"], _rs["ClosedDate"]));
-                    Add("DELIVERY:", new Font("Courier New", 15, FontStyle.Bold));
-                    Add($"{Program.fDeliveries.Delivery,-10}", new Font("Courier New", 15, FontStyle.Regular));
-                    Add("ROUTE:", new Font("Courier New", 15, FontStyle.Bold));
-                    Add($"{_rs["Route"],-8}", new Font("Courier New", 15, FontStyle.Regular));
-                    Add("DATE:", new Font("Courier New", 15, FontStyle.Bold));
-                    Add($"{(_rs["ClosedDate"].ToString()==""?"NOT CLOSED":_rs["ClosedDate"]),-10}", new Font("Courier New", 15, FontStyle.Regular));
+            // Set font 
+            //this.CurrentFont = new Font("Courier New", 15, FontStyle.Bold);
+            NewLine(false, EnumDocumentParts.HEADER);
+            //Add(string.Format("DELIVERY: {0,-12} ROUTE: {1,-8} DATE: {2,-10}", Program.fDeliveries.Delivery, _rs["Route"], _rs["ClosedDate"]));
+            Add("DELIVERY:", new Font("Courier New", 15, FontStyle.Bold));
+            Add($"{DeliveryCode,-10}", new Font("Courier New", 15, FontStyle.Regular));
+            Add("ROUTE:", new Font("Courier New", 15, FontStyle.Bold));
+            Add($"{Route,-8}", new Font("Courier New", 15, FontStyle.Regular));
+            Add("DATE:", new Font("Courier New", 15, FontStyle.Bold));
+            Add($"{(ClosedDate==""?"NOT CLOSED":ClosedDate),-10}", new Font("Courier New", 15, FontStyle.Regular));
 
-                    NewLine(false, EnumDocumentParts.HEADER);
-                    //                    Add(string.Format("   PLATE: {0,-10} CARRIER: {1}", _rs["Plate"], _rs["CarrierDesc"]));
-                    Add("   PLATE:", new Font("Courier New", 15, FontStyle.Bold));
-                    Add($"{_rs["Plate"],-10}", new Font("Courier New", 15, FontStyle.Regular));
-                    Add("CARRIER:", new Font("Courier New", 15, FontStyle.Bold));
-                    Add($"{_rs["CarrierDesc"]}", new Font("Courier New", 15, FontStyle.Regular));
+            NewLine(false, EnumDocumentParts.HEADER);
+            //                    Add(string.Format("   PLATE: {0,-10} CARRIER: {1}", _rs["Plate"], _rs["CarrierDesc"]));
+            Add("   PLATE:", new Font("Courier New", 15, FontStyle.Bold));
+            Add($"{Plate,-10}", new Font("Courier New", 15, FontStyle.Regular));
+            Add("CARRIER:", new Font("Courier New", 15, FontStyle.Bold));
+            Add($"{CarrierDesc}", new Font("Courier New", 15, FontStyle.Regular));
 
-                    // Separator
-                    this.CurrentFont = new Font("Courier New", 12, FontStyle.Regular);
-                    NewLine(false, EnumDocumentParts.HEADER);
-
-                }
-            }
+            // Separator
+            this.CurrentFont = new Font("Courier New", 12, FontStyle.Regular);
+            NewLine(false, EnumDocumentParts.HEADER);
         }
 
         // Footer
