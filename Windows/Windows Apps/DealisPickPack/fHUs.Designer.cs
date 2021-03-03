@@ -38,6 +38,8 @@ namespace DealerPickPack
             this.txtDate = new EspackFormControlsNS.EspackDateTimePicker();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.btnPrint = new System.Windows.Forms.ToolStripButton();
+            this.txtHUTypeDescription = new EspackFormControlsNS.EspackTextBox();
+            this.cboHUType = new EspackFormControlsNS.EspackComboBox();
             this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,7 +92,7 @@ namespace DealerPickPack
             this.VS.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.VS.HorizontalScrollingOffset = 0;
             this.VS.IsCTLMOwned = false;
-            this.VS.Location = new System.Drawing.Point(10, 141);
+            this.VS.Location = new System.Drawing.Point(10, 150);
             this.VS.Margin = new System.Windows.Forms.Padding(4);
             this.VS.MsgStatusLabel = null;
             this.VS.Name = "VS";
@@ -107,7 +109,7 @@ namespace DealerPickPack
             dataGridViewRow1.Height = 24;
             this.VS.RowTemplate = dataGridViewRow1;
             this.VS.Search = false;
-            this.VS.Size = new System.Drawing.Size(384, 192);
+            this.VS.Size = new System.Drawing.Size(443, 192);
             this.VS.SQL = null;
             this.VS.sSPAdd = "";
             this.VS.sSPDel = "";
@@ -134,7 +136,7 @@ namespace DealerPickPack
             this.cboRoute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboRoute.FormattingEnabled = false;
             this.cboRoute.IsCTLMOwned = false;
-            this.cboRoute.Location = new System.Drawing.Point(258, 47);
+            this.cboRoute.Location = new System.Drawing.Point(226, 48);
             this.cboRoute.Name = "cboRoute";
             this.cboRoute.Order = 0;
             this.cboRoute.ParentConn = null;
@@ -145,7 +147,7 @@ namespace DealerPickPack
             this.cboRoute.Search = false;
             this.cboRoute.SelectedItem = null;
             this.cboRoute.SelectedValue = null;
-            this.cboRoute.Size = new System.Drawing.Size(136, 40);
+            this.cboRoute.Size = new System.Drawing.Size(99, 40);
             this.cboRoute.Status = CommonTools.EnumStatus.ADDNEW;
             this.cboRoute.TabIndex = 44;
             this.cboRoute.TBDescription = null;
@@ -180,7 +182,7 @@ namespace DealerPickPack
             this.txtHU.Protected = false;
             this.txtHU.ReadOnly = false;
             this.txtHU.Search = false;
-            this.txtHU.Size = new System.Drawing.Size(120, 38);
+            this.txtHU.Size = new System.Drawing.Size(108, 38);
             this.txtHU.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtHU.TabIndex = 46;
             this.txtHU.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -204,7 +206,7 @@ namespace DealerPickPack
             this.txtDealer.ForeColor = System.Drawing.SystemColors.GrayText;
             this.txtDealer.IsCTLMOwned = false;
             this.txtDealer.IsPassword = false;
-            this.txtDealer.Location = new System.Drawing.Point(138, 47);
+            this.txtDealer.Location = new System.Drawing.Point(126, 48);
             this.txtDealer.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtDealer.Multiline = true;
             this.txtDealer.Name = "txtDealer";
@@ -215,7 +217,7 @@ namespace DealerPickPack
             this.txtDealer.Protected = false;
             this.txtDealer.ReadOnly = false;
             this.txtDealer.Search = false;
-            this.txtDealer.Size = new System.Drawing.Size(114, 38);
+            this.txtDealer.Size = new System.Drawing.Size(94, 38);
             this.txtDealer.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtDealer.TabIndex = 47;
             this.txtDealer.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -241,7 +243,7 @@ namespace DealerPickPack
             this.txtDate.ForeColor = System.Drawing.Color.Black;
             this.txtDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.txtDate.IsCTLMOwned = false;
-            this.txtDate.Location = new System.Drawing.Point(10, 93);
+            this.txtDate.Location = new System.Drawing.Point(331, 49);
             this.txtDate.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.txtDate.Name = "txtDate";
@@ -267,9 +269,9 @@ namespace DealerPickPack
             this.toolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnPrint});
-            this.toolStrip.Location = new System.Drawing.Point(326, 15);
+            this.toolStrip.Location = new System.Drawing.Point(384, 15);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(99, 27);
+            this.toolStrip.Size = new System.Drawing.Size(68, 27);
             this.toolStrip.TabIndex = 59;
             this.toolStrip.Text = "toolStrip1";
             // 
@@ -282,11 +284,84 @@ namespace DealerPickPack
             this.btnPrint.Text = "Print";
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
+            // txtHUTypeDescription
+            // 
+            this.txtHUTypeDescription.Add = false;
+            this.txtHUTypeDescription.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtHUTypeDescription.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtHUTypeDescription.Caption = "Description";
+            this.txtHUTypeDescription.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtHUTypeDescription.DBField = null;
+            this.txtHUTypeDescription.DBFieldType = null;
+            this.txtHUTypeDescription.DefaultValue = null;
+            this.txtHUTypeDescription.Del = false;
+            this.txtHUTypeDescription.DependingRS = null;
+            this.txtHUTypeDescription.ExtraDataLink = null;
+            this.txtHUTypeDescription.ForeColor = System.Drawing.Color.Gray;
+            this.txtHUTypeDescription.IsCTLMOwned = false;
+            this.txtHUTypeDescription.IsPassword = false;
+            this.txtHUTypeDescription.Location = new System.Drawing.Point(126, 94);
+            this.txtHUTypeDescription.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtHUTypeDescription.Multiline = true;
+            this.txtHUTypeDescription.Name = "txtHUTypeDescription";
+            this.txtHUTypeDescription.Order = 0;
+            this.txtHUTypeDescription.ParentConn = null;
+            this.txtHUTypeDescription.ParentDA = null;
+            this.txtHUTypeDescription.PK = false;
+            this.txtHUTypeDescription.Protected = false;
+            this.txtHUTypeDescription.ReadOnly = true;
+            this.txtHUTypeDescription.Search = false;
+            this.txtHUTypeDescription.Size = new System.Drawing.Size(327, 40);
+            this.txtHUTypeDescription.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtHUTypeDescription.TabIndex = 61;
+            this.txtHUTypeDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtHUTypeDescription.Upp = false;
+            this.txtHUTypeDescription.Value = "";
+            this.txtHUTypeDescription.WordWrap = true;
+            // 
+            // cboHUType
+            // 
+            this.cboHUType.Add = false;
+            this.cboHUType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboHUType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboHUType.Caption = "HU Type";
+            this.cboHUType.DataSource = null;
+            this.cboHUType.DBField = null;
+            this.cboHUType.DBFieldType = null;
+            this.cboHUType.DefaultValue = null;
+            this.cboHUType.Del = false;
+            this.cboHUType.DependingRS = null;
+            this.cboHUType.DisplayMember = "";
+            this.cboHUType.ExtraDataLink = null;
+            this.cboHUType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboHUType.FormattingEnabled = false;
+            this.cboHUType.IsCTLMOwned = false;
+            this.cboHUType.Location = new System.Drawing.Point(12, 94);
+            this.cboHUType.Name = "cboHUType";
+            this.cboHUType.Order = 0;
+            this.cboHUType.ParentConn = null;
+            this.cboHUType.ParentDA = null;
+            this.cboHUType.PK = false;
+            this.cboHUType.Protected = false;
+            this.cboHUType.ReadOnly = false;
+            this.cboHUType.Search = false;
+            this.cboHUType.SelectedItem = null;
+            this.cboHUType.SelectedValue = null;
+            this.cboHUType.Size = new System.Drawing.Size(108, 40);
+            this.cboHUType.Status = CommonTools.EnumStatus.ADDNEW;
+            this.cboHUType.TabIndex = 60;
+            this.cboHUType.TBDescription = null;
+            this.cboHUType.Upp = false;
+            this.cboHUType.Value = "";
+            this.cboHUType.ValueMember = "";
+            // 
             // fHUs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(406, 346);
+            this.ClientSize = new System.Drawing.Size(467, 359);
+            this.Controls.Add(this.txtHUTypeDescription);
+            this.Controls.Add(this.cboHUType);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.txtDealer);
@@ -315,5 +390,7 @@ namespace DealerPickPack
         private EspackFormControlsNS.EspackDateTimePicker txtDate;
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton btnPrint;
+        private EspackFormControlsNS.EspackTextBox txtHUTypeDescription;
+        private EspackFormControlsNS.EspackComboBox cboHUType;
     }
 }
