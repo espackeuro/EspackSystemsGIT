@@ -107,6 +107,7 @@ namespace EspackClasses
             Parameters.Add("HU", "");
             Parameters.Add("ROUTE", "");
             Parameters.Add("DEALER", "");
+            Parameters.Add("DATE", "");
             //Label Design
             var _middle = Convert.ToInt32(Label.width / 2f);
             var _right = Convert.ToInt32(Label.width) - 3;

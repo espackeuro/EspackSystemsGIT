@@ -88,10 +88,13 @@ namespace DealerPickPack
         }
         private void VS_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            pHUDetAdd(Convert.ToInt32(VS["PENDING QTY", VS.CurrentRow.Index].Value));
+            // disabled (only allowed at scanner)
+            //pHUDetAdd(Convert.ToInt32(VS["PENDING QTY", VS.CurrentRow.Index].Value));
         }
         private void VS_KeyDown(object sender, KeyEventArgs e)
         {
+            // disabled (only allowed at scanner)
+            /*
             if (e.KeyData == Keys.Space && VS.CurrentCell != null)
             {
                 string _answer = Microsoft.VisualBasic.Interaction.InputBox("Enter quantity:", "Move to HU", VS["PENDING QTY", VS.CurrentRow.Index].Value.ToString());
@@ -109,6 +112,7 @@ namespace DealerPickPack
                     }
                 }
             }
+            */
         }
         private void VSHUCab_KeyDown(object sender, KeyEventArgs e)
         {
@@ -210,14 +214,22 @@ namespace DealerPickPack
             {
 
                 string _printerAddress = Values.LabelPrinterAddress.ToString();
-                int _printerResolution;
+                int _printerResolution=300;
 
                 // Get settings for the printer
-                using (var _RS = new DynamicRS(string.Format("select descripcion,cmp_varchar,cmp_integer from ETIQUETAS..datosEmpresa where codigo='{0}'", Values.LabelPrinterAddress), Values.gDatos))
+                using (var _RS = new DynamicRS($"select ValueString,ValueInteger from MiscData where Code='{Values.LabelPrinterAddress}' and cod3='{Values.COD3}'", Values.gDatos))
                 {
                     _RS.Open();
-                    _printerAddress = _RS["cmp_varchar"].ToString(); // "\\\\valsrv02\\VALLBLPRN003"; 
-                    _printerResolution = Convert.ToInt32(_RS["cmp_integer"]);
+                    if (!_RS.EOF)
+                    {
+                        _printerAddress = _RS["ValueString"].ToString(); // "\\\\valsrv02\\VALLBLPRN003"; 
+                        _printerResolution = Convert.ToInt32(_RS["ValueInteger"]);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Wrong selected printer.", "Print HU", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
 
                  // Create and configurate label
@@ -227,8 +239,10 @@ namespace DealerPickPack
                     _HULabel.Parameters["HU"] = VSHUCab["HU", VSHUCab.CurrentRow.Index].Value.ToString();
                     _HULabel.Parameters["ROUTE"] = VSHUCab["ROUTE", VSHUCab.CurrentRow.Index].Value.ToString();
                     _HULabel.Parameters["DEALER"] = VSHUCab["DEALER", VSHUCab.CurrentRow.Index].Value.ToString();
+                    _HULabel.Parameters["DATE"] = VSHUCab["DATE", VSHUCab.CurrentRow.Index].Value.ToString();
                     _printer.SendUTF8StringToPrinter(_HULabel.ToString(), 1);
                 }
+                MessageBox.Show("HU label sent to printer.", "Print HU", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -344,6 +358,7 @@ namespace DealerPickPack
                 }
             }
         }
+
     }
 
 }
