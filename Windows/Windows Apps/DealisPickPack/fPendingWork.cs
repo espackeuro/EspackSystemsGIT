@@ -239,7 +239,8 @@ namespace DealerPickPack
                     _HULabel.Parameters["HU"] = VSHUCab["HU", VSHUCab.CurrentRow.Index].Value.ToString();
                     _HULabel.Parameters["ROUTE"] = VSHUCab["ROUTE", VSHUCab.CurrentRow.Index].Value.ToString();
                     _HULabel.Parameters["DEALER"] = VSHUCab["DEALER", VSHUCab.CurrentRow.Index].Value.ToString();
-                    _HULabel.Parameters["DATE"] = VSHUCab["DATE", VSHUCab.CurrentRow.Index].Value.ToString();
+                    _HULabel.Parameters["TYPE"] = VSHUCab["TYPE", VSHUCab.CurrentRow.Index].Value.ToString();
+                    _HULabel.Parameters["DATE"] = VSHUCab["DATE", VSHUCab.CurrentRow.Index].Value.ToString().Substring(0,10);
                     _printer.SendUTF8StringToPrinter(_HULabel.ToString(), 1);
                 }
                 MessageBox.Show("HU label sent to printer.", "Print HU", MessageBoxButtons.OK, MessageBoxIcon.Information);

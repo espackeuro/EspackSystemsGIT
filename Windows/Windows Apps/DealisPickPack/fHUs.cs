@@ -84,7 +84,8 @@ namespace DealerPickPack
                     _HULabel.Parameters["HU"] = txtHU.Text;
                     _HULabel.Parameters["ROUTE"] =cboRoute.Text;
                     _HULabel.Parameters["DEALER"] = txtDealer.Text;
-                    _HULabel.Parameters["DATE"] = txtDate.Text;
+                    _HULabel.Parameters["TYPE"] = cboHUType.Text;
+                    _HULabel.Parameters["DATE"] = txtDate.Text.Substring(0, 10);
                     _printer.SendUTF8StringToPrinter(_HULabel.ToString(), 1);
                 }
             }
