@@ -133,7 +133,7 @@ namespace DealerPickPack
         private void btnPrint_Click(object sender, EventArgs e)
         {
 
-            using (var _rs = new StaticRS(string.Format("select dc.Route,DateClosed=convert(varchar(10),dc.ClosedDate,103),dc.Plate,dc.CarrierDesc from DeliveriesCab dc inner join DeliveriesDet dd on dd.DeliveryCode=dc.DeliveryCode and dd.cod3=dc.cod3 where dc.DeliveryCode='{0}' and dc.cod3='{1}'", txtDelivery.Text, Values.COD3), Values.gDatos))
+            using (var _rs = new StaticRS(string.Format("select dc.Route,ClosedDate=convert(varchar(10),dc.ClosedDate,103),dc.Plate,dc.CarrierDesc from DeliveriesCab dc inner join DeliveriesDet dd on dd.DeliveryCode=dc.DeliveryCode and dd.cod3=dc.cod3 where dc.DeliveryCode='{0}' and dc.cod3='{1}'", txtDelivery.Text, Values.COD3), Values.gDatos))
             {
                 _rs.Open();
                 if (_rs.RecordCount == 0) return;
@@ -155,7 +155,7 @@ namespace DealerPickPack
                         // Copy values into the object properties & print
                         _printIt.DeliveryCode = txtDelivery.Text;
                         _printIt.Route = cboRoute.Text;
-                        _printIt.ClosedDate = txtClosedDate.Text;
+                        _printIt.ClosedDate = txtClosedDate.Text.Substring(0,10);
                         _printIt.Plate = txtPlate.Text;
                         _printIt.CarrierDesc = txtCarrierDescription.Text;
                         _printIt.PrinterSettings = pd.PrinterSettings;

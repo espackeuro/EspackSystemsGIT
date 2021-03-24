@@ -1099,8 +1099,11 @@ namespace DiverseControls
         // Change to the next line
         public void NewLine()
         {
-            ((EspackPrintingText)CurrentArea.Items[CurrentArea.Items.Count() - 1]).EOL = true;
-            //AddText("", null, -1, -1, true);
+            if (CurrentArea.Items.Count() != 0)
+            {
+                ((EspackPrintingText)CurrentArea.Items[CurrentArea.Items.Count() - 1]).EOL = true;
+                //AddText("", null, -1, -1, true);
+            }
         }
 
         // Add the results of a query to the current area
