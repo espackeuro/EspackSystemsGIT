@@ -4,11 +4,12 @@ using System.Windows.Forms;
 using CommonTools;
 using CommonToolsWin;
 
-namespace DealisPickPack
+namespace DealerPickPack
 {
     static class Program
     {
         public static fMainDPP fMain { get; set; }
+        public static fDeliveries fDeliveries { get; set; }
 
         public static string VersionNumber
         {

@@ -10,10 +10,13 @@ using System.Windows.Forms;
 using AccesoDatosNet;
 using CommonToolsWin;
 using EspackDataGridView;
+using EspackClasses;
 using RawPrinterHelper;
 using System.Threading;
+using System.Data.SqlClient;
+using Windows.UI.Xaml.Controls;
 
-namespace DealisPickPack
+namespace DealerPickPack
 {
     public partial class fPendingWork : Form
     {
@@ -23,138 +26,337 @@ namespace DealisPickPack
 
             // Fill the routes combo
             cboRoute.ParentConn = Values.gDatos;
-            cboRoute.Source("Select RouteCode,Description from MasterRoutes where cod3='" + Values.COD3 + "' order by RouteCode", txtRouteDescription);
+            cboRoute.Source($"select RouteCode='',Description='' union all Select RouteCode,Description from MasterRoutes where cod3='{Values.COD3}' order by RouteCode", txtRouteDescription);
             cboRoute.SelectedValueChanged += CboRoute_SelectedValueChanged;
+            cboRoute.Validated += CboRoute_Validated;
+            cboHUType.ParentConn = Values.gDatos;
+            cboHUType.Source($"select distinct DealisPackCode,descripcion from SELECCION..bultoscm where dealispackcode is not null and len(codigo)<7 order by DealisPackCode", txtHUTypeDescription);
+            cboHUType.Validated += CboHUType_Validated;
+            // VS
+            VS_Show();
+            VS.CellDoubleClick += VS_CellDoubleClick;
+            VS.KeyDown += VS_KeyDown;
 
-            VS.CellContentDoubleClick += VS_CellContentDoubleClick;
-            VSHUDet.CellContentDoubleClick += VSHUDet_CellContentDoubleClick;
+            // VSHUCab
+            VSHUCab_Show();
+            VSHUCab.SelectionChanged += VSHUCab_SelectionChanged;
+            VSHUCab.KeyDown += VSHUCab_KeyDown; 
+
+            // VSHUDet
+            VSHUDet.KeyDown += VSHUDet_KeyDown;
+
+            // Tooltips
+            System.Windows.Forms.ToolTip _toolTip1 = new System.Windows.Forms.ToolTip();
+
+            // Set up the delays for the ToolTip.
+            _toolTip1.AutoPopDelay = 5000;
+            _toolTip1.InitialDelay = 1000;
+            _toolTip1.ReshowDelay = 500;
+
+            // Button tooltips
+            _toolTip1.SetToolTip(btnRefresh, "Refresh");
+            _toolTip1.SetToolTip(btnHUCabAdd, "Add HU");
+            _toolTip1.SetToolTip(btnHUCabDel, "Delete HU");
+            _toolTip1.SetToolTip(btnPrintHULabel, "Print HU");
+            _toolTip1.SetToolTip(btnHUDetDel, "Delete line from HU");
+
         }
 
-
+        ////////// EVENTS //////////
+        ///        
+        private void CboRoute_Validated(object sender, EventArgs e)
+        {
+            if (cboRoute.ComboBox.FindStringExact(cboRoute.Text) == -1)
+            {
+                txtRouteDescription.Text = "";
+            }
+        }
+        private void CboHUType_Validated(object sender, EventArgs e)
+        {
+            if (cboHUType.ComboBox.FindStringExact(cboHUType.Text) == -1)
+            {
+                txtHUTypeDescription.Text = "";
+            }
+        }
+        private void VSHUCab_SelectionChanged(object sender, EventArgs e)
+        {
+            VSHUDet_Show();
+        }
         private void CboRoute_SelectedValueChanged(object sender, EventArgs e)
         {
             btnRefresh_Click(sender, e);
         }
+        private void VS_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // disabled (only allowed at scanner)
+            //pHUDetAdd(Convert.ToInt32(VS["PENDING QTY", VS.CurrentRow.Index].Value));
+        }
+        private void VS_KeyDown(object sender, KeyEventArgs e)
+        {
+            // disabled (only allowed at scanner)
+            /*
+            if (e.KeyData == Keys.Space && VS.CurrentCell != null)
+            {
+                string _answer = Microsoft.VisualBasic.Interaction.InputBox("Enter quantity:", "Move to HU", VS["PENDING QTY", VS.CurrentRow.Index].Value.ToString());
+                
+                if (_answer!="")
+                {
+                    int _qty = 0;
+                    if (int.TryParse(_answer, out _qty))
+                    {
+                        pHUDetAdd(Convert.ToInt32(_qty));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Wrong quantity.", "Dealis Pick Pack", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            */
+        }
+        private void VSHUCab_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Delete) btnHUCabDel_Click(sender, e);
+        }
+        private void VSHUDet_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Delete) btnHUDetDel_Click(sender, e);
+        }
 
+        // Buttons
+        private void btnHUCabAdd_Click(object sender, EventArgs e)
+        {
+            if (VS.CurrentRow != null)
+            {
+                pHUCabAdd(cboHUType.Text);
+                PrintHULabel(sender, e);
+            }
+        }
+        private void btnHUCabDel_Click(object sender, EventArgs e)
+        {
+            if (VSHUCab.CurrentRow != null)
+            {
+                if (MessageBox.Show("Are you sure you want to delete this HU?", "Delete HU", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) pHUCabDel();
+            }
+        }
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             VS_Show();
             VSHUCab_Show();
-
+        }
+        private void btnHUDetDel_Click(object sender, EventArgs e)
+        {
+            if (VSHUDet.CurrentRow != null)
+            {
+                if (MessageBox.Show("Are you sure you want to remove this line?", "Remove line from HU", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) pHUDetDel();
+            }
+        }
+        private void btnPrintHULabel_Click(object sender, EventArgs e)
+        {
+            PrintHULabel(sender, e);
         }
 
+        ////////// FUNCTIONS //////////
         private void VS_Show()
         {
-            VS.Rows.Clear();
-
             // Add the results of the query to the DataGrid            
-            using (var _rs = new StaticRS("select Route,Finis,Qty,QtyPending,Dealer,DealerDesc,OrderNumber,OrderItemNumber from vPendingLines where cod3='" + Values.COD3 + "' " + (cboRoute.Text != "" ? "and Route='" + cboRoute.Text + "' " : "") + "order by Route,Dealer,OrderNumber,OrderItemNumber,Finis", Values.gDatos))
+            using (var _rs = new StaticRS($"select ROUTE,FINIS,QTY,[PENDING QTY]=QtyPending,DEALER,[DESCRIPTION]=DealerDesc,[ORDER NUMBER]=OrderNumber,[ORDER LINE]=OrderItemNumber,[RECEIVAL CODE]=ReceivalCode,[RECEIVAL LINE]=Line from vPendingLines where cod3='{Values.COD3}' and (Route='{cboRoute.Text}' or '{cboRoute.Text}'='') order by Route,Dealer,OrderNumber,OrderItemNumber,Finis", Values.gDatos))
             {
                 _rs.Open();
-                while (!_rs.EOF)
-                {
-                    VS.Rows.Add(_rs["Route"], _rs["Finis"], _rs["Qty"], _rs["QtyPending"], _rs["Dealer"], _rs["DealerDesc"], _rs["OrderNumber"], _rs["OrderItemNumber"]);
-                    _rs.MoveNext();
-                }
+                VS.DataSource = _rs.DataObject;
+                
             }
+            VS.CurrentCell = null;
             VS.Refresh();
+            if (VS.Rows.Count == 0) VS.Tag = "";
         }
 
-        private void VSHUCab_Show()
+        private void VSHUCab_Show(string HU = "")
         {
-            VSHUCab.Rows.Clear();
+            //// Get the selected route in VS Grid
+            //string _route = (VS.CurrentRow == null ? String.Empty : VS["ROUTE", VS.CurrentRow.Index].Value.ToString());
+
             // Add the results of the query to the DataGrid            
-            using (var _rs = new StaticRS("select HU,Route,Dealer,Date from HUCab where InDelivery is null and cod3='" + Values.COD3 + "' " + (cboRoute.Text != "" ? "and Route='" + cboRoute.Text + "' " : "") + "order by HU,Route,Dealer", Values.gDatos))
+            using (var _rs = new StaticRS($"select HU,ROUTE,TYPE=HUTYPE,DEALER,DATE from HUCab where InDelivery is null and cod3='{Values.COD3}' and (Route='{cboRoute.Text}' or '{cboRoute.Text}'='') order by HU,Route,Dealer", Values.gDatos))
             {
                 _rs.Open();
-                while (!_rs.EOF)
+                VSHUCab.DataSource = _rs.DataObject;
+            }
+            VSHUCab.CurrentCell = null;
+           
+            // Select the given HU in the grid
+            try
+            {
+                if (HU != "" && VSHUCab.Rows.Count != 0)
                 {
-                    VSHUCab.Rows.Add(_rs["HU"], _rs["Route"], _rs["Dealer"], _rs["Date"]);
-                    _rs.MoveNext();
+                    DataGridViewRow _row = VSHUCab.Rows.Cast<DataGridViewRow>().FirstOrDefault(r => r.Cells["HU"].Value.ToString().Equals(HU));
+                    VSHUCab.CurrentCell = VSHUCab.Rows[_row.Index].Cells["HU"];
                 }
             }
+            catch { }
             VSHUCab.Refresh();
-            if (VSHUCab.Rows.Count > 0) VSHUDet_Show();
-
         }
-
         private void VSHUDet_Show()
         {
-            VSHUDet.Rows.Clear();
-            // Add the results of the query to the DataGrid            
-            using (var _rs = new StaticRS("select HU,Finis,Qty,ReceivalCode,Receival from HUDet where cod3='" + Values.COD3 + "' " + (cboRoute.Text != "" ? "and HU='" + VSHUCab["HU", VSHUCab.CurrentRow.Index].Value + "' " : "") + "order Finis,Qty,ReceivalCode,Receival", Values.gDatos))
+            // Add the results of the query to the DataGrid       
+            using (var _rs = new StaticRS($"select HU,FINIS,QTY,[RECEIVAL CODE]=ReceivalCode,[RECEIVAL LINE]=ReceivalLine from HUDet where cod3='{Values.COD3}' and HU='{(VSHUCab.CurrentRow == null ? String.Empty : VSHUCab[0, VSHUCab.CurrentRow.Index].Value)}' order by Finis,Qty,ReceivalCode,ReceivalLine", Values.gDatos))
             {
                 _rs.Open();
-                while (!_rs.EOF)
-                {
-                    VSHUDet.Rows.Add(_rs["HU"], _rs["Finis"], _rs["Qty"], _rs["ReceivalCode"], _rs["Receival"]);
-                    _rs.MoveNext();
-                }
+                VSHUDet.DataSource = _rs.DataObject;
+                VSHUDet.Columns["HU"].Visible = false;
             }
+            VSHUDet.CurrentCell = null;
             VSHUDet.Refresh();
         }
-
-        private void VS_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void PrintHULabel(object sender, EventArgs e)
         {
-            pHUDetAdd(Convert.ToInt32(VSHUCab["QtyPending", VSHUCab.CurrentRow.Index].Value));
+            if (VSHUCab.CurrentRow != null)
+            {
+
+                string _printerAddress = Values.LabelPrinterAddress.ToString();
+                int _printerResolution=300;
+
+                // Get settings for the printer
+                using (var _RS = new DynamicRS($"select ValueString,ValueInteger from MiscData where Code='{Values.LabelPrinterAddress}' and cod3='{Values.COD3}'", Values.gDatos))
+                {
+                    _RS.Open();
+                    if (!_RS.EOF)
+                    {
+                        _printerAddress = _RS["ValueString"].ToString(); // "\\\\valsrv02\\VALLBLPRN003"; 
+                        _printerResolution = Convert.ToInt32(_RS["ValueInteger"]);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Wrong selected printer.", "Print HU", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
+                 // Create and configurate label
+                var _HULabel = new DealerPickPackHULabel(new ZPLLabel(70, 32, 3, _printerResolution));
+                using (var _printer = new cRawPrinterHelper(_printerAddress))
+                {
+                    _HULabel.Parameters["HU"] = VSHUCab["HU", VSHUCab.CurrentRow.Index].Value.ToString();
+                    _HULabel.Parameters["ROUTE"] = VSHUCab["ROUTE", VSHUCab.CurrentRow.Index].Value.ToString();
+                    _HULabel.Parameters["DEALER"] = VSHUCab["DEALER", VSHUCab.CurrentRow.Index].Value.ToString();
+                    _HULabel.Parameters["TYPE"] = VSHUCab["TYPE", VSHUCab.CurrentRow.Index].Value.ToString();
+                    _HULabel.Parameters["DATE"] = VSHUCab["DATE", VSHUCab.CurrentRow.Index].Value.ToString().Substring(0,10);
+                    _printer.SendUTF8StringToPrinter(_HULabel.ToString(), 1);
+                }
+                MessageBox.Show("HU label sent to printer.", "Print HU", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
-        private void VSHUDet_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        ////////// SPs //////////
+        private void pHUCabAdd(string HUType)
         {
-            pHUDetDel();
+            using (var _sp = new SP(Values.gDatos, "pHUCabAdd"))
+            {
+                _sp.AddParameterValue("@Dealer", VS["DEALER", VS.CurrentRow.Index].Value);
+                _sp.AddParameterValue("@Route", VS["ROUTE", VS.CurrentRow.Index].Value);
+                _sp.AddParameterValue("@Type", HUType);
+                _sp.AddParameterValue("@cod3", Values.COD3);
+                try
+                {
+                    _sp.Execute();
+                }
+                catch (Exception ex)
+                {
+                    CTWin.MsgError(ex.Message);
+                    return;
+                }
+                if (_sp.LastMsg.Substring(0, 2) != "OK")
+                {
+                    CTWin.MsgError(_sp.LastMsg);
+                    return;
+                }
+                VSHUCab_Show(_sp.LastMsg.Substring(3));
+            }
+        }
+        private void pHUCabDel()
+        {
+            if (VSHUCab.CurrentRow != null)
+            {
+                using (var _sp = new SP(Values.gDatos, "pHUCabDel"))
+                {
+                    _sp.AddParameterValue("@HU", VSHUCab["HU", VSHUCab.CurrentRow.Index].Value);
+                    _sp.AddParameterValue("@cod3", Values.COD3);
+                    try
+                    {
+                        _sp.Execute();
+                    }
+                    catch (Exception ex)
+                    {
+                        CTWin.MsgError(ex.Message);
+                        return;
+                    }
+                    if (_sp.LastMsg.Substring(0, 2) != "OK")
+                    {
+                        CTWin.MsgError(_sp.LastMsg);
+                        return;
+                    }
+                    VSHUCab_Show();
+                }
+            }
         }
 
         private void pHUDetAdd(int qty)
         {
-            using (var _sp = new SP(Values.gDatos, "pHUDetAdd"))
+            if (VSHUCab.CurrentRow != null)
             {
-                _sp.AddParameterValue("@HU", VSHUCab["HU", VSHUCab.CurrentRow.Index].Value);
-                _sp.AddParameterValue("@Receival", VSHUCab["ReceivalCode", VSHUCab.CurrentRow.Index].Value);
-                _sp.AddParameterValue("@Line", VSHUCab["Line", VSHUCab.CurrentRow.Index].Value);
-                _sp.AddParameterValue("@Qty", qty);
-                _sp.AddParameterValue("@cod3", Values.COD3);
-                try
+                using (var _sp = new SP(Values.gDatos, "pHUDetAdd"))
                 {
-                    _sp.Execute();
+                    _sp.AddParameterValue("@HU", VSHUCab["HU", VSHUCab.CurrentRow.Index].Value);
+                    _sp.AddParameterValue("@Receival", VS["RECEIVAL CODE", VS.CurrentRow.Index].Value);
+                    _sp.AddParameterValue("@Line", VS["RECEIVAL LINE", VS.CurrentRow.Index].Value);
+                    _sp.AddParameterValue("@Qty", qty);
+                    _sp.AddParameterValue("@cod3", Values.COD3);
+                    try
+                    {
+                        _sp.Execute();
+                    }
+                    catch (Exception ex)
+                    {
+                        CTWin.MsgError(ex.Message);
+                        return;
+                    }
+                    if (_sp.LastMsg.Substring(0, 2) != "OK")
+                    {
+                        CTWin.MsgError(_sp.LastMsg);
+                        return;
+                    }
+                    VS_Show();
+                    VSHUDet_Show();
                 }
-                catch (Exception ex)
-                {
-                    CTWin.MsgError(ex.Message);
-                    return;
-                }
-                if (_sp.LastMsg.Substring(0, 2) != "OK")
-                {
-                    CTWin.MsgError(_sp.LastMsg);
-                    return;
-                }
-                VS_Show();
-                VSHUDet_Show();
             }
         }
         private void pHUDetDel()
         {
-            using (var _sp = new SP(Values.gDatos, "pHUDetDel"))
+            if (VSHUDet.CurrentRow != null)
             {
-                _sp.AddParameterValue("@HU", VSHUDet["HU", VSHUDet.CurrentRow.Index].Value);
-                _sp.AddParameterValue("@Receival", VSHUDet["ReceivalCode", VSHUDet.CurrentRow.Index].Value);
-                _sp.AddParameterValue("@Line", VSHUCab["Line", VSHUDet.CurrentRow.Index].Value);
-                _sp.AddParameterValue("@cod3", Values.COD3);
-                try
+                using (var _sp = new SP(Values.gDatos, "pHUDetDel"))
                 {
-                    _sp.Execute();
+                    _sp.AddParameterValue("@HU", VSHUDet["HU", VSHUDet.CurrentRow.Index].Value);
+                    _sp.AddParameterValue("@Receival", VSHUDet["RECEIVAL CODE", VSHUDet.CurrentRow.Index].Value);
+                    _sp.AddParameterValue("@Line", VSHUDet["RECEIVAL LINE", VSHUDet.CurrentRow.Index].Value);
+                    _sp.AddParameterValue("@cod3", Values.COD3);
+                    try
+                    {
+                        _sp.Execute();
+                    }
+                    catch (Exception ex)
+                    {
+                        CTWin.MsgError(ex.Message);
+                        return;
+                    }
+                    if (_sp.LastMsg.Substring(0, 2) != "OK")
+                    {
+                        CTWin.MsgError(_sp.LastMsg);
+                        return;
+                    }
+                    VS_Show();
+                    VSHUDet_Show();
                 }
-                catch (Exception ex)
-                {
-                    CTWin.MsgError(ex.Message);
-                    return;
-                }
-                if (_sp.LastMsg.Substring(0, 2) != "OK")
-                {
-                    CTWin.MsgError(_sp.LastMsg);
-                    return;
-                }
-                VS_Show();
-                VSHUDet_Show();
             }
         }
 

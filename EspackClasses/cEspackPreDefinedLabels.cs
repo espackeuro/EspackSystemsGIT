@@ -9,12 +9,12 @@ namespace EspackClasses
     interface cEspackPreDefinedLabels
     {
         cLabel Label { get; set; }
-        Dictionary<string,string> Parameters { get; set; }
+        Dictionary<string, string> Parameters { get; set; }
         string ToString();
 
     }
 
-    public class MicroCM:cEspackPreDefinedLabels
+    public class MicroCM : cEspackPreDefinedLabels
     {
         public cLabel Label { get; set; }
         public Dictionary<string, string> Parameters { get; set; } = new Dictionary<string, string>();
@@ -48,7 +48,7 @@ namespace EspackClasses
             return Label.ToString(Parameters);
         }
     }
-    public class SingleBarcode:cEspackPreDefinedLabels
+    public class SingleBarcode : cEspackPreDefinedLabels
     {
         public cLabel Label { get; set; }
         public Dictionary<string, string> Parameters { get; set; } = new Dictionary<string, string>();
@@ -85,9 +85,41 @@ namespace EspackClasses
             var _middle = Convert.ToInt32(Label.width / 2f);
             var _right = Convert.ToInt32(Label.width) - 3;
             var _height = Convert.ToInt32(Label.height);
-            Label.addLine(_middle, 13, 0, "C", "", "[VALUE]", 85, rotated:true);
-            Label.addLine(_right, 75, 0, "I", "", "[BC][HASHVAL]", 0, _height / 4 , 2, false, true);
+            Label.addLine(_middle, 13, 0, "C", "", "[VALUE]", 85, rotated: true);
+            Label.addLine(_right, 75, 0, "I", "", "[BC][HASHVAL]", 0, _height / 4, 2, false, true);
 
+        }
+        public override string ToString()
+        {
+            return Label.ToString(Parameters);
+        }
+    }
+
+    public class DealerPickPackHULabel : cEspackPreDefinedLabels
+    {
+        public cLabel Label { get; set; }
+        public Dictionary<string, string> Parameters { get; set; } = new Dictionary<string, string>();
+        public DealerPickPackHULabel(cLabel pLabel)
+        {
+            //Assignments
+            Label = pLabel;
+            //Parameters
+            Parameters.Add("HU", "");
+            Parameters.Add("ROUTE", "");
+            Parameters.Add("DEALER", "");
+            Parameters.Add("TYPE", "");
+            Parameters.Add("DATE", "");
+            //Label Design
+            var _middle = Convert.ToInt32(Label.width / 2f);
+            var _right = Convert.ToInt32(Label.width) - 3;
+            var _height = Convert.ToInt32(Label.height);
+            Label.addLine(2, 4, 0, "I", "", "Dealer Pick Pack", 8);
+            Label.addLine(68, 4, 0, "D", "", "Espack - [DATE]",8);
+            Label.addLine(_middle, 12, 0, "C", "", "[HU]", 22);
+            Label.addLine(_middle, 14, 66, "C", "", "[BC][HU]", 0, 10, 2);//, 85,10);
+            Label.addLine(_middle, 30, 0, "C", "", "[DEALER] / [ROUTE] / [TYPE]", 12);
+            //Label.addLine(2, 30, 0, "I", "", "[DEALER]", 14);
+            //Label.addLine(68, 30, 0, "D", "", "([ROUTE])", 14);
         }
         public override string ToString()
         {

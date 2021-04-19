@@ -9,8 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CommonToolsWin;
 
-namespace DealisPickPack
+namespace DealerPickPack
 {
     public partial class fMainDPP : Form
     {
@@ -19,12 +20,11 @@ namespace DealisPickPack
             InitializeComponent();
 
             var espackArgs = CT.LoadVars(args);
-            Values.ProjectName = "DealisPickPack";
+            Values.ProjectName = "DealerPickPack";
             Values.gDatos.DataBase = espackArgs.DataBase;
             Values.gDatos.Server = espackArgs.Server;
             Values.gDatos.User = espackArgs.User;
             Values.gDatos.Password = espackArgs.Password;
-
 
             try
             {
@@ -36,53 +36,19 @@ namespace DealisPickPack
                 Application.Exit();
             }
             Values.gDatos.Close();
+            
             //check settings file
-            //if (!cSettings.SettingFileNameExists)
-            //{
-            //    fSettings fSettings = new fSettings();
-            //    fSettings.ShowDialog();
-            //}
-            //Values.LabelPrinterAddress = cSettings.readSetting("labelPrinter");
-            //Values.COD3 = cSettings.readSetting("COD3");
-            //Text = string.Format("{0} - {1} Warehouse", Program.VersionNumber, Values.COD3);
-        }
-        /*
-        private void simpleReceivalsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //fSimpleReceivals fSimpleReceivals = new fSimpleReceivals();
-            //fSimpleReceivals.MdiParent = this;
-            //fSimpleReceivals.Show();
-            openForm(sender);
-            //fSimpleReceivals fSimpleReceivals = (fSimpleReceivals)GetChildInstance("fSimpleReceivals");
+            if (!cSettings.SettingFileNameExists)
+            {
+                fSettings fSettings = new fSettings();
+                fSettings.ShowDialog();
+            }
+            Values.LabelPrinterAddress = cSettings.readSetting("labelPrinter");
+            Values.COD3 = cSettings.readSetting("COD3");
+            Text = string.Format("{0} - {1} Warehouse", Program.VersionNumber, Values.COD3);
         }
 
-        private void printRepairsUnitLabelsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //fPrintUnitLabels fPrintUnitLabels = new fPrintUnitLabels();
-            //fPrintUnitLabels.Show();
-            openForm(sender);
-            //fPrintUnitLabels fPrintUnitLabels = (fPrintUnitLabels)GetChildInstance("fPrintUnitLabels");
-        }
-
-        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //fSettings fSettings = new fSettings();
-            //fSettings.ShowDialog();
-            openForm(sender);
-            //fSettings fSettings = (fSettings)GetChildInstance("fSettings");
-        }
-
-        private void printRackLabelsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openForm(sender);
-            //fRackLabels fRackLabels = (fRackLabels)GetChildInstance("fRackLabels");
-            //fRackLabels fRackLabels = new fRackLabels();
-            //fRackLabels.MdiParent = this;
-            //fRackLabels.Show();
-        }
-
-        */
-        //form opening control
+        
         private static Dictionary<string, Form> InstancedForms = new Dictionary<string, Form>();
 
         private object GetChildInstance(String pFormName)
@@ -103,20 +69,39 @@ namespace DealisPickPack
             };
             return InstancedForms[pFormName];  //just created or created earlier.Return it+69
         }
-
         private void openForm(object menuOption)
         {
             var formName = ((ToolStripMenuItem)menuOption).Tag.ToString();
             var form = (Form)GetChildInstance(formName);
             form.WindowState = FormWindowState.Maximized;
         }
-
         private void pendingWorkToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openForm(sender);
         }
+        private void husToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openForm(sender);
+        }
+        private void deliveriesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openForm(sender);
+        }
 
-       
+        private void receivalsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openForm(sender);
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openForm(sender);
+        }
+
+        private void containersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openForm(sender);
+        }
     }
     public static class Values
     {

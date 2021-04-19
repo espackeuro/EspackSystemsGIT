@@ -1,5 +1,5 @@
 ﻿
-namespace DealisPickPack
+namespace DealerPickPack
 {
     partial class fPendingWork
     {
@@ -33,47 +33,139 @@ namespace DealisPickPack
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnRefresh = new System.Windows.Forms.Button();
-            this.txtRouteDescription = new EspackFormControlsNS.EspackTextBox();
-            this.cboRoute = new EspackFormControlsNS.EspackComboBox();
             this.VS = new System.Windows.Forms.DataGridView();
-            this.Route = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Finis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QtyPending = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dealer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DealerDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderItemNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VSHUCab = new System.Windows.Forms.DataGridView();
             this.VSHUDet = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblPendingHU = new System.Windows.Forms.Label();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtRouteDescription = new EspackFormControlsNS.EspackTextBox();
+            this.cboRoute = new EspackFormControlsNS.EspackComboBox();
+            this.btnHUCabDel = new System.Windows.Forms.Button();
+            this.btnPrintHULabel = new System.Windows.Forms.Button();
+            this.btnHUCabAdd = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnHUDetDel = new System.Windows.Forms.Button();
+            this.txtHUTypeDescription = new EspackFormControlsNS.EspackTextBox();
+            this.cboHUType = new EspackFormControlsNS.EspackComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VSHUCab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VSHUDet)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnRefresh
+            // VS
             // 
-            this.btnRefresh.Image = global::DealerPickPack.Properties.Resources.reload_24;
-            this.btnRefresh.Location = new System.Drawing.Point(477, 53);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(39, 24);
-            this.btnRefresh.TabIndex = 14;
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            this.VS.AllowUserToAddRows = false;
+            this.VS.AllowUserToDeleteRows = false;
+            this.VS.AllowUserToResizeRows = false;
+            this.VS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.VS.ColumnHeadersHeight = 29;
+            this.VS.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.VS.EnableHeadersVisualStyles = false;
+            this.VS.Location = new System.Drawing.Point(10, 104);
+            this.VS.MultiSelect = false;
+            this.VS.Name = "VS";
+            this.VS.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VS.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.VS.RowHeadersVisible = false;
+            this.VS.RowHeadersWidth = 51;
+            this.VS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.VS.Size = new System.Drawing.Size(799, 276);
+            this.VS.TabIndex = 15;
+            // 
+            // VSHUCab
+            // 
+            this.VSHUCab.AllowUserToAddRows = false;
+            this.VSHUCab.AllowUserToDeleteRows = false;
+            this.VSHUCab.AllowUserToResizeRows = false;
+            this.VSHUCab.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VSHUCab.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.VSHUCab.ColumnHeadersHeight = 29;
+            this.VSHUCab.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.VSHUCab.EnableHeadersVisualStyles = false;
+            this.VSHUCab.Location = new System.Drawing.Point(10, 399);
+            this.VSHUCab.MultiSelect = false;
+            this.VSHUCab.Name = "VSHUCab";
+            this.VSHUCab.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VSHUCab.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.VSHUCab.RowHeadersVisible = false;
+            this.VSHUCab.RowHeadersWidth = 51;
+            this.VSHUCab.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.VSHUCab.Size = new System.Drawing.Size(385, 236);
+            this.VSHUCab.TabIndex = 16;
+            // 
+            // VSHUDet
+            // 
+            this.VSHUDet.AllowUserToAddRows = false;
+            this.VSHUDet.AllowUserToDeleteRows = false;
+            this.VSHUDet.AllowUserToResizeRows = false;
+            this.VSHUDet.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VSHUDet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.VSHUDet.ColumnHeadersHeight = 29;
+            this.VSHUDet.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.VSHUDet.EnableHeadersVisualStyles = false;
+            this.VSHUDet.Location = new System.Drawing.Point(401, 399);
+            this.VSHUDet.MultiSelect = false;
+            this.VSHUDet.Name = "VSHUDet";
+            this.VSHUDet.ReadOnly = true;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VSHUDet.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.VSHUDet.RowHeadersVisible = false;
+            this.VSHUDet.RowHeadersWidth = 51;
+            this.VSHUDet.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.VSHUDet.Size = new System.Drawing.Size(408, 236);
+            this.VSHUDet.TabIndex = 17;
+            // 
+            // lblPendingHU
+            // 
+            this.lblPendingHU.AutoSize = true;
+            this.lblPendingHU.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPendingHU.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblPendingHU.Location = new System.Drawing.Point(7, 383);
+            this.lblPendingHU.Name = "lblPendingHU";
+            this.lblPendingHU.Size = new System.Drawing.Size(71, 13);
+            this.lblPendingHU.TabIndex = 18;
+            this.lblPendingHU.Text = "Pending HU";
             // 
             // txtRouteDescription
             // 
@@ -91,7 +183,7 @@ namespace DealisPickPack
             this.txtRouteDescription.ForeColor = System.Drawing.Color.Gray;
             this.txtRouteDescription.IsCTLMOwned = false;
             this.txtRouteDescription.IsPassword = false;
-            this.txtRouteDescription.Location = new System.Drawing.Point(148, 39);
+            this.txtRouteDescription.Location = new System.Drawing.Point(126, 13);
             this.txtRouteDescription.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.txtRouteDescription.Multiline = true;
             this.txtRouteDescription.Name = "txtRouteDescription";
@@ -102,7 +194,7 @@ namespace DealisPickPack
             this.txtRouteDescription.Protected = false;
             this.txtRouteDescription.ReadOnly = true;
             this.txtRouteDescription.Search = false;
-            this.txtRouteDescription.Size = new System.Drawing.Size(322, 38);
+            this.txtRouteDescription.Size = new System.Drawing.Size(322, 39);
             this.txtRouteDescription.Status = CommonTools.EnumStatus.ADDNEW;
             this.txtRouteDescription.TabIndex = 13;
             this.txtRouteDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -127,7 +219,7 @@ namespace DealisPickPack
             this.cboRoute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboRoute.FormattingEnabled = false;
             this.cboRoute.IsCTLMOwned = false;
-            this.cboRoute.Location = new System.Drawing.Point(12, 37);
+            this.cboRoute.Location = new System.Drawing.Point(12, 12);
             this.cboRoute.Name = "cboRoute";
             this.cboRoute.Order = 0;
             this.cboRoute.ParentConn = null;
@@ -138,7 +230,7 @@ namespace DealisPickPack
             this.cboRoute.Search = false;
             this.cboRoute.SelectedItem = null;
             this.cboRoute.SelectedValue = null;
-            this.cboRoute.Size = new System.Drawing.Size(130, 40);
+            this.cboRoute.Size = new System.Drawing.Size(108, 40);
             this.cboRoute.Status = CommonTools.EnumStatus.ADDNEW;
             this.cboRoute.TabIndex = 0;
             this.cboRoute.TBDescription = null;
@@ -146,283 +238,139 @@ namespace DealisPickPack
             this.cboRoute.Value = "";
             this.cboRoute.ValueMember = "";
             // 
-            // VS
+            // btnHUCabDel
             // 
-            this.VS.AllowUserToAddRows = false;
-            this.VS.AllowUserToDeleteRows = false;
-            this.VS.AllowUserToResizeRows = false;
-            this.VS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.VS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.VS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Route,
-            this.Finis,
-            this.Qty,
-            this.QtyPending,
-            this.Dealer,
-            this.DealerDesc,
-            this.OrderNumber,
-            this.OrderItemNumber});
-            this.VS.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.VS.EnableHeadersVisualStyles = false;
-            this.VS.Location = new System.Drawing.Point(13, 84);
-            this.VS.MultiSelect = false;
-            this.VS.Name = "VS";
-            this.VS.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.VS.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.VS.RowHeadersVisible = false;
-            this.VS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.VS.Size = new System.Drawing.Size(799, 276);
-            this.VS.TabIndex = 15;
+            this.btnHUCabDel.Image = global::DealerPickPack.Properties.Resources.edit_remove_16x16;
+            this.btnHUCabDel.Location = new System.Drawing.Point(55, 641);
+            this.btnHUCabDel.Name = "btnHUCabDel";
+            this.btnHUCabDel.Size = new System.Drawing.Size(39, 24);
+            this.btnHUCabDel.TabIndex = 21;
+            this.btnHUCabDel.UseVisualStyleBackColor = true;
+            this.btnHUCabDel.Click += new System.EventHandler(this.btnHUCabDel_Click);
             // 
-            // Route
+            // btnPrintHULabel
             // 
-            this.Route.HeaderText = "ROUTE";
-            this.Route.Name = "Route";
-            this.Route.ReadOnly = true;
-            this.Route.Width = 70;
+            this.btnPrintHULabel.Image = global::DealerPickPack.Properties.Resources.printer_16x16;
+            this.btnPrintHULabel.Location = new System.Drawing.Point(100, 641);
+            this.btnPrintHULabel.Name = "btnPrintHULabel";
+            this.btnPrintHULabel.Size = new System.Drawing.Size(39, 24);
+            this.btnPrintHULabel.TabIndex = 20;
+            this.btnPrintHULabel.UseVisualStyleBackColor = true;
+            this.btnPrintHULabel.Click += new System.EventHandler(this.btnPrintHULabel_Click);
             // 
-            // Finis
+            // btnHUCabAdd
             // 
-            this.Finis.HeaderText = "FINIS";
-            this.Finis.Name = "Finis";
-            this.Finis.ReadOnly = true;
-            this.Finis.Width = 59;
+            this.btnHUCabAdd.Image = global::DealerPickPack.Properties.Resources.edit_add;
+            this.btnHUCabAdd.Location = new System.Drawing.Point(10, 641);
+            this.btnHUCabAdd.Name = "btnHUCabAdd";
+            this.btnHUCabAdd.Size = new System.Drawing.Size(39, 24);
+            this.btnHUCabAdd.TabIndex = 19;
+            this.btnHUCabAdd.UseVisualStyleBackColor = true;
+            this.btnHUCabAdd.Click += new System.EventHandler(this.btnHUCabAdd_Click);
             // 
-            // Qty
+            // btnRefresh
             // 
-            this.Qty.HeaderText = "QTY";
-            this.Qty.Name = "Qty";
-            this.Qty.ReadOnly = true;
-            this.Qty.Width = 54;
+            this.btnRefresh.Image = global::DealerPickPack.Properties.Resources.quick_restart_16x16;
+            this.btnRefresh.Location = new System.Drawing.Point(454, 28);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(39, 24);
+            this.btnRefresh.TabIndex = 14;
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // QtyPending
+            // btnHUDetDel
             // 
-            this.QtyPending.HeaderText = "PENDING QTY";
-            this.QtyPending.Name = "QtyPending";
-            this.QtyPending.ReadOnly = true;
-            this.QtyPending.Width = 106;
+            this.btnHUDetDel.Image = global::DealerPickPack.Properties.Resources.edit_remove_16x16;
+            this.btnHUDetDel.Location = new System.Drawing.Point(401, 641);
+            this.btnHUDetDel.Name = "btnHUDetDel";
+            this.btnHUDetDel.Size = new System.Drawing.Size(39, 24);
+            this.btnHUDetDel.TabIndex = 22;
+            this.btnHUDetDel.UseVisualStyleBackColor = true;
+            this.btnHUDetDel.Click += new System.EventHandler(this.btnHUDetDel_Click);
             // 
-            // Dealer
+            // txtHUTypeDescription
             // 
-            this.Dealer.HeaderText = "DEALER";
-            this.Dealer.Name = "Dealer";
-            this.Dealer.ReadOnly = true;
-            this.Dealer.Width = 75;
+            this.txtHUTypeDescription.Add = false;
+            this.txtHUTypeDescription.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtHUTypeDescription.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtHUTypeDescription.Caption = "Description";
+            this.txtHUTypeDescription.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtHUTypeDescription.DBField = null;
+            this.txtHUTypeDescription.DBFieldType = null;
+            this.txtHUTypeDescription.DefaultValue = null;
+            this.txtHUTypeDescription.Del = false;
+            this.txtHUTypeDescription.DependingRS = null;
+            this.txtHUTypeDescription.ExtraDataLink = null;
+            this.txtHUTypeDescription.ForeColor = System.Drawing.Color.Gray;
+            this.txtHUTypeDescription.IsCTLMOwned = false;
+            this.txtHUTypeDescription.IsPassword = false;
+            this.txtHUTypeDescription.Location = new System.Drawing.Point(126, 58);
+            this.txtHUTypeDescription.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.txtHUTypeDescription.Multiline = true;
+            this.txtHUTypeDescription.Name = "txtHUTypeDescription";
+            this.txtHUTypeDescription.Order = 0;
+            this.txtHUTypeDescription.ParentConn = null;
+            this.txtHUTypeDescription.ParentDA = null;
+            this.txtHUTypeDescription.PK = false;
+            this.txtHUTypeDescription.Protected = false;
+            this.txtHUTypeDescription.ReadOnly = true;
+            this.txtHUTypeDescription.Search = false;
+            this.txtHUTypeDescription.Size = new System.Drawing.Size(322, 40);
+            this.txtHUTypeDescription.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtHUTypeDescription.TabIndex = 26;
+            this.txtHUTypeDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtHUTypeDescription.Upp = false;
+            this.txtHUTypeDescription.Value = "";
+            this.txtHUTypeDescription.WordWrap = true;
             // 
-            // DealerDesc
+            // cboHUType
             // 
-            this.DealerDesc.HeaderText = "DESCRIPTION";
-            this.DealerDesc.Name = "DealerDesc";
-            this.DealerDesc.ReadOnly = true;
-            this.DealerDesc.Width = 105;
-            // 
-            // OrderNumber
-            // 
-            this.OrderNumber.HeaderText = "ORDER NUMBER";
-            this.OrderNumber.Name = "OrderNumber";
-            this.OrderNumber.ReadOnly = true;
-            this.OrderNumber.Width = 121;
-            // 
-            // OrderItemNumber
-            // 
-            this.OrderItemNumber.HeaderText = "ORDER ITEM";
-            this.OrderItemNumber.Name = "OrderItemNumber";
-            this.OrderItemNumber.ReadOnly = true;
-            // 
-            // VSHUCab
-            // 
-            this.VSHUCab.AllowUserToAddRows = false;
-            this.VSHUCab.AllowUserToDeleteRows = false;
-            this.VSHUCab.AllowUserToResizeRows = false;
-            this.VSHUCab.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.VSHUCab.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.VSHUCab.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
-            this.VSHUCab.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.VSHUCab.EnableHeadersVisualStyles = false;
-            this.VSHUCab.Location = new System.Drawing.Point(13, 463);
-            this.VSHUCab.MultiSelect = false;
-            this.VSHUCab.Name = "VSHUCab";
-            this.VSHUCab.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.VSHUCab.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.VSHUCab.RowHeadersVisible = false;
-            this.VSHUCab.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.VSHUCab.Size = new System.Drawing.Size(322, 276);
-            this.VSHUCab.TabIndex = 16;
-            // 
-            // VSHUDet
-            // 
-            this.VSHUDet.AllowUserToAddRows = false;
-            this.VSHUDet.AllowUserToDeleteRows = false;
-            this.VSHUDet.AllowUserToResizeRows = false;
-            this.VSHUDet.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.VSHUDet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.VSHUDet.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16});
-            this.VSHUDet.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.VSHUDet.EnableHeadersVisualStyles = false;
-            this.VSHUDet.Location = new System.Drawing.Point(341, 463);
-            this.VSHUDet.MultiSelect = false;
-            this.VSHUDet.Name = "VSHUDet";
-            this.VSHUDet.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.VSHUDet.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.VSHUDet.RowHeadersVisible = false;
-            this.VSHUDet.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.VSHUDet.Size = new System.Drawing.Size(471, 276);
-            this.VSHUDet.TabIndex = 17;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "ROUTE";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "FINIS";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 59;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.HeaderText = "QTY";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 54;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.HeaderText = "PENDING QTY";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            this.dataGridViewTextBoxColumn12.Width = 106;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.HeaderText = "DEALER";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.Width = 75;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.HeaderText = "DESCRIPTION";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            this.dataGridViewTextBoxColumn14.Width = 105;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.HeaderText = "ORDER NUMBER";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            this.dataGridViewTextBoxColumn15.Width = 121;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.HeaderText = "ORDER ITEM";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            // 
-            // lblPendingHU
-            // 
-            this.lblPendingHU.AutoSize = true;
-            this.lblPendingHU.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPendingHU.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblPendingHU.Location = new System.Drawing.Point(13, 444);
-            this.lblPendingHU.Name = "lblPendingHU";
-            this.lblPendingHU.Size = new System.Drawing.Size(71, 13);
-            this.lblPendingHU.TabIndex = 18;
-            this.lblPendingHU.Text = "Pending HU";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "HU";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 48;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "ROUTE";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "DEALER";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 75;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "DATE";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 61;
+            this.cboHUType.Add = false;
+            this.cboHUType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboHUType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboHUType.Caption = "HU Type";
+            this.cboHUType.DataSource = null;
+            this.cboHUType.DBField = null;
+            this.cboHUType.DBFieldType = null;
+            this.cboHUType.DefaultValue = null;
+            this.cboHUType.Del = false;
+            this.cboHUType.DependingRS = null;
+            this.cboHUType.DisplayMember = "";
+            this.cboHUType.ExtraDataLink = null;
+            this.cboHUType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboHUType.FormattingEnabled = false;
+            this.cboHUType.IsCTLMOwned = false;
+            this.cboHUType.Location = new System.Drawing.Point(10, 58);
+            this.cboHUType.Name = "cboHUType";
+            this.cboHUType.Order = 0;
+            this.cboHUType.ParentConn = null;
+            this.cboHUType.ParentDA = null;
+            this.cboHUType.PK = false;
+            this.cboHUType.Protected = false;
+            this.cboHUType.ReadOnly = false;
+            this.cboHUType.Search = false;
+            this.cboHUType.SelectedItem = null;
+            this.cboHUType.SelectedValue = null;
+            this.cboHUType.Size = new System.Drawing.Size(108, 40);
+            this.cboHUType.Status = CommonTools.EnumStatus.ADDNEW;
+            this.cboHUType.TabIndex = 25;
+            this.cboHUType.TBDescription = null;
+            this.cboHUType.Upp = false;
+            this.cboHUType.Value = "";
+            this.cboHUType.ValueMember = "";
             // 
             // fPendingWork
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(842, 842);
+            this.ClientSize = new System.Drawing.Size(822, 675);
+            this.Controls.Add(this.txtHUTypeDescription);
+            this.Controls.Add(this.cboHUType);
+            this.Controls.Add(this.btnHUDetDel);
+            this.Controls.Add(this.btnHUCabDel);
+            this.Controls.Add(this.btnPrintHULabel);
+            this.Controls.Add(this.btnHUCabAdd);
             this.Controls.Add(this.lblPendingHU);
             this.Controls.Add(this.VSHUDet);
             this.Controls.Add(this.VSHUCab);
@@ -445,28 +393,14 @@ namespace DealisPickPack
         private EspackFormControlsNS.EspackTextBox txtRouteDescription;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.DataGridView VS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Route;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Finis;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn QtyPending;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dealer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DealerDesc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrderNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrderItemNumber;
         private System.Windows.Forms.DataGridView VSHUCab;
         private System.Windows.Forms.DataGridView VSHUDet;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.Label lblPendingHU;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.Button btnHUCabAdd;
+        private System.Windows.Forms.Button btnPrintHULabel;
+        private System.Windows.Forms.Button btnHUCabDel;
+        private System.Windows.Forms.Button btnHUDetDel;
+        private EspackFormControlsNS.EspackTextBox txtHUTypeDescription;
+        private EspackFormControlsNS.EspackComboBox cboHUType;
     }
 }
