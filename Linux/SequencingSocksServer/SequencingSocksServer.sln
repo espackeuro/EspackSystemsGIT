@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.705
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SequencingSocksServer", "SequencingSocksServer\SequencingSocksServer.csproj", "{5AD359E0-6977-4095-A640-32BED62AFAF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SYNCRO parser", "SYNCRO parser\SYNCRO parser.csproj", "{2747E41C-A98B-4A06-AC7F-7958AF2B2645}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5AD359E0-6977-4095-A640-32BED62AFAF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AD359E0-6977-4095-A640-32BED62AFAF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AD359E0-6977-4095-A640-32BED62AFAF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AD359E0-6977-4095-A640-32BED62AFAF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2747E41C-A98B-4A06-AC7F-7958AF2B2645}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2747E41C-A98B-4A06-AC7F-7958AF2B2645}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2747E41C-A98B-4A06-AC7F-7958AF2B2645}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2747E41C-A98B-4A06-AC7F-7958AF2B2645}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {192F7973-9333-46E5-83A5-E68DECEB5EB7}
+	EndGlobalSection
+EndGlobal
