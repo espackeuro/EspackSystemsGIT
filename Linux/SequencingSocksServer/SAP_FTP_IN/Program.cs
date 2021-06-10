@@ -12,7 +12,7 @@ namespace SAP_FTP_IN
         static void Main(string[] args)
         {
             var localPath = @"C:\Projects\SshProject\CopyTarget";
-            var keyFile = new PrivateKeyFile(@"D:\Key\tstprivate2.ppk", "*Rsakey21*");
+            var keyFile = new PrivateKeyFile(@"/etc/ssl/private/sap_ftp/tstprivate2.ppk", "*Rsakey21*");
             var keyFiles = new[] { keyFile };
             var username = "ftpmesp";
 
