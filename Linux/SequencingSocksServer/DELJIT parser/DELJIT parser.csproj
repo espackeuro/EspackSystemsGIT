@@ -3,11 +3,11 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>SYNCRO_parser</RootNamespace>
-    <PackageId>SYNCRO_parser</PackageId>
+    <RootNamespace>DELJIT_parser</RootNamespace>
+    <PackageId>DELJIT_parser</PackageId>
     <Authors>Espack Eurologística Systems</Authors>
     <Company>Espack Eurologística</Company>
-    <AssemblyName>SYNCR_parser</AssemblyName>
+    <AssemblyName>DELJIT_parser</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
