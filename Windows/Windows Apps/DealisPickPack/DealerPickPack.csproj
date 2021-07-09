@@ -7,7 +7,7 @@
     <ProjectGuid>{C17BAB42-8D60-48DB-ADD6-C815221B33F4}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>DealerPickPack</RootNamespace>
-    <AssemblyName>DealerPickPack</AssemblyName>
+    <AssemblyName>referrals</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
