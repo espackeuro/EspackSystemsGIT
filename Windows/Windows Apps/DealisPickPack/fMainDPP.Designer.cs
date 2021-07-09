@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMainDPP));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.inboundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.receivalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,7 +53,8 @@
             this.toolsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(600, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 30);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -61,13 +63,13 @@
             this.inboundToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.receivalsToolStripMenuItem});
             this.inboundToolStripMenuItem.Name = "inboundToolStripMenuItem";
-            this.inboundToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.inboundToolStripMenuItem.Size = new System.Drawing.Size(78, 26);
             this.inboundToolStripMenuItem.Text = "Inbound";
             // 
             // receivalsToolStripMenuItem
             // 
             this.receivalsToolStripMenuItem.Name = "receivalsToolStripMenuItem";
-            this.receivalsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.receivalsToolStripMenuItem.Size = new System.Drawing.Size(153, 26);
             this.receivalsToolStripMenuItem.Tag = "fReceivals";
             this.receivalsToolStripMenuItem.Text = "Receivals";
             this.receivalsToolStripMenuItem.Click += new System.EventHandler(this.receivalsToolStripMenuItem_Click);
@@ -79,13 +81,13 @@
             this.husToolStripMenuItem,
             this.containersToolStripMenuItem});
             this.processingToolStripMenuItem.Name = "processingToolStripMenuItem";
-            this.processingToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+            this.processingToolStripMenuItem.Size = new System.Drawing.Size(93, 26);
             this.processingToolStripMenuItem.Text = "Processing";
             // 
             // pendingWorkToolStripMenuItem
             // 
             this.pendingWorkToolStripMenuItem.Name = "pendingWorkToolStripMenuItem";
-            this.pendingWorkToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pendingWorkToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
             this.pendingWorkToolStripMenuItem.Tag = "fPendingWork";
             this.pendingWorkToolStripMenuItem.Text = "Pending Work";
             this.pendingWorkToolStripMenuItem.Click += new System.EventHandler(this.pendingWorkToolStripMenuItem_Click);
@@ -93,7 +95,7 @@
             // husToolStripMenuItem
             // 
             this.husToolStripMenuItem.Name = "husToolStripMenuItem";
-            this.husToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.husToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
             this.husToolStripMenuItem.Tag = "fHUs";
             this.husToolStripMenuItem.Text = "HU\'s";
             this.husToolStripMenuItem.Click += new System.EventHandler(this.husToolStripMenuItem_Click);
@@ -101,7 +103,7 @@
             // containersToolStripMenuItem
             // 
             this.containersToolStripMenuItem.Name = "containersToolStripMenuItem";
-            this.containersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.containersToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
             this.containersToolStripMenuItem.Tag = "fContainers";
             this.containersToolStripMenuItem.Text = "Containers";
             this.containersToolStripMenuItem.Click += new System.EventHandler(this.containersToolStripMenuItem_Click);
@@ -111,13 +113,13 @@
             this.outboundToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.deliveriesToolStripMenuItem});
             this.outboundToolStripMenuItem.Name = "outboundToolStripMenuItem";
-            this.outboundToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.outboundToolStripMenuItem.Size = new System.Drawing.Size(90, 26);
             this.outboundToolStripMenuItem.Text = "Outbound";
             // 
             // deliveriesToolStripMenuItem
             // 
             this.deliveriesToolStripMenuItem.Name = "deliveriesToolStripMenuItem";
-            this.deliveriesToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.deliveriesToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.deliveriesToolStripMenuItem.Tag = "fDeliveries";
             this.deliveriesToolStripMenuItem.Text = "Deliveries";
             this.deliveriesToolStripMenuItem.Click += new System.EventHandler(this.deliveriesToolStripMenuItem_Click);
@@ -127,25 +129,26 @@
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.settingsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(58, 26);
             this.toolsToolStripMenuItem.Text = "Tools";
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
             this.settingsToolStripMenuItem.Tag = "fSettings";
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // fMainDPP
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "fMainDPP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dealis Pick Pack";
