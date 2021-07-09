@@ -50,7 +50,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>DealerPickPack.Program</StartupObject>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>dpp - referrals.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
@@ -251,6 +255,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\close_36x36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dpp - referrals.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
