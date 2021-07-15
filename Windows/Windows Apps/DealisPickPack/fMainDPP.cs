@@ -45,6 +45,7 @@ namespace DealerPickPack
             }
             Values.LabelPrinterAddress = cSettings.readSetting("labelPrinter");
             Values.COD3 = cSettings.readSetting("COD3");
+            Values.COD3 = "VAL";
             Text = string.Format("{0} - {1} Warehouse", Program.VersionNumber, Values.COD3);
         }
 
