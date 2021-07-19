@@ -11,10 +11,14 @@ namespace SAP_FTP_IN
     {
         static void Main(string[] args)
         {
-            var localPath = @"C:\Projects\SshProject\CopyTarget";
-            var keyFile = new PrivateKeyFile(@"/etc/ssl/private/sap_ftp/tstprivate2.ppk", "*Rsakey21*");
+            var localPath = @"D:\";
+            //var keyFile = new PrivateKeyFile(@"/etc/ssl/private/sap_ftp/tstprivate2.ppk", "*Rsakey21*");
+            var keyFile = new PrivateKeyFile(@"D:\tstprivate2.ppk", "*Rsakey21*");
             var keyFiles = new[] { keyFile };
             var username = "ftpmesp";
+
+            string uploadFile = @"D:\prueba.txt";
+            string uploadDir = @"/sapglobal/interfaces/FOE/TST/inbound/3PL/XI/GoodsIssue/ES12/archive";
 
             var methods = new List<AuthenticationMethod>();
             //methods.Add(new PasswordAuthenticationMethod(username, ));
@@ -29,9 +33,14 @@ namespace SAP_FTP_IN
                 foreach (var file in files)
                 {
                     Console.WriteLine(file.Name);
-                    //using (var fs = new FileStream(localPath + file.Name, FileMode.Create))
+
+                    //if (file.Name == "cloud-init_test_script.txt")
                     //{
-                    //    client.DownloadFile(file.FullName, fs);
+                    //    using (var fs = new FileStream(localPath + file.Name, FileMode.Create))
+                    //    {
+                    //        client.DownloadFile(file.FullName, fs);
+
+                    //    }
                     //}
                 }
             }
