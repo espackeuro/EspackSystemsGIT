@@ -64,7 +64,7 @@ namespace DealerPickPack
             VS.DBTable = "vDeliveriesCabDet";
 
             //VS Details
-            VS.AddColumn("DeliveryCode", txtDelivery,pSPDel:"@DeliveryCode", pVisible: false);
+            VS.AddColumn("DeliveryCode", txtDelivery,pSPDel:"@DeliveryCode", pVisible: true); // Can't make it invisible as it raises an error in CTLM that I should fix
             //VS.AddColumn("DeliveryCode", txtDelivery, "@DeliveryCode", "", "@DeliveryCode", pVisible: false);
             
             VS.AddColumn("HU", "HU", pSPDel: "@HU");

@@ -34,7 +34,7 @@ namespace DealerPickPack
                 cboPrinters.Enabled = false;
             }
             cboWarehouse.Enabled = true;
-            cboWarehouse.Source("select cod3,Descripcion from general..sedes_servicios S inner join general..Sedes se on se.Codigo = S.CodigoSede where codigoServicio = 'DEALISPICKPACK' order by Descripcion",Values.gDatos);
+            cboWarehouse.Source("select cod3,Descripcion from general..sedes_servicios S inner join general..Sedes se on se.Codigo = S.CodigoSede where codigoServicio = 'DEALERPICKPACK' order by Descripcion",Values.gDatos);
             cboWarehouse.Value = cSettings.readSetting("COD3");
             Values.COD3 = cboWarehouse.Value.ToString();
 
