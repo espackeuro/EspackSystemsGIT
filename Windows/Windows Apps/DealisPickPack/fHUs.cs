@@ -23,16 +23,19 @@ namespace DealerPickPack
         {
             InitializeComponent();
 
-            // Fill the routes combo
+            // Fill the routes and HU types combo
             cboRoute.ParentConn = Values.gDatos;
             cboRoute.Source($"select RouteCode='' union all Select RouteCode from MasterRoutes where cod3='{Values.COD3}' order by RouteCode");
+            cboHUType.ParentConn = Values.gDatos;
+            cboHUType.Source($"select distinct DealisPackCode,descripcion from SELECCION..bultoscm where dealispackcode is not null and len(codigo)<7 order by DealisPackCode", txtHUTypeDescription);
+            cboHUType.Validated += CboHUType_Validated; 
 
             //CTLM Definitions
             CTLM.Conn = Values.gDatos;
             CTLM.sSPAdd = "pHUCabAdd";
             CTLM.sSPUpp = "";
             CTLM.sSPDel = "pHUCabDel";
-            CTLM.DBTable = "(Select * from HUCab where cod3='" + Values.COD3 + "') a";
+            CTLM.DBTable = "(Select *,Type=HUType from HUCab where cod3='" + Values.COD3 + "') a";
 
             //Header
             CTLM.AddItem(txtHU, "HU", false, false, true, 1, true, true);
@@ -59,6 +62,15 @@ namespace DealerPickPack
             CTLM.AddDefaultStatusStrip();
             CTLM.AddItem(VS);
             CTLM.Start();
+        }
+
+
+        private void CboHUType_Validated(object sender, EventArgs e)
+        {
+            if (cboHUType.ComboBox.FindStringExact(cboHUType.Text) == -1)
+            {
+                txtHUTypeDescription.Text = "";
+            }
         }
 
         private void btnPrint_Click(object sender, EventArgs e)

@@ -24,7 +24,7 @@ namespace DealerPickPack
         {
             InitializeComponent();
 
-            // Fill the routes combo
+            // Fill the routes & HU types combos
             cboRoute.ParentConn = Values.gDatos;
             cboRoute.Source($"select RouteCode='',Description='' union all Select RouteCode,Description from MasterRoutes where cod3='{Values.COD3}' order by RouteCode", txtRouteDescription);
             cboRoute.SelectedValueChanged += CboRoute_SelectedValueChanged;
