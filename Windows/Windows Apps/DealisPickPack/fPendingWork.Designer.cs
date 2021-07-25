@@ -37,16 +37,16 @@ namespace DealerPickPack
             this.VSHUCab = new System.Windows.Forms.DataGridView();
             this.VSHUDet = new System.Windows.Forms.DataGridView();
             this.lblPendingHU = new System.Windows.Forms.Label();
-            this.txtRouteDescription = new EspackFormControlsNS.EspackTextBox();
-            this.cboRoute = new EspackFormControlsNS.EspackComboBox();
             this.btnHUCabDel = new System.Windows.Forms.Button();
             this.btnPrintHULabel = new System.Windows.Forms.Button();
             this.btnHUCabAdd = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnHUDetDel = new System.Windows.Forms.Button();
+            this.btnPrintPendingHUs = new System.Windows.Forms.Button();
             this.txtHUTypeDescription = new EspackFormControlsNS.EspackTextBox();
             this.cboHUType = new EspackFormControlsNS.EspackComboBox();
-            this.btnPrintHUs = new System.Windows.Forms.Button();
+            this.txtRouteDescription = new EspackFormControlsNS.EspackTextBox();
+            this.cboRoute = new EspackFormControlsNS.EspackComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VSHUCab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VSHUDet)).BeginInit();
@@ -172,78 +172,6 @@ namespace DealerPickPack
             this.lblPendingHU.TabIndex = 18;
             this.lblPendingHU.Text = "Pending HU";
             // 
-            // txtRouteDescription
-            // 
-            this.txtRouteDescription.Add = false;
-            this.txtRouteDescription.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.txtRouteDescription.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txtRouteDescription.Caption = "Description";
-            this.txtRouteDescription.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtRouteDescription.DBField = null;
-            this.txtRouteDescription.DBFieldType = null;
-            this.txtRouteDescription.DefaultValue = null;
-            this.txtRouteDescription.Del = false;
-            this.txtRouteDescription.DependingRS = null;
-            this.txtRouteDescription.ExtraDataLink = null;
-            this.txtRouteDescription.ForeColor = System.Drawing.Color.Gray;
-            this.txtRouteDescription.IsCTLMOwned = false;
-            this.txtRouteDescription.IsPassword = false;
-            this.txtRouteDescription.Location = new System.Drawing.Point(168, 16);
-            this.txtRouteDescription.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
-            this.txtRouteDescription.Multiline = true;
-            this.txtRouteDescription.Name = "txtRouteDescription";
-            this.txtRouteDescription.Order = 0;
-            this.txtRouteDescription.ParentConn = null;
-            this.txtRouteDescription.ParentDA = null;
-            this.txtRouteDescription.PK = false;
-            this.txtRouteDescription.Protected = false;
-            this.txtRouteDescription.ReadOnly = true;
-            this.txtRouteDescription.Search = false;
-            this.txtRouteDescription.Size = new System.Drawing.Size(429, 48);
-            this.txtRouteDescription.Status = CommonTools.EnumStatus.ADDNEW;
-            this.txtRouteDescription.TabIndex = 13;
-            this.txtRouteDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtRouteDescription.Upp = false;
-            this.txtRouteDescription.Value = "";
-            this.txtRouteDescription.WordWrap = true;
-            // 
-            // cboRoute
-            // 
-            this.cboRoute.Add = false;
-            this.cboRoute.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboRoute.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboRoute.Caption = "Route";
-            this.cboRoute.DataSource = null;
-            this.cboRoute.DBField = null;
-            this.cboRoute.DBFieldType = null;
-            this.cboRoute.DefaultValue = null;
-            this.cboRoute.Del = false;
-            this.cboRoute.DependingRS = null;
-            this.cboRoute.DisplayMember = "";
-            this.cboRoute.ExtraDataLink = null;
-            this.cboRoute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cboRoute.FormattingEnabled = false;
-            this.cboRoute.IsCTLMOwned = false;
-            this.cboRoute.Location = new System.Drawing.Point(16, 15);
-            this.cboRoute.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cboRoute.Name = "cboRoute";
-            this.cboRoute.Order = 0;
-            this.cboRoute.ParentConn = null;
-            this.cboRoute.ParentDA = null;
-            this.cboRoute.PK = false;
-            this.cboRoute.Protected = false;
-            this.cboRoute.ReadOnly = false;
-            this.cboRoute.Search = false;
-            this.cboRoute.SelectedItem = null;
-            this.cboRoute.SelectedValue = null;
-            this.cboRoute.Size = new System.Drawing.Size(144, 47);
-            this.cboRoute.Status = CommonTools.EnumStatus.ADDNEW;
-            this.cboRoute.TabIndex = 0;
-            this.cboRoute.TBDescription = null;
-            this.cboRoute.Upp = false;
-            this.cboRoute.Value = "";
-            this.cboRoute.ValueMember = "";
-            // 
             // btnHUCabDel
             // 
             this.btnHUCabDel.Image = global::DealerPickPack.Properties.Resources.edit_remove_16x16;
@@ -299,6 +227,17 @@ namespace DealerPickPack
             this.btnHUDetDel.UseVisualStyleBackColor = true;
             this.btnHUDetDel.Click += new System.EventHandler(this.btnHUDetDel_Click);
             // 
+            // btnPrintPendingHUs
+            // 
+            this.btnPrintPendingHUs.Image = global::DealerPickPack.Properties.Resources.printer_16x16;
+            this.btnPrintPendingHUs.Location = new System.Drawing.Point(665, 34);
+            this.btnPrintPendingHUs.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrintPendingHUs.Name = "btnPrintPendingHUs";
+            this.btnPrintPendingHUs.Size = new System.Drawing.Size(52, 30);
+            this.btnPrintPendingHUs.TabIndex = 27;
+            this.btnPrintPendingHUs.UseVisualStyleBackColor = true;
+            this.btnPrintPendingHUs.Click += new System.EventHandler(this.btnPrintPendingHUs_Click);
+            // 
             // txtHUTypeDescription
             // 
             this.txtHUTypeDescription.Add = false;
@@ -352,7 +291,7 @@ namespace DealerPickPack
             this.cboHUType.FormattingEnabled = false;
             this.cboHUType.IsCTLMOwned = false;
             this.cboHUType.Location = new System.Drawing.Point(13, 71);
-            this.cboHUType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboHUType.Margin = new System.Windows.Forms.Padding(4);
             this.cboHUType.Name = "cboHUType";
             this.cboHUType.Order = 0;
             this.cboHUType.ParentConn = null;
@@ -371,16 +310,77 @@ namespace DealerPickPack
             this.cboHUType.Value = "";
             this.cboHUType.ValueMember = "";
             // 
-            // btnPrintHUs
+            // txtRouteDescription
             // 
-            this.btnPrintHUs.Image = global::DealerPickPack.Properties.Resources.printer_16x16;
-            this.btnPrintHUs.Location = new System.Drawing.Point(665, 34);
-            this.btnPrintHUs.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPrintHUs.Name = "btnPrintHUs";
-            this.btnPrintHUs.Size = new System.Drawing.Size(52, 30);
-            this.btnPrintHUs.TabIndex = 27;
-            this.btnPrintHUs.UseVisualStyleBackColor = true;
-            this.btnPrintHUs.Click += new System.EventHandler(this.btnPrintHUs_Click);
+            this.txtRouteDescription.Add = false;
+            this.txtRouteDescription.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtRouteDescription.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtRouteDescription.Caption = "Description";
+            this.txtRouteDescription.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtRouteDescription.DBField = null;
+            this.txtRouteDescription.DBFieldType = null;
+            this.txtRouteDescription.DefaultValue = null;
+            this.txtRouteDescription.Del = false;
+            this.txtRouteDescription.DependingRS = null;
+            this.txtRouteDescription.ExtraDataLink = null;
+            this.txtRouteDescription.ForeColor = System.Drawing.Color.Gray;
+            this.txtRouteDescription.IsCTLMOwned = false;
+            this.txtRouteDescription.IsPassword = false;
+            this.txtRouteDescription.Location = new System.Drawing.Point(168, 16);
+            this.txtRouteDescription.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
+            this.txtRouteDescription.Multiline = true;
+            this.txtRouteDescription.Name = "txtRouteDescription";
+            this.txtRouteDescription.Order = 0;
+            this.txtRouteDescription.ParentConn = null;
+            this.txtRouteDescription.ParentDA = null;
+            this.txtRouteDescription.PK = false;
+            this.txtRouteDescription.Protected = false;
+            this.txtRouteDescription.ReadOnly = true;
+            this.txtRouteDescription.Search = false;
+            this.txtRouteDescription.Size = new System.Drawing.Size(429, 48);
+            this.txtRouteDescription.Status = CommonTools.EnumStatus.ADDNEW;
+            this.txtRouteDescription.TabIndex = 13;
+            this.txtRouteDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtRouteDescription.Upp = false;
+            this.txtRouteDescription.Value = "";
+            this.txtRouteDescription.WordWrap = true;
+            // 
+            // cboRoute
+            // 
+            this.cboRoute.Add = false;
+            this.cboRoute.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboRoute.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboRoute.Caption = "Route";
+            this.cboRoute.DataSource = null;
+            this.cboRoute.DBField = null;
+            this.cboRoute.DBFieldType = null;
+            this.cboRoute.DefaultValue = null;
+            this.cboRoute.Del = false;
+            this.cboRoute.DependingRS = null;
+            this.cboRoute.DisplayMember = "";
+            this.cboRoute.ExtraDataLink = null;
+            this.cboRoute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboRoute.FormattingEnabled = false;
+            this.cboRoute.IsCTLMOwned = false;
+            this.cboRoute.Location = new System.Drawing.Point(16, 15);
+            this.cboRoute.Margin = new System.Windows.Forms.Padding(4);
+            this.cboRoute.Name = "cboRoute";
+            this.cboRoute.Order = 0;
+            this.cboRoute.ParentConn = null;
+            this.cboRoute.ParentDA = null;
+            this.cboRoute.PK = false;
+            this.cboRoute.Protected = false;
+            this.cboRoute.ReadOnly = false;
+            this.cboRoute.Search = false;
+            this.cboRoute.SelectedItem = null;
+            this.cboRoute.SelectedValue = null;
+            this.cboRoute.Size = new System.Drawing.Size(144, 47);
+            this.cboRoute.Status = CommonTools.EnumStatus.ADDNEW;
+            this.cboRoute.TabIndex = 0;
+            this.cboRoute.TBDescription = null;
+            this.cboRoute.Upp = false;
+            this.cboRoute.Value = "";
+            this.cboRoute.ValueMember = "";
             // 
             // fPendingWork
             // 
@@ -388,7 +388,7 @@ namespace DealerPickPack
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1096, 831);
-            this.Controls.Add(this.btnPrintHUs);
+            this.Controls.Add(this.btnPrintPendingHUs);
             this.Controls.Add(this.txtHUTypeDescription);
             this.Controls.Add(this.cboHUType);
             this.Controls.Add(this.btnHUDetDel);
@@ -427,6 +427,6 @@ namespace DealerPickPack
         private System.Windows.Forms.Button btnHUDetDel;
         private EspackFormControlsNS.EspackTextBox txtHUTypeDescription;
         private EspackFormControlsNS.EspackComboBox cboHUType;
-        private System.Windows.Forms.Button btnPrintHUs;
+        private System.Windows.Forms.Button btnPrintPendingHUs;
     }
 }

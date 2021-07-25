@@ -59,6 +59,7 @@ namespace DealerPickPack
             _toolTip1.SetToolTip(btnHUCabDel, "Delete HU");
             _toolTip1.SetToolTip(btnPrintHULabel, "Print HU");
             _toolTip1.SetToolTip(btnHUDetDel, "Delete line from HU");
+            _toolTip1.SetToolTip(btnHUDetDel, "Print Pending HUs");
 
         }
 
@@ -361,7 +362,7 @@ namespace DealerPickPack
         }
 
         // Print HU labels
-        private void btnPrintHUs_Click(object sender, EventArgs e)
+        private void btnPrintPendingHUs_Click(object sender, EventArgs e)
         {
             using (var _RS = new DynamicRS($"select v.HU,v.OrderType,v.Address1,v.Address2,v.Address3,v.Address4,v.CustomerOrderDate,v.Dealer,v.TrafficArea,v.GridLoc,v.Route,v.CarrierInformation from vHULabels v inner join (select distinct ReceivalCode,Route,Dealer,OrderType=left(OrderNumber,1),cod3 from vPendingLines where cod3='{Values.COD3}' and (Route='{cboRoute.Text}' or '{cboRoute.Text}'='')) vp on vp.ReceivalCode=v.ReceivalCode and vp.Dealer=v.Dealer and vp.OrderType=v.OrderType and right(vp.Route,3)=v.Route and vp.cod3=v.cod3 where (vp.Route='{cboRoute.Text}' or '{cboRoute.Text}'='') and vp.cod3='{Values.COD3}' order by v.Route,v.Dealer,v.OrderType,v.HU", Values.gDatos))
             {
@@ -426,7 +427,7 @@ namespace DealerPickPack
                     }
 
                     // Print the label
-                    //_printer.SendUTF8StringToPrinter(_zplCode, 1);
+                    _printer.SendUTF8StringToPrinter(_zplCode, 1);
                     rs.MoveNext();
 
                 }
