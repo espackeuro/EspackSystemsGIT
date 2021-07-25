@@ -360,6 +360,79 @@ namespace DealerPickPack
             }
         }
 
+        // Print HU labels
+        private void btnPrintHUs_Click(object sender, EventArgs e)
+        {
+            using (var _RS = new DynamicRS($"select v.HU,v.OrderType,v.Address1,v.Address2,v.Address3,v.Address4,v.CustomerOrderDate,v.Dealer,v.TrafficArea,v.GridLoc,v.Route,v.CarrierInformation from vHULabels v inner join (select distinct ReceivalCode,Route,Dealer,OrderType=left(OrderNumber,1),cod3 from vPendingLines where cod3='{Values.COD3}' and (Route='{cboRoute.Text}' or '{cboRoute.Text}'='')) vp on vp.ReceivalCode=v.ReceivalCode and vp.Dealer=v.Dealer and vp.OrderType=v.OrderType and right(vp.Route,3)=v.Route and vp.cod3=v.cod3 where (vp.Route='{cboRoute.Text}' or '{cboRoute.Text}'='') and vp.cod3='{Values.COD3}' order by v.Route,v.Dealer,v.OrderType,v.HU", Values.gDatos))
+            {
+                _RS.Open();
+                if (!_RS.EOF)
+                {
+                    ZPLPrintLabels(_RS, "REFERRALSLABEL");
+                }
+                else
+                {
+                    MessageBox.Show("HU not found.", "Print HU", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        
+        // Print HU labels
+        public void ZPLPrintLabels(DynamicRS rs, string labelType)
+        {
+            string _printerAddress = Values.LabelPrinterAddress.ToString();
+            int _printerResolution;
+            string _zplTemplate = "", _zplCode = "";
+
+            // Get settings for the printer
+            using (var _RS = new StaticRS($"select ValueString,ValueInteger from MiscData where Code='{Values.LabelPrinterAddress}' and cod3='{Values.COD3}'", Values.gDatos))
+            {
+                _RS.Open();
+                if (!_RS.EOF)
+                {
+                    _printerAddress = _RS["ValueString"].ToString(); // "\\\\valsrv02\\VALLBLPRN003"; 
+                    _printerResolution = Convert.ToInt32(_RS["ValueInteger"]);
+                }
+                else
+                {
+                    MessageBox.Show($"Printer {_printerAddress} not found.", "Print", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            // Get the ZPL template code
+            using (var _RS = new StaticRS($"select ValueString from MiscData where Code='{labelType}' and cod3='{Values.COD3}'", Values.gDatos))
+            {
+                _RS.Open();
+                if (!_RS.EOF) _zplTemplate = _RS["ValueString"].ToString();
+            }
+            if (_zplTemplate == "")
+            {
+                MessageBox.Show("ZLP template not found.", "Print HU", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using (var _printer = new cRawPrinterHelper(_printerAddress))
+            {
+                while (!rs.EOF)
+                {
+                    // Get the Template code
+                    _zplCode = _zplTemplate;
+
+                    // Replace values
+                    for (int i = 0; i < rs.FieldCount; i++)
+                    {
+                        _zplCode = _zplCode.Replace("<" + rs.Fields[i] + ">", rs[rs.Fields[i]].ToString());
+                    }
+
+                    // Print the label
+                    //_printer.SendUTF8StringToPrinter(_zplCode, 1);
+                    rs.MoveNext();
+
+                }
+            }
+
+        }
     }
 
 }

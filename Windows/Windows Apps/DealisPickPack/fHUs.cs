@@ -73,33 +73,91 @@ namespace DealerPickPack
             }
         }
 
+        public void ZPLPrintLabels(DynamicRS rs,string labelType)
+        {
+            string _printerAddress = Values.LabelPrinterAddress.ToString();
+            int _printerResolution;
+            string _zplTemplate = "", _zplCode = "";
+
+            // Get settings for the printer
+            using (var _RS = new StaticRS($"select ValueString,ValueInteger from MiscData where Code='{Values.LabelPrinterAddress}' and cod3='{Values.COD3}'", Values.gDatos))
+            {
+                _RS.Open();
+                if (!_RS.EOF)
+                {
+                    _printerAddress = _RS["ValueString"].ToString(); // "\\\\valsrv02\\VALLBLPRN003"; 
+                    _printerResolution = Convert.ToInt32(_RS["ValueInteger"]);
+                }
+                else
+                {
+                    MessageBox.Show($"Printer {_printerAddress} not found.", "Print", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            // Get the ZPL template code
+            using (var _RS = new StaticRS($"select ValueString from MiscData where Code='{labelType}' and cod3='{Values.COD3}'", Values.gDatos))
+            {
+                _RS.Open();
+                if(!_RS.EOF) _zplTemplate = _RS["ValueString"].ToString();
+            }
+            if (_zplTemplate == "")
+            {
+                MessageBox.Show("ZLP template not found.", "Print HU", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using (var _printer = new cRawPrinterHelper(_printerAddress))
+            {
+                while (!rs.EOF)
+                {
+                    // Get the Template code
+                    _zplCode = _zplTemplate;
+
+                    // Replace values
+                    for (int i = 0; i < rs.FieldCount; i++)
+                    {
+                        _zplCode = _zplCode.Replace("<" + rs.Fields[i] + ">", rs[rs.Fields[i]].ToString());
+                    }
+
+                    // Print the label
+                    _printer.SendUTF8StringToPrinter(_zplCode, 1);
+                    rs.MoveNext();
+
+                }
+            }
+
+        }
+
         private void btnPrint_Click(object sender, EventArgs e)
         {
             if (txtHU.Text!="")
             {
-
-                string _printerAddress = Values.LabelPrinterAddress.ToString();
-                int _printerResolution;
-
-                // Get settings for the printer
-                using (var _RS = new DynamicRS($"select ValueString,ValueInteger from MiscData where Code='{Values.LabelPrinterAddress}' and cod3='{Values.COD3}'", Values.gDatos))
+                // Run the query and print the HU (if it exists)
+                using (var _RS = new DynamicRS($"select HU,OrderType,Address1,Address2,Address3,Address4,CustomerOrderDate,Dealer,TrafficArea,GridLoc,Route,CarrierInformation from vHULabels where HU='{txtHU.Text}' and cod3='{Values.COD3}'", Values.gDatos))
                 {
                     _RS.Open();
-                    _printerAddress = _RS["ValueString"].ToString(); // "\\\\valsrv02\\VALLBLPRN003"; 
-                    _printerResolution = Convert.ToInt32(_RS["ValueInteger"]);
+                    if (!_RS.EOF)
+                    {
+                        ZPLPrintLabels(_RS, "REFERRALSLABEL");
+                    }
+                    else
+                    {
+                        MessageBox.Show("HU not found.", "Print HU", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
 
-                // Create and configurate label
-                var _HULabel = new DealerPickPackHULabel(new ZPLLabel(70, 32, 3, _printerResolution));
-                using (var _printer = new cRawPrinterHelper(_printerAddress))
-                {
-                    _HULabel.Parameters["HU"] = txtHU.Text;
-                    _HULabel.Parameters["ROUTE"] =cboRoute.Text;
-                    _HULabel.Parameters["DEALER"] = txtDealer.Text;
-                    _HULabel.Parameters["TYPE"] = cboHUType.Text;
-                    _HULabel.Parameters["DATE"] = txtDate.Text.Substring(0, 10);
-                    _printer.SendUTF8StringToPrinter(_HULabel.ToString(), 1);
-                }
+                //// Create and configurate label
+                //var _HULabel = new DealerPickPackHULabel(new ZPLLabel(75, 50, 3, _printerResolution));
+                //using (var _printer = new cRawPrinterHelper(_printerAddress))
+                //{
+                //    _HULabel.Parameters["HU"] = txtHU.Text;
+                //    _HULabel.Parameters["ROUTE"] =cboRoute.Text;
+                //    _HULabel.Parameters["DEALER"] = txtDealer.Text;
+                //    _HULabel.Parameters["TYPE"] = cboHUType.Text;
+                //    _HULabel.Parameters["DATE"] = txtDate.Text.Substring(0, 10);
+                //    _printer.SendUTF8StringToPrinter(_HULabel.ToString(), 1);
+                //}
             }
         }
     }
