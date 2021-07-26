@@ -386,7 +386,7 @@ namespace DealerPickPack
             string _zplTemplate = "", _zplCode = "";
 
             // Get settings for the printer
-            using (var _RS = new StaticRS($"select ValueString,ValueInteger from MiscData where Code='{Values.LabelPrinterAddress}' and cod3='{Values.COD3}'", Values.gDatos))
+            using (var _RS = new StaticRS($"select ValueString,ValueInteger from MiscData where Code='{Values.LabelPrinterAddress} and cod3='{Values.COD3}'", Values.gDatos))
             {
                 _RS.Open();
                 if (!_RS.EOF)
