@@ -386,13 +386,18 @@ namespace DealerPickPack
             string _zplTemplate = "", _zplCode = "";
 
             // Get settings for the printer
-            using (var _RS = new StaticRS($"select ValueString,ValueInteger from MiscData where Code='{Values.LabelPrinterAddress} and cod3='{Values.COD3}'", Values.gDatos))
+            using (var _RS = new StaticRS($"select ValueString,ValueInteger from MiscData where Code='{Values.LabelPrinterAddress}' and cod3='{Values.COD3}'", Values.gDatos))
             {
                 _RS.Open();
                 if (!_RS.EOF)
                 {
                     _printerAddress = _RS["ValueString"].ToString(); // "\\\\valsrv02\\VALLBLPRN003"; 
                     _printerResolution = Convert.ToInt32(_RS["ValueInteger"]);
+                    if (_printerResolution != 203 && _printerResolution != 300)
+                    {
+                        MessageBox.Show($"Printer DPI not set in database.", "Print", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
                 else
                 {
@@ -402,7 +407,7 @@ namespace DealerPickPack
             }
 
             // Get the ZPL template code
-            using (var _RS = new StaticRS($"select ValueString from MiscData where Code='{labelType}' and cod3='{Values.COD3}'", Values.gDatos))
+            using (var _RS = new StaticRS($"select ValueString from MiscData where Code='{labelType}_{_printerResolution}' and cod3='{Values.COD3}'", Values.gDatos))
             {
                 _RS.Open();
                 if (!_RS.EOF) _zplTemplate = _RS["ValueString"].ToString();
