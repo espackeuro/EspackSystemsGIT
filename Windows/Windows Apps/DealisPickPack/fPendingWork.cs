@@ -211,41 +211,41 @@ namespace DealerPickPack
         }
         private void PrintHULabel(object sender, EventArgs e)
         {
-            if (VSHUCab.CurrentRow != null)
-            {
+            //if (VSHUCab.CurrentRow != null)
+            //{
 
-                string _printerAddress = Values.LabelPrinterAddress.ToString();
-                int _printerResolution=300;
+            //    string _printerAddress = Values.LabelPrinterAddress.ToString();
+            //    int _printerResolution=300;
 
-                // Get settings for the printer
-                using (var _RS = new DynamicRS($"select ValueString,ValueInteger from MiscData where Code='{Values.LabelPrinterAddress}' and cod3='{Values.COD3}'", Values.gDatos))
-                {
-                    _RS.Open();
-                    if (!_RS.EOF)
-                    {
-                        _printerAddress = _RS["ValueString"].ToString(); // "\\\\valsrv02\\VALLBLPRN003"; 
-                        _printerResolution = Convert.ToInt32(_RS["ValueInteger"]);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Wrong selected printer.", "Print HU", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                }
+            //    // Get settings for the printer
+            //    using (var _RS = new DynamicRS($"select ValueString,ValueInteger from MiscData where Code='{Values.LabelPrinterAddress}' and cod3='{Values.COD3}'", Values.gDatos))
+            //    {
+            //        _RS.Open();
+            //        if (!_RS.EOF)
+            //        {
+            //            _printerAddress = _RS["ValueString"].ToString(); // "\\\\valsrv02\\VALLBLPRN003"; 
+            //            _printerResolution = Convert.ToInt32(_RS["ValueInteger"]);
+            //        }
+            //        else
+            //        {
+            //            MessageBox.Show("Wrong selected printer.", "Print HU", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //            return;
+            //        }
+            //    }
 
-                 // Create and configurate label
-                var _HULabel = new DealerPickPackHULabel(new ZPLLabel(70, 32, 3, _printerResolution));
-                using (var _printer = new cRawPrinterHelper(_printerAddress))
-                {
-                    _HULabel.Parameters["HU"] = VSHUCab["HU", VSHUCab.CurrentRow.Index].Value.ToString();
-                    _HULabel.Parameters["ROUTE"] = VSHUCab["ROUTE", VSHUCab.CurrentRow.Index].Value.ToString();
-                    _HULabel.Parameters["DEALER"] = VSHUCab["DEALER", VSHUCab.CurrentRow.Index].Value.ToString();
-                    _HULabel.Parameters["TYPE"] = VSHUCab["TYPE", VSHUCab.CurrentRow.Index].Value.ToString();
-                    _HULabel.Parameters["DATE"] = VSHUCab["DATE", VSHUCab.CurrentRow.Index].Value.ToString().Substring(0,10);
-                    _printer.SendUTF8StringToPrinter(_HULabel.ToString(), 1);
-                }
-                MessageBox.Show("HU label sent to printer.", "Print HU", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            //     // Create and configurate label
+            //    var _HULabel = new DealerPickPackHULabel(new ZPLLabel(70, 32, 3, _printerResolution));
+            //    using (var _printer = new cRawPrinterHelper(_printerAddress))
+            //    {
+            //        _HULabel.Parameters["HU"] = VSHUCab["HU", VSHUCab.CurrentRow.Index].Value.ToString();
+            //        _HULabel.Parameters["ROUTE"] = VSHUCab["ROUTE", VSHUCab.CurrentRow.Index].Value.ToString();
+            //        _HULabel.Parameters["DEALER"] = VSHUCab["DEALER", VSHUCab.CurrentRow.Index].Value.ToString();
+            //        _HULabel.Parameters["TYPE"] = VSHUCab["TYPE", VSHUCab.CurrentRow.Index].Value.ToString();
+            //        _HULabel.Parameters["DATE"] = VSHUCab["DATE", VSHUCab.CurrentRow.Index].Value.ToString().Substring(0,10);
+            //        _printer.SendUTF8StringToPrinter(_HULabel.ToString(), 1);
+            //    }
+            //    MessageBox.Show("HU label sent to printer.", "Print HU", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
         }
 
         ////////// SPs //////////
