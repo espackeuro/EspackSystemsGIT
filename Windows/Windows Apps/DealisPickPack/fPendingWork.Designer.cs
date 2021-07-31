@@ -175,7 +175,7 @@ namespace DealerPickPack
             // btnHUCabDel
             // 
             this.btnHUCabDel.Image = global::DealerPickPack.Properties.Resources.edit_remove_16x16;
-            this.btnHUCabDel.Location = new System.Drawing.Point(73, 789);
+            this.btnHUCabDel.Location = new System.Drawing.Point(16, 789);
             this.btnHUCabDel.Margin = new System.Windows.Forms.Padding(4);
             this.btnHUCabDel.Name = "btnHUCabDel";
             this.btnHUCabDel.Size = new System.Drawing.Size(52, 30);
@@ -198,12 +198,13 @@ namespace DealerPickPack
             // btnHUCabAdd
             // 
             this.btnHUCabAdd.Image = global::DealerPickPack.Properties.Resources.edit_add;
-            this.btnHUCabAdd.Location = new System.Drawing.Point(13, 789);
+            this.btnHUCabAdd.Location = new System.Drawing.Point(193, 788);
             this.btnHUCabAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnHUCabAdd.Name = "btnHUCabAdd";
             this.btnHUCabAdd.Size = new System.Drawing.Size(52, 30);
             this.btnHUCabAdd.TabIndex = 19;
             this.btnHUCabAdd.UseVisualStyleBackColor = true;
+            this.btnHUCabAdd.Visible = false;
             this.btnHUCabAdd.Click += new System.EventHandler(this.btnHUCabAdd_Click);
             // 
             // btnRefresh
