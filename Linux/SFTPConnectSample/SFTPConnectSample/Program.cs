@@ -37,15 +37,17 @@ namespace SFTPConnectSample
 
             // replaced by args
             string uploadFile = @"D:\prueba.txt";
-            string uploadDir = @"/sapglobal/interfaces/FOE/TST/outbound/EWM/3PL/PickingOrders/ES12/archive/";
+            string moveDir = @"/sapglobal/interfaces/FOE/TST/outbound/EWM/3PL/PickingOrders/ES12/archive/";
+            string uploadDir = @"/sapglobal/interfaces/FOE/TST/outbound/EWM/3PL/PickingOrders/ES12/out/";
 
             // Try conneciton
             if (!Connect(ref _sftp))
                 return;
 
-            //Upload(ref _sftp, @"prueba.txt", @"D:\prueba.txt",uploadDir);
-            Download(ref _sftp, @"prueba.txt",uploadDir+"prueba.txt", @"D:\");
-            
+            Upload(ref _sftp, @"prueba.txt", @"D:\prueba.txt",uploadDir);
+            Download(ref _sftp, @"prueba.txt",uploadDir+"prueba.txt", @"D:\down\");
+            RemoteMove(ref _sftp, uploadDir + "prueba.txt", moveDir + "prueba.txt");
+
             _sftp.Disconnect();
 
         }
@@ -104,7 +106,6 @@ namespace SFTPConnectSample
                 {
                     sftp.BufferSize = 4 * 1024;
                     sftp.UploadFile(fs, Path.GetFileName(Source));
-                    //Console.WriteLine("Upload File: " + Path.GetFileName(uploadFile));
                 }
             }
             catch(Exception ex)
@@ -131,17 +132,36 @@ namespace SFTPConnectSample
                     throw new Exception("Target file already exists.");
 
                 //
-                _stage = "Changing remote directory";
-                sftp.ChangeDirectory(TargetDir);
+                _stage = "Downloading file";
+                FileStream fs = File.OpenWrite(_file);
+                sftp.DownloadFile(Source, fs);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[{_stage}] {ex.Message}");
+                return false;
+            }
+
+            // OK
+            return true;
+        }
+
+        static bool RemoteMove(ref SftpClient sftp, string Source, string Target)
+        {
+            string _stage = "";
+
+            try
+            {
+                //
+                _stage = "Checkings";
+                if (!sftp.Exists(Source))
+                    throw new Exception("Source file not found.");
+                if (sftp.Exists(Target))
+                    throw new Exception("Target file already exists.");
 
                 //
-                _stage = "Uploading file";
-                using (FileStream fs = new FileStream(Source, FileMode.Open))
-                {
-                    sftp.BufferSize = 4 * 1024;
-                    sftp.DownloadFile(Path.GetFileName(Source),fs);
-                    //Console.WriteLine("Upload File: " + Path.GetFileName(uploadFile));
-                }
+                _stage = "Moving remote file";
+                sftp.RenameFile(Source, Target);
             }
             catch (Exception ex)
             {
