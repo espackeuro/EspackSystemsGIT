@@ -32,19 +32,97 @@ namespace SFTPConnectSample
         */
         static void Main(string[] args)
         {
-
+            // Initialize vars
             SftpClient _sftp=null;
+            string _currentArgName = "";
+            string _currentArgValue = "";
+            string _server = "";
+            string _action = "";
+            string _profile = "";
+            string _stage = "";
+            bool _help = false;
+
+
+            // Args
+            _stage = "Checking args";
+            try
+            {
+
+                foreach (string arg in args)
+                {
+                    // Get the arg name and value
+                    _currentArgName = arg.Split('=')[0].ToUpper();
+                    if (arg.Split('=').Length == 2)
+                        _currentArgValue = arg.Split('=')[1];
+                    else if (arg.Split('=').Length > 2)
+                        throw new Exception($"Wrong argument: {arg}");
+                    else
+                        _currentArgValue = "";
+    
+                    // Identify arg name
+                    switch (_currentArgName)
+                    {
+                        case "HELP":
+                            // Show the help
+                            Console.WriteLine($"Available arguments:\n\tHELP\t\t\t\t- This text.\n\tSERVER=<DB Server>\t\t- Database server name or IP to access.\n\tACTION=UPLOAD|DOWNLOAD\t\t- Choose the action to be done.");
+                            Console.WriteLine($"\tPROFILE=<Profile>\t\t- The code in DB under which the settings are stored.");
+                            _help = true;
+                            break;
+
+                        case "SERVER":
+                            _server = _currentArgValue;
+                            break;
+
+                        case "ACTION":
+                            _action = _currentArgValue.ToUpper();
+                            if (_action != "DOWNLOAD" && _action != "UPLOAD")
+                                throw new Exception($"Wrong ACTION {_action}. Allowed values are: UPLOAD and DOWNLOAD");
+                            break;
+
+                        case "PROFILE":
+                            _profile = _currentArgValue;
+                            break;
+
+                        default:
+                            throw new Exception($"Wrong argument: {arg}");
+                    }
+
+                    // Exit when the help is shown
+                    if (_help)
+                        break;
+                }
+
+                if (!_help)
+                {
+                    if (_server == "")
+                        throw new Exception($"Argument SERVER is missing");
+                    if (_action == "")
+                        throw new Exception($"Argument ACTION is missing");
+                    if (_profile == "")
+                        throw new Exception($"Argument PROFILE is missing");
+                }
+      
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"[{_stage}] {ex.Message}.\nType HELP in arguments for getting help.\n");
+            }
+
+            Console.WriteLine("Press a key to continue...\n");
+            Console.ReadLine();
+
 
             // replaced by args
+            
             string uploadFile = @"D:\prueba.txt";
-            string moveDir = @"/sapglobal/interfaces/FOE/TST/outbound/EWM/3PL/PickingOrders/ES12/archive/";
-            string uploadDir = @"/sapglobal/interfaces/FOE/TST/outbound/EWM/3PL/PickingOrders/ES12/out/";
+            string moveDir = @"/interfacesXI/outbound/EWM/3PL/PickingOrders/ES12/archive/"; //"/sapglobal/interfaces/FOE/TST/outbound/EWM/3PL/PickingOrders/ES12/archive/";
+            string uploadDir = @"/interfacesXI/outbound/EWM/3PL/PickingOrders/ES12/out/"; // "/sapglobal/interfaces/FOE/TST/outbound/EWM/3PL/PickingOrders/ES12/out/";
 
             // Try conneciton
             if (!Connect(ref _sftp))
                 return;
 
-            Upload(ref _sftp, @"prueba.txt", @"D:\prueba.txt",uploadDir);
+            Upload(ref _sftp, @"prueba.txt", @"D:\prueba.txt",uploadDir,777);
             Download(ref _sftp, @"prueba.txt",uploadDir+"prueba.txt", @"D:\down\");
             RemoteMove(ref _sftp, uploadDir + "prueba.txt", moveDir + "prueba.txt");
 
@@ -82,7 +160,7 @@ namespace SFTPConnectSample
             return true;
         }
 
-        static bool Upload(ref SftpClient sftp, string FileName,string Source, string TargetDir)
+        static bool Upload(ref SftpClient sftp, string FileName,string Source, string TargetDir,short SetPermissions=0)
         {
             string _stage="";
             string _file = TargetDir + FileName;
@@ -91,6 +169,13 @@ namespace SFTPConnectSample
             {
                 //
                 _stage = "Checkings";
+                if (SetPermissions != 0)
+                {
+                    if (SetPermissions < 700 || SetPermissions > 777)
+                        throw new Exception($"Wrong permissions: {SetPermissions}");
+                }
+
+
                 if (!File.Exists(Source))
                     throw new Exception("Source file not found.");
                 if (sftp.Exists(_file))
@@ -106,6 +191,8 @@ namespace SFTPConnectSample
                 {
                     sftp.BufferSize = 4 * 1024;
                     sftp.UploadFile(fs, Path.GetFileName(Source));
+                    if (SetPermissions != 0)
+                        sftp.ChangePermissions(_file,SetPermissions);
                 }
             }
             catch(Exception ex)
