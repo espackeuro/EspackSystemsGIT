@@ -6,48 +6,114 @@ using Tamir.SharpSsh;
 using System.Collections;
 using System.Windows.Forms;
 using System.IO;
-using Tamir.SharpSsh.jsch;
+using System.Data.SqlClient;
 using Renci.SshNet;
 
 namespace SFTPConnectSample
 {
     class Program
     {
-        /*
-        static void Main(string[] args)
-        {
 
+        public static bool Debug;
 
-            string _privateSshKeyPath = @"D://Key//tstprivate2.ppk";
-
-            Sftp sftp = new Sftp("19.70.124.63", "ftpmesp");
-            sftp.AddIdentityFile ( _privateSshKeyPath);
-            sftp.Connect();
-            ArrayList res = sftp.GetFileList(".");
-           // sftp.Put(@"D://txtfilesevice.txt", "txtfilesevice.txt");
-            sftp.Get("a.xml", @"D://Key//hello.txt");
-            ArrayList Newres = sftp.GetFileList(".");
-            sftp.Close();
-        }
-        */
         static void Main(string[] args)
         {
             // Initialize vars
-            SftpClient _sftp=null;
-            string _currentArgName = "";
-            string _currentArgValue = "";
+            SftpClient _sftp = null;
+            SqlConnection _conn = null;
+            Dictionary<string, string> _settings = null;
             string _server = "";
             string _action = "";
             string _profile = "";
-            string _stage = "";
-            bool _help = false;
+            string _sourceDir, _targetDir;
 
+#if DEBUG
+            Debug = true;
+#else
+            Debug=false;
+#endif
+
+            // Check the args
+            if (!CheckArgs(args,ref _server,ref _action,ref _profile))
+            {
+                Console.ReadLine();
+                return;
+            }
+
+            // Connect to DB
+            if (!Connect2DB(_server, ref _conn))
+            {
+                Console.ReadLine();
+                return;
+            }
+
+            // Load settings from DB
+              if (!LoadSettings(_conn, _profile, ref _settings))
+            {
+                Console.ReadLine();
+                return;
+            }
+
+            // Close conn
+            _conn.Close();
+
+ 
+            // Try conneciton
+            if (!Connect2FTP(ref _sftp, _profile, _settings))
+                return;
+
+            //
+            switch (_action)
+            {
+                case "DOWNLOAD":
+                    DoDownload(_sftp, _settings);
+                    break;
+                case "UPLOAD":
+                    DoUpload(_sftp, _settings);
+                    break;
+            }
+
+            _sftp.Disconnect();
+
+            Console.Write("Press a key to exit...");
+            Console.ReadKey();
+
+
+            // replace by args
+            //PrivateKeyFile keyFile = new PrivateKeyFile(@"/etc/ssl/private/sap_ftp/tstprivate2.ppk", "*Rsakey21*");
+            //PrivateKeyFile _keyFile = new PrivateKeyFile(@"D:\tstprivate2.ppk", "*Rsakey21*");
+
+
+            //string _userName = "ftpmesp";
+            //string _serverIP = "19.70.124.63";
+
+            // replaced by args
+
+            //string uploadFile = @"D:\prueba.txt";
+            //string moveDir = @"/interfacesXI/outbound/EWM/3PL/PickingOrders/ES12/archive/"; //"/sapglobal/interfaces/FOE/TST/outbound/EWM/3PL/PickingOrders/ES12/archive/";
+            //string uploadDir = @"/interfacesXI/outbound/EWM/3PL/PickingOrders/ES12/out/"; // "/sapglobal/interfaces/FOE/TST/outbound/EWM/3PL/PickingOrders/ES12/out/";
+
+            /*
+            Upload(ref _sftp, @"prueba.txt", @"D:\prueba.txt",uploadDir,777);
+            Download(ref _sftp, @"prueba.txt",uploadDir+"prueba.txt", @"D:\down\");
+            RemoteMove(ref _sftp, uploadDir + "prueba.txt", moveDir + "prueba.txt");
+            */
+            
+
+        }
+
+
+        private static bool CheckArgs(string[] args,ref string Server, ref string Action, ref string Profile)
+        {
+            string _stage = "";
+            string _currentArgName = "";
+            string _currentArgValue = "";
+            bool _help = false;
 
             // Args
             _stage = "Checking args";
             try
             {
-
                 foreach (string arg in args)
                 {
                     // Get the arg name and value
@@ -58,7 +124,7 @@ namespace SFTPConnectSample
                         throw new Exception($"Wrong argument: {arg}");
                     else
                         _currentArgValue = "";
-    
+
                     // Identify arg name
                     switch (_currentArgName)
                     {
@@ -70,17 +136,17 @@ namespace SFTPConnectSample
                             break;
 
                         case "SERVER":
-                            _server = _currentArgValue;
+                            Server = _currentArgValue;
                             break;
 
                         case "ACTION":
-                            _action = _currentArgValue.ToUpper();
-                            if (_action != "DOWNLOAD" && _action != "UPLOAD")
-                                throw new Exception($"Wrong ACTION {_action}. Allowed values are: UPLOAD and DOWNLOAD");
+                            Action = _currentArgValue.ToUpper();
+                            if (Action != "DOWNLOAD" && Action != "UPLOAD")
+                                throw new Exception($"Wrong ACTION {Action}. Allowed values are: UPLOAD and DOWNLOAD");
                             break;
 
                         case "PROFILE":
-                            _profile = _currentArgValue;
+                            Profile = _currentArgValue;
                             break;
 
                         default:
@@ -92,75 +158,90 @@ namespace SFTPConnectSample
                         break;
                 }
 
+                // If HELP has not been asked for, we check the mandatory values
                 if (!_help)
                 {
-                    if (_server == "")
+                    if (Server == "")
                         throw new Exception($"Argument SERVER is missing");
-                    if (_action == "")
+                    if (Action == "")
                         throw new Exception($"Argument ACTION is missing");
-                    if (_profile == "")
+                    if (Profile == "")
                         throw new Exception($"Argument PROFILE is missing");
                 }
-      
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine($"[{_stage}] {ex.Message}.\nType HELP in arguments for getting help.\n");
+                return false;
             }
 
-            Console.WriteLine("Press a key to continue...\n");
-            Console.ReadLine();
-
-
-            // replaced by args
-            
-            string uploadFile = @"D:\prueba.txt";
-            string moveDir = @"/interfacesXI/outbound/EWM/3PL/PickingOrders/ES12/archive/"; //"/sapglobal/interfaces/FOE/TST/outbound/EWM/3PL/PickingOrders/ES12/archive/";
-            string uploadDir = @"/interfacesXI/outbound/EWM/3PL/PickingOrders/ES12/out/"; // "/sapglobal/interfaces/FOE/TST/outbound/EWM/3PL/PickingOrders/ES12/out/";
-
-            // Try conneciton
-            if (!Connect(ref _sftp))
-                return;
-
-            Upload(ref _sftp, @"prueba.txt", @"D:\prueba.txt",uploadDir,777);
-            Download(ref _sftp, @"prueba.txt",uploadDir+"prueba.txt", @"D:\down\");
-            RemoteMove(ref _sftp, uploadDir + "prueba.txt", moveDir + "prueba.txt");
-
-            _sftp.Disconnect();
-
+            // OK
+            return true;
         }
 
-        static bool Connect(ref SftpClient sftp)
+        //static bool Connect2FTP(ref SftpClient sftp,string Server,string User,string KeyFilePath,string KeyPassPhrase)
+        static bool Connect2FTP(ref SftpClient sftp, string Profile, Dictionary<string,string> Settings)
         {
+            string _stage = "";
+            string _ftpServer, _ftpUser, _ftpKeyFilePath, _ftpKeyPassPhrase, _profileFlags;
 
-            // replace by args
-            //PrivateKeyFile keyFile = new PrivateKeyFile(@"/etc/ssl/private/sap_ftp/tstprivate2.ppk", "*Rsakey21*");
-            PrivateKeyFile _keyFile = new PrivateKeyFile(@"D:\tstprivate2.ppk", "*Rsakey21*");
-            var _keyFiles = new[] { _keyFile };
-            
-            string _userName = "ftpmesp";
-            string _serverIP = "19.70.124.63";
-
-
-            // Try connection
+            // Obtain the FTP connection details from the DB
             try
             {
+                //
+                _stage = Profile + "FLAG";
+                _profileFlags = Settings[_stage];
+                if (!_profileFlags.Contains("|RSAKEYS|"))
+                    throw new Exception("Flag RSAKEYS not set in profile");
+
+                //
+                _stage = Profile;
+                _ftpServer = Settings[_stage];
+                //
+                _stage = Profile + "USR";
+                _ftpUser = Settings[_stage];
+                //
+                _stage = Profile + (Debug? "_RSAKEYSPATH_WIN" : "_RSAKEYSPATH_LIN");
+                _ftpKeyFilePath = Settings[_stage];
+                //
+                _stage = Profile + "_RSAPASSPHRASE";
+                _ftpKeyPassPhrase = Settings[_stage];
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[Checking settings] {_stage}: {ex.Message}.");
+                return false;
+            }
+
+            try
+            {
+                //
+                _stage = "Preparing private key";
+                PrivateKeyFile _keyFile = new PrivateKeyFile(_ftpKeyFilePath, _ftpKeyPassPhrase);
+                var _keyFiles = new[] { _keyFile };
                 var methods = new List<AuthenticationMethod>();
-                methods.Add(new PrivateKeyAuthenticationMethod(_userName, _keyFiles));
-                ConnectionInfo _con = new ConnectionInfo(_serverIP, 22, _userName, methods.ToArray());
+                methods.Add(new PrivateKeyAuthenticationMethod(_ftpUser, _keyFiles));
+
+                //
+                _stage = "Preparing connection";
+                ConnectionInfo _con = new ConnectionInfo(_ftpServer, 22, _ftpUser, methods.ToArray());
                 sftp = new SftpClient(_con);
+                
+                //
+                _stage = "Connecting";
                 sftp.Connect();
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine($"[{_stage}] {ex.Message}.");
                 return false;
             }
 
+            // OK
             return true;
         }
 
-        static bool Upload(ref SftpClient sftp, string FileName,string Source, string TargetDir,short SetPermissions=0)
+        private static bool Upload(ref SftpClient sftp, string FileName,string Source, string TargetDir,short SetPermissions=0)
         {
             string _stage="";
             string _file = TargetDir + FileName;
@@ -233,7 +314,7 @@ namespace SFTPConnectSample
             return true;
         }
 
-        static bool RemoteMove(ref SftpClient sftp, string Source, string Target)
+        private bool RemoteMove(ref SftpClient sftp, string Source, string Target)
         {
             string _stage = "";
 
@@ -259,5 +340,89 @@ namespace SFTPConnectSample
             // OK
             return true;
         }
+
+        private static bool Connect2DB(string DBServer, ref SqlConnection Connection)
+        {
+            string _stage = "";
+            try
+            {
+                //
+                _stage = "Preparing connection details";
+                SqlConnectionStringBuilder _builder = new SqlConnectionStringBuilder();
+                _builder.DataSource = DBServer;
+                _builder.UserID = "procesos";
+                _builder.Password = "*seso69*";
+                _builder.InitialCatalog = "TRANSMISIONES";
+
+                //
+                _stage = "Opening connection";
+                Console.WriteLine($"Connecting to DB server {DBServer}...");
+                Connection = new SqlConnection(_builder.ConnectionString);
+                Connection.Open();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[{_stage}] {ex.Message}.");
+                return false;
+            }
+
+            // OK
+            return true;
+        }
+
+        private static bool LoadSettings(SqlConnection Connection, string Profile,ref Dictionary<string,string> Settings)
+        {
+            string _stage = "";
+
+            try
+            {
+                using (SqlCommand _cmd = new SqlCommand($"select codigo,CMP_varchar from datosEmpresa where codigo like '{Profile}%'", Connection))
+                {
+                    //
+                    _stage = "Executing query";
+                    SqlDataReader _rs = _cmd.ExecuteReader();
+
+                    if (!_rs.HasRows)
+                        throw new Exception($"Profile {Profile} not found");
+
+                    //                    
+                    Settings = new Dictionary<string, string>();
+
+                    //
+                    _stage = $"Loading settings for {Profile}";
+                    while (_rs.Read())
+                    {
+                        Settings.Add(_rs["Codigo"].ToString(), _rs["CMP_Varchar"].ToString()); ;
+                        //Console.WriteLine($"Result set: {_rs["Codigo"]}\t- {_rs["CMP_Varchar"]} ");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[{_stage}] {ex.Message}.");
+                return false;
+            }
+            
+            // OK
+            return true;
+        }
+
+        private static void DoDownload(SftpClient sftp, Dictionary<string, string> Settings)
+        {
+            //_stage = _profile + (_debug ? "DLW" : "DL");
+            //_targetDir = _settings[_stage];
+            //_archiveDir = _settings[];
+            return;
+        }
+
+        private static void DoUpload(SftpClient sftp, Dictionary<string, string> Settings)
+        {
+            //_stage = _profile + (_debug ? "DLW" : "DL");
+            //_targetDir = _settings[_stage];
+            //_archiveDir = _settings[];
+            return;
+        }
     }
 }
+
+
