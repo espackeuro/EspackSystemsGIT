@@ -34,7 +34,7 @@ namespace SFTPConnectSample
 #endif
 
             // Check the args
-            if (!CheckArgs(args,ref _server,ref _action,ref _profile))
+            if (!CheckArgs(args, ref _server, ref _action, ref _profile))
             {
                 Console.ReadLine();
                 return;
@@ -48,7 +48,7 @@ namespace SFTPConnectSample
             }
 
             // Load settings from DB
-              if (!LoadSettings(_conn, _profile, ref _settings))
+            if (!LoadSettings(_conn, _profile, ref _settings))
             {
                 Console.ReadLine();
                 return;
@@ -57,7 +57,6 @@ namespace SFTPConnectSample
             // Close conn
             _conn.Close();
 
- 
             // Try conneciton
             if (!Connect2FTP(ref _sftp, _profile, _settings))
                 return;
@@ -70,6 +69,9 @@ namespace SFTPConnectSample
                     break;
                 case "UPLOAD":
                     DoUpload(_sftp, _settings);
+                    break;
+                default:
+                    Console.WriteLine("This should never happen!");
                     break;
             }
 
@@ -98,12 +100,12 @@ namespace SFTPConnectSample
             Download(ref _sftp, @"prueba.txt",uploadDir+"prueba.txt", @"D:\down\");
             RemoteMove(ref _sftp, uploadDir + "prueba.txt", moveDir + "prueba.txt");
             */
-            
+
 
         }
 
 
-        private static bool CheckArgs(string[] args,ref string Server, ref string Action, ref string Profile)
+        private static bool CheckArgs(string[] args, ref string Server, ref string Action, ref string Profile)
         {
             string _stage = "";
             string _currentArgName = "";
@@ -180,7 +182,7 @@ namespace SFTPConnectSample
         }
 
         //static bool Connect2FTP(ref SftpClient sftp,string Server,string User,string KeyFilePath,string KeyPassPhrase)
-        static bool Connect2FTP(ref SftpClient sftp, string Profile, Dictionary<string,string> Settings)
+        static bool Connect2FTP(ref SftpClient sftp, string Profile, Dictionary<string, string> Settings)
         {
             string _stage = "";
             string _ftpServer, _ftpUser, _ftpKeyFilePath, _ftpKeyPassPhrase, _profileFlags;
@@ -201,7 +203,7 @@ namespace SFTPConnectSample
                 _stage = Profile + "USR";
                 _ftpUser = Settings[_stage];
                 //
-                _stage = Profile + (Debug? "_RSAKEYSPATH_WIN" : "_RSAKEYSPATH_LIN");
+                _stage = Profile + (Debug ? "_RSAKEYSPATH_WIN" : "_RSAKEYSPATH_LIN");
                 _ftpKeyFilePath = Settings[_stage];
                 //
                 _stage = Profile + "_RSAPASSPHRASE";
@@ -226,12 +228,13 @@ namespace SFTPConnectSample
                 _stage = "Preparing connection";
                 ConnectionInfo _con = new ConnectionInfo(_ftpServer, 22, _ftpUser, methods.ToArray());
                 sftp = new SftpClient(_con);
-                
+
                 //
                 _stage = "Connecting";
                 sftp.Connect();
+                sftp.BufferSize = 4 * 1024;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine($"[{_stage}] {ex.Message}.");
                 return false;
@@ -241,9 +244,9 @@ namespace SFTPConnectSample
             return true;
         }
 
-        private static bool Upload(ref SftpClient sftp, string FileName,string Source, string TargetDir,short SetPermissions=0)
+        private static bool Upload(ref SftpClient sftp, string FileName, string Source, string TargetDir, short SetPermissions = 0)
         {
-            string _stage="";
+            string _stage = "";
             string _file = TargetDir + FileName;
 
             try
@@ -273,37 +276,9 @@ namespace SFTPConnectSample
                     sftp.BufferSize = 4 * 1024;
                     sftp.UploadFile(fs, Path.GetFileName(Source));
                     if (SetPermissions != 0)
-                        sftp.ChangePermissions(_file,SetPermissions);
+                        sftp.ChangePermissions(_file, SetPermissions);
                 }
             }
-            catch(Exception ex)
-            {
-                Console.WriteLine($"[{_stage}] {ex.Message}");
-                return false;
-            }
-            
-            // OK
-            return true;
-        }
-        static bool Download(ref SftpClient sftp, string FileName, string Source, string TargetDir)
-        {
-            string _stage = "";
-            string _file = TargetDir + FileName;
-
-            try
-            {
-                //
-                _stage = "Checkings";
-                if (!sftp.Exists(Source))
-                    throw new Exception("Source file not found.");
-                if (File.Exists(_file))
-                    throw new Exception("Target file already exists.");
-
-                //
-                _stage = "Downloading file";
-                FileStream fs = File.OpenWrite(_file);
-                sftp.DownloadFile(Source, fs);
-            }
             catch (Exception ex)
             {
                 Console.WriteLine($"[{_stage}] {ex.Message}");
@@ -313,34 +288,7 @@ namespace SFTPConnectSample
             // OK
             return true;
         }
-
-        private bool RemoteMove(ref SftpClient sftp, string Source, string Target)
-        {
-            string _stage = "";
-
-            try
-            {
-                //
-                _stage = "Checkings";
-                if (!sftp.Exists(Source))
-                    throw new Exception("Source file not found.");
-                if (sftp.Exists(Target))
-                    throw new Exception("Target file already exists.");
-
-                //
-                _stage = "Moving remote file";
-                sftp.RenameFile(Source, Target);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"[{_stage}] {ex.Message}");
-                return false;
-            }
-
-            // OK
-            return true;
-        }
-
+      
         private static bool Connect2DB(string DBServer, ref SqlConnection Connection)
         {
             string _stage = "";
@@ -370,7 +318,7 @@ namespace SFTPConnectSample
             return true;
         }
 
-        private static bool LoadSettings(SqlConnection Connection, string Profile,ref Dictionary<string,string> Settings)
+        private static bool LoadSettings(SqlConnection Connection, string Profile, ref Dictionary<string, string> Settings)
         {
             string _stage = "";
 
@@ -402,17 +350,169 @@ namespace SFTPConnectSample
                 Console.WriteLine($"[{_stage}] {ex.Message}.");
                 return false;
             }
-            
+
             // OK
             return true;
         }
 
         private static void DoDownload(SftpClient sftp, Dictionary<string, string> Settings)
         {
-            //_stage = _profile + (_debug ? "DLW" : "DL");
-            //_targetDir = _settings[_stage];
-            //_archiveDir = _settings[];
+            string _stage = "";
+            string _archiveDir = null;
+            string _targetDir = null;
+            string _keyDownload = (Debug ? "SAPFTSTDW" : "SAPFTSTDL");
+
+            try
+            {
+                //
+                _stage = "Getting download folder";
+                if (!Settings.ContainsKey(_keyDownload))
+                    throw new Exception("Couldn't find download folder in settings.");
+                _targetDir = Settings[_keyDownload];
+
+                //
+                _stage = "Getting source folders";
+                var outFolders = Settings.Where(p => p.Key.Substring(p.Key.Length - 2) == "_I");
+                if (outFolders.Count()==0)
+                    throw new Exception("Couldn't find any source folders in settings.");
+
+                //
+                _stage = "Downloading from folders";
+                foreach (var p in outFolders)
+                {
+                    // Obtaining archive folder (if it is set)
+                    if (Settings.ContainsKey(p.Key.Substring(0,p.Key.Length - 2) + "_A"))
+                        _archiveDir = Settings[p.Key.Substring(0,p.Key.Length - 2) + "_A"];
+                    else
+                        _archiveDir = null;
+
+                    // Downloading
+                    DownloadFolder(sftp, p.Value, _targetDir, _archiveDir);
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"[{_stage}] {ex.Message}.");
+            }
+
             return;
+        }
+
+        // Download all files in a directory (and move them to the archive dir if set)
+        private static void DownloadFolder(SftpClient sftp, string SourceDir, string TargetDir, string ArchiveDir = null)
+        {
+            string _stage = "";
+            int _count = 0, _total = 0;
+
+            SourceDir = ArrangePath(SourceDir,"/");
+            TargetDir = ArrangePath(TargetDir,"\\");
+            if (!(ArchiveDir is null)) ArchiveDir = ArrangePath(ArchiveDir,"/");
+
+            //
+            _stage = $"Downloading from {SourceDir}";
+            Console.WriteLine($"*** {_stage} ***");
+
+
+            foreach (var ftpfile in sftp.ListDirectory(SourceDir))
+            {
+
+                // Skip current iteration for directories (this includes  "." and "..")
+                if (ftpfile.IsDirectory)
+                    continue;
+
+                try
+                {
+                    //
+                    _stage = $"Downloading {ftpfile.Name}";
+                    if (Download(sftp, ftpfile.Name, SourceDir, TargetDir))
+                    {
+                        Console.WriteLine($"  -> Download success: {ftpfile.Name}");
+                        _count++;
+
+                        //
+                        if(!(ArchiveDir is null))
+                        {
+                            _stage = $"Moving to archive folder";
+                            if(!RemoteMove(sftp, SourceDir + ftpfile.Name, ArchiveDir + ftpfile.Name))
+                                Console.WriteLine($"[{_stage}] Could not move file to archive folder.");
+                        }
+
+                    }
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine($"[{_stage}] {ex.Message}.");
+                }
+                _total++;
+            }
+            Console.WriteLine($"  -> Downloaded {_count}/{_total} files.");
+            return;
+        }
+
+        // Download a single file
+        private static bool Download(SftpClient sftp, string FileName, string SourceDir, string TargetDir)
+        {
+            string _stage = "";
+            string _sourceFile = SourceDir + FileName;
+            string _targetFile = TargetDir + FileName;
+            string _tmpPath = (Debug ? Path.GetTempPath() : "/tmp/")+FileName;
+
+            try
+            {
+                //
+                _stage = "Checkings";
+                if (!sftp.Exists(_sourceFile))
+                    throw new Exception("Source file not found.");
+                if (File.Exists(_targetFile))
+                    throw new Exception("Target file already exists.");
+
+                //
+                _stage = "Reading remote file";
+                byte[] _data=sftp.ReadAllBytes(_sourceFile);
+
+                //
+                _stage = "Writting data to tmp folder";
+                File.WriteAllBytes(_tmpPath, _data);
+
+                //
+                _stage = "Copying file from tmp folder to download folder";
+                File.Copy(_tmpPath, _targetFile);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"[{_stage}] {ex.Message}");
+            }
+
+            // OK
+            return true;
+        }
+        
+        // Move file at the ftp
+        private static bool RemoteMove(SftpClient sftp, string Source, string Target)
+        {
+            string _stage = "";
+
+            try
+            {
+                //
+                _stage = "Checkings";
+                if (!sftp.Exists(Source))
+                    throw new Exception("Source file not found.");
+                if (sftp.Exists(Target))
+                    throw new Exception("Target file already exists.");
+
+                //
+                _stage = "Moving remote file";
+                sftp.RenameFile(Source, Target);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[{_stage}] {ex.Message}");
+                return false;
+            }
+
+            // OK
+            return true;
         }
 
         private static void DoUpload(SftpClient sftp, Dictionary<string, string> Settings)
@@ -421,6 +521,15 @@ namespace SFTPConnectSample
             //_targetDir = _settings[_stage];
             //_archiveDir = _settings[];
             return;
+        }
+
+        // Add separator at the end of a string if it is not there
+        private static string ArrangePath(string path,string separator)
+        {
+            if (path.Substring(path.Length - separator.Length) != separator)
+                path = path + separator;
+
+            return path;
         }
     }
 }
