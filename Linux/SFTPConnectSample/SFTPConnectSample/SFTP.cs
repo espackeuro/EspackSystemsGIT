@@ -7,7 +7,7 @@ using System.IO;
 
 namespace SFTPConnectSampleNS
 {
-    class SFTP_Class : IDisposable
+    class SFTPSClass : IDisposable
     {
         //static bool Connect2FTP(ref SftpClient sftp,string Server,string User,string KeyFilePath,string KeyPassPhrase)
 
