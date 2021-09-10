@@ -25,7 +25,6 @@ namespace SFTPConnectSample
             string _server = "";
             string _action = "";
             string _profile = "";
-            string _sourceDir, _targetDir;
 
 #if DEBUG
             Debug = true;
@@ -60,6 +59,11 @@ namespace SFTPConnectSample
             // Try conneciton
             if (!Connect2FTP(ref _sftp, _profile, _settings))
                 return;
+
+            using(var _ftp=new SFTP_Class())
+            {
+
+            }
 
             //
             switch (_action)
