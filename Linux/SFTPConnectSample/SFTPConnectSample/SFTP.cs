@@ -7,10 +7,8 @@ using System.IO;
 
 namespace SFTPConnectSampleNS
 {
-    class SFTPSClass : IDisposable
+    class SFTPClass : IDisposable
     {
-        //static bool Connect2FTP(ref SftpClient sftp,string Server,string User,string KeyFilePath,string KeyPassPhrase)
-
         private bool pDebug;
         private SftpClient pSFtp;
         public string Server;
@@ -18,7 +16,7 @@ namespace SFTPConnectSampleNS
         public string PrivateKeyPath;
         public string PrivateKeyPassphrase;
 
-        public  bool Connect(string server=null,string user=null,string privateKeyPath=null,string privateKeyPassphrase=null)
+        public bool Connect(string server=null,string user=null,string privateKeyPath=null,string privateKeyPassphrase=null)
         {
             string _stage = "";
 
@@ -117,10 +115,38 @@ namespace SFTPConnectSampleNS
             return true;
         }
 
-        public bool Upload(string fileName, string source, string targetDir, short setPermissions = 0)
+        public bool Download(string fileName, string sourceDir, string targetDir, string archiveDir)
         {
             string _stage = "";
-            string _file = targetDir + fileName;
+            string _sourceFile = sourceDir + fileName;
+            string _archiveFile = archiveDir + fileName;
+
+            try
+            {
+                //
+                _stage = "Downloading file";
+                if(!Download(fileName,sourceDir,targetDir))
+                    throw new Exception($"Could not download {_sourceFile}.");
+
+                //
+                _stage = "Copying file from tmp folder to download folder";
+                if(!RemoteMove(_sourceFile, _archiveFile))
+                    throw new Exception($"Could not move to archive {_archiveFile}.");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"[Download#{_stage}] {ex.Message}");
+            }
+
+            // OK
+            return true;
+        }
+
+        public bool Upload(string fileName, string sourceDir, string targetDir, short setPermissions = 0)
+        {
+            string _stage = "";
+            string _sourceFile = sourceDir + fileName;
+            string _targetFile = targetDir + fileName;
 
             try
             {
@@ -132,9 +158,9 @@ namespace SFTPConnectSampleNS
                         throw new Exception($"Wrong permissions: {setPermissions}");
                 }
 
-                if (!File.Exists(source))
+                if (!File.Exists(_sourceFile))
                     throw new Exception("Source file not found.");
-                if (pSFtp.Exists(_file))
+                if (pSFtp.Exists(_targetFile))
                     throw new Exception("Target file already exists.");
 
                 //
@@ -143,12 +169,12 @@ namespace SFTPConnectSampleNS
 
                 //
                 _stage = "Uploading file";
-                using (FileStream fs = new FileStream(source, FileMode.Open))
+                using (FileStream fs = new FileStream(_sourceFile, FileMode.Open))
                 {
                     pSFtp.BufferSize = 4 * 1024;
-                    pSFtp.UploadFile(fs, Path.GetFileName(source));
+                    pSFtp.UploadFile(fs, Path.GetFileName(_sourceFile));
                     if (setPermissions != 0)
-                        pSFtp.ChangePermissions(_file, setPermissions);
+                        pSFtp.ChangePermissions(_targetFile, setPermissions);
                 }
             }
             catch (Exception ex)
@@ -157,6 +183,33 @@ namespace SFTPConnectSampleNS
             }
 
             // OK
+            return true;
+        }
+        private bool Upload(string fileName, string sourceDir, string targetDir, string archiveDir, short setPermissions = 0)
+        {
+            string _stage = "";
+            string _sourceFile = sourceDir + fileName;
+            string _archiveFile = archiveDir + fileName;
+
+            try
+            {
+                //
+                _stage = "Uploading file";
+                if (!Upload(fileName, sourceDir, targetDir, setPermissions))
+                    throw new Exception("Could not upload the file.");
+
+                //
+                _stage = "Moving to archive folder";
+                File.Move(_sourceFile, _archiveFile);
+
+                // Check the file was moved
+                if (!File.Exists(_archiveFile))
+                    throw new Exception($"Could not move the file to {_archiveFile}.");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"[Upload#{_stage}] {ex.Message}");
+            }
             return true;
         }
 
@@ -229,19 +282,10 @@ namespace SFTPConnectSampleNS
                 {
                     //
                     _stage = $"Downloading {ftpfile.Name}";
-                    if (Download(ftpfile.Name, sourceDir, targetDir))
+                    if (Download(ftpfile.Name, sourceDir, targetDir, archiveDir))
                     {
                         Console.WriteLine($"  -> Download success: {ftpfile.Name}");
                         _count++;
-
-                        //
-                        if (archiveDir != null)
-                        {
-                            _stage = $"Moving to archive folder";
-                            if (!RemoteMove(sourceDir + ftpfile.Name, archiveDir + ftpfile.Name))
-                                throw new Exception($"Could not move file to archive folder.");
-                        }
-
                     }
                 }
                 catch (Exception ex)
@@ -251,14 +295,6 @@ namespace SFTPConnectSampleNS
                 _total++;
             }
             Console.WriteLine($"  -> Downloaded {_count}/{_total} files.");
-            return;
-        }
-
-        private static void DoUpload(SftpClient sftp, Dictionary<string, string> Settings)
-        {
-            //_stage = _profile + (_debug ? "DLW" : "DL");
-            //_targetDir = _settings[_stage];
-            //_archiveDir = _settings[];
             return;
         }
 

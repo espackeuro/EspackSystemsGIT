@@ -8,8 +8,9 @@ using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlClient;
 using Renci.SshNet;
+using System.Text.RegularExpressions;
 
-namespace SFTPConnectSample
+namespace SFTPConnectSampleNS
 {
     class Program
     {
@@ -19,21 +20,27 @@ namespace SFTPConnectSample
         static void Main(string[] args)
         {
             // Initialize vars
-            SftpClient _sftp = null;
+
             SqlConnection _conn = null;
             Dictionary<string, string> _settings = null;
             string _server = "";
-            string _action = "";
+            string _file = "";
             string _profile = "";
+            string _idDoc = "";
+            bool _upload = false;
+            string _stage = "";
+
+            string _thrashFolder = "D:\\dropbox_Test\\basura\\1.txt";
+            string _errorFolder = "D:\\dropbox_Test\\error\\1.txt";
 
 #if DEBUG
             Debug = true;
 #else
             Debug=false;
 #endif
-
+     
             // Check the args
-            if (!CheckArgs(args, ref _server, ref _action, ref _profile))
+            if (!CheckArgs(args, ref _server, ref _profile, ref _upload, ref _file))
             {
                 Console.ReadLine();
                 return;
@@ -46,40 +53,69 @@ namespace SFTPConnectSample
                 return;
             }
 
+            _file = "D:\\dropbox_Test\\1.txt";
+
+            if (!IdentifyDocument(_conn, _file, ref _idDoc, ref _upload))
+            {
+                File.Move(_file, _thrashFolder);
+                Console.WriteLine($"Couldn't identify file: {_file}. Moved to {_thrashFolder}.");
+                return;
+            }
+
+            if (!_upload)
+            {
+                Console.WriteLine($"{_idDoc} not yet available for processing. Moved to {_errorFolder}.");
+            }
+            
+            
+            Console.WriteLine($"File identified: {_idDoc} - {(_upload?"UPLOAD":"DOWNLOAD")}");
+            
+
+
             // Load settings from DB
             if (!LoadSettings(_conn, _profile, ref _settings))
             {
                 Console.ReadLine();
                 return;
             }
-
+ 
             // Close conn
             _conn.Close();
 
-            // Try conneciton
-            if (!Connect2FTP(ref _sftp, _profile, _settings))
-                return;
-
-            using(var _ftp=new SFTP_Class())
+            using (var _sftp = new SFTPClass())
             {
+                try
+                {
+                    //
+                    _stage = $"Connecting to  {_settings["FTPADDRESS"]}";
+                    if (!_sftp.Connect(_settings["FTPADDRESS"], _settings["USER"], _settings["RSAKEYPATH"], _settings["RSAPASSPHRASE"]))
+                        throw new Exception($"Could not connect to server");
 
+                    if (!_upload)
+                    {
+                        //
+                        _stage = $"Downloading from {_settings["SOURCEDIR"]}";
+                        _sftp.DownloadFolder(_settings["SOURCEDIR"], _settings["TARGETDIR"], _settings["ARCHIVEDIR"]);
+                    }
+                    else
+                    {
+                        //
+                        _stage = $"Uploading to {_settings["TARGETDIR"]}";
+                        if(!_sftp.Upload(_file, _settings["SOURCEDIR"], _settings["TARGETDIR"], Convert.ToInt16(_settings.ContainsKey("UPLOADPERMISSIONS") ? _settings["UPLOADPERMISSIONS"].ToString() : "0")))
+                            throw new Exception($"Could not upload the file {_file}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"[{_stage}] {ex.Message}.");
+                    return;
+                }
             }
 
             //
-            switch (_action)
-            {
-                case "DOWNLOAD":
-                    DoDownload(_sftp, _settings);
-                    break;
-                case "UPLOAD":
-                    DoUpload(_sftp, _settings);
-                    break;
-                default:
-                    Console.WriteLine("This should never happen!");
-                    break;
-            }
 
-            _sftp.Disconnect();
+
+   
 
             Console.Write("Press a key to exit...");
             Console.ReadKey();
@@ -108,12 +144,70 @@ namespace SFTPConnectSample
 
         }
 
+        public static bool IdentifyDocument(SqlConnection connection, string file, ref string idDocument, ref bool _upload)
+        {
+            string _stage = "";
+            bool _found = false;
+            string _contents = "";
+            string _flags = "";
 
-        private static bool CheckArgs(string[] args, ref string Server, ref string Action, ref string Profile)
+            try
+            {
+                //
+                _stage = "Reading the file contents";
+                _contents = File.ReadAllText(file);
+
+                // 
+                _stage = "Getting document definitions";
+                using (var _cmd = new SqlCommand("select idreg,identificador,flags from documentos where formato='SAP' and dbo.CheckFlag(flags,'OBS')=0", connection))
+                {
+                    //
+                    _stage = "Executing query";
+                    SqlDataReader _rs = _cmd.ExecuteReader();
+                    if (!_rs.HasRows)
+                        throw new Exception($"Document definitions not found.");
+
+                    //
+                    while (_rs.Read() && !_found)
+                    {
+                        idDocument = _rs["idreg"].ToString();
+                        _flags = _rs["flags"].ToString();
+                        _stage = $"Comparing identifier for {idDocument}";
+                        _found = Regex.IsMatch(_contents, _rs["identificador"].ToString());
+                    }
+
+                    // 
+                    if (_found)
+                    {
+                        _stage = $"Check document {idDocument} flags";
+                        if (_flags.Contains("|OUT|"))
+                        {
+                            if (!_flags.Contains("|SFTP|"))
+                                throw new Exception($"{idDocument} document not set as SFTP.");
+
+                            _upload = true;
+                        }
+                        {
+                            _upload = false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"[IdentifyDocument#{_stage}] {ex.Message}");
+            }
+
+            // OK
+            return _found;
+        }
+
+        private static bool CheckArgs(string[] args, ref string Server, ref string Profile, ref bool Upload, ref string File)
         {
             string _stage = "";
             string _currentArgName = "";
             string _currentArgValue = "";
+            string _action = "";
             bool _help = false;
 
             // Args
@@ -132,11 +226,11 @@ namespace SFTPConnectSample
                         _currentArgValue = "";
 
                     // Identify arg name
-                    switch (_currentArgName)
+                    switch (_currentArgName.ToUpper())
                     {
                         case "HELP":
                             // Show the help
-                            Console.WriteLine($"Available arguments:\n\tHELP\t\t\t\t- This text.\n\tSERVER=<DB Server>\t\t- Database server name or IP to access.\n\tACTION=UPLOAD|DOWNLOAD\t\t- Choose the action to be done.");
+                            Console.WriteLine($"Available arguments:\n\tHELP\t\t\t\t- This text.\n\tSERVER=<DB Server>\t\t- Database server name or IP to access.\n\tUPLOAD=<FileName>|DOWNLOAD\t\t- Choose the action to be done.");
                             Console.WriteLine($"\tPROFILE=<Profile>\t\t- The code in DB under which the settings are stored.");
                             _help = true;
                             break;
@@ -145,10 +239,15 @@ namespace SFTPConnectSample
                             Server = _currentArgValue;
                             break;
 
-                        case "ACTION":
-                            Action = _currentArgValue.ToUpper();
-                            if (Action != "DOWNLOAD" && Action != "UPLOAD")
-                                throw new Exception($"Wrong ACTION {Action}. Allowed values are: UPLOAD and DOWNLOAD");
+                        case "DOWNLOAD":
+                            _action = "DOWNLOAD";
+                            Upload = false;
+                            break;
+
+                        case "UPLOAD":
+                            _action = "UPLOAD";
+                            Upload = true;
+                            File = _currentArgValue;
                             break;
 
                         case "PROFILE":
@@ -169,10 +268,18 @@ namespace SFTPConnectSample
                 {
                     if (Server == "")
                         throw new Exception($"Argument SERVER is missing");
-                    if (Action == "")
-                        throw new Exception($"Argument ACTION is missing");
                     if (Profile == "")
                         throw new Exception($"Argument PROFILE is missing");
+                    if (_action == "")
+                        throw new Exception($"Action (DOWNLOAD|UPLOAD) is missing");
+                    if (_action != "DOWNLOAD" )
+                    {
+                        if (_action != "UPLOAD")
+                            throw new Exception($"Wrong ACTION {_action}. Allowed values are: UPLOAD and DOWNLOAD");
+                        if (File==null||File=="")
+                            throw new Exception($"You must specify a file: UPLOAD=<file>");
+
+                    }
                 }
             }
             catch (Exception ex)
