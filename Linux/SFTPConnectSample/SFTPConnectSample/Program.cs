@@ -19,26 +19,26 @@ namespace SFTPConnectSampleNS
 
         static void Main(string[] args)
         {
+#if DEBUG
+            Debug = true;
+#else
+            Debug = false;
+#endif
             // Initialize vars
-
             SqlConnection _conn = null;
             Dictionary<string, string> _settings = null;
             string _server = "";
             string _file = "";
             string _profile = "";
             string _idDoc = "";
+            string _internalCode = "";
             bool _upload = false;
             string _stage = "";
 
-            string _thrashFolder = "D:\\dropbox_Test\\basura\\1.txt";
-            string _errorFolder = "D:\\dropbox_Test\\error\\1.txt";
+            string _archiveFolder = "/media/HISTORICOS/Transmisiones/";
+            string _thrashFolder = _archiveFolder + "BASURA/";
+            string _errorFolder = _archiveFolder + "ERROR/";
 
-#if DEBUG
-            Debug = true;
-#else
-            Debug=false;
-#endif
-     
             // Check the args
             if (!CheckArgs(args, ref _server, ref _profile, ref _upload, ref _file))
             {
@@ -53,21 +53,28 @@ namespace SFTPConnectSampleNS
                 return;
             }
 
-            _file = "D:\\dropbox_Test\\1.txt";
+            //_file = "D:\\dropbox_Test\\1.txt";
 
-            if (!IdentifyDocument(_conn, _file, ref _idDoc, ref _upload))
+
+
+            if (!IdentifyDocument(_conn, _file, ref _idDoc, ref _internalCode, ref _upload))
             {
-                File.Move(_file, _thrashFolder);
+                File.Move(_file, _thrashFolder + Path.GetFileName(Path.GetDirectoryName(_file)));
                 Console.WriteLine($"Couldn't identify file: {_file}. Moved to {_thrashFolder}.");
                 return;
             }
 
+
             if (!_upload)
             {
+                _errorFolder += _internalCode + "/";
+                //file_put_contents(RUTA_HISTORICO."ERROR/".$this->proveedor.'/'.date("Ymd").".".$this->nomfichero, $this->contenido);
+                File.Move(_file, _errorFolder + Path.GetFileName(Path.GetDirectoryName(_file)));
                 Console.WriteLine($"{_idDoc} not yet available for processing. Moved to {_errorFolder}.");
+                return;
             }
             
-            
+            //
             Console.WriteLine($"File identified: {_idDoc} - {(_upload?"UPLOAD":"DOWNLOAD")}");
             
 
@@ -117,8 +124,8 @@ namespace SFTPConnectSampleNS
 
    
 
-            Console.Write("Press a key to exit...");
-            Console.ReadKey();
+            //Console.Write("Press a key to exit...");
+            //Console.ReadKey();
 
 
             // replace by args
@@ -144,12 +151,13 @@ namespace SFTPConnectSampleNS
 
         }
 
-        public static bool IdentifyDocument(SqlConnection connection, string file, ref string idDocument, ref bool _upload)
+        public static bool IdentifyDocument(SqlConnection connection, string file, ref string idDocument, ref string internalCode, ref bool _upload)
         {
             string _stage = "";
             bool _found = false;
             string _contents = "";
             string _flags = "";
+            string _supplierCode = "";
 
             try
             {
@@ -159,7 +167,9 @@ namespace SFTPConnectSampleNS
 
                 // 
                 _stage = "Getting document definitions";
-                using (var _cmd = new SqlCommand("select idreg,identificador,flags from documentos where formato='SAP' and dbo.CheckFlag(flags,'OBS')=0", connection))
+                // For later updates, this is the query in php process
+                // "select idreg,formato,descripcion,identificador,posicion_codigo_doc,longitud_codigo_doc,flags,postproceso,tablas,delimiter,quotes=rtrim(ltrim(quotes)),Subproveedores,posicion_codigo_subprov,longitud_codigo_subprov from documentos where isnull(identificador,'')<>'' /*and dbo.CheckFlag(flags,'OUT')=0*/"
+                using (var _cmd = new SqlCommand("select idreg,identificador,posicion_codigo_doc,longitud_codigo_doc,flags from documentos where formato='SAP' and dbo.CheckFlag(flags,'OBS')=0", connection))
                 {
                     //
                     _stage = "Executing query";
@@ -170,26 +180,48 @@ namespace SFTPConnectSampleNS
                     //
                     while (_rs.Read() && !_found)
                     {
+                        //
                         idDocument = _rs["idreg"].ToString();
-                        _flags = _rs["flags"].ToString();
                         _stage = $"Comparing identifier for {idDocument}";
                         _found = Regex.IsMatch(_contents, _rs["identificador"].ToString());
+
+                        //
+                        _stage = $"Getting settings from document {idDocument}";
+                        _supplierCode = _contents.Substring(Convert.ToInt32(_rs["posicion_codigo_doc"].ToString()), Convert.ToInt32(_rs["longitud_codigo_doc"].ToString()));
+                        _flags = _rs["flags"].ToString();
+                    }
+                    _rs.Close();
+                    _rs = null;
+                }
+
+                if (_found)
+                {
+                    //
+                    _stage = $"Check flags for document {idDocument}";
+                    if (_flags.Contains("|OUT|"))
+                    {
+                        if (!_flags.Contains("|SFTP|"))
+                            throw new Exception($"{idDocument} document not set as SFTP.");
+                        _upload = true;
+                    }
+                    else
+                    {
+                        _upload = false;
                     }
 
-                    // 
-                    if (_found)
+                    //
+                    _stage = $"Getting internal code for document {idDocument}";
+                    using (var _cmd = new SqlCommand($"select codigo_interno from proveedores where (len(codigo_prov) = 0 or dbo.CheckFlag('|' + codigo_prov + '|', '{_supplierCode}') = 1) and documento = '{idDocument}' and dbo.CheckFlag(flags, 'A') = 1", connection))
                     {
-                        _stage = $"Check document {idDocument} flags";
-                        if (_flags.Contains("|OUT|"))
-                        {
-                            if (!_flags.Contains("|SFTP|"))
-                                throw new Exception($"{idDocument} document not set as SFTP.");
+                        SqlDataReader _rs = _cmd.ExecuteReader();
+                        if (!_rs.HasRows)
+                            throw new Exception($"Internal code couldn't be found.");
 
-                            _upload = true;
-                        }
-                        {
-                            _upload = false;
-                        }
+                        //
+                        _rs.Read();
+                        internalCode = _rs["codigo_interno"].ToString();
+                        _rs.Close();
+                        _rs = null;
                     }
                 }
             }
