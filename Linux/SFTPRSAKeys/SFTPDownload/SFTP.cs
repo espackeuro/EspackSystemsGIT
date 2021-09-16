@@ -129,7 +129,7 @@ namespace SFTPDownloadNS
                     throw new Exception($"Could not download {_sourceFile}.");
 
                 //
-                _stage = "Copying file from tmp folder to download folder";
+                _stage = "Moving to archive";
                 if (!RemoteMove(_sourceFile, _archiveFile))
                     throw new Exception($"Could not move to archive {_archiveFile}.");
             }

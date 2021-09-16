@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFTPDownload", "SFTPDownload\SFTPDownload.csproj", "{BE621923-F37A-4B64-BDD7-7FC81DCB76F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SFTPDownload", "SFTPDownload\SFTPDownload.csproj", "{BE621923-F37A-4B64-BDD7-7FC81DCB76F0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D0C1A48E-D6C7-46FB-A25C-99F6D77B6F21}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

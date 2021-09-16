@@ -18,9 +18,9 @@ namespace SFTPDownloadNS
 #endif
             // Declare vars
             string _server = "", _profile = "", _stage = "";
-            string _ftpAddress, _ftpUser, _ftpRSAKey, _ftpRSAPassphrase;
+            string _archiveKey;
             SqlConnection _conn = null;
-            Dictionary<string, Dictionary<string, string>> _settings = null;
+            Dictionary<string, string> _settings = null;
 
             if (!CheckArgs(args, ref _server, ref _profile))
             {
@@ -42,40 +42,31 @@ namespace SFTPDownloadNS
                 return;
             }
 
-            //
-            _ftpAddress = _settings.Where(p => p.Value["FLAGS"].Contains("|FTPSERVER|")).Select(p => p.Value["VALUE"]).First();
-            _ftpUser = _settings.Where(p => p.Value["FLAGS"].Contains("|FTPUSER|")).Select(p => p.Value["VALUE"] ).First();
-            _ftpRSAKey = _settings.Where(p => p.Value["FLAGS"].Contains(Debug?"|RSAKEY_WIN|":"|RSAKEY_LIN|")).Select(p => p.Value["VALUE"]).First();
-            _ftpRSAPassphrase = _settings.Where(p => p.Value["FLAGS"].Contains("|RSAPASSPHRASE|")).Select(p => p.Value["VALUE"]).First();
-
             // Close conn
             _conn.Close();
-
-
-
-            string _archiveFolder = "/media/HISTORICOS/Transmisiones/";
-            string _thrashFolder = _archiveFolder + "BASURA/";
-            string _errorFolder = _archiveFolder + "ERROR/";
 
             using (var _sftp = new SFTPClass())
             {
                 try
                 {
                     //
-                    _stage = $"Connecting to  {_ftpAddress}";
-                    if (!_sftp.Connect(_ftpAddress, _ftpUser, _ftpRSAKey, _ftpRSAPassphrase))
+                    _stage = $"Connecting to  {_settings["FTPSERVER"]}";
+                    if (!_sftp.Connect(_settings["FTPSERVER"], _settings["FTPUSER"], _settings["RSAKEY"], _settings["RSAPASSPHRASE"]))
                         throw new Exception($"Could not connect to server");
 
                     //
                     _stage = "Getting source folders";
-                    var outFolders = _settings.Where(p => p.Value["FLAGS"].Contains("|OUT|")).Select(p => p.Value["VALUE"]);
-                    if (outFolders.Count() == 0)
+                    if (_settings.Where(p => p.Key.Contains("_IN")).ToList().Count == 0)
                         throw new Exception("Couldn't find any source folders in settings.");
 
-                    //
-                    _stage = $"Downloading from {_settings["SOURCEDIR"]}";
-                    //_sftp.DownloadFolder(_settings["SOURCEDIR"], _settings["TARGETDIR"], _settings["ARCHIVEDIR"]);
-                    
+                    _settings.Where(p => p.Key.Contains("_IN")).ToList().ForEach(p =>
+                    {
+                        _stage = $"Downloading from {p.Key}";
+                        //_archiveKey = p.Key.Substring(0, p.Key.Length - 3) + "ARCHIVE";
+                        _archiveKey = p.Key[0..^2] + "ARCHIVE";
+                        _sftp.DownloadFolder(p.Value, _settings["DROPFOLDER"], _settings.ContainsKey(_archiveKey) ? _settings[_archiveKey] : null);
+                    });
+                       
                 }
                 catch (Exception ex)
                 {
@@ -83,6 +74,7 @@ namespace SFTPDownloadNS
                     return;
                 }
             }
+            return;
         }
 
         private static bool CheckArgs(string[] args, ref string Server, ref string Profile)
@@ -181,14 +173,15 @@ namespace SFTPDownloadNS
             // OK
             return true;
         }
-
-        private static bool LoadSettings(SqlConnection Connection, string Profile, ref Dictionary<string, Dictionary<string, string>> Settings)
+        public static bool LoadSettings(SqlConnection Connection, string Profile, ref Dictionary<string, string> Settings)
         {
             string _stage = "";
+            Dictionary<string, Dictionary<string, string>> _settings;
+            Dictionary<string, string> _folderSettings;
 
             try
             {
-                using (SqlCommand _cmd = new SqlCommand($"select codigo,CMP_varchar,flags from datosEmpresa where dbo.checkFlag(flags,'{Profile}')=1", Connection))
+                using (SqlCommand _cmd = new SqlCommand($"select [Key]=codigo,Value1=CMP_varchar,Value2=convert(varchar(max),CMP_Text),flags from datosEmpresa where dbo.checkFlag(flags,'{Profile}')=1", Connection))
                 {
                     //
                     _stage = "Executing query";
@@ -198,21 +191,47 @@ namespace SFTPDownloadNS
                         throw new Exception($"Profile {Profile} not found");
 
                     //                    
-                    Settings = new Dictionary<string, Dictionary<string, string>>();
+                    _settings = new Dictionary<string, Dictionary<string, string>>();
 
                     //
                     _stage = $"Loading settings for {Profile}";
                     while (_rs.Read())
                     {
-                        Settings.Add(_rs["Codigo"].ToString(), new Dictionary<string, string>());
-                        Settings[_rs["Codigo"].ToString()].Add("VALUE", _rs["CMP_Varchar"].ToString());
-                        Settings[_rs["Codigo"].ToString()].Add("FLAGS", _rs["Flags"].ToString());
+                        _settings.Add(_rs["Key"].ToString(), new Dictionary<string, string>());
+                        _settings[_rs["Key"].ToString()].Add("VALUE1", _rs["Value1"].ToString());
+                        _settings[_rs["Key"].ToString()].Add("VALUE2", _rs["Value2"].ToString());
+                        _settings[_rs["Key"].ToString()].Add("FLAGS", _rs["Flags"].ToString());
                     }
+                }
+
+                //
+                _stage = $"Assigning FTP connection settings for {Profile}";
+                Settings = new Dictionary<string, string>();
+                Settings.Add("FTPSERVER", _settings.Where(p => p.Value["FLAGS"].Contains("|FTPSERVER|")).Select(p => p.Value["VALUE1"]).First());
+                Settings.Add("FTPUSER", _settings.Where(p => p.Value["FLAGS"].Contains("|FTPUSER|")).Select(p => p.Value["VALUE1"]).First());
+                Settings.Add("RSAKEY", _settings.Where(p => p.Value["FLAGS"].Contains(Debug ? "|RSAKEY_WIN|" : "|RSAKEY_LIN|")).Select(p => p.Value["VALUE1"]).First());
+                Settings.Add("RSAPASSPHRASE", _settings.Where(p => p.Value["FLAGS"].Contains("|RSAPASSPHRASE|")).Select(p => p.Value["VALUE1"]).First());
+
+                //
+                _stage = $"Assigning FTP folder settings for {Profile}";
+                
+                // Drop folder
+                Settings.Add("DROPFOLDER", _settings.Where(p => p.Value["FLAGS"].Contains(Debug ? "|DROP_WIN|" : "|DROP_LIN|")).Select(p => p.Value["VALUE1"]).First());
+                
+                // Source & archive folders: I am forced to do this in to steps as I can't use ref variables inside a lambda expression
+                // Step 1
+                _folderSettings = new Dictionary<string, string>();
+                _settings.Where(p => p.Value["FLAGS"].Contains("|IN|")).ToList().ForEach(x => { _folderSettings.Add(x.Value["VALUE2"] + "_IN", x.Value["VALUE1"]); });
+                _settings.Where(p => p.Value["FLAGS"].Contains("|ARCHIVE|")).ToList().ForEach(x => { _folderSettings.Add(x.Value["VALUE2"] + "_ARCHIVE", x.Value["VALUE1"]); });
+                // Step 2
+                foreach(var _item in _folderSettings)
+                {
+                    Settings.Add(_item.Key, _item.Value);
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[{_stage}] {ex.Message}.");
+                Console.WriteLine($"[LoadSettings#{_stage}] {ex.Message}.");
                 return false;
             }
 
