@@ -7,14 +7,14 @@ namespace SFTPDownloadNS
 {
     class Program
     {
-        public static bool Debug;
+        private static bool pDebug;
 
         static void Main(string[] args)
         {
 #if DEBUG
-            Debug = true;
+            pDebug = true;
 #else
-            Debug = false;
+            pDebug = false;
 #endif
             // Declare vars
             string _server = "", _profile = "", _stage = "";
@@ -37,7 +37,7 @@ namespace SFTPDownloadNS
             _conn.Close();
 
             //
-            Console.WriteLine($"-----===== SFTPDownload starting execution at {System.DateTime.Now} =====-----");
+            Console.WriteLine($"-----===== SFTPDownload starting execution at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} =====-----");
 
             using (var _sftp = new SFTPClass())
             {
@@ -68,7 +68,7 @@ namespace SFTPDownloadNS
                     return;
                 }
             }
-            Console.WriteLine($"-----===== SFTPDownload finishing execution at {System.DateTime.Now} =====-----");
+            Console.WriteLine($"-----===== SFTPDownload finishing execution at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} =====-----");
             return;
         }
 
@@ -199,14 +199,14 @@ namespace SFTPDownloadNS
                 Settings = new Dictionary<string, string>();
                 Settings.Add("FTPSERVER", _settings.Where(p => p.Value["FLAGS"].Contains("|FTPSERVER|")).Select(p => p.Value["VALUE1"]).First());
                 Settings.Add("FTPUSER", _settings.Where(p => p.Value["FLAGS"].Contains("|FTPUSER|")).Select(p => p.Value["VALUE1"]).First());
-                Settings.Add("RSAKEY", _settings.Where(p => p.Value["FLAGS"].Contains(Debug ? "|RSAKEY_WIN|" : "|RSAKEY_LIN|")).Select(p => p.Value["VALUE1"]).First());
+                Settings.Add("RSAKEY", _settings.Where(p => p.Value["FLAGS"].Contains(pDebug ? "|RSAKEY_WIN|" : "|RSAKEY_LIN|")).Select(p => p.Value["VALUE1"]).First());
                 Settings.Add("RSAPASSPHRASE", _settings.Where(p => p.Value["FLAGS"].Contains("|RSAPASSPHRASE|")).Select(p => p.Value["VALUE1"]).First());
 
                 //
                 _stage = $"Assigning FTP folder settings for {Profile}";
                 
                 // Drop folder
-                Settings.Add("DROPFOLDER", _settings.Where(p => p.Value["FLAGS"].Contains(Debug ? "|DROP_WIN|" : "|DROP_LIN|")).Select(p => p.Value["VALUE1"]).First());
+                Settings.Add("DROPFOLDER", _settings.Where(p => p.Value["FLAGS"].Contains(pDebug ? "|DROP_WIN|" : "|DROP_LIN|")).Select(p => p.Value["VALUE1"]).First());
                 
                 // Source & archive folders: I am forced to do this in to steps as I can't use ref variables inside a lambda expression
                 // Step 1
