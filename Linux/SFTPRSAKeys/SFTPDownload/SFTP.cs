@@ -23,7 +23,7 @@ namespace SFTPDownloadNS
 #if DEBUG
             pDebug = true;
 #else
-            Debug=false;
+            pDebug=false;
 #endif
 
             try

@@ -23,27 +23,21 @@ namespace SFTPDownloadNS
             Dictionary<string, string> _settings = null;
 
             if (!CheckArgs(args, ref _server, ref _profile))
-            {
-                Console.ReadLine();
                 return;
-            }
 
             // Connect to DB
             if (!Connect2DB(_server, ref _conn))
-            {
-                Console.ReadLine();
                 return;
-            }
 
             // Load settings from DB
             if (!LoadSettings(_conn, _profile, ref _settings))
-            {
-                Console.ReadLine();
                 return;
-            }
 
             // Close conn
             _conn.Close();
+
+            //
+            Console.WriteLine($"-----===== SFTPDownload starting execution at {System.DateTime.Now} =====-----");
 
             using (var _sftp = new SFTPClass())
             {
@@ -74,6 +68,7 @@ namespace SFTPDownloadNS
                     return;
                 }
             }
+            Console.WriteLine($"-----===== SFTPDownload finishing execution at {System.DateTime.Now} =====-----");
             return;
         }
 
@@ -106,8 +101,7 @@ namespace SFTPDownloadNS
                             // Show the help
                             Console.WriteLine($"Available arguments:\n\tHELP\t\t\t\t- This text.\n\tSERVER=<DB Server>\t\t- Database server name or IP to access data.");
                             Console.WriteLine($"\tPROFILE=<Profile>\t\t- The profile code for getting the settings from DB.");
-                            _help = true;
-                            break;
+                            return false;
 
                         case "SERVER":
                             Server = _currentArgValue;
@@ -120,10 +114,6 @@ namespace SFTPDownloadNS
                         default:
                             throw new Exception($"Wrong argument: {arg}");
                     }
-
-                    // Exit when the help is shown
-                    if (_help)
-                        break;
                 }
 
                 // If HELP has not been asked for, we check the mandatory values
