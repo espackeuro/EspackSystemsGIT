@@ -90,21 +90,23 @@ namespace SFTPDownloadNS
                 //
                 _stage = "Checkings";
                 if (!pSFtp.Exists(_sourceFile))
-                    throw new Exception("Source file not found.");
+                    throw new Exception("Source file not found");
                 if (File.Exists(_targetFile))
-                    throw new Exception("Target file already exists.");
+                    throw new Exception("Target file already exists");
 
                 //
                 _stage = "Reading remote file";
                 byte[] _data = pSFtp.ReadAllBytes(_sourceFile);
 
                 //
-                _stage = "Writting data to tmp folder";
+                _stage = $"Writting data to {_tmpPath}";
                 File.WriteAllBytes(_tmpPath, _data);
 
                 //
-                _stage = "Copying file from tmp folder to download folder";
-                File.Copy(_tmpPath, _targetFile);
+                _stage = $"Move file from {_tmpPath} to {_targetFile}";
+                File.Move(_tmpPath, _targetFile);
+
+
             }
             catch (Exception ex)
             {
@@ -263,7 +265,7 @@ namespace SFTPDownloadNS
             int _count = 0, _total = 0;
 
             sourceDir = ArrangePath(sourceDir, "/");
-            targetDir = ArrangePath(targetDir, "\\");
+            targetDir = ArrangePath(targetDir, pDebug ? "\\" : "/");
             if (!(archiveDir is null)) archiveDir = ArrangePath(archiveDir, "/");
 
             //
