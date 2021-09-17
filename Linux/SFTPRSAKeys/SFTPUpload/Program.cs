@@ -11,6 +11,7 @@ namespace SFTPUploadNS
     {
         private static bool pDebug;
 
+
         static void Main(string[] args)
         {
 #if DEBUG
@@ -21,7 +22,7 @@ namespace SFTPUploadNS
             // Declare vars
             string _server = "", _profile = "", _stage = "";
             string _file = "", _idDoc = "", _internalCode = "";
-            string _fileName = "";
+            string _fileName = "", _sourceFilePath = "", _archiveFile = "";
             string _localArchivePath = "/media/HISTORICOS/Transmisiones/";
             SqlConnection _conn = null;
             Dictionary<string, string> _settings = null;
@@ -33,8 +34,10 @@ namespace SFTPUploadNS
             if (!Connect2DB(_server, ref _conn))
                 return;
 
-            // Get the "pure" name, without path
-            _fileName = Path.GetFileName(Path.GetFileName(_file));
+            // Get the "pure" name, without path, and the "pure" path, without the file name
+            _fileName = Path.GetFileName(_file);
+            _sourceFilePath = Path.GetDirectoryName(_file);
+
             //_fileName = Path.GetFileName(Path.GetDirectoryName(_file));
 
             //
@@ -75,16 +78,21 @@ namespace SFTPUploadNS
 
                     //
                     _stage = $"Uploading {_file} to {_settings["UPLOADFOLDER"]}{_fileName}";
-                    if(!_sftp.Upload(_file, Path.GetFullPath(_file), _settings["UPLOADFOLDER"]))
+                    if(!_sftp.Upload(_fileName, _sourceFilePath, _settings["UPLOADFOLDER"]))
                         throw new Exception("Could not upload the file");
 
                     //
                     if (_settings.ContainsKey("UPLOADPERMISSIONS"))
                     {
                         _stage = $"Changing file permissions to {_settings["UPLOADPERMISSIONS"]}"; 
-                        if (!_sftp.RemoteChangePermissions(_file, Convert.ToInt16(_settings["UPLOADPERMISSIONS"])))
+                        if (!_sftp.RemoteChangePermissions(_settings["UPLOADFOLDER"] + "/" +_fileName, Convert.ToInt16(_settings["UPLOADPERMISSIONS"])))
                             throw new Exception("Could not change");
                     }
+
+                    //
+                    _archiveFile = $"{ _settings["ARCHIVEFOLDER"]}/{ _internalCode}/{ System.DateTime.Now.ToString("yyyyMMdd")}.{ _fileName}";
+                    _stage = $"Moving {_file} to {_archiveFile}";
+                    File.Move(_file, _archiveFile);
 
                 }
                 catch (Exception ex)
@@ -235,6 +243,7 @@ namespace SFTPUploadNS
                 Settings.Add("RSAKEY", _settings.Where(p => p.Value["FLAGS"].Contains(pDebug ? "|RSAKEY_WIN|" : "|RSAKEY_LIN|")).Select(p => p.Value["VALUE1"]).First());
                 Settings.Add("RSAPASSPHRASE", _settings.Where(p => p.Value["FLAGS"].Contains("|RSAPASSPHRASE|")).Select(p => p.Value["VALUE1"]).First());
                 Settings.Add("UPLOADFOLDER",  _settings.Where(p => p.Value["FLAGS"].Contains("|OUT|") && p.Value["VALUE2"] == idDoc).Select(p => p.Value["VALUE1"]).First());
+                Settings.Add("ARCHIVEFOLDER", _settings.Where(p => p.Value["FLAGS"].Contains("|ARCHIVE|") && p.Value["VALUE2"] == idDoc).Select(p => p.Value["VALUE1"]).First());
                 Settings.Add("UPLOADPERMISSIONS", _settings.Where(p => p.Value["FLAGS"].Contains("|UPLOADPERMISSIONS|")).Select(p => p.Value["VALUE1"]).First());
             }
             catch (Exception ex)
