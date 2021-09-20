@@ -58,7 +58,14 @@ namespace SFTPDownloadNS
                         _stage = $"Downloading from {p.Key}";
                         //_archiveKey = p.Key.Substring(0, p.Key.Length - 3) + "ARCHIVE";
                         _archiveKey = p.Key[0..^2] + "ARCHIVE";
-                        _sftp.DownloadFolder(p.Value, _settings["DROPFOLDER"], _settings.ContainsKey(_archiveKey) ? _settings[_archiveKey] : null);
+                        try
+                        {
+                            _sftp.DownloadFolder(p.Value, _settings["DROPFOLDER"], _settings.ContainsKey(_archiveKey) ? _settings[_archiveKey] : null);
+                        }
+                        catch(Exception ex)
+                        {
+                            Console.WriteLine($"[{_stage}] {ex.Message}.");
+                        }
                     });
                        
                 }
