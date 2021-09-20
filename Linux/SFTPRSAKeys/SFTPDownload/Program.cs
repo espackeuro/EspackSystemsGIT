@@ -72,6 +72,15 @@ namespace SFTPDownloadNS
             return;
         }
 
+        // Add separator at the end of a string if it is not there
+        private static string ArrangePath(string path, string separator)
+        {
+            if (path.Substring(path.Length - separator.Length) != separator)
+                path = path + separator;
+
+            return path;
+        }
+
         private static bool CheckArgs(string[] args, ref string Server, ref string Profile)
         {
             string _stage;
@@ -204,9 +213,9 @@ namespace SFTPDownloadNS
 
                 //
                 _stage = $"Assigning FTP folder settings for {Profile}";
-                
+
                 // Drop folder
-                Settings.Add("DROPFOLDER", _settings.Where(p => p.Value["FLAGS"].Contains(pDebug ? "|DROP_WIN|" : "|DROP_LIN|")).Select(p => p.Value["VALUE1"]).First());
+                Settings.Add("DROPFOLDER", ArrangePath(_settings.Where(p => p.Value["FLAGS"].Contains(pDebug ? "|DROP_WIN|" : "|DROP_LIN|")).Select(p => p.Value["VALUE1"]).First(), pDebug ? "\\" : "/"));
                 
                 // Source & archive folders: I am forced to do this in to steps as I can't use ref variables inside a lambda expression
                 // Step 1
@@ -216,7 +225,7 @@ namespace SFTPDownloadNS
                 // Step 2
                 foreach(var _item in _folderSettings)
                 {
-                    Settings.Add(_item.Key, _item.Value);
+                    Settings.Add(_item.Key, ArrangePath(_item.Value, "/"));
                 }
             }
             catch (Exception ex)

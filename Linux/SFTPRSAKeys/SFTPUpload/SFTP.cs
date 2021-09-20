@@ -147,8 +147,8 @@ namespace SFTPUploadNS
         public bool Upload(string fileName, string sourceDir, string targetDir)
         {
             string _stage = "";
-            string _sourceFile = ArrangePath(sourceDir, pDebug ? "\\" : "/") + fileName;
-            string _targetFile = ArrangePath(targetDir, "/") + fileName;
+            string _sourceFile = sourceDir + fileName;
+            string _targetFile = targetDir + fileName;
 
             try
             {
@@ -246,10 +246,6 @@ namespace SFTPUploadNS
             string _stage = "";
             int _count = 0, _total = 0;
 
-            sourceDir = ArrangePath(sourceDir, "/");
-            targetDir = ArrangePath(targetDir, pDebug ? "\\" : "/");
-            if (!(archiveDir is null)) archiveDir = ArrangePath(archiveDir, "/");
-
             //
             _stage = $"Downloading from {sourceDir}";
             Console.WriteLine($"*** {_stage} ***");
@@ -282,14 +278,6 @@ namespace SFTPUploadNS
             return;
         }
 
-        // Add separator at the end of a string if it is not there
-        private static string ArrangePath(string path, string separator)
-        {
-            if (path.Substring(path.Length - separator.Length) != separator)
-                path = path + separator;
-
-            return path;
-        }
         public void Dispose()
         {
             string _stage = "";

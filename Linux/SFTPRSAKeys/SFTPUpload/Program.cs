@@ -20,7 +20,7 @@ namespace SFTPUploadNS
             pDebug = false;
 #endif
             // Declare vars
-            string _server = "", _profile = "", _stage = "";
+            string _server = "", _profile = "", _stage = "", _separator = pDebug ? "\\" : "/"; ;
             string _file = "", _idDoc = "", _internalCode = "";
             string _fileName = "", _sourceFilePath = "", _archiveFile = "";
             string _localArchivePath = "/media/HISTORICOS/Transmisiones/";
@@ -36,7 +36,7 @@ namespace SFTPUploadNS
 
             // Get the "pure" name, without path, and the "pure" path, without the file name
             _fileName = Path.GetFileName(_file);
-            _sourceFilePath = Path.GetDirectoryName(_file);
+            _sourceFilePath = ArrangePath(Path.GetDirectoryName(_file),_separator);
 
             //_fileName = Path.GetFileName(Path.GetDirectoryName(_file));
 
@@ -85,12 +85,13 @@ namespace SFTPUploadNS
                     if (_settings.ContainsKey("UPLOADPERMISSIONS"))
                     {
                         _stage = $"Changing file permissions to {_settings["UPLOADPERMISSIONS"]}"; 
-                        if (!_sftp.RemoteChangePermissions(_settings["UPLOADFOLDER"] + "/" +_fileName, Convert.ToInt16(_settings["UPLOADPERMISSIONS"])))
+                        if (!_sftp.RemoteChangePermissions(_settings["UPLOADFOLDER"] +_fileName, Convert.ToInt16(_settings["UPLOADPERMISSIONS"])))
                             throw new Exception("Could not change");
                     }
 
                     //
-                    _archiveFile = $"{ _settings["ARCHIVEFOLDER"]}/{ _internalCode}/{ System.DateTime.Now.ToString("yyyyMMdd")}.{ _fileName}";
+                   
+                    _archiveFile = $"{ _settings["ARCHIVEFOLDER"]}{ _internalCode}{_separator}{ System.DateTime.Now.ToString("yyyyMMdd")}.{ _fileName}";
                     _stage = $"Moving {_file} to {_archiveFile}";
                     File.Move(_file, _archiveFile);
 
@@ -103,6 +104,15 @@ namespace SFTPUploadNS
             }
             Console.WriteLine($"-----===== SFTPUpload finishing execution at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} =====-----");
             return;
+        }
+
+        // Add separator at the end of a string if it is not there
+        private static string ArrangePath(string path, string separator)
+        {
+            if (path.Substring(path.Length - separator.Length) != separator)
+                path = path + separator;
+
+            return path;
         }
 
         private static bool CheckArgs(string[] args, ref string Server, ref string Profile, ref string Filename)
@@ -206,9 +216,8 @@ namespace SFTPUploadNS
         }
         public static bool LoadSettings(SqlConnection Connection, string Profile, string idDoc, ref Dictionary<string, string> Settings)
         {
-            string _stage = "";
+            string _stage = "", _flag = "";
             Dictionary<string, Dictionary<string, string>> _settings;
-            Dictionary<string, string> _folderSettings;
 
             try
             {
@@ -238,13 +247,27 @@ namespace SFTPUploadNS
                 //
                 _stage = $"Assigning FTP connection settings for {Profile}";
                 Settings = new Dictionary<string, string>();
-                Settings.Add("FTPSERVER", _settings.Where(p => p.Value["FLAGS"].Contains("|FTPSERVER|")).Select(p => p.Value["VALUE1"]).First());
-                Settings.Add("FTPUSER", _settings.Where(p => p.Value["FLAGS"].Contains("|FTPUSER|")).Select(p => p.Value["VALUE1"]).First());
-                Settings.Add("RSAKEY", _settings.Where(p => p.Value["FLAGS"].Contains(pDebug ? "|RSAKEY_WIN|" : "|RSAKEY_LIN|")).Select(p => p.Value["VALUE1"]).First());
-                Settings.Add("RSAPASSPHRASE", _settings.Where(p => p.Value["FLAGS"].Contains("|RSAPASSPHRASE|")).Select(p => p.Value["VALUE1"]).First());
-                Settings.Add("UPLOADFOLDER",  _settings.Where(p => p.Value["FLAGS"].Contains("|OUT|") && p.Value["VALUE2"] == idDoc).Select(p => p.Value["VALUE1"]).First());
-                Settings.Add("ARCHIVEFOLDER", _settings.Where(p => p.Value["FLAGS"].Contains("|ARCHIVE|") && p.Value["VALUE2"] == idDoc).Select(p => p.Value["VALUE1"]).First());
-                Settings.Add("UPLOADPERMISSIONS", _settings.Where(p => p.Value["FLAGS"].Contains("|UPLOADPERMISSIONS|")).Select(p => p.Value["VALUE1"]).First());
+                try
+                {
+                    _flag = "FTPSERVER";
+                    Settings.Add("FTPSERVER", _settings.Where(p => p.Value["FLAGS"].Contains("|FTPSERVER|")).Select(p => p.Value["VALUE1"]).First());
+                    _flag = "FTPUSER";
+                    Settings.Add("FTPUSER", _settings.Where(p => p.Value["FLAGS"].Contains("|FTPUSER|")).Select(p => p.Value["VALUE1"]).First());
+                    _flag = pDebug ? "RSAKEY_WIN" : "RSAKEY_LIN";
+                    Settings.Add("RSAKEY", _settings.Where(p => p.Value["FLAGS"].Contains($"|{_flag}|")).Select(p => p.Value["VALUE1"]).First());
+                    _flag = "RSAPASSPHRASE";
+                    Settings.Add("RSAPASSPHRASE", _settings.Where(p => p.Value["FLAGS"].Contains("|RSAPASSPHRASE|")).Select(p => p.Value["VALUE1"]).First());
+                    _flag = "OUT";
+                    Settings.Add("UPLOADFOLDER", ArrangePath(_settings.Where(p => p.Value["FLAGS"].Contains("|OUT|") && p.Value["VALUE2"] == idDoc).Select(p => p.Value["VALUE1"]).First(), "/"));
+                    _flag = pDebug ? "LOCAL_ARCHIVE_WIN" : "LOCAL_ARCHIVE_LIN";
+                    Settings.Add("ARCHIVEFOLDER", ArrangePath(_settings.Where(p => p.Value["FLAGS"].Contains($"|{_flag}|")).Select(p => p.Value["VALUE1"]).First(), pDebug ? "\\" : "/"));
+                    _flag = "UPLOADPERMISSIONS";
+                    Settings.Add("UPLOADPERMISSIONS", _settings.Where(p => p.Value["FLAGS"].Contains("|UPLOADPERMISSIONS|")).Select(p => p.Value["VALUE1"]).First());
+                }
+                catch(Exception ex)
+                {
+                    throw new Exception($"{_flag} flag for profile {Profile} ({idDoc}) not found");
+                }
             }
             catch (Exception ex)
             {
