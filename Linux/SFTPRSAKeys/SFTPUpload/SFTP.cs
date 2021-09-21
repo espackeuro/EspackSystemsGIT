@@ -196,7 +196,7 @@ namespace SFTPUploadNS
             }
             return true;
         }
-              
+
         // Move file at the ftp
         public bool RemoteMove(string source, string target)
         {
@@ -237,7 +237,7 @@ namespace SFTPUploadNS
                     throw new Exception("Target file does not found.");
 
                 //
-                _stage = "Moving remote file";
+                _stage = "Deleting remote file";
                 pSFtp.Delete(target);
             }
             catch (Exception ex)
