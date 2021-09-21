@@ -117,32 +117,32 @@ namespace SFTPUploadNS
             return true;
         }
 
-        public bool Download(string fileName, string sourceDir, string targetDir, string archiveDir)
-        {
-            string _stage = "";
-            string _sourceFile = sourceDir + fileName;
-            string _archiveFile = archiveDir + fileName;
+        //public bool Download(string fileName, string sourceDir, string targetDir, string archiveDir)
+        //{
+        //    string _stage = "";
+        //    string _sourceFile = sourceDir + fileName;
+        //    string _archiveFile = archiveDir + fileName;
 
-            try
-            {
-                //
-                _stage = "Downloading file";
-                if (!Download(fileName, sourceDir, targetDir))
-                    throw new Exception($"Could not download {_sourceFile}.");
+        //    try
+        //    {
+        //        //
+        //        _stage = "Downloading file";
+        //        if (!Download(fileName, sourceDir, targetDir))
+        //            throw new Exception($"Could not download {_sourceFile}.");
 
-                //
-                _stage = "Moving to archive";
-                if (!RemoteMove(_sourceFile, _archiveFile))
-                    throw new Exception($"Could not move to archive {_archiveFile}.");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"[Download#{_stage}] {ex.Message}");
-            }
+        //        //
+        //        _stage = "Moving to archive";
+        //        if (!RemoteMove(_sourceFile, _archiveFile))
+        //            throw new Exception($"Could not move to archive {_archiveFile}.");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception($"[Download#{_stage}] {ex.Message}");
+        //    }
 
-            // OK
-            return true;
-        }
+        //    // OK
+        //    return true;
+        //}
 
         public bool Upload(string fileName, string sourceDir, string targetDir)
         {
@@ -190,7 +190,7 @@ namespace SFTPUploadNS
             {
                 pSFtp.ChangePermissions(fileName, setPermissions);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception($"[RemoteChangePermissions#{_stage}] {ex.Message}.");
             }
@@ -218,6 +218,31 @@ namespace SFTPUploadNS
             catch (Exception ex)
             {
                 throw new Exception($"[RemoteMove#{_stage}] {ex.Message}");
+            }
+
+            // OK
+            return true;
+        }
+
+        // Move file at the ftp
+        public bool RemoteDelete(string target)
+        {
+            string _stage = "";
+
+            try
+            {
+                //
+                _stage = "Checkings";
+                if (!pSFtp.Exists(target))
+                    throw new Exception("Target file does not found.");
+
+                //
+                _stage = "Moving remote file";
+                pSFtp.Delete(target);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"[RemoteDelete#{_stage}] {ex.Message}");
             }
 
             // OK
@@ -262,15 +287,34 @@ namespace SFTPUploadNS
                 {
                     //
                     _stage = $"Downloading {ftpfile.Name}";
-                    if (Download(ftpfile.Name, sourceDir, targetDir, archiveDir))
+                    if (Download(ftpfile.Name, sourceDir, targetDir))
                     {
                         Console.WriteLine($"  -> Download success: {ftpfile.Name}");
                         _count++;
+
+                        if (archiveDir != null)
+                        {
+                            _stage = "Moving to archive folder";
+                            string _archiveFile = archiveDir + ftpfile.Name;
+
+                            if (!pSFtp.Exists(_archiveFile))
+                                if (!RemoteMove(sourceDir + ftpfile.Name, _archiveFile))
+                                    Console.WriteLine($"Could not move to archive {_archiveFile}.");
+                        }
+
+                        // In case there was no archive directory or the previous move command failed (because the target existed yet), we need to delete the source file to avoid duplicate
+                        // next captures.
+                        _stage = $"Deleting {sourceDir + ftpfile.Name}";
+                        if (pSFtp.Exists(sourceDir + ftpfile.Name))
+                            if (!RemoteDelete(sourceDir + ftpfile.Name))
+                                throw new Exception($"Could not remove file {sourceDir + ftpfile.Name}.");
+
                     }
+
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception($"[DownloadFolder#{_stage}] {ex.Message}");
+                    Console.WriteLine($"[DownloadFolder#{_stage}] {ex.Message}.");
                 }
                 _total++;
             }

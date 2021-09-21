@@ -55,6 +55,7 @@ namespace SFTPUploadNS
                     Console.WriteLine($"File {_fileName} couldn't be identified. Moving it to BASURA.");
                     File.Move(_file, $"{_localArchivePath}BASURA/{_fileName}");
                 }
+                return;
             }
 
             // Load settings from DB
@@ -81,12 +82,16 @@ namespace SFTPUploadNS
                     if(!_sftp.Upload(_fileName, _sourceFilePath, _settings["UPLOADFOLDER"]))
                         throw new Exception("Could not upload the file");
 
+                    Console.WriteLine($"File {_file} uploaded to {_settings["UPLOADFOLDER"]}.");
+
                     //
                     if (_settings.ContainsKey("UPLOADPERMISSIONS"))
                     {
                         _stage = $"Changing file permissions to {_settings["UPLOADPERMISSIONS"]}"; 
                         if (!_sftp.RemoteChangePermissions(_settings["UPLOADFOLDER"] +_fileName, Convert.ToInt16(_settings["UPLOADPERMISSIONS"])))
                             throw new Exception("Could not change");
+                        
+                        Console.WriteLine($"File {_settings["UPLOADFOLDER"]}{_fileName} permissions changed.");
                     }
 
                     //
@@ -94,6 +99,7 @@ namespace SFTPUploadNS
                     _archiveFile = $"{ _settings["ARCHIVEFOLDER"]}{ _internalCode}{_separator}{ System.DateTime.Now.ToString("yyyyMMdd")}.{ _fileName}";
                     _stage = $"Moving {_file} to {_archiveFile}";
                     File.Move(_file, _archiveFile);
+                    Console.WriteLine($"File {_file} moved to {_archiveFile}.");
 
                 }
                 catch (Exception ex)

@@ -117,34 +117,34 @@ namespace SFTPDownloadNS
             return true;
         }
 
-        public bool Download(string fileName, string sourceDir, string targetDir, string archiveDir)
-        {
-            string _stage = "";
-            string _sourceFile = sourceDir + fileName;
-            string _archiveFile = archiveDir + fileName;
+        //public bool Download(string fileName, string sourceDir, string targetDir, string archiveDir)
+        //{
+        //    string _stage = "";
+        //    string _sourceFile = sourceDir + fileName;
+        //    string _archiveFile = archiveDir + fileName;
 
-            try
-            {
-                //
-                _stage = "Downloading file";
-                if (!Download(fileName, sourceDir, targetDir))
-                    throw new Exception($"Could not download {_sourceFile}.");
+        //    try
+        //    {
+        //        //
+        //        _stage = "Downloading file";
+        //        if (!Download(fileName, sourceDir, targetDir))
+        //            throw new Exception($"Could not download {_sourceFile}.");
 
-                //
-                _stage = "Moving to archive";
-                if (!RemoteMove(_sourceFile, _archiveFile))
-                    throw new Exception($"Could not move to archive {_archiveFile}.");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"[Download#{_stage}] {ex.Message}");
-            }
+        //        //
+        //        _stage = "Moving to archive";
+        //        if (!RemoteMove(_sourceFile, _archiveFile))
+        //            throw new Exception($"Could not move to archive {_archiveFile}.");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception($"[Download#{_stage}] {ex.Message}");
+        //    }
 
-            // OK
-            return true;
-        }
+        //    // OK
+        //    return true;
+        //}
 
-        public bool Upload(string fileName, string sourceDir, string targetDir, short setPermissions = 0)
+        public bool Upload(string fileName, string sourceDir, string targetDir)
         {
             string _stage = "";
             string _sourceFile = sourceDir + fileName;
@@ -154,12 +154,6 @@ namespace SFTPDownloadNS
             {
                 //
                 _stage = "Checkings";
-                if (setPermissions != 0)
-                {
-                    if (setPermissions < 700 || setPermissions > 777)
-                        throw new Exception($"Wrong permissions: {setPermissions}");
-                }
-
                 if (!File.Exists(_sourceFile))
                     throw new Exception("Source file not found.");
                 if (pSFtp.Exists(_targetFile))
@@ -175,8 +169,6 @@ namespace SFTPDownloadNS
                 {
                     pSFtp.BufferSize = 4 * 1024;
                     pSFtp.UploadFile(fs, Path.GetFileName(_sourceFile));
-                    if (setPermissions != 0)
-                        pSFtp.ChangePermissions(_targetFile, setPermissions);
                 }
             }
             catch (Exception ex)
@@ -187,30 +179,20 @@ namespace SFTPDownloadNS
             // OK
             return true;
         }
-        private bool Upload(string fileName, string sourceDir, string targetDir, string archiveDir, short setPermissions = 0)
+
+        public bool RemoteChangePermissions(string fileName, short setPermissions)
         {
             string _stage = "";
-            string _sourceFile = sourceDir + fileName;
-            string _archiveFile = archiveDir + fileName;
 
+            //
+            _stage = "Changing file permissions";
             try
             {
-                //
-                _stage = "Uploading file";
-                if (!Upload(fileName, sourceDir, targetDir, setPermissions))
-                    throw new Exception("Could not upload the file.");
-
-                //
-                _stage = "Moving to archive folder";
-                File.Move(_sourceFile, _archiveFile);
-
-                // Check the file was moved
-                if (!File.Exists(_archiveFile))
-                    throw new Exception($"Could not move the file to {_archiveFile}.");
+                pSFtp.ChangePermissions(fileName, setPermissions);
             }
             catch (Exception ex)
             {
-                throw new Exception($"[Upload#{_stage}] {ex.Message}");
+                throw new Exception($"[RemoteChangePermissions#{_stage}] {ex.Message}.");
             }
             return true;
         }
@@ -242,6 +224,31 @@ namespace SFTPDownloadNS
             return true;
         }
 
+        // Move file at the ftp
+        public bool RemoteDelete(string target)
+        {
+            string _stage = "";
+
+            try
+            {
+                //
+                _stage = "Checkings";
+                if (!pSFtp.Exists(target))
+                    throw new Exception("Target file does not found.");
+
+                //
+                _stage = "Deleting remote file";
+                pSFtp.Delete(target);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"[RemoteDelete#{_stage}] {ex.Message}");
+            }
+
+            // OK
+            return true;
+        }
+
         public bool IsConnected()
         {
             string _stage = "";
@@ -264,10 +271,6 @@ namespace SFTPDownloadNS
             string _stage = "";
             int _count = 0, _total = 0;
 
-            sourceDir = ArrangePath(sourceDir, "/");
-            targetDir = ArrangePath(targetDir, pDebug ? "\\" : "/");
-            if (!(archiveDir is null)) archiveDir = ArrangePath(archiveDir, "/");
-
             //
             _stage = $"Downloading from {sourceDir}";
             Console.WriteLine($"*** {_stage} ***");
@@ -284,15 +287,34 @@ namespace SFTPDownloadNS
                 {
                     //
                     _stage = $"Downloading {ftpfile.Name}";
-                    if (Download(ftpfile.Name, sourceDir, targetDir, archiveDir))
+                    if (Download(ftpfile.Name, sourceDir, targetDir))
                     {
                         Console.WriteLine($"  -> Download success: {ftpfile.Name}");
                         _count++;
+
+                        if (archiveDir!=null)
+                        {
+                            _stage = "Moving to archive folder";
+                            string _archiveFile = archiveDir + ftpfile.Name;
+
+                            if (!pSFtp.Exists(_archiveFile))
+                                if (!RemoteMove(sourceDir + ftpfile.Name, _archiveFile))
+                                    Console.WriteLine($"Could not move to archive {_archiveFile}.");
+                        }
+
+                        // In case there was no archive directory or the previous move command failed (because the target existed yet), we need to delete the source file to avoid duplicate
+                        // next captures.
+                        _stage = $"Deleting {sourceDir + ftpfile.Name}";
+                        if (pSFtp.Exists(sourceDir + ftpfile.Name))
+                            if (!RemoteDelete(sourceDir + ftpfile.Name))
+                                throw new Exception($"Could not remove file {sourceDir + ftpfile.Name}.");
+
                     }
+
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception($"[DownloadFolder#{_stage}] {ex.Message}");
+                    Console.WriteLine($"[DownloadFolder#{_stage}] {ex.Message}.");
                 }
                 _total++;
             }
@@ -301,13 +323,7 @@ namespace SFTPDownloadNS
         }
 
         // Add separator at the end of a string if it is not there
-        private static string ArrangePath(string path, string separator)
-        {
-            if (path.Substring(path.Length - separator.Length) != separator)
-                path = path + separator;
 
-            return path;
-        }
         public void Dispose()
         {
             string _stage = "";
