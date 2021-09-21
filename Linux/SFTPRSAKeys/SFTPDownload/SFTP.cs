@@ -292,7 +292,7 @@ namespace SFTPDownloadNS
                         Console.WriteLine($"  -> Download success: {ftpfile.Name}");
                         _count++;
 
-                        if (archiveDir!=null)
+                        if (archiveDir != null)
                         {
                             _stage = "Moving to archive folder";
                             string _archiveFile = archiveDir + ftpfile.Name;
@@ -321,8 +321,6 @@ namespace SFTPDownloadNS
             Console.WriteLine($"  -> Downloaded {_count}/{_total} files.");
             return;
         }
-
-        // Add separator at the end of a string if it is not there
 
         public void Dispose()
         {
