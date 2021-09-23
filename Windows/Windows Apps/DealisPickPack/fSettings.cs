@@ -27,7 +27,7 @@ namespace DealerPickPack
                 cboPrinters.Enabled = true;
                 // [dvalles] 20210923: Change this query to be the same as in the scanner (no more ETIQUETAS..datosEmpresa)
                 //cboPrinters.Source("select Codigo from ETIQUETAS..datosEmpresa where descripcion like '%|DPP|%' order by cmp_integer", Values.gDatos);
-                cboPrinters.Source($"select ValueString,Code from MiscData where cod3='{Values.COD3}' and dbo.checkFlag(flags,'LABELPRINTER')=1 order by code", Values.gDatos);
+                cboPrinters.Source($"select Code from MiscData where cod3='{Values.COD3}' and dbo.checkFlag(flags,'LABELPRINTER')=1 order by code", Values.gDatos);
                 cboPrinters.Value = cSettings.readSetting("labelPrinter");
                 Values.LabelPrinterAddress = cboPrinters.Value.ToString();
                 cboPrinters.SelectedIndexChanged += CboPrinters_SelectedIndexChanged;

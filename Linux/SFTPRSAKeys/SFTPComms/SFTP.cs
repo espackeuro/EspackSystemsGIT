@@ -5,26 +5,26 @@ using System.Text;
 using Renci.SshNet;
 using System.IO;
 
-namespace SFTPDownloadNS
+namespace SFTPCommsNS
 {
     class SFTPClass : IDisposable
     {
-        private bool pDebug;
+        //private bool pDebug;
         private SftpClient pSFtp;
         public string Server;
         public string User;
         public string PrivateKeyPath;
         public string PrivateKeyPassphrase;
 
+#if DEBUG
+        private const bool pDebug = true;
+#else
+        private const bool pDebug = false;
+#endif
+
         public bool Connect(string server = null, string user = null, string privateKeyPath = null, string privateKeyPassphrase = null)
         {
             string _stage = "";
-
-#if DEBUG
-            pDebug = true;
-#else
-            pDebug=false;
-#endif
 
             try
             {
@@ -116,33 +116,6 @@ namespace SFTPDownloadNS
             // OK
             return true;
         }
-
-        //public bool Download(string fileName, string sourceDir, string targetDir, string archiveDir)
-        //{
-        //    string _stage = "";
-        //    string _sourceFile = sourceDir + fileName;
-        //    string _archiveFile = archiveDir + fileName;
-
-        //    try
-        //    {
-        //        //
-        //        _stage = "Downloading file";
-        //        if (!Download(fileName, sourceDir, targetDir))
-        //            throw new Exception($"Could not download {_sourceFile}.");
-
-        //        //
-        //        _stage = "Moving to archive";
-        //        if (!RemoteMove(_sourceFile, _archiveFile))
-        //            throw new Exception($"Could not move to archive {_archiveFile}.");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception($"[Download#{_stage}] {ex.Message}");
-        //    }
-
-        //    // OK
-        //    return true;
-        //}
 
         public bool Upload(string fileName, string sourceDir, string targetDir)
         {
