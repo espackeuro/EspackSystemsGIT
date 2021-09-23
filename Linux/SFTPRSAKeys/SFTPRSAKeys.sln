@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SFTPDownload", "SFTPDownloa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D0C1A48E-D6C7-46FB-A25C-99F6D77B6F21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFTPUpload", "SFTPUpload\SFTPUpload.csproj", "{DEC8FA7C-CECA-464A-A284-FC042B75EE1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SFTPUpload", "SFTPUpload\SFTPUpload.csproj", "{DEC8FA7C-CECA-464A-A284-FC042B75EE1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFTPComms", "SFTPComms\SFTPComms.csproj", "{6E3C58A8-6DBE-4358-8B04-9201794F7B9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{DEC8FA7C-CECA-464A-A284-FC042B75EE1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEC8FA7C-CECA-464A-A284-FC042B75EE1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEC8FA7C-CECA-464A-A284-FC042B75EE1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E3C58A8-6DBE-4358-8B04-9201794F7B9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E3C58A8-6DBE-4358-8B04-9201794F7B9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E3C58A8-6DBE-4358-8B04-9201794F7B9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E3C58A8-6DBE-4358-8B04-9201794F7B9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
