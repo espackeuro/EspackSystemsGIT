@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace SFTPCommsNS
 {
@@ -21,8 +22,13 @@ namespace SFTPCommsNS
             string _fileName = "";
             bool _upload = false;
             string _archiveKey;
+            
+            string _localArchivePath = "/media/HISTORICOS/Transmisiones/";
+            string _file = "";
+
             SqlConnection _conn = null;
             Dictionary<string, string> _settings = null;
+            DocumentClass _doc = null;
 
             if (!CheckArgs(args, ref _server, ref _profile, ref _upload, ref _fileName))
                 return;
@@ -31,23 +37,43 @@ namespace SFTPCommsNS
             if (!Connect2DB(_server, ref _conn))
                 return;
 
-            // Load settings from DB
-            if (!LoadSettings(_conn, _profile, ref _settings))
-                return;
-
-            using (DocumentClass _doc = new DocumentClass())
+            _doc = new DocumentClass();
+            if (_upload)
             {
                 if (!_doc.Identify(_conn, _fileName))
+                {
+                    if (_doc.DocumentID != null)
+                    {
+                        Console.WriteLine($"File {_fileName} identified as {_doc.DocumentID} with errors. Moving it to ERROR.");
+                        System.IO.Directory.CreateDirectory($"{_localArchivePath}ERROR/{_doc.InternalCode}");
+                        File.Move(_file, $"{_localArchivePath}ERROR/{System.DateTime.Now.ToString("yyyyMMdd")}.{_doc.InternalCode}/{_fileName}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"File {_fileName} couldn't be identified. Moving it to BASURA.");
+                        File.Move(_file, $"{_localArchivePath}BASURA/{_fileName}");
+                    }
                     return;
+                }
 
+
+                    return;
+            }
+            else
+            {
+                _doc.TransferDirection = TransferDirections.TD_INBOUND;
+                _doc.TransferProtocol = TransferProtocols.TP_RSAFTP;
             }
 
+            // Load settings from DB
+            if (!LoadSettings(_conn, _profile, _doc, ref _settings))
+                return;
 
-                // Close conn
-                _conn.Close();
+            // Close conn
+            _conn.Close();
 
             //
-            Console.WriteLine($"-----===== SFTPDownload starting execution at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} =====-----");
+            Console.WriteLine($"-----===== SFTPComms starting execution at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} =====-----");
 
             using (var _sftp = new SFTPClass())
             {
@@ -58,25 +84,55 @@ namespace SFTPCommsNS
                     if (!_sftp.Connect(_settings["FTPSERVER"], _settings["FTPUSER"], _settings["RSAKEY"], _settings["RSAPASSPHRASE"]))
                         throw new Exception($"Could not connect to server");
 
-                    //
-                    _stage = "Getting source folders";
-                    if (_settings.Where(p => p.Key.Contains("_IN")).ToList().Count == 0)
-                        throw new Exception("Couldn't find any source folders in settings.");
-
-                    _settings.Where(p => p.Key.Contains("_IN")).ToList().ForEach(p =>
+                    if (!_upload)
                     {
-                        _stage = $"Downloading from {p.Key}";
+                        //
+                        _stage = "Getting source folders";
+                        if (_settings.Where(p => p.Key.Contains("_IN")).ToList().Count == 0)
+                            throw new Exception("Couldn't find any source folders in settings.");
+
+                        _settings.Where(p => p.Key.Contains("_IN")).ToList().ForEach(p =>
+                        {
+                            _stage = $"Downloading from {p.Key}";
                         //_archiveKey = p.Key.Substring(0, p.Key.Length - 3) + "ARCHIVE";
                         _archiveKey = p.Key[0..^2] + "ARCHIVE";
-                        try
+                            try
+                            {
+                                _sftp.DownloadFolder(p.Value, _settings["DROPFOLDER"], _settings.ContainsKey(_archiveKey) ? _settings[_archiveKey] : null);
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine($"[{_stage}] {ex.Message}.");
+                            }
+                        });
+                    }
+                    else
+                    {
+                        //
+                        _stage = $"Uploading {_doc.} to {_settings["UPLOADFOLDER"]}{_fileName}";
+                        if (!_sftp.Upload(_fileName, _sourceFilePath, _settings["UPLOADFOLDER"]))
+                            throw new Exception("Could not upload the file");
+
+                        Console.WriteLine($"File {_file} uploaded to {_settings["UPLOADFOLDER"]}.");
+
+                        //
+                        if (_settings.ContainsKey("UPLOADPERMISSIONS"))
                         {
-                            _sftp.DownloadFolder(p.Value, _settings["DROPFOLDER"], _settings.ContainsKey(_archiveKey) ? _settings[_archiveKey] : null);
+                            _stage = $"Changing file permissions to {_settings["UPLOADPERMISSIONS"]}";
+                            if (!_sftp.RemoteChangePermissions(_settings["UPLOADFOLDER"] + _fileName, Convert.ToInt16(_settings["UPLOADPERMISSIONS"])))
+                                throw new Exception("Could not change");
+
+                            Console.WriteLine($"File {_settings["UPLOADFOLDER"]}{_fileName} permissions changed.");
                         }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine($"[{_stage}] {ex.Message}.");
-                        }
-                    });
+
+                        //
+
+                        _archiveFile = $"{ _settings["ARCHIVEFOLDER"]}{ _internalCode}{_separator}{ System.DateTime.Now.ToString("yyyyMMdd")}.{ _fileName}";
+                        _stage = $"Moving {_file} to {_archiveFile}";
+                        File.Move(_file, _archiveFile);
+                        Console.WriteLine($"File {_file} moved to {_archiveFile}.");
+
+                    }
 
                 }
                 catch (Exception ex)
@@ -85,7 +141,7 @@ namespace SFTPCommsNS
                     return;
                 }
             }
-            Console.WriteLine($"-----===== SFTPDownload finishing execution at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} =====-----");
+            Console.WriteLine($"-----===== SFTPComms finishing execution at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} =====-----");
             return;
         }
 
@@ -196,7 +252,7 @@ namespace SFTPCommsNS
             // OK
             return true;
         }
-        public static bool LoadSettings(SqlConnection Connection, string Profile, ref Dictionary<string, string> Settings)
+        public static bool LoadSettings(SqlConnection Connection, string Profile, DocumentClass document, ref Dictionary<string, string> Settings)
         {
             string _stage = "";
             Dictionary<string, Dictionary<string, string>> _settings;
@@ -230,26 +286,54 @@ namespace SFTPCommsNS
                 //
                 _stage = $"Assigning FTP connection settings for {Profile}";
                 Settings = new Dictionary<string, string>();
-                Settings.Add("FTPSERVER", _settings.Where(p => p.Value["FLAGS"].Contains("|FTPSERVER|")).Select(p => p.Value["VALUE1"]).First());
-                Settings.Add("FTPUSER", _settings.Where(p => p.Value["FLAGS"].Contains("|FTPUSER|")).Select(p => p.Value["VALUE1"]).First());
-                Settings.Add("RSAKEY", _settings.Where(p => p.Value["FLAGS"].Contains(pDebug ? "|RSAKEY_WIN|" : "|RSAKEY_LIN|")).Select(p => p.Value["VALUE1"]).First());
-                Settings.Add("RSAPASSPHRASE", _settings.Where(p => p.Value["FLAGS"].Contains("|RSAPASSPHRASE|")).Select(p => p.Value["VALUE1"]).First());
 
+                
+                if (document.TransferProtocol == TransferProtocols.TP_RSAFTP)
+                {
+                    Settings.Add("FTPSERVER", _settings.Where(p => p.Value["FLAGS"].Contains("|FTPSERVER|")).Select(p => p.Value["VALUE1"]).First());
+                    Settings.Add("FTPUSER", _settings.Where(p => p.Value["FLAGS"].Contains("|FTPUSER|")).Select(p => p.Value["VALUE1"]).First());
+                    Settings.Add("RSAKEY", _settings.Where(p => p.Value["FLAGS"].Contains(pDebug ? "|RSAKEY_WIN|" : "|RSAKEY_LIN|")).Select(p => p.Value["VALUE1"]).First());
+                    Settings.Add("RSAPASSPHRASE", _settings.Where(p => p.Value["FLAGS"].Contains("|RSAPASSPHRASE|")).Select(p => p.Value["VALUE1"]).First());
+                }
+                else
+                {
+                    throw new Exception($"Transfer protocol not supported {document.TransferProtocol}");
+                }
+                
                 //
                 _stage = $"Assigning FTP folder settings for {Profile}";
-
-                // Drop folder
-                Settings.Add("DROPFOLDER", ArrangePath(_settings.Where(p => p.Value["FLAGS"].Contains(pDebug ? "|DROP_WIN|" : "|DROP_LIN|")).Select(p => p.Value["VALUE1"]).First(), pDebug ? "\\" : "/"));
-
-                // Source & archive folders: I am forced to do this in to steps as I can't use ref variables inside a lambda expression
-                // Step 1
-                _folderSettings = new Dictionary<string, string>();
-                _settings.Where(p => p.Value["FLAGS"].Contains("|IN|")).ToList().ForEach(x => { _folderSettings.Add(x.Value["VALUE2"] + "_IN", x.Value["VALUE1"]); });
-                _settings.Where(p => p.Value["FLAGS"].Contains("|ARCHIVE|")).ToList().ForEach(x => { _folderSettings.Add(x.Value["VALUE2"] + "_ARCHIVE", x.Value["VALUE1"]); });
-                // Step 2
-                foreach (var _item in _folderSettings)
+                if (document.TransferDirection == TransferDirections.TD_INBOUND)
                 {
-                    Settings.Add(_item.Key, ArrangePath(_item.Value, "/"));
+                    // Drop folder
+                    Settings.Add("DROPFOLDER", ArrangePath(_settings.Where(p => p.Value["FLAGS"].Contains(pDebug ? "|DROP_WIN|" : "|DROP_LIN|")).Select(p => p.Value["VALUE1"]).First(), pDebug ? "\\" : "/"));
+
+                    // Source & archive folders: I am forced to do this in to steps as I can't use ref variables inside a lambda expression
+                    // Step 1
+                    _folderSettings = new Dictionary<string, string>();
+                    _settings.Where(p => p.Value["FLAGS"].Contains("|IN|")).ToList().ForEach(x => { _folderSettings.Add(x.Value["VALUE2"] + "_IN", x.Value["VALUE1"]); });
+                    _settings.Where(p => p.Value["FLAGS"].Contains("|ARCHIVE|")).ToList().ForEach(x => { _folderSettings.Add(x.Value["VALUE2"] + "_ARCHIVE", x.Value["VALUE1"]); });
+                    // Step 2
+                    foreach (var _item in _folderSettings)
+                    {
+                        Settings.Add(_item.Key, ArrangePath(_item.Value, "/"));
+                    }
+                }
+                else
+                {
+                    //
+                    string _flag = "OUT";
+                    try
+                    {
+                        Settings.Add("UPLOADFOLDER", ArrangePath(_settings.Where(p => p.Value["FLAGS"].Contains("|OUT|") && p.Value["VALUE2"] == document.DocumentID).Select(p => p.Value["VALUE1"]).First(), "/"));
+                        _flag = pDebug ? "LOCAL_ARCHIVE_WIN" : "LOCAL_ARCHIVE_LIN";
+                        Settings.Add("ARCHIVEFOLDER", ArrangePath(_settings.Where(p => p.Value["FLAGS"].Contains($"|{_flag}|")).Select(p => p.Value["VALUE1"]).First(), pDebug ? "\\" : "/"));
+                        _flag = "UPLOADPERMISSIONS";
+                        Settings.Add("UPLOADPERMISSIONS", _settings.Where(p => p.Value["FLAGS"].Contains("|UPLOADPERMISSIONS|")).Select(p => p.Value["VALUE1"]).First());
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception($"{_flag} flag for profile {Profile} ({document.DocumentID}) not found");
+                    }
                 }
             }
             catch (Exception ex)
