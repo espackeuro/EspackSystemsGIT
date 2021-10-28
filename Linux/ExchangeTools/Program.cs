@@ -71,9 +71,18 @@ namespace ExchangeTools
                 Console.WriteLine($"[Main#{_stage}] {ex.Message}");
                 return;
             }
+
             Console.WriteLine($"----==== Starting Exchange Attachment Checking Process at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} ====----");
             Console.WriteLine($"> Parameters: {String.Join(" ",args) }");
-            ExchangeAttachments.DownloadFromExchange(_user, _password, _path, _subject, _filefilter, _sender);
+
+            if (_user == "" || _password == "" || _path == "")
+            {
+                Console.WriteLine("ERROR: USER, PASSWORD and PATH are mandatory.");
+            }
+            else
+            {
+                ExchangeAttachments.DownloadFromExchange(_user, _password, _path, _subject, _filefilter, _sender);
+            }
             Console.WriteLine($"----==== Ending Exchange Attachment Checking Process at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} ====----");
         }
     }
