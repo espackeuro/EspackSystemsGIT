@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using Renci.SshNet;
 using System.IO;
-// cositas maravillosas
-namespace SFTPUploadNS
+
+namespace SFTPDownloadNS
 {
     class SFTPClass : IDisposable
     {
