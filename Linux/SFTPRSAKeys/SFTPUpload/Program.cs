@@ -82,7 +82,7 @@ namespace SFTPUploadNS
                         //
                         if (!_sftp.Connect(_settings["FTPSERVER"], _settings["FTPUSER"], _settings["RSAKEY"], _settings["RSAPASSPHRASE"]))
                         {
-                            Console.WriteLine($"-> Try {_attempts + 1}/3 failed. Retrying...");
+                            Console.WriteLine($"-> Connecion try {_attempts + 1}/3 failed. Retrying...");
                             _attempts++;
                             System.Threading.Thread.Sleep(5);
                             continue;
@@ -102,7 +102,7 @@ namespace SFTPUploadNS
                     { 
                         if (!_sftp.Upload(_fileName, _sourceFilePath, _settings["UPLOADFOLDER"]))
                         {
-                            Console.WriteLine($"-> Try {_attempts+1}/3 failed. Retrying...");
+                            Console.WriteLine($"-> Upload try {_attempts+1}/3 failed. Retrying...");
                             _attempts++;
                             System.Threading.Thread.Sleep(5);
                             continue;
