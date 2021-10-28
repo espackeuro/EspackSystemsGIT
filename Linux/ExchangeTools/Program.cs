@@ -1,16 +1,18 @@
 ﻿using System;
-namespace AdjuntosExchange
+using System.Text.RegularExpressions;
+
+namespace ExchangeTools
 {
     class Program
     {
-        public static class Parametros
-        {
-            public static string UserEmail = "datacapture";
-            public static string PasswordEmail = "ecexaqa9";
-            public static string PathDownload = @"\\10.200.10.141\dropbox\";
-            public static string Subject = ""; //"relacion embalajes enviados a Espack dia";
-            public static string Extension = "csv";
-        }
+        //public static class Parametros
+        //{
+        //    public static string UserEmail = "datacapture";
+        //    public static string PasswordEmail = "ecexaqa9";
+        //    public static string PathDownload = @"\\10.200.10.141\dropbox\";
+        //    public static string Subject = ""; //"relacion embalajes enviados a Espack dia";
+        //    public static string Extension = "csv";
+        //}
         static void Main(string[] args)
         {
             string _stage;
@@ -69,8 +71,10 @@ namespace AdjuntosExchange
                 Console.WriteLine($"[Main#{_stage}] {ex.Message}");
                 return;
             }
-            
-            Console.WriteLine(Clase.DownloadFromExchange(_user, _password, _path, _subject, _filefilter));
+            Console.WriteLine($"----==== Starting Exchange Attachment Checking Process at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} ====----");
+            Console.WriteLine($"> Parameters: {String.Join(" ",args) }");
+            ExchangeAttachments.DownloadFromExchange(_user, _password, _path, _subject, _filefilter, _sender);
+            Console.WriteLine($"----==== Ending Exchange Attachment Checking Process at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} ====----");
         }
     }
 }

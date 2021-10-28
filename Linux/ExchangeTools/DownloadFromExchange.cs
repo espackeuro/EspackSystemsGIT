@@ -1,14 +1,15 @@
 ﻿using System;
 using Microsoft.Exchange.WebServices.Data;
-public class Clase
+using System.Text.RegularExpressions;
+
+public class ExchangeAttachments
 {
-	public static string  DownloadFromExchange(string UserEmail,string PasswordEmail, string PathDownload, string Subject, string Extension)
+	public static void  DownloadFromExchange(string UserEmail,string PasswordEmail, string PathDownload, string Subject, string Filter,string Sender)
 	{
         //cargar credenciales
         string Asunto;
-        string TXT="";
-        bool Adjunto;
         string _stage = "";
+        bool _isRead;
         EmailMessage message;
 
         ExchangeService exchange = new ExchangeService
@@ -31,7 +32,7 @@ public class Clase
             {
                 try
                 {
-                    Adjunto = false;
+
                     // Recorrer los mensajes
                     _stage = "Find in messages";
                     message = EmailMessage.Bind(exchange, item.Id);        // se carga el "message" busca por Id
@@ -46,37 +47,50 @@ public class Clase
                 try
                 {
 
-                    _stage = "Message update is read";
-                    message.IsRead = true;                              // lo marcamos como leído
-                    message.Update(ConflictResolutionMode.AutoResolve); // Se envía al servidor el cambio realizado
-
-                    if (Asunto.Contains(Subject) || Subject == "")    // se comprueba en los correos no leídos el asunto
+                    if (Regex.IsMatch(message.From.ToString(), Sender) || Sender == "")
                     {
-                        TXT += Asunto + "\n";
-                        foreach (Attachment att in message.Attachments)
+                        Console.WriteLine($"-> Checking sender: {message.From}");
+                        if (Asunto.Contains(Subject) || Subject == "")    // se comprueba en los correos no leídos el asunto
                         {
-                            Adjunto = true;
-                            // Recorrer los adjuntos
-                            _stage = "Find in messages";
-                            if (att is FileAttachment)
+                            Console.WriteLine($"  -> Checking subject: {Asunto}");
+                            _isRead = false;
+                         
+                            //
+                            foreach (Attachment att in message.Attachments)
                             {
-                                FileAttachment fileAttachment = att as FileAttachment;
-                                // Carga el archivo adjunto en un archivo
-                                if (Extension == fileAttachment.Name.Substring((fileAttachment.Name.ToString().Length - 3), 3))
+                                // Recorrer los adjuntos
+                                _stage = "Find in messages";
+                                if (att is FileAttachment)
                                 {
-                                    // Que guarda en la dirección indicada
-                                    _stage = "Save File";
-                                    TXT += "Attachment with extension: " + fileAttachment.Name.Substring((fileAttachment.Name.ToString().Length - 3), 3) + "\n";
-                                    fileAttachment.Load(PathDownload + fileAttachment.Name);
+                                    FileAttachment fileAttachment = att as FileAttachment;
+                                    // Carga el archivo adjunto en un archivo
+                                    //if (Filter == fileAttachment.Name.Substring((fileAttachment.Name.ToString().Length - 3), 3))
+                                    if (Regex.IsMatch(fileAttachment.Name.ToString(), Filter) || Filter == "")
+                                    {
+                                        
+                                        Console.Write($"    -> Checking attachment: {fileAttachment.Name} ...");
 
-                                    TXT += "Copy File attachment name: " + fileAttachment.Name + " and mark as read email \n";
-                                }
-                                else
-                                {
-                                    TXT += "Extension not " + Extension + "\n";
+                                        // Que guarda en la dirección indicada
+                                        _stage = "Save File";
+                                        fileAttachment.Load(PathDownload + fileAttachment.Name);
+                                        Console.WriteLine($" Downloaded OK!!");
+
+                                        if (!_isRead)
+                                        {
+                                            _stage = "Message update is read";
+                                            message.IsRead = true;                              // lo marcamos como leído
+                                            message.Update(ConflictResolutionMode.AutoResolve); // Se envía al servidor el cambio realizado
+                                            _isRead = true;
+                                            Console.WriteLine($"  -> Marked as read.");
+                                        }
+                                    }
                                 }
                             }
                         }
+                    }
+                    else
+                    {
+                        Console.WriteLine("-> No matches");
                     }
                 }
                 catch (Exception ex)
@@ -84,12 +98,8 @@ public class Clase
                     Console.WriteLine($"[{_stage}]: {ex.Message}");
                     continue;
                 }
-
-                if (!Adjunto) { TXT += "NO Attachment"; }
-
-
             }
         }
-        return TXT;
+        return;
     }
 }
