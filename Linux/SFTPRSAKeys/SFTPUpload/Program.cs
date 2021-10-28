@@ -73,13 +73,44 @@ namespace SFTPUploadNS
                 try
                 {
                     //
+                    bool _done=false;
+                    int _attempts = 0;
+
                     _stage = $"Connecting to  {_settings["FTPSERVER"]}";
-                    if (!_sftp.Connect(_settings["FTPSERVER"], _settings["FTPUSER"], _settings["RSAKEY"], _settings["RSAPASSPHRASE"]))
+                    while (!_done && _attempts < 3)
+                    {
+                        //
+                        if (!_sftp.Connect(_settings["FTPSERVER"], _settings["FTPUSER"], _settings["RSAKEY"], _settings["RSAPASSPHRASE"]))
+                        {
+                            Console.WriteLine($"-> Try {_attempts + 1}/3 failed. Retrying...");
+                            _attempts++;
+                            System.Threading.Thread.Sleep(5);
+                            continue;
+                        }
+                        _done = true;
+                    }
+
+                    if (!_done)
                         throw new Exception($"Could not connect to server");
+
+                    _done = false;
+                    _attempts = 0;
 
                     //
                     _stage = $"Uploading {_file} to {_settings["UPLOADFOLDER"]}{_fileName}";
-                    if(!_sftp.Upload(_fileName, _sourceFilePath, _settings["UPLOADFOLDER"]))
+                    while (!_done && _attempts < 3)
+                    { 
+                        if (!_sftp.Upload(_fileName, _sourceFilePath, _settings["UPLOADFOLDER"]))
+                        {
+                            Console.WriteLine($"-> Try {_attempts+1}/3 failed. Retrying...");
+                            _attempts++;
+                            System.Threading.Thread.Sleep(5);
+                            continue;
+                        }
+                        _done = true;
+                    }
+
+                    if (!_done)
                         throw new Exception("Could not upload the file");
 
                     Console.WriteLine($"File {_file} uploaded to {_settings["UPLOADFOLDER"]}.");
@@ -89,7 +120,7 @@ namespace SFTPUploadNS
                     {
                         _stage = $"Changing file permissions to {_settings["UPLOADPERMISSIONS"]}"; 
                         if (!_sftp.RemoteChangePermissions(_settings["UPLOADFOLDER"] +_fileName, Convert.ToInt16(_settings["UPLOADPERMISSIONS"])))
-                            throw new Exception("Could not change");
+                            throw new Exception("Could not perform the change");
                         
                         Console.WriteLine($"File {_settings["UPLOADFOLDER"]}{_fileName} permissions changed.");
                     }
