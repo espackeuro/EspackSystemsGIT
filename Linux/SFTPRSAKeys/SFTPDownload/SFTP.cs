@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using Renci.SshNet;
 using System.IO;
-
-namespace SFTPDownloadNS
+// cositas maravillosas
+namespace SFTPUploadNS
 {
     class SFTPClass : IDisposable
     {
@@ -266,7 +266,7 @@ namespace SFTPDownloadNS
         }
 
         // Download all files in a directory (and move them to the archive dir if set)
-        public void DownloadFolder(string sourceDir, string targetDir, string archiveDir = null, int coolDown = 5000)
+        public void DownloadFolder(string sourceDir, string targetDir, string archiveDir = null)
         {
             string _stage = "";
             int _count = 0, _total = 0;
@@ -290,8 +290,6 @@ namespace SFTPDownloadNS
                     if (Download(ftpfile.Name, sourceDir, targetDir))
                     {
                         Console.WriteLine($"  -> Download success: {ftpfile.Name}");
-                        Console.WriteLine($"  -> Waiting for cooldown ({coolDown}ms)");
-                        System.Threading.Thread.Sleep(coolDown);
                         _count++;
 
                         if (archiveDir != null)
