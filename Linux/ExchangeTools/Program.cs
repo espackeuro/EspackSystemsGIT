@@ -13,11 +13,20 @@ namespace ExchangeTools
         //    public static string Subject = ""; //"relacion embalajes enviados a Espack dia";
         //    public static string Extension = "csv";
         //}
+
+        private static bool pDebug;
+
         static void Main(string[] args)
         {
+#if DEBUG
+            pDebug = true;
+#else
+            pDebug = false;
+#endif
             string _stage;
             string _currentArgName, _currentArgValue;
-            string _user = "", _password = "", _path = "", _subject = "", _filefilter = "", _sender = "";
+            string _user = "", _password = "", _path = "", _subject = "", _filefilter = "", _sender = "", _reportTo = "";
+            string _separator = pDebug ? "\\" : "/", _result = "";
 
             // Args
             _stage = "Checking args";
@@ -47,6 +56,8 @@ namespace ExchangeTools
 
                         case "PATH":
                             _path = _currentArgValue;
+                            if (_path.Substring(_path.Length - _separator.Length) != _separator)
+                                _path = _path + _separator;
                             break;
 
                         case "SUBJECT":
@@ -59,6 +70,12 @@ namespace ExchangeTools
 
                         case "SENDER":
                             _sender = _currentArgValue;
+                            break;
+
+                        case "REPORTTO":
+                            _reportTo = _currentArgValue;
+                            if (!Regex.IsMatch(_reportTo, @".*@.*\..*"))
+                                throw new Exception($"Wrong email address: {_reportTo}");
                             break;
 
                         default:
@@ -77,11 +94,34 @@ namespace ExchangeTools
 
             if (_user == "" || _password == "" || _path == "")
             {
-                Console.WriteLine("ERROR: USER, PASSWORD and PATH are mandatory.");
+                Console.WriteLine($"> ERROR at {_stage}: USER, PASSWORD and PATH are mandatory.");
             }
             else
             {
-                ExchangeAttachments.DownloadFromExchange(_user, _password, _path, _subject, _filefilter, _sender);
+                //Console.WriteLine("CACA");
+                using (var _exchange = new ExchangeAttachments())
+                {
+                    try
+                    {
+                        //
+                        _stage = "Creating connection";
+                        _exchange.Connect(_user, _password);
+
+                        //
+                        _stage = "Looking for matching emails";
+                        if (_exchange.DownloadFromExchange(_path, _subject, _filefilter, _sender) && _reportTo != "")
+                        {
+                            //
+                            _stage = "Sending report";
+                            _exchange.SendEmail(_reportTo);
+                            Console.WriteLine($" -> Report sent to {_reportTo}");
+                        }
+                    }
+                    catch(Exception ex)
+                    {
+                        Console.WriteLine($"> ERROR at {_stage}: {ex.Message}");
+                    }
+                }
             }
             Console.WriteLine($"----==== Ending Exchange Attachment Checking Process at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} ====----");
         }
