@@ -151,7 +151,10 @@ public class ExchangeAttachments : IDisposable
                 EmailMessage _message = new EmailMessage(pExchange);
                 _message.Subject = Subject;
                 _message.Body = Body;
-                _message.ToRecipients.Add(SendTo);
+                foreach (string _sendTo in SendTo.Split(","))
+                {
+                    _message.ToRecipients.Add(_sendTo);
+                }
 
                 _stage = "Saving message";
                 _message.Save();

@@ -26,7 +26,7 @@ namespace ExchangeTools
             string _stage;
             string _currentArgName, _currentArgValue;
             string _user = "", _password = "", _path = "", _subject = "", _filefilter = "", _sender = "", _reportTo = "";
-            string _separator = pDebug ? "\\" : "/", _result = "";
+            string _separator = pDebug ? "\\" : "/";
 
             // Args
             _stage = "Checking args";
