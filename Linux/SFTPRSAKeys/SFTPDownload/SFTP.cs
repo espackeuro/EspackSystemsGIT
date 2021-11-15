@@ -63,11 +63,14 @@ namespace SFTPDownloadNS
                 //
                 _stage = "Preparing connection";
                 ConnectionInfo _con = new ConnectionInfo(Server, 22, User, methods.ToArray());
+                _con.Encoding = System.Text.Encoding.GetEncoding("UTF-8");
                 pSFtp = new SftpClient(_con);
 
                 //
                 _stage = "Connecting";
                 pSFtp.Connect();
+                _con.Encoding = System.Text.Encoding.GetEncoding("UTF-8");
+
                 //pSftp.BufferSize = 4 * 1024;
             }
             catch (Exception ex)
