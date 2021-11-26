@@ -177,8 +177,9 @@ namespace DealerPickPack
             //// Get the selected route in VS Grid
             //string _route = (VS.CurrentRow == null ? String.Empty : VS["ROUTE", VS.CurrentRow.Index].Value.ToString());
 
+            string _dates = chkHUDisplayOld.Checked ? "" : "and xfec>dateadd(month,-1,getdate()) ";
             // Add the results of the query to the DataGrid            
-            using (var _rs = new StaticRS($"select HU,ROUTE,TYPE=HUTYPE,DEALER,DATE from HUCab where InDelivery is null and cod3='{Values.COD3}' and (Route='{cboRoute.Text}' or '{cboRoute.Text}'='') order by HU,Route,Dealer", Values.gDatos))
+            using (var _rs = new StaticRS($"select HU,ROUTE,TYPE=HUTYPE,DEALER,DATE from HUCab where InDelivery is null and cod3='{Values.COD3}' and (Route='{cboRoute.Text}' or '{cboRoute.Text}'='') {_dates}order by HU,Route,Dealer", Values.gDatos))
             {
                 _rs.Open();
                 VSHUCab.DataSource = _rs.DataObject;
@@ -438,6 +439,11 @@ namespace DealerPickPack
                 }
             }
 
+        }
+
+        private void chkHUDisplayOld_CheckedChanged(object sender, EventArgs e)
+        {
+            VSHUCab_Show();
         }
     }
 

@@ -47,6 +47,7 @@ namespace DealerPickPack
             this.cboHUType = new EspackFormControlsNS.EspackComboBox();
             this.txtRouteDescription = new EspackFormControlsNS.EspackTextBox();
             this.cboRoute = new EspackFormControlsNS.EspackComboBox();
+            this.chkHUDisplayOld = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.VS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VSHUCab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VSHUDet)).BeginInit();
@@ -105,7 +106,7 @@ namespace DealerPickPack
             this.VSHUCab.ColumnHeadersHeight = 29;
             this.VSHUCab.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.VSHUCab.EnableHeadersVisualStyles = false;
-            this.VSHUCab.Location = new System.Drawing.Point(13, 491);
+            this.VSHUCab.Location = new System.Drawing.Point(13, 499);
             this.VSHUCab.Margin = new System.Windows.Forms.Padding(4);
             this.VSHUCab.MultiSelect = false;
             this.VSHUCab.Name = "VSHUCab";
@@ -121,7 +122,7 @@ namespace DealerPickPack
             this.VSHUCab.RowHeadersVisible = false;
             this.VSHUCab.RowHeadersWidth = 51;
             this.VSHUCab.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.VSHUCab.Size = new System.Drawing.Size(513, 290);
+            this.VSHUCab.Size = new System.Drawing.Size(514, 282);
             this.VSHUCab.TabIndex = 16;
             // 
             // VSHUDet
@@ -141,7 +142,7 @@ namespace DealerPickPack
             this.VSHUDet.ColumnHeadersHeight = 29;
             this.VSHUDet.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.VSHUDet.EnableHeadersVisualStyles = false;
-            this.VSHUDet.Location = new System.Drawing.Point(535, 491);
+            this.VSHUDet.Location = new System.Drawing.Point(535, 499);
             this.VSHUDet.Margin = new System.Windows.Forms.Padding(4);
             this.VSHUDet.MultiSelect = false;
             this.VSHUDet.Name = "VSHUDet";
@@ -157,7 +158,7 @@ namespace DealerPickPack
             this.VSHUDet.RowHeadersVisible = false;
             this.VSHUDet.RowHeadersWidth = 51;
             this.VSHUDet.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.VSHUDet.Size = new System.Drawing.Size(544, 290);
+            this.VSHUDet.Size = new System.Drawing.Size(544, 282);
             this.VSHUDet.TabIndex = 17;
             // 
             // lblPendingHU
@@ -165,7 +166,7 @@ namespace DealerPickPack
             this.lblPendingHU.AutoSize = true;
             this.lblPendingHU.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPendingHU.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblPendingHU.Location = new System.Drawing.Point(9, 471);
+            this.lblPendingHU.Location = new System.Drawing.Point(9, 478);
             this.lblPendingHU.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPendingHU.Name = "lblPendingHU";
             this.lblPendingHU.Size = new System.Drawing.Size(89, 17);
@@ -384,12 +385,24 @@ namespace DealerPickPack
             this.cboRoute.Value = "";
             this.cboRoute.ValueMember = "";
             // 
+            // chkHUDisplayOld
+            // 
+            this.chkHUDisplayOld.AutoSize = true;
+            this.chkHUDisplayOld.Location = new System.Drawing.Point(105, 478);
+            this.chkHUDisplayOld.Name = "chkHUDisplayOld";
+            this.chkHUDisplayOld.Size = new System.Drawing.Size(102, 21);
+            this.chkHUDisplayOld.TabIndex = 28;
+            this.chkHUDisplayOld.Text = "Display Old";
+            this.chkHUDisplayOld.UseVisualStyleBackColor = true;
+            this.chkHUDisplayOld.CheckedChanged += new System.EventHandler(this.chkHUDisplayOld_CheckedChanged);
+            // 
             // fPendingWork
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1096, 831);
+            this.Controls.Add(this.chkHUDisplayOld);
             this.Controls.Add(this.btnPrintPendingHUs);
             this.Controls.Add(this.txtHUTypeDescription);
             this.Controls.Add(this.cboHUType);
@@ -430,5 +443,6 @@ namespace DealerPickPack
         private EspackFormControlsNS.EspackTextBox txtHUTypeDescription;
         private EspackFormControlsNS.EspackComboBox cboHUType;
         private System.Windows.Forms.Button btnPrintPendingHUs;
+        private System.Windows.Forms.CheckBox chkHUDisplayOld;
     }
 }
