@@ -35,7 +35,7 @@ namespace PowerShellTests
             {
                 ServerName = "Sauron",
                 UserName = "SYSTEMS\\Administrador",
-                Password = "Y?D6d#b@"
+                Password = "xvFGv~JBu1m||kut*O+3?B~~oGP,@1"
             };
 
             Task tarea = doChecks();

@@ -64,7 +64,7 @@ namespace EspackSyncService
                             ServiceCredentials = new EspackCredentials()
                             {
                                 User = "SYSTEMS\\administrador",
-                                Password = "Y?D6d#b@".ToSecureString()
+                                Password = "xvFGv~JBu1m||kut*O+3?B~~oGP,@1".ToSecureString()
                             },
                             ServerName = pair.Value,
                             Flags = Values.FlagsDefs
@@ -77,7 +77,7 @@ namespace EspackSyncService
                             ServiceCredentials = new EspackCredentials()
                             {
                                 User = "SYSTEMS\\administrador",
-                                Password = "Y?D6d#b@".ToSecureString()
+                                Password = "xvFGv~JBu1m||kut*O+3?B~~oGP,@1".ToSecureString()
                             },
                             ServerName = pair.Value,
                             Flags = Values.FlagsDefs
