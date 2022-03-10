@@ -81,7 +81,7 @@ namespace AutomaticProcesses
                 dbt.Query($"select SQL,Base_Datos from cabecera_consultas where idreg={QueryNumber}");
                 if (dbt.EOF)
                     throw new Exception("Query not found.");
-                sql = dbt.FieldValue(0);
+                sql = "set dateformat dmy "+dbt.FieldValue(0).ToString();
                 queryDB = dbt.FieldValue(1);
 
                 //
@@ -146,7 +146,7 @@ namespace AutomaticProcesses
 
                 _stage = "Converting data to {HTML}";
                 
-                html=cMiscFunctions.ProcessHTML(_result,"Test","",NoBand);
+                html=cMiscFunctions.ProcessHTML(_result,"Test","",!NoBand);
             }
             catch (Exception ex)
             {

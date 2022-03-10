@@ -157,7 +157,7 @@ namespace AutomaticProcesses
             for (int _i = 0; _i < cols; _i++)
             {
                 _field = rowData.ElementAt(_i).Key;
-                if (_field.StartsWith("&"))
+                if (!_field.StartsWith("&"))
                 {
                     if (System.Text.RegularExpressions.Regex.IsMatch(_field, "/[c][0-9]/"))
                     {
@@ -265,6 +265,7 @@ namespace AutomaticProcesses
             int _cols = 0;
             string[] _titles = null;
             string _value;
+
             Dictionary<string, string> _currentRow;
 
             for (int _i = 0; _i < data.Count; _i++)
@@ -282,6 +283,7 @@ namespace AutomaticProcesses
                     _bgColor = _bgColor == "DDDDDD" ? "FFFFFF" : "DDDDDD";
 
                 _styleIni = $"color:#000000; background-color:#{_bgColor};";
+
                 if (_currentRow.ElementAt(0).Key=="&COLOR")
                 {
                     if(_currentRow.ElementAt(0).Value.Length==12)
@@ -310,6 +312,13 @@ namespace AutomaticProcesses
                                        cabecera($fila,$pagina,$msg,$rst, '',$cols, '');
                                         $msg.= "<tr class='detalle' style='$style'>\n";
                             */
+                            if (false)
+                            {
+                                _html += $"<td colspan={_cols}>---</td></tr>";
+                                Header(_firstPage, _currentRow, "", ref _cols, null);
+                                _html += $"<tr class='detalle' style='{_style}'>";
+                            }
+
                             _html += $"<td colspan={_cols}>--------</td></tr><tr><td {_extra} class='titulo_tabla' colspan={_cols}>{_value}</td></tr>"; //insertamos el t�tulo sin [Titulo]
                             _i++;
                             /*
@@ -318,7 +327,7 @@ namespace AutomaticProcesses
                                    $fila += 2;
                             ....
                            */
-                            _titles = _currentRow.Keys.ToList().Where(x => !x.StartsWith("&")).Select(x => CodeHTML(x)).ToArray();
+                            _titles = _currentRow.Keys.ToList().Where(x => !x.StartsWith("&")).Select(x => CodeHTML(_currentRow[x])).ToArray();
                             _html += "<tr>";
                             foreach (var _item in _titles)
                             {
