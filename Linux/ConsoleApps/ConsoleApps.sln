@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlarmsProcessing", "AlarmsP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeTools", "ExchangeTools\ExchangeTools.csproj", "{64E87CA7-EBB3-4CD3-AF4F-F727910C32FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomaticProcesses", "AutomaticProcesses\AutomaticProcesses.csproj", "{E5CB3C52-1DE3-483F-8FA0-3D49D11FDC80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomaticProcesses", "AutomaticProcesses\AutomaticProcesses.csproj", "{E5CB3C52-1DE3-483F-8FA0-3D49D11FDC80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostMan", "PostMan\PostMan.csproj", "{594C1C11-4A59-4A08-852A-40A58F860558}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{E5CB3C52-1DE3-483F-8FA0-3D49D11FDC80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5CB3C52-1DE3-483F-8FA0-3D49D11FDC80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5CB3C52-1DE3-483F-8FA0-3D49D11FDC80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{594C1C11-4A59-4A08-852A-40A58F860558}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{594C1C11-4A59-4A08-852A-40A58F860558}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{594C1C11-4A59-4A08-852A-40A58F860558}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{594C1C11-4A59-4A08-852A-40A58F860558}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

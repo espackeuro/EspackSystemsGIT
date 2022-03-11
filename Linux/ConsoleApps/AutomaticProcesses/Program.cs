@@ -139,6 +139,7 @@ namespace AutomaticProcesses
             catch (Exception ex)
             {
                 Console.WriteLine($"[Main#{_stage}] {ex.Message}");
+                Console.WriteLine($"----==== Ending [{_myName}] at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} ====----");
                 return;
             }
 
