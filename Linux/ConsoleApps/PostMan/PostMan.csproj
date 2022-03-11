@@ -11,8 +11,4 @@
     <PackageReference Include="Mnt.Microsoft.Exchange.WebServices.Data" Version="2.2.1.1" />
   </ItemGroup>
 
-  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="D:\cloud-init_test_script.txt" />
-  </Target>
-
 </Project>

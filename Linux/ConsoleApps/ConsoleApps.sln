@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeTools", "ExchangeTo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomaticProcesses", "AutomaticProcesses\AutomaticProcesses.csproj", "{E5CB3C52-1DE3-483F-8FA0-3D49D11FDC80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostMan", "PostMan\PostMan.csproj", "{594C1C11-4A59-4A08-852A-40A58F860558}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Postman", "PostMan\Postman.csproj", "{594C1C11-4A59-4A08-852A-40A58F860558}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
