@@ -44,12 +44,15 @@ namespace PostMan
                     case "V9":
                         _carrier = "V9";
                         break;
+                    case "TEST":
+                        _carrier = "TEST";
+                        break;
                     default:
                         throw new Exception($"File {_fileName} not recognized");
                 }
 
                 _subject = $"Informe de líneas {_carrier}";
-                _sendTo = $"po_lineas_{_carrier.ToLower()}@grupointerpack.com";
+                _sendTo = (_carrier!="TEST"?$"po_lineas_{_carrier.ToLower()}@grupointerpack.com":"dvalles@espackeuro.com");
                 _destPath = $"/media/HISTORICOS/Transmisiones/SAP_REPORT_LINEAS_{_carrier}/";
 
                 //
@@ -69,14 +72,16 @@ namespace PostMan
                 _email.Dispose();
 
                 //
-                _stage = "Moving file";
-                File.Move(_fileName, $"{_destPath}{DateTime.Now.ToString("yyyyMMdd")}.{_pureFileName}",true);
+                _stage = "Copying file";
+                //File.Move(_fileName, $"{_destPath}{DateTime.Now.ToString("yyyyMMdd_HH.mm.ss")}.{_pureFileName}",true); // this doesn't work: the file is only copied, not removed from the source 
+                File.Copy(_fileName, $"{_destPath}{DateTime.Now.ToString("yyyyMMdd-HH.mm.ss")}.{_pureFileName}", true);
+                _stage = "Removing source file";
+                File.Delete(_fileName);
                 Console.WriteLine($"File {_fileName} moved to {_destPath}");
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"[Main#{_stage}] {ex.Message}");
-                Console.WriteLine($"----==== Ending [{_myName}] at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} ====----");
             }
 
             Console.WriteLine($"----==== Ending [{_myName}] at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} ====----");

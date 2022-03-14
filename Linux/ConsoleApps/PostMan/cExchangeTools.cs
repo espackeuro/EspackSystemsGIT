@@ -135,7 +135,7 @@ public class ExchangeAttachments : IDisposable
         return _attachmentFound;
     }
 
-    public bool SendEmail(string SendTo, string Subject="",string Body="",string FilePath="")
+    public bool SendEmail(string SendTo, string Subject="",string Body=null,string FilePath="")
     {
         string _stage = "";
 
@@ -146,7 +146,7 @@ public class ExchangeAttachments : IDisposable
                 //
                 _stage = "Checking";
                 Subject = (Subject != "" ? Subject : pSubject);
-                Body = (Body != "" ? Body : pBody);
+                Body = (Body != null ? Body : pBody);
                 if (FilePath != "")
                 {
                     if (!File.Exists(FilePath))
