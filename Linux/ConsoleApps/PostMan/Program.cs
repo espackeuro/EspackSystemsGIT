@@ -16,7 +16,7 @@ namespace PostMan
             pDebug = false;
 #endif
             string _myName = System.Reflection.Assembly.GetCallingAssembly().GetName().Name;
-            string _sendTo = "", _subject = "", _carrier = "", _destPath = "";
+            string _sendTo = "", _subject = "", _carrier = "", _destPath = "",_pureFileName ="";
             string _stage = "";
 
             try
@@ -24,21 +24,22 @@ namespace PostMan
                 //
                 _stage = "Checkings";
                 Console.WriteLine($"----==== Starting [{_myName}] at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} ====----");
-                string _fileName = args[0];
+                string _fileName = args[0].Split("=")[1];
                 if (_fileName == "")
                     throw new Exception("Missing absolute file path.");
                 if (!File.Exists(_fileName))
                     throw new Exception($"File not found: {_fileName}");
 
+                _pureFileName = Path.GetFileName(_fileName);
+
                 //
-                switch (_fileName.Substring(_fileName.IndexOf("_") + 1))
+                switch (_pureFileName.Substring(_pureFileName.IndexOf("_") + 1,_pureFileName.IndexOf(".")- _pureFileName.IndexOf("_")-1))
                 {
                     case "DEDMB":
                         _carrier = "TW";
                         break;
                     case "AB3CA":
                         _carrier = "ND";
-                        _sendTo = "po_lineas_nd@grupointerpack.com";
                         break;
                     case "V9":
                         _carrier = "V9";
@@ -48,7 +49,7 @@ namespace PostMan
                 }
 
                 _subject = $"Informe de líneas {_carrier}";
-                _sendTo = "dvalles@espackeuro.com"; // $"po_lineas_{_carrier.ToLower()}@grupointerpack.com";
+                _sendTo = $"po_lineas_{_carrier.ToLower()}@grupointerpack.com";
                 _destPath = $"/media/HISTORICOS/Transmisiones/SAP_REPORT_LINEAS_{_carrier}/";
 
                 //
@@ -56,11 +57,12 @@ namespace PostMan
                 ExchangeAttachments _email = new ExchangeAttachments();
                 if (!_email.Connect("processes", "*seso69*"))
                     throw new Exception("Could not connect to email server.");
-
+                
                 //
                 _stage = "Sending email";
                 if (!_email.SendEmail(_sendTo, _subject, "", _fileName))
                     throw new Exception("Could not send the email.");
+                Console.WriteLine($"File {_fileName} sent to {_sendTo}");
 
                 //
                 _stage = "Disconnecting";
@@ -68,8 +70,8 @@ namespace PostMan
 
                 //
                 _stage = "Moving file";
-                File.Move(_fileName, $"{_destPath}{DateTime.Now.ToString("yyyyMMdd")}.{Path.GetFileName(_fileName)}");
-
+                File.Move(_fileName, $"{_destPath}{DateTime.Now.ToString("yyyyMMdd")}.{_pureFileName}",true);
+                Console.WriteLine($"File {_fileName} moved to {_destPath}");
             }
             catch (Exception ex)
             {
