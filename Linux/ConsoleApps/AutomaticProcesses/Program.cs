@@ -9,6 +9,9 @@ namespace AutomaticProcesses
         // This variable is for knowing if the app is running in Debug mode or not.
         private static bool pDebug;
 
+        private static cMiscFunctions.eFileType _fileType;
+        private static cMiscFunctions.eOrientation _orientation;
+
         static void Main(string[] args)
         {
 #if DEBUG
@@ -21,7 +24,8 @@ namespace AutomaticProcesses
             string _DBuser = "", _DBpassword = "", _DBServer = "", _DBdataBase = "";
             string _mailServer = "", _mailUser = "", _mailPassword = "";
             string _processQuery = "", _processQueryParams = "", _processMailTo = "", _processMailSubject = "";
-            bool _noBand = false;
+            bool _noBand = false, _noEmpty = false;
+            string _html = "";
             string _myName = System.Reflection.Assembly.GetCallingAssembly().GetName().Name;
 
             // Args
@@ -35,7 +39,7 @@ namespace AutomaticProcesses
                     // If the settings file exists, the params will be loaded from it
                     _stage = "Loading settings file";
                     //string[] lines = File.ReadAllLines($"../.{_myName}.creds");
-                    string[] _lines = File.ReadAllLines($@"D:\{_myName}.settings", Encoding.Unicode);
+                    string[] _lines = File.ReadAllLines((pDebug?Directory.GetCurrentDirectory().Substring(0,3): $"/media/bin/{_myName}/")+$"{_myName}.settings", Encoding.Unicode);
 
                     //
                     _stage = "Getting settings from file";
@@ -77,6 +81,8 @@ namespace AutomaticProcesses
                 catch (Exception ex)
                 {
                     Console.WriteLine($"[Main#{_stage}] {ex.Message}");
+                    Console.WriteLine($"----==== Ending [{_myName}] at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} ====----");
+                    return;
                 }
 
                 // If params are set, they will override those loaded from the settings file
@@ -91,7 +97,7 @@ namespace AutomaticProcesses
                         throw new Exception($"Wrong argument: {arg}");
                     else
                         _currentArgValue = "";
-
+                    
                     // Identify arg name
                     switch (_currentArgName.ToUpper())
                     {
@@ -131,10 +137,26 @@ namespace AutomaticProcesses
                         case "NOBAND":
                             _noBand = true;
                             break;
+                        case "NOEMPTY":
+                            _noEmpty = true;
+                            break;
+                        case "FILETYPE":
+                            Enum.TryParse(_currentArgValue, out cMiscFunctions.eFileType _fType);
+                            _fileType = _fType;
+                            break;
+
+                        case "ORIENTATION":
+                            Enum.TryParse(_currentArgValue, out cMiscFunctions.eOrientation _orien);
+                            _orientation = _orien;
+                            break;
+
                         default:
                             throw new Exception($"Wrong argument: {_currentArgName}");
                     }
                 }
+
+                // Check mandatory arguments
+
             }
             catch (Exception ex)
             {
@@ -143,13 +165,33 @@ namespace AutomaticProcesses
                 return;
             }
 
+
             cCredentials _credsDB = new cCredentials(_DBServer,_DBuser,_DBpassword,_DBdataBase);
             cCredentials _credsMail = new cCredentials(_mailServer, _mailUser, _mailPassword, "");
 
-            cProcess _cp = new cProcess(_credsDB, Convert.ToInt32(_processQuery), _processQueryParams,_noBand);
-            _cp.Process();
+            // Check the query number
 
-            Console.WriteLine($"> Parameters: {String.Join(" ", args) }");
+            cProcess _cp = new cProcess(_credsDB, Convert.ToInt32(_processQuery), _processQueryParams, _processMailSubject, _noBand);
+            _html = _cp.Process();
+            if(!_cp.Error && (_html!="" || !_noEmpty))
+            {
+                ExchangeAttachments _email = new ExchangeAttachments();
+                _email.Connect(_credsMail);
+
+
+                _stage = "Sending email";
+                if (!_email.SendEmail(_processMailTo, _processMailSubject+DateTime.Now.ToString(" dd/MM/yyyy"), _html!=""?_html: "<html><body>No results found / No se encontraron resultados</body></html>"))
+                    throw new Exception("Could not send the email.");
+
+                //
+                _stage = "Disconnecting";
+                _email.Dispose();
+            }
+
+
+
+
+            Console.WriteLine($"> Parameters: {String.Join(" /", args) }");
 
             Console.WriteLine($"----==== Ending [{_myName}] at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} ====----");
         }

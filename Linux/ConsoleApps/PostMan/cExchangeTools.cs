@@ -10,35 +10,40 @@ public class ExchangeAttachments : IDisposable
     private string pBody = $"Results:<br><br>";
     private string pSubject = $"Capture report - {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")}";
 
-    public bool Connect(string UserEmail, string PasswordEmail)
+    public bool Connect(cCredentials credentials)
     {
         string _stage = "";
-        
+
         try
         {
             //
             _stage = "Creating credentials";
             pExchange = new ExchangeService
             {
-                Credentials = new WebCredentials(UserEmail, PasswordEmail)
+                Credentials = new WebCredentials(credentials.User, credentials.Password)
             };
             //
             _stage = "Using credentials";
             System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
             //
             _stage = "Connecting to exchange";
-            pExchange.Url = new System.Uri("https://exchange.espackeuro.com/ews/exchange.asmx");
+            //pExchange.Url = new System.Uri("https://exchange.espackeuro.com/ews/exchange.asmx");
+            pExchange.Url = new System.Uri(credentials.Server);
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             throw new Exception($"[Connect#{_stage}] {ex.Message}");
         }
         return true;
     }
+    public bool Connect(string userEmail, string passwordEmail, string server)
+    {
+        return Connect(new cCredentials(userEmail, passwordEmail, server, ""));
+    }
 
 
-	public bool DownloadFromExchange(string PathDownload, string Subject, string Filter,string Sender)
-	{
+    public bool DownloadFromExchange(string PathDownload, string Subject, string Filter, string Sender)
+    {
         //cargar credenciales
         string Asunto;
         string _stage = "";
@@ -96,7 +101,7 @@ public class ExchangeAttachments : IDisposable
                                     //if (Filter == fileAttachment.Name.Substring((fileAttachment.Name.ToString().Length - 3), 3))
                                     if (Regex.IsMatch(fileAttachment.Name.ToString(), Filter) || Filter == "")
                                     {
-                                        
+
                                         Console.Write($"    -> Checking attachment: {fileAttachment.Name} ...");
 
                                         // Que guarda en la dirección indicada
@@ -135,7 +140,7 @@ public class ExchangeAttachments : IDisposable
         return _attachmentFound;
     }
 
-    public bool SendEmail(string SendTo, string Subject="",string Body=null,string FilePath="")
+    public bool SendEmail(string SendTo, string Subject = null, string Body = null, string FilePath = null)
     {
         string _stage = "";
 
@@ -145,9 +150,9 @@ public class ExchangeAttachments : IDisposable
             {
                 //
                 _stage = "Checking";
-                Subject = (Subject != "" ? Subject : pSubject);
+                Subject = (Subject != null ? Subject : pSubject);
                 Body = (Body != null ? Body : pBody);
-                if (FilePath != "")
+                if (FilePath != null)
                 {
                     if (!File.Exists(FilePath))
                         throw new Exception($"File not found: {FilePath}");
@@ -158,7 +163,7 @@ public class ExchangeAttachments : IDisposable
                 EmailMessage _message = new EmailMessage(pExchange);
                 _message.Subject = Subject;
                 _message.Body = Body;
-                if (FilePath != "") _message.Attachments.AddFileAttachment(FilePath);
+                if (FilePath != null) _message.Attachments.AddFileAttachment(FilePath);
                 foreach (string _sendTo in SendTo.Split(","))
                 {
                     _message.ToRecipients.Add(_sendTo);
@@ -171,7 +176,7 @@ public class ExchangeAttachments : IDisposable
                 _message.SendAndSaveCopy();
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception($"[SendEmail#{_stage}] {ex.Message}");
             }

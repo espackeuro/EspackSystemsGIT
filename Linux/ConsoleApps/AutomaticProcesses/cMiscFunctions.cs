@@ -12,10 +12,6 @@ namespace AutomaticProcesses
         public enum eOrientation { PORTRAIT, LANDSCAPE }
 
         static string Service = "";
-        static string Server = "";
-        static string User = "";
-        static string Password = "";
-        static string DB = "";
 
         public static string DefaultValues(string Value) //valores_defecto($valor)
         {
@@ -72,9 +68,12 @@ namespace AutomaticProcesses
         public static Dictionary<int, string> CheckArgs(string Params)
         {
             Dictionary<int, string> _params = new Dictionary<int, string>();
-            foreach (string _param in Params.Split(" "))
+            if (Params.Trim() != "")
             {
-                _params.Add(_params.Count + 1, DefaultValues(_param));
+                foreach (string _param in Params.Trim().Split(" "))
+                {
+                    _params.Add(_params.Count + 1, DefaultValues(_param));
+                }
             }
             return _params;
         }
@@ -105,7 +104,7 @@ namespace AutomaticProcesses
                             style += " text-align:left;";
                             break;
                         case "D":
-                            style += "";
+                            style += " text-align:right;";
                             break;
                         case "C":
                             style += " text-align:center;";
@@ -159,7 +158,7 @@ namespace AutomaticProcesses
                 _field = rowData.ElementAt(_i).Key;
                 if (!_field.StartsWith("&"))
                 {
-                    if (System.Text.RegularExpressions.Regex.IsMatch(_field, "/[c][0-9]/"))
+                    if (System.Text.RegularExpressions.Regex.IsMatch(_field, "[c][0-9]"))
                     {
                         _field = " ";
                     }
@@ -213,48 +212,48 @@ namespace AutomaticProcesses
                 _html += "xmlns:x=\"urn:schemas-microsoft-com:office:excel\"";
                 _html += "xmlns=\"http://www.w3.org/TR/REC-html40\">";
                 _html += "<head><meta http-equiv=Content-Type content=\"text/html; charset=windows-1252\">";
-                _html += "<meta name = ProgId content = Excel.Sheet >";
+                _html += "<meta name = ProgId content=Excel.Sheet>";
                 _html += "<meta name=Generator content=\"Microsoft Excel 11\"";
             }
 
             _html += "<style type='text/css'>";
             _html += ".titulo {";
             _html += "font-family: Helvetica;";
-            _html += "	font-size: 20pt;";
-            _html += "	font-weight: bold;";
-            _html += "	text-align: left;";
+            _html += "font-size: 20pt;";
+            _html += "font-weight: bold;";
+            _html += "text-align: left;";
             _html += "}";
             _html += ".tabla {";
-            _html += "     page-break-after: always;";
+            _html += "page-break-after: always;";
             _html += "}";
             _html += ".timestamp {";
             _html += "font-family: Helvetica;";
-            _html += "	font-size: 12pt;";
-            _html += "	font-weight: bold;";
-            _html += "	text-align: right;";
+            _html += "font-size: 12pt;";
+            _html += "font-weight: bold;";
+            _html += "text-align: right;";
             _html += "}";
             _html += ".subtitulo {";
             _html += "font-family: Helvetica;";
-            _html += "	font-size: 14pt;";
-            _html += "	font-weight: bold;";
-            _html += "	text-align: left;";
+            _html += "font-size: 14pt;";
+            _html += "font-weight: bold;";
+            _html += "text-align: left;";
             _html += "}";
             _html += ".cabecera {";
             _html += "font-family: Courier;";
-            _html += $"	font-size: {fontSize};";
-            _html += "	font-weight: bold;";
+            _html += $"font-size: {fontSize};";
+            _html += "font-weight: bold;";
             _html += $"{_extra}}}";
             _html += ".titulo_tabla {";
             _html += "font-family: Courier;";
-            _html += $"	font-size: {fontSize};";
-            _html += "	font-weight: bold;";
+            _html += $"font-size: {fontSize+3};";
+            _html += "font-weight: bold;";
             _html += $"{_extra}}}";
             _html += ".detalle {";
             _html += "font-family: Courier;";
-            _html += "	font-size: {fontSize};";
+            _html += "font-size: {fontSize};";
             _html += $"{_extra}}}";
             _html += ".fondogris {";
-            _html += "	background-color: #CCCCCC;";
+            _html += "background-color: #CCCCCC;";
             _html += "}";
             _html += "</style></head><body>";
 
@@ -273,7 +272,7 @@ namespace AutomaticProcesses
                 _currentRow = data.Values.ElementAt(_i);
                 if (_firstLine)
                 {
-                    Header(_firstPage, _currentRow, title, ref _cols, _titles);
+                    _html += Header(_firstPage, _currentRow, title, ref _cols, _titles);
                     _firstLine = false;
                     _firstPage = false;
                 }
@@ -321,6 +320,8 @@ namespace AutomaticProcesses
 
                             _html += $"<td colspan={_cols}>--------</td></tr><tr><td {_extra} class='titulo_tabla' colspan={_cols}>{_value}</td></tr>"; //insertamos el t�tulo sin [Titulo]
                             _i++;
+                            _currentRow = data.Values.ElementAt(_i);
+
                             /*
                              * Control de líneas (por ver si es necesario).
                            ($linea % 2)== 1 ?$linea += 1:$linea;//para que siempre empiece con el mismo color
@@ -334,7 +335,7 @@ namespace AutomaticProcesses
                                 _value = _item;
                                 _style = _styleIni;
                                 GetStyle(ref _style, ref _value);
-                                _html += (_value == "") ? "<td>&nbsp</td>" : $"<td {_extra} class='cabecera'><div style='{_style}'>" + HttpUtility.HtmlEncode(_value) + "</div></td>";
+                                _html += ((_value == "") ? "<td>&nbsp</td>" : $"<td {_extra} class='cabecera'><div style='{_style}'>" +  HttpUtility.HtmlEncode(_value) )+ "</div></td>";
                             }
                             break;
                         }
@@ -343,7 +344,7 @@ namespace AutomaticProcesses
                         // Process the style prefixes: [D], [I], etc...
                         GetStyle(ref _style,ref _value);
 
-                        _html += (_value == "" ? "<td><div>" : $"<td {_extra} class='detalle'><div style='{_style}'>")+_value+ "</div></td>";
+                        _html += (_value == "" ? "<td><div>" : $"<td {_extra} class='detalle'><div style='{_style}'>")+ $"{_value}</div></td>";
                         
                     }
 

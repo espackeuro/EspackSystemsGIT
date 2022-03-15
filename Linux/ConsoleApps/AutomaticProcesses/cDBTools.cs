@@ -186,20 +186,20 @@ namespace AutomaticProcesses
 
                 //
                 _stage = "Loop through the recordset";
-                while (RS.Read())
+                do
                 {
-                    _stage = $"Add row {_dict.Count+1}";
+                    _stage = $"Add row {_dict.Count + 1}";
                     _dict.Add(_dict.Count + 1, new Dictionary<string, string>());
                     for (int i = 0; i < RS.FieldCount; i++)
                     {
                         _stage = $"Add row {_dict.Count}/field {RS.GetColumnSchema()[i].ColumnName}";
                         _dict[_dict.Count].Add(RS.GetColumnSchema()[i].ColumnName, RS.GetValue(i).ToString());
                     }
-                }
+                } while (RS.Read());
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[ToDictionaryIndexed#{_stage}] {ex.Message}.");
+                Console.WriteLine($"[ToDictionary#{_stage}] {ex.Message}.");
                 _dict = null;
             }
             return _dict;
@@ -239,7 +239,7 @@ namespace AutomaticProcesses
             catch (Exception ex)
             {
                 Console.WriteLine($"[ToDictionary#{_stage}] {ex.Message}.");
-                _dict = null;
+//                _dict = null;
             }
             return _dict;
         }

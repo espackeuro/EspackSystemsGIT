@@ -20,22 +20,25 @@ namespace AutomaticProcesses
         public string FileName; // exported filename
         public int PDFFontSize=25; // font size of the report
         public bool Banded = false; // NOBAND
+        public string Title;
         private string Emails; // check @
 
         public string QueryParams; // PARAMS for the query
         public int QueryNumber;
         public string MailTo;
-        public bool NoBand;
+        public bool NoBand, Error;
 
 
-        public cProcess(cCredentials credentials, int queryNumber, string args,bool noBand)
+
+        public cProcess(cCredentials credentials, int queryNumber, string args,string title,bool noBand)
         {
             Credentials = credentials;
             QueryNumber = queryNumber;
             ArgsString = args;
             NoBand = noBand;
+            Title = title;
         }
-        public cProcess(string server, string user, string password, string db, int queryNumber, string args, bool noBand) :this(new cCredentials(server, user, password, db),queryNumber,args,noBand)
+        public cProcess(string server, string user, string password, string db, int queryNumber, string args,string title, bool noBand) :this(new cCredentials(server, user, password, db),queryNumber,args,title,noBand)
         {
 
         }
@@ -96,13 +99,13 @@ namespace AutomaticProcesses
             }
             return true;
         }
-        public void Process()
+        public string Process()
         {
             string _stage = "";
             Dictionary<string, string> _params = null;
-            Dictionary<int, Dictionary<string, string>> _result;
+            Dictionary<int, Dictionary<string, string>> _result = null;
             Dictionary<int, string> _args = null;
-            string _sql = "", _queryDB ="",html;
+            string _sql = "", _queryDB = "", _html = "";
             int _count;
             
             try
@@ -141,20 +144,22 @@ namespace AutomaticProcesses
 
                 //
                 _stage = "Converting data to dictionary";
-                _result = _dbt.ToDictionary();
+                if (_dbt.RS.HasRows) _result = _dbt.ToDictionary();
                 _dbt.Disconnect();
 
                 _stage = "Converting data to {HTML}";
-                
-                html=cMiscFunctions.ProcessHTML(_result,"Test","",!NoBand);
+                if (_result!=null)
+                    _html = cMiscFunctions.ProcessHTML(_result, Title, "", !NoBand);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[cProcess/Process#{_stage}] {ex.Message}");
+                _html = $"[cProcess/Process#{_stage}] {ex.Message}";
+                Console.WriteLine(_html);
+                Error = true;
             }
 
             //function recorset_proceso($args= Array())
-            return;
+            return _html;
         }
 
 

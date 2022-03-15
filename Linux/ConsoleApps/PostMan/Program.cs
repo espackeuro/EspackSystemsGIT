@@ -58,7 +58,7 @@ namespace PostMan
                 //
                 _stage = "Connecting to email server";
                 ExchangeAttachments _email = new ExchangeAttachments();
-                if (!_email.Connect("processes", "*seso69*"))
+                if (!_email.Connect("processes", "*seso69*", "https://exchange.espackeuro.com/ews/exchange.asmx"))
                     throw new Exception("Could not connect to email server.");
                 
                 //

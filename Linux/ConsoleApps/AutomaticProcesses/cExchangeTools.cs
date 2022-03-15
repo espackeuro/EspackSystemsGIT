@@ -36,14 +36,14 @@ public class ExchangeAttachments : IDisposable
         }
         return true;
     }
-    public bool Connect(string userEmail, string passwordEmail, string server)
+    public bool Connect(string userEmail, string passwordEmail,string server) 
     {
         return Connect(new cCredentials(userEmail, passwordEmail, server, ""));
     }
 
 
-    public bool DownloadFromExchange(string PathDownload, string Subject, string Filter, string Sender)
-    {
+	public bool DownloadFromExchange(string PathDownload, string Subject, string Filter,string Sender)
+	{
         //cargar credenciales
         string Asunto;
         string _stage = "";
@@ -101,7 +101,7 @@ public class ExchangeAttachments : IDisposable
                                     //if (Filter == fileAttachment.Name.Substring((fileAttachment.Name.ToString().Length - 3), 3))
                                     if (Regex.IsMatch(fileAttachment.Name.ToString(), Filter) || Filter == "")
                                     {
-
+                                        
                                         Console.Write($"    -> Checking attachment: {fileAttachment.Name} ...");
 
                                         // Que guarda en la dirección indicada
@@ -140,7 +140,7 @@ public class ExchangeAttachments : IDisposable
         return _attachmentFound;
     }
 
-    public bool SendEmail(string SendTo, string Subject = null, string Body = null, string FilePath = null)
+    public bool SendEmail(string SendTo, string Subject=null,string Body=null,string FilePath=null)
     {
         string _stage = "";
 
@@ -176,7 +176,7 @@ public class ExchangeAttachments : IDisposable
                 _message.SendAndSaveCopy();
                 return true;
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 throw new Exception($"[SendEmail#{_stage}] {ex.Message}");
             }
