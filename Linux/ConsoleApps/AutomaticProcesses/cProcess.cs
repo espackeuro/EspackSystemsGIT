@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using PdfSharp;
+using PdfSharp.Pdf;
+using TheArtOfDev.HtmlRenderer.PdfSharp;
 
 namespace AutomaticProcesses
 {
@@ -30,15 +33,17 @@ namespace AutomaticProcesses
 
 
 
-        public cProcess(cCredentials credentials, int queryNumber, string args,string title,bool noBand)
+        public cProcess(cCredentials credentials, int queryNumber, string args,string title,bool noBand=false, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT)
         {
             Credentials = credentials;
             QueryNumber = queryNumber;
             ArgsString = args;
-            NoBand = noBand;
             Title = title;
+            NoBand = noBand;
+            FileType = fileType;
+            Orientation = orientation;
         }
-        public cProcess(string server, string user, string password, string db, int queryNumber, string args,string title, bool noBand) :this(new cCredentials(server, user, password, db),queryNumber,args,title,noBand)
+        public cProcess(string server, string user, string password, string db, int queryNumber, string args, string title, bool noBand = false, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT) : this(new cCredentials(server, user, password, db), queryNumber, args, title, noBand, fileType, orientation)
         {
 
         }
@@ -158,6 +163,11 @@ namespace AutomaticProcesses
                 Error = true;
             }
 
+            if (FileType == cMiscFunctions.eFileType.PDF)
+            {
+                PdfDocument pdfDocument = PdfGenerator.GeneratePdf(_html, PageSize.A4);
+                pdfDocument.Save(@"D:\HTML to PDF Document.pdf");
+            }
             //function recorset_proceso($args= Array())
             return _html;
         }

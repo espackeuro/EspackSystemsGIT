@@ -171,7 +171,7 @@ namespace AutomaticProcesses
 
             // Check the query number
 
-            cProcess _cp = new cProcess(_credsDB, Convert.ToInt32(_processQuery), _processQueryParams, _processMailSubject, _noBand);
+            cProcess _cp = new cProcess(_credsDB, Convert.ToInt32(_processQuery), _processQueryParams, _processMailSubject, _noBand, _fileType, _orientation);
             _html = _cp.Process();
             if(!_cp.Error && (_html!="" || !_noEmpty))
             {

@@ -8,7 +8,7 @@ namespace AutomaticProcesses
 {
     static class cMiscFunctions
     {
-        public enum eFileType { PDF, TXT, XLS }
+        public enum eFileType { HTML, PDF, XLS, TXT }
         public enum eOrientation { PORTRAIT, LANDSCAPE }
 
         static string Service = "";
@@ -89,6 +89,10 @@ namespace AutomaticProcesses
         private static void GetStyle(ref string style, ref string value)
         {
             string _styleStr = "";
+            
+            // Compatibility with old queries for portalnet (<strong></strong> -> [N])
+            if (value.StartsWith("&lt;strong&gt;"))
+                value = value.Replace("&lt;strong&gt;", "[N]").Replace("&lt;/strong&gt;", "");
 
             //gestion de estilos, si el campo empieza con [ busca [IDCNSK]
             if (value.StartsWith("["))
