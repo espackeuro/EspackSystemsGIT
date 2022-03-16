@@ -198,11 +198,11 @@ namespace AutomaticProcesses
         }
 
         // translated from origina PHP code: define the HTML code for the query results
-        public static string ProcessHTML(Dictionary<int, Dictionary<string, string>> data, string title, string orientation, bool band = true, bool excel = false)
+        public static string ProcessHTML(Dictionary<int, Dictionary<string, string>> data, string title, string orientation, bool noBand = false, bool excel = false)
         {
             string _stage = "";
             string _html = "";
-            string _extra = (band ? "" : "border-bottom-style: solid;");
+            string _extra = (noBand ? "border-bottom-style: solid;" : "");
             int fontSize = 11;
 
             _html = "<html><head>";
@@ -282,7 +282,7 @@ namespace AutomaticProcesses
                 }
 
                 // For banded results
-                if (band)                
+                if (!noBand)                
                     _bgColor = _bgColor == "DDDDDD" ? "FFFFFF" : "DDDDDD";
 
                 _styleIni = $"color:#000000; background-color:#{_bgColor};";

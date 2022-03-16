@@ -140,7 +140,7 @@ public class ExchangeAttachments : IDisposable
         return _attachmentFound;
     }
 
-    public bool SendEmail(string SendTo, string Subject=null,string Body=null,string FilePath=null)
+    public bool SendEmail(string sendTo, string subject=null,string body=null,string filePath=null)
     {
         string _stage = "";
 
@@ -150,21 +150,21 @@ public class ExchangeAttachments : IDisposable
             {
                 //
                 _stage = "Checking";
-                Subject = (Subject != null ? Subject : pSubject);
-                Body = (Body != null ? Body : pBody);
-                if (FilePath != null)
+                subject = (subject != null ? subject : pSubject);
+                body = (body != null ? body : pBody);
+                if (filePath != null)
                 {
-                    if (!File.Exists(FilePath))
-                        throw new Exception($"File not found: {FilePath}");
+                    if (!File.Exists(filePath))
+                        throw new Exception($"File not found: {filePath}");
                 }
 
                 // 
                 _stage = "Preparing message";
                 EmailMessage _message = new EmailMessage(pExchange);
-                _message.Subject = Subject;
-                _message.Body = Body;
-                if (FilePath != null) _message.Attachments.AddFileAttachment(FilePath);
-                foreach (string _sendTo in SendTo.Split(","))
+                _message.Subject = subject;
+                _message.Body = body;
+                if (filePath != null) _message.Attachments.AddFileAttachment(filePath);
+                foreach (string _sendTo in sendTo.Split(","))
                 {
                     _message.ToRecipients.Add(_sendTo);
                 }

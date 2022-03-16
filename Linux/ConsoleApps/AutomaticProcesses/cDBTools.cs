@@ -51,11 +51,12 @@ namespace AutomaticProcesses
                 _builder.UserID = User;
                 _builder.Password = Password;
                 _builder.InitialCatalog = DB;
-
+  
                 //
                 _stage = "Opening connection";
                 Console.WriteLine($"Connecting to DB server {Server}...");
                 Conn = new SqlConnection(_builder.ConnectionString);
+                
                 Conn.Open();
             }
             catch (Exception ex)
@@ -144,6 +145,7 @@ namespace AutomaticProcesses
                 {
                     //
                     _stage = "Executing query";
+                    _cmd.CommandTimeout = 60;
                     RS = _cmd.ExecuteReader();
                     pEOF = !RS.HasRows;
                     if (!pEOF) RS.Read();
@@ -174,15 +176,18 @@ namespace AutomaticProcesses
                 if (RS is null)
                     throw new Exception($"Recordset not defined.");
 
-                // Just in case we had used the recordset already (it would not show all the records otherwise)
+                //// Just in case we had used the recordset already (it would not show all the records otherwise)
+                //if (!RS.HasRows)
+                //{
+                //    _stage = "Refreshing query";
+                //    RS.Close();
+                //    Query(_sql);
+                //}
+                //if (!RS.HasRows)
+                //    throw new Exception($"Recordset is empty.");
+
                 if (!RS.HasRows)
-                {
-                    _stage = "Refreshing query";
-                    RS.Close();
-                    Query(_sql);
-                }
-                if (!RS.HasRows)
-                    throw new Exception($"Recordset is empty.");
+                    return _dict;
 
                 //
                 _stage = "Loop through the recordset";
@@ -200,7 +205,7 @@ namespace AutomaticProcesses
             catch (Exception ex)
             {
                 Console.WriteLine($"[ToDictionary#{_stage}] {ex.Message}.");
-                _dict = null;
+                //_dict = null;
             }
             return _dict;
         }
@@ -218,15 +223,18 @@ namespace AutomaticProcesses
                 if (RS is null)
                     throw new Exception($"Recordset not defined.");
 
-                // Just in case we had used the recordset already (it would not show all the records otherwise)
+                //// Just in case we had used the recordset already (it would not show all the records otherwise)
+                //if (!RS.HasRows)
+                //{
+                //    _stage = "Refreshing query";
+                //    RS.Close();
+                //    Query(_sql);
+                //}
+                //if (!RS.HasRows)
+                //    throw new Exception($"Recordset is empty.");
+
                 if (!RS.HasRows)
-                {
-                    _stage = "Refreshing query";
-                    RS.Close();
-                    Query(_sql);
-                }
-                if (!RS.HasRows)
-                    throw new Exception($"Recordset is empty.");
+                    return _dict;
 
                 //
                 _stage = "Loop through the recordset";
@@ -239,7 +247,7 @@ namespace AutomaticProcesses
             catch (Exception ex)
             {
                 Console.WriteLine($"[ToDictionary#{_stage}] {ex.Message}.");
-//                _dict = null;
+                //  _dict = null;
             }
             return _dict;
         }

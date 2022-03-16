@@ -1,39 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
-using PdfSharp;
-using PdfSharp.Pdf;
-using TheArtOfDev.HtmlRenderer.PdfSharp;
 
 namespace AutomaticProcesses
 {
     class cProcess
     {
+
         public cCredentials Credentials;
         public string Server { get { return Credentials.Server; } set { Credentials.Server = value; } }
         public string User { get { return Credentials.User; } set { Credentials.User = value; } }
         public string Password { get { return Credentials.Password; } set { Credentials.Password = value; } }
         public string DB { get { return Credentials.DB; } set { Credentials.DB = value; } }
 
-        public string ArgsString;
-
-
         public cMiscFunctions.eFileType FileType;
-        public static cMiscFunctions.eOrientation Orientation;
-        public string FileName; // exported filename
-        public int PDFFontSize=25; // font size of the report
-        public bool Banded = false; // NOBAND
-        public string Title;
-        private string Emails; // check @
-
-        public string QueryParams; // PARAMS for the query
-        public int QueryNumber;
-        public string MailTo;
+        public cMiscFunctions.eOrientation Orientation;
+        public string ArgsString, FileName, Title, HTML = "";
+        public int QueryNumber, PDFFontSize = 25;
         public bool NoBand, Error;
 
-
-
-        public cProcess(cCredentials credentials, int queryNumber, string args,string title,bool noBand=false, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT)
+        public cProcess(cCredentials credentials, int queryNumber, string args, string title, bool noBand = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT)
         {
             Credentials = credentials;
             QueryNumber = queryNumber;
@@ -42,13 +29,14 @@ namespace AutomaticProcesses
             NoBand = noBand;
             FileType = fileType;
             Orientation = orientation;
+            FileName = fileName;
         }
-        public cProcess(string server, string user, string password, string db, int queryNumber, string args, string title, bool noBand = false, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT) : this(new cCredentials(server, user, password, db), queryNumber, args, title, noBand, fileType, orientation)
+        public cProcess(string server, string user, string password, string db, int queryNumber, string args, string title, bool noBand = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT) : this(new cCredentials(server, user, password, db), queryNumber, args, title, noBand, fileName, fileType, orientation)
         {
 
         }
 
-        private bool ParseSQL(ref string sql,Dictionary<int,string> args, Dictionary<string,string> queryParams)
+        private bool ParseSQL(ref string sql, Dictionary<int, string> args, Dictionary<string, string> queryParams)
         {
             string _stage = "";
             int _count;
@@ -69,16 +57,16 @@ namespace AutomaticProcesses
                     Console.WriteLine($">> {_a.Key}={args[_count]}");
                     _count++;
                 }
-                
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine($"[cProcess/ParseSQL#{_stage}] {ex.Message}.");
                 return false;
             }
             return true;
         }
-        private bool GetQueryDetails(cDBTools dbt, ref string sql, ref string queryDB, ref Dictionary<string,string> queryParams)
+        private bool GetQueryDetails(cDBTools dbt, ref string sql, ref string queryDB, ref Dictionary<string, string> queryParams)
         {
             string _stage = "";
 
@@ -89,7 +77,7 @@ namespace AutomaticProcesses
                 dbt.Query($"select SQL,Base_Datos from cabecera_consultas where idreg={QueryNumber}");
                 if (dbt.EOF)
                     throw new Exception("Query not found.");
-                sql = "set dateformat dmy "+dbt.FieldValue(0).ToString();
+                sql = "set dateformat dmy " + dbt.FieldValue(0).ToString();
                 queryDB = dbt.FieldValue(1);
 
                 //
@@ -109,15 +97,14 @@ namespace AutomaticProcesses
             string _stage = "";
             Dictionary<string, string> _params = null;
             Dictionary<int, Dictionary<string, string>> _result = null;
-            Dictionary<int, string> _args = null;
-            string _sql = "", _queryDB = "", _html = "";
-            int _count;
-            
+            Dictionary<int, string> _args;
+            string _sql = "", _queryDB = "", _fullFilePath, _filePath;
+
             try
             {
                 //
                 _stage = $"Check process args";
-                
+
 
                 //
                 _stage = $"Connecting to {Credentials.Server}";
@@ -135,13 +122,13 @@ namespace AutomaticProcesses
 
                 //
                 _stage = "Parsing SQL";
-                if (!ParseSQL(ref _sql,_args,_params))
+                if (!ParseSQL(ref _sql, _args, _params))
                     throw new Exception("Aborted!");
 
                 //
                 _stage = $"Changing to {_queryDB} DB";
                 _dbt.ChangeDB(_queryDB);
-                
+
                 //
                 _stage = "Executing query";
                 if (!_dbt.Query(_sql))
@@ -153,71 +140,59 @@ namespace AutomaticProcesses
                 _dbt.Disconnect();
 
                 _stage = "Converting data to {HTML}";
-                if (_result!=null)
-                    _html = cMiscFunctions.ProcessHTML(_result, Title, "", !NoBand);
+                if (_result != null)
+                {
+                    HTML = cMiscFunctions.ProcessHTML(_result, Title, "", NoBand);
+                    if (FileType == cMiscFunctions.eFileType.XLS)
+                        FileName = ToExcel();
+                }
             }
             catch (Exception ex)
             {
-                _html = $"[cProcess/Process#{_stage}] {ex.Message}";
-                Console.WriteLine(_html);
+                HTML = $"[cProcess/Process#{_stage}] {ex.Message}";
+                Console.WriteLine(HTML);
                 Error = true;
             }
 
-            if (FileType == cMiscFunctions.eFileType.PDF)
-            {
-                PdfDocument pdfDocument = PdfGenerator.GeneratePdf(_html, PageSize.A4);
-                pdfDocument.Save(@"D:\HTML to PDF Document.pdf");
-            }
+
             //function recorset_proceso($args= Array())
-            return _html;
+            return HTML;
         }
 
-
-        /*        
-                $nomArch="";
-    $a=$argv; unset($a[0]);  #preparamos el array de parámetros
-    $pdf=($argv[count($argv) - 3]=="PDF"?true:false);
-    $txt=($argv[count($argv) - 3]=="TXT"?true:false);
-    $xls=($argv[count($argv) - 3]=="XLS"?true:false);
-        if ($pdf) { $nomArch=$argv[count($argv) - 4]; $orientacion=$argv[count($argv) - 5]; $fontsize=$argv[count($argv) - 6];}# si el antepenúltimo argumento es PDF, hay que buscar el nombre del fichero y la orientación de página
-
-$subject =$argv[count($argv) - 1]; #print $subject; #asunto del email mandado
-
-
-         */
-
-
-        public void Process2()
+        private string ToExcel()
         {
-            string _msg="";
-            /*
-            Dictionary<int, string> _params = CheckParams();
-            recorset_proceso(_params);
+            string _stage = "";
+            string _filePath, _fullFilePath;
 
-            switch (FileType)
+            // Check file name null
+
+
+            _stage = "Preparing temp path";
+            _filePath = Path.GetTempPath();
+            if (!FileName.ToUpper().EndsWith(".XLS")) FileName += ".xls";
+            _fullFilePath = $"{_filePath}{Path.DirectorySeparatorChar}{FileName}";
+            if (File.Exists(_fullFilePath))
             {
-                case eFileType.PDF:
-                    //pdf_proceso($rst,$nomArch,$subject,$orientacion,$fontsize,$band);
-                    ProcessPDF();
-                    break;
-                case eFileType.TXT:
-                    //txt_proceso($rst,$nomArch,$subject);
-                    ProcessTXT();
-                    break;
-                case eFileType.XLS:
-                    //html_arch_proceso($rst,$nomArch,$subject, '', 10,$band, true);
-                    ProcessXLS();
-                    break;
-                default:
-                    //$msg = html_proceso($rst,$subject, '', 11,$band);
-                    _msg = ProcessHTLM();
-                    break;
+                //
+                _stage = $"Deleting {_fullFilePath}";
+                File.Delete(_fullFilePath);
             }
-            */
-            _msg = (_msg!=""?_msg:"<html><body>Automatically sent message.<br><strong>Mensaje enviado automáticamente.</strong></body></html>");
-            //mail_attach_html($to, $from, $subject, $msg, $nomArch);
+
+            //
+            _stage = "Saving to excel file";
+            using (FileStream _fs = File.Create(_fullFilePath))
+            {
+                byte[] _info = new UTF8Encoding(true).GetBytes(HTML);
+                // Add some information to the file.
+                _fs.Write(_info, 0, _info.Length);
+            }
+
+            return _fullFilePath;
         }
 
 
     }
+
+
+    
 }

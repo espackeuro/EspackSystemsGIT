@@ -25,7 +25,7 @@ namespace AutomaticProcesses
             string _mailServer = "", _mailUser = "", _mailPassword = "";
             string _processQuery = "", _processQueryParams = "", _processMailTo = "", _processMailSubject = "";
             bool _noBand = false, _noEmpty = false;
-            string _html = "";
+            string _html = "", _fileName = "";
             string _myName = System.Reflection.Assembly.GetCallingAssembly().GetName().Name;
 
             // Args
@@ -140,11 +140,13 @@ namespace AutomaticProcesses
                         case "NOEMPTY":
                             _noEmpty = true;
                             break;
+                        case "FILENAME":
+                            _fileName = _currentArgValue;
+                            break;
                         case "FILETYPE":
                             Enum.TryParse(_currentArgValue, out cMiscFunctions.eFileType _fType);
                             _fileType = _fType;
                             break;
-
                         case "ORIENTATION":
                             Enum.TryParse(_currentArgValue, out cMiscFunctions.eOrientation _orien);
                             _orientation = _orien;
@@ -171,7 +173,7 @@ namespace AutomaticProcesses
 
             // Check the query number
 
-            cProcess _cp = new cProcess(_credsDB, Convert.ToInt32(_processQuery), _processQueryParams, _processMailSubject, _noBand, _fileType, _orientation);
+            cProcess _cp = new cProcess(_credsDB, Convert.ToInt32(_processQuery), _processQueryParams, _processMailSubject, _noBand, _fileName, _fileType, _orientation);
             _html = _cp.Process();
             if(!_cp.Error && (_html!="" || !_noEmpty))
             {
@@ -180,7 +182,7 @@ namespace AutomaticProcesses
 
 
                 _stage = "Sending email";
-                if (!_email.SendEmail(_processMailTo, _processMailSubject+DateTime.Now.ToString(" dd/MM/yyyy"), _html!=""?_html: "<html><body>No results found / No se encontraron resultados</body></html>"))
+                if (!_email.SendEmail(_processMailTo, _processMailSubject+DateTime.Now.ToString(" dd/MM/yyyy"), _html!=""?_html: "<html><body>No results found / No se encontraron resultados</body></html>",_cp.FileName))
                     throw new Exception("Could not send the email.");
 
                 //
