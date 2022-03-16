@@ -53,7 +53,7 @@ namespace AutomaticProcesses
                 case "SERVICIO":
                 case "SERVICE":
                     //$res =$_SESSION['proveedor'];
-                    _result = Service;
+                    _result = Service; // not used for AutomaticProcesses, it is only for Portal
                     break;
                 default:
                     //$res =$valor;

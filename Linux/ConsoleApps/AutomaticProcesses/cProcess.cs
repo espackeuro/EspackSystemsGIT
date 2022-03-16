@@ -142,8 +142,11 @@ namespace AutomaticProcesses
                 _dbt.Disconnect();
 
                 if (_result == null)
+                {
+                    FileName = null;
                     return null;
-                
+                }
+            
                 //
                 switch (FileType)
                 {
@@ -227,7 +230,7 @@ namespace AutomaticProcesses
                 _stage = "";
                 foreach (var _currentRow in data)
                 {
-                    _rowContents += _currentRow.ToString() + "\r\n";
+                    _rowContents += String.Join(";",_currentRow.Value.Values.ToList())+ "\r\n";
                 }
             }
             catch (Exception ex)
