@@ -150,6 +150,7 @@ public class ExchangeAttachments : IDisposable
             {
                 //
                 _stage = "Checking";
+                if (filePath == "") filePath = null;
                 subject = (subject != null ? subject : pSubject);
                 body = (body != null ? body : pBody);
                 if (filePath != null)
