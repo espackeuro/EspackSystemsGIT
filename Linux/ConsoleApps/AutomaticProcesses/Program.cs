@@ -23,7 +23,7 @@ namespace AutomaticProcesses
             string _currentArgName, _currentArgValue;
             string _DBuser = "", _DBpassword = "", _DBServer = "", _DBdataBase = "";
             string _mailServer = "", _mailUser = "", _mailPassword = "";
-            string _processQuery = "", _processSubQuery = "", _processQueryParams = "", _processMailTo = "", _processMailSubject = "";
+            string _processQuery = "", _processSubQuery = "", _processQueryParams = "", _processMailTo = "", _processMailSubject = "", _processMailErrorTo = "";
             bool _noBand = false, _noEmpty = false, _error = false;
             string _result = "", _fileName = "";
             string _myName = System.Reflection.Assembly.GetCallingAssembly().GetName().Name;
@@ -71,6 +71,9 @@ namespace AutomaticProcesses
                             break;
                         case "MAIL_PASSWORD":
                             _mailPassword = _currentArgValue;
+                            break;
+                        case "ERR_TO":
+                            _processMailErrorTo = _currentArgValue;
                             break;
                         default:
                             throw new Exception($"Wrong argument: {_currentArgName}");
@@ -149,6 +152,9 @@ namespace AutomaticProcesses
                         case "SUBQUERY":
                             _processSubQuery = _currentArgValue;
                             break;
+                        case "ERR_TO":
+                            _processMailErrorTo = _currentArgValue;
+                            break;
                         default:
                             throw new Exception($"Wrong argument: {_currentArgName}");
                     }
@@ -178,15 +184,15 @@ namespace AutomaticProcesses
                 {
                     if (String.IsNullOrEmpty(_mailServer) || String.IsNullOrEmpty(_mailUser) || String.IsNullOrEmpty(_mailPassword))
                         throw new Exception($"All email connection details are required when one of them is specified: MAIL_SERVER, MAIL_USER & MAIL_PASSWORD");
-                    if (String.IsNullOrEmpty(_processMailTo) || String.IsNullOrEmpty(_processMailSubject))
-                        throw new Exception($"For email sending, recipient and subject are required: TO=<EmailAddress1,EmailAddress2,...> SUBJECT=<Subject>");
+                    if (String.IsNullOrEmpty(_processMailTo) || String.IsNullOrEmpty(_processMailSubject) || String.IsNullOrEmpty(_processMailErrorTo))
+                        throw new Exception($"For email sending, recipient, error recipient and subject are required: TO=<EmailAddress1,EmailAddress2,...> ERR_TO=<EmailAddress1,EmailAddress2,...> SUBJECT=<Subject>");
                 }
-                if (!String.IsNullOrEmpty(_processMailTo) || !String.IsNullOrEmpty(_processMailSubject))
+                if (!String.IsNullOrEmpty(_processMailTo) || !String.IsNullOrEmpty(_processMailSubject) || !String.IsNullOrEmpty(_processMailErrorTo))
                 {
                     if (String.IsNullOrEmpty(_mailServer) || String.IsNullOrEmpty(_mailUser) || String.IsNullOrEmpty(_mailPassword))
                         throw new Exception($"All email connection details are required when recipient or subject are specified: MAIL_SERVER, MAIL_USER & MAIL_PASSWORD");
                     if (String.IsNullOrEmpty(_processMailTo) || String.IsNullOrEmpty(_processMailSubject))
-                        throw new Exception($"Both, recipient and subject, are required when sending emails: TO=<EmailAddress1,EmailAddress2,...> SUBJECT=<Subject>");
+                        throw new Exception($"Both, recipient, error recipient and subject, are required when sending emails: TO=<EmailAddress1,EmailAddress2,...> ERR_TO=<EmailAddress1,EmailAddress2,...> SUBJECT=<Subject>");
                 }
 
                 //
@@ -234,9 +240,10 @@ namespace AutomaticProcesses
                     if (_error)
                     {
                         _processMailSubject = "ERROR on " + _processMailSubject;
-                        _processMailTo = "informatica@espackeuro.com";
+                        _fileName = null;
                     }
 
+                    //
                     Console.Write("> Sending " + (_error ? "error " : "") + $"email... ");
 
                     //
@@ -246,7 +253,7 @@ namespace AutomaticProcesses
 
                     //
                     _stage = "Sending email";
-                    if (!_email.SendEmail(_processMailTo, _processMailSubject + DateTime.Now.ToString(" dd/MM/yyyy"), !String.IsNullOrEmpty(_result) ? _result : "<html><body>No results found / No se encontraron resultados</body></html>", _fileName))
+                    if (!_email.SendEmail(_error?_processMailErrorTo:_processMailTo, _processMailSubject + DateTime.Now.ToString(" dd/MM/yyyy"), !String.IsNullOrEmpty(_result) ? _result : "<html><body>No results found / No se encontraron resultados</body></html>", _fileName))
                         throw new Exception("Could not send the email.");
 
                     // 
