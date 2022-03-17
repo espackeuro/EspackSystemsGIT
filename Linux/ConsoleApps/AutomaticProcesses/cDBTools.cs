@@ -54,15 +54,15 @@ namespace AutomaticProcesses
   
                 //
                 _stage = "Opening connection";
-                Console.WriteLine($"Connecting to DB server {Server}...");
                 Conn = new SqlConnection(_builder.ConnectionString);
                 
                 Conn.Open();
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[{_stage}] {ex.Message}.");
-                return false;
+                //Console.WriteLine($"[{_stage}] {ex.Message}.");
+                //return false;
+                throw new Exception($"[cDBTools/Connect#{_stage}] {ex.Message}.");
             }
 
             // OK
@@ -91,8 +91,9 @@ namespace AutomaticProcesses
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[{_stage}] {ex.Message}.");
-                return false;
+                //Console.WriteLine($"[{_stage}] {ex.Message}.");
+                //return false;
+                throw new Exception($"[cDBTools/Disconnect#{_stage}] {ex.Message}.");
             }
 
             // OK
@@ -122,8 +123,9 @@ namespace AutomaticProcesses
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[ChangeDB#{_stage}] {ex.Message}.");
-                return false;
+                //Console.WriteLine($"[ChangeDB#{_stage}] {ex.Message}.");
+                //return false;
+                throw new Exception($"[cDBTools/ChangeDB#{_stage}] {ex.Message}.");
             }
             return true;
         }
@@ -154,8 +156,9 @@ namespace AutomaticProcesses
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[Query#{_stage}] {ex.Message}.");
-                return false;
+                //Console.WriteLine($"[Query#{_stage}] {ex.Message}.");
+                //return false;
+                throw new Exception($"[cDBTools/Query#{_stage}] {ex.Message}.");
             }
 
             // OK
@@ -204,7 +207,7 @@ namespace AutomaticProcesses
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[ToDictionary#{_stage}] {ex.Message}.");
+                Console.WriteLine($"[cDBTools/ToDictionary#{_stage}] {ex.Message}.");
                 //_dict = null;
             }
             return _dict;
@@ -246,7 +249,7 @@ namespace AutomaticProcesses
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[ToDictionary#{_stage}] {ex.Message}.");
+                Console.WriteLine($"[cDBTools/ToDictionaryKeys#{_stage}] {ex.Message}.");
                 //  _dict = null;
             }
             return _dict;

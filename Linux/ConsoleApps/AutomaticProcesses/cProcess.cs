@@ -56,15 +56,15 @@ namespace AutomaticProcesses
                 foreach (var _a in queryParams)
                 {
                     sql = sql.Replace($"?{_count}", args[_count]);
-                    Console.WriteLine($">> {_a.Key}={args[_count]}");
                     _count++;
                 }
 
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[cProcess/ParseSQL#{_stage}] {ex.Message}.");
-                return false;
+                //Console.WriteLine($"[cProcess/ParseSQL#{_stage}] {ex.Message}.");
+                //return false;
+                throw new Exception($"[cProcess/ParseSQL#{_stage}] {ex.Message}.");
             }
             return true;
         }
@@ -89,8 +89,9 @@ namespace AutomaticProcesses
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[cProcess/GetQueryDetails#{_stage}] {ex.Message}.");
-                return false;
+                //Console.WriteLine($"[cProcess/GetQueryDetails#{_stage}] {ex.Message}.");
+                //return false;
+                throw new Exception($"[cProcess/GetQueryDetails#{_stage}] {ex.Message}.");
             }
             return true;
         }
@@ -116,7 +117,7 @@ namespace AutomaticProcesses
                 //
                 _stage = "Getting query details";
                 if (!GetQueryDetails(_dbt, ref _sql, ref _queryDB, ref _params))
-                    throw new Exception("Aborted!");
+                    throw new Exception("Unknown error!");
 
                 //
                 _stage = "Processing args string";
@@ -125,7 +126,7 @@ namespace AutomaticProcesses
                 //
                 _stage = "Parsing SQL";
                 if (!ParseSQL(ref _sql, _args, _params))
-                    throw new Exception("Aborted!");
+                    throw new Exception("Unknown error!");
 
                 //
                 _stage = $"Changing to {_queryDB} DB";
@@ -134,7 +135,7 @@ namespace AutomaticProcesses
                 //
                 _stage = "Executing query";
                 if (!_dbt.Query(_sql))
-                    throw new Exception("Aborted!");
+                    throw new Exception("Unknown error!");
 
                 //
                 _stage = "Converting data to dictionary";
@@ -177,9 +178,12 @@ namespace AutomaticProcesses
             }
             catch (Exception ex)
             {
-                Contents = $"[cProcess/Process#{_stage}] {ex.Message}";
-                Console.WriteLine(Contents);
                 Error = true;
+                throw new Exception($"[cProcess/Process#{_stage}] {ex.Message}");
+                
+                //Contents = $"[cProcess/Process#{_stage}] {ex.Message}";
+                //Console.WriteLine(Contents);
+                
             }
 
 

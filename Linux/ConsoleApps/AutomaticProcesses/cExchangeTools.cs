@@ -32,7 +32,7 @@ public class ExchangeAttachments : IDisposable
         }
         catch (Exception ex)
         {
-            throw new Exception($"[Connect#{_stage}] {ex.Message}");
+            throw new Exception($"[cExchangeTools/Connect#{_stage}] {ex.Message}");
         }
         return true;
     }
@@ -74,8 +74,9 @@ public class ExchangeAttachments : IDisposable
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"[{_stage}]: {ex.Message}");
-                    continue;
+                    //Console.WriteLine($"[cExchangeTools/DownloadFromExchange#{_stage}]: {ex.Message}");
+                    //continue;
+                    throw new Exception ($"[cExchangeTools/DownloadFromExchange#{_stage}]: {ex.Message}");
                 }
 
                 try
@@ -132,8 +133,9 @@ public class ExchangeAttachments : IDisposable
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"[{_stage}]: {ex.Message}");
-                    continue;
+                    //Console.WriteLine($"[{_stage}]: {ex.Message}");
+                    //continue;
+                    throw new Exception($"[cExchangeTools/DownloadFromExchange#{_stage}]: {ex.Message}");
                 }
             }
         }
@@ -179,7 +181,7 @@ public class ExchangeAttachments : IDisposable
             }
             catch(Exception ex)
             {
-                throw new Exception($"[SendEmail#{_stage}] {ex.Message}");
+                throw new Exception($"[cExchangeTools/SendEmail#{_stage}] {ex.Message}");
             }
         }
 
@@ -198,7 +200,7 @@ public class ExchangeAttachments : IDisposable
         }
         catch (Exception ex)
         {
-            throw new Exception($"[Dispose#{_stage}] {ex.Message}");
+            throw new Exception($"[cExchangeTools/Dispose#{_stage}] {ex.Message}");
         }
     }
 }
