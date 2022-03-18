@@ -10,7 +10,7 @@ public class ExchangeAttachments : IDisposable
     private string pBody = $"Results:<br><br>";
     private string pSubject = $"Capture report - {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")}";
 
-    public bool Connect(cCredentials credentials)
+    public bool Connect(cConnDetails connDetails)
     {
         string _stage = "";
 
@@ -20,7 +20,7 @@ public class ExchangeAttachments : IDisposable
             _stage = "Creating credentials";
             pExchange = new ExchangeService
             {
-                Credentials = new WebCredentials(credentials.User, credentials.Password)
+                Credentials = new WebCredentials(connDetails.User, connDetails.Password)
             };
             //
             _stage = "Using credentials";
@@ -28,7 +28,7 @@ public class ExchangeAttachments : IDisposable
             //
             _stage = "Connecting to exchange";
             //pExchange.Url = new System.Uri("https://exchange.espackeuro.com/ews/exchange.asmx");
-            pExchange.Url = new System.Uri(credentials.Server);
+            pExchange.Url = new System.Uri(connDetails.Server);
         }
         catch (Exception ex)
         {
@@ -38,7 +38,7 @@ public class ExchangeAttachments : IDisposable
     }
     public bool Connect(string userEmail, string passwordEmail,string server) 
     {
-        return Connect(new cCredentials(userEmail, passwordEmail, server, ""));
+        return Connect(new cConnDetails(userEmail, passwordEmail, server, ""));
     }
 
 

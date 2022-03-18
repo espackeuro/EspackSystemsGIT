@@ -10,11 +10,12 @@ namespace AutomaticProcesses
     class cProcess
     {
 
-        public cCredentials Credentials;
-        public string Server { get { return Credentials.Server; } set { Credentials.Server = value; } }
-        public string User { get { return Credentials.User; } set { Credentials.User = value; } }
-        public string Password { get { return Credentials.Password; } set { Credentials.Password = value; } }
-        public string DB { get { return Credentials.DB; } set { Credentials.DB = value; } }
+        public cConnDetails ConnDetails;
+        public string Server { get { return ConnDetails.Server; } set { ConnDetails.Server = value; } }
+        public string User { get { return ConnDetails.User; } set { ConnDetails.User = value; } }
+        public string Password { get { return ConnDetails.Password; } set { ConnDetails.Password = value; } }
+        public string DB { get { return ConnDetails.DB; } set { ConnDetails.DB = value; } }
+        public Nullable<int> TimeOut { get { return ConnDetails.TimeOut; } set { ConnDetails.TimeOut = value; } }
 
         public cMiscFunctions.eFileType FileType;
         public cMiscFunctions.eOrientation Orientation;
@@ -22,9 +23,9 @@ namespace AutomaticProcesses
         public int QueryNumber, PDFFontSize = 25;
         public bool NoBand, Error;
 
-        public cProcess(cCredentials credentials, int queryNumber, string args, string title, bool noBand = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT)
+        public cProcess(cConnDetails connDetails, int queryNumber, string args, string title, bool noBand = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT)
         {
-            Credentials = credentials;
+            ConnDetails = connDetails;
             QueryNumber = queryNumber;
             ArgsString = args;
             Title = title;
@@ -33,7 +34,7 @@ namespace AutomaticProcesses
             Orientation = orientation;
             FileName = fileName;
         }
-        public cProcess(string server, string user, string password, string db, int queryNumber, string args, string title, bool noBand = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT) : this(new cCredentials(server, user, password, db), queryNumber, args, title, noBand, fileName, fileType, orientation)
+        public cProcess(string server, string user, string password, string db, int queryNumber, string args, string title, bool noBand = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT) : this(new cConnDetails(server, user, password, db), queryNumber, args, title, noBand, fileName, fileType, orientation)
         {
 
         }
@@ -48,7 +49,7 @@ namespace AutomaticProcesses
                 //
                 _stage = "Checkings";
                 if (args.Count != queryParams.Count)
-                    throw new Exception($"Number of args ({args.Count}) differ the number of parameters ({queryParams.Count}).");
+                    throw new Exception($"Number of args ({args.Count}) differ the number of parameters ({queryParams.Count})");
 
                 //
                 _stage = "Matching parameters with arguments";
@@ -64,7 +65,7 @@ namespace AutomaticProcesses
             {
                 //Console.WriteLine($"[cProcess/ParseSQL#{_stage}] {ex.Message}.");
                 //return false;
-                throw new Exception($"[cProcess/ParseSQL#{_stage}] {ex.Message}.");
+                throw new Exception($"[cProcess/ParseSQL#{_stage}] {ex.Message}");
             }
             return true;
         }
@@ -78,7 +79,7 @@ namespace AutomaticProcesses
                 _stage = $"Getting SQL for query {QueryNumber}";
                 dbt.Query($"select SQL,Base_Datos from cabecera_consultas where idreg={QueryNumber}");
                 if (dbt.EOF)
-                    throw new Exception("Query not found.");
+                    throw new Exception("Query not found");
                 sql = "set dateformat dmy " + dbt.FieldValue(0).ToString();
                 queryDB = dbt.FieldValue(1);
 
@@ -91,7 +92,7 @@ namespace AutomaticProcesses
             {
                 //Console.WriteLine($"[cProcess/GetQueryDetails#{_stage}] {ex.Message}.");
                 //return false;
-                throw new Exception($"[cProcess/GetQueryDetails#{_stage}] {ex.Message}.");
+                throw new Exception($"[cProcess/GetQueryDetails#{_stage}] {ex.Message}");
             }
             return true;
         }
@@ -110,8 +111,8 @@ namespace AutomaticProcesses
 
 
                 //
-                _stage = $"Connecting to {Credentials.Server}";
-                cDBTools _dbt = new cDBTools(Credentials);
+                _stage = $"Connecting to {ConnDetails.Server}";
+                cDBTools _dbt = new cDBTools(ConnDetails);
                 _dbt.Connect();
 
                 //

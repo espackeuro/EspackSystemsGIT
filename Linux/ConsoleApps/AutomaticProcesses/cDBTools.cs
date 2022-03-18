@@ -9,11 +9,12 @@ namespace AutomaticProcesses
 {
     class cDBTools
     {
-        public cCredentials Credentials;
-        public string Server { get { return Credentials.Server; } set { Credentials.Server = value; } }
-        public string User { get { return Credentials.User; } set { Credentials.User = value; } }
-        public string Password { get { return Credentials.Password; } set { Credentials.Password = value; } }
-        public string DB { get { return Credentials.DB; } set { Credentials.DB = value; } }
+        public cConnDetails ConnDetails;
+        public string Server { get { return ConnDetails.Server; } set { ConnDetails.Server = value; } }
+        public string User { get { return ConnDetails.User; } set { ConnDetails.User = value; } }
+        public string Password { get { return ConnDetails.Password; } set { ConnDetails.Password = value; } }
+        public string DB { get { return ConnDetails.DB; } set { ConnDetails.DB = value; } }
+        public Nullable<int> TimeOut { get { return ConnDetails.TimeOut; } set { ConnDetails.TimeOut = value; } }
         public enum eRSTypes { Static, Dynamic }
         
         private static string _sql = "";
@@ -24,12 +25,12 @@ namespace AutomaticProcesses
 
         public SqlDataReader RS = null;
 
-        public cDBTools(cCredentials credentials)
+        public cDBTools(cConnDetails connDetails)
         {
-            Credentials = credentials;
+            ConnDetails = connDetails;
         }
 
-        public cDBTools(string server,string user,string password,string db):this(new cCredentials(server, user, password, db))
+        public cDBTools(string server,string user,string password,string db):this(new cConnDetails(server, user, password, db))
         {
         }
 
@@ -42,7 +43,7 @@ namespace AutomaticProcesses
                 // 
                 _stage = "Trying connection";
                 if (Conn != null)
-                    throw new Exception($"Already connected to {Server}.");
+                    throw new Exception($"Already connected to {Server}");
 
                 //
                 _stage = "Preparing connection details";
@@ -51,7 +52,10 @@ namespace AutomaticProcesses
                 _builder.UserID = User;
                 _builder.Password = Password;
                 _builder.InitialCatalog = DB;
-  
+                
+                //
+                if (TimeOut == null) TimeOut = 60;
+
                 //
                 _stage = "Opening connection";
                 Conn = new SqlConnection(_builder.ConnectionString);
@@ -62,7 +66,7 @@ namespace AutomaticProcesses
             {
                 //Console.WriteLine($"[{_stage}] {ex.Message}.");
                 //return false;
-                throw new Exception($"[cDBTools/Connect#{_stage}] {ex.Message}.");
+                throw new Exception($"[cDBTools/Connect#{_stage}] {ex.Message}");
             }
 
             // OK
@@ -77,7 +81,7 @@ namespace AutomaticProcesses
                 // 
                 _stage = "Trying desconnection";
                 if (Conn == null)
-                    throw new Exception($"Not connected.");
+                    throw new Exception($"Not connected");
 
                 //
                 _stage = "Closing connection";
@@ -93,7 +97,7 @@ namespace AutomaticProcesses
             {
                 //Console.WriteLine($"[{_stage}] {ex.Message}.");
                 //return false;
-                throw new Exception($"[cDBTools/Disconnect#{_stage}] {ex.Message}.");
+                throw new Exception($"[cDBTools/Disconnect#{_stage}] {ex.Message}");
             }
 
             // OK
@@ -107,10 +111,11 @@ namespace AutomaticProcesses
             {
                 _stage = "Checking connection";
                 if (Conn == null || Conn.State == System.Data.ConnectionState.Closed)
-                    throw new Exception("Not connected.");
-                
+                    throw new Exception("Not connected");
+
                 if (NewDB.ToUpper() == Conn.Database.ToUpper())
-                    throw new Exception($"The current DB is {NewDB} already.");
+                    return true;
+                    //throw new Exception($"The current DB is {NewDB} already.");
 
                 //
                 _stage = "Closing Data Reader";
@@ -125,7 +130,7 @@ namespace AutomaticProcesses
             {
                 //Console.WriteLine($"[ChangeDB#{_stage}] {ex.Message}.");
                 //return false;
-                throw new Exception($"[cDBTools/ChangeDB#{_stage}] {ex.Message}.");
+                throw new Exception($"[cDBTools/ChangeDB#{_stage}] {ex.Message}");
             }
             return true;
         }
@@ -138,7 +143,7 @@ namespace AutomaticProcesses
             try
             {
                 if (RSType != eRSTypes.Static)
-                    throw new Exception("Recordset type not supported yet.");
+                    throw new Exception("Recordset type not supported yet");
 
                 if (RS != null && !RS.IsClosed)
                     RS.Close();
@@ -147,7 +152,7 @@ namespace AutomaticProcesses
                 {
                     //
                     _stage = "Executing query";
-                    _cmd.CommandTimeout = 60;
+                    _cmd.CommandTimeout = (int)TimeOut;
                     RS = _cmd.ExecuteReader();
                     pEOF = !RS.HasRows;
                     if (!pEOF) RS.Read();
@@ -158,7 +163,7 @@ namespace AutomaticProcesses
             {
                 //Console.WriteLine($"[Query#{_stage}] {ex.Message}.");
                 //return false;
-                throw new Exception($"[cDBTools/Query#{_stage}] {ex.Message}.");
+                throw new Exception($"[cDBTools/Query#{_stage}] {ex.Message}");
             }
 
             // OK
@@ -177,7 +182,7 @@ namespace AutomaticProcesses
                 //
                 _stage = "Checkings";
                 if (RS is null)
-                    throw new Exception($"Recordset not defined.");
+                    throw new Exception($"Recordset not defined");
 
                 //// Just in case we had used the recordset already (it would not show all the records otherwise)
                 //if (!RS.HasRows)
@@ -224,7 +229,7 @@ namespace AutomaticProcesses
                 //
                 _stage = "Checkings";
                 if (RS is null)
-                    throw new Exception($"Recordset not defined.");
+                    throw new Exception($"Recordset not defined");
 
                 //// Just in case we had used the recordset already (it would not show all the records otherwise)
                 //if (!RS.HasRows)
@@ -249,7 +254,7 @@ namespace AutomaticProcesses
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[cDBTools/ToDictionaryKeys#{_stage}] {ex.Message}.");
+                throw new Exception($"[cDBTools/ToDictionaryKeys#{_stage}] {ex.Message}");
                 //  _dict = null;
             }
             return _dict;

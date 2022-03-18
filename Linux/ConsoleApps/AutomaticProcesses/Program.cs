@@ -22,13 +22,14 @@ namespace AutomaticProcesses
             string _stage = "";
             string _currentArgName, _currentArgValue;
             string _DBuser = "", _DBpassword = "", _DBServer = "", _DBdataBase = "";
+            Nullable<int> _DBtimeOut = null;
             string _mailServer = "", _mailUser = "", _mailPassword = "";
             string _processQuery = "", _processSubQuery = "", _processQueryParams = "", _processMailTo = "", _processMailSubject = "", _processMailErrorTo = "";
             bool _noBand = false, _noEmpty = false, _error = false;
             string _result = "", _fileName = "";
             string _myName = System.Reflection.Assembly.GetCallingAssembly().GetName().Name;
-            cCredentials _credsDB = null;
-            cCredentials _credsMail = null;
+            cConnDetails _connDetailsDB = null;
+            cConnDetails _connDetailsMail = null;
 
             try
             {
@@ -62,6 +63,9 @@ namespace AutomaticProcesses
                             break;
                         case "DB_DATABASE":
                             _DBdataBase = _currentArgValue;
+                            break;
+                        case "DB_TIMEOUT":
+                            _DBtimeOut = Int32.Parse(_currentArgValue);
                             break;
                         case "MAIL_SERVER":
                             _mailServer = _currentArgValue;
@@ -110,6 +114,9 @@ namespace AutomaticProcesses
                             break;
                         case "DB_DATABASE":
                             _DBdataBase = _currentArgValue;
+                            break;
+                        case "DB_TIMEOUT":
+                            _DBtimeOut = Int32.Parse(_currentArgValue);
                             break;
                         case "MAIL_SERVER":
                             _mailServer = _currentArgValue;
@@ -197,17 +204,18 @@ namespace AutomaticProcesses
 
                 //
                 Console.WriteLine("OK!");
+                Console.WriteLine($"> Server: {_DBServer}, Query: {_processQuery}, Params: "+(String.IsNullOrEmpty(_processQueryParams)?"NONE":_processQueryParams)+$", Title: {_processMailSubject} ");
 
                 //
                 _stage = "Defining credentials";
-                _credsDB = new cCredentials(_DBServer, _DBuser, _DBpassword, _DBdataBase);
-                _credsMail = new cCredentials(_mailServer, _mailUser, _mailPassword, "");
+                _connDetailsDB = new cConnDetails(_DBServer, _DBuser, _DBpassword, _DBdataBase, _DBtimeOut);
+                _connDetailsMail = new cConnDetails(_mailServer, _mailUser, _mailPassword);
                 //
                 _stage = "Creating process";
-                cProcess _cp = new cProcess(_credsDB, Convert.ToInt32(_processQuery), _processQueryParams, _processMailSubject, _noBand, _fileName, _fileType, _orientation);
+                cProcess _cp = new cProcess(_connDetailsDB, Convert.ToInt32(_processQuery), _processQueryParams, _processMailSubject, _noBand, _fileName, _fileType, _orientation);
 
                 //
-                Console.Write("> Executing process... ");
+                Console.Write($"> Executing process (TimeOut is {_connDetailsDB.TimeOut})... ");
                 _stage = "Executing process";
                 _result = _cp.Process();
                 _fileName = _cp.FileName;
@@ -227,46 +235,55 @@ namespace AutomaticProcesses
                 _result = $"<html><body>"+ _result.Replace("] ", "]<ul>") +"</strong></body></html>";
             }
 
-            // We send the email if email settings are defined:
-            //  - And there was an error
-            //  - Or the process worked properly and there are data to show
-            //  - Or there are no results, but _noEmpty is false
-            if (_credsMail != null && !String.IsNullOrEmpty(_credsMail.Server) && !String.IsNullOrEmpty(_credsMail.User) && !String.IsNullOrEmpty(_credsMail.Password) &&
-                (_error || _result != "" || !_noEmpty))
+            try
             {
-                try
+                // We send the email if email settings are defined:
+                //  - And there was an error
+                //  - Or the process worked properly and there are data to show
+                //  - Or there are no results, but _noEmpty is false
+                if (_connDetailsMail != null && !String.IsNullOrEmpty(_connDetailsMail.Server) && !String.IsNullOrEmpty(_connDetailsMail.User) && !String.IsNullOrEmpty(_connDetailsMail.Password))
                 {
-                    // Send errors to informatica
-                    if (_error)
+                    if (_error || !String.IsNullOrEmpty(_result) || !_noEmpty)
                     {
-                        _processMailSubject = "ERROR on " + _processMailSubject;
-                        _fileName = null;
+
+                        // Send errors to informatica
+                        if (_error)
+                        {
+                            _processMailSubject = "ERROR on " + _processMailSubject;
+                            _fileName = null;
+                        }
+
+                        //
+                        Console.Write("> Sending " + (_error ? "error " : "") + $"email... ");
+
+                        //
+                        _stage = "Connecting to email server";
+                        ExchangeAttachments _email = new ExchangeAttachments();
+                        _email.Connect(_connDetailsMail);
+
+                        //
+                        _stage = "Sending email";
+                        if (!_email.SendEmail(_error ? _processMailErrorTo : _processMailTo, _processMailSubject + DateTime.Now.ToString(" dd/MM/yyyy"), !String.IsNullOrEmpty(_result) ? _result : "<html><body>No results found / No se encontraron resultados</body></html>", _fileName))
+                            throw new Exception("Could not send the email");
+
+                        // 
+                        Console.WriteLine("OK!");
+
+                        //
+                        _stage = "Disconnecting";
+                        _email.Dispose();
                     }
-
-                    //
-                    Console.Write("> Sending " + (_error ? "error " : "") + $"email... ");
-
-                    //
-                    _stage = "Connecting to email server";
-                    ExchangeAttachments _email = new ExchangeAttachments();
-                    _email.Connect(_credsMail);
-
-                    //
-                    _stage = "Sending email";
-                    if (!_email.SendEmail(_error?_processMailErrorTo:_processMailTo, _processMailSubject + DateTime.Now.ToString(" dd/MM/yyyy"), !String.IsNullOrEmpty(_result) ? _result : "<html><body>No results found / No se encontraron resultados</body></html>", _fileName))
-                        throw new Exception("Could not send the email.");
-
-                    // 
-                    Console.WriteLine("OK!");
-
-                    //
-                    _stage = "Disconnecting";
-                    _email.Dispose();
+                    else
+                    {
+                        //
+                        Console.WriteLine("> Empty results & NOEMPTY is set... Email skipped.");
+                    }
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"[Main#{_stage}] {ex.Message}");
-                }
+ 
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[Main#{_stage}] {ex.Message}.");
             }
 
             // End message
