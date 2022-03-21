@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace AutomaticProcesses
 {
@@ -22,9 +23,9 @@ namespace AutomaticProcesses
             string _stage = "";
             string _currentArgName, _currentArgValue;
             string _DBuser = "", _DBpassword = "", _DBServer = "", _DBdataBase = "";
-            Nullable<int> _DBtimeOut = null;
             string _mailServer = "", _mailUser = "", _mailPassword = "";
-            string _processQuery = "", _processSubQuery = "", _processQueryParams = "", _processMailTo = "", _processMailSubject = "", _processMailErrorTo = "";
+            Nullable<int> _DBtimeOut = null, _processQuery = null, _processSubQuery = null;
+            string /*_processQuery = "",*/ _processQueryParams = "", _processMailTo = "", _processMailSubject = "", _processMailErrorTo = "";
             bool _noBand = false, _noEmpty = false, _error = false;
             string _result = "", _fileName = "";
             string _myName = System.Reflection.Assembly.GetCallingAssembly().GetName().Name;
@@ -128,7 +129,7 @@ namespace AutomaticProcesses
                             _mailPassword = _currentArgValue;
                             break;
                         case "QUERY":
-                            _processQuery = _currentArgValue;
+                            if (!String.IsNullOrEmpty(_currentArgValue)) _processQuery = Convert.ToInt32(_currentArgValue);
                             break;
                         case "PARAMS":
                             _processQueryParams = _currentArgValue;
@@ -157,7 +158,7 @@ namespace AutomaticProcesses
                             _orientation = _orien;
                             break;
                         case "SUBQUERY":
-                            _processSubQuery = _currentArgValue;
+                            if (!String.IsNullOrEmpty(_currentArgValue)) _processSubQuery = Convert.ToInt32(_currentArgValue);
                             break;
                         case "ERR_TO":
                             _processMailErrorTo = _currentArgValue;
@@ -173,7 +174,7 @@ namespace AutomaticProcesses
 
                 // Check mandatory arguments
                 _stage = "Checking settings";
-                if (String.IsNullOrEmpty(_processQuery))
+                if (_processQuery is null)
                     throw new Exception("Query number is mandatory: QUERY=<QueryNumber>");
                 if (String.IsNullOrEmpty(_DBServer))
                     throw new Exception("DB server is mandatory: DB_SERVER=<ServerAddress>");
@@ -212,13 +213,54 @@ namespace AutomaticProcesses
                 _connDetailsMail = new cConnDetails(_mailServer, _mailUser, _mailPassword);
                 //
                 _stage = "Creating process";
-                cProcess _cp = new cProcess(_connDetailsDB, Convert.ToInt32(_processQuery), _processQueryParams, _processMailSubject, _noBand, _fileName, _fileType, _orientation);
+                cProcess _cp = new cProcess(_connDetailsDB, _processQuery, _processQueryParams, _processMailSubject, _processSubQuery, _noBand, _fileName, _fileType, _orientation);
 
                 //
                 Console.Write($"> Executing process (TimeOut is {_connDetailsDB.TimeOut})... ");
                 _stage = "Executing process";
                 _result = _cp.Process();
+
+
+                cProcess _csp;
+
+                //
+                if (_cp.SubQueryNumber!=null)
+                {
+                    foreach(var _currentRow in _cp.Results )
+                    {
+
+                        // Init the params for current subprocess
+                        _processQueryParams = "";
+                        _processMailSubject = _currentRow.Value["MAILSUBJECT"];
+                        _processMailTo = _currentRow.Value["MAILTO"];
+
+                        // Go for each field
+                        foreach (var _field in _currentRow.Value)
+                        {
+                            // Add the parameter for the subquery, except for 
+                            switch (_field.Key.ToUpper())
+                            {
+                                case "MAILSUBJECT":
+                                    _processMailSubject = _field.Value;
+                                    break;
+                                case "MAILTO":
+                                    _processMailTo = _field.Value;
+                                    break;
+                                default:
+                                    _processQueryParams += $"{_field.Key}={_field.Value} ";
+                                    break;
+                            }
+                        }
+
+                        _csp = null;
+                        _csp = new cProcess(_connDetailsDB, _processSubQuery, _processQueryParams, _processMailSubject, null, _noBand);
+                        _csp.Process();
+                    }
+                }
                 _fileName = _cp.FileName;
+                _cp = null;
+
+
 
                 //
                 Console.WriteLine("OK!");
@@ -229,10 +271,16 @@ namespace AutomaticProcesses
                 Console.WriteLine(_result);
                 _error = true;
 
-                // Prepare the _result message for the email in html format 
-                int _i = _result.LastIndexOf("] ");
-                _result = _result.Substring(0, _i) + "]<ul><strong>" + _result.Substring(_i + 2);
-                _result = $"<html><body>"+ _result.Replace("] ", "]<ul>") +"</strong></body></html>";
+                // Prepare the _result message for the email.
+                _processQueryParams = String.IsNullOrEmpty(_processQueryParams) ? "NONE" : _processQueryParams;
+                
+                // Match the last occurrence of [xxx#xxx] to ensure it's part of our error message, not part of the system error. This is to show the error message in bold.
+                Match _match = Regex.Match(_result, @"\[([^\[]*)#([^\[]*)\]", RegexOptions.RightToLeft);
+                int _i = _match.Index+_match.Length;
+
+                // Set to bold the error message, ignoring all the "call stack" string, and prepare the html code.
+                _result = _result.Substring(0, _i) + "<ul><strong>" + _result.Substring(_i + 1);
+                _result = "<html><body>Query: "+ _processQuery == null ? "NONE" : _processQuery + $"<br>Params: {_processQueryParams}<br>Error:<br>"+ _result.Replace("] ", "]<ul>") +"</strong></body></html>";
             }
 
             try
