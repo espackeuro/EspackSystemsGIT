@@ -2,6 +2,9 @@
 using System.Text;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace AutomaticProcesses
 {
@@ -21,16 +24,21 @@ namespace AutomaticProcesses
             pDebug = false;
 #endif
             string _stage = "";
+            string _myName = System.Reflection.Assembly.GetCallingAssembly().GetName().Name;
             string _currentArgName, _currentArgValue;
+
             string _DBuser = "", _DBpassword = "", _DBServer = "", _DBdataBase = "";
             string _mailServer = "", _mailUser = "", _mailPassword = "";
             Nullable<int> _DBtimeOut = null, _processQuery = null, _processSubQuery = null;
-            string /*_processQuery = "",*/ _processQueryParams = "", _processMailTo = "", _processMailSubject = "", _processMailErrorTo = "";
+            string _processQueryParams = "", _processMailTo = "", _processMailSubject = "", _processMailErrorTo = "";
             bool _noBand = false, _noEmpty = false, _error = false;
             string _result = "", _fileName = "";
-            string _myName = System.Reflection.Assembly.GetCallingAssembly().GetName().Name;
+            
             cConnDetails _connDetailsDB = null;
             cConnDetails _connDetailsMail = null;
+            List<cProcess> _procList = null;
+            List<Task> _taskList = null;
+            //List<Tuple<cProcess,Task>> _taskList = null;
 
             try
             {
@@ -211,52 +219,70 @@ namespace AutomaticProcesses
                 _stage = "Defining credentials";
                 _connDetailsDB = new cConnDetails(_DBServer, _DBuser, _DBpassword, _DBdataBase, _DBtimeOut);
                 _connDetailsMail = new cConnDetails(_mailServer, _mailUser, _mailPassword);
-                //
-                _stage = "Creating process";
-                cProcess _cp = new cProcess(_connDetailsDB, _processQuery, _processQueryParams, _processMailSubject, _processSubQuery, _noBand, _fileName, _fileType, _orientation);
-
-                //
-                Console.Write($"> Executing process (TimeOut is {_connDetailsDB.TimeOut})... ");
-                _stage = "Executing process";
-                _result = _cp.Process();
-
-
-                cProcess _csp;
-
-                //
-                if (_cp.SubQueryNumber!=null)
+                
+                // When the main process has a subquery, a list of processes will be generated from its results
+                _stage = "Creating process/es";
+                _procList = new List<cProcess>(); //new Dictionary<int, cProcess>();
+                _taskList = new List<Task>();
+                cProcess _cp = new cProcess(_connDetailsDB, _processQuery, _processQueryParams, _processMailSubject, _processMailTo, _processSubQuery, _noBand, _fileName, _fileType, _orientation);
+                cProcess _cpSub=null;
+                Console.Write($"> Executing {(_processSubQuery!=null?"parent":"")} process (TimeOut is {_connDetailsDB.TimeOut})... ");
+                if (_processSubQuery != null)
                 {
-                    foreach(var _currentRow in _cp.Results )
+                    //
+                    _stage = "Executing parent process";
+                     _cp.Process();
+
+                    foreach (var _currentRow in _cp.Results)
                     {
 
                         // Init the params for current subprocess
                         _processQueryParams = "";
-                        _processMailSubject = _currentRow.Value["MAILSUBJECT"];
-                        _processMailTo = _currentRow.Value["MAILTO"];
 
                         // Go for each field
                         foreach (var _field in _currentRow.Value)
                         {
                             // Add the parameter for the subquery, except for 
-                            switch (_field.Key.ToUpper())
-                            {
-                                case "MAILSUBJECT":
-                                    _processMailSubject = _field.Value;
-                                    break;
-                                case "MAILTO":
-                                    _processMailTo = _field.Value;
-                                    break;
-                                default:
-                                    _processQueryParams += $"{_field.Key}={_field.Value} ";
-                                    break;
-                            }
+                            if (_field.Key.ToUpper() != "MAILSUBJECT" && _field.Key.ToUpper() != "MAILTO")
+                                _processQueryParams += $"{_field.Key}={_field.Value} ";
                         }
-
-                        _csp = null;
-                        _csp = new cProcess(_connDetailsDB, _processSubQuery, _processQueryParams, _processMailSubject, null, _noBand);
-                        _csp.Process();
+                        //_procList.Add(new cProcess(_connDetailsDB, _processQuery, _processQueryParams, _currentRow.Value.ContainsKey("MAILSUBJECT")? _currentRow.Value["MAILSUBJECT"]:_processMailSubject, _currentRow.Value.ContainsKey("MAILTO") ? _currentRow.Value["MAILTO"] : _processMailTo));
+                        _cpSub = new cProcess(_connDetailsDB, _processQuery, _processQueryParams, _currentRow.Value.ContainsKey("MAILSUBJECT") ? _currentRow.Value["MAILSUBJECT"] : _processMailSubject, "dvalles@espackeuro.com");
+                        _procList.Add(_cpSub);
+                        _taskList.Add(Task.Run(() => _cpSub.Process()));
                     }
                 }
+                else
+                {
+                    // Adding single process
+                    _procList.Add(_cp);
+                    _taskList.Add(Task.Run(() => _cp.Process()));
+                    //_tskList.Add(Task.Run(() => _cp.Process()));
+                }
+
+                while (_taskList.Any())
+                {
+                    Task _finished = Task.WhenAny(_taskList);
+                    _taskList.Remove(_finished);
+                    if (_finished!=null) Console.WriteLine($"Finished {_finished}");
+
+//                    Task _finished = await Task.WhenAny(_tskList);
+                }
+
+                //foreach (var _task in _taskList)
+                //{
+                //    //var _procTask = await Task.Run(() => _proc.Process());
+                //    Task.Run(() => ExecuteProcess(_proc));
+                //    //Task.Run(() => _proc.Process());
+                //    //if (ControlPort != 0)
+                //    //    Task.Run(() => StartServer(ControlPort));
+
+                //}
+                //
+                Console.Write($"> Executing {_procList.Count} process{(_procList.Count > 1 ? "es" : "")} (TimeOut is {_connDetailsDB.TimeOut})... ");
+
+
+
                 _fileName = _cp.FileName;
                 _cp = null;
 
@@ -338,5 +364,21 @@ namespace AutomaticProcesses
             Console.WriteLine($"----==== Ending [{_myName}] at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} ====----");
         }
 
+        static async Task ExecuteProcess(cProcess process)
+        {
+
+
+            Console.Write($">> Executing {process.ArgsString} ...");
+            await process.Process();
+
+
+            Console.WriteLine($" Launched!");
+        }
+        static async Task DoAwait(List<Task> task)
+        {
+
+            Task _finished = await Task.WhenAny(task);
+            Console.WriteLine($"Finished {_finished.Id}");
+        }
     }
 }

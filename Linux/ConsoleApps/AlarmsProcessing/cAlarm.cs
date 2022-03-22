@@ -41,7 +41,7 @@ namespace AlarmsProcessing
         public void Process()
         {
             string _where, _dateField, _sql;
-            string _stage;
+            string _stage = "";
             List<string> _xmlFields = new List<string>();
 
             _where = string.IsNullOrEmpty(SelectCondition) ? "" : " and (" + SelectCondition + ")";
@@ -75,7 +75,7 @@ namespace AlarmsProcessing
             }
             _sql += $" order by {_dateField}";
 
-            Console.WriteLine(_sql);
+            Console.WriteLine($"{_stage}/{_sql}");
         }
 
         public void Dispose()

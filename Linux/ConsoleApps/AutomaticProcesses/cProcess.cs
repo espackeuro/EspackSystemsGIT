@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using System.Linq;
 using System.Web;
+using System.Threading.Tasks;
 
 namespace AutomaticProcesses
 {
@@ -17,13 +18,16 @@ namespace AutomaticProcesses
         public string DB { get { return ConnDetails.DB; } set { ConnDetails.DB = value; } }
         public Nullable<int> TimeOut { get { return ConnDetails.TimeOut; } set { ConnDetails.TimeOut = value; } }
 
+
+        public Nullable<int> QueryNumber, SubQueryNumber;
         public cMiscFunctions.eFileType FileType;
         public cMiscFunctions.eOrientation Orientation;
-        public string ArgsString, FileName, Title, Contents = "";
-        public int QueryNumber, PDFFontSize = 25;
+        public string ArgsString, FileName, Title, MailTo, Contents = "";
+        public int PDFFontSize = 25;
         public bool NoBand, Error;
+        public Dictionary<int, Dictionary<string, string>> Results = null;
 
-        public cProcess(cConnDetails connDetails, int queryNumber, string args, string title, bool noBand = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT)
+        public cProcess(cConnDetails connDetails, Nullable<int> queryNumber, string args, string title, string mailTo,Nullable<int> subQueryNumber =null,bool noBand = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT)
         {
             ConnDetails = connDetails;
             QueryNumber = queryNumber;
@@ -33,8 +37,10 @@ namespace AutomaticProcesses
             FileType = fileType;
             Orientation = orientation;
             FileName = fileName;
+            SubQueryNumber = subQueryNumber;
+            MailTo = mailTo;
         }
-        public cProcess(string server, string user, string password, string db, int queryNumber, string args, string title, bool noBand = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT) : this(new cConnDetails(server, user, password, db), queryNumber, args, title, noBand, fileName, fileType, orientation)
+        public cProcess(string server, string user, string password, string db, Nullable<int> queryNumber, string args, string title, string mailTo,Nullable<int> subQueryNumber = null, bool noBand = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT) : this(new cConnDetails(server, user, password, db), queryNumber, args, title, mailTo, subQueryNumber, noBand, fileName, fileType, orientation)
         {
 
         }
@@ -96,13 +102,12 @@ namespace AutomaticProcesses
             }
             return true;
         }
-        public string Process()
+        public async Task Process()
         {
             string _stage = "";
             Dictionary<string, string> _params = null;
-            Dictionary<int, Dictionary<string, string>> _result = null;
             Dictionary<int, string> _args;
-            string _sql = "", _queryDB = "", _fullFilePath, _filePath;
+            string _sql = "", _queryDB = "";
 
             try
             {
@@ -140,31 +145,39 @@ namespace AutomaticProcesses
 
                 //
                 _stage = "Converting data to dictionary";
-                if (_dbt.RS.HasRows) _result = _dbt.ToDictionary();
+                if (_dbt.RS.HasRows)
+                    Results = _dbt.ToDictionary();
+                
+
+                // Disconnect from DB
                 _dbt.Disconnect();
 
-                if (_result == null)
+                // If no results, exit with empty content. This also works for queries with SubQuery, which have to be treated in a different way
+                if (Results == null || SubQueryNumber != null)
                 {
+                    Contents = null;
                     FileName = null;
-                    return null;
+                    return;
                 }
-            
+
                 //
                 switch (FileType)
                 {
                     case cMiscFunctions.eFileType.TXT:
+
+                        // For TXT queries
                         _stage = "Converting data to TXT";
-                        ProcessTXT(_result);
+                        ProcessTXT(Results);
                         FileName = ToFile();
                         break;
                     case cMiscFunctions.eFileType.HTML:
                     case cMiscFunctions.eFileType.XLS:
                         
-                        //
+                        // Create HTML contents
                         _stage = "Converting data to HTML";
-                        ProcessHTML(_result, Title, "", NoBand);
+                        ProcessHTML(Results, Title, "", NoBand);
                         
-                        //
+                        // For XLS files only
                         if (FileType == cMiscFunctions.eFileType.XLS)
                         {
                             _stage = "Converting data to XLS";
@@ -181,15 +194,10 @@ namespace AutomaticProcesses
             {
                 Error = true;
                 throw new Exception($"[cProcess/Process#{_stage}] {ex.Message}");
-                
-                //Contents = $"[cProcess/Process#{_stage}] {ex.Message}";
-                //Console.WriteLine(Contents);
-                
             }
 
-
-            //function recorset_proceso($args= Array())
-            return Contents;
+            // Return the string of contents in html
+            return;
         }
 
         private string ToFile()
@@ -248,7 +256,7 @@ namespace AutomaticProcesses
 
         public void ProcessHTML(Dictionary<int, Dictionary<string, string>> data, string title, string orientation, bool noBand = false, bool excel = false)
         {
-            string _stage = "";
+            //string _stage = "";
             string _html = "";
             string _extra = (noBand ? "border-bottom-style: solid;" : "");
             int fontSize = 11;
