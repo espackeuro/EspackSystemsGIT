@@ -26,6 +26,7 @@ namespace AutomaticProcesses
         public int PDFFontSize = 25;
         public bool NoBand, Error;
         public Dictionary<int, Dictionary<string, string>> Results = null;
+        public bool Completed = false;
 
         public cProcess(cConnDetails connDetails, Nullable<int> queryNumber, string args, string title, string mailTo,Nullable<int> subQueryNumber =null,bool noBand = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT)
         {
@@ -113,7 +114,7 @@ namespace AutomaticProcesses
             {
                 //
                 _stage = $"Check process args";
-
+                Console.WriteLine($">> Executing {QueryNumber}/{ArgsString}");
 
                 //
                 _stage = $"Connecting to {ConnDetails.Server}";
@@ -157,6 +158,8 @@ namespace AutomaticProcesses
                 {
                     Contents = null;
                     FileName = null;
+                    Completed = true;
+                    Console.WriteLine($">> {QueryNumber}/{ArgsString} completed!");
                     return;
                 }
 
@@ -193,10 +196,13 @@ namespace AutomaticProcesses
             catch (Exception ex)
             {
                 Error = true;
+                Completed = true;
                 throw new Exception($"[cProcess/Process#{_stage}] {ex.Message}");
             }
 
             // Return the string of contents in html
+            Completed = true;
+            Console.WriteLine($">> {QueryNumber}/{ArgsString} completed!");
             return;
         }
 
@@ -254,7 +260,7 @@ namespace AutomaticProcesses
             return;
         }
 
-        public void ProcessHTML(Dictionary<int, Dictionary<string, string>> data, string title, string orientation, bool noBand = false, bool excel = false)
+        private void ProcessHTML(Dictionary<int, Dictionary<string, string>> data, string title, string orientation, bool noBand = false, bool excel = false)
         {
             //string _stage = "";
             string _html = "";

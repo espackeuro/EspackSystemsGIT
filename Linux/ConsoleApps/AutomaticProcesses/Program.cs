@@ -4,6 +4,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AutomaticProcesses
@@ -231,7 +232,12 @@ namespace AutomaticProcesses
                 {
                     //
                     _stage = "Executing parent process";
-                     _cp.Process();
+                    var _task = _cp.Process();
+                    //var result = _task.GetAwaiter();
+                    //while (!result.IsCompleted)
+                    //{
+                    //    Console.WriteLine("ESPERANDING!!");
+                    //}
 
                     foreach (var _currentRow in _cp.Results)
                     {
@@ -244,30 +250,36 @@ namespace AutomaticProcesses
                         {
                             // Add the parameter for the subquery, except for 
                             if (_field.Key.ToUpper() != "MAILSUBJECT" && _field.Key.ToUpper() != "MAILTO")
-                                _processQueryParams += $"{_field.Key}={_field.Value} ";
+                                _processQueryParams += $"{_field.Value} ";
                         }
                         //_procList.Add(new cProcess(_connDetailsDB, _processQuery, _processQueryParams, _currentRow.Value.ContainsKey("MAILSUBJECT")? _currentRow.Value["MAILSUBJECT"]:_processMailSubject, _currentRow.Value.ContainsKey("MAILTO") ? _currentRow.Value["MAILTO"] : _processMailTo));
-                        _cpSub = new cProcess(_connDetailsDB, _processQuery, _processQueryParams, _currentRow.Value.ContainsKey("MAILSUBJECT") ? _currentRow.Value["MAILSUBJECT"] : _processMailSubject, "dvalles@espackeuro.com");
+                        _cpSub = new cProcess(_connDetailsDB, _processSubQuery, _processQueryParams, _currentRow.Value.ContainsKey("MAILSUBJECT") ? _currentRow.Value["MAILSUBJECT"] : _processMailSubject, "dvalles@espackeuro.com");
                         _procList.Add(_cpSub);
-                        _taskList.Add(Task.Run(() => _cpSub.Process()));
+                         //ExecuteProcess(_cpSub);
+                        //_cpSub.Process();
+
                     }
                 }
                 else
                 {
                     // Adding single process
                     _procList.Add(_cp);
+                    //_taskList.Add(Task.Run(() => _cp.Process()));
                     _taskList.Add(Task.Run(() => _cp.Process()));
-                    //_tskList.Add(Task.Run(() => _cp.Process()));
                 }
 
-                while (_taskList.Any())
+                foreach (var _item in _procList)
                 {
-                    Task _finished = Task.WhenAny(_taskList);
-                    _taskList.Remove(_finished);
-                    if (_finished!=null) Console.WriteLine($"Finished {_finished}");
-
-//                    Task _finished = await Task.WhenAny(_tskList);
+                    _taskList.Add(Task.Run(() => _item.Process()));
                 }
+
+                while (_procList.Any())
+                {
+                    _procList.RemoveAll(p => p.Completed); // Select(p => p.Completed).ToList().Remove;
+                    Console.WriteLine($">>> Pending tasks: {_procList.Count}");
+                    Thread.Sleep(1000);
+                }
+                //DoAwait(_taskList);
 
                 //foreach (var _task in _taskList)
                 //{
@@ -308,7 +320,7 @@ namespace AutomaticProcesses
                 _result = _result.Substring(0, _i) + "<ul><strong>" + _result.Substring(_i + 1);
                 _result = "<html><body>Query: "+ _processQuery == null ? "NONE" : _processQuery + $"<br>Params: {_processQueryParams}<br>Error:<br>"+ _result.Replace("] ", "]<ul>") +"</strong></body></html>";
             }
-
+            /*
             try
             {
                 // We send the email if email settings are defined:
@@ -359,7 +371,7 @@ namespace AutomaticProcesses
             {
                 Console.WriteLine($"[Main#{_stage}] {ex.Message}.");
             }
-
+            */
             // End message
             Console.WriteLine($"----==== Ending [{_myName}] at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} ====----");
         }
@@ -368,17 +380,23 @@ namespace AutomaticProcesses
         {
 
 
-            Console.Write($">> Executing {process.ArgsString} ...");
+            //Console.Write($">> Executing {process.ArgsString} ...");
             await process.Process();
 
 
-            Console.WriteLine($" Launched!");
+            //Console.WriteLine($" Launched!");
         }
-        static async Task DoAwait(List<Task> task)
+        static async Task DoAwait(List<Task> taskList)
         {
 
-            Task _finished = await Task.WhenAny(task);
-            Console.WriteLine($"Finished {_finished.Id}");
+            while (taskList.Any())
+            {
+                Task _finished = await Task.WhenAny(taskList);
+                taskList.Remove(_finished);
+                if (_finished.IsCompleted) Console.WriteLine($"Finished {_finished.Id}");
+
+                //                    Task _finished = await Task.WhenAny(_tskList);
+            }
         }
     }
 }
