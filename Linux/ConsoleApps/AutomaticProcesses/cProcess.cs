@@ -5,32 +5,36 @@ using System.Text;
 using System.Linq;
 using System.Web;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace AutomaticProcesses
 {
     class cProcess
     {
-
-        public cConnDetails ConnDetails;
-        public string Server { get { return ConnDetails.Server; } set { ConnDetails.Server = value; } }
-        public string User { get { return ConnDetails.User; } set { ConnDetails.User = value; } }
-        public string Password { get { return ConnDetails.Password; } set { ConnDetails.Password = value; } }
-        public string DB { get { return ConnDetails.DB; } set { ConnDetails.DB = value; } }
-        public Nullable<int> TimeOut { get { return ConnDetails.TimeOut; } set { ConnDetails.TimeOut = value; } }
-
+        public cConnDetails ConnDetailsDB;
+        public cConnDetails ConnDetailsMail;
+        public string DBServer { get { return ConnDetailsDB.Server; } set { ConnDetailsDB.Server = value; } }
+        public string DBUser { get { return ConnDetailsDB.User; } set { ConnDetailsDB.User = value; } }
+        public string DBPassword { get { return ConnDetailsDB.Password; } set { ConnDetailsDB.Password = value; } }
+        public string DB { get { return ConnDetailsDB.DB; } set { ConnDetailsDB.DB = value; } }
+        public Nullable<int> TimeOut { get { return ConnDetailsDB.TimeOut; } set { ConnDetailsDB.TimeOut = value; } }
+        public string MailServer { get { return ConnDetailsMail.Server; } set { ConnDetailsMail.Server = value; } }
+        public string MailUser { get { return ConnDetailsMail.User; } set { ConnDetailsMail.User = value; } }
+        public string MailPassword { get { return ConnDetailsMail.Password; } set { ConnDetailsMail.Password = value; } }
+        public bool NoSend { get { return (!Error && String.IsNullOrEmpty(Contents) && NoEmpty); } }
 
         public Nullable<int> QueryNumber, SubQueryNumber;
         public cMiscFunctions.eFileType FileType;
         public cMiscFunctions.eOrientation Orientation;
-        public string ArgsString, FileName, Title, MailTo, Contents = "";
+        public string ArgsString, FileName, Title, MailTo, MailErrorTo, ErrorMessage, EmptyMessage, Contents = "";
         public int PDFFontSize = 25;
-        public bool NoBand, Error;
+        public bool NoBand, Error, NoEmpty, MailSkipped;
         public Dictionary<int, Dictionary<string, string>> Results = null;
-        public bool Completed = false;
 
-        public cProcess(cConnDetails connDetails, Nullable<int> queryNumber, string args, string title, string mailTo,Nullable<int> subQueryNumber =null,bool noBand = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT)
+        public cProcess(cConnDetails connDetailsDB, cConnDetails connDetailsMail, Nullable<int> queryNumber, string args, string title, string mailTo, string mailErrorTo, Nullable<int> subQueryNumber =null, string emptyMessage = null, bool noBand = false, bool noEmpty = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT)
         {
-            ConnDetails = connDetails;
+            ConnDetailsDB = connDetailsDB;
+            ConnDetailsMail = connDetailsMail;
             QueryNumber = queryNumber;
             ArgsString = args;
             Title = title;
@@ -40,8 +44,15 @@ namespace AutomaticProcesses
             FileName = fileName;
             SubQueryNumber = subQueryNumber;
             MailTo = mailTo;
+            MailErrorTo = mailErrorTo;
+            NoEmpty = noEmpty;
+            EmptyMessage = emptyMessage;
         }
-        public cProcess(string server, string user, string password, string db, Nullable<int> queryNumber, string args, string title, string mailTo,Nullable<int> subQueryNumber = null, bool noBand = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT) : this(new cConnDetails(server, user, password, db), queryNumber, args, title, mailTo, subQueryNumber, noBand, fileName, fileType, orientation)
+        public cProcess(string serverDB, string userDB, string passwordDB, string db, cConnDetails connDetailsMail, Nullable<int> queryNumber, string args, string title, string mailTo, string mailErrorTo, Nullable<int> subQueryNumber = null, string emptyMessage = null, bool noBand = false, bool noEmpty = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT) : this(new cConnDetails(serverDB, userDB, passwordDB, db), connDetailsMail, queryNumber, args, title, mailTo, mailErrorTo, subQueryNumber, emptyMessage, noBand, noEmpty, fileName, fileType, orientation)
+        {
+
+        }
+        public cProcess(cConnDetails connDetailsDB, string serverMail, string userMail, string passwordMail,Nullable<int> queryNumber, string args, string title, string mailTo, string mailErrorTo, Nullable<int> subQueryNumber = null, string emptyMessage = null, bool noBand = false, bool noEmpty = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT) : this(connDetailsDB, new cConnDetails(serverMail, userMail, passwordMail), queryNumber, args, title, mailTo, mailErrorTo, subQueryNumber, emptyMessage, noBand, noEmpty, fileName, fileType, orientation)
         {
 
         }
@@ -113,12 +124,12 @@ namespace AutomaticProcesses
             try
             {
                 //
-                _stage = $"Check process args";
-                Console.WriteLine($">> Executing {QueryNumber}/{ArgsString}");
+                //_stage = $"Check process args";
+                //Console.WriteLine($">> Executing {QueryNumber}/{ArgsString}");
 
                 //
-                _stage = $"Connecting to {ConnDetails.Server}";
-                cDBTools _dbt = new cDBTools(ConnDetails);
+                _stage = $"Connecting to {ConnDetailsDB.Server}";
+                cDBTools _dbt = new cDBTools(ConnDetailsDB);
                 _dbt.Connect();
 
                 //
@@ -149,7 +160,6 @@ namespace AutomaticProcesses
                 if (_dbt.RS.HasRows)
                     Results = _dbt.ToDictionary();
                 
-
                 // Disconnect from DB
                 _dbt.Disconnect();
 
@@ -158,7 +168,6 @@ namespace AutomaticProcesses
                 {
                     Contents = null;
                     FileName = null;
-                    Completed = true;
                     Console.WriteLine($">> {QueryNumber}/{ArgsString} completed!");
                     return;
                 }
@@ -195,14 +204,26 @@ namespace AutomaticProcesses
             }
             catch (Exception ex)
             {
-                Error = true;
-                Completed = true;
-                throw new Exception($"[cProcess/Process#{_stage}] {ex.Message}");
-            }
+                //Console.WriteLine($"[cProcess#Process] {QueryNumber}/{ArgsString}: {ex.Message}");
+                ErrorMessage = $"[cProcess#Process] {ex.Message}";
+                Console.WriteLine(ErrorMessage);
 
-            // Return the string of contents in html
-            Completed = true;
-            Console.WriteLine($">> {QueryNumber}/{ArgsString} completed!");
+                // Prepare the _result message for the email.
+                string _processQueryParams = String.IsNullOrEmpty(ArgsString) ? "NONE" : ArgsString;
+                string _processQuery = (QueryNumber == null) ? "NONE" : QueryNumber.ToString();
+
+                // Match the last occurrence of [xxx#xxx] to ensure it's part of our error message, not part of the system error. This is to show the error message in bold.
+                Match _match = Regex.Match(ErrorMessage, @"\[([^\[]*)#([^\[]*)\]", RegexOptions.RightToLeft);
+                int _i = _match.Index + _match.Length;
+
+                // Set to bold the error message, ignoring all the "call stack" string, and prepare the html code.
+                Contents = ErrorMessage.Substring(0, _i) + "<ul><strong>" + ErrorMessage.Substring(_i + 1);
+                Contents = $"<html><body>Query: {_processQuery}<br>Params: {_processQueryParams}<br>Error:<br>" + Contents.Replace("] ", "]<ul>") + "</strong></body></html>";
+
+                //
+                Error = true;
+            }
+//            Console.WriteLine($">> FINISHED: {ArgsString}!");
             return;
         }
 
@@ -521,8 +542,64 @@ namespace AutomaticProcesses
             string _result = _regHtml.Replace(HttpUtility.HtmlEncode(html), "");
             return _result;
         }
+        public void SendEmail()
+        {
+            string _stage = "";
+            try
+            {
+                // We send the email if email settings are defined:
+                //  - And there was an error
+                //  - Or the process worked properly and there are data to show
+                //  - Or there are no results, but _noEmpty is false
+                if (ConnDetailsMail != null && !String.IsNullOrEmpty(ConnDetailsMail.Server) && !String.IsNullOrEmpty(ConnDetailsMail.User) && !String.IsNullOrEmpty(ConnDetailsMail.Password))
+                {
+                    if (!NoSend)
+                    {
+
+                        // Send errors to informatica
+                        if (Error)
+                        {
+                            Title = "ERROR on " + Title;
+                            FileName = null;
+                        }
+
+                        MailErrorTo = "dvalles@espackeuro.com";
+                        MailTo = "dvalles@espackeuro.com";
+
+                        //
+                        Console.Write($"> Sending {(Error ? "error " : "")}email ({QueryNumber}/{ArgsString})... ");
+
+                        //
+                        _stage = "Connecting to email server";
+                        ExchangeAttachments _email = new ExchangeAttachments();
+                        _email.Connect(ConnDetailsMail);
+
+                        //
+                        Contents = !String.IsNullOrEmpty(Contents) ? Contents : $"<html><body>{(!String.IsNullOrEmpty(EmptyMessage) ? EmptyMessage : "No results found / No se encontraron resultados")}</body></html>";
+                        _stage = "Sending email";
+                        if (!_email.SendEmail(Error ? MailErrorTo : MailTo, $"{Title} {DateTime.Now.ToString("dd/MM/yyyy")}", Contents , FileName))
+                            throw new Exception("Could not send the email");
+
+                        // 
+                        Console.WriteLine("OK!");
+
+                        //
+                        _stage = "Disconnecting";
+                        _email.Dispose();
+                    }
+                    else
+                    {
+                        //
+                        MailSkipped = true;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[Main#{_stage}] {ex.Message}.");
+            }
+
+        }
     }
-
-
-
 }

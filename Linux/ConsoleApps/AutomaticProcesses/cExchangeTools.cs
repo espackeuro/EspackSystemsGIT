@@ -169,7 +169,7 @@ public class ExchangeAttachments : IDisposable
                 if (filePath != null) _message.Attachments.AddFileAttachment(filePath);
                 foreach (string _sendTo in sendTo.Split(","))
                 {
-                    _message.ToRecipients.Add(_sendTo);
+                    _message.ToRecipients.Add(_sendTo.Trim());
                 }
 
                 _stage = "Saving message";

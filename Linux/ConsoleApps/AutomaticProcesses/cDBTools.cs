@@ -135,7 +135,7 @@ namespace AutomaticProcesses
             return true;
         }
 
-         public bool Query(string SQL,eRSTypes RSType=eRSTypes.Static)
+        public bool Query(string SQL, eRSTypes RSType = eRSTypes.Static)
         {
             string _stage = "";
             _sql = SQL;
