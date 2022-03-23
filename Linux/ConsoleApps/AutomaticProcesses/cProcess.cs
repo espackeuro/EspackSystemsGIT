@@ -563,9 +563,6 @@ namespace AutomaticProcesses
                             FileName = null;
                         }
 
-                        MailErrorTo = "dvalles@espackeuro.com";
-                        MailTo = "dvalles@espackeuro.com";
-
                         //
                         Console.Write($"> Sending {(Error ? "error " : "")}email ({QueryNumber}/{ArgsString})... ");
 
