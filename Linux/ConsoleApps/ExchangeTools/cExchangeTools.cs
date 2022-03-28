@@ -10,7 +10,7 @@ public class ExchangeAttachments : IDisposable
     private string pBody = $"Results:<br><br>";
     private string pSubject = $"Capture report - {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")}";
 
-    public bool Connect(cCredentials credentials)
+    public bool Connect(cConnDetails connDetails)
     {
         string _stage = "";
 
@@ -20,7 +20,7 @@ public class ExchangeAttachments : IDisposable
             _stage = "Creating credentials";
             pExchange = new ExchangeService
             {
-                Credentials = new WebCredentials(credentials.User, credentials.Password)
+                Credentials = new WebCredentials(connDetails.User, connDetails.Password)
             };
             //
             _stage = "Using credentials";
@@ -28,17 +28,17 @@ public class ExchangeAttachments : IDisposable
             //
             _stage = "Connecting to exchange";
             //pExchange.Url = new System.Uri("https://exchange.espackeuro.com/ews/exchange.asmx");
-            pExchange.Url = new System.Uri(credentials.Server);
+            pExchange.Url = new System.Uri(connDetails.Server);
         }
         catch (Exception ex)
         {
-            throw new Exception($"[Connect#{_stage}] {ex.Message}");
+            throw new Exception($"[cExchangeTools/Connect#{_stage}] {ex.Message}");
         }
         return true;
     }
     public bool Connect(string userEmail, string passwordEmail, string server)
     {
-        return Connect(new cCredentials(userEmail, passwordEmail, server, ""));
+        return Connect(new cConnDetails(server, userEmail, passwordEmail));
     }
 
 
@@ -74,8 +74,9 @@ public class ExchangeAttachments : IDisposable
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"[{_stage}]: {ex.Message}");
-                    continue;
+                    //Console.WriteLine($"[cExchangeTools/DownloadFromExchange#{_stage}]: {ex.Message}");
+                    //continue;
+                    throw new Exception($"[cExchangeTools/DownloadFromExchange#{_stage}]: {ex.Message}");
                 }
 
                 try
@@ -84,7 +85,8 @@ public class ExchangeAttachments : IDisposable
                     if (Regex.IsMatch(_message.From.ToString(), Sender) || Sender == "")
                     {
                         Console.WriteLine($"-> Checking sender: {_message.From}");
-                        if (Asunto.Contains(Subject) || Subject == "")    // se comprueba en los correos no leídos el asunto
+                        //if (Asunto.Contains(Subject) || Subject == "")    // se comprueba en los correos no leídos el asunto
+                        if (Asunto.IndexOf(Subject,StringComparison.OrdinalIgnoreCase)>=0 || Subject == "")
                         {
                             Console.WriteLine($"  -> Checking subject: {Asunto}");
                             _isRead = false;
@@ -99,7 +101,7 @@ public class ExchangeAttachments : IDisposable
                                     FileAttachment fileAttachment = att as FileAttachment;
                                     // Carga el archivo adjunto en un archivo
                                     //if (Filter == fileAttachment.Name.Substring((fileAttachment.Name.ToString().Length - 3), 3))
-                                    if (Regex.IsMatch(fileAttachment.Name.ToString(), Filter) || Filter == "")
+                                    if (Regex.IsMatch(fileAttachment.Name.ToString(), Filter, RegexOptions.IgnoreCase) || Filter == "")
                                     {
 
                                         Console.Write($"    -> Checking attachment: {fileAttachment.Name} ...");
@@ -132,15 +134,16 @@ public class ExchangeAttachments : IDisposable
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"[{_stage}]: {ex.Message}");
-                    continue;
+                    //Console.WriteLine($"[{_stage}]: {ex.Message}");
+                    //continue;
+                    throw new Exception($"[cExchangeTools/DownloadFromExchange#{_stage}]: {ex.Message}");
                 }
             }
         }
         return _attachmentFound;
     }
 
-    public bool SendEmail(string SendTo, string Subject = null, string Body = null, string FilePath = null)
+    public bool SendEmail(string sendTo, string subject = null, string body = null, string filePath = null)
     {
         string _stage = "";
 
@@ -150,23 +153,24 @@ public class ExchangeAttachments : IDisposable
             {
                 //
                 _stage = "Checking";
-                Subject = (Subject != null ? Subject : pSubject);
-                Body = (Body != null ? Body : pBody);
-                if (FilePath != null)
+                if (filePath == "") filePath = null;
+                subject = (subject != null ? subject : pSubject);
+                body = (body != null ? body : pBody);
+                if (filePath != null)
                 {
-                    if (!File.Exists(FilePath))
-                        throw new Exception($"File not found: {FilePath}");
+                    if (!File.Exists(filePath))
+                        throw new Exception($"File not found: {filePath}");
                 }
 
                 // 
                 _stage = "Preparing message";
                 EmailMessage _message = new EmailMessage(pExchange);
-                _message.Subject = Subject;
-                _message.Body = Body;
-                if (FilePath != null) _message.Attachments.AddFileAttachment(FilePath);
-                foreach (string _sendTo in SendTo.Split(","))
+                _message.Subject = subject;
+                _message.Body = body;
+                if (filePath != null) _message.Attachments.AddFileAttachment(filePath);
+                foreach (string _sendTo in sendTo.Split(","))
                 {
-                    _message.ToRecipients.Add(_sendTo);
+                    _message.ToRecipients.Add(_sendTo.Trim());
                 }
 
                 _stage = "Saving message";
@@ -178,7 +182,7 @@ public class ExchangeAttachments : IDisposable
             }
             catch (Exception ex)
             {
-                throw new Exception($"[SendEmail#{_stage}] {ex.Message}");
+                throw new Exception($"[cExchangeTools/SendEmail#{_stage}] {ex.Message}");
             }
         }
 
@@ -197,7 +201,7 @@ public class ExchangeAttachments : IDisposable
         }
         catch (Exception ex)
         {
-            throw new Exception($"[Dispose#{_stage}] {ex.Message}");
+            throw new Exception($"[cExchangeTools/Dispose#{_stage}] {ex.Message}");
         }
     }
 }

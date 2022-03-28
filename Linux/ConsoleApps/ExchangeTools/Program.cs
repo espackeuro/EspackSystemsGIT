@@ -105,7 +105,7 @@ namespace ExchangeTools
                     {
                         //
                         _stage = "Creating connection";
-                        _exchange.Connect(_user, _password, "https://exchange.espackeuro.com/ews/exchange.asmx");
+                        _exchange.Connect(_user, _password, @"https://exchange.espackeuro.com/ews/exchange.asmx");
 
                         //
                         _stage = "Looking for matching emails";

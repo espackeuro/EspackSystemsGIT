@@ -572,7 +572,7 @@ namespace AutomaticProcesses
                         _email.Connect(ConnDetailsMail);
 
                         //
-                        Contents = !String.IsNullOrEmpty(Contents) ? Contents : $"<html><body>{(!String.IsNullOrEmpty(EmptyMessage) ? EmptyMessage : "No results found / No se encontraron resultados")}</body></html>";
+                        Contents = !String.IsNullOrEmpty(Contents) ? (String.IsNullOrEmpty(FileName)?Contents: "<html><body><b>Message sent automatically.</b><br><i>Mensaje enviado automáticamente.</i></body></html>") : $"<html><body>{(!String.IsNullOrEmpty(EmptyMessage) ? EmptyMessage : "<b>No results found.</b><br><i>No se encontraron resultados.</i>")}</body></html>";
                         _stage = "Sending email";
                         if (!_email.SendEmail(Error ? MailErrorTo : MailTo, $"{Title} {DateTime.Now.ToString("dd/MM/yyyy")}", Contents , FileName))
                             throw new Exception("Could not send the email");
