@@ -21,54 +21,68 @@ namespace AlarmsProcessing
 #endif
             string _stage;
             string _currentArgName, _currentArgValue;
-            string _user = "", _password = "", _server = "", _db = "";
+            string _DBuser = "", _DBpassword = "", _DBServer = "", _DBdataBase = "";
+            string _mailServer = "", _mailUser = "", _mailPassword = "", _processMailErrorTo = "";
+            Nullable<int> _DBtimeOut = null;
             string _myName = System.Reflection.Assembly.GetCallingAssembly().GetName().Name;
+            cConnDetails _connDetailsDB = null;
+            cConnDetails _connDetailsMail = null;
 
-            // Args
-            _stage = "Checking args";
             try
             {
                 Console.WriteLine($"----==== Starting [{_myName}] at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} ====----");
 
-                try
+                Console.Write("> Loading settings file... ");
+
+                // If the settings file exists, the params will be loaded from it
+                _stage = "Loading settings file";
+                string[] _lines = File.ReadAllLines((pDebug ? Directory.GetCurrentDirectory().Substring(0, 3) : $"/media/bin/{_myName}/") + $"{_myName}.settings", Encoding.Unicode);
+
+                //
+                _stage = "Getting settings from file";
+                foreach (string _line in _lines)
                 {
-                    // If the settings file exists, the params will be loaded from it
-                    _stage = "Loading settings file";
-                    //string[] lines = File.ReadAllLines($"../.{_myName}.creds");
-                    string[] _lines = File.ReadAllLines($@"D:\{_myName}.settings", Encoding.Unicode);
+                    // Get the arg name and value
+                    _currentArgName = _line.Split('=')[0].ToUpper();
+                    _currentArgValue = _line.Split('=')[1];
 
-                    //
-                    _stage = "Getting settings from file";
-                    foreach (string _line in _lines)
+                    // Identify arg name
+                    switch (_currentArgName)
                     {
-                        // Get the arg name and value
-                        _currentArgName = _line.Split('=')[0].ToUpper();
-                        _currentArgValue = _line.Split('=')[1];
-
-                        // Identify arg name
-                        switch (_currentArgName)
-                        {
-                            case "SERVER":
-                                _server = _currentArgValue;
-                                break;
-                            case "USER":
-                                _user = _currentArgValue;
-                                break;
-                            case "PASSWORD":
-                                _password = _currentArgValue;
-                                break;
-                            case "DB":
-                                _db = _currentArgValue;
-                                break;
-                            default:
-                                throw new Exception($"Wrong argument: {_currentArgName}");
-                        }
+                        case "DB_SERVER":
+                            _DBServer = _currentArgValue;
+                            break;
+                        case "DB_USER":
+                            _DBuser = _currentArgValue;
+                            break;
+                        case "DB_PASSWORD":
+                            _DBpassword = _currentArgValue;
+                            break;
+                        case "DB_DATABASE":
+                            _DBdataBase = _currentArgValue;
+                            break;
+                        case "DB_TIMEOUT":
+                            _DBtimeOut = Int32.Parse(_currentArgValue);
+                            break;
+                        case "MAIL_SERVER":
+                            _mailServer = _currentArgValue;
+                            break;
+                        case "MAIL_USER":
+                            _mailUser = _currentArgValue;
+                            break;
+                        case "MAIL_PASSWORD":
+                            _mailPassword = _currentArgValue;
+                            break;
+                        case "ERR_TO":
+                            _processMailErrorTo = _currentArgValue;
+                            break;
+                        default:
+                            throw new Exception($"Wrong argument: {_currentArgName}");
                     }
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"[Main#{_stage}] {ex.Message}");
-                }
+
+
+
 
                 // If params are set, they will override those loaded from the settings file
                 _stage = "Getting settings from args";
