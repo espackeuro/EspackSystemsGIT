@@ -35,6 +35,7 @@ namespace AutomaticProcesses
             string _mailServer = "", _mailUser = "", _mailPassword = "";
             Nullable<int> _DBtimeOut = null, _processQuery = null, _processSubQuery = null;
             string _processQueryParams = "", _processMailTo = "", _processMailSubject = "", _processMailErrorTo = "";
+            int _fontsize = 11;
             bool _noBand = false, _noEmpty = false;
             string _result = "", _fileName = "", _emptyMessage = "";
             
@@ -151,6 +152,9 @@ namespace AutomaticProcesses
                         case "SUBJECT":
                             _processMailSubject = _currentArgValue;
                             break;
+                        case "FONTSIZE":
+                            _fontsize = Int32.Parse(_currentArgValue);
+                            break;
                         case "NOBAND":
                             _noBand = true;
                             break;
@@ -219,7 +223,7 @@ namespace AutomaticProcesses
 
                 //
                 Console.WriteLine("OK!");
-                Console.WriteLine($"> Server: {_DBServer}, Query: {_processQuery}, Params: "+(String.IsNullOrEmpty(_processQueryParams)?"NONE":_processQueryParams)+$", Title: {_processMailSubject} ");
+                Console.WriteLine($"> Server: {_DBServer}, Query: {_processQuery}, Params: "+(String.IsNullOrEmpty(_processQueryParams)?"NONE":_processQueryParams)+$", Title: {_processMailSubject}, Font Size: {_fontsize} ");
 
                 //
                 _stage = "Defining credentials";
@@ -230,7 +234,7 @@ namespace AutomaticProcesses
                 _stage = "Creating process/es";
                 _procList = new Dictionary<int,cProcess>();
                 _taskList = new List<Task>();
-                cProcess _cp = new cProcess(_connDetailsDB, _connDetailsMail, _processQuery, _processQueryParams, _processMailSubject, _processMailTo, _processMailErrorTo, _processSubQuery, _emptyMessage, _noBand, _noEmpty, _fileName, _fileType, _orientation);
+                cProcess _cp = new cProcess(_connDetailsDB, _connDetailsMail, _processQuery, _processQueryParams, _processMailSubject, _processMailTo, _processMailErrorTo, _processSubQuery, _emptyMessage, _noBand, _noEmpty, _fileName, _fileType, _orientation, _fontsize);
                 cProcess _cpSub = null;
                 Console.Write($"> Executing {(_processSubQuery!=null?"parent":"")} process (TimeOut is {_connDetailsDB.TimeOut})... ");
                 

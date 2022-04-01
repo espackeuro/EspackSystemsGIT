@@ -76,9 +76,6 @@ namespace AutomaticProcesses
             return _params;
         }
 
-
-
     }
   
-
 }
