@@ -20,21 +20,21 @@ namespace AutomaticProcesses
         public string DBUser { get { return ConnDetailsDB.User; } set { ConnDetailsDB.User = value; } }
         public string DBPassword { get { return ConnDetailsDB.Password; } set { ConnDetailsDB.Password = value; } }
         public string DB { get { return ConnDetailsDB.DB; } set { ConnDetailsDB.DB = value; } }
-        public Nullable<int> TimeOut { get { return ConnDetailsDB.TimeOut; } set { ConnDetailsDB.TimeOut = value; } }
+        public int? TimeOut { get { return ConnDetailsDB.TimeOut; } set { ConnDetailsDB.TimeOut = value; } }
         public string MailServer { get { return ConnDetailsMail.Server; } set { ConnDetailsMail.Server = value; } }
         public string MailUser { get { return ConnDetailsMail.User; } set { ConnDetailsMail.User = value; } }
         public string MailPassword { get { return ConnDetailsMail.Password; } set { ConnDetailsMail.Password = value; } }
         public bool NoSend { get { return (!Error && String.IsNullOrEmpty(Contents) && NoEmpty); } }
 
-        public Nullable<int> QueryNumber, SubQueryNumber;
+        public int? QueryNumber, SubQueryNumber;
         public cMiscFunctions.eFileType FileType;
         public cMiscFunctions.eOrientation Orientation;
         public string ArgsString, FileName, Title, MailTo, MailErrorTo, ErrorMessage, EmptyMessage, Contents = "";
-        public int PDFFontSize = 25;
-        public bool NoBand, Error, NoEmpty, MailSkipped, IsExcel;
+        public int? FontSize;
+        public bool NoBand, Error, NoEmpty, MailSkipped;
         public Dictionary<int, Dictionary<string, string>> Results = null;
 
-        public cProcess(cConnDetails connDetailsDB, cConnDetails connDetailsMail, Nullable<int> queryNumber, string args, string title, string mailTo, string mailErrorTo, Nullable<int> subQueryNumber =null, string emptyMessage = null, bool noBand = false, bool noEmpty = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT, int fontSize=11)
+        public cProcess(cConnDetails connDetailsDB, cConnDetails connDetailsMail, int? queryNumber, string args, string title, string mailTo, string mailErrorTo, int? subQueryNumber = null, string emptyMessage = null, bool noBand = false, bool noEmpty = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT, int? fontSize = 11)
         {
             ConnDetailsDB = connDetailsDB;
             ConnDetailsMail = connDetailsMail;
@@ -50,21 +50,13 @@ namespace AutomaticProcesses
             MailErrorTo = mailErrorTo;
             NoEmpty = noEmpty;
             EmptyMessage = emptyMessage;
-            PDFFontSize = fontSize;
-            if (fileType.ToString() == "XLS")
-            {
-                IsExcel = true;
-            }
-            else 
-            {
-                IsExcel = false;
-            }
+            FontSize = fontSize;
         }
-        public cProcess(string serverDB, string userDB, string passwordDB, string db, cConnDetails connDetailsMail, Nullable<int> queryNumber, string args, string title, string mailTo, string mailErrorTo, Nullable<int> subQueryNumber = null, string emptyMessage = null, bool noBand = false, bool noEmpty = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT) : this(new cConnDetails(serverDB, userDB, passwordDB, db), connDetailsMail, queryNumber, args, title, mailTo, mailErrorTo, subQueryNumber, emptyMessage, noBand, noEmpty, fileName, fileType, orientation)
+        public cProcess(string serverDB, string userDB, string passwordDB, string db, cConnDetails connDetailsMail, int? queryNumber, string args, string title, string mailTo, string mailErrorTo, int? subQueryNumber = null, string emptyMessage = null, bool noBand = false, bool noEmpty = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT, int? fontSize=null) : this(new cConnDetails(serverDB, userDB, passwordDB, db), connDetailsMail, queryNumber, args, title, mailTo, mailErrorTo, subQueryNumber, emptyMessage, noBand, noEmpty, fileName, fileType, orientation,fontSize)
         {
 
         }
-        public cProcess(cConnDetails connDetailsDB, string serverMail, string userMail, string passwordMail,Nullable<int> queryNumber, string args, string title, string mailTo, string mailErrorTo, Nullable<int> subQueryNumber = null, string emptyMessage = null, bool noBand = false, bool noEmpty = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT) : this(connDetailsDB, new cConnDetails(serverMail, userMail, passwordMail), queryNumber, args, title, mailTo, mailErrorTo, subQueryNumber, emptyMessage, noBand, noEmpty, fileName, fileType, orientation)
+        public cProcess(cConnDetails connDetailsDB, string serverMail, string userMail, string passwordMail,int? queryNumber, string args, string title, string mailTo, string mailErrorTo, int? subQueryNumber = null, string emptyMessage = null, bool noBand = false, bool noEmpty = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT, int? fontSize=null) : this(connDetailsDB, new cConnDetails(serverMail, userMail, passwordMail), queryNumber, args, title, mailTo, mailErrorTo, subQueryNumber, emptyMessage, noBand, noEmpty, fileName, fileType, orientation,fontSize)
         {
 
         }
@@ -200,19 +192,14 @@ namespace AutomaticProcesses
 
                         // Create HTML contents
                         _stage = "Converting data to HTML";
-                        ProcessHTML(Results, Title, Orientation.ToString(), NoBand, IsExcel, PDFFontSize);
-                        
-                        // For XLS files only
-                        if (FileType == cMiscFunctions.eFileType.XLS)
+                        ProcessHTML();
+
+                        // For XLS and PDF
+                        if (FileType == cMiscFunctions.eFileType.XLS || FileType == cMiscFunctions.eFileType.PDF)
                         {
-                            _stage = "Converting data to XLS";
-                            FileName = ToFile();
-                        } else if (FileType == cMiscFunctions.eFileType.PDF)
-                        {
-                            _stage = "Converting data to PDF";
+                            _stage = $"Converting data to {FileType}";
                             FileName = ToFile();
                         }
-
                         break;
                 }
 
@@ -316,15 +303,15 @@ namespace AutomaticProcesses
             return;
         }
 
-        private void ProcessHTML(Dictionary<int, Dictionary<string, string>> data, string title, string orientation, bool noBand = false, bool excel = false, int fontSize=11)
+        private void ProcessHTML()
         {
             //string _stage = "";
             string _html = "";
-            string _extra = (noBand ? "border-bottom-style: solid;" : "");
-           // int fontSize = 11;
+            string _extra = (NoBand ? "border-bottom-style: solid;" : "");
+            int? fontSize = FontSize;
 
             _html = "<html><head>";
-            if (!excel)
+            if (FileType != cMiscFunctions.eFileType.XLS)
             {
                 _html += "<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\">";
             }
@@ -384,23 +371,23 @@ namespace AutomaticProcesses
             string _bgColor = "FFFFFF";
             string _styleIni, _style;
             int _cols = 0;
-            string[] _titles = null;
+            string[] _Titles = null;
             string _value;
 
             Dictionary<string, string> _currentRow;
 
-            for (int _i = 0; _i < data.Count; _i++)
+            for (int _i = 0; _i < Results.Count; _i++)
             {
-                _currentRow = data.Values.ElementAt(_i);
+                _currentRow = Results.Values.ElementAt(_i);
                 if (_firstLine)
                 {
-                    _html += HTMLHeader(_firstPage, _currentRow, title, ref _cols, _titles);
+                    _html += HTMLHeader(_firstPage, _currentRow, Title, ref _cols, _Titles);
                     _firstLine = false;
                     _firstPage = false;
                 }
 
                 // For banded results
-                if (!noBand)
+                if (!NoBand)
                     _bgColor = _bgColor == "DDDDDD" ? "FFFFFF" : "DDDDDD";
 
                 _styleIni = $"color:#000000; background-color:#{_bgColor};";
@@ -422,17 +409,17 @@ namespace AutomaticProcesses
                     // When the field name starts with &, it requires a special treatment
                     if (!_field.Key.StartsWith("&"))
                     {
-                        // If the field value contains the string [Titulo], it is a title and it has to be shown as it
+                        // If the field value contains the string [Titulo], it is a Title and it has to be shown as it
                         if (_value.IndexOf("[Titulo]") != -1)
                         {
                             _value = _value.Replace("[Titulo]", "");
                             _html += $"<td colspan={_cols}>--------</td></tr><tr><td {_extra} class='titulo_tabla' colspan={_cols}>{_value}</td></tr>"; //insertamos el t�tulo sin [Titulo]
                             _i++;
-                            _currentRow = data.Values.ElementAt(_i);
+                            _currentRow = Results.Values.ElementAt(_i);
 
-                            _titles = _currentRow.Keys.ToList().Where(x => !x.StartsWith("&")).Select(x => HTMLCheckCode(_currentRow[x])).ToArray();
+                            _Titles = _currentRow.Keys.ToList().Where(x => !x.StartsWith("&")).Select(x => HTMLCheckCode(_currentRow[x])).ToArray();
                             _html += "<tr>";
-                            foreach (var _item in _titles)
+                            foreach (var _item in _Titles)
                             {
                                 _value = _item;
                                 _style = _styleIni;

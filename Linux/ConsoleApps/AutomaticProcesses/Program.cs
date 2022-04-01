@@ -33,9 +33,8 @@ namespace AutomaticProcesses
 
             string _DBuser = "", _DBpassword = "", _DBServer = "", _DBdataBase = "";
             string _mailServer = "", _mailUser = "", _mailPassword = "";
-            Nullable<int> _DBtimeOut = null, _processQuery = null, _processSubQuery = null;
+            Nullable<int> _DBtimeOut = null, _processQuery = null, _processSubQuery = null, _fontsize = 11;
             string _processQueryParams = "", _processMailTo = "", _processMailSubject = "", _processMailErrorTo = "";
-            int _fontsize = 11;
             bool _noBand = false, _noEmpty = false;
             string _result = "", _fileName = "", _emptyMessage = "";
             
@@ -129,7 +128,7 @@ namespace AutomaticProcesses
                             _DBdataBase = _currentArgValue;
                             break;
                         case "DB_TIMEOUT":
-                            _DBtimeOut = Int32.Parse(_currentArgValue);
+                            if (!String.IsNullOrEmpty(_currentArgValue)) _DBtimeOut = Convert.ToInt32(_currentArgValue);
                             break;
                         case "MAIL_SERVER":
                             _mailServer = _currentArgValue;
@@ -153,7 +152,7 @@ namespace AutomaticProcesses
                             _processMailSubject = _currentArgValue;
                             break;
                         case "FONTSIZE":
-                            _fontsize = Int32.Parse(_currentArgValue);
+                            if (!String.IsNullOrEmpty(_currentArgValue)) _fontsize = Convert.ToInt32(_currentArgValue);
                             break;
                         case "NOBAND":
                             _noBand = true;
