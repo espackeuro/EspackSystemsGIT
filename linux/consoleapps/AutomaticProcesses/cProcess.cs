@@ -6,6 +6,9 @@ using System.Linq;
 using System.Web;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using PdfSharpCore.Pdf;
+using TheArtOfDev.HtmlRenderer.PdfSharp;
+using PdfSharpCore;
 
 namespace AutomaticProcesses
 {
@@ -28,10 +31,10 @@ namespace AutomaticProcesses
         public cMiscFunctions.eOrientation Orientation;
         public string ArgsString, FileName, Title, MailTo, MailErrorTo, ErrorMessage, EmptyMessage, Contents = "";
         public int PDFFontSize = 25;
-        public bool NoBand, Error, NoEmpty, MailSkipped;
+        public bool NoBand, Error, NoEmpty, MailSkipped, IsExcel;
         public Dictionary<int, Dictionary<string, string>> Results = null;
 
-        public cProcess(cConnDetails connDetailsDB, cConnDetails connDetailsMail, Nullable<int> queryNumber, string args, string title, string mailTo, string mailErrorTo, Nullable<int> subQueryNumber =null, string emptyMessage = null, bool noBand = false, bool noEmpty = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT)
+        public cProcess(cConnDetails connDetailsDB, cConnDetails connDetailsMail, Nullable<int> queryNumber, string args, string title, string mailTo, string mailErrorTo, Nullable<int> subQueryNumber =null, string emptyMessage = null, bool noBand = false, bool noEmpty = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT, int fontSize=11)
         {
             ConnDetailsDB = connDetailsDB;
             ConnDetailsMail = connDetailsMail;
@@ -47,6 +50,15 @@ namespace AutomaticProcesses
             MailErrorTo = mailErrorTo;
             NoEmpty = noEmpty;
             EmptyMessage = emptyMessage;
+            PDFFontSize = fontSize;
+            if (fileType.ToString() == "XLS")
+            {
+                IsExcel = true;
+            }
+            else 
+            {
+                IsExcel = false;
+            }
         }
         public cProcess(string serverDB, string userDB, string passwordDB, string db, cConnDetails connDetailsMail, Nullable<int> queryNumber, string args, string title, string mailTo, string mailErrorTo, Nullable<int> subQueryNumber = null, string emptyMessage = null, bool noBand = false, bool noEmpty = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT) : this(new cConnDetails(serverDB, userDB, passwordDB, db), connDetailsMail, queryNumber, args, title, mailTo, mailErrorTo, subQueryNumber, emptyMessage, noBand, noEmpty, fileName, fileType, orientation)
         {
@@ -184,21 +196,24 @@ namespace AutomaticProcesses
                         break;
                     case cMiscFunctions.eFileType.HTML:
                     case cMiscFunctions.eFileType.XLS:
-                        
+                    case cMiscFunctions.eFileType.PDF:
+
                         // Create HTML contents
                         _stage = "Converting data to HTML";
-                        ProcessHTML(Results, Title, "", NoBand);
+                        ProcessHTML(Results, Title, Orientation.ToString(), NoBand, IsExcel, PDFFontSize);
                         
                         // For XLS files only
                         if (FileType == cMiscFunctions.eFileType.XLS)
                         {
                             _stage = "Converting data to XLS";
                             FileName = ToFile();
+                        } else if (FileType == cMiscFunctions.eFileType.PDF)
+                        {
+                            _stage = "Converting data to PDF";
+                            FileName = ToFile();
                         }
 
                         break;
-                    case cMiscFunctions.eFileType.PDF:
-                        throw new Exception("Not implemented!");
                 }
 
             }
@@ -249,13 +264,33 @@ namespace AutomaticProcesses
 
             //
             _stage = $"Saving to {FileType} file";
-            using (FileStream _fs = File.Create(_fullFilePath))
+            if (FileType == cMiscFunctions.eFileType.XLS)
             {
-                byte[] _info = new UTF8Encoding(true).GetBytes(Contents);
-                // Add some information to the file.
-                _fs.Write(_info, 0, _info.Length);
-            }
+                using (FileStream _fs = File.Create(_fullFilePath))
+                {
+                    byte[] _info = new UTF8Encoding(true).GetBytes(Contents);
+                    // Add some information to the file.
+                    _fs.Write(_info, 0, _info.Length);
+                }
+            } else if (FileType == cMiscFunctions.eFileType.PDF) 
+            {
 
+            var config = new PdfGenerateConfig();
+                if (Orientation.ToString().ToUpper()== "LANDSCAPE")
+                {
+                    config.PageOrientation = PdfSharpCore.PageOrientation.Landscape;
+                }
+                else 
+                {
+                    config.PageOrientation = PdfSharpCore.PageOrientation.Portrait;
+                }
+                config.PageSize = PdfSharpCore.PageSize.A4;
+               
+                PdfDocument pdfDocument = PdfGenerator.GeneratePdf(Contents, config);
+
+
+                pdfDocument.Save(_fullFilePath);
+            }
             return _fullFilePath;
         }
 
@@ -281,12 +316,12 @@ namespace AutomaticProcesses
             return;
         }
 
-        private void ProcessHTML(Dictionary<int, Dictionary<string, string>> data, string title, string orientation, bool noBand = false, bool excel = false)
+        private void ProcessHTML(Dictionary<int, Dictionary<string, string>> data, string title, string orientation, bool noBand = false, bool excel = false, int fontSize=11)
         {
             //string _stage = "";
             string _html = "";
             string _extra = (noBand ? "border-bottom-style: solid;" : "");
-            int fontSize = 11;
+           // int fontSize = 11;
 
             _html = "<html><head>";
             if (!excel)
@@ -327,17 +362,17 @@ namespace AutomaticProcesses
             _html += "}";
             _html += ".cabecera {";
             _html += "font-family: Courier;";
-            _html += $"font-size: {fontSize};";
+            _html += $"font-size: {fontSize}pt;";
             _html += "font-weight: bold;";
             _html += $"{_extra}}}";
             _html += ".titulo_tabla {";
             _html += "font-family: Courier;";
-            _html += $"font-size: {fontSize + 3};";
+            _html += $"font-size: {fontSize + 3}pt;";
             _html += "font-weight: bold;";
             _html += $"{_extra}}}";
             _html += ".detalle {";
             _html += "font-family: Courier;";
-            _html += "font-size: {fontSize};";
+            _html += $"font-size: {fontSize}pt;";
             _html += $"{_extra}}}";
             _html += ".fondogris {";
             _html += "background-color: #CCCCCC;";
