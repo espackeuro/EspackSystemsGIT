@@ -4,6 +4,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Data.SqlClient;
+using ConsoleTools;
 
 namespace AlarmsProcessing
 {
@@ -20,25 +21,28 @@ namespace AlarmsProcessing
             pDebug = false;
 #endif
             string _stage = "Unknown Error";
-            string _currentArgName, _currentArgValue;
-            string _DBuser = "", _DBpassword = "", _DBServer = "", _DBdataBase = "";
-            string _mailServer = "", _mailUser = "", _mailPassword = "", _processMailErrorTo = "";
-            int? _DBtimeOut = null;
             string _myName = System.Reflection.Assembly.GetCallingAssembly().GetName().Name;
-            ConsoleTools.cConnDetails _connDetailsMail = null;
-            ConsoleTools.cParameters _params = null;
+            cConnDetails _connDetailsMail = null;
+            cParameters _params;
+            
 
             try
             {
                 Console.WriteLine($"----==== Starting [{_myName}] at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} ====----");
 
-                Console.Write("> Loading settings file... ");
+                //
+                _stage = "Checking OS";
+                if (cMiscTools.RunningOS == "Other")
+                    throw new Exception("OS not supported!");
 
                 // If the settings file exists, the params will be loaded from it
                 _stage = "Loading settings file";
-                string[] _lines = File.ReadAllLines((pDebug ? Directory.GetCurrentDirectory().Substring(0, 3) : $"/media/bin/{_myName}/") + $"{_myName}.settings", Encoding.Unicode);
+                Console.Write("> Loading settings file... ");
+                string[] _lines = File.ReadAllLines((cMiscTools.RunningOS == "Windows" ? Directory.GetCurrentDirectory().Substring(0, 3) : $"/media/bin/{_myName}/") + $"{_myName}.settings", Encoding.Unicode);
 
-                _params = new ConsoleTools.cParameters();
+                //
+                _stage = "Creating Parameters object";
+                _params = new cParameters();
 
                 //
                 _stage = "Getting settings from file";
@@ -46,7 +50,24 @@ namespace AlarmsProcessing
 
                 //
                 _stage = "Getting settings from args";
-                _params.LoadParameters(_lines);
+                Console.Write("OK!\n> Getting settings from args... ");
+                _params.LoadParameters(args);
+
+                //
+                _stage = "Checking settings";
+                Console.WriteLine("OK!");
+                Console.Write("> Checking settings... ");
+                if (String.IsNullOrEmpty(_params.DBServer))
+                    throw new Exception("DB server is mandatory: DB_SERVER=<ServerAddress>");
+                if (String.IsNullOrEmpty(_params.DBUser))
+                    throw new Exception("DB user is mandatory: DB_USER=<UserCode>");
+                if (String.IsNullOrEmpty(_params.DBPassword))
+                    throw new Exception("DB password is mandatory: DB_PASSWORD=<Password>");
+                if (String.IsNullOrEmpty(_params.DBDataBase))
+                    throw new Exception("Database is mandatory: DB_DATABASE=<Database>");
+
+
+
             }
             catch (Exception ex)
             {
@@ -63,8 +84,8 @@ namespace AlarmsProcessing
             }
             else
             {
-                ConsoleTools.cConnDetails _connDetailsDB = new ConsoleTools.cConnDetails(_params.DBServer, _params.DBUser, _params.DBPassword, _params.DBDataBase);
-                ConsoleTools.cDBTools _dbt = new ConsoleTools.cDBTools(_connDetailsDB);
+                cConnDetails _connDetailsDB = new cConnDetails(_params.DBServer, _params.DBUser, _params.DBPassword, _params.DBDataBase);
+                cDBTools _dbt = new cDBTools(_connDetailsDB);
                 _dbt.Connect();
                 _dbt.Query("Select Codigo,BD,Tabla,Campo_alarma,Nombre_idreg,idreg_valor,asunto_email,emails_aviso,condicion_alarma,campos_select,flagged=dbo.checkflag(flags,'FLAGGED'),server=isnull(server,''),FechaColumn=dbo.checkflag(flags,'XFEC2FECHA')  from cab_alarmas where dbo.checkFlag(flags,'ACTIVE')=1");
 

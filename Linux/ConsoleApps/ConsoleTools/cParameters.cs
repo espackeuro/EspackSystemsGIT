@@ -8,10 +8,8 @@ namespace ConsoleTools
     {
         public enum eFileType { HTML, PDF, XLS, TXT }
         public enum ePageOrientation { PORTRAIT, LANDSCAPE }
-
         public cConnDetails ConnDetailsDB;
         public cConnDetails ConnDetailsMail;
-
         public string DBServer { get { return ConnDetailsDB.Server; } set { ConnDetailsDB.Server = value; } }
         public string DBUser { get { return ConnDetailsDB.User; } set { ConnDetailsDB.User = value; } }
         public string DBPassword { get { return ConnDetailsDB.Password; } set { ConnDetailsDB.Password = value; } }
