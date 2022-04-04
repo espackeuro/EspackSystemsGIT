@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Data;
 using System.Data.SqlClient;
-using System.Xml;
 
-namespace AutomaticProcesses
+namespace ConsoleTools
 {
-    class cDBTools
+    public class cDBTools
     {
         public cConnDetails ConnDetails;
         public string Server { get { return ConnDetails.Server; } set { ConnDetails.Server = value; } }
@@ -16,10 +13,10 @@ namespace AutomaticProcesses
         public string DB { get { return ConnDetails.DB; } set { ConnDetails.DB = value; } }
         public Nullable<int> TimeOut { get { return ConnDetails.TimeOut; } set { ConnDetails.TimeOut = value; } }
         public enum eRSTypes { Static, Dynamic }
-        
+
         private static string _sql = "";
         private static bool pEOF = false;
-           
+
         public bool EOF { get { return pEOF; } }
         public SqlConnection Conn = null;
 
@@ -30,13 +27,13 @@ namespace AutomaticProcesses
             ConnDetails = connDetails;
         }
 
-        public cDBTools(string server,string user,string password,string db):this(new cConnDetails(server, user, password, db))
+        public cDBTools(string server, string user, string password, string db) : this(new cConnDetails(server, user, password, db))
         {
         }
 
         public bool Connect()
         {
-            
+
             string _stage = "";
             try
             {
@@ -52,14 +49,14 @@ namespace AutomaticProcesses
                 _builder.UserID = User;
                 _builder.Password = Password;
                 _builder.InitialCatalog = DB;
-                
+
                 //
                 if (TimeOut == null) TimeOut = 60;
 
                 //
                 _stage = "Opening connection";
                 Conn = new SqlConnection(_builder.ConnectionString);
-                
+
                 Conn.Open();
             }
             catch (Exception ex)
@@ -115,12 +112,12 @@ namespace AutomaticProcesses
 
                 if (NewDB.ToUpper() == Conn.Database.ToUpper())
                     return true;
-                    //throw new Exception($"The current DB is {NewDB} already.");
+                //throw new Exception($"The current DB is {NewDB} already.");
 
                 //
                 _stage = "Closing Data Reader";
                 if (RS != null && !RS.IsClosed) RS.Close();
-                
+
                 //
                 _stage = $"Changing to {NewDB} DB";
                 Conn.ChangeDatabase(NewDB);

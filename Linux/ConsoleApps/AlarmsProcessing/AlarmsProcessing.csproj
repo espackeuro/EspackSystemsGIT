@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ExchangeTools\ExchangeTools.csproj" />
+    <ProjectReference Include="..\ConsoleTools\ConsoleTools.csproj" />
   </ItemGroup>
 
 </Project>
