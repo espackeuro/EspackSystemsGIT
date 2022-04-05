@@ -93,6 +93,11 @@ namespace AlarmsProcessing
                             _stage = $"Executing alarm {_item.Value["Codigo"]}";
                             Console.Write($"> Executing alarm {_item.Value["Codigo"]}...");
                             _alarm.Process(_dbt);
+                            Console.Write($" {(_alarm.Error ? "ERROR" : "OK")}! Sending {(_alarm.Error ? "error " : "")}email...");
+
+                            //
+                            _stage = $"Sending {(_alarm.Error ? "error " : "")} email";
+                            _alarm.SendEmail();
                             Console.WriteLine(" OK!");
                         }
                         catch (Exception ex)
