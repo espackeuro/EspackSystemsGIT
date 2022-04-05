@@ -22,9 +22,6 @@ namespace AlarmsProcessing
 #endif
             string _stage = "Unknown Error";
             string _myName = System.Reflection.Assembly.GetCallingAssembly().GetName().Name;
-            cConnDetails _connDetailsMail = null;
-            cParameters _params;
-            
 
             try
             {
@@ -42,7 +39,7 @@ namespace AlarmsProcessing
 
                 //
                 _stage = "Creating Parameters object";
-                _params = new cParameters();
+                cParameters _params = new cParameters();
 
                 //
                 _stage = "Getting settings from file";
@@ -50,7 +47,7 @@ namespace AlarmsProcessing
 
                 //
                 _stage = "Getting settings from args";
-                Console.Write("OK!\n> Getting settings from args... ");
+                Console.Write($"OK!\n> Parameters: {(args.Length!=0?String.Join(" ", args):"NONE")}\n> Getting settings from args... ");
                 _params.LoadParameters(args);
 
                 //
@@ -65,9 +62,49 @@ namespace AlarmsProcessing
                     throw new Exception("DB password is mandatory: DB_PASSWORD=<Password>");
                 if (String.IsNullOrEmpty(_params.DBDataBase))
                     throw new Exception("Database is mandatory: DB_DATABASE=<Database>");
+                Console.WriteLine("OK!");
+
+                //
+                _stage = "Creating connection objects";
+                cConnDetails _connDetailsDB = new cConnDetails(_params.DBServer, _params.DBUser, _params.DBPassword, _params.DBDataBase);
+                cConnDetails _connDetailsMail = new cConnDetails(_params.MailServer, _params.MailUser, _params.MailPassword);
+
+                //
+                _stage = $"Connecting to {_connDetailsDB.Server}";
+                cDBTools _dbt = new cDBTools(_connDetailsDB);
+                _dbt.Connect();
+
+                //
+                _stage = "Getting alarms list";
+                _dbt.Query("Select Codigo,BD,Tabla,Campo_alarma,Nombre_idreg,idreg_valor,asunto_email,emails_aviso,condicion_alarma,campos_select,flagged=dbo.checkflag(flags,'FLAGGED'),server=isnull(server,''),FechaColumn=dbo.checkflag(flags,'XFEC2FECHA')  from cab_alarmas where dbo.checkFlag(flags,'ACTIVE')=1");
+                Dictionary<int, Dictionary<string, string>> _alarms = _dbt.ToDictionary();
 
 
 
+                //
+                _stage = "Looping through alarms";
+                foreach (var _item in _alarms)
+                {
+                    using (cAlarm _alarm = new cAlarm(_connDetailsDB,_item.Value["Codigo"], _item.Value["BD"], _item.Value["Tabla"], _item.Value["Campo_alarma"], _item.Value["Nombre_idreg"], Convert.ToInt32(_item.Value["idreg_valor"]), _item.Value["asunto_email"], _item.Value["emails_aviso"], _item.Value["condicion_alarma"], _item.Value["campos_select"], Convert.ToInt32(_item.Value["flagged"]) == 1, _item.Value["server"], Convert.ToInt32(_item.Value["FechaColumn"]) == 1))
+                    {
+                        try
+                        {
+                            //
+                            _stage = $"Executing alarm {_item.Value["Codigo"]}";
+                            Console.Write($"> Executing alarm {_item.Value["Codigo"]}...");
+                            _alarm.Process(_dbt);
+                            Console.WriteLine(" OK!");
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                    }
+                }
+
+                //
+                _stage = "Disconnecting from DB server";
+                _dbt.Disconnect();
             }
             catch (Exception ex)
             {
@@ -75,33 +112,7 @@ namespace AlarmsProcessing
                 return;
             }
 
-
-            Console.WriteLine($"> Parameters: {String.Join(" ", args) }");
-
-            if (String.IsNullOrEmpty(_params.DBUser) || String.IsNullOrEmpty(_params.DBPassword) || String.IsNullOrEmpty(_params.DBServer) || String.IsNullOrEmpty(_params.DBDataBase))
-            {
-                Console.WriteLine($"> ERROR at {_stage}: USER, PASSWORD, DATABASE and SERVER are mandatory.");
-            }
-            else
-            {
-                cConnDetails _connDetailsDB = new cConnDetails(_params.DBServer, _params.DBUser, _params.DBPassword, _params.DBDataBase);
-                cDBTools _dbt = new cDBTools(_connDetailsDB);
-                _dbt.Connect();
-                _dbt.Query("Select Codigo,BD,Tabla,Campo_alarma,Nombre_idreg,idreg_valor,asunto_email,emails_aviso,condicion_alarma,campos_select,flagged=dbo.checkflag(flags,'FLAGGED'),server=isnull(server,''),FechaColumn=dbo.checkflag(flags,'XFEC2FECHA')  from cab_alarmas where dbo.checkFlag(flags,'ACTIVE')=1");
-
-                //Dictionary<string,cAlarm> _alarms = new Dictionary<string, cAlarm>();
-
-                while (!_dbt.EOF)
-                {
-                    using (cAlarm _alarm = new cAlarm(_dbt.FieldValue(0), _dbt.FieldValue(1), _dbt.FieldValue(2), _dbt.FieldValue(3), _dbt.FieldValue(4), Convert.ToInt32(_dbt.FieldValue(5)), _dbt.FieldValue(6), _dbt.FieldValue(7), _dbt.FieldValue(8), _dbt.FieldValue(9), Convert.ToInt32(_dbt.FieldValue(10)) == 1, _dbt.FieldValue(11), Convert.ToInt32(_dbt.FieldValue(12)) == 1))
-                    {
-                        _alarm.Process();
-                    }
-                    _dbt.MoveNext();
-                }
-                _dbt.Disconnect();
-
-            }
+          
             Console.WriteLine($"----==== Ending [{_myName}] at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} ====----");
         }
 

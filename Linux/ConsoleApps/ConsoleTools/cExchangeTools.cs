@@ -3,205 +3,208 @@ using Microsoft.Exchange.WebServices.Data;
 using System.Text.RegularExpressions;
 using System.IO;
 
-public class ExchangeAttachments : IDisposable
+namespace ConsoleTools
 {
-
-    public ExchangeService pExchange;
-    private string pBody = $"Results:<br><br>";
-    private string pSubject = $"Capture report - {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")}";
-
-    public bool Connect(cConnDetails connDetails)
+    public class ExchangeAttachments : IDisposable
     {
-        string _stage = "";
 
-        try
+        public ExchangeService pExchange;
+        private string pBody = $"Results:<br><br>";
+        private string pSubject = $"Capture report - {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")}";
+
+        public bool Connect(cConnDetails connDetails)
         {
-            //
-            _stage = "Creating credentials";
-            pExchange = new ExchangeService
+            string _stage = "";
+
+            try
             {
-                Credentials = new WebCredentials(connDetails.User, connDetails.Password)
-            };
-            //
-            _stage = "Using credentials";
-            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
-            //
-            _stage = "Connecting to exchange";
-            //pExchange.Url = new System.Uri("https://exchange.espackeuro.com/ews/exchange.asmx");
-            pExchange.Url = new System.Uri(connDetails.Server);
-        }
-        catch (Exception ex)
-        {
-            throw new Exception($"[cExchangeTools/Connect#{_stage}] {ex.Message}");
-        }
-        return true;
-    }
-    public bool Connect(string userEmail, string passwordEmail, string server)
-    {
-        return Connect(new cConnDetails(server, userEmail, passwordEmail));
-    }
-
-
-    public bool DownloadFromExchange(string PathDownload, string Subject, string Filter, string Sender)
-    {
-        //cargar credenciales
-        string Asunto;
-        string _stage = "";
-        bool _isRead;
-        bool _attachmentFound = false;
-        EmailMessage _message;
-
-
-        if (pExchange != null)
-        {
-            //El filtro de búsqueda para obtener correos electrónicos no leídos
-            SearchFilter sf = new SearchFilter.SearchFilterCollection(LogicalOperator.And, new SearchFilter.IsEqualTo(EmailMessageSchema.IsRead, false));
-            ItemView view = new ItemView(50);
-            // Se Activa la consulta de los elementos no leídos
-            // Este método obtiene el resultado de la llamada FindItem a EWS. Con los correos sin leer
-            FindItemsResults<Item> findResults = pExchange.FindItems(WellKnownFolderName.Inbox, sf, view);
-
-            // Recorremos los correos no leídos 
-            foreach (Item item in findResults)
+                //
+                _stage = "Creating credentials";
+                pExchange = new ExchangeService
+                {
+                    Credentials = new WebCredentials(connDetails.User, connDetails.Password)
+                };
+                //
+                _stage = "Using credentials";
+                System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+                //
+                _stage = "Connecting to exchange";
+                //pExchange.Url = new System.Uri("https://exchange.espackeuro.com/ews/exchange.asmx");
+                pExchange.Url = new System.Uri(connDetails.Server);
+            }
+            catch (Exception ex)
             {
-                try
-                {
+                throw new Exception($"[cExchangeTools/Connect#{_stage}] {ex.Message}");
+            }
+            return true;
+        }
+        public bool Connect(string userEmail, string passwordEmail, string server)
+        {
+            return Connect(new cConnDetails(server, userEmail, passwordEmail));
+        }
 
-                    // Recorrer los mensajes
-                    _stage = "Find in messages";
-                    _message = EmailMessage.Bind(pExchange, item.Id);        // se carga el "message" busca por Id
-                    Asunto = _message.Subject.ToString();                                // sacamos el Subject
-                }
-                catch (Exception ex)
-                {
-                    //Console.WriteLine($"[cExchangeTools/DownloadFromExchange#{_stage}]: {ex.Message}");
-                    //continue;
-                    throw new Exception($"[cExchangeTools/DownloadFromExchange#{_stage}]: {ex.Message}");
-                }
 
-                try
-                {
+        public bool DownloadFromExchange(string PathDownload, string Subject, string Filter, string Sender)
+        {
+            //cargar credenciales
+            string Asunto;
+            string _stage = "";
+            bool _isRead;
+            bool _attachmentFound = false;
+            EmailMessage _message;
 
-                    if (Regex.IsMatch(_message.From.ToString(), Sender) || Sender == "")
+
+            if (pExchange != null)
+            {
+                //El filtro de búsqueda para obtener correos electrónicos no leídos
+                SearchFilter sf = new SearchFilter.SearchFilterCollection(LogicalOperator.And, new SearchFilter.IsEqualTo(EmailMessageSchema.IsRead, false));
+                ItemView view = new ItemView(50);
+                // Se Activa la consulta de los elementos no leídos
+                // Este método obtiene el resultado de la llamada FindItem a EWS. Con los correos sin leer
+                FindItemsResults<Item> findResults = pExchange.FindItems(WellKnownFolderName.Inbox, sf, view);
+
+                // Recorremos los correos no leídos 
+                foreach (Item item in findResults)
+                {
+                    try
                     {
-                        Console.WriteLine($"-> Checking sender: {_message.From}");
-                        //if (Asunto.Contains(Subject) || Subject == "")    // se comprueba en los correos no leídos el asunto
-                        if (Asunto.IndexOf(Subject,StringComparison.OrdinalIgnoreCase)>=0 || Subject == "")
+
+                        // Recorrer los mensajes
+                        _stage = "Find in messages";
+                        _message = EmailMessage.Bind(pExchange, item.Id);        // se carga el "message" busca por Id
+                        Asunto = _message.Subject.ToString();                                // sacamos el Subject
+                    }
+                    catch (Exception ex)
+                    {
+                        //Console.WriteLine($"[cExchangeTools/DownloadFromExchange#{_stage}]: {ex.Message}");
+                        //continue;
+                        throw new Exception($"[cExchangeTools/DownloadFromExchange#{_stage}]: {ex.Message}");
+                    }
+
+                    try
+                    {
+
+                        if (Regex.IsMatch(_message.From.ToString(), Sender) || Sender == "")
                         {
-                            Console.WriteLine($"  -> Checking subject: {Asunto}");
-                            _isRead = false;
-
-                            //
-                            foreach (Attachment att in _message.Attachments)
+                            Console.WriteLine($"-> Checking sender: {_message.From}");
+                            //if (Asunto.Contains(Subject) || Subject == "")    // se comprueba en los correos no leídos el asunto
+                            if (Asunto.IndexOf(Subject, StringComparison.OrdinalIgnoreCase) >= 0 || Subject == "")
                             {
-                                // Recorrer los adjuntos
-                                _stage = "Find in messages";
-                                if (att is FileAttachment)
+                                Console.WriteLine($"  -> Checking subject: {Asunto}");
+                                _isRead = false;
+
+                                //
+                                foreach (Attachment att in _message.Attachments)
                                 {
-                                    FileAttachment fileAttachment = att as FileAttachment;
-                                    // Carga el archivo adjunto en un archivo
-                                    //if (Filter == fileAttachment.Name.Substring((fileAttachment.Name.ToString().Length - 3), 3))
-                                    if (Regex.IsMatch(fileAttachment.Name.ToString(), Filter, RegexOptions.IgnoreCase) || Filter == "")
+                                    // Recorrer los adjuntos
+                                    _stage = "Find in messages";
+                                    if (att is FileAttachment)
                                     {
-
-                                        Console.Write($"    -> Checking attachment: {fileAttachment.Name} ...");
-
-                                        // Que guarda en la dirección indicada
-                                        _stage = "Save File";
-                                        fileAttachment.Load(PathDownload + fileAttachment.Name);
-                                        Console.WriteLine($" Downloaded OK!!");
-                                        _attachmentFound = true;
-
-                                        pBody += $"- File {fileAttachment.Name.ToString()} found and stored.<br>";
-
-                                        if (!_isRead)
+                                        FileAttachment fileAttachment = att as FileAttachment;
+                                        // Carga el archivo adjunto en un archivo
+                                        //if (Filter == fileAttachment.Name.Substring((fileAttachment.Name.ToString().Length - 3), 3))
+                                        if (Regex.IsMatch(fileAttachment.Name.ToString(), Filter, RegexOptions.IgnoreCase) || Filter == "")
                                         {
-                                            _stage = "Message update is read";
-                                            _message.IsRead = true;                              // lo marcamos como leído
-                                            _message.Update(ConflictResolutionMode.AutoResolve); // Se envía al servidor el cambio realizado
-                                            _isRead = true;
-                                            Console.WriteLine($"  -> Marked as read.");
+
+                                            Console.Write($"    -> Checking attachment: {fileAttachment.Name} ...");
+
+                                            // Que guarda en la dirección indicada
+                                            _stage = "Save File";
+                                            fileAttachment.Load(PathDownload + fileAttachment.Name);
+                                            Console.WriteLine($" Downloaded OK!!");
+                                            _attachmentFound = true;
+
+                                            pBody += $"- File {fileAttachment.Name.ToString()} found and stored.<br>";
+
+                                            if (!_isRead)
+                                            {
+                                                _stage = "Message update is read";
+                                                _message.IsRead = true;                              // lo marcamos como leído
+                                                _message.Update(ConflictResolutionMode.AutoResolve); // Se envía al servidor el cambio realizado
+                                                _isRead = true;
+                                                Console.WriteLine($"  -> Marked as read.");
+                                            }
                                         }
                                     }
                                 }
                             }
                         }
+                        else
+                        {
+                            Console.WriteLine("-> No matches");
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        Console.WriteLine("-> No matches");
+                        //Console.WriteLine($"[{_stage}]: {ex.Message}");
+                        //continue;
+                        throw new Exception($"[cExchangeTools/DownloadFromExchange#{_stage}]: {ex.Message}");
                     }
+                }
+            }
+            return _attachmentFound;
+        }
+
+        public bool SendEmail(string sendTo, string subject = null, string body = null, string filePath = null)
+        {
+            string _stage = "";
+
+            if (pExchange != null)
+            {
+                try
+                {
+                    //
+                    _stage = "Checking";
+                    if (filePath == "") filePath = null;
+                    subject = (subject != null ? subject : pSubject);
+                    body = (body != null ? body : pBody);
+                    if (filePath != null)
+                    {
+                        if (!File.Exists(filePath))
+                            throw new Exception($"File not found: {filePath}");
+                    }
+
+                    // 
+                    _stage = "Preparing message";
+                    EmailMessage _message = new EmailMessage(pExchange);
+                    _message.Subject = subject;
+                    _message.Body = body;
+                    if (filePath != null) _message.Attachments.AddFileAttachment(filePath);
+                    foreach (string _sendTo in sendTo.Split(","))
+                    {
+                        _message.ToRecipients.Add(_sendTo.Trim());
+                    }
+
+                    _stage = "Saving message";
+                    _message.Save();
+
+                    _stage = "Sending message";
+                    _message.SendAndSaveCopy();
+                    return true;
                 }
                 catch (Exception ex)
                 {
-                    //Console.WriteLine($"[{_stage}]: {ex.Message}");
-                    //continue;
-                    throw new Exception($"[cExchangeTools/DownloadFromExchange#{_stage}]: {ex.Message}");
+                    throw new Exception($"[cExchangeTools/SendEmail#{_stage}] {ex.Message}");
                 }
             }
+
+            return false;
         }
-        return _attachmentFound;
-    }
-
-    public bool SendEmail(string sendTo, string subject = null, string body = null, string filePath = null)
-    {
-        string _stage = "";
-
-        if (pExchange != null)
+        public void Dispose()
         {
+            string _stage = "";
+
             try
             {
                 //
-                _stage = "Checking";
-                if (filePath == "") filePath = null;
-                subject = (subject != null ? subject : pSubject);
-                body = (body != null ? body : pBody);
-                if (filePath != null)
-                {
-                    if (!File.Exists(filePath))
-                        throw new Exception($"File not found: {filePath}");
-                }
-
-                // 
-                _stage = "Preparing message";
-                EmailMessage _message = new EmailMessage(pExchange);
-                _message.Subject = subject;
-                _message.Body = body;
-                if (filePath != null) _message.Attachments.AddFileAttachment(filePath);
-                foreach (string _sendTo in sendTo.Split(","))
-                {
-                    _message.ToRecipients.Add(_sendTo.Trim());
-                }
-
-                _stage = "Saving message";
-                _message.Save();
-
-                _stage = "Sending message";
-                _message.SendAndSaveCopy();
-                return true;
+                _stage = "Checkings";
+                if (pExchange != null)
+                    pExchange = null;
             }
             catch (Exception ex)
             {
-                throw new Exception($"[cExchangeTools/SendEmail#{_stage}] {ex.Message}");
+                throw new Exception($"[cExchangeTools/Dispose#{_stage}] {ex.Message}");
             }
-        }
-
-        return false;
-    }
-    public void Dispose()
-    {
-        string _stage = "";
-
-        try
-        {
-            //
-            _stage = "Checkings";
-            if (pExchange != null)
-                pExchange = null;
-        }
-        catch (Exception ex)
-        {
-            throw new Exception($"[cExchangeTools/Dispose#{_stage}] {ex.Message}");
         }
     }
 }

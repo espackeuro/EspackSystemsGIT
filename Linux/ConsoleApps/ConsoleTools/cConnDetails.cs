@@ -10,6 +10,10 @@ namespace ConsoleTools
         public string DB;
         public int? TimeOut;
 
+        public cConnDetails()
+        {
+        }
+
         public cConnDetails(string server, string user, string password, string db = null, int? timeOut = 60)
         {
             Server = server;
