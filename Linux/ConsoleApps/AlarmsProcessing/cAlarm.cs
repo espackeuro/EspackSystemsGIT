@@ -1,7 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Xml;
 using System.Text;
+using System.Collections.Generic;
 using ConsoleTools;
+using System.Text.RegularExpressions;
 
 namespace AlarmsProcessing
 {
@@ -15,11 +17,9 @@ namespace AlarmsProcessing
         public string DB { get { return ConnDetailsDB.DB; } set { ConnDetailsDB.DB = value; } }
         public int? TimeOut { get { return ConnDetailsDB.TimeOut; } set { ConnDetailsDB.TimeOut = value; } }
 
-        public string Code, Table, AlarmField, IdRegName, EmailSubject, EmailList, SelectCondition, SelectFields, Server;
+        public string Code, Table, AlarmField, IdRegName, EmailSubject, EmailList, SelectCondition, SelectFields, Server, Contents, ErrorMessage;
         public int? IdRegValue;
-        public bool Flagged, ColumnDate, Error;
-
-        public Dictionary<int, Dictionary<string, string>> Results = null;
+        public bool Flagged, ColumnDate, Error, Triggered;
 
         public cAlarm(cConnDetails connDetailsDB, string code, string db, string table, string alarmField, string idRegName, int idRegValue, string emailSubject, string emailList, string selectCondition, string selectFields, bool flagged, string server, bool columnDate)
         {
@@ -41,9 +41,11 @@ namespace AlarmsProcessing
 
         public void Process(cDBTools cDBt)
         {
-            string _where, _dateField, _sql;
+            string _where, _dateField, _sql, _str;
             string _stage = "";
             List<string> _xmlFields = new List<string>();
+            Dictionary<int, Dictionary<string, string>> _results;
+
             try
             {
                 //
@@ -89,19 +91,94 @@ namespace AlarmsProcessing
                 _stage = "Executing query";
                 cDBt.Query(_sql);
 
+                // If no results, the alarm was not triggered
+                Triggered = !cDBt.EOF;
+                if (!Triggered)
+                    return;
+
                 //
                 _stage = "Converting data to dictionary";
-                Results = cDBt.ToDictionary();
+                _results = cDBt.ToDictionary();
+
+                //
+                _stage = "Building contents from results";
+                Contents = $"<table><tr><th colspan=2>Alarm {Code} triggered by the following values:</th></tr> ";
+                foreach (var _row in _results.Values)
+                {
+                    foreach (var _column in _row)
+                    {
+                        if (_xmlFields.Contains(_column.Key))
+                        {
+                            XmlDocument _xml = new XmlDocument();
+                            _xml.LoadXml(_column.Value);
+                            _str = XMLToString(_xml, 0, false);
+                        }
+                        else
+                        {
+                            _str = _column.Value;
+                        }
+                        Contents += $"<tr><td align=\"right\" valign=\"top\">{_column.Key}:  </td><td>{_str}</td></tr>";
+                    }
+                    Contents += "<tr><td colspan=2 align=\"center\">-------------------------------</td></tr>";
+                }
 
             }
             catch (Exception ex)
             {
                 Error = true;
-                Results=($"[cAlarm/Process#{_stage}] {ex.Message}");
+                string _errorMessage = $"[cAlarm#Process{_stage}] {ex.Message}";
+
+                // Match the last occurrence of [xxx#xxx] to ensure it's part of our error message, not part of the system error. This is to show the error message in bold.
+                Match _match = Regex.Match(_errorMessage, @"\[([^\[]*)#([^\[]*)\]", RegexOptions.RightToLeft);
+                int _i = _match.Index + _match.Length;
+
+                // Set to bold the error message, ignoring all the "call stack" string, and prepare the html code.
+                Contents = _errorMessage.Substring(0, _i) + "<ul><strong>" + _errorMessage.Substring(_i + 1);
+                Contents = $"<html><body>Alarm: {Code}<br>Error:<br>" + Contents.Replace("] ", "]<ul>") + "</strong></body></html>";
             }
             return;
         }
 
+        // Transforms a XML doc into a formated string
+        public string XMLToString(XmlDocument xml, int level, bool showNodes)
+        {
+            string _str = "", _strPrefix = "";
+            XmlDocument _subXml;
+
+            // First level has no >>
+            if (level > 0)
+            {
+                _strPrefix = new StringBuilder(level * 2).Insert(0, ">>", 2).ToString();
+            }
+            level++;
+
+            // For each node, we evaluate and call again this function recursively
+            foreach (XmlNode _node in xml)
+            {
+                if (_node.HasChildNodes)
+                {
+                    _subXml = new XmlDocument();
+                    _subXml.ImportNode(_node,true);
+                    _str += (!showNodes ? "" : $"{_strPrefix} {_node.Name}<br>") + XMLToString(_subXml, level, showNodes);
+                    if (level == 1)
+                        _str += "<br>";
+                }
+                else
+                {
+                    // This is last node (no children)
+                    _str += $"{_strPrefix} {_node.Name}: {_node.Value}<br>";
+                }
+            }
+            return _str;
+        }
+
+        public void MarkAsProcessed()
+        {
+            using (SP _sp = new SP("pControl_Alarmas"))
+            {
+                _sp.AddParam("msg",)
+            }
+        }
         public void Dispose()
         {
 

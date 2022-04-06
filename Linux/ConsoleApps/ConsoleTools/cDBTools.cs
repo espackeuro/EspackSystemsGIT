@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
@@ -271,5 +272,63 @@ namespace ConsoleTools
             return true;
         }
 
+    }
+
+    public class SP:IDisposable
+    {
+        public string Name;
+        public enum eParamType { OUT, IN };
+
+        public Dictionary<string,Tuple<dynamic,eParamType>> Params;
+
+        public SP(string name)
+        {
+            Name = name;
+        }
+
+        public void AddParam(string name, dynamic value)
+        {
+            Params.Add(name, new Tuple<dynamic, eParamType>(value, eParamType.IN));
+        }
+
+        public void AddParam(string name, ref dynamic value)
+        {
+            Params.Add(name, new Tuple<dynamic, eParamType>(value, eParamType.OUT));
+        }
+
+        public void Exec()
+        {
+            string _stage;
+
+            try
+            {
+                using (SqlCommand _cmd = new SqlCommand(Name, Conn))
+                {
+
+                    _cmd.CommandType = CommandType.StoredProcedure;
+                    
+                    foreach(var _param in Params.Keys)
+                    {
+                        _cmd.Parameters.AddWithValue
+                        _cmd.ExecuteNonQuery();
+                    }
+
+                    //
+                    _stage = "Executing SP";
+                    _cmd.CommandTimeout = (int)TimeOut;
+                    RS = _cmd.ExecuteReader();
+
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        public void Dispose()
+        {
+
+        }
     }
 }

@@ -76,10 +76,8 @@ namespace AlarmsProcessing
 
                 //
                 _stage = "Getting alarms list";
-                _dbt.Query("Select Codigo,BD,Tabla,Campo_alarma,Nombre_idreg,idreg_valor,asunto_email,emails_aviso,condicion_alarma,campos_select,flagged=dbo.checkflag(flags,'FLAGGED'),server=isnull(server,''),FechaColumn=dbo.checkflag(flags,'XFEC2FECHA')  from cab_alarmas where dbo.checkFlag(flags,'ACTIVE')=1");
+                _dbt.Query("Select Codigo,BD,Tabla,Campo_alarma,Nombre_idreg,idreg_valor,asunto_email,emails_aviso,condicion_alarma,campos_select,flagged=dbo.checkflag(flags,'FLAGGED'),server=isnull(server,''),FechaColumn=dbo.checkflag(flags,'XFEC2FECHA')  from cab_alarmas where dbo.checkFlag(flags,'ACTIVE')=1 and codigo='ALARMTEST'");
                 Dictionary<int, Dictionary<string, string>> _alarms = _dbt.ToDictionary();
-
-
 
                 //
                 _stage = "Looping through alarms";
@@ -96,9 +94,22 @@ namespace AlarmsProcessing
                             Console.Write($" {(_alarm.Error ? "ERROR" : "OK")}! Sending {(_alarm.Error ? "error " : "")}email...");
 
                             //
-                            _stage = $"Sending {(_alarm.Error ? "error " : "")} email";
-                            _alarm.SendEmail();
-                            Console.WriteLine(" OK!");
+                            if (_alarm.Triggered || _alarm.Error)
+                            {
+                                _stage = $"Sending {(_alarm.Error ? "error " : "")} email";
+                                using (cEmail _email = new cEmail(_connDetailsMail, _alarm.Error ? _params.MailErrorTo : (!String.IsNullOrEmpty(_params.MailTo) ? _params.MailTo : _alarm.EmailList), $"ALARM: {_alarm.EmailSubject}", _alarm.Contents, error: _alarm.Error)) 
+                                {
+                                    if (_alarm.Error)
+                                        _email.Recipients = _params.MailErrorTo;
+
+                                    _email.Send();
+                                }
+                                Console.WriteLine(" OK!");
+                            }
+                            else
+                            {
+                                Console.WriteLine(" Not triggered.");
+                            }
                         }
                         catch (Exception ex)
                         {
