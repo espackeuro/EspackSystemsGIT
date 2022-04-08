@@ -31,10 +31,12 @@ namespace AutomaticProcesses
         public cMiscFunctions.eOrientation Orientation;
         public string ArgsString, FileName, Title, MailTo, MailErrorTo, ErrorMessage, EmptyMessage, Contents = "";
         public int? FontSize;
-        public bool NoBand, Error, NoEmpty, MailSkipped;
+        public bool NoBand, Error, NoEmpty, MailSkipped, NoExecutionDate;
         public Dictionary<int, Dictionary<string, string>> Results = null;
+        
+        private Dictionary<int, string> Args;
 
-        public cProcess(cConnDetails connDetailsDB, cConnDetails connDetailsMail, int? queryNumber, string args, string title, string mailTo, string mailErrorTo, int? subQueryNumber = null, string emptyMessage = null, bool noBand = false, bool noEmpty = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT, int? fontSize = 11)
+        public cProcess(cConnDetails connDetailsDB, cConnDetails connDetailsMail, int? queryNumber, string args, string title, string mailTo, string mailErrorTo, int? subQueryNumber = null, string emptyMessage = null, bool noBand = false, bool noExecutionDate = false, bool noEmpty = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT, int? fontSize = 11)
         {
             ConnDetailsDB = connDetailsDB;
             ConnDetailsMail = connDetailsMail;
@@ -42,6 +44,7 @@ namespace AutomaticProcesses
             ArgsString = args;
             Title = title;
             NoBand = noBand;
+            NoExecutionDate = noExecutionDate;
             FileType = fileType;
             Orientation = orientation;
             FileName = fileName;
@@ -52,15 +55,14 @@ namespace AutomaticProcesses
             EmptyMessage = emptyMessage;
             FontSize = fontSize;
         }
-        public cProcess(string serverDB, string userDB, string passwordDB, string db, cConnDetails connDetailsMail, int? queryNumber, string args, string title, string mailTo, string mailErrorTo, int? subQueryNumber = null, string emptyMessage = null, bool noBand = false, bool noEmpty = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT, int? fontSize=null) : this(new cConnDetails(serverDB, userDB, passwordDB, db), connDetailsMail, queryNumber, args, title, mailTo, mailErrorTo, subQueryNumber, emptyMessage, noBand, noEmpty, fileName, fileType, orientation,fontSize)
+        public cProcess(string serverDB, string userDB, string passwordDB, string db, cConnDetails connDetailsMail, int? queryNumber, string args, string title, string mailTo, string mailErrorTo, int? subQueryNumber = null, string emptyMessage = null, bool noBand = false, bool noExecutionDate = false, bool noEmpty = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT, int? fontSize=null) : this(new cConnDetails(serverDB, userDB, passwordDB, db), connDetailsMail, queryNumber, args, title, mailTo, mailErrorTo, subQueryNumber, emptyMessage, noBand, noEmpty, noExecutionDate, fileName, fileType, orientation,fontSize)
         {
 
         }
-        public cProcess(cConnDetails connDetailsDB, string serverMail, string userMail, string passwordMail,int? queryNumber, string args, string title, string mailTo, string mailErrorTo, int? subQueryNumber = null, string emptyMessage = null, bool noBand = false, bool noEmpty = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT, int? fontSize=null) : this(connDetailsDB, new cConnDetails(serverMail, userMail, passwordMail), queryNumber, args, title, mailTo, mailErrorTo, subQueryNumber, emptyMessage, noBand, noEmpty, fileName, fileType, orientation,fontSize)
+        public cProcess(cConnDetails connDetailsDB, string serverMail, string userMail, string passwordMail,int? queryNumber, string args, string title, string mailTo, string mailErrorTo, int? subQueryNumber = null, string emptyMessage = null, bool noBand = false, bool noExecutionDate = false, bool noEmpty = false,  string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT, int? fontSize=null) : this(connDetailsDB, new cConnDetails(serverMail, userMail, passwordMail), queryNumber, args, title, mailTo, mailErrorTo, subQueryNumber, emptyMessage, noBand, noEmpty, noExecutionDate, fileName, fileType, orientation,fontSize)
         {
 
         }
-
         private bool ParseSQL(ref string sql, Dictionary<int, string> args, Dictionary<string, string> queryParams)
         {
             string _stage = "";
@@ -122,14 +124,10 @@ namespace AutomaticProcesses
         {
             string _stage = "";
             Dictionary<string, string> _params = null;
-            Dictionary<int, string> _args;
             string _sql = "", _queryDB = "";
 
             try
             {
-                //
-                //_stage = $"Check process args";
-                //Console.WriteLine($">> Executing {QueryNumber}/{ArgsString}");
 
                 //
                 _stage = $"Connecting to {ConnDetailsDB.Server}";
@@ -143,11 +141,11 @@ namespace AutomaticProcesses
 
                 //
                 _stage = "Processing args string";
-                _args = cMiscFunctions.CheckArgs(ArgsString);
+                Args = cMiscFunctions.CheckArgs(ArgsString);
 
                 //
                 _stage = "Parsing SQL";
-                if (!ParseSQL(ref _sql, _args, _params))
+                if (!ParseSQL(ref _sql, Args, _params))
                     throw new Exception("Unknown error!");
 
                 //
@@ -183,8 +181,7 @@ namespace AutomaticProcesses
 
                         // For TXT queries
                         _stage = "Converting data to TXT";
-                        ProcessTXT(Results);
-                        FileName = ToFile();
+                        ProcessTXT();
                         break;
                     case cMiscFunctions.eFileType.HTML:
                     case cMiscFunctions.eFileType.XLS:
@@ -193,14 +190,14 @@ namespace AutomaticProcesses
                         // Create HTML contents
                         _stage = "Converting data to HTML";
                         ProcessHTML();
-
-                        // For XLS and PDF
-                        if (FileType == cMiscFunctions.eFileType.XLS || FileType == cMiscFunctions.eFileType.PDF)
-                        {
-                            _stage = $"Converting data to {FileType}";
-                            FileName = ToFile();
-                        }
                         break;
+                }
+
+                // For XLS and PDF
+                if (FileType == cMiscFunctions.eFileType.XLS || FileType == cMiscFunctions.eFileType.PDF || FileType == cMiscFunctions.eFileType.TXT)
+                {
+                    _stage = $"Converting data to {FileType} file";
+                    FileName = ToFile();
                 }
 
             }
@@ -225,63 +222,69 @@ namespace AutomaticProcesses
                 //
                 Error = true;
             }
-//            Console.WriteLine($">> FINISHED: {ArgsString}!");
             return;
         }
 
         private string ToFile()
         {
             string _stage = "";
-            string _filePath, _fullFilePath;
+            string _filePath, _fullFilePath="";
 
             // Check file name null
-
-
-            _stage = "Preparing temp path";
-            _filePath = Path.GetTempPath();
-
-            if (!FileName.ToUpper().EndsWith($".{FileType}")) FileName += $".{FileType.ToString().ToLower()}";
-            _fullFilePath = $"{_filePath}{Path.DirectorySeparatorChar}{FileName}";
-            if (File.Exists(_fullFilePath))
+            try
             {
+                _stage = "Preparing temp path";
+                _filePath = Path.GetTempPath();
+
+                if (!FileName.ToUpper().EndsWith($".{FileType}"))
+                    FileName += $".{FileType.ToString().ToLower()}";
+
+                _fullFilePath = $"{_filePath}{FileName}";
+                if (File.Exists(_fullFilePath))
+                {
+                    //
+                    _stage = $"Deleting {_fullFilePath}";
+                    File.Delete(_fullFilePath);
+                }
                 //
-                _stage = $"Deleting {_fullFilePath}";
-                File.Delete(_fullFilePath);
+                _stage = $"Saving to {FileType} file";
+                switch (FileType)
+                {
+                    case cMiscFunctions.eFileType.XLS:
+                    case cMiscFunctions.eFileType.TXT:
+                        using (FileStream _fs = File.Create(_fullFilePath))
+                        {
+                            byte[] _info = new UTF8Encoding(true).GetBytes(Contents);
+                            // Add some information to the file.
+                            _fs.Write(_info, 0, _info.Length);
+                        }
+                        break;
+                    case cMiscFunctions.eFileType.PDF:
+                        var config = new PdfGenerateConfig();
+                        if (Orientation.ToString().ToUpper() == "LANDSCAPE")
+                        {
+                            config.PageOrientation = PdfSharpCore.PageOrientation.Landscape;
+                        }
+                        else
+                        {
+                            config.PageOrientation = PdfSharpCore.PageOrientation.Portrait;
+                        }
+                        config.PageSize = PdfSharpCore.PageSize.A4;
+                        PdfDocument pdfDocument = PdfGenerator.GeneratePdf(Contents, config);
+                        pdfDocument.Save(_fullFilePath);
+                        break;
+                    default:
+                        throw new Exception("Non supported format");
+                }
+                return _fullFilePath;
             }
-
-            //
-            _stage = $"Saving to {FileType} file";
-            if (FileType == cMiscFunctions.eFileType.XLS)
+            catch (Exception ex)
             {
-                using (FileStream _fs = File.Create(_fullFilePath))
-                {
-                    byte[] _info = new UTF8Encoding(true).GetBytes(Contents);
-                    // Add some information to the file.
-                    _fs.Write(_info, 0, _info.Length);
-                }
-            } else if (FileType == cMiscFunctions.eFileType.PDF) 
-            {
-
-            var config = new PdfGenerateConfig();
-                if (Orientation.ToString().ToUpper()== "LANDSCAPE")
-                {
-                    config.PageOrientation = PdfSharpCore.PageOrientation.Landscape;
-                }
-                else 
-                {
-                    config.PageOrientation = PdfSharpCore.PageOrientation.Portrait;
-                }
-                config.PageSize = PdfSharpCore.PageSize.A4;
-               
-                PdfDocument pdfDocument = PdfGenerator.GeneratePdf(Contents, config);
-
-
-                pdfDocument.Save(_fullFilePath);
+                throw new Exception($"[cProcess/ToFile#{_stage}] {ex.Message}.");
             }
-            return _fullFilePath;
         }
 
-        private void ProcessTXT(Dictionary<int, Dictionary<string, string>> data)
+        private void ProcessTXT()
         {
             string _stage = "";
             string _rowContents = "";
@@ -290,7 +293,7 @@ namespace AutomaticProcesses
             {
                 //
                 _stage = "";
-                foreach (var _currentRow in data)
+                foreach (var _currentRow in Results)
                 {
                     _rowContents += String.Join(";",_currentRow.Value.Values.ToList())+ "\r\n";
                 }
@@ -566,7 +569,7 @@ namespace AutomaticProcesses
         }
         public void SendEmail()
         {
-            string _stage = "";
+            string _stage = "", _subject = "";
             try
             {
                 // We send the email if email settings are defined:
@@ -595,8 +598,23 @@ namespace AutomaticProcesses
 
                         //
                         Contents = !String.IsNullOrEmpty(Contents) ? (String.IsNullOrEmpty(FileName)?Contents: "<html><body><b>Message sent automatically.</b><br><i>Mensaje enviado automáticamente.</i></body></html>") : $"<html><body>{(!String.IsNullOrEmpty(EmptyMessage) ? EmptyMessage : "<b>No results found.</b><br><i>No se encontraron resultados.</i>")}</body></html>";
+
+                        // This is to implement a feature to add the values from parameters in the subject at runtime
+                        _subject = Title;
+                        if (_subject.Contains("?"))
+                        {
+                            _stage = "Replacing arguments in subject";
+                            foreach (var _arg in Args)
+                            {
+                                _subject = _subject.Replace($"?{_arg.Key}", _arg.Value);
+                            }
+                        }
+                        if (!NoExecutionDate)
+                            _subject += $" - Executed on {DateTime.Now.ToString("dd/MM/yyyy")}";
+
+                        //
                         _stage = "Sending email";
-                        if (!_email.SendEmail(Error ? MailErrorTo : MailTo, $"{Title} {DateTime.Now.ToString("dd/MM/yyyy")}", Contents , FileName))
+                        if (!_email.SendEmail(Error ? MailErrorTo : MailTo, _subject, Contents , FileName))
                             throw new Exception("Could not send the email");
 
                         // 
@@ -616,7 +634,7 @@ namespace AutomaticProcesses
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[Main#{_stage}] {ex.Message}.");
+                Console.WriteLine($"[cProcess/SendEmail#{_stage}] {ex.Message}.");
             }
 
         }

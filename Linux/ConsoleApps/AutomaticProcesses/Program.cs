@@ -35,7 +35,7 @@ namespace AutomaticProcesses
             string _mailServer = "", _mailUser = "", _mailPassword = "";
             Nullable<int> _DBtimeOut = null, _processQuery = null, _processSubQuery = null, _fontsize = 11;
             string _processQueryParams = "", _processMailTo = "", _processMailSubject = "", _processMailErrorTo = "";
-            bool _noBand = false, _noEmpty = false;
+            bool _noBand = false, _noEmpty = false, _noExecDate = false;
             string _result = "", _fileName = "", _emptyMessage = "";
             
             cConnDetails _connDetailsDB = null;
@@ -180,6 +180,10 @@ namespace AutomaticProcesses
                         case "ERR_TO":
                             _processMailErrorTo = _currentArgValue;
                             break;
+                        case "NOEXECUTIONDATE":
+                            _noExecDate = true;
+                            break;
+
                         default:
                             throw new Exception($"Wrong argument: {_currentArgName}");
                     }
@@ -233,7 +237,7 @@ namespace AutomaticProcesses
                 _stage = "Creating process/es";
                 _procList = new Dictionary<int,cProcess>();
                 _taskList = new List<Task>();
-                cProcess _cp = new cProcess(_connDetailsDB, _connDetailsMail, _processQuery, _processQueryParams, _processMailSubject, _processMailTo, _processMailErrorTo, _processSubQuery, _emptyMessage, _noBand, _noEmpty, _fileName, _fileType, _orientation, _fontsize);
+                cProcess _cp = new cProcess(_connDetailsDB, _connDetailsMail, _processQuery, _processQueryParams, _processMailSubject, _processMailTo, _processMailErrorTo, _processSubQuery, _emptyMessage, _noBand, _noExecDate, _noEmpty, _fileName, _fileType, _orientation, _fontsize);
                 cProcess _cpSub = null;
                 Console.Write($"> Executing {(_processSubQuery!=null?"parent":"")} process (TimeOut is {_connDetailsDB.TimeOut})... ");
                 
@@ -265,7 +269,7 @@ namespace AutomaticProcesses
 
                         //
                         _stage = "Creating new subprocess";
-                        _cpSub = new cProcess(_connDetailsDB, _connDetailsMail, _processSubQuery, _processQueryParams, _currentRow.Value.ContainsKey("MAILSUBJECT") ? _currentRow.Value["MAILSUBJECT"] : _processMailSubject, _currentRow.Value.ContainsKey("MAILTO") ? _currentRow.Value["MAILTO"] : _processMailTo, _processMailErrorTo, null, _emptyMessage, _noBand, _noEmpty);
+                        _cpSub = new cProcess(_connDetailsDB, _connDetailsMail, _processSubQuery, _processQueryParams, _currentRow.Value.ContainsKey("MAILSUBJECT") ? _currentRow.Value["MAILSUBJECT"] : _processMailSubject, _currentRow.Value.ContainsKey("MAILTO") ? _currentRow.Value["MAILTO"] : _processMailTo, _processMailErrorTo, null, _emptyMessage, _noBand, _noExecDate, _noEmpty);
 
                         //
                         _stage = "Adding task for subprocess execution";
