@@ -1,0 +1,109 @@
+﻿@model CreatePost
+@{
+    ViewData["Title"] = "S . G . D . E . Update Doc.";
+    int RolInt = Int32.Parse(Metodos.ObtenRol(User.Identity.Name));
+}
+
+<link rel="stylesheet" type="text/css" href="~/css/Formulario.css">
+<form style="float:right; width:auto; margin-right:10px;" class="form" asp-action="DOCDel" enctype="multipart/form-data" name="CreatePost" method="post">
+    <input asp-for="IdReg" type="text" value="@ViewBag.IdReg" required hidden />
+    <input asp-for="Confirma" type="text" required hidden />
+    <button style="width:auto; margin-right:10px;" type="submit" class="Botones" onclick="Confirmar()">Delete Doc.</button>
+</form>
+<a style="float:left; width:auto; margin-left:10px;" class="Botones"  href="javascript:history.back()">Back</a>
+    <div class="text-center" id="Formulario">
+        <form class="form" asp-action="DOCUpdate3" enctype="multipart/form-data" name="CreatePost" method="post">
+            <div id="Nombre">
+                <h4><strong>@ViewBag.Documento</strong></h4>
+                <input asp-for="Documento" type="text" value="@ViewBag.Documento" hidden required />
+            </div>
+            <div id="File">
+                <input asp-for="COD3" type="text" maxlength="60" value="@ViewBag.COD3" required />
+                <label class="lbl-nombre">
+                    <span class="text-nomb">Cod3 Doc.</span>
+                </label>
+            </div>
+            <div id="Descrip">
+                <input asp-for="Descripcion" type="text" maxlength="150" value="@ViewBag.Descripcion" required />
+                <label class="lbl-nombre">
+                    <span class="text-nomb">Description</span>
+                </label>
+            </div>
+            <div id="Edicion">
+                <input asp-for="NumEdicion" type="number" value="@ViewBag.NumEdicion" hidden required />
+                 <input asp-for="Obs" type="text" maxlength="200" value="@ViewBag.Obs" />
+                 <label class="lbl-nombre">
+                    <span class="text-nomb">Obs.</span>
+                </label>
+            </div>
+            <div id="TiDocument">
+                <label>
+                    <span class="NombreLabel">Type</span>
+                </label>
+                <select asp-for="TipoDocumento" required>
+                    <option value="@ViewBag.TipoDocumento" selected>@ViewBag.TipoDocumento</option>
+                    @foreach (var D in (List<CreatePostTools>)Metodos.SQL_ConsultaTools("Select * from ToolsTypeDoc order by cod"))
+                    {
+                        <option value="@D.Cod">@D.NombreT</option>
+                    }
+                </select>
+            </div>
+            <div id="CoTipo">
+                <label>
+                    <span class="NombreLabel">Code</span>
+                </label>
+                <select asp-for="CTipo" required>
+                    <option value="@ViewBag.CTipo" selected>@ViewBag.CTipo</option>
+                    @foreach (var D in (List<CreatePostTools>)Metodos.SQL_ConsultaTools("Select * from ToolsCodeDoc order by cod"))
+                    {
+                        <option value="@D.Cod">@D.Cod</option>
+                    }
+                </select>
+
+            </div>
+            @if (RolInt > 8)
+            {
+                <div id="Estado">
+                    <label>
+                        <span class="NombreLabel">State</span>
+                    </label>
+                    <select asp-for="EstadoEdicion" required>
+                        <option value="@ViewBag.EstadoEdicion" selected>@ViewBag.EstadoEdicion</option>
+                        <option value="RIP">RIP</option>
+                        <option value="PAP">PAP</option>
+                        <option value="AP">AP</option>
+                    </select>
+                    <input value="DOCUpdate" asp-for="Web" type="text" hidden />
+                </div>
+            }
+            else
+            {
+                <input value="@ViewBag.EstadoEdicion" asp-for="EstadoEdicion" type="text" hidden />
+                <input value="@ViewBag.Web" asp-for="Web" type="text" hidden />
+            }
+            <div style="position:absolute;top:300%;left:0">
+                <span class="NombreLabel" style="position:absolute;top:30%;left:101%">@ViewBag.NombreArchivo</span>
+                <br />
+                <input asp-for="Archivo" type="file" />
+                <label class="lbl-nombre">
+                    <span class="text-nomb"></span>
+                </label>
+            </div>
+            <input asp-for="NombreArchivo" type="text" value="@ViewBag.NombreArchivo" hidden />
+            <input asp-for="IdReg" type="text" value="@ViewBag.IdReg" hidden />
+            <input asp-for="NumDoc" type="text" value="@ViewBag.NumDoc" hidden />
+
+            <button style="position:absolute;top:550%;left:0" type="submit" class="Botones">Submit</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById("Contenedor").className = "no";
+        function Confirmar() {
+            var r = confirm("Are you sure you want to delete the document?");
+            if (r == true) {
+                document.getElementById("Confirma").value = 1;
+            } else {
+                document.getElementById("Confirma").value = 0;
+            }
+        }
+    </script>

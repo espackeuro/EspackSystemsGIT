@@ -1,0 +1,32 @@
+﻿@{ ViewData["Title"] = "Añadir ROL";
+
+    // mibase.Execute("INSERT INTO webpages_UsersInRoles (UserId, RoleId) VALUES("+Request["usu"]+ ","+ Request["rol"]+")");
+
+}
+
+<form action="" method="post">
+    <label for="usu">Elije Usuario:</label>
+    <select name="UsuId" id="usu">
+        @foreach (var Usuarios in (List<Tipo_AspNetUsers>)Metodos.SQL_ConsultaUserProfile("Select * from AspNetUsers order by UserName"))
+        {
+            <option value="@Usuarios.UserId">@Usuarios.NombreU</option>
+        }
+    </select>
+    <label for="rol">Añade Rol:</label>
+
+    <select name="RolId" id="rol">
+        @foreach (var Roles in (List<Tipo_Rol>)Metodos.SQL_ConsultaRol("Select * from AspNetRoles order by Name"))
+        {
+            <option value="@Roles.RoleId">@Roles.Nombre</option>
+        }
+    </select>
+    <input type="submit" value="Submit">
+    <br />
+    <div class="form-group">
+        <span class="text-danger field-validation-valid" data-valmsg-replace="true">@ViewBag.Mensaje @ViewBag.Mensaje2</span>
+    </div>
+    <div>
+        <p style="color:lightgreen">@ViewBag.MensajeOK</p>
+    </div>
+</form>
+

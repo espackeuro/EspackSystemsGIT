@@ -1,0 +1,58 @@
+﻿@model Tipo_AspNetUsers
+@{
+    ViewData["Title"] = "S . G . D . E . Update User.";
+}
+
+<link rel="stylesheet" type="text/css" href="~/css/Formulario.css">
+@if (ViewBag.Mensaje != null)
+{
+@if (ViewBag.Mensaje.ToString().Substring(0, 5) == "ERROR")
+{
+    <p style="color:lightcoral">@ViewBag.Mensaje </p>
+}
+else
+{
+    <p style="color:lightgreen">@ViewBag.Mensaje</p>
+}
+}
+<div class="text-center" id="Formulario">
+    <form class="form" asp-action="UserUpdate3" enctype="multipart/form-data" name="CreatePost" method="post">
+        <div id="Nombre">
+            <input asp-for="Usuario" type="text" maxlength="60" value="@ViewBag.Nombre" required />
+            <label class="lbl-nombre">
+                <span class="text-nomb">User</span>
+            </label>
+        </div>
+        <div id="Descrip">
+            <input asp-for="NombreU" type="text" value="@ViewBag.NombreCompl" maxlength="60" required />
+            <label class="lbl-nombre">
+                <span class="text-nomb">Name</span>
+            </label>
+        </div>
+        <div id="File">
+            <input asp-for="Cod3" type="text" value="@ViewBag.Cod3" maxlength="60" required />
+            <label class="lbl-nombre">
+                <span class="text-nomb">Cod3</span>
+            </label>
+        </div>
+        <div id="Edicion">
+            <input asp-for="Email" type="text" value="@ViewBag.Email" maxlength="60" required />
+            <label class="lbl-nombre">
+                <span class="text-nomb">Email</span>
+            </label>
+        </div>
+        <input asp-for="UserId" type="text" value="@ViewBag.UserId"; required hidden />
+        <button style="position:absolute;top:250%;left:0" type="submit" class="Botones">Submit</button>
+    </form>
+</div>
+<script>
+    document.getElementById("Contenedor").className = "no";
+    function Confirmar() {
+        var r = confirm("Are you sure you want to delete the document?");
+        if (r == true) {
+            document.getElementById("Confirma").value = 1;
+        } else {
+            document.getElementById("Confirma").value = 0;
+        }
+    }
+</script>

@@ -1,0 +1,157 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model CreatePost
+<style>
+    table {
+        width: 99%;
+        border: 1px solid #999;
+        margin: 0 auto;
+        text-align: left;
+        border-collapse: collapse;
+        margin: 0 0 1em 0;
+        caption-side: top;
+    }
+
+    th, td {
+        border-bottom: 1px solid #999;
+        width: 7%;
+        padding: 0.3em;
+        text-align: center;
+    }
+
+    .noSearch.red {
+        color: lightcoral;
+    }
+</style>
+@{
+    ViewData["Title"] = "S . G . D . E . Home Page.";
+    bool sw = false;
+    int RolInt = Int32.Parse(Metodos.ObtenRol(User.Identity.Name));
+}
+@if (RolInt > 7)
+{
+    <a style="float:left; width:auto; margin-left:10px;" class="Botones" asp-area="" asp-controller="Home" asp-action="DOCNew" title="Create new Document">New Doc.</a>
+}
+@if (RolInt > 8)
+{
+    <div class="text-center">
+        @foreach (var Docs in (List<Tipo_Documentos>)Metodos.SQL_ConsulaDocumentos("Select * from Documentos where EstadoEdicion='RIP' order by xfec"))
+        {
+            sw = true;
+            if (sw) { break; }
+        }
+        @if (sw)
+        {
+            <br /><br />
+            <h4>RIP Documents</h4>
+            <table id="datos" style="margin: 0 auto;">
+                <tr>
+                    <th>Document</th>
+                    <th>Description</th>
+                    <th>Cod3</th>
+                    <th>Date</th>
+                    <th>User</th>
+                    <th>Num.Edi.</th>
+                    <th>Cod.Type</th>
+                    <th>Type Doc.</th>
+                    <th>State</th>
+                    <th>Obs.</th>
+                    <th>Press to</th>
+                </tr>
+                @foreach (var Docs in (List<Tipo_Documentos>)Metodos.SQL_ConsulaDocumentos("Select * from Documentos where EstadoEdicion='RIP' order by xfec"))
+                {
+                    <tr id="@Docs.IdReg">
+                        <td>@Docs.Documento</td>
+                        <td>@Docs.Descripcion</td>
+                        <td>@Docs.COD3</td>
+                        <td>@Docs.Xfec</td>
+                        <td>@Docs.Xusr</td>
+                        <td>@Docs.NumEdicion</td>
+                        <td>@Docs.CodTipo</td>
+                        <td>@Docs.TipoDoc</td>
+                        <td>@Docs.EstadoEdicion</td>
+                        <td>@Metodos.ObtenObs(Docs.IdReg, Docs.EstadoEdicion)</td>
+                        <th class="noSearch">
+                            <form class="form" asp-action="DOCUpdate2" enctype="multipart/form-data" name="CreatePost" method="post">
+                                <input asp-for="Documento" type="text" value="@Docs.Documento" hidden />
+                                <input asp-for="Descripcion" type="text" value="@Docs.Descripcion" hidden />
+                                <input asp-for="TipoDocumento" type="text" value="@Docs.TipoDoc" hidden />
+                                <input asp-for="CTipo" type="text" value="@Docs.CodTipo" hidden />
+                                <input asp-for="NumDoc" type="text" value="@Docs.NumDoc" hidden />
+                                <input asp-for="COD3" type="text" value="@Docs.COD3" hidden />
+                                <input asp-for="NumEdicion" type="number" value="@Docs.NumEdicion" hidden />
+                                <input asp-for="EstadoEdicion" type="text" value="PAP" hidden />
+                                <input asp-for="IdReg" type="text" value="@Docs.IdReg" hidden />
+                                <input asp-for="NombreArchivo" type="text" value="@Docs.NombreArchivo" hidden />
+                                <input asp-for="Obs" type="text" value="Upgrade to PAP" hidden />
+                                <button style="margin:auto;" type="submit" class="Botones" title="Update PAP">PAP</button>
+                            </form>
+                        </th>
+                    </tr>
+                }
+            </table>
+        }
+        @{ sw = false;
+            foreach (var Docs in (List<Tipo_Documentos>)Metodos.SQL_ConsulaDocumentos("Select * from Documentos where EstadoEdicion='PAP' order by xfec"))
+            {
+                sw = true;
+                if (sw) { break; }
+            }
+        }
+        @if (sw)
+        {
+            <br /><br />
+            <h4>PAP Documents</h4>
+            <table id="datos" style="margin: 0 auto;">
+                <tr>
+                    <th>Document</th>
+                    <th>Description</th>
+                    <th>Cod3</th>
+                    <th>Date</th>
+                    <th>User</th>
+                    <th>Num.Edi.</th>
+                    <th>Cod.Type</th>
+                    <th>Type Doc.</th>
+                    <th>State</th>
+                    <th>Obs.</th>
+                    <th>Press to</th>
+                </tr>
+                @foreach (var Docs in (List<Tipo_Documentos>)Metodos.SQL_ConsulaDocumentos("Select * from Documentos where EstadoEdicion='PAP' order by xfec"))
+                {
+                    <tr id="@Docs.IdReg">
+                        <td>@Docs.Documento</td>
+                        <td>@Docs.Descripcion</td>
+                        <td>@Docs.COD3</td>
+                        <td>@Docs.Xfec</td>
+                        <td>@Docs.Xusr</td>
+                        <td>@Docs.NumEdicion</td>
+                        <td>@Docs.CodTipo</td>
+                        <td>@Docs.TipoDoc</td>
+                        <td>@Docs.EstadoEdicion</td>
+                        <td>@Metodos.ObtenObs(Docs.IdReg, Docs.EstadoEdicion)</td>
+                        <th class="noSearch">
+                            <form class="form" asp-action="DOCUpdate2" enctype="multipart/form-data" name="CreatePost" method="post">
+                                <input asp-for="Documento" type="text" value="@Docs.Documento" hidden />
+                                <input asp-for="Descripcion" type="text" value="@Docs.Descripcion" hidden />
+                                <input asp-for="TipoDocumento" type="text" value="@Docs.TipoDoc" hidden />
+                                <input asp-for="CTipo" type="text" value="@Docs.CodTipo" hidden />
+                                <input asp-for="NumDoc" type="text" value="@Docs.NumDoc" hidden />
+                                <input asp-for="COD3" type="text" value="@Docs.COD3" hidden />
+                                <input asp-for="NumEdicion" type="number" value="@Docs.NumEdicion" hidden />
+                                <input asp-for="EstadoEdicion" type="text" value="AP" hidden />
+                                <input asp-for="IdReg" type="text" value="@Docs.IdReg" hidden />
+                                <input asp-for="NombreArchivo" type="text" value="@Docs.NombreArchivo" hidden />
+                                <input asp-for="Obs" type="text" value="Upgrade to AP" hidden />
+                                <button style="margin:auto;" type="submit" class="Botones" title="Update AP">AP</button>
+                            </form>
+                        </th>
+                    </tr>
+                }
+            </table>
+        }
+    </div>
+}
+<script>
+    document.getElementById("Contenedor").className = "no";
+</script>

@@ -1,0 +1,219 @@
+﻿@model Tipo_Acciones
+<style>
+    table {
+        width: 99%;
+        border: 1px solid #999;
+        margin: 0 auto;
+        text-align: left;
+        border-collapse: collapse;
+        margin: 0 0 1em 0;
+        caption-side: top;
+    }
+
+    caption, td, th {
+        padding: 0.3em;
+    }
+
+    th, td {
+        border-bottom: 1px solid #999;
+        width: 7%;
+        text-align: center;
+    }
+
+    caption {
+        font-weight: bold;
+        font-style: italic;
+    }
+    .noSearch.red {
+        color: lightcoral;
+    }
+
+    .noSearch.hide {
+        display: none;
+    }
+</style>
+@{
+    ViewData["Title"] = "S . G . D . E . Documents";
+    string Documento = "";
+    string Descri = "";
+    string TipoDoc = "";
+    string CodTipo = "";
+    string COD3 = "";
+    int NumEdicion = 0;
+    string EstadoEdicion = "";
+    string NombreArchivo = "";
+    foreach (var D in (List<Tipo_Documentos>)Metodos.SQL_ConsulaDocumentos("Select * from Documentos where IdReg='" + ViewBag.Idreg + "'"))
+    {
+        Documento = D.Documento;
+        Descri = D.Descripcion;
+        TipoDoc = D.TipoDoc;
+        CodTipo = D.CodTipo;
+        COD3 = D.COD3;
+        NumEdicion = D.NumEdicion;
+        EstadoEdicion = D.EstadoEdicion;
+        NombreArchivo = D.NombreArchivo;
+    }
+    int RolInt = Int32.Parse(Metodos.ObtenRol(User.Identity.Name));
+}
+@if (RolInt > 7)
+{
+    <a style="float:left; width:auto; margin-left:10px;" class="Botones" asp-area="" asp-controller="Home" asp-action="DOCNew">New Doc.</a>
+}
+<div class="text-center">
+    <label>Search</label> <input id="searchTerm" type="text" onkeyup="doSearch()" />
+    <br /><br />
+    <form class="form" target="_blank" asp-action="DOCLog" enctype="multipart/form-data" method="post">
+        <input asp-for="NumDoc" type="text" value="@ViewBag.Numdoc" hidden />
+        <input asp-for="IdReg" type="text" value="@ViewBag.IdReg" hidden />
+        <button style="width:52px;height:52px;margin-left:45%;float:left;" class="Botones" type="submit"> <img src="~/Images/log2.png" alt="log" /></button>
+    </form>
+    @if (RolInt > 8)
+    {
+        @if (EstadoEdicion == "PAP")
+        {
+            <form class="form" target="_blank" action="DOCUpdate2" name="CreatePostManual" method="post">
+                <input name="Documento" type="text" value="@Documento" hidden />
+                <input name="Descripcion" type="text" value="@Descri" hidden />
+                <input name="TipoDocumento" type="text" value="@TipoDoc" hidden />
+                <input name="CTipo" type="text" value="@CodTipo" hidden />
+                <input name="NumDoc" type="text" value="@ViewBag.NumDoc" hidden />
+                <input name="COD3" type="text" value="@COD3" hidden />
+                <input name="NumEdicion" type="number" value="@NumEdicion" hidden />
+                <input name="EstadoEdicion" type="text" value="AP" hidden />
+                <input name="IdReg" type="text" value="@ViewBag.IdReg" hidden />
+                <input name="NombreArchivo" type="text" value="@NombreArchivo" hidden />
+                <input name="Obs" type="text" value="Upgrade to AP" hidden />
+                <button style="width:52px;height:52px;margin-left:10%;float:left;" type="submit" class="Botones"><img src="~/Images/AP2.png" alt="AP" /></button>
+            </form>
+        }
+        @if (EstadoEdicion == "RIP")
+        {
+            <form class="form" target="_blank" action="DOCUpdate2" name="CreatePostManual" method="post">
+                <input name="Documento" type="text" value="@Documento" hidden />
+                <input name="Descripcion" type="text" value="@Descri" hidden />
+                <input name="TipoDocumento" type="text" value="@TipoDoc" hidden />
+                <input name="CTipo" type="text" value="@CodTipo" hidden />
+                <input name="NumDoc" type="text" value="@ViewBag.NumDoc" hidden />
+                <input name="COD3" type="text" value="@COD3" hidden />
+                <input name="NumEdicion" type="number" value="@NumEdicion" hidden />
+                <input name="EstadoEdicion" type="text" value="PAP" hidden />
+                <input name="IdReg" type="text" value="@ViewBag.IdReg" hidden />
+                <input name="NombreArchivo" type="text" value="@NombreArchivo" hidden />
+                <input name="Obs" type="text" value="Upgrade to PAP" hidden />
+                <button style="width:52px;height:52px;margin-left:10%;float:left;" type="submit" class="Botones"><img src="~/Images/PAP2.png" alt="PAP" /></button>
+            </form>
+        }
+        <form class="form" target="_blank" action="DOCUpdate2" name="CreatePost2" method="post">
+            <input name="IdReg" type="text" value="@ViewBag.IdReg" hidden />
+            <input name="NumDoc" type="text" value="@ViewBag.NumDoc" hidden />
+            <input name="Documento" type="text" value="@Documento" hidden />
+            <input name="Descripcion" type="text" value="@Descri" hidden />
+            <input name="TipoDocumento" type="text" value="@TipoDoc" hidden />
+            <input name="CTipo" type="text" value="@CodTipo" hidden />
+            <input name="COD3" type="text" value="@COD3" hidden />
+            <input name="NumEdicion" type="number" value="@NumEdicion" hidden />
+            <input name="EstadoEdicion" type="text" value="@EstadoEdicion" hidden />
+            <input name="NombreArchivo" type="text" value="@NombreArchivo" hidden />
+            <input name="Obs" type="text" value="@Metodos.ObtenObs(ViewBag.IdReg, EstadoEdicion)" hidden />
+
+            <button style="width:52px;height:52px;margin-left:10%;float:left;" type="submit" class="Botones"><img src="~/Images/Update.png" alt="update" /></button>
+        </form>
+    }
+    <br />
+    <br />
+    <br />
+    <br />
+    <h4>
+        Document: @Documento @Descri
+    </h4>
+    <table id="datos" style="margin: 0 auto;">
+        <tr>
+            <th>STATE</th>
+            <th>DATE</th>
+            <th>ED.</th>
+            <th>User</th>
+            <th>Obs.</th>
+        </tr>
+        @foreach (var Docs in (List<Tipo_Acciones>)Metodos.SQL_ConsulaAcciones("Select * from Creacion where IdReg='" + @ViewBag.IdReg + "' order by xfec"))
+        {
+            <tr>
+                <td>RIP</td>
+                <td>@Docs.Xfec</td>
+                <td>@Docs.NumEdicion</td>
+                <td>@Docs.Xusr</td>
+                <td>@Docs.Obs</td>
+            </tr>
+        }
+        @foreach (var Docs in (List<Tipo_Acciones>)Metodos.SQL_ConsulaAcciones("Select * from Revision where IdReg='" + @ViewBag.IdReg + "' order by xfec"))
+        {
+            <tr>
+                <td>PAP</td>
+                <td>@Docs.Xfec</td>
+                <td>@Docs.NumEdicion</td>
+                <td>@Docs.Xusr</td>
+                <td>@Docs.Obs</td>
+            </tr>
+        }
+        @foreach (var Docs in (List<Tipo_Acciones>)Metodos.SQL_ConsulaAcciones("Select * from Aprobacion where IdReg='" + @ViewBag.IdReg + "' order by xfec"))
+        {
+            <tr>
+                <td>AP</td>
+                <td>@Docs.Xfec</td>
+                <td>@Docs.NumEdicion</td>
+                <td>@Docs.Xusr</td>
+                <td>@Docs.Obs</td>
+            </tr>
+        }
+        <tr class='noSearch hide'>
+            <td colspan="12"></td>
+        </tr>
+    </table>
+</div>
+<script>
+    document.getElementById("Contenedor").className = "no";
+    function doSearch() {
+        const tableReg = document.getElementById('datos');
+        const searchText = document.getElementById('searchTerm').value.toLowerCase();
+        let total = 0;
+
+        // Recorremos todas las filas con contenido de la tabla
+        for (let i = 1; i < tableReg.rows.length; i++) {
+            // Si el td tiene la clase "noSearch" no se busca en su cntenido
+            if (tableReg.rows[i].classList.contains("noSearch")) {
+                continue;
+            }
+
+            let found = false;
+            const cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+            // Recorremos todas las celdas
+            for (let j = 0; j < cellsOfRow.length && !found; j++) {
+                const compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+                // Buscamos el texto en el contenido de la celda
+                if (searchText.length == 0 || compareWith.indexOf(searchText) > -1) {
+                    found = true;
+                    total++;
+                }
+            }
+            if (found) {
+                tableReg.rows[i].style.display = '';
+            } else {
+                // si no ha encontrado ninguna coincidencia, esconde la
+                // fila de la tabla
+                tableReg.rows[i].style.display = 'none';
+            }
+        }
+
+        // mostramos las coincidencias
+        const lastTR = tableReg.rows[tableReg.rows.length - 1];
+        const td = lastTR.querySelector("td");
+        lastTR.classList.remove("hide", "red");
+        if (searchText == "") {
+            lastTR.classList.add("hide");
+        } else if (total) {
+            td.innerHTML = total + " Matches found.";
+        } else {
+            lastTR.classList.add("red");
+            td.innerHTML = "No matches found.";
+        }
+    }
+</script>

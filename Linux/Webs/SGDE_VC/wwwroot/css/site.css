@@ -1,0 +1,128 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+.Titulo {
+    color: #414d83;
+    width: 100px;
+    font-weight: bold;
+}
+.nove {
+    display:none;
+}
+.Botones {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border-radius: 10px;
+    background: #6675df;
+    font-family: Montserrat-Bold;
+    font-size: 12px;
+    color: #fff;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    border: 1px solid grey;
+    border-radius: 5px;
+    box-shadow: 0px 5px 0px grey;
+    position: relative;
+    top: 0px;
+    transition: all ease 0.3s;
+    
+}
+.Botones:active {
+    box-shadow: 0 3px 0 grey;
+    top: 3px;
+}
+ul li a:hover {
+background-color:azure;
+} 
+.Botones:hover {
+   background: linear-gradient(black,grey);
+   color: whitesmoke;
+   text-decoration: none;
+}
+nav-item,nav-item:hover, .nav-link text-dark:hover {
+    color: darkblue;
+}
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+body {
+background-color:black;
+color:lightgrey;
+}
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100.1%;
+}
+tr:hover {
+    color: #6675df
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}

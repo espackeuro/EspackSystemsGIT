@@ -1,0 +1,79 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@{
+    int RolInt = 0;
+    if (SignInManager.IsSignedIn(User))
+    {
+        RolInt = Int32.Parse(Metodos.ObtenRol(User.Identity.Name));
+    }
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SGDE_VC</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+
+    <header id="Encabezado">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <img class="navbar-brand" style="width:110px;float:left;padding:0px;" src="~/Images/logo.png" alt="Espack" />
+                <span class="Titulo">@ViewData["Title"]</span>
+                <div class="container">
+
+
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
+                            </li>
+                            @if (RolInt > 8)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="DOCUpdate">UPDATE Doc.</a>
+                                </li>
+                            }
+                            @if (RolInt > 7)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="DOCUMENTSRIP">RIP Doc.</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="DOCUMENTSPAP">PAP Doc.</a>
+                                </li>
+                            }
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="DOCUMENTS">DOCUMENTS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Tools">Tools</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <partial name="_LoginPartial" />
+
+            </nav>
+        }
+    </header>
+    <div class="container" id="Contenedor">
+        <main role="main" class="pb-3" id="Main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer id="Pie" class="border-top footer text-muted">
+        <div id="Pie2" class="container">
+            &copy; 2022 - S.G.D.E.
+            <a href="#Encabezado">Go to Top</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
