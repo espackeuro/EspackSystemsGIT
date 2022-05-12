@@ -1,0 +1,114 @@
+﻿@page
+@model ServLogisModel
+@using Microsoft.AspNetCore.Http
+@{
+    if (HttpContext.Session.GetString("lengua") != null)
+    {
+        Clases.IdiomaCheck(HttpContext.Session.GetString("lengua").ToString());
+    }
+}
+<br />
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+    <h2 class="page-header page-header2">@Idiomas.ServiciosLog</h2>
+    <div class="jumbotron jumbotron2">
+        <br />
+        <div class="text-center">
+            <p>@Idiomas.Pag_ServiciosLog</p>
+            <br />
+            <ul>
+                <li>
+                    <h3>@Idiomas.Almacenaje.ToUpper()</h3>
+                    <ul>
+                        <li class="right">
+                            <h4 class="mitad" style="display:block;margin:auto;">
+                                <a class="Botones" href="Almacenaje">@Idiomas.Almacenaje  - @Idiomas.AlmacenAduanero</a>
+                            </h4>
+                        </li>
+                    </ul><br />
+                </li>
+            </ul><br />
+            <ul>
+                <li>
+                    <h3>@Idiomas.Manipulados.ToUpper()</h3>
+                    <ul>
+                        <li>
+                            <h4 class="mitad" style="display:block;margin:auto;">
+                                <a class="Botones" href="Ecommerce">@Idiomas.Ecommerce</a>
+                            </h4>
+                        </li>
+                    </ul><br />
+                <ul>
+                    <li>
+                            <h4 class="mitad" style="display:block;margin:auto;">
+                                <a class="Botones" href="LogEmpaquetado">@Idiomas.LogEmpaquetado</a>
+                            </h4>
+                    </li>
+                </ul><br />
+                    <ul>
+                        <li>
+                            <h4 class="mitad" style="display:block;margin:auto;">
+                                <a class="Botones" href="LogIdentificacion">@Idiomas.LogIdentificación</a>
+                            </h4>
+                        </li>
+                    </ul><br />
+                    <ul>
+                        <li>
+                            <h4 class="mitad" style="display:block;margin:auto;">
+                                <a class="Botones" href="LogSeleccion">@Idiomas.LogSeleccion</a>
+                            </h4>
+                        </li>
+                    </ul><br />
+                    <ul>
+                        <li>
+                            <h4 class="mitad" style="display:block;margin:auto;">
+                                <a class="Botones" href="RevInsRecu">@Idiomas.RevInspRecu</a>
+                            </h4>
+                        </li>
+                    </ul><br />
+                    <ul>
+                        <li>
+                            <h4 class="mitad" style="display:block;margin:auto;">
+                                <a class="Botones" href="MonPreCon">@Idiomas.Montajespreparaconjuntos</a>
+                            </h4>
+                        </li>
+                    </ul><br />
+                    <ul>
+                        <li>
+                            <h4 class="mitad" style="display:block;margin:auto;">
+                                <a class="Botones" href="Trasvase">@Idiomas.Trasvaseacontenedoresespec</a>
+                            </h4>
+                        </li>
+                    </ul><br />
+                    <ul>
+                        <li>
+                            <h4 class="mitad" style="display:block;margin:auto;">
+                                <a class="Botones" href="CenCon">@Idiomas.Centroconsolidadorcontenedores</a>
+                            </h4>
+                        </li>
+                    </ul><br />
+                    <ul>
+                        <li>
+                            <h4 class="mitad" style="display:block;margin:auto;">
+                                <a class="Botones" href="ProLogEsp">@Idiomas.Proclogespeciales</a>
+                            </h4>
+                        </li>
+                    </ul><br />
+                </li>
+            </ul><br />
+            <ul>
+                <li>
+                    <h3>@Idiomas.Suministro.ToUpper()</h3>
+                    <ul>
+                        <li>
+                            <h4 class="mitad" style="display:block;margin:auto;">
+                                <a class="Botones" href="Distribucion">@Idiomas.Distribucnacionalinter</a>
+                            </h4>
+                        </li>
+                    </ul><br />
+                </li>
+            </ul><br />
+        </div>
+    </div>
+</div>
+<div class="col-sm-1"></div> 

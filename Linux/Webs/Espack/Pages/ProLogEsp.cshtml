@@ -1,0 +1,57 @@
+﻿@page
+@model ProLogEspModel
+@using Microsoft.AspNetCore.Http
+@{
+    if (HttpContext.Session.GetString("lengua") != null)
+    {
+        Clases.IdiomaCheck(HttpContext.Session.GetString("lengua").ToString());
+    }
+}
+<br />
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+    <h2 class="page-header page-header2">@Idiomas.Proclogespeciales</h2>
+    <div class="jumbotron jumbotron2">
+        <br />
+        <p>
+            @Idiomas.En <strong>Espack Eurologística</strong>, @Idiomas.ProLogEspL1
+        </p>
+        <p>@Idiomas.ProLogEspL2</p>
+        <table>
+            <tr>
+                <td class="columnas2">
+                    <ul>
+                        <li>
+                            <p>
+                                @Idiomas.ProLogEspL3
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                @Idiomas.ProLogEspL4
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                @Idiomas.ProLogEspL5
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                @Idiomas.ProLogEspL6
+                            </p>
+                        </li>
+                    </ul>
+                </td>
+                <td class="columnas2">
+                    <div style="min-width: 280px; width:90%;float:right;">
+                        <img class="img-thumbnail" title="@Idiomas.Proclogespeciales" src="~/Imagenes/Procesos_especificos.jpg" alt="Espack" />
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="col-sm-1"></div>
+
+

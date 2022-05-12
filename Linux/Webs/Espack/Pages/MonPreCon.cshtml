@@ -1,0 +1,62 @@
+﻿@page
+@model MonPreConModel
+@using Microsoft.AspNetCore.Http
+@{
+    if (HttpContext.Session.GetString("lengua") != null)
+    {
+        Clases.IdiomaCheck(HttpContext.Session.GetString("lengua").ToString());
+    }
+}
+<br />
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+    <h2 class="page-header page-header2">@Idiomas.Montajespreparaconjuntos</h2>
+    <div class="jumbotron jumbotron2">
+        <br />
+        <p>@Idiomas.Montajespreparaconjuntos</p>
+        <table width="100%">
+            <tr>
+                <td class="columnas2">
+                    <ul>
+                        <li>
+                            <p><strong>@Idiomas.MonPreConL2</strong></p>
+                            <ul>
+                                <li>
+                                    <p>
+                                        @Idiomas.MonPreConL3
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        @Idiomas.MonPreConL4
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        @Idiomas.MonPreConL5
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        @Idiomas.MonPreConL6
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        @Idiomas.MonPreConL7
+                                    </p>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </td>
+                <td class="columnas2">
+                    <div style="min-width: 300px; width:90%;float:right;">
+                        <img class="img-thumbnail" title="@Idiomas.Montajespreparaconjuntos" src="~/Imagenes/Montajes.jpg" alt="Espack" />
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="col-sm-1"></div>

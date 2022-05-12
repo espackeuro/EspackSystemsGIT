@@ -1,0 +1,53 @@
+﻿@page
+@model WolverhamptonModel
+@using Microsoft.AspNetCore.Http
+@{
+    if (HttpContext.Session.GetString("lengua") != null)
+    {
+        Clases.IdiomaCheck(HttpContext.Session.GetString("lengua").ToString());
+    }
+}
+<br />
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+    <h2 class="page-header page-header2">@Idiomas.Wolverhampton &nbsp;<img src="~/Imagenes/Inglaterra.png" /></h2>
+    <div class="jumbotron jumbotron2">
+        <br />
+        <div class="text-center">
+            <img class="bordessombray99sinmargen" src="~/Imagenes/Wolverhampton.jpg" />
+        </div>
+        <br /><br />
+        <table width="100%">
+            <tr>
+                <td class="columnas2">
+                    <p><strong>ESPACK EUROLOGÍSTICA, LTD - @Idiomas.Wolverhampton.ToUpper()</strong></p>
+                    <ul>
+                        <li>
+                            <br />
+                            <p>@Idiomas.OficinasCentrales.ToUpper()</p>
+                            <br />
+                        </li>
+                        <li>
+                            <p>UNIT 4, MERRYHILLS ENTERPRISE PARK</p>
+                        </li>
+                        <li>
+                            <p>PARK LANE - WOLVERHAMPTON</p>
+                        </li>
+                        <li>
+                            <p>WV10 9TJ</p>
+                        </li>
+                        <li>
+                            <p>Tel. +44 (0) 1902 724 474</p>
+                        </li>
+                    </ul>
+                    <br />
+                </td>
+                <td class="columnas2">
+                    <iframe class="bordessombray95" src="https://www.google.com/maps/embed?pb=!1m17!1m11!1m3!1d2369.7656502114382!2d-2.110348100000861!3d52.60163349999567!2m2!1f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48709c097741f13b%3A0xa4abe1d7820b8677!2sMerryhills+Enterprise+Park%2C+Park+Ln%2C+Wolverhampton+WV10+9TJ%2C+Reino+Unido!5e1!3m2!1ses!2ses!4v1442489308255" width="400" height="400"></iframe>
+                </td>
+            </tr>
+        </table>
+        <br />
+    </div>
+</div>
+<div class="col-sm-1"></div>

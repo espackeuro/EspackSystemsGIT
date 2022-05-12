@@ -1,0 +1,49 @@
+﻿@page
+@model LogSeleccionModel
+@using Microsoft.AspNetCore.Http
+@{
+    if (HttpContext.Session.GetString("lengua") != null)
+    {
+        Clases.IdiomaCheck(HttpContext.Session.GetString("lengua").ToString());
+    }
+}
+<br />
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+    <h2 class="page-header page-header2">@Idiomas.LogSeleccion </h2>
+    <div class="jumbotron jumbotron2">
+        <br />
+        <p>
+            @Idiomas.En <strong>Espack Eurologística</strong>, @Idiomas.LogSeleccionL1
+        </p>
+        <table>
+            <tr>
+                <td class="columnas2">
+                    <ul>
+                        <li>
+                            <p><strong>@Idiomas.LogSeleccionL2</strong></p>
+                            <ul>
+                                <li>
+                                    <p>
+                                        @Idiomas.LogSeleccionL3
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        @Idiomas.LogSeleccionL4
+                                    </p>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </td>
+                <td class="columnas2">
+                    <div style="min-width: 300px; width:90%;float:right;">
+                        <img class="img-thumbnail" title="@Idiomas.LogSeleccion" src="~/Imagenes/LogSeleccion.jpg" alt="Espack" />
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="col-sm-1"></div>

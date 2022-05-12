@@ -1,0 +1,49 @@
+﻿@page
+@model DistribucionModel
+@using Microsoft.AspNetCore.Http
+@{
+    if (HttpContext.Session.GetString("lengua") != null)
+    {
+        Clases.IdiomaCheck(HttpContext.Session.GetString("lengua").ToString());
+    }
+}
+<br />
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+    <h2 class="page-header page-header2">@Idiomas.Distribucnacionalinter</h2>
+    <div class="jumbotron jumbotron2">
+        <br />
+        <p>
+            @Idiomas.En <strong>Espack Eurologística</strong>, @Idiomas.DistribucionL1
+        </p>
+        <table>
+            <tr>
+                <td class="col-lg-1">
+                    <ul>
+                        <li>
+                            <p>
+                                @Idiomas.DistribucionL2
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                @Idiomas.DistribucionL3
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                @Idiomas.DistribucionL4
+                            </p>
+                        </li>
+                    </ul>
+                </td>
+        </table>
+        <br />
+        <p class="text-center"> @Idiomas.DistribucionL5  <strong>Espack Eurologística</strong></p>
+        <br />
+        <img class="img-responsive" title="@Idiomas.Distribucnacionalinter" src="~/Imagenes/Internacional.jpg" alt="Espack" />
+    </div>
+</div>
+<div class="col-sm-1"></div>
+
+

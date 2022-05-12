@@ -1,0 +1,27 @@
+﻿@page
+@model QueEsEspackModel
+@using Microsoft.AspNetCore.Http
+@{
+    if (HttpContext.Session.GetString("lengua") != null)
+    {
+        Clases.IdiomaCheck(HttpContext.Session.GetString("lengua").ToString());
+    }
+}
+<br />
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+    <h2 class="page-header page-header2">@Idiomas.Que_es_Espack</h2>
+
+    <div class="jumbotron jumbotron2">
+        <br />
+        <div class="text-center">
+            <img class="bordessombray99sinmargen" style="width:50%;" src="~/Imagenes/QueEsEspack.png" />
+        </div>
+        <br /><br />
+        <p>@Idiomas.Pag_Que_es_Espack</p>
+    </div>
+
+</div>
+<div class="col-sm-1"></div>
+
+

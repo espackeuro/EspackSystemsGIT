@@ -1,0 +1,718 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Agosto2004" xml:space="preserve">
+    <value>AUGUST 2004</value>
+  </data>
+  <data name="AlmacenAduanero" xml:space="preserve">
+    <value>Customs Warehouse</value>
+  </data>
+  <data name="Almacenaje" xml:space="preserve">
+    <value>Storage</value>
+  </data>
+  <data name="AlmacenL1" xml:space="preserve">
+    <value>We offer the following comprehensive storage logistics solutions:</value>
+  </data>
+  <data name="AlmacenL2" xml:space="preserve">
+    <value>Reception of the products</value>
+  </data>
+  <data name="AlmacenL3" xml:space="preserve">
+    <value>Execution of an immediate quality control</value>
+  </data>
+  <data name="AlmacenL4" xml:space="preserve">
+    <value>Control and inventory of all stored products</value>
+  </data>
+  <data name="AlmacenL5" xml:space="preserve">
+    <value>Storage according to product types, different expirations, rotation and number of references</value>
+  </data>
+  <data name="AlmacenL6" xml:space="preserve">
+    <value>Preparation and dispatch of orders</value>
+  </data>
+  <data name="AlmacenL7" xml:space="preserve">
+    <value>Input and output control: fifo, lifo, nifo systems,...</value>
+  </data>
+  <data name="AlmacenL8" xml:space="preserve">
+    <value>Radiofrequency systems</value>
+  </data>
+  <data name="Asunto" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="Bridgend" xml:space="preserve">
+    <value>Bridgend</value>
+  </data>
+  <data name="CastleBromwich" xml:space="preserve">
+    <value>Castle Bromwich</value>
+  </data>
+  <data name="CenConL1" xml:space="preserve">
+    <value>We offer the following transfer solutions to specific containers:</value>
+  </data>
+  <data name="CenConL2" xml:space="preserve">
+    <value>Maintenance of the perfect condition of the containers.</value>
+  </data>
+  <data name="CenConL3" xml:space="preserve">
+    <value>Know the exact location and status of the container at all times.</value>
+  </data>
+  <data name="CenConL4" xml:space="preserve">
+    <value>Anticipate and avoid possible shortage situations.</value>
+  </data>
+  <data name="CenConL5" xml:space="preserve">
+    <value>Identify areas where adequate rotation is not carried out.</value>
+  </data>
+  <data name="CenConL6" xml:space="preserve">
+    <value>Have a traceability that allows to purge the responsibilities in case of damage or improper use.</value>
+  </data>
+  <data name="CenConL7" xml:space="preserve">
+    <value>Have the necessary data to optimize the container park, as well as program their maintenance and eventual replacement in the most efficient way.</value>
+  </data>
+  <data name="Centroconsolidadorcontenedores" xml:space="preserve">
+    <value>Container consolidation center</value>
+  </data>
+  <data name="CERTIFICADOS" xml:space="preserve">
+    <value>CERTIFICATES</value>
+  </data>
+  <data name="CertificadosPremios" xml:space="preserve">
+    <value>Certificates and Awards</value>
+  </data>
+  <data name="Clientes" xml:space="preserve">
+    <value>Customers</value>
+  </data>
+  <data name="Colonia" xml:space="preserve">
+    <value>Cologne</value>
+  </data>
+  <data name="Contacto" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="Craiova" xml:space="preserve">
+    <value>Craiova</value>
+  </data>
+  <data name="Dagenham" xml:space="preserve">
+    <value>Dagenham</value>
+  </data>
+  <data name="DistribucionL1" xml:space="preserve">
+    <value>We offer the following transfer solutions to specific containers:</value>
+  </data>
+  <data name="DistribucionL2" xml:space="preserve">
+    <value>Transfer of disposable packaging material to durable packaging.</value>
+  </data>
+  <data name="DistribucionL3" xml:space="preserve">
+    <value>Transfer the material that comes in containers not suitable for the production chain to KLT containers.</value>
+  </data>
+  <data name="DistribucionL4" xml:space="preserve">
+    <value>Transfer the material that arrives packaged to optimize transport to containers and quantities determined by the client.</value>
+  </data>
+  <data name="DistribucionL5" xml:space="preserve">
+    <value>International coverage of</value>
+  </data>
+  <data name="Distribucnacionalinter" xml:space="preserve">
+    <value>National and international distribution</value>
+  </data>
+  <data name="Ecommerce" xml:space="preserve">
+    <value>E-commerce logistics</value>
+  </data>
+  <data name="EcommerceL1" xml:space="preserve">
+    <value>Reception of sea containers goods</value>
+  </data>
+  <data name="EcommerceL2" xml:space="preserve">
+    <value>Identification with RF barcode in warehouse</value>
+  </data>
+  <data name="EcommerceL3" xml:space="preserve">
+    <value>Picking according live daily demands</value>
+  </data>
+  <data name="EcommerceL4" xml:space="preserve">
+    <value>Integration with client ERP via systems interface</value>
+  </data>
+  <data name="EcommerceL5" xml:space="preserve">
+    <value>EDI connectivity</value>
+  </data>
+  <data name="EcommerceL6" xml:space="preserve">
+    <value>Delivery by van – last mile</value>
+  </data>
+  <data name="EcommerceL7" xml:space="preserve">
+    <value>Reverse logistics management</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Contact email</value>
+  </data>
+  <data name="Empresas" xml:space="preserve">
+    <value>Espack group companies</value>
+  </data>
+  <data name="En" xml:space="preserve">
+    <value>At</value>
+  </data>
+  <data name="Enviar" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="EnviePreguntas" xml:space="preserve">
+    <value>SEND US YOUR QUESTIONS</value>
+  </data>
+  <data name="Eslovaquia" xml:space="preserve">
+    <value>Nitra</value>
+  </data>
+  <data name="FABRICAFORD" xml:space="preserve">
+    <value>FORD FACTORY</value>
+  </data>
+  <data name="FechaCreacion" xml:space="preserve">
+    <value>Creation date:</value>
+  </data>
+  <data name="GALARDONES" xml:space="preserve">
+    <value>AWARDS AND CERTIFICATIONS:</value>
+  </data>
+  <data name="Graz" xml:space="preserve">
+    <value>Graz</value>
+  </data>
+  <data name="GrazL1" xml:space="preserve">
+    <value>2,000 m2 of facilities, inside the Magna Steyr supply center</value>
+  </data>
+  <data name="GrazL2" xml:space="preserve">
+    <value>Consolidation area, line supply and distribution within the Magna Steyr plant</value>
+  </data>
+  <data name="GrazL3" xml:space="preserve">
+    <value>Own software tailored to the client and on-line connection systems with the client</value>
+  </data>
+  <data name="GrazL4" xml:space="preserve">
+    <value>Latest technology in machinery and systems</value>
+  </data>
+  <data name="Halewood" xml:space="preserve">
+    <value>Halewood</value>
+  </data>
+  <data name="HalewoodL1" xml:space="preserve">
+    <value>Own software tailored to the client and on-line connection systems with the client</value>
+  </data>
+  <data name="HalewoodL2" xml:space="preserve">
+    <value>Supply to line at Jaguar Land Rover</value>
+  </data>
+  <data name="HalewoodL3" xml:space="preserve">
+    <value>Latest technology in machinery and systems</value>
+  </data>
+  <data name="INFRAESTRUCTURA" xml:space="preserve">
+    <value>INFRASTRUCTURE:</value>
+  </data>
+  <data name="Junio2016" xml:space="preserve">
+    <value>JUNE 2,016</value>
+  </data>
+  <data name="LogEmpaquetado" xml:space="preserve">
+    <value>Packaging Logistics</value>
+  </data>
+  <data name="LogEmpaquetadoL1" xml:space="preserve">
+    <value>we offer the following comprehensive packaging logistics solutions:
+</value>
+  </data>
+  <data name="LogEmpaquetadoL2" xml:space="preserve">
+    <value>Packaging material according to customer specifications</value>
+  </data>
+  <data name="LogEmpaquetadoL3" xml:space="preserve">
+    <value>Diversity of packaging by type of product, by references and by customer</value>
+  </data>
+  <data name="LogEmpaquetadoL4" xml:space="preserve">
+    <value>Manual packaging</value>
+  </data>
+  <data name="LogEmpaquetadoL5" xml:space="preserve">
+    <value>Automatic packaging</value>
+  </data>
+  <data name="LogEmpaquetadoL6" xml:space="preserve">
+    <value>Shrink wrapping</value>
+  </data>
+  <data name="LogEmpaquetadoL7" xml:space="preserve">
+    <value>Blisters</value>
+  </data>
+  <data name="LogIdentificacionL1" xml:space="preserve">
+    <value>Paper sticker.</value>
+  </data>
+  <data name="LogIdentificacionL2" xml:space="preserve">
+    <value>Polyethylene adhesive label.</value>
+  </data>
+  <data name="LogIdentificacionL3" xml:space="preserve">
+    <value>Maximum security adhesive label: Paper money.</value>
+  </data>
+  <data name="LogIdentificacionL4" xml:space="preserve">
+    <value>Inkjet on the packaging.</value>
+  </data>
+  <data name="LogIdentificacionL5" xml:space="preserve">
+    <value>Identification printed by barcode.</value>
+  </data>
+  <data name="LogIdentificación" xml:space="preserve">
+    <value>Identification Logistics</value>
+  </data>
+  <data name="LogIntegralAlmacen" xml:space="preserve">
+    <value>Comprehensive warehouse logistics</value>
+  </data>
+  <data name="LogSeleccion" xml:space="preserve">
+    <value>Selection Logistics</value>
+  </data>
+  <data name="LogSeleccionL1" xml:space="preserve">
+    <value>we offer the following comprehensive selection logistics solutions that consist of selecting different products that will be sent to the same address, after handling, if the client so requires.</value>
+  </data>
+  <data name="LogSeleccionL2" xml:space="preserve">
+    <value>Reverse Logistics</value>
+  </data>
+  <data name="LogSeleccionL3" xml:space="preserve">
+    <value>Complementary service to the selection or picking service. We manage the returns of material that our client's dealers return due to quality problems, damage, order errors,...</value>
+  </data>
+  <data name="LogSeleccionL4" xml:space="preserve">
+    <value>These parts are received, classified due to return and according to the client's instructions, they proceed to the next phase or service.</value>
+  </data>
+  <data name="LUGARPRINCIPALTRABAJO" xml:space="preserve">
+    <value>MAIN PLACE OF WORK:</value>
+  </data>
+  <data name="LUGARSECUNDARIOTRABAJO" xml:space="preserve">
+    <value>SECONDARY PLACE OF WORK:</value>
+  </data>
+  <data name="M2Instalaciones" xml:space="preserve">
+    <value>m2 of facilities</value>
+  </data>
+  <data name="Madrid" xml:space="preserve">
+    <value>Madrid</value>
+  </data>
+  <data name="MadridL1" xml:space="preserve">
+    <value>IMPLEMENTATION OF QUALITY SYSTEMS.</value>
+  </data>
+  <data name="MadridL2" xml:space="preserve">
+    <value>DEVELOPMENT AND IMPLEMENTATION OF SOFTWARE TAILORED TO THE NEEDS OF THE CLIENT.</value>
+  </data>
+  <data name="MadridL3" xml:space="preserve">
+    <value>IMPLEMENTATION OF SYSTEMS THAT GUARANTEE THE PREVENTION OF OCCUPATIONAL RISKS.</value>
+  </data>
+  <data name="MadridL4" xml:space="preserve">
+    <value>SEARCH FOR SUBSIDIES.</value>
+  </data>
+  <data name="MadridL5" xml:space="preserve">
+    <value>BUSINESS GIFTS.</value>
+  </data>
+  <data name="MadridL6" xml:space="preserve">
+    <value>COMPREHENSIVE LANGUAGE SERVICE.</value>
+  </data>
+  <data name="MadridL7" xml:space="preserve">
+    <value>ADVICE ON FISCAL, LABOR AND ACCOUNTING MATERIAL.</value>
+  </data>
+  <data name="MadridL8" xml:space="preserve">
+    <value>LEASING OF INDUSTRIAL BUILDINGS AND HOMES.</value>
+  </data>
+  <data name="Manipulados" xml:space="preserve">
+    <value>manipulated</value>
+  </data>
+  <data name="Marzo1971" xml:space="preserve">
+    <value>MARCH 1,971</value>
+  </data>
+  <data name="Marzo2017" xml:space="preserve">
+    <value>MARCH 2,017</value>
+  </data>
+  <data name="Marzo2020" xml:space="preserve">
+    <value>MARCH 2,020</value>
+  </data>
+  <data name="Mayo1978" xml:space="preserve">
+    <value>MAY 1,978</value>
+  </data>
+  <data name="Mayo1988" xml:space="preserve">
+    <value>MAY 1,988</value>
+  </data>
+  <data name="Mayo2010" xml:space="preserve">
+    <value>MAY 2,010</value>
+  </data>
+  <data name="Mayo2012" xml:space="preserve">
+    <value>MAY 2,012</value>
+  </data>
+  <data name="Mayo2014" xml:space="preserve">
+    <value>MAY 2,014</value>
+  </data>
+  <data name="Medios" xml:space="preserve">
+    <value>Means</value>
+  </data>
+  <data name="MediosL1" xml:space="preserve">
+    <value>Means have</value>
+  </data>
+  <data name="MediosL10" xml:space="preserve">
+    <value>Oil cabin</value>
+  </data>
+  <data name="MediosL11" xml:space="preserve">
+    <value>Primer cabin</value>
+  </data>
+  <data name="MediosL12" xml:space="preserve">
+    <value>Bilateral, trilateral, retractable forklifts,…</value>
+  </data>
+  <data name="MediosL13" xml:space="preserve">
+    <value>Own software tailored to each client and service: barcode, radio frequency,...</value>
+  </data>
+  <data name="MediosL14" xml:space="preserve">
+    <value>Customer connection systems: EDI, Catalyst, Pluma, Abtail, Marc, Comet,…</value>
+  </data>
+  <data name="MediosL15" xml:space="preserve">
+    <value>Duly trained staff in each area</value>
+  </data>
+  <data name="MediosL16" xml:space="preserve">
+    <value>Engineering, design, IT, production,…</value>
+  </data>
+  <data name="MediosL2" xml:space="preserve">
+    <value>50,000 m2 of facilities</value>
+  </data>
+  <data name="MediosL3" xml:space="preserve">
+    <value>National and international transport for all your merchandise</value>
+  </data>
+  <data name="MediosL4" xml:space="preserve">
+    <value>Supply shelves according to product needs</value>
+  </data>
+  <data name="MediosL5" xml:space="preserve">
+    <value>Multidisciplinary loading and unloading docks</value>
+  </data>
+  <data name="MediosL6" xml:space="preserve">
+    <value>Temperature controlled area</value>
+  </data>
+  <data name="MediosL7" xml:space="preserve">
+    <value>Humidity controlled areas</value>
+  </data>
+  <data name="MediosL8" xml:space="preserve">
+    <value>Maximum ergonomics: Implementation of linear adapted to the geometry of the premises:</value>
+  </data>
+  <data name="MediosL9" xml:space="preserve">
+    <value>Paint cabin</value>
+  </data>
+  <data name="Mensaje" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="MonPreConL1" xml:space="preserve">
+    <value>We offer the following comprehensive logistics solutions for assemblies, subassemblies and preparation of assemblies based on the reception of different components from different suppliers, which after an adequate assembly process result in a semi-product that will require a subsequent assembly process or will directly result in an end product.</value>
+  </data>
+  <data name="MonPreConL2" xml:space="preserve">
+    <value>Examples of pre-assemblies:</value>
+  </data>
+  <data name="MonPreConL3" xml:space="preserve">
+    <value>Cooling tube</value>
+  </data>
+  <data name="MonPreConL4" xml:space="preserve">
+    <value>Brake pedal</value>
+  </data>
+  <data name="MonPreConL5" xml:space="preserve">
+    <value>Embedding of crystals</value>
+  </data>
+  <data name="MonPreConL6" xml:space="preserve">
+    <value>Rear shock absorber</value>
+  </data>
+  <data name="MonPreConL7" xml:space="preserve">
+    <value>Stabilizer bar</value>
+  </data>
+  <data name="Montajespreparaconjuntos" xml:space="preserve">
+    <value>Assemblies and preparation of sets</value>
+  </data>
+  <data name="Nombre" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="OficinasCentrales" xml:space="preserve">
+    <value>Headquarters:</value>
+  </data>
+  <data name="Pag_Que_es_Espack" xml:space="preserve">
+    <value>It comprises a series of logistics companies dedicated to all those activities that, depending on the volume or complexity of management, are likely to be carried out independently of the normal manufacturing process, allowing companies to concentrate on their main activity and in this way. .. INCREASE YOUR COMPETITIVENESS</value>
+  </data>
+  <data name="Pag_ServiciosLog" xml:space="preserve">
+    <value>Espack, Integral Logistics Services, provides the following logistics services:</value>
+  </data>
+  <data name="Plantas" xml:space="preserve">
+    <value>Locations</value>
+  </data>
+  <data name="Politica" xml:space="preserve">
+    <value>INTEGRATED POLICY OF MANAGEMENT</value>
+  </data>
+  <data name="PREMIOS" xml:space="preserve">
+    <value>AWARDS</value>
+  </data>
+  <data name="Proclogespeciales" xml:space="preserve">
+    <value>Special logistics processes</value>
+  </data>
+  <data name="ProLogEspL1" xml:space="preserve">
+    <value>We are open to any system or process that the client requires in their material.</value>
+  </data>
+  <data name="ProLogEspL2" xml:space="preserve">
+    <value>Some examples:</value>
+  </data>
+  <data name="ProLogEspL3" xml:space="preserve">
+    <value>CKD: It is a program for sending automotive components of certain vehicle models, from the manufacturing plant of said automobiles to another plant located in a different country, where they will be assembled.</value>
+  </data>
+  <data name="ProLogEspL4" xml:space="preserve">
+    <value>SKD: It is a program that consists of disassembling some of the components of the vehicle and providing them with maximum protection for their shipment together with the vehicle from which they have been disassembled, from the manufacturing plant of said automobiles to another plant located in a different country. , where they will be assembled.</value>
+  </data>
+  <data name="ProLogEspL5" xml:space="preserve">
+    <value>Cleaning, priming, emburletado and supply of crystals to the production chain.</value>
+  </data>
+  <data name="ProLogEspL6" xml:space="preserve">
+    <value>Sheet metal stamping.</value>
+  </data>
+  <data name="Punto" xml:space="preserve">
+    <value>,</value>
+  </data>
+  <data name="Que_es_Espack" xml:space="preserve">
+    <value>What is Espack Eurologistica?</value>
+  </data>
+  <data name="RevInspRecu" xml:space="preserve">
+    <value>Review, Inspection and Recovery</value>
+  </data>
+  <data name="RevInsRecuL1" xml:space="preserve">
+    <value>We offer the following comprehensive logistics solutions for review, inspection and recovery:</value>
+  </data>
+  <data name="RevInsRecuL2" xml:space="preserve">
+    <value>By indications of the client, or by our detection, we can review the components of any assembly before its assembly, or of finished material before dispatching it to the final client, in the event that it may have some type of defect or deviation produced during its manufacture.</value>
+  </data>
+  <data name="RevInsRecuL3" xml:space="preserve">
+    <value>The reviewed or selected material can be recovered with handling operations with specific technical tools to transform the material into SUITABLE.</value>
+  </data>
+  <data name="Robot" xml:space="preserve">
+    <value>I am not a robot</value>
+  </data>
+  <data name="Saarlouis" xml:space="preserve">
+    <value>Saarlouis</value>
+  </data>
+  <data name="SeleccionWeb" xml:space="preserve">
+    <value>Select access to our website</value>
+  </data>
+  <data name="Septiembre13" xml:space="preserve">
+    <value>SEPTEMBER 2,013</value>
+  </data>
+  <data name="SERVICIOS" xml:space="preserve">
+    <value>SERVICES:</value>
+  </data>
+  <data name="ServiciosLog" xml:space="preserve">
+    <value>Logistics Services</value>
+  </data>
+  <data name="Software" xml:space="preserve">
+    <value>Software</value>
+  </data>
+  <data name="SoftwareL1" xml:space="preserve">
+    <value>We develop our own custom software. This means maximum flexibility in the reporting process and the ability to make improvements and add new services.</value>
+  </data>
+  <data name="SoftwareL2" xml:space="preserve">
+    <value>Due to our customization capacity, we can create import/export interfaces that link our clients' applications with ours to guarantee an optimal response and information flow.</value>
+  </data>
+  <data name="SoftwareL3" xml:space="preserve">
+    <value>Our EWS (Espack Warehousing System) software allows us to obtain detailed information on arrivals, stocks, shipments, FIFO control, discrepancies, etc.</value>
+  </data>
+  <data name="SoftwareL4" xml:space="preserve">
+    <value>One of our companies is responsible for any matter related to IT: software development and maintenance, hardware installation and maintenance, R&amp;D for improvements or new projects, etc.</value>
+  </data>
+  <data name="Suministro" xml:space="preserve">
+    <value>Supply</value>
+  </data>
+  <data name="Trasvaseacontenedoresespec" xml:space="preserve">
+    <value>Transfer to specific containers</value>
+  </data>
+  <data name="TrasvaseL1" xml:space="preserve">
+    <value>We offer the following transfer solutions to specific containers:</value>
+  </data>
+  <data name="TrasvaseL2" xml:space="preserve">
+    <value>Transfer of disposable packaging material to durable packaging.</value>
+  </data>
+  <data name="TrasvaseL3" xml:space="preserve">
+    <value>Transfer the material that comes in containers not suitable for the production chain to KLT containers.</value>
+  </data>
+  <data name="TrasvaseL4" xml:space="preserve">
+    <value>Transfer the material that arrives packaged to optimize transport to containers and quantities determined by the client.</value>
+  </data>
+  <data name="Valencia" xml:space="preserve">
+    <value>Valencia</value>
+  </data>
+  <data name="ValenciaL1" xml:space="preserve">
+    <value>Own software tailored to the client and on-line connection systems with the client</value>
+  </data>
+  <data name="ValenciaL2" xml:space="preserve">
+    <value>Latest technology in machinery and systems</value>
+  </data>
+  <data name="ValenciaL3" xml:space="preserve">
+    <value>Business Excellence Award</value>
+  </data>
+  <data name="ValenciaL4" xml:space="preserve">
+    <value>First Service Company in Europe to reach Q-1</value>
+  </data>
+  <data name="ValenciaL5" xml:space="preserve">
+    <value>Project for the Replacement of the Lighting System in 2015. Energy saving and efficiency program in the Industry (Program financed by the Valencian Institute of Business Competitiveness- IVACE and the FEDER Funds).</value>
+  </data>
+  <data name="Ventajas" xml:space="preserve">
+    <value>Advantages offered</value>
+  </data>
+  <data name="VentajasL1" xml:space="preserve">
+    <value>ECONOMY</value>
+  </data>
+  <data name="VentajasL10" xml:space="preserve">
+    <value>Flexibility to attend special operations: peaks and valleys.</value>
+  </data>
+  <data name="VentajasL11" xml:space="preserve">
+    <value>Timely information on the status of the product: computer control of traceability.</value>
+  </data>
+  <data name="VentajasL12" xml:space="preserve">
+    <value>Reduction of operational and financial risks.</value>
+  </data>
+  <data name="VentajasL13" xml:space="preserve">
+    <value>WARRANTY</value>
+  </data>
+  <data name="VentajasL14" xml:space="preserve">
+    <value>Experience and professionalism accumulated since 1978.</value>
+  </data>
+  <data name="VentajasL15" xml:space="preserve">
+    <value>Recognition of large companies.</value>
+  </data>
+  <data name="VentajasL16" xml:space="preserve">
+    <value>Pioneer companies in obtaining the main quality certifications.</value>
+  </data>
+  <data name="VentajasL2" xml:space="preserve">
+    <value>Discharge of personnel time that absorbs ancillary activities to the main activity.</value>
+  </data>
+  <data name="VentajasL3" xml:space="preserve">
+    <value>Inventory reduction: supply according to customer needs.</value>
+  </data>
+  <data name="VentajasL4" xml:space="preserve">
+    <value>Optimization of means inherent to the main activity.</value>
+  </data>
+  <data name="VentajasL5" xml:space="preserve">
+    <value>Savings in investments in technology and research in an area that is not the object of the business.</value>
+  </data>
+  <data name="VentajasL6" xml:space="preserve">
+    <value>Elimination of expansion barriers</value>
+  </data>
+  <data name="VentajasL7" xml:space="preserve">
+    <value>SECURITY</value>
+  </data>
+  <data name="VentajasL8" xml:space="preserve">
+    <value>Knowledge and participation in the logistics of large companies.</value>
+  </data>
+  <data name="VentajasL9" xml:space="preserve">
+    <value>Reduction of productive deadlines.</value>
+  </data>
+  <data name="Web1Titulo" xml:space="preserve">
+    <value>Web 1 = 2 minutes reading</value>
+  </data>
+  <data name="Web2Titulo" xml:space="preserve">
+    <value>Web 2 = 10 minutes reading</value>
+  </data>
+  <data name="Wolverhampton" xml:space="preserve">
+    <value>Wolverhampton</value>
+  </data>
+  <data name="WolverhamptonL1" xml:space="preserve">
+    <value>Storage, repackaging and quality control inspections</value>
+  </data>
+  <data name="Zaragoza" xml:space="preserve">
+    <value>Zaragoza</value>
+  </data>
+  <data name="ZaragozaL1" xml:space="preserve">
+    <value>10,000 m2 of open space</value>
+  </data>
+  <data name="ZaragozaL2" xml:space="preserve">
+    <value>Own software tailored to the client and on-line connection systems with the client</value>
+  </data>
+  <data name="ZaragozaL3" xml:space="preserve">
+    <value>Latest technology in machinery and systems</value>
+  </data>
+  <data name="ZaragozaL4" xml:space="preserve">
+    <value>QSP (Quality Service and Price)</value>
+  </data>
+</root>

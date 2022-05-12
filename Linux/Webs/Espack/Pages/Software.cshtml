@@ -1,0 +1,38 @@
+﻿@page
+@model SoftwareModel
+@using Microsoft.AspNetCore.Http
+@{
+    if (HttpContext.Session.GetString("lengua") != null)
+    {
+        Clases.IdiomaCheck(HttpContext.Session.GetString("lengua").ToString());
+    }
+}
+<br />
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+    <h2 class="page-header page-header2">@Idiomas.Software</h2>
+    <div class="jumbotron jumbotron2">
+        <br />
+
+        <p>@Idiomas.SoftwareL1</p>
+        <p>@Idiomas.SoftwareL2</p>
+        <p>@Idiomas.SoftwareL3</p>
+        <p>@Idiomas.SoftwareL4</p>
+        <br />
+        <table>
+            <tr>
+                <td class="columnas3">
+                    <img class="img-thumbnail" title="@Idiomas.Software" src="~/Imagenes/Sofware01.jpg" alt="Espack" />
+                </td>
+                <td class="columnas3">
+                    <img class="img-thumbnail" title="@Idiomas.Software" src="~/Imagenes/Software02.jpg" alt="Espack" />
+                </td>
+                <td class="columnas3">
+                    <img class="img-thumbnail" title="@Idiomas.Software" src="~/Imagenes/Software03.jpg" alt="Espack" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="col-sm-1"></div>
+

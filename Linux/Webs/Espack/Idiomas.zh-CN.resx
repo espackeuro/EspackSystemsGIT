@@ -1,0 +1,717 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Agosto2004" xml:space="preserve">
+    <value>2,004 年 8 月</value>
+  </data>
+  <data name="AlmacenAduanero" xml:space="preserve">
+    <value>海关仓库</value>
+  </data>
+  <data name="Almacenaje" xml:space="preserve">
+    <value>贮存</value>
+  </data>
+  <data name="AlmacenL1" xml:space="preserve">
+    <value>我們提供以下綜合倉儲物流解決方案：</value>
+  </data>
+  <data name="AlmacenL2" xml:space="preserve">
+    <value>接收產品</value>
+  </data>
+  <data name="AlmacenL3" xml:space="preserve">
+    <value>立即執行質量控制</value>
+  </data>
+  <data name="AlmacenL4" xml:space="preserve">
+    <value>所有存儲產品的控制和庫存</value>
+  </data>
+  <data name="AlmacenL5" xml:space="preserve">
+    <value>根據產品類型、不同的有效期、輪換和參考數量進行存儲</value>
+  </data>
+  <data name="AlmacenL6" xml:space="preserve">
+    <value>準備和發送訂單</value>
+  </data>
+  <data name="AlmacenL7" xml:space="preserve">
+    <value>輸入和輸出控制：fifo、lifo、nifo 系統、...</value>
+  </data>
+  <data name="AlmacenL8" xml:space="preserve">
+    <value>射頻系統</value>
+  </data>
+  <data name="Asunto" xml:space="preserve">
+    <value>商业</value>
+  </data>
+  <data name="Bridgend" xml:space="preserve">
+    <value>布里真德</value>
+  </data>
+  <data name="CastleBromwich" xml:space="preserve">
+    <value>布罗姆维奇城堡</value>
+  </data>
+  <data name="CenConL1" xml:space="preserve">
+    <value>我們為特定容器提供以下轉運解決方案：</value>
+  </data>
+  <data name="CenConL2" xml:space="preserve">
+    <value>保持容器的完美狀態。</value>
+  </data>
+  <data name="CenConL3" xml:space="preserve">
+    <value>隨時了解容器的確切位置和狀態。</value>
+  </data>
+  <data name="CenConL4" xml:space="preserve">
+    <value>預測並避免可能出現的短缺情況。</value>
+  </data>
+  <data name="CenConL5" xml:space="preserve">
+    <value>確定沒有進行充分輪換的區域。</value>
+  </data>
+  <data name="CenConL6" xml:space="preserve">
+    <value>具有可追溯性，可以在損壞或使用不當的情況下消除責任。</value>
+  </data>
+  <data name="CenConL7" xml:space="preserve">
+    <value>擁有優化集裝箱公園所需的數據，並以最有效的方式對其維護和最終更換進行規劃。</value>
+  </data>
+  <data name="Centroconsolidadorcontenedores" xml:space="preserve">
+    <value>集装箱拼箱中心</value>
+  </data>
+  <data name="CERTIFICADOS" xml:space="preserve">
+    <value>證書</value>
+  </data>
+  <data name="CertificadosPremios" xml:space="preserve">
+    <value>证书和奖项</value>
+  </data>
+  <data name="Clientes" xml:space="preserve">
+    <value>顾客</value>
+  </data>
+  <data name="Colonia" xml:space="preserve">
+    <value>科隆</value>
+  </data>
+  <data name="Contacto" xml:space="preserve">
+    <value>接触</value>
+  </data>
+  <data name="Craiova" xml:space="preserve">
+    <value>克拉约瓦</value>
+  </data>
+  <data name="Dagenham" xml:space="preserve">
+    <value>达格纳姆</value>
+  </data>
+  <data name="DistribucionL1" xml:space="preserve">
+    <value>我們為特定容器提供以下轉運解決方案：</value>
+  </data>
+  <data name="DistribucionL2" xml:space="preserve">
+    <value>將一次性包裝材料轉移到耐用包裝。</value>
+  </data>
+  <data name="DistribucionL3" xml:space="preserve">
+    <value>將不適合生產鏈的容器中的材料轉移到 KLT 容器中。</value>
+  </data>
+  <data name="DistribucionL4" xml:space="preserve">
+    <value>將包裝到達的材料轉移到客戶確定的容器和數量上，以優化運輸。</value>
+  </data>
+  <data name="DistribucionL5" xml:space="preserve">
+    <value>國際覆蓋</value>
+  </data>
+  <data name="Distribucnacionalinter" xml:space="preserve">
+    <value>国内和国际分布</value>
+  </data>
+  <data name="Ecommerce" xml:space="preserve">
+    <value>电商物流</value>
+  </data>
+  <data name="EcommerceL1" xml:space="preserve">
+    <value>海运集装箱货物的接收</value>
+  </data>
+  <data name="EcommerceL2" xml:space="preserve">
+    <value>仓库射频条码识别</value>
+  </data>
+  <data name="EcommerceL3" xml:space="preserve">
+    <value>根据现场日常需求采摘</value>
+  </data>
+  <data name="EcommerceL4" xml:space="preserve">
+    <value>通过系统接口与客户 ERP 集成</value>
+  </data>
+  <data name="EcommerceL5" xml:space="preserve">
+    <value>EDI 连接</value>
+  </data>
+  <data name="EcommerceL6" xml:space="preserve">
+    <value>面包车送货——最后一英里</value>
+  </data>
+  <data name="EcommerceL7" xml:space="preserve">
+    <value>逆向物流管理</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>电子邮件</value>
+  </data>
+  <data name="Empresas" xml:space="preserve">
+    <value>集团公司</value>
+  </data>
+  <data name="En" xml:space="preserve">
+    <value>在</value>
+  </data>
+  <data name="Enviar" xml:space="preserve">
+    <value>发送</value>
+  </data>
+  <data name="EnviePreguntas" xml:space="preserve">
+    <value>向我们发送您的问题</value>
+  </data>
+  <data name="Eslovaquia" xml:space="preserve">
+    <value>尼特拉</value>
+  </data>
+  <data name="FABRICAFORD" xml:space="preserve">
+    <value>福特工厂</value>
+  </data>
+  <data name="FechaCreacion" xml:space="preserve">
+    <value>創立日期：</value>
+  </data>
+  <data name="GALARDONES" xml:space="preserve">
+    <value>獎項和認證：</value>
+  </data>
+  <data name="Graz" xml:space="preserve">
+    <value>格拉茨</value>
+  </data>
+  <data name="GrazL1" xml:space="preserve">
+    <value>2,000 平方米的設施，位於麥格納斯太爾供應中心內</value>
+  </data>
+  <data name="GrazL2" xml:space="preserve">
+    <value>Magna 格拉茨 工廠內的整合區域、線路供應和配送</value>
+  </data>
+  <data name="GrazL3" xml:space="preserve">
+    <value>為客戶量身定制的自有軟件和與客戶的在線連接系統</value>
+  </data>
+  <data name="GrazL4" xml:space="preserve">
+    <value>機械和系統的最新技術</value>
+  </data>
+  <data name="Halewood" xml:space="preserve">
+    <value>黑尔伍德</value>
+  </data>
+  <data name="HalewoodL1" xml:space="preserve">
+    <value>為客戶量身定制的自有軟件和與客戶的在線連接系統</value>
+  </data>
+  <data name="HalewoodL2" xml:space="preserve">
+    <value>為捷豹路虎生產線供貨</value>
+  </data>
+  <data name="HalewoodL3" xml:space="preserve">
+    <value>機械和系統的最新技術</value>
+  </data>
+  <data name="INFRAESTRUCTURA" xml:space="preserve">
+    <value>基礎設施：</value>
+  </data>
+  <data name="Junio2016" xml:space="preserve">
+    <value>2,016 年 6 月</value>
+  </data>
+  <data name="LogEmpaquetado" xml:space="preserve">
+    <value>包装物流</value>
+  </data>
+  <data name="LogEmpaquetadoL1" xml:space="preserve">
+    <value>我们提供以下全面的包装物流解决方案：</value>
+  </data>
+  <data name="LogEmpaquetadoL2" xml:space="preserve">
+    <value>根据客户要求的包装材料</value>
+  </data>
+  <data name="LogEmpaquetadoL3" xml:space="preserve">
+    <value>按产品类型、参考资料和客户分类的包装多样性</value>
+  </data>
+  <data name="LogEmpaquetadoL4" xml:space="preserve">
+    <value>手工包装</value>
+  </data>
+  <data name="LogEmpaquetadoL5" xml:space="preserve">
+    <value>自动包装</value>
+  </data>
+  <data name="LogEmpaquetadoL6" xml:space="preserve">
+    <value>收缩包装</value>
+  </data>
+  <data name="LogEmpaquetadoL7" xml:space="preserve">
+    <value>水泡</value>
+  </data>
+  <data name="LogIdentificacionL1" xml:space="preserve">
+    <value>纸贴纸。</value>
+  </data>
+  <data name="LogIdentificacionL2" xml:space="preserve">
+    <value>聚乙烯不干胶标签。</value>
+  </data>
+  <data name="LogIdentificacionL3" xml:space="preserve">
+    <value>最大安全不干胶标签：纸币。</value>
+  </data>
+  <data name="LogIdentificacionL4" xml:space="preserve">
+    <value>包装上的喷墨。</value>
+  </data>
+  <data name="LogIdentificacionL5" xml:space="preserve">
+    <value>条形码打印的标识。</value>
+  </data>
+  <data name="LogIdentificación" xml:space="preserve">
+    <value>识别物流</value>
+  </data>
+  <data name="LogIntegralAlmacen" xml:space="preserve">
+    <value>综合仓储物流</value>
+  </data>
+  <data name="LogSeleccion" xml:space="preserve">
+    <value>选择物流</value>
+  </data>
+  <data name="LogSeleccionL1" xml:space="preserve">
+    <value>我们提供以下全面的选择物流解决方案，包括选择不同的产品，这些产品将在处理后发送到同一地址，如果客户需要...</value>
+  </data>
+  <data name="LogSeleccionL2" xml:space="preserve">
+    <value>逆向物流</value>
+  </data>
+  <data name="LogSeleccionL3" xml:space="preserve">
+    <value>选择或拣选服务的补充服务。 我们管理客户经销商因质量问题、损坏、订单错误、...</value>
+  </data>
+  <data name="LogSeleccionL4" xml:space="preserve">
+    <value>收到这些物品后，将它们归类归还，并根据客户的指示进行下一阶段或服务。</value>
+  </data>
+  <data name="LUGARPRINCIPALTRABAJO" xml:space="preserve">
+    <value>主要工作地點：</value>
+  </data>
+  <data name="LUGARSECUNDARIOTRABAJO" xml:space="preserve">
+    <value>第二工作地點：</value>
+  </data>
+  <data name="M2Instalaciones" xml:space="preserve">
+    <value>平方米的設施</value>
+  </data>
+  <data name="Madrid" xml:space="preserve">
+    <value>马德里</value>
+  </data>
+  <data name="MadridL1" xml:space="preserve">
+    <value>質量體系的實施。</value>
+  </data>
+  <data name="MadridL2" xml:space="preserve">
+    <value>根據客戶需求開發和實施軟件。</value>
+  </data>
+  <data name="MadridL3" xml:space="preserve">
+    <value>確保預防職業風險的系統的實施。</value>
+  </data>
+  <data name="MadridL4" xml:space="preserve">
+    <value>尋找補貼。</value>
+  </data>
+  <data name="MadridL5" xml:space="preserve">
+    <value>商務禮品。</value>
+  </data>
+  <data name="MadridL6" xml:space="preserve">
+    <value>全面的語言服務。</value>
+  </data>
+  <data name="MadridL7" xml:space="preserve">
+    <value>關於財政、勞工和會計資料的建議。</value>
+  </data>
+  <data name="MadridL8" xml:space="preserve">
+    <value>工業建築和房屋的租賃。</value>
+  </data>
+  <data name="Manipulados" xml:space="preserve">
+    <value>被操纵</value>
+  </data>
+  <data name="Marzo1971" xml:space="preserve">
+    <value>1,971 年 3 月</value>
+  </data>
+  <data name="Marzo2017" xml:space="preserve">
+    <value>2,017 年 3 月</value>
+  </data>
+  <data name="Marzo2020" xml:space="preserve">
+    <value>2,020 年 3 月</value>
+  </data>
+  <data name="Mayo1978" xml:space="preserve">
+    <value>1,978 年 5 月</value>
+  </data>
+  <data name="Mayo1988" xml:space="preserve">
+    <value>1,988 年 5 月</value>
+  </data>
+  <data name="Mayo2010" xml:space="preserve">
+    <value>2,010 年 5 月</value>
+  </data>
+  <data name="Mayo2012" xml:space="preserve">
+    <value>2,012 年 5 月</value>
+  </data>
+  <data name="Mayo2014" xml:space="preserve">
+    <value>2,014 年 5 月</value>
+  </data>
+  <data name="Medios" xml:space="preserve">
+    <value>方法</value>
+  </data>
+  <data name="MediosL1" xml:space="preserve">
+    <value>您擁有的媒體</value>
+  </data>
+  <data name="MediosL10" xml:space="preserve">
+    <value>油艙</value>
+  </data>
+  <data name="MediosL11" xml:space="preserve">
+    <value>底漆攤位</value>
+  </data>
+  <data name="MediosL12" xml:space="preserve">
+    <value>雙邊、三邊、伸縮叉車、…</value>
+  </data>
+  <data name="MediosL13" xml:space="preserve">
+    <value>為每個客戶和服務量身定制的自己的軟件：條形碼、射頻、...</value>
+  </data>
+  <data name="MediosL14" xml:space="preserve">
+    <value>客戶連接系統：EDI、Catalyst、Pluma、Abtail、Marc、Comet……</value>
+  </data>
+  <data name="MediosL15" xml:space="preserve">
+    <value>每個區域都經過適當培訓的工作人員</value>
+  </data>
+  <data name="MediosL16" xml:space="preserve">
+    <value>工程、設計、計算機科學、生產……</value>
+  </data>
+  <data name="MediosL2" xml:space="preserve">
+    <value>50,000 平方米的設施</value>
+  </data>
+  <data name="MediosL3" xml:space="preserve">
+    <value>您所有商品的國內和國際運輸</value>
+  </data>
+  <data name="MediosL4" xml:space="preserve">
+    <value>根據產品需求供應貨架</value>
+  </data>
+  <data name="MediosL5" xml:space="preserve">
+    <value>多學科裝卸碼頭</value>
+  </data>
+  <data name="MediosL6" xml:space="preserve">
+    <value>溫控區</value>
+  </data>
+  <data name="MediosL7" xml:space="preserve">
+    <value>濕度控制區</value>
+  </data>
+  <data name="MediosL8" xml:space="preserve">
+    <value>最大的人體工程學：適用於場所幾何形狀的線性實施：</value>
+  </data>
+  <data name="MediosL9" xml:space="preserve">
+    <value>噴漆房</value>
+  </data>
+  <data name="Mensaje" xml:space="preserve">
+    <value>信息</value>
+  </data>
+  <data name="MonPreConL1" xml:space="preserve">
+    <value>我們根據接收來自不同供應商的不同組件，為裝配、子裝配和裝配準備提供以下綜合物流解決方案，在經過充分的裝配過程後產生需要後續裝配過程或將直接產生的半成品最終產品。</value>
+  </data>
+  <data name="MonPreConL2" xml:space="preserve">
+    <value>預裝配示例：</value>
+  </data>
+  <data name="MonPreConL3" xml:space="preserve">
+    <value>冷卻管</value>
+  </data>
+  <data name="MonPreConL4" xml:space="preserve">
+    <value>剎車踏板</value>
+  </data>
+  <data name="MonPreConL5" xml:space="preserve">
+    <value>晶體嵌入</value>
+  </data>
+  <data name="MonPreConL6" xml:space="preserve">
+    <value>後減震器</value>
+  </data>
+  <data name="MonPreConL7" xml:space="preserve">
+    <value>穩定桿</value>
+  </data>
+  <data name="Montajespreparaconjuntos" xml:space="preserve">
+    <value>组装和准备</value>
+  </data>
+  <data name="Nombre" xml:space="preserve">
+    <value>姓名</value>
+  </data>
+  <data name="OficinasCentrales" xml:space="preserve">
+    <value>總部：</value>
+  </data>
+  <data name="Pag_Que_es_Espack" xml:space="preserve">
+    <value>它由一系列物流公司组成，致力于所有这些活动，根据管理的数量或复杂性，这些活动可能独立于正常的制造过程进行，从而使公司能够以这种方式专注于他们的主要活动。 . 提高您的竞争力</value>
+  </data>
+  <data name="Pag_ServiciosLog" xml:space="preserve">
+    <value>Espack，综合物流服务，提供以下物流服务：</value>
+  </data>
+  <data name="Plantas" xml:space="preserve">
+    <value>行业</value>
+  </data>
+  <data name="Politica" xml:space="preserve">
+    <value>综合管理政策</value>
+  </data>
+  <data name="PREMIOS" xml:space="preserve">
+    <value>獎項</value>
+  </data>
+  <data name="Proclogespeciales" xml:space="preserve">
+    <value>特殊物流流程</value>
+  </data>
+  <data name="ProLogEspL1" xml:space="preserve">
+    <value>我們對客戶在其材料中要求的任何系統或流程持開放態度。</value>
+  </data>
+  <data name="ProLogEspL2" xml:space="preserve">
+    <value>一些例子：</value>
+  </data>
+  <data name="ProLogEspL3" xml:space="preserve">
+    <value>CKD：這是一個將某些車型的汽車零部件從該汽車的製造廠運送到位於不同國家的另一家工廠進行組裝的程序。</value>
+  </data>
+  <data name="ProLogEspL4" xml:space="preserve">
+    <value>SKD：這是一個程序，包括拆卸車輛的一些組件，並為它們與被拆卸的車輛一起從所述汽車的製造廠運送到位於某地的另一家工廠提供最大程度的保護。不同的國家。，他們將在哪裡組裝。</value>
+  </data>
+  <data name="ProLogEspL5" xml:space="preserve">
+    <value>為生產鏈清潔、啟動、塗抹和供應晶體。</value>
+  </data>
+  <data name="ProLogEspL6" xml:space="preserve">
+    <value>鈑金沖壓。</value>
+  </data>
+  <data name="Punto" xml:space="preserve">
+    <value>,</value>
+  </data>
+  <data name="Que_es_Espack" xml:space="preserve">
+    <value>那是什么 Espack </value>
+  </data>
+  <data name="RevInspRecu" xml:space="preserve">
+    <value>审查、检查和恢复</value>
+  </data>
+  <data name="RevInsRecuL1" xml:space="preserve">
+    <value>我們為審查、檢驗和回收提供以下綜合物流解決方案：</value>
+  </data>
+  <data name="RevInsRecuL2" xml:space="preserve">
+    <value>根據客戶的指示，或通過我們的檢測，我們可以在組裝之前檢查任何組件的組件，或者在將其發送給最終客戶之前檢查成品材料，以防它可能在生產過程中產生某種類型的缺陷或偏差它的製造。</value>
+  </data>
+  <data name="RevInsRecuL3" xml:space="preserve">
+    <value>經過審查或選擇的材料可以通過使用特定技術工具的處理操作來恢復，以將材料轉換為合適的。</value>
+  </data>
+  <data name="Robot" xml:space="preserve">
+    <value>我不是机器人</value>
+  </data>
+  <data name="Saarlouis" xml:space="preserve">
+    <value>萨尔路易</value>
+  </data>
+  <data name="SeleccionWeb" xml:space="preserve">
+    <value>选择访问我们的网站</value>
+  </data>
+  <data name="Septiembre13" xml:space="preserve">
+    <value>2013 年 9 月</value>
+  </data>
+  <data name="SERVICIOS" xml:space="preserve">
+    <value>服務：</value>
+  </data>
+  <data name="ServiciosLog" xml:space="preserve">
+    <value>物流服务</value>
+  </data>
+  <data name="Software" xml:space="preserve">
+    <value>软件</value>
+  </data>
+  <data name="SoftwareL1" xml:space="preserve">
+    <value>我們開發自己的定制軟件。 這意味著報告過程的最大靈活性以及改進和添加新服務的能力。</value>
+  </data>
+  <data name="SoftwareL2" xml:space="preserve">
+    <value>由於我們的定制能力，我們可以創建將客戶的應用程序與我們的應用程序連接起來的導入/導出接口，以保證最佳的響應和信息流。</value>
+  </data>
+  <data name="SoftwareL3" xml:space="preserve">
+    <value>我們的 EWS（Espack 倉儲系統）軟件使我們能夠獲得有關到貨、庫存、發貨、先進先出控制、差異等的詳細信息。</value>
+  </data>
+  <data name="SoftwareL4" xml:space="preserve">
+    <value>我們的一家公司負責任何與 IT 相關的事務：軟件開發和維護、硬件安裝和維護、改進或新項目的研發等。</value>
+  </data>
+  <data name="Suministro" xml:space="preserve">
+    <value>供应</value>
+  </data>
+  <data name="Trasvaseacontenedoresespec" xml:space="preserve">
+    <value>转移到特定容器</value>
+  </data>
+  <data name="TrasvaseL1" xml:space="preserve">
+    <value>我們為特定容器提供以下轉運解決方案：</value>
+  </data>
+  <data name="TrasvaseL2" xml:space="preserve">
+    <value>將一次性包裝材料轉移到耐用包裝。</value>
+  </data>
+  <data name="TrasvaseL3" xml:space="preserve">
+    <value>將不適合生產鏈的容器中的材料轉移到 KLT 容器中。</value>
+  </data>
+  <data name="TrasvaseL4" xml:space="preserve">
+    <value>將包裝到達的材料轉移到客戶確定的容器和數量上，以優化運輸。</value>
+  </data>
+  <data name="Valencia" xml:space="preserve">
+    <value>瓦伦西亚</value>
+  </data>
+  <data name="ValenciaL1" xml:space="preserve">
+    <value>為客戶量身定制的自有軟件和與客戶的在線連接系統</value>
+  </data>
+  <data name="ValenciaL2" xml:space="preserve">
+    <value>機械和系統的最新技術</value>
+  </data>
+  <data name="ValenciaL3" xml:space="preserve">
+    <value>商業卓越獎</value>
+  </data>
+  <data name="ValenciaL4" xml:space="preserve">
+    <value>歐洲第一家達到 Q-1 的服務公司</value>
+  </data>
+  <data name="ValenciaL5" xml:space="preserve">
+    <value>2,015 年更換照明系統項目。行業節能和效率計劃（由巴倫西亞商業競爭力研究所-IVACE 和 FEDER 基金資助的計劃）。</value>
+  </data>
+  <data name="Ventajas" xml:space="preserve">
+    <value>提供的优势</value>
+  </data>
+  <data name="VentajasL1" xml:space="preserve">
+    <value>經濟</value>
+  </data>
+  <data name="VentajasL10" xml:space="preserve">
+    <value>參加特殊行動的靈活性：高峰和低谷。</value>
+  </data>
+  <data name="VentajasL11" xml:space="preserve">
+    <value>產品狀態及時信息：電腦控制追溯。</value>
+  </data>
+  <data name="VentajasL12" xml:space="preserve">
+    <value>降低運營和財務風險。</value>
+  </data>
+  <data name="VentajasL13" xml:space="preserve">
+    <value>保修單</value>
+  </data>
+  <data name="VentajasL14" xml:space="preserve">
+    <value>自 1978 年以來積累的經驗和專業精神。</value>
+  </data>
+  <data name="VentajasL15" xml:space="preserve">
+    <value>大公司的認可。</value>
+  </data>
+  <data name="VentajasL16" xml:space="preserve">
+    <value>獲得主要質量認證的先鋒企業。</value>
+  </data>
+  <data name="VentajasL2" xml:space="preserve">
+    <value>將輔助活動吸收到主要活動中的人員時間的排放。</value>
+  </data>
+  <data name="VentajasL3" xml:space="preserve">
+    <value>庫存減少：根據客戶需求供應。</value>
+  </data>
+  <data name="VentajasL4" xml:space="preserve">
+    <value>優化主要活動固有的手段。</value>
+  </data>
+  <data name="VentajasL5" xml:space="preserve">
+    <value>在非業務目標領域的技術和研究投資方面的節省。</value>
+  </data>
+  <data name="VentajasL6" xml:space="preserve">
+    <value>消除擴張障礙</value>
+  </data>
+  <data name="VentajasL7" xml:space="preserve">
+    <value>安全</value>
+  </data>
+  <data name="VentajasL8" xml:space="preserve">
+    <value>了解和參與大公司的物流。</value>
+  </data>
+  <data name="VentajasL9" xml:space="preserve">
+    <value>減少生產期限。</value>
+  </data>
+  <data name="Web1Titulo" xml:space="preserve">
+    <value>网页 1 = 2 分钟阅读</value>
+  </data>
+  <data name="Web2Titulo" xml:space="preserve">
+    <value>网页 2 = 10 分钟阅读</value>
+  </data>
+  <data name="Wolverhampton" xml:space="preserve">
+    <value>伍尔弗汉普顿</value>
+  </data>
+  <data name="WolverhamptonL1" xml:space="preserve">
+    <value>储存、重新包装和质量控制检查</value>
+  </data>
+  <data name="Zaragoza" xml:space="preserve">
+    <value>萨拉戈萨</value>
+  </data>
+  <data name="ZaragozaL1" xml:space="preserve">
+    <value>10,000 平方米的開放空間</value>
+  </data>
+  <data name="ZaragozaL2" xml:space="preserve">
+    <value>為客戶量身定制的自有軟件和與客戶的在線連接系統</value>
+  </data>
+  <data name="ZaragozaL3" xml:space="preserve">
+    <value>機械和系統的最新技術</value>
+  </data>
+  <data name="ZaragozaL4" xml:space="preserve">
+    <value>QSP（優質服務和價格）</value>
+  </data>
+</root>
