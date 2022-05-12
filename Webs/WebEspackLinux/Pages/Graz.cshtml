@@ -1,0 +1,54 @@
+﻿@page
+@model GrazModel
+@using Microsoft.AspNetCore.Http
+@{
+    if (HttpContext.Session.GetString("lengua") != null)
+    {
+        Clases.IdiomaCheck(HttpContext.Session.GetString("lengua").ToString());
+    }
+}
+<br />
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+    <h2 class="page-header page-header2">@Idiomas.Graz&nbsp;<img src="~/Imagenes/austria.png" /></h2>
+    <div class="jumbotron jumbotron2">
+        <br />
+        <div class="text-center">
+            <img class="bordessombray99sinmargen" src="~/Imagenes/GrazMagna.png" />
+        </div>
+        <br /><br />
+        <table width="100%">
+            <tr style="width:100%">
+                <td class="columnas2">
+                    <ul>
+                        <li>
+                            <p><strong>ESPACK EUROLOGÍSTICA, GMBH - @Idiomas.Graz.ToUpper()</strong></p>
+
+                            <ul>
+                                <li>
+                                    <p><br />@Idiomas.OficinasCentrales.ToUpper()</p>
+                                    <br />
+                                <li />
+                                <li><p>AM TERMINAL 4B</p>
+                                <li />
+                                <li><p>WERNDORF</p>
+                                <li />
+                                <li><p> 8402 – AUSTRIA</p>
+                                <li />
+                                <li><p>Tel: +421 903 44 84 33</p>
+                                <li />
+                            </ul>
+                        </li>
+                    </ul>
+                    <br />
+                </td>
+                <td class="columnas2">
+                    <iframe class="bordessombray95" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3121.5058891211133!2d15.461867215852264!3d46.937649779146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476fb6bb26e73529%3A0xcd91c299ca077d2f!2sAm%20Terminal%204%2C%208402%20Werndorf%2C%20Austria!5e1!3m2!1ses!2ses!4v1648119953434!5m2!1ses!2ses" width="400" height="400" loading="lazy"></iframe>
+                </td>
+            </tr>
+        </table>
+    <br />
+    </div>
+</div>
+<div class="col-sm-1"></div>
+

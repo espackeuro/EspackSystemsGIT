@@ -1,0 +1,62 @@
+﻿@page
+@model ValenciaModel
+@using Microsoft.AspNetCore.Http
+@{
+    if (HttpContext.Session.GetString("lengua") != null)
+    {
+        Clases.IdiomaCheck(HttpContext.Session.GetString("lengua").ToString());
+    }
+}
+<br />
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+    <h2 class="page-header page-header2">@Idiomas.Valencia  &nbsp; <img src="~/Imagenes/españa.png" /></h2>
+    <div class="jumbotron jumbotron2">
+        <br />
+        <div class="text-center">
+            <img class="bordessombray99sinmargen" src="~/Imagenes/Banner/Valencia.jpg" />
+        </div>
+        <br /><br />
+        <table style="width:100%">
+            <tr>
+                <td class="columnas2">
+                    <p>
+                        <strong>
+                            ESPACK EUROLOGÍSTICA, S.L. - @Idiomas.Valencia.ToUpper()
+                        </strong><br /><br />
+                    <p>
+                        @Idiomas.OficinasCentrales.ToUpper()
+                    </p>
+                    <br /><br />
+                    <ul>
+                        <li>
+                            <p>
+                                PARQUE INDUSTRIAL JUAN CARLOS I<br />
+                                C/ LA GRANJA 1<br />
+                                46440 ALMUSSAFES (Valencia) ESPAÑA<br />
+                                TEL.+34 96179 99 30<br />
+                                <a href="mailto:espack@espackeuro.com">espack@espackeuro.com</a>
+                            </p>
+                        </li>
+                    </ul>
+                                      <br /><br />
+                    <p><strong>@Idiomas.GALARDONES</strong></p>
+                    <ul>
+                        <li><p>@Idiomas.ValenciaL3</p></li>
+                        <li><p>@Idiomas.ValenciaL4</p></li>
+                    </ul>
+                </td>
+                <td class="columnas2">
+                    <iframe class="bordessombray95" src="https://maps.google.com/maps/ms?msa=0&msid=205870851670447022521.0004daf133e1133418900&ie=UTF8&ll=39.309245,-0.419755&spn=0,0&t=h&output=embed" width="400" height="400"></iframe>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <img class="img-thumbnail" src="~/Imagenes/UnionEuropea.jpg" alt="europa" width="400" />
+        <br /> <br />
+        <p>
+            @Idiomas.ValenciaL5
+        </p>
+    </div>
+</div>
+<div class="col-sm-1"></div>

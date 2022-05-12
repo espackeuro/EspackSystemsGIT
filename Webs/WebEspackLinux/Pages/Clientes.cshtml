@@ -1,0 +1,170 @@
+﻿@page
+@model ClientesModel
+@using Microsoft.AspNetCore.Http
+@{
+    if (HttpContext.Session.GetString("lengua") != null)
+    {
+        Clases.IdiomaCheck(HttpContext.Session.GetString("lengua").ToString());
+    }
+}
+<br />
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+    <h2 class="page-header page-header2">@Idiomas.Clientes</h2>
+    <div class="jumbotron jumbotron2">
+        <br />
+        <table style="width:100%">
+            <tr>
+                <td class="columnas3" style="text-align:center">
+                    <img class="img-thumbnail" title="Ford" src="~/Imagenes/Clientes/Ford.png" alt="Ford" />
+                    <p>Ford Europe</p>
+                </td>
+                <td class="columnas3" style="text-align:center">
+                    <img class="img-thumbnail" title="Opel" src="~/Imagenes/Clientes/Opel.jpg" alt="Opel" />
+                    <p>Opel España</p>
+                </td>
+                <td class="columnas3" style="text-align: center;">
+                    <img class="img-thumbnail" title="Jaguar" src="~/Imagenes/Clientes/jlr.jpg" alt="Jaguar" />
+                    <p>Jaguar Land Rover</p>
+                </td>
+            </tr>
+            <tr>
+                <td><br /><br /></td>
+            </tr>
+            <tr>
+                <td class="columnas3" style="text-align:center">
+                    <img class="img-thumbnail" title="Saint Gobian" src="~/Imagenes/Clientes/saintgobian.png" alt="Saint Gobian" />
+                    <p>Saint Gobain</p>
+                </td>
+                <td class="columnas3" style="text-align:center">
+                    <img class="img-thumbnail" title="Visteon" src="~/Imagenes/Clientes/Visteon.png" alt="Visteon" />
+                    <p>Visteon</p>
+                </td>
+                <td class="columnas3" style="text-align:center">
+                    <img class="img-thumbnail" title="Balay" src="~/Imagenes/Clientes/Balay.png" alt="Balay" />
+                    <p>Balay</p>
+                </td>
+            </tr>
+            <tr>
+                <td><br /><br /></td>
+            </tr>
+            <tr>
+                <td class="columnas3" style="text-align:center">
+                    <img class="img-thumbnail" title="Volvo" src="~/Imagenes/Clientes/volvo.jpg" alt="Volvo" />
+                    <p>Volvo</p>
+                </td>
+                <td class="columnas3" style="text-align:center">
+                    <img class="img-thumbnail" title="Eaton" src="~/Imagenes/Clientes/eaton.jpg" alt="Eaton" />
+                    <p>Eaton</p>
+                </td>
+                <td class="columnas3" style="text-align:center">
+                    <img class="img-thumbnail" title="Vauxhall" src="~/Imagenes/Clientes/vauxhall.png" alt="vauxhall" />
+                    <p>vauxhall</p>
+                </td>
+            </tr>
+            <tr>
+                <td><br /><br /></td>
+            </tr>
+            <tr>
+                <td class="columnas3" style="text-align:center">
+                    <img class="img-thumbnail" title="Brugola" src="~/Imagenes/Clientes/brugola.jpg" alt="Brugola" />
+                    <p>Brugola</p>
+                </td>
+                <td class="columnas3" style="text-align:center">
+                    <img class="img-thumbnail" title="Acciona" src="~/Imagenes/Clientes/acciona.jpg" alt="Acciona" />
+                    <p>Acciona</p>
+                </td>
+                <td class="columnas3" style="text-align: center; min-width: 280px;">
+                    <img class="img-thumbnail" title="Bulten" src="~/Imagenes/Clientes/Bulten.jpg" alt="Bulten" />
+                    <p>Bulten</p>
+                </td>
+            </tr>
+            <tr>
+                <td><br /><br /></td>
+            </tr>
+            <tr>
+                <td class="columnas3" style="text-align:center">
+                    <img class="img-thumbnail" title="Dana" src="~/Imagenes/Clientes/Dana.png" alt="Dana" />
+                    <p>Dana</p>
+                </td>
+                <td class="columnas3" style="text-align:center">
+                    <img class="img-thumbnail" title="Burlington Technologies" src="~/Imagenes/Clientes/burlinton.jpg" alt="Burlinton Technologies" />
+                    <p>Burlington Technologies</p>
+                </td>
+                <td class="columnas3" style="text-align:center">
+                    <img class="img-thumbnail" title="Pilkington" src="~/Imagenes/Clientes/pilkinton.png" alt="Pilkington" />
+                    <p>Pilkington</p>
+                </td>
+            </tr>
+            <tr>
+                <td><br /><br /></td>
+            </tr>
+            <tr>
+                <td class="columnas3" style="text-align:center">
+                    <img class="img-thumbnail" title="Chep" src="~/Imagenes/Clientes/Chep.jpg" alt="Chep" />
+                    <p>Chep</p>
+                </td>
+                <td class="columnas3" style="text-align:center">
+                    <img class="img-thumbnail" title="Maxxis" src="~/Imagenes/Clientes/maxxis.jpg" alt="Maxxis" />
+                    <p>Maxxis</p>
+                </td>
+                <td class="columnas3" style="text-align:center">
+                    <img class="img-thumbnail" title="Magna Powertrain" src="~/Imagenes/Clientes/magna.png" alt="Magna Powertrain" />
+                    <p>Magna Powertrain</p>
+                </td>
+            </tr>
+            <tr>
+                <td><br /><br /></td>
+            </tr>
+            <tr>
+                <td class="columnas3" style="text-align:center">
+                    <img class="img-thumbnail" title="Boxo" src="~/Imagenes/Clientes/Boxo.png" alt="Boxo" />
+                    <p>Boxo</p>
+                </td>
+                <td class="columnas3" style="text-align:center">
+                    <img class="img-thumbnail" title="Ying Lun" src="~/Imagenes/Clientes/yinlun.png" alt="Ying Lun" />
+                    <p>Ying Lun</p>
+                </td>
+                <td class="columnas3" style="text-align:center">
+                    <img class="img-thumbnail" title="Roquette" src="~/Imagenes/Clientes/roquette.png" alt="Roquette" />
+                    <p>Roquette</p>
+                </td>
+            </tr>
+            <tr>
+                <td><br /><br /></td>
+            </tr>
+            <tr>
+                <td class="columnas3" style="text-align:center">
+                    <img class="img-thumbnail" title="Shields Environmetal, PLC" src="~/Imagenes/Clientes/Shields.png" alt="Shields Environmetal, PLC" />
+                    <p>Shields Environmetal, PLC</p>
+                </td>
+                <td class="columnas3" style="text-align: center; min-width: 280px;">
+                    <img class="img-thumbnail" title="Smurfit Navarra, S.A" src="~/Imagenes/Clientes/smufit.png" alt="Smurfit Navarra, S.A" />
+                    <p>Smurfit Navarra, S.A</p>
+                </td>
+                <td class="columnas3" style="text-align:center">
+                    <img class="img-thumbnail" title="Pikolin" src="~/Imagenes/Clientes/pikolin.png" alt="Pikolin" />
+                    <p>Pikolin</p>
+                </td>
+            </tr>
+            <tr>
+                <td><br /><br /></td>
+            </tr>
+            <tr>
+                <td class="columnas3" style="text-align:center">
+                    <img class="img-thumbnail" title="Power Electronics" src="~/Imagenes/Clientes/PowerE.png" alt="Power Electronics" />
+                    <p>Power Electronics</p>
+                </td>
+                <td class="columnas3" style="text-align:center">
+                    <img class="img-thumbnail" title="TDK" src="~/Imagenes/Clientes/tdk.jpg" alt="TDK" />
+                    <p>TDK</p>
+                </td>
+                <td class="columnas3" style="text-align:center">
+                    <img class="img-thumbnail" title="Caterpillar" src="~/Imagenes/Clientes/Cat.png" alt="Caterpillar" />
+                    <p>Caterpillar</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="col-sm-1"></div>

@@ -1,0 +1,160 @@
+﻿body {
+    padding-top: 65px;
+    padding-bottom: 20px;
+    background: linear-gradient(to right, #002C69, 50%, #666682);
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+footer {
+color:whitesmoke;
+}
+
+/* style Menus */
+li {
+    list-style: none;
+}
+
+.nav > li {
+    float: left;
+}
+
+.nav li a {
+    background-color: lightgrey;
+    color: black;
+    text-decoration: none;
+    padding: 10px 12px;
+    display: block;
+    font-weight: bold;
+}
+    .nav li a:hover {
+        background-color: #434343;
+        color: #fff;
+    }
+
+.nav li ul {
+    display: none;
+    position: absolute;
+    min-width: 140px;
+}
+
+.nav li:hover > ul {
+    display: block;
+}
+
+.nav li ul li {
+    position: relative;
+}
+
+.nav li ul li ul {
+        right: -140px;
+        top: 0px;
+}
+.Botones {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border-radius: 10px;
+    background: #6675df;
+    font-family: Montserrat-Bold;
+    font-size: 12px;
+    color: #fff;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    border: 1px solid grey;
+    border-radius: 5px;
+    box-shadow: 0px 5px 0px grey;
+    position: relative;
+    top: 0px;
+    transition: all ease 0.3s;
+    margin:8px;
+}
+
+.Botones:active {
+    box-shadow: 0 3px 0 grey;
+    top: 3px;
+}
+
+.Botones:hover {
+    background: linear-gradient(black,grey);
+    color: whitesmoke;
+    text-decoration: none;
+}
+.columnas2 {
+    display: inline-block;
+    width: 49%;
+    min-width: 300px;
+}
+.em1punto1 {
+    font-size: 1.11em;
+    padding: 4px;
+    list-style-type:none;
+    margin:4px;
+}
+.columnas3 {
+    display: inline-block;
+    width: 33%;
+    min-width: 300px;
+    padding:1px;
+    margin:2px;
+}
+.mitad {
+    width: 60%;
+    min-width: 240px;
+}
+.nove {
+display:none;
+}
+.bordessombray95 {
+    box-shadow: 0 0 19px white;
+    width:95%;
+    min-width:300px;
+    margin-left:10%;
+ }
+.bordessombray99sinmargen {
+    box-shadow: 0 0 19px white;
+    width: 99%;
+}
+.page-header2 {
+    padding: 9px;
+    margin: 10px 0 20px;
+    /* border-bottom: 1px solid #eeeeee; */
+    /* background: linear-gradient(to right, #002C69, 50%, #666682); */
+    color: lavender;
+    text-align: left;
+    font-family: Bahnschrift SemiBold;
+    font-weight: bold;
+    font-style: italic;
+}
+.jumbotron2 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: lightgrey;
+    background-color: #0f0e32;
+}
+@media (max-width: 750px) {
+    .bordessombray95 {
+        margin-left: 1%;
+    }
+}

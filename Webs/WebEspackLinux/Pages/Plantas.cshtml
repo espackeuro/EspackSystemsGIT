@@ -1,0 +1,46 @@
+﻿@page
+@model PlantasModel
+@using Microsoft.AspNetCore.Http
+@{
+    if (HttpContext.Session.GetString("lengua") != null)
+    {
+        Clases.IdiomaCheck(HttpContext.Session.GetString("lengua").ToString());
+    }
+}
+<br />
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+    <h2 class="page-header page-header2">@Idiomas.Plantas</h2>
+    <div class="jumbotron jumbotron2">
+        <br />
+        <div class="text-center">
+            <img class="img-thumbnail" title="Espack in Europe" src="~/Imagenes/Europe.png" alt="" width="975" height="853" usemap="#mapa-sedes" />
+            <br /><br /><br />
+            <h3><a class="Botones" href="Madrid"><strong>ESPACK EUROLOGÍSTICA, S.L. – @Idiomas.Madrid</strong>&nbsp; <img src="~/Imagenes/españa.png" /></a></h3>
+            <iframe style="min-width:300px;width:90%" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2554.1702826847986!2d-3.6805990683571257!3d40.421310932464635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4228a308373a49%3A0x1f923ead17d27e29!2sTorre%20de%20Valencia%2C%2028009%20Madrid!5e0!3m2!1ses!2ses!4v1646317885296!5m2!1ses!2ses" width="400" height="400" loading="lazy"></iframe>
+            <h3><a class="Botones" href="Valencia"><strong>ESPACK EUROLOGÍSTICA, S.L. – @Idiomas.Valencia</strong>&nbsp; <img src="~/Imagenes/españa.png" /></a></h3>
+            <iframe style="min-width:300px;width:90%" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3087.0871042382355!2d-0.42204608437510105!3d39.308949030184245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd61b31dee4ee301%3A0x6dec21f584fef0d2!2sEspack%20Eurologistica%20Sl!5e0!3m2!1ses!2ses!4v1646314151209!5m2!1ses!2ses" width="400" height="400" loading="lazy"></iframe>
+            <h3><a class="Botones" href="Zaragoza"><strong>ESPACK EUROLOGÍSTICA, S.L. – @Idiomas.Zaragoza&nbsp;</strong>&nbsp; <img src="~/Imagenes/españa.png" /></a></h3>
+            <iframe style="min-width:300px;width:90%" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d761878.8777353519!2d-1.157969!3d41.761731!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xbcafb280baa2e000!2sEspackdis%20De%20Servicios%20Autom%C3%B3vil%20S%20A!5e0!3m2!1ses!2ses!4v1646316424360!5m2!1ses!2ses" width="400" height="400" loading="lazy"></iframe>
+            <h3><a class="Botones" href="Bridgend"><strong>ESPACK EUROLOGÍSTICA, S.L. – @Idiomas.Bridgend</strong>&nbsp; <img src="~/Imagenes/Gales.png" /></a></h3>
+            <iframe style="min-width:300px;width:90%" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.8777022372574!2d-3.562035284075249!3d51.49711171927608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486e6db21beceb2b%3A0xa73bb17305660974!2sEspack%20Eurologistica!5e0!3m2!1ses!2ses!4v1646315602345!5m2!1ses!2ses" width="400" height="400" loading="lazy"></iframe>
+            <h3><a class="Botones" href="Dagenham"><strong>ESPACK EUROLOGÍSTICA, S.L. – @Idiomas.Dagenham</strong>&nbsp; <img src="~/Imagenes/Inglaterra.png" /></a></h3>
+            <iframe style="min-width:300px;width:90%" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d737.60252741693!2d0.15787565334763884!3d51.550095490953595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a51bc6cc4f3d%3A0x7a5af3fe69b6eaf0!2sEspack%20Eurologistica%20Dagenham!5e0!3m2!1ses!2ses!4v1646316573809!5m2!1ses!2ses" width="400" height="400" loading="lazy"></iframe>
+            <h3><a class="Botones" href="Craiova"><strong>ESPACK EUROLOGÍSTICA, SRL – @Idiomas.Craiova</strong>&nbsp; <img src="~/Imagenes/Rumania.png" /></a></h3>
+            <iframe style="min-width:300px;width:90%" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2855.576797077138!2d23.826216615792102!3d44.29809151850712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4752d7c414087941%3A0x8c38c01a27013a58!2sEspack%20Eurologistica!5e0!3m2!1ses!2ses!4v1646317029254!5m2!1ses!2ses" width="400" height="400" loading="lazy"></iframe>
+            <h3><a class="Botones" href="Halewood"><strong>ESPACK EUROLOGÍSTICA, LTD – @Idiomas.Halewood</strong>&nbsp; <img src="~/Imagenes/Inglaterra.png" /></a></h3>
+            <iframe style="min-width:300px;width:90%" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2832.1479393797654!2d-2.8487356349561828!3d53.35143553737522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487ae02f1af03d91%3A0x154c1d68c2e22389!2sEspack%20Eurologistica!5e0!3m2!1ses!2ses!4v1646317259513!5m2!1ses!2ses" width="400" height="400" loading="lazy"></iframe>
+            <h3><a class="Botones" href="Wolverhampton"><strong>ESPACK EUROLOGÍSTICA, LTD – @Idiomas.Wolverhampton</strong>&nbsp; <img src="~/Imagenes/Inglaterra.png" /></a></h3>
+            <iframe style="min-width:300px;width:90%" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2423.2241553688036!2d-2.112985283998811!3d52.601719037922024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48709d82e8b137d7%3A0x3f73b0b67382792a!2sEspack%20eurologistics!5e0!3m2!1ses!2ses!4v1646317351102!5m2!1ses!2ses" width="400" height="400" loading="lazy"></iframe>
+            <h3><a class="Botones" href="Graz"><strong>ESPACK EUROLOGÍSTICA, GMBH – @Idiomas.Graz</strong>&nbsp; <img src="~/Imagenes/austria.png" /></a></h3>
+            <iframe style="min-width:300px;width:90%" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2724.226648732524!2d15.462344515607418!3d46.93758437914597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476fb6badf8a3aab%3A0x6d1bba8d4fb97a8!2sEspack%20Eurologistica%20GRAZ!5e0!3m2!1ses!2ses!4v1651156616260!5m2!1ses!2ses" width="400" height="400" loading="lazy"></iframe>
+            <h3><a class="Botones" href="Eslovaquia"><strong>ESPACK EUROLOGÍSTICA, SRO – @Idiomas.Eslovaquia</strong>&nbsp; <img src="~/Imagenes/Eslovaquia.png" /></a></h3>
+            <iframe style="min-width:300px;width:90%" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21217.19188116505!2d18.053079079705604!3d48.338441581948246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8936c0fe07524f0e!2sEspack%20Eurolog%C3%ADstica%20s.r.o.!5e0!3m2!1ses!2ses!4v1648130715551!5m2!1ses!2ses" width="400" height="400" loading="lazy"></iframe>
+            <h3><a class="Botones" href="Colonia"><strong>ESPACK EUROLOGÍSTICA, GMBH – @Idiomas.Colonia</strong>&nbsp; <img src="~/Imagenes/Alemania.png" /></a></h3>
+            <iframe style="min-width:300px;width:90%" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2513.4720889746695!2d6.889904815957111!3d50.95197535898091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bf3b6a99c99aa3%3A0x5c4477aed67c6962!2sEspack%20Eurologistica!5e0!3m2!1ses!2ses!4v1646390931568!5m2!1ses!2ses" width="400" height="400" loading="lazy"></iframe>
+            <h3><a class="Botones" href="CastleBromwich"><strong>ESPACK EUROLOGÍSTICA, LTD – @Idiomas.CastleBromwich</strong>&nbsp; <img src="~/Imagenes/Inglaterra.png" /></a></h3>
+            <iframe style="min-width:300px;width:90%" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.0497213516815!2d-1.8205033840469036!3d52.51443924439358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870bacd97cd9f7f%3A0xa3d7aed1564ab0d6!2s21%20Spitfire%20Rd%2C%20Birmingham%20B24%209PW%2C%20Reino%20Unido!5e0!3m2!1ses!2ses!4v1646831509635!5m2!1ses!2ses" width="400" height="400" loading="lazy"></iframe>
+        </div>
+    </div>
+</div>
+<div class="col-sm-1"></div>

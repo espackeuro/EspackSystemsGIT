@@ -1,0 +1,56 @@
+﻿@page
+@model DagenhamModel
+@using Microsoft.AspNetCore.Http
+@{
+    if (HttpContext.Session.GetString("lengua") != null)
+    {
+        Clases.IdiomaCheck(HttpContext.Session.GetString("lengua").ToString());
+    }
+}
+<br />
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+    <h2 class="page-header page-header2">@Idiomas.Dagenham &nbsp;<img src="~/Imagenes/Inglaterra.png" /></h2>
+    <div class="jumbotron jumbotron2">
+        <br />
+        <div class="text-center">
+            <img class="bordessombray99sinmargen" src="~/Imagenes/Dagenham.jpg" />
+        </div>
+        <br /><br />
+        <table width="100%">
+            <tr>
+                <td class="columnas2">
+                    <p><strong>ESPACK EUROLOGÍSTICA, S.L. - @Idiomas.Dagenham.ToUpper()</strong></p>
+                    <br />
+                    <ul>
+                        <li>
+                            <p>@Idiomas.OficinasCentrales.ToUpper()</p>
+                            <br />
+                        </li>
+                        <li>
+                            <p>MANCHESTER WAY, UNIT 8</p>
+                        </li>
+                        <li>
+                            <p>HEATHWAY INDUSTRIAL ESTATE</p>
+                        </li>
+                        <li>
+                            <p>DAGENHAM, ESSEX RM10 8PN</p>
+                        </li>
+                        <li>
+                            <p>ENGLAND - UK</p>
+                        </li>
+                        <li>
+                            <p>TEL. +44(0)2085 173 322</p>
+                            <br />
+                        </li>
+                    </ul>
+                </td>
+                <td class="columnas2">
+                    <iframe class="bordessombray95" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1184.4658066605775!2d0.1572290014115811!3d51.54936479492024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a51bc6cc4f3d%3A0x730da22c34a5f45f!2s9+Manchester+Way%2C+Heathway+Industrial+Estate%2C+Dagenham%2C+Greater+London+RM10+8PN%2C+Reino+Unido!5e1!3m2!1ses!2ses!4v1447167021658" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="400" height="400"></iframe>
+                </td>
+            </tr>
+        </table>
+        <br />
+    </div>
+</div>
+<div class="col-sm-1"></div>
