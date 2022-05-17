@@ -73,8 +73,8 @@ namespace LogonScreen
 
             cPackageInfoText.Text = string.Format("{0} Version {1}", packageName, version);
 #if DEBUG
-            cUser.Text = "restelles";
-            cPassword.Text = "1312";
+            cUser.Text = "dvalles";
+            cPassword.Text = "1893";
 #endif
 
         }

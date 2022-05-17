@@ -41,12 +41,46 @@ namespace RadioLogisticaDeliveries
             }
             Processing = true;
             cData _data;
+
+            //if (Values.CurrentRack == "")
+            //{
+            //    var _ask4Rack = await Values.SQLidb.db.Table<PartnumbersRacks>().FirstOrDefaultAsync(r => r.Rack == reading);
+            //    if (_ask4Rack == null)
+            //    {
+            //        cSounds.Error(Context);
+            //        Values.iFt.SetMessage(string.Format("Error: Wrong Rack {0}.", reading));
+            //        Processing = false;
+            //        return;
+            //    }
+            //    Values.SetCurrentRack(_ask4Rack.Rack);
+            //    Processing = false;
+            //    return;
+            //}
+
             //QRCODE
             if (reading.Length>2 && reading.Substring(0, 2) == "@@" && reading.Substring(reading.Length - 2, 2) == "##") //QRCODE
             {
                 var _readingFields = reading.Split('|');
                 if (Values.WorkMode == WorkModes.READING)
                 {
+                    // [dvalles] 20220517: Check there is a rack set
+                    if (Values.CurrentRack == "")
+                    {
+                        cSounds.Error(Context);
+                        Values.iFt.SetMessage(string.Format("You must scan a rack first."));
+                        Processing = false;
+                        return;
+                    }
+
+                    // [dvalles] 20220517: Check the label belongs to current order
+                    if (Values.gOrderNumber != 0 && _readingFields[3].ToInt() != Values.gOrderNumber)
+                    {
+                        cSounds.Error(Context);
+                        Values.iFt.SetMessage(string.Format("Label {0} does not belong to order {1}.", _readingFields[5], Values.gOrderNumber));
+                        Processing = false;
+                        return;
+                    }
+                    
                     //"QRCODE|R GRAZ|07/02/2017|724008707|VCE15|303639641|KLT3215|U00045|L538|1000|W700530S300|STRAP 3-80X4.6 PLA||"
                     reading = string.Format("%{0}%{1}%{2}",_readingFields[11],_readingFields[4],_readingFields[12]);
                 } else

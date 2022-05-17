@@ -128,6 +128,7 @@ namespace RadioLogisticaDeliveries
 
             string _orderNumber;
             string _blockCode;
+
             if (data.IsNumeric() && data.Length>6)
             {
                 _orderNumber = data;
@@ -268,7 +269,8 @@ namespace RadioLogisticaDeliveries
             Values.iFt.pushInfo("Done");
             Values.iFt.pushInfo("Getting PartnumberRacks table");
             //data from RacksBlocks table
-            string _prquery = $"Select p.Rack,Partnumber,MinBoxes,MaxBoxes,p.flags,alternate=dbo.fObtenerValor(ExtraData,'ALTREAD') from PartnumbersRacks p inner join RacksBlocks r on r.Rack=p.Rack where p.service='{Values.gService}' " +
+            // [dvalles] 20220513: Added isnull to the alternate column so it doesn't raise an error later. When the column gets a null value, the column is not created in the SQLidb object
+            string _prquery = $"Select p.Rack,Partnumber,MinBoxes,MaxBoxes,p.flags,alternate=isnull(dbo.fObtenerValor(ExtraData,'ALTREAD'),'') from PartnumbersRacks p inner join RacksBlocks r on r.Rack=p.Rack where p.service='{Values.gService}' " +
 #if DEBUG
                 $"and r.Block='{Values.gBlock}' " +
 #endif                    
