@@ -11,11 +11,13 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Xamarin.Essentials;
-using Android.Gms.Common;
-using Android.Gms.Location;
+//using Android.Gms.Common;
+//using Android.Gms.Location;
 
+/*
 namespace RadioLogisticaDeliveries
 {
+    /*
     [Service]
     public class LocatorService : Service
     {
@@ -121,5 +123,5 @@ namespace RadioLogisticaDeliveries
         }
     }
 
-
-}
+    
+}*/

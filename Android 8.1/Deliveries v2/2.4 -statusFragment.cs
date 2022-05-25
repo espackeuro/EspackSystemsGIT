@@ -23,6 +23,7 @@ namespace RadioLogisticaDeliveries
         public TextView readingsInfo { get; set; }
         public TextView checkingsInfo { get; set; }
         private TextView locationInfo { get ; set; }
+        /*
         public void SetLocationInfo(DataLocation loc=null)
         {
             if (loc == null)
@@ -30,6 +31,7 @@ namespace RadioLogisticaDeliveries
             else
                 Activity.RunOnUiThread(() => locationInfo.Text = $"Latitude: {loc.Latitude}, Longitude: {loc.Longitude}, Altitude: {loc.Altitude}");
         }
+        */
         public int ReadQtyReceived
         {
             get

@@ -31,22 +31,34 @@ namespace RadioLogisticaDeliveries
             //SendMessage("Getting device info.");
             var _result = new DeviceInfo();
             _result.Serial = deviceSerial;
-            using (var _rs = new XMLRS($"Select CM,Code, MainCOD3, TypeFLAGS from Sistemas..ItemsCab where Serial='{deviceSerial}'", Values.gDatos))
+            try
             {
-                await _rs.OpenAsync();
-                if (_rs.RecordCount == 0)
+                using (var _rs = new XMLRS($"Select CM,Code, MainCOD3, TypeFLAGS from Sistemas..ItemsCab where Serial='{deviceSerial}'", Values.gDatos))
                 {
-                    //SendError("Device not found in Espack Inventory.");
-                    return _result;
+                    await _rs.OpenAsync();
+                    if (_rs.RecordCount == 0)
+                    {
+                        //SendError("Device not found in Espack Inventory.");
+                        return _result;
+                    }
+                    _result.CM = _rs["CM"].ToString();
+                    _result.DeviceCOD3 = _rs["MainCOD3"].ToString();
+                    _result.DeviceCode = _rs["Code"].ToString();
+                    _result.flags = _rs["TypeFLAGS"].ToString();
+                    //SendMessage($"Device found {_result.CM} assigned to {_result.DeviceCOD3} warehouse");
                 }
-                _result.CM = _rs["CM"].ToString();
-                _result.DeviceCOD3 = _rs["MainCOD3"].ToString();
-                _result.DeviceCode = _rs["Code"].ToString();
-                _result.flags = _rs["TypeFLAGS"].ToString();
-                //SendMessage($"Device found {_result.CM} assigned to {_result.DeviceCOD3} warehouse");
+                return _result;
             }
-            return _result;
+            catch (Exception ex)
+            {
+
+                Context context = Android.App.Application.Context;
+                Toast.MakeText(context, $"Semurió!:{ex.Message}", ToastLength.Long).Show();
+                return _result;
+            }
+
         }
+
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -54,10 +66,7 @@ namespace RadioLogisticaDeliveries
             SetContentView(Resource.Layout.mainLayout);
             // Create your application here
 
-
             string _mainScreenMode = Intent.GetStringExtra("MainScreenMode");
-            
-
 
             Values.hFt = new headerFragment();
             
@@ -92,11 +101,21 @@ namespace RadioLogisticaDeliveries
             //Values.dtm = new DataTransferManager();
             //start the transmission service
             Values.MyDeviceInfo = await GetDeviceInfo(cDeviceInfo.Serial);
-
-            Values.GEO = Values.MyDeviceInfo.flags.Contains("GEOLOCATION");
+            //Values.GEO = Values.MyDeviceInfo.flags.Contains("GEOLOCATION");
 
             EspackCommServer.Server.PropertyChanged += ConnectionServer_PropertyChanged; 
         }
+
+        // [dvalles] 20220525: Reset all stuff which makes the app malfunction after restarting the activity
+        public void ResetActivityStuff()
+        {
+            // Remove handler since it made the app to crash when the event was triggered and there was no Activity to receive it
+            EspackCommServer.Server.PropertyChanged -= ConnectionServer_PropertyChanged;
+
+            // Set the session number to null: it keeped the previous value potentially causing behaviour issues
+            EspackCommServer.Server.SessionNumber = null;
+        }
+
         //public override View OnCreateView(string name, Context context, IAttributeSet attrs)
         //{
         //    //info when recovering
@@ -130,8 +149,6 @@ namespace RadioLogisticaDeliveries
             }
         }
 
-
-
         public void changeOrderToEnterDataFragments()
         {
             using (var ft = SupportFragmentManager.BeginTransaction())
@@ -148,8 +165,8 @@ namespace RadioLogisticaDeliveries
             {
                 if (Values.oFt != null)
                     Values.oFt.Dispose();
-                if (LocatorService.Started)
-                    LocatorService.Kill = true;
+                //if (LocatorService.Started)
+                //    LocatorService.Kill = true;
                 if (DataTransferManager.Started)
                     DataTransferManager.Kill = true;
                 Values.oFt = new orderFragment();

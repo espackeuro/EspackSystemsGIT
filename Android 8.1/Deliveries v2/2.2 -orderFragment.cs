@@ -75,6 +75,12 @@ namespace RadioLogisticaDeliveries
 
         private async void SScanner_AfterReceive(object sender, ReceiveEventArgs e)
         {
+            if (!orderNumberET.Enabled)
+            {
+                return;
+            }
+            orderNumberET.Enabled = false;
+
             var _scan = e.ReceivedData;
             if (_scan.Substring(0, 2) == "@@" && _scan.Substring(_scan.Length - 2, 2) == "##") //QRCODE
             {
@@ -106,6 +112,18 @@ namespace RadioLogisticaDeliveries
         {
             if (e.Event.Action == KeyEventActions.Down && (e.KeyCode == Keycode.Enter || e.KeyCode == Keycode.Tab))
             {
+                if(orderNumberET.Text==Values.gCloseReLogInCode || orderNumberET.Text == Values.gCloseCode)
+                {
+                    //set alert for executing the task
+                    bool dialogResult = await AlertDialogHelper.ShowAsync(Context, "Confirm Close Application", $"This will close the application. Are you sure?", "Close App", "Cancel");
+                    if (!dialogResult)
+                    {
+                        Toast.MakeText(Context, "Cancelled!", ToastLength.Short).Show();
+                        return;
+                    }
+                    ((MainActivity)Context).Dispose();
+                }
+
                 orderNumberET.Enabled = false;
                 await ActionGo(orderNumberET.Text);
                 orderNumberET.Enabled = true;
@@ -190,6 +208,7 @@ namespace RadioLogisticaDeliveries
             //Dismiss Keybaord
             InputMethodManager imm = (InputMethodManager)Activity.GetSystemService(Context.InputMethodService);
             //get location if android >= 5.1
+ /*
             if (Values.GEO)
             {
                 var androindVersion = Android.OS.Build.VERSION.SdkInt;
@@ -222,7 +241,7 @@ namespace RadioLogisticaDeliveries
                     Activity.StartService(new Intent(Activity, typeof(LocatorService)));
                     LocatorService.Active = true;
                 }
-            }
+            } */
             imm.HideSoftInputFromWindow(orderNumberET.WindowToken, 0);
             int _progress = 0;
             if (Values.gOrderNumber!=0)

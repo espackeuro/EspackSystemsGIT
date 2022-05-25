@@ -50,6 +50,7 @@ namespace RadioLogisticaDeliveries
         public static int gOrderNumber;
         public static string gService;
         public static string gCloseCode = "000";
+        public static string gCloseReLogInCode = "00";
         public static string gSession;
         public static int LocTime { get; set; } = 30; //time between gps readings
         public static DataReadingList gDRL = new DataReadingList();
@@ -115,7 +116,7 @@ namespace RadioLogisticaDeliveries
         }
         public static WorkModes WorkMode { get; set; }
         public static DeviceInfo MyDeviceInfo { get; set; }
-        public static bool GEO { get; set; }
+//        public static bool GEO { get; set; }
     }
 
     
@@ -143,7 +144,15 @@ namespace RadioLogisticaDeliveries
             intent.AddCategory(Intent.CategoryLauncher);
             intent.PutExtra("ConnectionType", "Socks");
             intent.PutExtra("Version", Values.Version);
-            intent.PutExtra("PackageName", "Radio Deliveries GEO");
+            intent.PutExtra("PackageName", "Radio Deliveries V2");
+
+            // [dvalles] 20220520: Recover the user/password from the previous session
+            if (!String.IsNullOrEmpty(Intent.GetStringExtra("User")))
+            {
+                intent.PutExtra("User", Intent.GetStringExtra("User"));
+                intent.PutExtra("Password", Intent.GetStringExtra("Password"));
+            }
+
             StartActivityForResult(intent, 0);
             Values.WorkMode = WorkModes.READING;
 

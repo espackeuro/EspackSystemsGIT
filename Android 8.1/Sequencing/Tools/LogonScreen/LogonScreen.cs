@@ -36,6 +36,7 @@ namespace LogonScreen
         private string typeofCaller;
         private string version;
         private string packageName;
+
         //Main method
         protected override void OnCreate(Bundle bundle)
         {
@@ -76,6 +77,13 @@ namespace LogonScreen
             cUser.Text = "dvalles";
             cPassword.Text = "1893";
 #endif
+            // [dvalles] 20220520: Recover the user/password values from the previous session
+            if (!String.IsNullOrEmpty(Intent.GetStringExtra("User")))
+            {
+                cUser.Text = Intent.GetStringExtra("User");
+                cPassword.Text = Intent.GetStringExtra("Password");
+                DoThings();
+            }
 
         }
 
@@ -224,7 +232,6 @@ namespace LogonScreen
                             intent.PutExtra("Result", "OK");
                             SetResult(Result.Ok, intent);
                             Finish();
-
                         }
                     }
                     catch (Exception ex)

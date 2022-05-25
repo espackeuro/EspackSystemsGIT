@@ -78,7 +78,7 @@ namespace RadioLogisticaDeliveries
             });
             Values.gDRL.Context = (FragmentActivity)sender;
             DataTransferManager.Active = false;
-            LocatorService.Active = false;
+            //LocatorService.Active = false;
             try
             {
                 Task.Run(async () => {
@@ -86,7 +86,7 @@ namespace RadioLogisticaDeliveries
                     await Values.gDRL.Add(e.ReceivedData);
                     Values.gDRL.Processing = false;
                     DataTransferManager.Active = true;
-                    LocatorService.Active = true;
+                    //LocatorService.Active = true;
                     ((FragmentActivity)sender).RunOnUiThread(() =>
                     {
                         elData.Enabled = true;
@@ -101,7 +101,7 @@ namespace RadioLogisticaDeliveries
             {
                 Values.gDRL.Processing = false;
                 DataTransferManager.Active = true;
-                LocatorService.Active = true;
+                //LocatorService.Active = true;
                 ((FragmentActivity)sender).RunOnUiThread(() =>
                 {
                     Toast.MakeText(Activity, "Error reading scan." + ex.Message, ToastLength.Long).Show();

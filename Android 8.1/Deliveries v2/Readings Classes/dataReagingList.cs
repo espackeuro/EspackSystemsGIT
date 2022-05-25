@@ -129,7 +129,7 @@ namespace RadioLogisticaDeliveries
                 _data = new DataChecking() { Context = Context, Rack = Values.CurrentRack, Data = reading, Serial = reading };
                 if (await _data.doCheckings())
                 {
-                    dataList.Add(_data);
+                    dataList.Add(_data);//
                     position++;
                     //Values.sFt.CheckQtyReceived++;
                 }
@@ -211,10 +211,11 @@ namespace RadioLogisticaDeliveries
             }
             else
             //CLOSE CODE
-            if (reading == Values.gCloseCode)
+            if (reading == Values.gCloseCode || reading==Values.gCloseReLogInCode)
             {
                 //set alert for executing the task
-                bool dialogResult = await AlertDialogHelper.ShowAsync(Context, "Confirm Close Session", "This will close current session. Are you sure?", "Close Session", "Cancel");
+                string _msg = (reading == Values.gCloseReLogInCode) ? " and re-login with current user" : "";
+                bool dialogResult = await AlertDialogHelper.ShowAsync(Context, "Confirm Close Session", $"This will close current session{_msg}. Are you sure?", "Close Session", "Cancel");
 
                 if (!dialogResult)
                 {
@@ -253,8 +254,6 @@ namespace RadioLogisticaDeliveries
                     Values.dFt.Clear();
                     Values.sFt.Clear();
                     Values.hFt.Clear();
-                    Values.gDatos.User = "";
-                    Values.gDatos.Password = "";
                     Values.gSession = "";
                     Values.gService = "";
                     Values.gOrderNumber = 0;
@@ -262,13 +261,25 @@ namespace RadioLogisticaDeliveries
                     dataList.Clear();
                     position = -1;
                     Values.SetCurrentRack("");
-                    if (LocatorService.Started)
-                        LocatorService.Kill = true;
+                    //if (LocatorService.Started)
+                    //    LocatorService.Kill = true;
                     if (DataTransferManager.Started)
                         DataTransferManager.Kill = true;
                     //change to enter order fragment
-
                     var intent = new Intent(Context, typeof(MainActivity));
+                    // [dvalles] 20220520: To maintain the user/password details when it's gCloseReLoginCode
+                    if (reading == Values.gCloseReLogInCode)
+                    {
+                        intent.PutExtra("User", Values.gDatos.User);
+                        intent.PutExtra("Password", Values.gDatos.Password);
+                    }
+                    Values.gDatos.User = "";
+                    Values.gDatos.Password = "";
+                    
+                    // [dvalles] 20220525: Reset stuff which makes the app to crash after restarting the activity.
+                    ((MainScreen)Context).ResetActivityStuff();
+
+                    // Start main activity
                     ((MainScreen)Context).StartActivityForResult(intent, 1);
                     //Context.Dispose();
                     Processing = false;
@@ -345,6 +356,7 @@ namespace RadioLogisticaDeliveries
             return dataList.ElementAt(position);
         }
 
+  
 
     }
 }

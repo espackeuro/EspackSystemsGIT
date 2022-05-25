@@ -29,6 +29,7 @@ namespace RadioLogisticaDeliveries
         }
         public override async Task<bool> ToDB()
         {
+            /*
             try
             {
                 await Values.SQLidb.db.InsertAsync(new DeviceLocation() {Session= Values.gSession, Accuracy =Accuracy, Course=Course, Altitude=Altitude, Latitude=Latitude, Longitude=Longitude,Speed=Speed,Timestamp=Timestamp, Transmitted = false });
@@ -38,7 +39,7 @@ namespace RadioLogisticaDeliveries
                 _errorMessage = ex.Message;
                 _status = dataStatus.ERROR;
                 return false;
-            }
+            }*/
             _status = dataStatus.DATABASE;
             return true;
         }
