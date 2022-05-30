@@ -64,24 +64,37 @@ namespace RadioLogisticaDeliveries
             base.OnDestroyView();
             sScanner.UnregisterScannerActivity();
         }
-        private void Scanner_BeforeReceive(object sender, EventArgs e)
+        private void DisableReadings(object sender)
         {
             ((FragmentActivity)sender).RunOnUiThread(() =>
             {
                 orderNumberET.Enabled = false;
             });
+        }
 
+        private void EnableReadings(object sender)
+        {
+            ((FragmentActivity)sender).RunOnUiThread(() =>
+            {
+                orderNumberET.Enabled = true;
+                orderNumberET.Text = "";
+            });
         }
 
         private async void SScanner_AfterReceive(object sender, ReceiveEventArgs e)
         {
-            if (!orderNumberET.Enabled)
+            DisableReadings(sender);
+            if (Values.scannerIsBusy)
             {
+                orderNumberET.Text = "";
                 return;
             }
-            orderNumberET.Enabled = false;
 
-            var _scan = e.ReceivedData;
+            Values.scannerIsBusy = true;
+
+            //sScanner.AfterReceive -= SScanner_AfterReceive;
+
+                var _scan = e.ReceivedData;
             if (_scan.Substring(0, 2) == "@@" && _scan.Substring(_scan.Length - 2, 2) == "##") //QRCODE
             {
                 var _recordList = _scan.Split('|');
@@ -93,26 +106,26 @@ namespace RadioLogisticaDeliveries
                 {
                     Toast.MakeText(Activity, "Wrong reading.", ToastLength.Long).Show();
                     Values.iFt.pushInfo("Wrong reading.");
+                    EnableReadings(sender);
+                    Values.scannerIsBusy = false;
                     return;
                 }
 
             }
             orderNumberET.Text = _scan;
             var _res = await ActionGo(_scan);
-            ((FragmentActivity)sender).RunOnUiThread(() =>
-            {
-                orderNumberET.Enabled = true;
-                orderNumberET.Text = "";
-            });
+            EnableReadings(sender);
             if (_res)
                 orderNumberET.Tag = "SCAN";
+            Values.scannerIsBusy = false;
         }
 
         private async void OrderNumberET_KeyPress(object sender, View.KeyEventArgs e)
         {
             if (e.Event.Action == KeyEventActions.Down && (e.KeyCode == Keycode.Enter || e.KeyCode == Keycode.Tab))
             {
-                if(orderNumberET.Text==Values.gCloseReLogInCode || orderNumberET.Text == Values.gCloseCode)
+                /*
+                if(orderNumberET.Text == Values.gCloseCode)
                 {
                     //set alert for executing the task
                     bool dialogResult = await AlertDialogHelper.ShowAsync(Context, "Confirm Close Application", $"This will close the application. Are you sure?", "Close App", "Cancel");
@@ -121,9 +134,13 @@ namespace RadioLogisticaDeliveries
                         Toast.MakeText(Context, "Cancelled!", ToastLength.Short).Show();
                         return;
                     }
-                    ((MainActivity)Context).Dispose();
-                }
+                    
+                    var activity = (MainActivity)Context;
+                    activity.FinishActivity(0);
+                    return;
 
+                }
+                */
                 orderNumberET.Enabled = false;
                 await ActionGo(orderNumberET.Text);
                 orderNumberET.Enabled = true;

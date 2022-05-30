@@ -44,7 +44,7 @@ namespace RadioLogisticaDeliveries
                 Values.hFt.t3.Text = string.Format("Block: {0}", _block);
             }
         }
-        
+
         public static string Version { get; set; }
 
         public static int gOrderNumber;
@@ -74,6 +74,8 @@ namespace RadioLogisticaDeliveries
         public static infoFragment dFt { get; set; }
         public static statusFragment sFt { get; set; }
         public static orderFragment oFt { get; set; }
+        public static bool scannerIsBusy { get; set; }
+
         //public static DataTransferManager dtm { get; set; }
         //public static LocatorService ls { get; set; }
         public static Intent elIntent { get; set; }

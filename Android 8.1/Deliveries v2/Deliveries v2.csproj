@@ -90,8 +90,6 @@
     <Compile Include="2.4 -statusFragment.cs" />
     <Compile Include="2.5 - trolleyFragment.cs" />
     <Compile Include="DataTransferManager.cs" />
-    <Compile Include="LocatorService.cs" />
-    <Compile Include="LocatorServiceFused.cs" />
     <Compile Include="Readings Classes\cData.cs" />
     <Compile Include="Readings Classes\cData.dataChangeRack.cs" />
     <Compile Include="Readings Classes\cData.dataChecking.cs" />
