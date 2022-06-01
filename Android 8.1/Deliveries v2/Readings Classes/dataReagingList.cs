@@ -275,7 +275,8 @@ namespace RadioLogisticaDeliveries
                     }
                     Values.gDatos.User = "";
                     Values.gDatos.Password = "";
-                    
+                    Values.gSession = null;
+
                     // [dvalles] 20220525: Reset stuff which makes the app to crash after restarting the activity.
                     ((MainScreen)Context).ResetActivityStuff();
 

@@ -1065,7 +1065,7 @@ namespace AccesoDatosXML
 
                 string _sIP = (from _par in _parameters where _par.Element("Name").Value.ToString() == "@ExternalIP" select _par.Element("Value").Value).First();
 #if DEBUG
-                //_sIP = "10.120.90.11";//"46.24.173.2";
+                _sIP = "10.200.90.40";//"46.24.173.2";
 #endif
                 var _COD3 = (from _par in _parameters where _par.Element("Name").Value.ToString() == "@COD3" select _par.Element("Value").Value).First();
                 _session = (from _par in _parameters where _par.Element("Name").Value.ToString() == "@SessionNumber" select _par.Element("Value").Value).First();
