@@ -268,7 +268,8 @@ namespace RadioLogisticaDeliveries
             Values.iFt.pushInfo("Done");
             Values.iFt.pushInfo("Getting PartnumberRacks table");
             //data from RacksBlocks table
-            string _prquery = $"Select p.Rack,Partnumber,MinBoxes,MaxBoxes,p.flags,alternate=dbo.fObtenerValor(ExtraData,'ALTREAD') from PartnumbersRacks p inner join RacksBlocks r on r.Rack=p.Rack where p.service='{Values.gService}' " +
+            // [dvalles] 20220601: Added isnull for avioiding later error when accessing that column (it makes the app to crash when it results null)
+            string _prquery = $"Select p.Rack,Partnumber,MinBoxes,MaxBoxes,p.flags,alternate=isnull(dbo.fObtenerValor(ExtraData,'ALTREAD'),'') from PartnumbersRacks p inner join RacksBlocks r on r.Rack=p.Rack where p.service='{Values.gService}' " +
 #if DEBUG
                 $"and r.Block='{Values.gBlock}' " +
 #endif                    
