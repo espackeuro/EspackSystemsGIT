@@ -69,7 +69,7 @@ namespace EspackSyncService
                             ServerName = pair.Value,
                             Flags = Values.FlagsDefs
                         });
-                        EventLog.WriteEntry(string.Format("Added {0} Service to server {1}", pair.Key, pair.Value));
+                        //EventLog.WriteEntry(string.Format("Added {0} Service to server {1}", pair.Key, pair.Value));
                         break;
                     case "EXCHANGE":
                         SyncedServices.Add(new ExchangeServiceClass()

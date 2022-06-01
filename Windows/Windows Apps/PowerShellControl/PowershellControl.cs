@@ -82,7 +82,7 @@ namespace PowerShellControl
                 {
                     runspace.Open();
                     powershell.Runspace = runspace;
-                    powershell.AddScript(Command);
+                    powershell.AddCommand(Command); // [dvalles] 20220601: Change .AddScript -> .AddCommand (AddScript is obsolete)
 
                     Results = await Task.Factory.FromAsync(powershell.BeginInvoke(), pResult => powershell.EndInvoke(pResult));
                     if (powershell.HadErrors)
@@ -113,7 +113,7 @@ namespace PowerShellControl
                         using (var powershell = PowerShell.Create())
                         {
                             powershell.Runspace = runspace;
-                            powershell.AddScript(command.Command);
+                            powershell.AddCommand(command.Command); // [dvalles] 20220601: Change .AddScript -> .AddCommand (AddScript is obsolete)
                             Results = await Task.Factory.FromAsync(powershell.BeginInvoke(), pResult => powershell.EndInvoke(pResult));
                             if (powershell.HadErrors)
                             {
@@ -147,7 +147,8 @@ namespace PowerShellControl
                     runspace.Open();
                     Pipeline pipeline = runspace.CreatePipeline();
                     string serverFqdn = "EXCHANGE01";
-                    pipeline.Commands.AddScript(string.Format("$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri http://{0}/PowerShell/ -Authentication Kerberos", serverFqdn));
+                    // [dvalles] 20220601: Change .AddScript -> .Add (AddScript is obsolete)
+                    pipeline.Commands.Add(string.Format("$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri http://{0}/PowerShell/ -Authentication Kerberos", serverFqdn));
                     var res = pipeline.Invoke();
                     foreach (var command in commandCollection)
                     {
@@ -155,8 +156,9 @@ namespace PowerShellControl
                         using (var powershell = PowerShell.Create())
                         {
                             powershell.Runspace = runspace;
-                            powershell.AddScript(string.Format("$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri http://{0}/PowerShell/ -Authentication Kerberos", serverFqdn));
-                            powershell.AddScript(command.Command);
+                            // [dvalles] 20220601: Change .AddScript -> .AddCommand (AddScript is obsolete)
+                            powershell.AddCommand(string.Format("$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri http://{0}/PowerShell/ -Authentication Kerberos", serverFqdn));
+                            powershell.AddCommand(command.Command); // [dvalles] 20220601: Change .AddScript -> .AddCommand (AddScript is obsolete)
                             Results = await Task.Factory.FromAsync(powershell.BeginInvoke(), pResult => powershell.EndInvoke(pResult));
                             if (powershell.HadErrors)
                             {
