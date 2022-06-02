@@ -284,7 +284,6 @@ namespace AccesoDatosXML
     public class cAccesoDatosXML : cAccesoDatos, IDisposable, XMLEspackDataThing
     {
         public bool Compression { get; set; } = true;
-
         String Origin { get; set; } = "LOGON";
         //string SessionNumber { get; set; }
         public override string HostName()
@@ -952,7 +951,6 @@ namespace AccesoDatosXML
     {
         //public const string MAINSERVERIP;
         private string _serial = null;
-
         public string Serial
         {
             get
@@ -967,7 +965,6 @@ namespace AccesoDatosXML
         }
         //session number
         private string _session = null;
-
         public string SessionNumber
         {
             get
@@ -1108,8 +1105,6 @@ namespace AccesoDatosXML
                 throw e;
             }
         }
-
-
 
         public async Task<string> Transmit(string s)
         {
