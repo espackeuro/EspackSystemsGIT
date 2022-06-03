@@ -4,6 +4,7 @@ using System.Text;
 using System.Collections.Generic;
 using ConsoleTools;
 using System.Text.RegularExpressions;
+using DataAccess;
 
 namespace AlarmsProcessing
 {
@@ -39,7 +40,7 @@ namespace AlarmsProcessing
             ColumnDate = columnDate;
         }
 
-        public void Process(cDBTools cDBt)
+        public void Process(cDataAccess cDBt)
         {
             string _where, _dateField, _sql, _str;
             string _stage = "";
@@ -89,16 +90,16 @@ namespace AlarmsProcessing
 
                 //
                 _stage = "Executing query";
-                cDBt.Query(_sql);
+                //cDBt.Query(_sql);
 
                 // If no results, the alarm was not triggered
-                Triggered = !cDBt.EOF;
+                //Triggered = !cDBt.EOF;
                 if (!Triggered)
                     return;
 
                 //
                 _stage = "Converting data to dictionary";
-                _results = cDBt.ToDictionary();
+                _results = null;// cDBt.ToDictionary();
 
                 //
                 _stage = "Building contents from results";
@@ -174,10 +175,12 @@ namespace AlarmsProcessing
 
         public void MarkAsProcessed()
         {
+            /*
             using (SP _sp = new SP("pControl_Alarmas"))
             {
                 _sp.AddParam("msg",)
             }
+            */
         }
         public void Dispose()
         {

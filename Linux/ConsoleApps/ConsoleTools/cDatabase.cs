@@ -2,12 +2,283 @@
 using System.Data;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Data.Common;
+using ConsoleTools;
+using System.Threading.Tasks;
+using System.Linq;
 
-namespace ConsoleTools
+namespace DataAccess
 {
-    public class cDBTools
+    public class cDataAccess : ICloneable, IDisposable
     {
+        // Connection details
         public cConnDetails ConnDetails;
+        public string Server { get { return ConnDetails.Server; } set { ConnDetails.Server = value; } }
+        public string User { get { return ConnDetails.User; } set { ConnDetails.User = value; } }
+        public string Password { get { return ConnDetails.Password; } set { ConnDetails.Password = value; } }
+        public string DB { get { return ConnDetails.DB; } set { ConnDetails.DB = value; } }
+        public Nullable<int> TimeOut { get { return ConnDetails.TimeOut; } set { ConnDetails.TimeOut = value; } }
+        
+        // SQL connection object
+        public new SqlConnection Conn { get; set; }
+
+        // For security purpose
+        public byte[] ContextInfo { get; set; }
+
+        public cDataAccess(cConnDetails connDetails)
+        {
+            ConnDetails = connDetails;
+        }
+
+        public cDataAccess(string server, string user, string password, string db) : this(new cConnDetails(server, user, password, db))
+        {
+
+        }
+
+        private void PrepareConnection()
+        {
+            string _stage = "Starting";
+
+            try
+            {
+                //
+                _stage = "Checking connection object";
+                if (Conn != null)
+                {
+                    if (Conn.State == ConnectionState.Open)
+                    {
+                        //
+                        _stage = "Closing existing connection";
+                        Close();
+                    }
+                    Conn = null;
+                }
+
+                //
+                if (TimeOut == null) TimeOut = 60;
+
+                //
+                _stage = "Preparing connection details";
+                SqlConnectionStringBuilder _builder = new SqlConnectionStringBuilder();
+                _builder.DataSource = Server;
+                _builder.UserID = User;
+                _builder.Password = Password;
+                _builder.InitialCatalog = DB;
+                _builder.MultipleActiveResultSets = true;
+                _builder.LoadBalanceTimeout = 3;
+                _builder.MaxPoolSize = 3;
+                _builder.ConnectTimeout = (int)TimeOut;
+
+                //
+                _stage = "Creating SQL Connection";
+                Conn = new SqlConnection(_builder.ConnectionString);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
+        }
+
+        public SqlCommand SetContextInfo()
+        {
+            string _stage = "Starting";
+            SqlCommand _cmd = null;
+
+            try
+            {
+                if (ContextInfo != null)
+                {
+                    //
+                    _stage = "Creating command";
+                    _cmd = Conn.CreateCommand();
+                    string _sql = "set CONTEXT_INFO @C";
+                    _cmd.CommandText = _sql;
+
+                    //
+                    _stage = "Creating SQL parameter";
+                    SqlParameter _param = new SqlParameter();
+                    _param.ParameterName = "@C";
+                    _param.DbType = DbType.Binary;
+                    _param.Size = 128;
+                    _param.Value = ContextInfo;
+
+                    //
+                    _stage = "Adding parameter to command";
+                    _cmd.Parameters.Add(_param);
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
+            return _cmd;
+        }
+            
+
+        public async Task ConnectAsync()
+        {
+            string _stage = "Starting";
+
+            try
+            {
+                //
+                _stage = "Preparing Async Connection";
+                PrepareConnection();
+
+                // 
+                _stage = "Opening Async Connection";
+                await Conn.OpenAsync();
+
+                //
+                _stage = "Async setting context info";
+                if (ContextInfo != null) 
+                    await SetContextInfo().ExecuteNonQueryAsync();
+            }
+            catch(Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
+
+        }
+        public void Connect()
+        {
+            string _stage="Starting";
+
+            try
+            {
+                //
+                _stage = "Preparing Async Connection";
+                PrepareConnection();
+
+                // 
+                _stage = "Opening Async Connection";
+                Conn.Open();
+
+                //
+                _stage = "Setting context info";
+                if (ContextInfo != null)
+                    SetContextInfo().ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
+        }
+        public void Close()
+        {
+            Conn.Close();
+        }
+
+        public cDataAccess Clone()
+        {
+            return (cDataAccess)MemberwiseClone();
+        }
+
+        object ICloneable.Clone()
+        {
+            return Clone();
+        }
+
+        public void Dispose()
+        {
+
+        }
+    }
+
+    public class Recordset : IDisposable
+    {
+        // Database
+        private cDataAccess DA = null;
+        private DataSet DS = null;
+        private DbParameterCollection Parameters;
+
+        // Events
+        public event EventHandler<EventArgs> AfterExecution; //launched when the query is executed
+        public event EventHandler<EventArgs> BeforeExecution;
+
+        // Recordset control
+        public string SQL { get; set; }
+        public int Index { get; protected set; } = 0;
+
+        public bool EOF { get; protected set; } = false;
+
+        public bool BOF { get; protected set; } = false;
+        public int RecordCount { get; }
+        public int FieldCount { get; }
+
+        public bool HasRows { get; set; }
+        public bool AutoUpdate { get; set; }
+        public List<string> Fields { get; private set; }
+        public List<DataRow> Rows
+        {
+            get;
+        }
+
+        public List<DataRow> GetList()
+        {
+            //var _list = new List<DbDataRecord>();
+            return DS.Tables["Result"].Rows.OfType<DataRow>().ToList();
+        }
+
+        public List<DataRow> ToList()
+        {
+            return GetList();
+        }
+
+        // Navigate through the recordset
+        public void MoveNext()
+        {
+            Move(Index + 1);
+        }
+        public void MovePrevious()
+        {
+            Move(Index - 1);
+        }
+        public void MoveFirst()
+        {
+            Move(0);
+        }
+        public void MoveLast()
+        {
+            Move(RecordCount - 1);
+        }
+        private void Move(int index)
+        {
+            if (RecordCount == 0)
+            {
+                EOF = true;
+                BOF = true;
+                return;
+            }
+            if (index < 0)
+            {
+                Index = 0;
+                EOF = false;
+                BOF = true;
+            }
+            if (index > RecordCount - 1)
+            {
+                Index = RecordCount - 1;
+                EOF = true;
+                BOF = false;
+            }
+            if (index < RecordCount)
+                EOF = false;
+            
+            //mState = RSState.Fetching;
+            Index = index;
+            //mState = RSState.Open;
+        }
+
+        public void Dispose()
+        {
+
+        }
+    }
+    public class cDatabase
+    {
+        public cConnDetails ConnDetails; 
         public string Server { get { return ConnDetails.Server; } set { ConnDetails.Server = value; } }
         public string User { get { return ConnDetails.User; } set { ConnDetails.User = value; } }
         public string Password { get { return ConnDetails.Password; } set { ConnDetails.Password = value; } }
@@ -23,12 +294,12 @@ namespace ConsoleTools
 
         public SqlDataReader RS = null;
 
-        public cDBTools(cConnDetails connDetails)
+        public cDatabase(cConnDetails connDetails)
         {
             ConnDetails = connDetails;
         }
 
-        public cDBTools(string server, string user, string password, string db) : this(new cConnDetails(server, user, password, db))
+        public cDatabase(string server, string user, string password, string db) : this(new cConnDetails(server, user, password, db))
         {
         }
 
@@ -279,6 +550,9 @@ namespace ConsoleTools
         public string Name;
         public enum eParamType { OUT, IN };
 
+        public virtual DbParameterCollection Parameters { get; }
+
+
         public Dictionary<string,Tuple<dynamic,eParamType>> Params;
 
         public SP(string name)
@@ -288,13 +562,18 @@ namespace ConsoleTools
 
         public void AddParam(string name, dynamic value)
         {
+            if (name.Substring(0, 1) != "@")
+                name = "@" + name;
+
+            //if (Parameters[name].DbType.IsNumericType())
+
             Params.Add(name, new Tuple<dynamic, eParamType>(value, eParamType.IN));
         }
 
-        public void AddParam(string name, ref dynamic value)
-        {
-            Params.Add(name, new Tuple<dynamic, eParamType>(value, eParamType.OUT));
-        }
+        //public void AddParam(string name, ref dynamic value)
+        //{
+        //    Params.Add(name, new Tuple<dynamic, eParamType>(value, eParamType.OUT));
+        //}
 
         public void Exec()
         {
@@ -302,7 +581,7 @@ namespace ConsoleTools
 
             try
             {
-                using (SqlCommand _cmd = new SqlCommand(Name, Conn))
+              /*  using (SqlCommand _cmd = new SqlCommand(Name, Conn))
                 {
 
                     _cmd.CommandType = CommandType.StoredProcedure;
@@ -318,7 +597,7 @@ namespace ConsoleTools
                     _cmd.CommandTimeout = (int)TimeOut;
                     RS = _cmd.ExecuteReader();
 
-                }
+                }*/
             }
             catch
             {

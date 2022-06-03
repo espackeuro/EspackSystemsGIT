@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Data.SqlClient;
 using ConsoleTools;
+using DataAccess;
 
 namespace AlarmsProcessing
 {
@@ -35,7 +36,7 @@ namespace AlarmsProcessing
                 // If the settings file exists, the params will be loaded from it
                 _stage = "Loading settings file";
                 Console.Write("> Loading settings file... ");
-                string[] _lines = File.ReadAllLines((cMiscTools.RunningOS == "Windows" ? Directory.GetCurrentDirectory().Substring(0, 3) : $"/media/bin/{_myName}/") + $"{_myName}.settings", Encoding.Unicode);
+                string[] _lines = File.ReadAllLines((cMiscTools.RunningOS == "Windows" ? Directory.GetCurrentDirectory().Substring(0, 3) : $"/media/bin/{_myName}/") + $"C# Apps Settings/{_myName}.settings", Encoding.Unicode);
 
                 //
                 _stage = "Creating Parameters object";
@@ -71,14 +72,14 @@ namespace AlarmsProcessing
 
                 //
                 _stage = $"Connecting to {_connDetailsDB.Server}";
-                cDBTools _dbt = new cDBTools(_connDetailsDB);
+                cDataAccess _dbt = new cDataAccess(_connDetailsDB);
                 _dbt.Connect();
 
                 //
                 _stage = "Getting alarms list";
                 _dbt.Query("Select Codigo,BD,Tabla,Campo_alarma,Nombre_idreg,idreg_valor,asunto_email,emails_aviso,condicion_alarma,campos_select,flagged=dbo.checkflag(flags,'FLAGGED'),server=isnull(server,''),FechaColumn=dbo.checkflag(flags,'XFEC2FECHA')  from cab_alarmas where dbo.checkFlag(flags,'ACTIVE')=1 and codigo='ALARMTEST'");
-                Dictionary<int, Dictionary<string, string>> _alarms = _dbt.ToDictionary();
-
+                Dictionary<int, Dictionary<string, string>> _alarms = null; // _dbt.ToDictionary();
+                
                 //
                 _stage = "Looping through alarms";
                 foreach (var _item in _alarms)
@@ -90,7 +91,7 @@ namespace AlarmsProcessing
                             //
                             _stage = $"Executing alarm {_item.Value["Codigo"]}";
                             Console.Write($"> Executing alarm {_item.Value["Codigo"]}...");
-                            _alarm.Process(_dbt);
+                            //_alarm.Process(_dbt);
                             Console.Write($" {(_alarm.Error ? "ERROR" : "OK")}! Sending {(_alarm.Error ? "error " : "")}email...");
 
                             //
@@ -120,7 +121,7 @@ namespace AlarmsProcessing
 
                 //
                 _stage = "Disconnecting from DB server";
-                _dbt.Disconnect();
+                //_dbt.Disconnect();
             }
             catch (Exception ex)
             {
