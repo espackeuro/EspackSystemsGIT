@@ -23,7 +23,7 @@ namespace RadioLogisticaDeliveries
 {
     public struct QueryResult { public string Rack; public int count; }
 
-    [Activity(Label = "Radio LOGISTICA deliveries", WindowSoftInputMode = SoftInput.AdjustPan)]
+    [Activity(Label = "Radio LOGISTICA deliveries", WindowSoftInputMode = SoftInput.AdjustPan, ScreenOrientation = Android.Content.PM.ScreenOrientation.Locked)]
     public class MainScreen : AppCompatActivity
     {
         public async Task<DeviceInfo> GetDeviceInfo(string deviceSerial)

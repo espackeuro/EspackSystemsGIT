@@ -24,7 +24,7 @@ namespace LogonScreen
         public static string FullName { get; set; }
     }
 
-    [Activity(Label = "Logon Screen")]
+    [Activity(Label = "Logon Screen", ScreenOrientation = Android.Content.PM.ScreenOrientation.Locked)]
     public class LogonScreenClass : AppCompatActivity
     {
         private TextInputEditText cUser;

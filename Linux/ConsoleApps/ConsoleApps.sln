@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomaticProcesses", "Autom
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Postman", "PostMan\Postman.csproj", "{594C1C11-4A59-4A08-852A-40A58F860558}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTools", "ConsoleTools\ConsoleTools.csproj", "{242E323A-6DCC-478E-96B6-03C3FA51158E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTools", "ConsoleTools\ConsoleTools.csproj", "{242E323A-6DCC-478E-96B6-03C3FA51158E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseTools", "DataBaseTools\DataBaseTools.csproj", "{CF10DA9C-7190-446E-A446-610A44A61354}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{242E323A-6DCC-478E-96B6-03C3FA51158E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{242E323A-6DCC-478E-96B6-03C3FA51158E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{242E323A-6DCC-478E-96B6-03C3FA51158E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF10DA9C-7190-446E-A446-610A44A61354}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF10DA9C-7190-446E-A446-610A44A61354}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF10DA9C-7190-446E-A446-610A44A61354}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF10DA9C-7190-446E-A446-610A44A61354}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

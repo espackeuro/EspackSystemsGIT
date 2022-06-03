@@ -121,9 +121,11 @@ namespace RadioLogisticaDeliveries
 //        public static bool GEO { get; set; }
     }
 
-    
 
-    [Activity(Label = "RadioLogisticaDeliveries", MainLauncher = true, Icon = "@drawable/icon")]
+
+    //[Activity(Label = "RadioLogisticaDeliveries", MainLauncher = true, Icon = "@drawable/icon")]
+    //[Activity(Label = "RadioLogisticaDeliveries", MainLauncher = true, Icon = "@drawable/icon", ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "RadioLogisticaDeliveries", MainLauncher = true, Icon = "@drawable/icon", ScreenOrientation = Android.Content.PM.ScreenOrientation.Locked)]
     public class MainActivity : Activity
     {
 
