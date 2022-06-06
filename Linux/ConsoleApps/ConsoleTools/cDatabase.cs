@@ -9,6 +9,35 @@ using System.Linq;
 
 namespace DataAccess
 {
+    public interface IsValuable
+    {
+        event EventHandler TextChanged;
+        string Text { get; set; }
+        object Value { get; set; }
+    }
+
+    /*
+    public static class CObjectFactory
+    {
+        public static object CreateObject(string objectClass, string objectType, object param1 = null, object param2 = null, string serial = null)
+        {
+
+            switch (objectClass)
+            {
+
+                case "Conn":
+                    object _conn;
+                    if (objectType == "Socks") _conn = new cAccesoDatosXML(); else _conn = new cAccesoDatosNet();
+                    EspackCommServer.Server.Serial = serial;
+                    return _conn;
+                case "SP": if (objectType == "Socks") return new SPXML((cAccesoDatosXML)param1, (string)param2); else return new SP((cAccesoDatosNet)param1, (string)param2);
+                case "RS": if (objectType == "Socks") return new XMLRS((string)param1, (cAccesoDatosXML)param2); else return new DynamicRS((string)param1, (cAccesoDatosNet)param2);
+                default:
+                    return null;
+            }
+        }
+    }
+    */
     public class cDataAccess : ICloneable, IDisposable
     {
         // Connection details
@@ -27,7 +56,15 @@ namespace DataAccess
 
         public cDataAccess(cConnDetails connDetails)
         {
-            ConnDetails = connDetails;
+            string _stage = "Creating object";
+            try
+            {
+                ConnDetails = connDetails;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
         }
 
         public cDataAccess(string server, string user, string password, string db) : this(new cConnDetails(server, user, password, db))
@@ -167,12 +204,28 @@ namespace DataAccess
         }
         public void Close()
         {
-            Conn.Close();
+            string _stage = "Closing connection";
+            try
+            {
+                Conn.Close();
+            }
+            catch(Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
         }
 
         public cDataAccess Clone()
         {
-            return (cDataAccess)MemberwiseClone();
+            string _stage = "Cloning object";
+            try
+            {
+                return (cDataAccess)MemberwiseClone();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
         }
 
         object ICloneable.Clone()
@@ -186,12 +239,34 @@ namespace DataAccess
         }
     }
 
+    public class ControlParameter
+    {
+        public Object LinkedControl;
+        public DbParameter Parameter;
+    }
+
     public class Recordset : IDisposable
     {
+        public enum RSState
+        {
+            Closed = 0,
+            Open = 1,
+            Connecting = 2,
+            Executing = 4,
+            Fetching = 8
+        }
+
         // Database
         private cDataAccess DA = null;
+        private SqlDataReader DR = null;
         private DataSet DS = null;
+        private DataTable DT;
         private DbParameterCollection Parameters;
+        private List<DataRow> Result = null;
+        private RSState State;
+        public SqlCommand Command { get; set; }
+        public List<ControlParameter> ControlParameters { set; get; }
+
 
         // Events
         public event EventHandler<EventArgs> AfterExecution; //launched when the query is executed
@@ -204,21 +279,92 @@ namespace DataAccess
         public bool EOF { get; protected set; } = false;
 
         public bool BOF { get; protected set; } = false;
-        public int RecordCount { get; }
-        public int FieldCount { get; }
-
-        public bool HasRows { get; set; }
         public bool AutoUpdate { get; set; }
         public List<string> Fields { get; private set; }
         public List<DataRow> Rows
         {
             get;
         }
+        public object this[string index] => RecordCount != 0 ? Result[Index][index] : null; //Field<string>(Idx):null;
+
+        public object this[int index] => Result[index];
+
+        public int RecordCount
+        {
+            get
+            {
+                string _stage = "Getting data";
+                try
+                {
+                    return Result.Count;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+                }
+            }
+        }
+
+        public int FieldCount
+        {
+            get
+            {
+                string _stage = "Getting data";
+                try
+                {
+                    //return Fields?.Count ?? 0;
+                    return Fields.Count;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+                }
+            }
+        }
+
+        public bool HasRows 
+        {
+            get
+            {
+                string _stage = "Getting data";
+                try
+                {
+                    return (Result.Count > 0);
+                } 
+                catch (Exception ex)
+                {
+                    throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+                }
+            }
+        }
+
+        public object DataObject
+        {
+            get
+            {
+                string _stage = "Getting data";
+                try
+                {
+                    return DT;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+                }
+            }
+        }
 
         public List<DataRow> GetList()
         {
-            //var _list = new List<DbDataRecord>();
-            return DS.Tables["Result"].Rows.OfType<DataRow>().ToList();
+            string _stage = "Getting list from rows";
+            try
+            {
+                return DS.Tables["Result"].Rows.OfType<DataRow>().ToList();
+            }
+            catch(Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
         }
 
         public List<DataRow> ToList()
@@ -227,48 +373,298 @@ namespace DataAccess
         }
 
         // Navigate through the recordset
-        public void MoveNext()
+        public async Task MoveNext(bool async = false)
         {
-            Move(Index + 1);
+            if (!async)
+                Move(Index + 1);
+            else
+                await Task.Run(() => Move(Index + 1));
         }
-        public void MovePrevious()
+        public async Task MovePrevious(bool async = false)
         {
-            Move(Index - 1);
+            if (!async)
+                Move(Index - 1);
+            else
+                await Task.Run(() => Move(Index - 1));
         }
-        public void MoveFirst()
+        public async Task MoveFirst(bool async = false)
         {
-            Move(0);
+            if (!async)
+                Move(0);
+            else
+                await Task.Run(() => Move(0));
         }
-        public void MoveLast()
+        public async Task MoveLast(bool async = false)
         {
-            Move(RecordCount - 1);
+            if (!async)
+                Move(RecordCount - 1);
+            else
+                await Task.Run(() => Move(RecordCount - 1));
         }
+
         private void Move(int index)
         {
-            if (RecordCount == 0)
+            string _stage = "Moving record pointer";
+            try
             {
-                EOF = true;
-                BOF = true;
-                return;
+                if (RecordCount == 0)
+                {
+                    EOF = true;
+                    BOF = true;
+                    return;
+                }
+                if (index < 0)
+                {
+                    Index = 0;
+                    EOF = false;
+                    BOF = true;
+                }
+                else if (index > RecordCount - 1)
+                {
+                    Index = RecordCount - 1;
+                    EOF = true;
+                    BOF = false;
+                }
+                else
+                {
+                    Index = index;
+                    BOF = false;
+                    EOF = false;
+                }
             }
-            if (index < 0)
+            catch(Exception ex)
             {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
+        }
+
+        // Constructor
+        public Recordset() : base()
+        {
+            string _stage = "Creating object";
+            try
+            {
+                DR = null;
+                Command = new SqlCommand();
+                State = RSState.Closed;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
+        }
+        public Recordset(string Sql, cDataAccess da) : base()
+        {
+            string _stage = "Creating object";
+            try
+            {
+                SQL = Sql;
+                DA = da;
+                State = RSState.Closed;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
+        }
+
+         private async Task Execute(bool async = false)
+        {
+            string _stage = "Checking connection";
+            try
+            {
+                //
+                ConnectionState prevState = DA.Conn.State;
+                if (prevState != ConnectionState.Open)
+                {
+                    if (!async)
+                        DA.Conn.Open();
+                    else
+                        await DA.Conn.OpenAsync();
+                }
+
+                //
+                _stage = "Creating command object";
+                Command = new SqlCommand(SQL, DA.Conn);
+                State = RSState.Executing;
+
+                //
+                _stage = "Executing reader";
+                if (!async)
+                    DR = Command.ExecuteReader();
+                else
+                    DR = await Command.ExecuteReaderAsync();
+
+                // 
+                _stage = "Getting fields list";
+                Fields = DR.GetSchemaTable().Rows.OfType<DataRow>().Select(r => r["ColumnName"].ToString()).ToList();
+
+                //
+                _stage = "Loading data table";
+                DT = new DataTable();
+                if (!async)
+                    DT.Load(DR);
+                else
+                    await Task.Run(() => DT.Load(DR));
+                
+                //
+                _stage = "Creating list of results";
+                Result = DT.Rows.OfType<DataRow>().ToList();
+                EOF = Result.Count() == 0;
                 Index = 0;
-                EOF = false;
-                BOF = true;
+                State = RSState.Open;
+
+                // Close the connection in case it was closed before this execution (leave things as they were)
+                if (prevState != ConnectionState.Open)
+                {
+                    _stage = "Closing connection";
+                    DA.Conn.Close();
+                }
             }
-            if (index > RecordCount - 1)
+            catch (Exception ex)
             {
-                Index = RecordCount - 1;
-                EOF = true;
-                BOF = false;
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
             }
-            if (index < RecordCount)
-                EOF = false;
-            
-            //mState = RSState.Fetching;
-            Index = index;
-            //mState = RSState.Open;
+        }
+
+        public async Task Open(bool async = false)
+        {
+            AssignParameterValues();
+            var e = new EventArgs();
+            OnBeforeExecution(e);
+            if (!async)
+                Execute();
+            else
+                await Execute(true);
+            OnAfterExecution(e);
+        }
+
+        public async Task Open(string sql, cDataAccess da, bool async = false)
+        {
+            SQL = sql;
+            DA = da;
+            if (!async)
+                Open();
+            else
+                await Open(true);
+        }
+
+        private void OnAfterExecution(EventArgs e)
+        {
+            EventHandler<EventArgs> handler = AfterExecution;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+
+        }
+
+        private void OnBeforeExecution(EventArgs e)
+        {
+            EventHandler<EventArgs> handler = BeforeExecution;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+
+        }
+        private void RSFrame_TextChanged(object sender, EventArgs e)
+        {
+            Open();
+        }
+        public void AssignParameterValues()
+        {
+            if (ControlParameters != null)
+                ControlParameters.Where(x => x.LinkedControl is IsValuable && (x.Parameter.Direction == ParameterDirection.InputOutput || x.Parameter.Direction == ParameterDirection.Output)).ToList().ForEach(p => ((IsValuable)p.LinkedControl).Value = p.Parameter.Value);
+        }
+
+        public void AddControlParameter(string ParamName, object ParamControl)
+        {
+            {
+                SqlParameter lParam = new SqlParameter()
+                {
+                    ParameterName = ParamName
+                };
+                ControlParameters.Add(new ControlParameter()
+                {
+                    Parameter = lParam,
+                    LinkedControl = ParamControl
+                });
+                Parameters.Add(lParam);
+                if (AutoUpdate && ParamControl is IsValuable)
+                {
+                    ((IsValuable)ParamControl).TextChanged += Recordset_TextChanged;
+                }
+            }
+        }
+
+        private void Recordset_TextChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Close()
+        {
+            string _stage = "Closing recordset";
+            try
+            {
+                DR.Close();
+                DR = null;
+                Command = null;
+                Result = null;
+                State = RSState.Closed;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
+        }
+
+        public Dictionary<int, Dictionary<string, string>> ToDictionary()
+        {
+            string _stage = "";
+            Dictionary<int, Dictionary<string, string>> _dict = new Dictionary<int, Dictionary<string, string>>();
+
+            try
+            {
+
+                //
+                _stage = "Checkings";
+                if (DR is null)
+                    throw new Exception($"Recordset not defined");
+
+                //// Just in case we had used the recordset already (it would not show all the records otherwise)
+                //if (!RS.HasRows)
+                //{
+                //    _stage = "Refreshing query";
+                //    RS.Close();
+                //    Query(_sql);
+                //}
+                //if (!RS.HasRows)
+                //    throw new Exception($"Recordset is empty.");
+
+                if (!HasRows)
+                    return _dict;
+
+                //
+                _stage = "Loop through the recordset";
+                do
+                {
+                    //_dict=Result.ToDictionary(x => x.Field, y=>y);
+                    _stage = $"Add row {_dict.Count + 1}";
+                    _dict.Add(_dict.Count + 1, new Dictionary<string, string>());
+                    for (int i = 0; i < Fields.Count; i++)
+                    {
+                        _stage = $"Add row {_dict.Count}/field {DR.GetColumnSchema()[i].ColumnName}";
+                        _dict[_dict.Count].Add(DR.GetColumnSchema()[i].ColumnName, DR.GetValue(i).ToString());
+                    }
+                } while (DR.Read());
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
+            return _dict;
         }
 
         public void Dispose()
@@ -296,7 +692,15 @@ namespace DataAccess
 
         public cDatabase(cConnDetails connDetails)
         {
-            ConnDetails = connDetails;
+            string _stage = "Creating object";
+            try
+            {
+                ConnDetails = connDetails;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
         }
 
         public cDatabase(string server, string user, string password, string db) : this(new cConnDetails(server, user, password, db))
@@ -306,11 +710,10 @@ namespace DataAccess
         public bool Connect()
         {
 
-            string _stage = "";
+            string _stage = "Trying connection";
             try
             {
                 // 
-                _stage = "Trying connection";
                 if (Conn != null)
                     throw new Exception($"Already connected to {Server}");
 
@@ -333,9 +736,7 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
-                //Console.WriteLine($"[{_stage}] {ex.Message}.");
-                //return false;
-                throw new Exception($"[cDBTools/Connect#{_stage}] {ex.Message}");
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
             }
 
             // OK
@@ -344,11 +745,10 @@ namespace DataAccess
         public bool Disconnect()
         {
 
-            string _stage = "";
+            string _stage = "Trying disconnection";
             try
             {
                 // 
-                _stage = "Trying desconnection";
                 if (Conn == null)
                     throw new Exception($"Not connected");
 
@@ -364,9 +764,7 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
-                //Console.WriteLine($"[{_stage}] {ex.Message}.");
-                //return false;
-                throw new Exception($"[cDBTools/Disconnect#{_stage}] {ex.Message}");
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
             }
 
             // OK
@@ -375,16 +773,15 @@ namespace DataAccess
 
         public bool ChangeDB(string NewDB)
         {
-            string _stage = "";
+            string _stage = "Checking connection";
             try
             {
-                _stage = "Checking connection";
+                //
                 if (Conn == null || Conn.State == System.Data.ConnectionState.Closed)
                     throw new Exception("Not connected");
 
                 if (NewDB.ToUpper() == Conn.Database.ToUpper())
                     return true;
-                //throw new Exception($"The current DB is {NewDB} already.");
 
                 //
                 _stage = "Closing Data Reader";
@@ -397,16 +794,14 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
-                //Console.WriteLine($"[ChangeDB#{_stage}] {ex.Message}.");
-                //return false;
-                throw new Exception($"[cDBTools/ChangeDB#{_stage}] {ex.Message}");
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
             }
             return true;
         }
 
         public bool Query(string SQL, eRSTypes RSType = eRSTypes.Static)
         {
-            string _stage = "";
+            string _stage = "Checking query";
             _sql = SQL;
 
             try
@@ -430,9 +825,7 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
-                //Console.WriteLine($"[Query#{_stage}] {ex.Message}.");
-                //return false;
-                throw new Exception($"[cDBTools/Query#{_stage}] {ex.Message}");
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
             }
 
             // OK

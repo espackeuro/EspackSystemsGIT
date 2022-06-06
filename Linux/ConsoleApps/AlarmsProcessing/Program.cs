@@ -72,25 +72,30 @@ namespace AlarmsProcessing
 
                 //
                 _stage = $"Connecting to {_connDetailsDB.Server}";
-                cDataAccess _dbt = new cDataAccess(_connDetailsDB);
-                _dbt.Connect();
+                cDataAccess _da = new cDataAccess(_connDetailsDB);
+                _da.Connect();
 
                 //
                 _stage = "Getting alarms list";
-                _dbt.Query("Select Codigo,BD,Tabla,Campo_alarma,Nombre_idreg,idreg_valor,asunto_email,emails_aviso,condicion_alarma,campos_select,flagged=dbo.checkflag(flags,'FLAGGED'),server=isnull(server,''),FechaColumn=dbo.checkflag(flags,'XFEC2FECHA')  from cab_alarmas where dbo.checkFlag(flags,'ACTIVE')=1 and codigo='ALARMTEST'");
-                Dictionary<int, Dictionary<string, string>> _alarms = null; // _dbt.ToDictionary();
-                
+                Recordset _rs = new Recordset("Select Codigo,BD,Tabla,Campo_alarma,Nombre_idreg,idreg_valor,asunto_email,emails_aviso,condicion_alarma,campos_select,flagged=dbo.checkflag(flags,'FLAGGED'),server=isnull(server,''),FechaColumn=dbo.checkflag(flags,'XFEC2FECHA')  from cab_alarmas where dbo.checkFlag(flags,'ACTIVE')=1", _da); // and codigo='ALARMTEST'", _da);
+                _rs.Open();
+                //Dictionary<int, Dictionary<string, string>> _alarms = _rs.ToDictionary();
+
                 //
+                string p;
                 _stage = "Looping through alarms";
-                foreach (var _item in _alarms)
+                
+                while (!_rs.EOF)
                 {
-                    using (cAlarm _alarm = new cAlarm(_connDetailsDB,_item.Value["Codigo"], _item.Value["BD"], _item.Value["Tabla"], _item.Value["Campo_alarma"], _item.Value["Nombre_idreg"], Convert.ToInt32(_item.Value["idreg_valor"]), _item.Value["asunto_email"], _item.Value["emails_aviso"], _item.Value["condicion_alarma"], _item.Value["campos_select"], Convert.ToInt32(_item.Value["flagged"]) == 1, _item.Value["server"], Convert.ToInt32(_item.Value["FechaColumn"]) == 1))
+                    
+                    using (cAlarm _alarm = new cAlarm(_connDetailsDB, _rs["Codigo"].ToString(), _rs["BD"].ToString(), _rs["Tabla"].ToString(), _rs["Campo_alarma"].ToString(), _rs["Nombre_idreg"].ToString(), Convert.ToInt32(_rs["idreg_valor"]), _rs["asunto_email"].ToString(), _rs["emails_aviso"].ToString(), _rs["condicion_alarma"].ToString(), _rs["campos_select"].ToString(), Convert.ToInt32(_rs["flagged"]) == 1, _rs["server"].ToString(), Convert.ToInt32(_rs["FechaColumn"]) == 1))
                     {
                         try
                         {
+
                             //
-                            _stage = $"Executing alarm {_item.Value["Codigo"]}";
-                            Console.Write($"> Executing alarm {_item.Value["Codigo"]}...");
+                            _stage = $"Executing alarm {_alarm.Code}";
+                            Console.Write($"> Executing alarm {_alarm.Code}...");
                             //_alarm.Process(_dbt);
                             Console.Write($" {(_alarm.Error ? "ERROR" : "OK")}! Sending {(_alarm.Error ? "error " : "")}email...");
 
@@ -117,6 +122,7 @@ namespace AlarmsProcessing
                             Console.WriteLine(ex.Message);
                         }
                     }
+                    _rs.MoveNext();
                 }
 
                 //
