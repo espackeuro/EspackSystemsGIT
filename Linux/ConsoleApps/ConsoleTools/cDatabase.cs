@@ -16,28 +16,6 @@ namespace DataAccess
         object Value { get; set; }
     }
 
-    /*
-    public static class CObjectFactory
-    {
-        public static object CreateObject(string objectClass, string objectType, object param1 = null, object param2 = null, string serial = null)
-        {
-
-            switch (objectClass)
-            {
-
-                case "Conn":
-                    object _conn;
-                    if (objectType == "Socks") _conn = new cAccesoDatosXML(); else _conn = new cAccesoDatosNet();
-                    EspackCommServer.Server.Serial = serial;
-                    return _conn;
-                case "SP": if (objectType == "Socks") return new SPXML((cAccesoDatosXML)param1, (string)param2); else return new SP((cAccesoDatosNet)param1, (string)param2);
-                case "RS": if (objectType == "Socks") return new XMLRS((string)param1, (cAccesoDatosXML)param2); else return new DynamicRS((string)param1, (cAccesoDatosNet)param2);
-                default:
-                    return null;
-            }
-        }
-    }
-    */
     public class cDataAccess : ICloneable, IDisposable
     {
         // Connection details
@@ -568,16 +546,18 @@ namespace DataAccess
             }
 
         }
+
         private void RSFrame_TextChanged(object sender, EventArgs e)
         {
             Open();
         }
+
         public void AssignParameterValues()
         {
             if (ControlParameters != null)
                 ControlParameters.Where(x => x.LinkedControl is IsValuable && (x.Parameter.Direction == ParameterDirection.InputOutput || x.Parameter.Direction == ParameterDirection.Output)).ToList().ForEach(p => ((IsValuable)p.LinkedControl).Value = p.Parameter.Value);
         }
-
+/*
         public void AddControlParameter(string ParamName, object ParamControl)
         {
             {
@@ -597,7 +577,7 @@ namespace DataAccess
                 }
             }
         }
-
+*/
         private void Recordset_TextChanged(object sender, EventArgs e)
         {
             throw new NotImplementedException();
@@ -619,7 +599,7 @@ namespace DataAccess
                 throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
             }
         }
-
+/*
         public Dictionary<int, Dictionary<string, string>> ToDictionary()
         {
             string _stage = "";
@@ -666,336 +646,166 @@ namespace DataAccess
             }
             return _dict;
         }
-
+*/
         public void Dispose()
         {
 
         }
     }
-    public class cDatabase
-    {
-        public cConnDetails ConnDetails; 
-        public string Server { get { return ConnDetails.Server; } set { ConnDetails.Server = value; } }
-        public string User { get { return ConnDetails.User; } set { ConnDetails.User = value; } }
-        public string Password { get { return ConnDetails.Password; } set { ConnDetails.Password = value; } }
-        public string DB { get { return ConnDetails.DB; } set { ConnDetails.DB = value; } }
-        public Nullable<int> TimeOut { get { return ConnDetails.TimeOut; } set { ConnDetails.TimeOut = value; } }
-        public enum eRSTypes { Static, Dynamic }
-
-        private static string _sql = "";
-        private static bool pEOF = false;
-
-        public bool EOF { get { return pEOF; } }
-        public SqlConnection Conn = null;
-
-        public SqlDataReader RS = null;
-
-        public cDatabase(cConnDetails connDetails)
-        {
-            string _stage = "Creating object";
-            try
-            {
-                ConnDetails = connDetails;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
-            }
-        }
-
-        public cDatabase(string server, string user, string password, string db) : this(new cConnDetails(server, user, password, db))
-        {
-        }
-
-        public bool Connect()
-        {
-
-            string _stage = "Trying connection";
-            try
-            {
-                // 
-                if (Conn != null)
-                    throw new Exception($"Already connected to {Server}");
-
-                //
-                _stage = "Preparing connection details";
-                SqlConnectionStringBuilder _builder = new SqlConnectionStringBuilder();
-                _builder.DataSource = Server;
-                _builder.UserID = User;
-                _builder.Password = Password;
-                _builder.InitialCatalog = DB;
-
-                //
-                if (TimeOut == null) TimeOut = 60;
-
-                //
-                _stage = "Opening connection";
-                Conn = new SqlConnection(_builder.ConnectionString);
-
-                Conn.Open();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
-            }
-
-            // OK
-            return true;
-        }
-        public bool Disconnect()
-        {
-
-            string _stage = "Trying disconnection";
-            try
-            {
-                // 
-                if (Conn == null)
-                    throw new Exception($"Not connected");
-
-                //
-                _stage = "Closing connection";
-                if (Conn.State == System.Data.ConnectionState.Open)
-                    Conn.Close();
-
-                //
-                _stage = "Disposing object";
-                Conn = null;
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
-            }
-
-            // OK
-            return true;
-        }
-
-        public bool ChangeDB(string NewDB)
-        {
-            string _stage = "Checking connection";
-            try
-            {
-                //
-                if (Conn == null || Conn.State == System.Data.ConnectionState.Closed)
-                    throw new Exception("Not connected");
-
-                if (NewDB.ToUpper() == Conn.Database.ToUpper())
-                    return true;
-
-                //
-                _stage = "Closing Data Reader";
-                if (RS != null && !RS.IsClosed) RS.Close();
-
-                //
-                _stage = $"Changing to {NewDB} DB";
-                Conn.ChangeDatabase(NewDB);
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
-            }
-            return true;
-        }
-
-        public bool Query(string SQL, eRSTypes RSType = eRSTypes.Static)
-        {
-            string _stage = "Checking query";
-            _sql = SQL;
-
-            try
-            {
-                if (RSType != eRSTypes.Static)
-                    throw new Exception("Recordset type not supported yet");
-
-                if (RS != null && !RS.IsClosed)
-                    RS.Close();
-
-                using (SqlCommand _cmd = new SqlCommand(SQL, Conn))
-                {
-                    //
-                    _stage = "Executing query";
-                    _cmd.CommandTimeout = (int)TimeOut;
-                    RS = _cmd.ExecuteReader();
-                    pEOF = !RS.HasRows;
-                    if (!pEOF) RS.Read();
-                }
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
-            }
-
-            // OK
-            return true;
-        }
-
-        // Return a dictionary 
-        public Dictionary<int, Dictionary<string, string>> ToDictionary()
-        {
-            string _stage = "";
-            Dictionary<int, Dictionary<string, string>> _dict = new Dictionary<int, Dictionary<string, string>>();
-
-            try
-            {
-
-                //
-                _stage = "Checkings";
-                if (RS is null)
-                    throw new Exception($"Recordset not defined");
-
-                //// Just in case we had used the recordset already (it would not show all the records otherwise)
-                //if (!RS.HasRows)
-                //{
-                //    _stage = "Refreshing query";
-                //    RS.Close();
-                //    Query(_sql);
-                //}
-                //if (!RS.HasRows)
-                //    throw new Exception($"Recordset is empty.");
-
-                if (!RS.HasRows)
-                    return _dict;
-
-                //
-                _stage = "Loop through the recordset";
-                do
-                {
-                    _stage = $"Add row {_dict.Count + 1}";
-                    _dict.Add(_dict.Count + 1, new Dictionary<string, string>());
-                    for (int i = 0; i < RS.FieldCount; i++)
-                    {
-                        _stage = $"Add row {_dict.Count}/field {RS.GetColumnSchema()[i].ColumnName}";
-                        _dict[_dict.Count].Add(RS.GetColumnSchema()[i].ColumnName, RS.GetValue(i).ToString());
-                    }
-                } while (RS.Read());
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"[cDBTools/ToDictionary#{_stage}] {ex.Message}.");
-                //_dict = null;
-            }
-            return _dict;
-        }
-
-        public Dictionary<string, string> ToDictionaryKeys()
-        {
-            string _stage = "";
-            Dictionary<string, string> _dict = new Dictionary<string, string>();
-
-            try
-            {
-
-                //
-                _stage = "Checkings";
-                if (RS is null)
-                    throw new Exception($"Recordset not defined");
-
-                //// Just in case we had used the recordset already (it would not show all the records otherwise)
-                //if (!RS.HasRows)
-                //{
-                //    _stage = "Refreshing query";
-                //    RS.Close();
-                //    Query(_sql);
-                //}
-                //if (!RS.HasRows)
-                //    throw new Exception($"Recordset is empty.");
-
-                if (!RS.HasRows)
-                    return _dict;
-
-                //
-                _stage = "Loop through the recordset";
-                do
-                {
-                    _stage = $"Add key {RS.GetValue(0)}";
-                    _dict.Add(RS.GetValue(0).ToString(), null);
-                } while (RS.Read());
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"[cDBTools/ToDictionaryKeys#{_stage}] {ex.Message}");
-                //  _dict = null;
-            }
-            return _dict;
-        }
-        public string FieldName(int Index)
-        {
-            return RS.GetColumnSchema()[Index].ColumnName;
-        }
-        public string FieldValue(int Index)
-        {
-            return RS.GetValue(Index).ToString();
-        }
-
-        public bool MoveNext()
-        {
-            pEOF = !RS.Read();
-            return true;
-        }
-
-    }
-
+  
     public class SP:IDisposable
     {
-        public string Name;
-        public enum eParamType { OUT, IN };
+        private cDataAccess DA;
+        public string Name { get; set; }
+        public List<ControlParameter> ControlParameters { set; get; }
+        public DbCommand Command { get; set; }
+        public DbParameterCollection Parameters { get; }
+        public string Msg;
 
-        public virtual DbParameterCollection Parameters { get; }
 
+        //public enum eParamType { OUT, IN };
 
-        public Dictionary<string,Tuple<dynamic,eParamType>> Params;
-
-        public SP(string name)
+        public SP(cDataAccess da,string name)
         {
             Name = name;
+            DA = da;
         }
 
-        public void AddParam(string name, dynamic value)
+        public void AddParameterValues(string name, object value, string fieldDBName = "")
         {
-            if (name.Substring(0, 1) != "@")
-                name = "@" + name;
+            string _stage = "";
+            try
+            {
+                if (name.Substring(0, 1) != "@")
+                    name = '@' + name;
 
-            //if (Parameters[name].DbType.IsNumericType())
+                DateTime _result;
 
-            Params.Add(name, new Tuple<dynamic, eParamType>(value, eParamType.IN));
+                //
+                _stage = $"Checking param {name} type";
+                if (value == null)
+                {
+                    //
+                    _stage = $"Assigning param {name} to value {DBNull.Value}";
+                    Parameters[name].Value = DBNull.Value;
+                }
+                else if (Parameters[name].DbType.IsNumericType())
+                {
+                    //
+                    _stage = $"Assigning numeric param {name} to value {DBNull.Value}";
+                    if (value.ToString() == "")
+                        Parameters[name].Value = DBNull.Value;
+                }
+                else if (Parameters[name].DbType == DbType.DateTime)
+                {
+                    if (value is DateTime)
+                    {
+                        _stage = $"Assigning date param {name} to value {(DateTime)value}";
+                        Parameters[name].Value = (DateTime)value;
+                    }
+                    else
+                    {
+                        //
+                        _stage = "Parsing string as date";
+                        if (!DateTime.TryParse(value.ToString(), out _result))
+                            throw new Exception("Wrong DateTime parameter " + name);
+                        else
+                        {
+                            _stage = $"Assigning parsed date param {name} to value {_result}";
+                            Parameters[name].Value = _result;
+                        }
+                    }
+                }
+                else if (value is System.String)
+                {
+                    _stage = $"Assigning string param {name} to value {value}";
+                    Parameters[name].Value = value.ToString();
+                }
+                else
+                {
+                    _stage = $"Assigning param {name} to value {value}";
+                    Parameters[name].Value = value;
+                }
+
+                // Change the field DB name when it is provided
+                _stage = $"Changing param {name} SourceColumn to {fieldDBName}";
+                if (fieldDBName != "")
+                    Parameters[name].SourceColumn = fieldDBName;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
+
         }
 
-        //public void AddParam(string name, ref dynamic value)
-        //{
-        //    Params.Add(name, new Tuple<dynamic, eParamType>(value, eParamType.OUT));
-        //}
-
-        public void Exec()
+        public void AssignParameterValues()
         {
-            string _stage;
+            string _stage = "Assigning values to control parameters";
+            try
+            {
+                if (ControlParameters != null)
+                    ControlParameters.Where(x => x.LinkedControl is IsValuable).ToList().ForEach(p =>
+                    {
+                        AddParameterValues(p.Parameter.ParameterName, ((IsValuable)p.LinkedControl).Value);
+                    });
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
+        }
+        public virtual void AssignValuesParameters()
+        {
+            string _stage = "Assigning values to parameters";
+            try
+            {
+                ControlParameters.Where(x => x.LinkedControl is IsValuable && (x.Parameter.Direction == ParameterDirection.InputOutput || x.Parameter.Direction == ParameterDirection.Output)).ToList().ForEach(p => ((IsValuable)p.LinkedControl).Value = p.Parameter.Value);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
+        }
+        public async Task Execute(bool async = false)
+        {
+            string _stage = "Preparing execution";
+            bool _closeAfter = false;
 
             try
             {
-              /*  using (SqlCommand _cmd = new SqlCommand(Name, Conn))
+                AssignParameterValues();
+
+                //
+                _stage = "Checking connection status";
+                if (DA.Conn.State != ConnectionState.Open)
                 {
+                    _stage = "Opening connection";
+                    DA.Conn.Open();
+                    _closeAfter = true;
+                }
 
-                    _cmd.CommandType = CommandType.StoredProcedure;
-                    
-                    foreach(var _param in Params.Keys)
-                    {
-                        _cmd.Parameters.AddWithValue
-                        _cmd.ExecuteNonQuery();
-                    }
+                //
+                _stage = $"Executing {(async?"async":"")} command";
+                if (!async)
+                    Command.ExecuteNonQuery();
+                else
+                    await Command.ExecuteNonQueryAsync();
 
-                    //
-                    _stage = "Executing SP";
-                    _cmd.CommandTimeout = (int)TimeOut;
-                    RS = _cmd.ExecuteReader();
+                _stage = "Closing connection";
+                if (_closeAfter)
+                    DA.Conn.Close();
 
-                }*/
+                //
+                _stage = "Assigning result values";
+                AssignValuesParameters();
+                Msg = Parameters.OfType<DbParameter>().ToList().First(x => x.ParameterName == "@msg").Value.ToString();
             }
-            catch
+            catch (Exception ex)
             {
-
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
             }
+
         }
 
         public void Dispose()

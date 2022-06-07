@@ -11,36 +11,44 @@ namespace AlarmsProcessing
 
     class cAlarm:IDisposable
     {
-        cConnDetails ConnDetailsDB;
-        public string DBServer { get { return ConnDetailsDB.Server; } set { ConnDetailsDB.Server = value; } }
-        public string DBUser { get { return ConnDetailsDB.User; } set { ConnDetailsDB.User = value; } }
-        public string DBPassword { get { return ConnDetailsDB.Password; } set { ConnDetailsDB.Password = value; } }
-        public string DB { get { return ConnDetailsDB.DB; } set { ConnDetailsDB.DB = value; } }
-        public int? TimeOut { get { return ConnDetailsDB.TimeOut; } set { ConnDetailsDB.TimeOut = value; } }
+        private cDataAccess DA;
+        public string DBServer { get { return DA.Server; } set { DA.Server = value; } }
+        public string DBUser { get { return DA.User; } set { DA.User = value; } }
+        public string DBPassword { get { return DA.Password; } set { DA.Password = value; } }
+        public string DB { get { return DA.DB; } set { DA.DB = value; } }
+        public int? TimeOut { get { return DA.TimeOut; } set { DA.TimeOut = value; } }
 
         public string Code, Table, AlarmField, IdRegName, EmailSubject, EmailList, SelectCondition, SelectFields, Server, Contents, ErrorMessage;
         public int? IdRegValue;
         public bool Flagged, ColumnDate, Error, Triggered;
 
-        public cAlarm(cConnDetails connDetailsDB, string code, string db, string table, string alarmField, string idRegName, int idRegValue, string emailSubject, string emailList, string selectCondition, string selectFields, bool flagged, string server, bool columnDate)
+        public cAlarm(cDataAccess da, string code, string db, string table, string alarmField, string idRegName, int idRegValue, string emailSubject, string emailList, string selectCondition, string selectFields, bool flagged, string server, bool columnDate)
         {
-            ConnDetailsDB = connDetailsDB;
-            Code = code;
-            DB = db;
-            Table = table;
-            AlarmField = alarmField;
-            IdRegName = idRegName;
-            IdRegValue = idRegValue;
-            EmailSubject = emailSubject;
-            EmailList = emailList;
-            SelectCondition = selectCondition;
-            SelectFields = selectFields;
-            Flagged = flagged;
-            Server = server;
-            ColumnDate = columnDate;
+            string _stage = "Creating object";
+            try
+            {
+                DA = da;
+                Code = code;
+                DB = db;
+                Table = table;
+                AlarmField = alarmField;
+                IdRegName = idRegName;
+                IdRegValue = idRegValue;
+                EmailSubject = emailSubject;
+                EmailList = emailList;
+                SelectCondition = selectCondition;
+                SelectFields = selectFields;
+                Flagged = flagged;
+                Server = server;
+                ColumnDate = columnDate;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
         }
 
-        public void Process(cDataAccess cDBt)
+        public void Process()
         {
             string _where, _dateField, _sql, _str;
             string _stage = "";
@@ -90,10 +98,11 @@ namespace AlarmsProcessing
 
                 //
                 _stage = "Executing query";
-                //cDBt.Query(_sql);
+                Recordset _rs = new Recordset(_sql, DA);
+                _rs.Open();
 
                 // If no results, the alarm was not triggered
-                //Triggered = !cDBt.EOF;
+                Triggered = !_rs.EOF;
                 if (!Triggered)
                     return;
 
@@ -104,30 +113,43 @@ namespace AlarmsProcessing
                 //
                 _stage = "Building contents from results";
                 Contents = $"<table><tr><th colspan=2>Alarm {Code} triggered by the following values:</th></tr> ";
-                foreach (var _row in _results.Values)
+                while (!_rs.EOF)
                 {
-                    foreach (var _column in _row)
+                    foreach (var _field in _rs.Fields)
                     {
-                        if (_xmlFields.Contains(_column.Key))
+                        if (_xmlFields.Contains(_field))
                         {
                             XmlDocument _xml = new XmlDocument();
-                            _xml.LoadXml(_column.Value);
+                            _xml.LoadXml(_rs[_field].ToString());
                             _str = XMLToString(_xml, 0, false);
                         }
-                        else
                         {
-                            _str = _column.Value;
+                            _str = _rs[_field].ToString();
                         }
-                        Contents += $"<tr><td align=\"right\" valign=\"top\">{_column.Key}:  </td><td>{_str}</td></tr>";
+                        Contents += $"<tr><td align=\"right\" valign=\"top\">{_field}:  </td><td>{_str}</td></tr>";
                     }
                     Contents += "<tr><td colspan=2 align=\"center\">-------------------------------</td></tr>";
+                    _rs.MoveNext();
                 }
 
+                using (SP _sp = new SP(DA,"pControl_Alarmas"))
+                {
+                    string _msg = "", _warningMsg = "";
+
+                    _sp.AddParameterValues("msg", _msg);
+                    _sp.AddParameterValues("msg_aviso", _warningMsg);
+                    _sp.AddParameterValues("codigo", Code);
+                    _sp.AddParameterValues("resultado", Contents);
+                    _sp.AddParameterValues("idreg", IdRegValue);
+                    _sp.Execute();
+                    _msg = _sp.Msg;
+
+                }
             }
             catch (Exception ex)
             {
                 Error = true;
-                string _errorMessage = $"[cAlarm#Process{_stage}] {ex.Message}";
+                string _errorMessage = $"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}";
 
                 // Match the last occurrence of [xxx#xxx] to ensure it's part of our error message, not part of the system error. This is to show the error message in bold.
                 Match _match = Regex.Match(_errorMessage, @"\[([^\[]*)#([^\[]*)\]", RegexOptions.RightToLeft);
@@ -143,34 +165,49 @@ namespace AlarmsProcessing
         // Transforms a XML doc into a formated string
         public string XMLToString(XmlDocument xml, int level, bool showNodes)
         {
-            string _str = "", _strPrefix = "";
-            XmlDocument _subXml;
-
-            // First level has no >>
-            if (level > 0)
+            string _stage = $"Converting XML to string (level {level+1})";
+            try
             {
-                _strPrefix = new StringBuilder(level * 2).Insert(0, ">>", 2).ToString();
-            }
-            level++;
+                string _str = "", _strPrefix = "";
+                XmlDocument _subXml;
 
-            // For each node, we evaluate and call again this function recursively
-            foreach (XmlNode _node in xml)
-            {
-                if (_node.HasChildNodes)
+                // First level has no >>
+                if (level > 0)
                 {
-                    _subXml = new XmlDocument();
-                    _subXml.ImportNode(_node,true);
-                    _str += (!showNodes ? "" : $"{_strPrefix} {_node.Name}<br>") + XMLToString(_subXml, level, showNodes);
-                    if (level == 1)
-                        _str += "<br>";
+                    _strPrefix = new StringBuilder(level * 2).Insert(0, ">>", 2).ToString();
                 }
-                else
+                level++;
+
+                // For each node, we evaluate and call again this function recursively
+                foreach (XmlNode _node in xml)
                 {
-                    // This is last node (no children)
-                    _str += $"{_strPrefix} {_node.Name}: {_node.Value}<br>";
+                    _stage = $"Procesing XML node {_node.Name} (level {level})";
+                    if (_node.HasChildNodes)
+                    {
+                        _subXml = new XmlDocument();
+
+                        //
+                        _stage = $"Importing XML node {_node.Name} (level {level})";
+                        _subXml.ImportNode(_node, true);
+
+                        //
+                        _stage = $"Recursively processing node level {_node.Name} childs (level {level})";
+                        _str += (!showNodes ? "" : $"{_strPrefix} {_node.Name}<br>") + XMLToString(_subXml, level, showNodes);
+                        if (level == 1)
+                            _str += "<br>";
+                    }
+                    else
+                    {
+                        // This is last node (no children)
+                        _str += $"{_strPrefix} {_node.Name}: {_node.Value}<br>";
+                    }
                 }
+                return _str;
             }
-            return _str;
+            catch(Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
         }
 
         public void MarkAsProcessed()
