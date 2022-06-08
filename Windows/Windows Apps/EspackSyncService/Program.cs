@@ -53,6 +53,7 @@ namespace EspackSyncService
                 _stage = "Loading settings file";
                 Console.Write("> Loading settings file... ");
                 string[] _lines = File.ReadAllLines((cMiscTools.RunningOS == "Windows" ? Directory.GetCurrentDirectory().Substring(0, 3) : $"/media/bin/{_myName}/") + $"C# Apps Settings\\{_myName}.settings", (Debug)?Encoding.Unicode:Encoding.Default);
+                Console.WriteLine("OK");
 
                 //
                 _stage = "Creating Parameters object";
@@ -60,7 +61,9 @@ namespace EspackSyncService
 
                 //
                 _stage = "Getting settings from file";
+                Console.Write("> Loading parameters from settings... ");
                 _params.LoadParameters(_lines);
+                Console.WriteLine("OK");
 
                 // Just in case there are no data for some or all the mandatory parameters
                 _stage = "Processing parameters";

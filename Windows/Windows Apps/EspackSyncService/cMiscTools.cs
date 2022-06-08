@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 namespace ConsoleTools
 {
@@ -19,5 +17,27 @@ namespace ConsoleTools
             }
         }
 
+        public static void RegisterMessage(string message)
+        {
+            RegisterMessage(message, null);
+        }
+        public static void RegisterMessage(string message, EventLogEntryType errorType)
+        {
+            RegisterMessage(message, errorType);
+        }
+        private static void RegisterMessage(string message, int? errorType=null)
+        {
+
+#if !DEBUG  
+            EventLog _eLog = new EventLog();
+            if (errorType != null)
+                _eLog.WriteEntry(message, (EventLogEntryType)errorType);
+            else
+                _eLog.WriteEntry(message);
+            _eLog.Dispose();
+#else
+            Console.WriteLine(message);
+#endif
+        }
     }
 }
