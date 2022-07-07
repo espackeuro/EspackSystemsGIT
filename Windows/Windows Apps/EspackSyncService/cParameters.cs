@@ -14,6 +14,7 @@ namespace ConsoleTools
         public int? DBTimeOut { get { return ConnDetailsDB.TimeOut; } set { ConnDetailsDB.TimeOut = value; } }
         public string DomainServer { get; set; }
         public string ExchangeServer { get; set; }
+        public bool RunningAsService { get; set; } = true;
 
         public void LoadParameters(string[] Params)
         {
@@ -54,6 +55,9 @@ namespace ConsoleTools
                         break;
                     case "EXCHANGE_SERVER":
                         ExchangeServer = _currentArgName;
+                        break;
+                    case "DONT_RUN_AS_SERVICE":
+                        RunningAsService = false;
                         break;
                     default:
                         throw new Exception($"Wrong argument: {_currentArgName}");

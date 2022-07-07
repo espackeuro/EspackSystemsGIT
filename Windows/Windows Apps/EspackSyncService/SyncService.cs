@@ -42,24 +42,25 @@ namespace EspackSyncService
             SetServiceStatus(this.ServiceHandle, ref serviceStatus);
             //Services definition
 
+
             Values.Servers.ToList().ForEach(pair =>
             {
                 switch (pair.Key)
                 {
-                    //case "NEXTCLOUD":
-                    //    var NCService = new NextCloudService()
-                    //    {
-                    //        ServiceCredentials = new EspackCredentials()
-                    //        {
-                    //            User = "system",
-                    //            Password = "*seso69*".ToSecureString()
-                    //        },
-                    //        ServerName = pair.Value
-                    //    };
-                    //    SyncedServices.Add(NCService);
-                    //    EventLog.WriteEntry(string.Format("Added {0} Service to server {1}", pair.Key, pair.Value));
-                    //    break;
-                    case "DOMAIN":
+                        //case "NEXTCLOUD":
+                        //    var NCService = new NextCloudService()
+                        //    {
+                        //        ServiceCredentials = new EspackCredentials()
+                        //        {
+                        //            User = "system",
+                        //            Password = "*seso69*".ToSecureString()
+                        //        },
+                        //        ServerName = pair.Value
+                        //    };
+                        //    SyncedServices.Add(NCService);
+                        //    EventLog.WriteEntry(string.Format("Added {0} Service to server {1}", pair.Key, pair.Value));
+                        //    break;
+                        case "DOMAIN":
                         SyncedServices.Add(new ADServiceClass()
                         {
                             ServiceCredentials = new EspackCredentials()
@@ -70,9 +71,9 @@ namespace EspackSyncService
                             ServerName = pair.Value,
                             Flags = Values.FlagsDefs
                         });
-                        // [dvalles] 20220608: EventLog not working on DEBUG mode. Replaced by a function with does the stuff depending on the DEBUG status
-                        //EventLog.WriteEntry(string.Format("Added {0} Service to server {1}", pair.Key, pair.Value));
-                        cMiscTools.RegisterMessage($"Added {pair.Key} Service to server {pair.Value}");
+                            // [dvalles] 20220608: EventLog not working on DEBUG mode. Replaced by a function with does the stuff depending on the DEBUG status
+                            //EventLog.WriteEntry(string.Format("Added {0} Service to server {1}", pair.Key, pair.Value));
+                            cMiscTools.RegisterMessage(EventLog, $"Added {pair.Key} Service to server {pair.Value}");
                         break;
                     case "EXCHANGE":
                         SyncedServices.Add(new ExchangeServiceClass()
@@ -85,9 +86,9 @@ namespace EspackSyncService
                             ServerName = pair.Value,
                             Flags = Values.FlagsDefs
                         });
-                        // [dvalles] 20220608: EventLog not working on DEBUG mode. Replaced by a function with does the stuff depending on the DEBUG status
-                        //EventLog.WriteEntry(string.Format("Added {0} Service to server {1}", pair.Key, pair.Value));
-                        cMiscTools.RegisterMessage($"Added {pair.Key} Service to server {pair.Value}");
+                            // [dvalles] 20220608: EventLog not working on DEBUG mode. Replaced by a function with does the stuff depending on the DEBUG status
+                            //EventLog.WriteEntry(string.Format("Added {0} Service to server {1}", pair.Key, pair.Value));
+                            cMiscTools.RegisterMessage(EventLog, $"Added {pair.Key} Service to server {pair.Value}");
                         break;
                 }
 
@@ -97,7 +98,7 @@ namespace EspackSyncService
             // Timer creation
             // [dvalles] 20220608: EventLog not working on DEBUG mode. Replaced by a function with does the stuff depending on the DEBUG status
             //EventLog.WriteEntry(string.Format("Service Espack Sync Started on database server {0}",Values.DBServer));
-            cMiscTools.RegisterMessage($"Service Espack Sync Started on database server {Values.DBServer}");
+            cMiscTools.RegisterMessage(EventLog, $"Service Espack Sync Started on database server {Values.DBServer}");
 
             // Set up a timer to trigger every minute.  
             timer = new System.Timers.Timer();
@@ -183,7 +184,7 @@ namespace EspackSyncService
                     {
                         // [dvalles] 20220608: EventLog not working on DEBUG mode. Replaced by a function with does the stuff depending on the DEBUG status
                         //EventLog.WriteEntry(string.Format("Error accesing database: {0}", ex.Message), EventLogEntryType.Error);
-                        cMiscTools.RegisterMessage($"Error accesing database: {ex.Message}", EventLogEntryType.Error);
+                        cMiscTools.RegisterMessage(EventLog, $"Error accesing database: {ex.Message}", EventLogEntryType.Error);
                         return;
                     }
                     var _RS = T.Rows;
@@ -245,7 +246,7 @@ namespace EspackSyncService
                                 {
                                     // [dvalles] 20220608: EventLog not working on DEBUG mode. Replaced by a function with does the stuff depending on the DEBUG status
                                     //EventLog.WriteEntry(string.Format("Error interacting users {0}.", ex.Message), EventLogEntryType.Error);
-                                    cMiscTools.RegisterMessage($"Error interacting users {ex.Message}.", EventLogEntryType.Error);
+                                    cMiscTools.RegisterMessage(EventLog, $"Error interacting users {ex.Message}.", EventLogEntryType.Error);
                                 }
 
 
@@ -258,11 +259,14 @@ namespace EspackSyncService
                                 if (errorMessages.Count() == 0)
                                     // [dvalles] 20220608: EventLog not working on DEBUG mode. Replaced by a function with does the stuff depending on the DEBUG status
                                     //EventLog.WriteEntry(string.Format("User {0} from {1} was modified correctly in service {2}", _user.UserCode, _user.Sede.COD3, s.ServiceName));
-                                    cMiscTools.RegisterMessage($"User {_user.UserCode} from {_user.Sede.COD3} was modified correctly in service {s.ServiceName}");
+                                    cMiscTools.RegisterMessage(EventLog, $"User {_user.UserCode} from {_user.Sede.COD3} was modified correctly in service {s.ServiceName}");
                                 else
                                     // [dvalles] 20220608: EventLog not working on DEBUG mode. Replaced by a function with does the stuff depending on the DEBUG status
                                     //EventLog.WriteEntry(string.Format("User {0} from {1} was NOT modified correctly in service {2}. \nError message was {3}", _user.UserCode, _user.Sede.COD3, s.ServiceName, errorMessage), EventLogEntryType.Error);
-                                    cMiscTools.RegisterMessage($"User {_user.UserCode} from {_user.Sede.COD3} was NOT modified correctly in service {s.ServiceName}.\nError message was {errorMessage}", EventLogEntryType.Error);
+                                    cMiscTools.RegisterMessage(EventLog, $"User {_user.UserCode} from {_user.Sede.COD3} was NOT modified correctly in service {s.ServiceName}.\nError message was {errorMessage}", EventLogEntryType.Error);
+                                    //EventLog.WriteEntry($"User {_user.UserCode} from {_user.Sede.COD3} was NOT modified correctly in service {s.ServiceName}.\nError message was {errorMessage}", EventLogEntryType.Error);
+
+
                                 _user.ServiceCommands.Clear();
                             }
                         }
@@ -288,7 +292,7 @@ namespace EspackSyncService
                 {
                     // [dvalles] 20220608: EventLog not working on DEBUG mode. Replaced by a function with does the stuff depending on the DEBUG status
                     //EventLog.WriteEntry(string.Format("Error accesing database {0}", ex.Message), EventLogEntryType.Error);
-                    cMiscTools.RegisterMessage($"Error accesing database {ex.Message}", EventLogEntryType.Error);
+                    cMiscTools.RegisterMessage(EventLog, $"Error accesing database {ex.Message}", EventLogEntryType.Error);
                     return;
                 }
                 var _RS = T.Rows;
@@ -318,7 +322,7 @@ namespace EspackSyncService
                         {
                             // [dvalles] 20220608: EventLog not working on DEBUG mode. Replaced by a function with does the stuff depending on the DEBUG status
                             //EventLog.WriteEntry(string.Format("Error accesing database {0}", ex.Message), EventLogEntryType.Error);
-                            cMiscTools.RegisterMessage($"Error accesing database {ex.Message}", EventLogEntryType.Error);
+                            cMiscTools.RegisterMessage(EventLog, $"Error accesing database {ex.Message}", EventLogEntryType.Error);
                             return;
                         }
                         var _alList = tAliases.Rows.OfType<DataRow>().Select(a => string.Format("{0}@{1}", a["local_part_goto"], CleanDomain(a["domain_goto"].ToString()))).ToArray();
@@ -346,7 +350,7 @@ namespace EspackSyncService
                             {
                                 // [dvalles] 20220608: EventLog not working on DEBUG mode. Replaced by a function with does the stuff depending on the DEBUG status
                                 //EventLog.WriteEntry(string.Format("Error interacting groups {0}.", ex.Message), EventLogEntryType.Error);
-                                cMiscTools.RegisterMessage($"Error interacting groups {ex.Message}.", EventLogEntryType.Error);
+                                cMiscTools.RegisterMessage(EventLog, $"Error interacting groups {ex.Message}.", EventLogEntryType.Error);
                             }
                             foreach (var group in groups)
                             {
@@ -356,12 +360,12 @@ namespace EspackSyncService
                                 if (errorMessages.Count() == 0)
                                     // [dvalles] 20220608: EventLog not working on DEBUG mode. Replaced by a function with does the stuff depending on the DEBUG status
                                     //EventLog.WriteEntry(string.Format("Group {0} was modified correctly in service {1}", group.GroupCode, s.ServiceName));
-                                    cMiscTools.RegisterMessage($"Group {group.GroupCode} was modified correctly in service {s.ServiceName}");
+                                    cMiscTools.RegisterMessage(EventLog, $"Group {group.GroupCode} was modified correctly in service {s.ServiceName}");
 
                                 else
                                     // [dvalles] 20220608: EventLog not working on DEBUG mode. Replaced by a function with does the stuff depending on the DEBUG status
                                     //EventLog.WriteEntry(string.Format("Group {0} was NOT modified correctly in service {1}. \nError message was {2}", group.GroupCode, s.ServiceName, errorMessage), EventLogEntryType.Error);
-                                    cMiscTools.RegisterMessage($"Group {group.GroupCode} was NOT modified correctly in service {s.ServiceName}.\nError message was {errorMessage}", EventLogEntryType.Error);
+                                    cMiscTools.RegisterMessage(EventLog, $"Group {group.GroupCode} was NOT modified correctly in service {s.ServiceName}.\nError message was {errorMessage}", EventLogEntryType.Error);
                                 group.ServiceCommands.Clear();
                             }
                         }
@@ -391,21 +395,25 @@ namespace EspackSyncService
         internal void TestStartupAndStop(string[] args)
         {
             this.OnStart(args);
-            Console.ReadLine();
+#if DEBUG
+            Console.WriteLine("Press any key to continue....");
+            Console.ReadKey();
+#endif
+//            Console.ReadLine();
             this.OnStop();
         }
         protected override void OnStop()
         {
             // [dvalles] 20220608: EventLog not working on DEBUG mode. Replaced by a function with does the stuff depending on the DEBUG status
             //EventLog.WriteEntry("Service Espack Sync Stopped.");
-            cMiscTools.RegisterMessage("Service Espack Sync Stopped.");
+            cMiscTools.RegisterMessage(EventLog, "Service Espack Sync Stopped.");
         }
 
         protected override void OnContinue()
         {
             // [dvalles] 20220608: EventLog not working on DEBUG mode. Replaced by a function with does the stuff depending on the DEBUG status
             //EventLog.WriteEntry("In OnContinue.");
-            cMiscTools.RegisterMessage("In OnContinue.");
+            cMiscTools.RegisterMessage(EventLog, "In OnContinue.");
         }
 
         [DllImport("advapi32.dll", SetLastError = true)]

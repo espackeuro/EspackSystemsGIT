@@ -17,24 +17,22 @@ namespace ConsoleTools
             }
         }
 
-        public static void RegisterMessage(string message)
+        public static void RegisterMessage(EventLog eventLog,string message)
         {
-            RegisterMessage(message, null);
+            RegisterMessage(eventLog, message, null);
         }
-        public static void RegisterMessage(string message, EventLogEntryType errorType)
+        public static void RegisterMessage(EventLog eventLog,string message, EventLogEntryType errorType)
         {
-            RegisterMessage(message, errorType);
+            RegisterMessage(eventLog, message, errorType);
         }
-        private static void RegisterMessage(string message, int? errorType=null)
+        private static void RegisterMessage(EventLog eventLog,string message, int? errorType=null)
         {
 
 #if !DEBUG  
-            EventLog _eLog = new EventLog();
             if (errorType != null)
-                _eLog.WriteEntry(message, (EventLogEntryType)errorType);
+                eventLog.WriteEntry(message, (EventLogEntryType)errorType);
             else
-                _eLog.WriteEntry(message);
-            _eLog.Dispose();
+                eventLog.WriteEntry(message);
 #else
             Console.WriteLine(message);
 #endif

@@ -31,6 +31,7 @@ namespace EspackSyncService
 
         public static List<string> DomainList { get; set; }
         public static Dictionary<string, string> FlagsDefs { get; set; } = new Dictionary<string, string>();
+
     }
     static class Program
     {
@@ -39,6 +40,8 @@ namespace EspackSyncService
 #else
         public static bool Debug = false;
 #endif
+        public static bool RunningAsService = true;
+
         static void Main(string[] args)
         {
 
@@ -47,13 +50,13 @@ namespace EspackSyncService
 
             try
             {
-                Console.WriteLine($"----==== Starting [{_myName}] at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} ====----");
+                if (Environment.UserInteractive) Console.WriteLine($"----==== Starting [{_myName}] at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} ====----");
 
                 // If the settings file exists, the params will be loaded from it
                 _stage = "Loading settings file";
-                Console.Write("> Loading settings file... ");
+                if (Environment.UserInteractive) Console.Write("> Loading settings file... ");
                 string[] _lines = File.ReadAllLines((cMiscTools.RunningOS == "Windows" ? Directory.GetCurrentDirectory().Substring(0, 3) : $"/media/bin/{_myName}/") + $"C# Apps Settings\\{_myName}.settings", (Debug)?Encoding.Unicode:Encoding.Default);
-                Console.WriteLine("OK");
+                if (Environment.UserInteractive) Console.WriteLine("OK");
 
                 //
                 _stage = "Creating Parameters object";
@@ -61,9 +64,9 @@ namespace EspackSyncService
 
                 //
                 _stage = "Getting settings from file";
-                Console.Write("> Loading parameters from settings... ");
+                if (Environment.UserInteractive) Console.Write("> Loading parameters from settings... ");
                 _params.LoadParameters(_lines);
-                Console.WriteLine("OK");
+                if (Environment.UserInteractive) Console.WriteLine("OK");
 
                 // Just in case there are no data for some or all the mandatory parameters
                 _stage = "Processing parameters";
@@ -74,6 +77,7 @@ namespace EspackSyncService
                 _params.DBTimeOut = _params.DBTimeOut == null ? 300 : _params.DBTimeOut;
                 _params.DomainServer = String.IsNullOrEmpty(_params.DomainServer) ? "sauron.systems.espackeuro.com" : _params.DomainServer;
                 _params.ExchangeServer = String.IsNullOrEmpty(_params.ExchangeServer) ? "exchange01.systems.espackeuro.com" : _params.ExchangeServer;
+                RunningAsService = _params.RunningAsService;
 
                 // Create the tuple which contains each server type and its value
                 //args = new string[] { /*"NEXTCLOUD=nextcloud.espackeuro.com", */"DOMAIN=sauron.systems.espackeuro.com", "DATABASE=DB01B.local", "EXCHANGE=exchange01.systems.espackeuro.com" };
@@ -123,7 +127,13 @@ namespace EspackSyncService
                 if (Environment.UserInteractive)
                 {
                     SyncServiceClass service1 = new SyncServiceClass(args);
-                    service1.TestStartupAndStop(args);
+
+                    do
+                    {
+                        service1.TestStartupAndStop(args);
+                        System.Threading.Thread.Sleep(30000);
+
+                    } while (true);
                 }
                 else
                 {
@@ -139,7 +149,7 @@ namespace EspackSyncService
 
             } catch(Exception ex)
             {
-                Console.WriteLine($"[Main#{_stage}] {ex.Message}");
+                if (Environment.UserInteractive) Console.WriteLine($"[Main#{_stage}] {ex.Message}");
                 return;
             }
         }
