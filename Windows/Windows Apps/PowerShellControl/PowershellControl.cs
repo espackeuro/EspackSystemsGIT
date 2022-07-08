@@ -114,8 +114,17 @@ namespace PowerShellControl
                         {
                             powershell.Runspace = runspace;
                             //powershell.AddCommand(command.Command); // [dvalles] 20220601: Change .AddScript -> .AddCommand (AddScript is obsolete)
-                            powershell.AddScript(command.Command); 
-                            Results = await Task.Factory.FromAsync(powershell.BeginInvoke(), pResult => powershell.EndInvoke(pResult));
+                            try
+                            {
+                                powershell.AddScript(command.Command);
+                                Results = await Task.Factory.FromAsync(powershell.BeginInvoke(), pResult => powershell.EndInvoke(pResult));
+                            }
+                            catch
+                            {
+                                powershell.AddCommand(command.Command);
+                                Results = await Task.Factory.FromAsync(powershell.BeginInvoke(), pResult => powershell.EndInvoke(pResult));
+                            }
+                            
                             if (powershell.HadErrors)
                             {
                                 command.Result = powershell.Streams.Error[0].Exception.Message;
