@@ -1,0 +1,595 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FC6332D8-B028-4018-AB07-8B81208B7303}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebEspackeuro</RootNamespace>
+    <AssemblyName>WebEspackeuro</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44308</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Http.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Extensions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Http.Extensions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Http.Features.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Localization, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Localization.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Mvc.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Routing.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Routing.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Exchange.WebServices, Version=15.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Exchange.WebServices.2.2\lib\40\Microsoft.Exchange.WebServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Exchange.WebServices.Auth, Version=15.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Exchange.WebServices.2.2\lib\40\Microsoft.Exchange.WebServices.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.FileProviders.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Localization.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Localization.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Localization.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Logging.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Options.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Primitives.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Net.Http.Headers.2.2.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot, Version=2.1.0.0, Culture=neutral, PublicKeyToken=638079a8f0bd61e9, processorArchitecture=MSIL">
+      <HintPath>packages\OxyPlot.Core.2.1.0\lib\net45\OxyPlot.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="app\UseRequestLocalization.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Clases.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Idiomas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Idiomas.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Thread\CurrentThread\CurrentCulture.cs" />
+    <Compile Include="Thread\CurrentThread\CurrentUICulture.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\Animacion.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\IPEmail.txt" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Imagenes\Alemania.png" />
+    <Content Include="Imagenes\almacen.jpg" />
+    <Content Include="Imagenes\austria.png" />
+    <Content Include="Imagenes\Banner\banner03.jpg" />
+    <Content Include="Imagenes\Banner\banner05.jpg" />
+    <Content Include="Imagenes\Banner\banner06.jpg" />
+    <Content Include="Imagenes\Banner\banner07.jpg" />
+    <Content Include="Imagenes\Banner\banner08.jpg" />
+    <Content Include="Imagenes\Banner\banner_Dagenham_shelves.jpg" />
+    <Content Include="Imagenes\Banner\banner_Valencia_IDC.jpg" />
+    <Content Include="Imagenes\Banner\Medios0D.png" />
+    <Content Include="Imagenes\Banner\Medios0DCh.png" />
+    <Content Include="Imagenes\Banner\Medios0DEs.png" />
+    <Content Include="Imagenes\Banner\Medios1B.png" />
+    <Content Include="Imagenes\Banner\Medios1BCH.png" />
+    <Content Include="Imagenes\Banner\Medios1BES.png" />
+    <Content Include="Imagenes\Banner\Medios2B.png" />
+    <Content Include="Imagenes\Banner\Medios2BCH.png" />
+    <Content Include="Imagenes\Banner\Medios2BES.png" />
+    <Content Include="Imagenes\Banner\Medios3B.png" />
+    <Content Include="Imagenes\Banner\Medios3BCH.png" />
+    <Content Include="Imagenes\Banner\Medios3BES.png" />
+    <Content Include="Imagenes\Banner\Valencia.jpg" />
+    <Content Include="Imagenes\Banner\Valencia2.jpg" />
+    <Content Include="Imagenes\Banner\Zaragoza.jpg" />
+    <Content Include="Imagenes\Bridgend.jpg" />
+    <Content Include="Imagenes\Castle.jpg" />
+    <Content Include="Imagenes\Castle1.jpg" />
+    <Content Include="Imagenes\Castle2.jpg" />
+    <Content Include="Imagenes\Castle3.jpg" />
+    <Content Include="Imagenes\CastleBromwich.jpg" />
+    <Content Include="Imagenes\Centro_consolidador_contendores.jpg" />
+    <Content Include="Imagenes\CerfifiPremi\aenor.jpg" />
+    <Content Include="Imagenes\CerfifiPremi\CAS_ISO9001.png" />
+    <Content Include="Imagenes\CerfifiPremi\CerISO14001HAL.JPG" />
+    <Content Include="Imagenes\CerfifiPremi\CerISO9001HAL.JPG" />
+    <Content Include="Imagenes\CerfifiPremi\DSC_2274.jpg" />
+    <Content Include="Imagenes\CerfifiPremi\DSC_2299.jpg" />
+    <Content Include="Imagenes\CerfifiPremi\DSC_2301.jpg" />
+    <Content Include="Imagenes\CerfifiPremi\DSC_23051.jpg" />
+    <Content Include="Imagenes\CerfifiPremi\excelencia.jpg" />
+    <Content Include="Imagenes\CerfifiPremi\IATF16949CRA.png" />
+    <Content Include="Imagenes\CerfifiPremi\iqnet.jpg" />
+    <Content Include="Imagenes\CerfifiPremi\ISO14001.jpg" />
+    <Content Include="Imagenes\CerfifiPremi\ISO14001HAL.png" />
+    <Content Include="Imagenes\CerfifiPremi\ISO14001NIT.png" />
+    <Content Include="Imagenes\CerfifiPremi\ISO1401_15.PNG" />
+    <Content Include="Imagenes\CerfifiPremi\ISO9001.jpg" />
+    <Content Include="Imagenes\CerfifiPremi\ISO9001CAS.png" />
+    <Content Include="Imagenes\CerfifiPremi\ISO9001CRA.png" />
+    <Content Include="Imagenes\CerfifiPremi\ISO9001HAL.png" />
+    <Content Include="Imagenes\CerfifiPremi\ISO9001NIT.png" />
+    <Content Include="Imagenes\CerfifiPremi\ISO9001_15.PNG" />
+    <Content Include="Imagenes\CerfifiPremi\Normas_ISO\iso14001.png" />
+    <Content Include="Imagenes\CerfifiPremi\Normas_ISO\iso9001.png" />
+    <Content Include="Imagenes\CerfifiPremi\Normas_ISO\Politica.jpg" />
+    <Content Include="Imagenes\CerfifiPremi\Premio_Excelencia_Aragon.jpg" />
+    <Content Include="Imagenes\CerfifiPremi\QSP-2.jpg" />
+    <Content Include="Imagenes\china.png" />
+    <Content Include="Imagenes\Clientes\acciona.jpg" />
+    <Content Include="Imagenes\Clientes\Balay.png" />
+    <Content Include="Imagenes\Clientes\Boxo.png" />
+    <Content Include="Imagenes\Clientes\brugola.jpg" />
+    <Content Include="Imagenes\Clientes\Bulten.jpg" />
+    <Content Include="Imagenes\Clientes\burlinton.jpg" />
+    <Content Include="Imagenes\Clientes\Cat.png" />
+    <Content Include="Imagenes\Clientes\Chep.jpg" />
+    <Content Include="Imagenes\Clientes\Dana.png" />
+    <Content Include="Imagenes\Clientes\eaton.jpg" />
+    <Content Include="Imagenes\Clientes\Ford.jpg" />
+    <Content Include="Imagenes\Clientes\Ford.png" />
+    <Content Include="Imagenes\Clientes\jlr.jpg" />
+    <Content Include="Imagenes\Clientes\magna.png" />
+    <Content Include="Imagenes\Clientes\maxxis.jpg" />
+    <Content Include="Imagenes\Clientes\Opel.jpg" />
+    <Content Include="Imagenes\Clientes\pikolin.png" />
+    <Content Include="Imagenes\Clientes\pilkinton.png" />
+    <Content Include="Imagenes\Clientes\PowerE.png" />
+    <Content Include="Imagenes\Clientes\roquette.png" />
+    <Content Include="Imagenes\Clientes\saintgobian.png" />
+    <Content Include="Imagenes\Clientes\Shields.png" />
+    <Content Include="Imagenes\Clientes\smufit.png" />
+    <Content Include="Imagenes\Clientes\tdk.jpg" />
+    <Content Include="Imagenes\Clientes\tvs.png" />
+    <Content Include="Imagenes\Clientes\vauxhall.png" />
+    <Content Include="Imagenes\Clientes\Visteon.png" />
+    <Content Include="Imagenes\Clientes\volvo.jpg" />
+    <Content Include="Imagenes\Clientes\yinlun.png" />
+    <Content Include="Imagenes\Colonia.jpg" />
+    <Content Include="Imagenes\Correo.gif" />
+    <Content Include="Imagenes\correo.png" />
+    <Content Include="Imagenes\Craiova.jpg" />
+    <Content Include="Imagenes\Dagenham.jpg" />
+    <Content Include="Imagenes\Desplegable.png" />
+    <Content Include="Imagenes\DesplegableB.png" />
+    <Content Include="Imagenes\Eslovaquia.jpg" />
+    <Content Include="Imagenes\Eslovaquia.png" />
+    <Content Include="Imagenes\GrazMagna2.png" />
+    <Content Include="Imagenes\Logos\Espack.png" />
+    <Content Include="Imagenes\españa.png" />
+    <Content Include="Imagenes\Europe.png" />
+    <Content Include="Imagenes\Gales.png" />
+    <Content Include="Imagenes\GrazMagna.png" />
+    <Content Include="Imagenes\Halewood.jpg" />
+    <Content Include="Imagenes\Inglaterra.png" />
+    <Content Include="Imagenes\Internacional.jpg" />
+    <Content Include="Imagenes\LogEmpaquetado.jpg" />
+    <Content Include="Imagenes\LogIdentificacion.jpg" />
+    <Content Include="Imagenes\Logos\EspackEurologistica.png" />
+    <Content Include="Imagenes\Logos\EspackJTansparente.png" />
+    <Content Include="Imagenes\Logos\logoEspack.png" />
+    <Content Include="Imagenes\Logos\logo_Bridgend.jpg" />
+    <Content Include="Imagenes\Logos\logo_Castle.jpg" />
+    <Content Include="Imagenes\Logos\logo_Colonia.jpg" />
+    <Content Include="Imagenes\Logos\logo_Craiova.jpg" />
+    <Content Include="Imagenes\Logos\logo_Dagenham.jpg" />
+    <Content Include="Imagenes\Logos\logo_espackJ.jpg" />
+    <Content Include="Imagenes\Logos\logo_Graz.jpg" />
+    <Content Include="Imagenes\Logos\logo_Halewood.jpg" />
+    <Content Include="Imagenes\Logos\logo_Madrid.jpg" />
+    <Content Include="Imagenes\Logos\logo_Saarlouis.jpg" />
+    <Content Include="Imagenes\Logos\logo_slovakia.jpg" />
+    <Content Include="Imagenes\Logos\logo_Valencia.jpg" />
+    <Content Include="Imagenes\Logos\logo.png" />
+    <Content Include="Imagenes\Logos\logo_Wolverhampton.jpg" />
+    <Content Include="Imagenes\Logos\logo_Zaragoza.jpg" />
+    <Content Include="Imagenes\Logos\logo_Espack.jpg" />
+    <Content Include="Imagenes\logo_espackJ.jpg" />
+    <Content Include="Imagenes\LogSeleccion.jpg" />
+    <Content Include="Imagenes\Madrid.jpg" />
+    <Content Include="Imagenes\Montajes.jpg" />
+    <Content Include="Imagenes\mundo.png" />
+    <Content Include="Imagenes\PDF\EspackPag1.PNG" />
+    <Content Include="Imagenes\PDF\EspackPag10.PNG" />
+    <Content Include="Imagenes\PDF\EspackPag11.PNG" />
+    <Content Include="Imagenes\PDF\EspackPag2.PNG" />
+    <Content Include="Imagenes\PDF\EspackPag3.PNG" />
+    <Content Include="Imagenes\PDF\EspackPag4.PNG" />
+    <Content Include="Imagenes\PDF\EspackPag5.PNG" />
+    <Content Include="Imagenes\PDF\EspackPag6.PNG" />
+    <Content Include="Imagenes\PDF\EspackPag7.PNG" />
+    <Content Include="Imagenes\PDF\EspackPag8.PNG" />
+    <Content Include="Imagenes\PDF\EspackPag9.PNG" />
+    <Content Include="Imagenes\Procesos_especificos.jpg" />
+    <Content Include="Imagenes\QueEsEspack.png" />
+    <Content Include="Imagenes\QueesEspack2.png" />
+    <Content Include="Imagenes\Revision.jpg" />
+    <Content Include="Imagenes\Rumania.png" />
+    <Content Include="Imagenes\Software02.jpg" />
+    <Content Include="Imagenes\Software03.jpg" />
+    <Content Include="Imagenes\Sofware01.jpg" />
+    <Content Include="Imagenes\Trasvase.jpg" />
+    <Content Include="Imagenes\UnionEuropea.jpg" />
+    <Content Include="Imagenes\us.png" />
+    <Content Include="Imagenes\Wolverhampton.jpg" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="Imagenes\CerfifiPremi\Normas_ISO\14001_ES_VAL.pdf" />
+    <Content Include="Imagenes\CerfifiPremi\Normas_ISO\14001_IN_VAL.pdf" />
+    <Content Include="Imagenes\CerfifiPremi\Normas_ISO\9001_ES_VAL.pdf" />
+    <Content Include="Imagenes\CerfifiPremi\Normas_ISO\9001_IN_VAL.pdf" />
+    <Content Include="Imagenes\CerfifiPremi\Normas_ISO\Acuerdo_comision.pdf" />
+    <Content Include="Imagenes\CerfifiPremi\Normas_ISO\Anexo_9001IN_BRI.pdf" />
+    <Content Include="Imagenes\CerfifiPremi\Normas_ISO\Anexo9001ES_BRI.pdf" />
+    <Content Include="Imagenes\CerfifiPremi\Normas_ISO\Anexo_14001_ES_BRI.pdf" />
+    <Content Include="Imagenes\CerfifiPremi\Normas_ISO\Anexo_14001_IN_BRI.pdf" />
+    <Content Include="Imagenes\CerfifiPremi\Normas_ISO\MANAGEMENT_POLICY.pdf" />
+    <Content Include="Imagenes\CerfifiPremi\Normas_ISO\POLITICA_GESTION_ES_IN.pdf" />
+    <Content Include="Imagenes\PDF\Espack2021.pdf" />
+    <Content Include="Imagenes\CerfifiPremi\Normas_ISO\ISO14001Nitra.pdf" />
+    <Content Include="Imagenes\CerfifiPremi\Normas_ISO\ISO9001Nitra.pdf" />
+    <Content Include="Imagenes\CerfifiPremi\Normas_ISO\CAS_9001.pdf" />
+    <None Include="Properties\PublishProfiles\EspackMainWEb - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\Home\Empresas.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Trasvase.cshtml" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\ServLogis.cshtml" />
+    <Content Include="Views\Home\Almacen.cshtml" />
+    <Content Include="Views\Home\LogEmpaquetado.cshtml" />
+    <Content Include="Views\Home\LogIdentificacion.cshtml" />
+    <Content Include="Views\Home\Medios.cshtml" />
+    <Content Include="Views\Home\Ventajas.cshtml" />
+    <Content Include="Views\Home\LogSeleccion.cshtml" />
+    <Content Include="Views\Home\RevInsRecu.cshtml" />
+    <Content Include="Views\Home\ProLogEsp.cshtml" />
+    <Content Include="Views\Home\Distribucion.cshtml" />
+    <Content Include="Views\Home\Software.cshtml" />
+    <Content Include="Views\Home\MonPreCon.cshtml" />
+    <Content Include="Views\Home\CenCon.cshtml" />
+    <Content Include="Views\Home\CerPre.cshtml" />
+    <Content Include="Views\Home\Clientes.cshtml" />
+    <Content Include="Views\Home\Plantas.cshtml" />
+    <Content Include="Views\Home\Valencia.cshtml" />
+    <Content Include="Views\Home\Madrid.cshtml" />
+    <Content Include="Views\Home\Zaragoza.cshtml" />
+    <Content Include="Views\Home\Craiova.cshtml" />
+    <Content Include="Views\Home\Bridgend.cshtml" />
+    <Content Include="Views\Home\Wolverhampton.cshtml" />
+    <Content Include="Views\Home\Halewood.cshtml" />
+    <Content Include="Views\Home\Dagenham.cshtml" />
+    <Content Include="Views\Home\Eslovaquia.cshtml" />
+    <Content Include="Views\Home\Colonia.cshtml" />
+    <Content Include="Views\Home\CastleBromwich.cshtml" />
+    <Content Include="Views\Home\Contacto.cshtml" />
+    <Content Include="Views\Home\Graz.cshtml" />
+    <Content Include="Views\Home\QueEsEspack.cshtml" />
+    <Content Include="Views\Home\Ecommerce.cshtml" />
+    <Content Include="Views\Home\EspackPDF.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Idiomas.en-US.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Idiomas.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas.zh-CN.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>64059</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44308/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <servers defaultServer="SelfHostServer">
+            <server name="SelfHostServer" exePath="" cmdArgs="" url="http://localhost:64059/" workingDir="" />
+          </servers>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

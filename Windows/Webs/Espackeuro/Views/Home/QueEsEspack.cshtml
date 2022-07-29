@@ -1,0 +1,49 @@
+﻿<br />
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <h2 class="page-header page-header2">@Idiomas.Que_es_Espack</h2>
+        <div class="jumbotron jumbotron2">
+            <br />
+            <div class="text-center">
+                <img class="img-thumbnail" style="width:50%" src="~/Imagenes/QueEsEspack2.png" />
+            </div>
+            <br /><br />
+            <div id="TextoFijo">
+                <p>@Idiomas.Pag_Que_es_Espack</p>
+            </div>
+            <br />
+            <div align="center">
+                <br /><br />
+                <img class="columnas2 img-responsive" src="~/Imagenes/PDF/EspackPag2.PNG" />&nbsp;
+                <img class="columnas2 img-responsive" src="~/Imagenes/PDF/EspackPag3.PNG" />
+                <br /><br />
+                <img class="columnas2 img-responsive" src="~/Imagenes/PDF/EspackPag4.PNG" />&nbsp;
+                <img class="columnas2 img-responsive" src="~/Imagenes/PDF/EspackPag5.PNG" />
+                <br /><br />
+                <img class="columnas2 img-responsive" src="~/Imagenes/PDF/EspackPag6.PNG" />&nbsp;
+                <img class="columnas2 img-responsive" src="~/Imagenes/PDF/EspackPag7.PNG" />
+                <br /><br />
+                <img class="columnas2 img-responsive" src="~/Imagenes/PDF/EspackPag8.PNG" />&nbsp;
+                <img class="columnas2 img-responsive" src="~/Imagenes/PDF/EspackPag9.PNG" />
+                <br /><br />
+                <img class="columnas2 img-responsive" src="~/Imagenes/PDF/EspackPag10.PNG" />&nbsp;
+                <img class="columnas2 img-responsive" src="~/Imagenes/PDF/EspackPag11.PNG" />
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-1"></div>
+<script>
+window.onscroll = function() {myFunction()};
+
+    var navbar = document.getElementById("TextoFijo");
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+
+    if (window.pageYOffset >= 700) {
+        navbar.classList.add("FijaArriba");
+  } else {
+        navbar.classList.remove("FijaArriba");
+  }
+}
+</script>

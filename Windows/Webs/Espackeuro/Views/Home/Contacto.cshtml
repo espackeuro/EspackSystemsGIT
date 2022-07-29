@@ -1,0 +1,68 @@
+﻿<br />
+    <div class="col-sm-1"></div>
+
+    <div class="col-sm-10">
+        <h2 class="page-header page-header2">@Idiomas.Contacto</h2>
+        <div class="jumbotron jumbotron2">
+            <br />
+            @if (ViewBag.Mensaje != "" & ViewBag.Mensaje != null)
+            {
+                if (ViewBag.Mensaje.ToString().Substring(0, 5) == "ERROR")
+                {
+                    <h4 style="color:lightcoral">@ViewBag.Mensaje </h4>
+                }
+                else
+                {
+                    <h4 style="color:lightgreen">@ViewBag.Mensaje </h4>
+                }
+            }
+            <div class="columnas2">
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <div class="left">
+                                <img style="width:150px" class="img-responsive" src="~/Imagenes/correo.png" />
+                            </div>
+                            <br /><br /><br /><br /><br />
+                            <p class="img-thumbnail" style="padding:40px;background-color:darkgray"> D. JORGE ESCALADA – DIRECTOR <br /> <br /> Email: jorge@espackeuro.com <br /><br /> Tel. +44 (0) 77 8682 3569</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="columnas2">
+                <form method="post" id="formulario">
+                    <table width="100%">
+                        <tr>
+
+                            <td class="img-thumbnail" style="background-color:darkgray;padding:40px">
+                                <div class="left">
+                                    <p>
+                                        <h4>@Idiomas.EnviePreguntas</h4>
+                                        <br />
+                                        <label for="Nombre">@Idiomas.Nombre</label>
+                                        <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="@Idiomas.Nombre" required />
+                                        <br />
+                                        <label for="Asunto">@Idiomas.Asunto</label>
+                                        <input type="text" class="form-control" id="Asunto" name="Asunto" placeholder="@Idiomas.Asunto" required />
+                                        <br />
+                                        <label for="Email">@Idiomas.Email</label>
+                                        <input type="email" class="form-control" id="Email" name="Email" placeholder="@Idiomas.Email" required />
+                                        <br />
+                                        <label for="Mensaje">@Idiomas.Mensaje</label>
+                                        <textarea class="form-control" id="Mensaje" name="Mensaje" rows="8" required></textarea>
+                                        <br />
+                                        <div class="bordessombray99sinmargen">
+                                            <span title="Activa Casilla Para Poder Enviarnos Un Email">&nbsp;<input type="checkbox" name="robot" value="1" required />&nbsp; @Idiomas.Robot</span>
+                                        </div>
+                                        <br />
+                                        <button style="width:99%" class="BotonPlano" type="submit">@Idiomas.Enviar</button>
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+<div class="col-sm-1"></div>
