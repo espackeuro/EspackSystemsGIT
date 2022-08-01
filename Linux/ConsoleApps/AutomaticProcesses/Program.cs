@@ -51,7 +51,7 @@ namespace AutomaticProcesses
 
                 // If the settings file exists, the params will be loaded from it
                 _stage = "Loading settings file";
-                string[] _lines = File.ReadAllLines((pDebug ? Directory.GetCurrentDirectory().Substring(0, 3) : $"/media/bin/{_myName}/") + $"{_myName}.settings", Encoding.Unicode);
+                string[] _lines = File.ReadAllLines((pDebug ? Directory.GetCurrentDirectory().Substring(0, 3) : $"/media/bin/{_myName}/") + $"\\C# Apps Settings\\{_myName}.settings", Encoding.Unicode);
 
                 //
                 _stage = "Getting settings from file";

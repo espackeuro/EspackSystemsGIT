@@ -229,6 +229,8 @@ namespace AutomaticProcesses
         {
             string _stage = "";
             string _filePath, _fullFilePath="";
+            string _format = "";
+            int _pos=0;
 
             // Check file name null
             try
@@ -236,9 +238,23 @@ namespace AutomaticProcesses
                 _stage = "Preparing temp path";
                 _filePath = Path.GetTempPath();
 
-                if (!FileName.ToUpper().EndsWith($".{FileType}"))
-                    FileName += $".{FileType.ToString().ToLower()}";
+                if (FileName.ToUpper().Contains("{DATE:"))
+                {
+                    _pos = FileName.IndexOf("{DATE:");
+                    _format = FileName.Substring(_pos+6, FileName.IndexOf("}")-_pos-6);
+                    FileName = FileName.Replace("{DATE:"+_format+"}", DateTime.Now.ToString(_format));
+                }
 
+                // For TXT type, let us to choose the extension if we want
+                if (FileType == cMiscFunctions.eFileType.TXT && FileName.ToUpper().EndsWith($".CSV"))
+                {
+                    // do nothing
+                }
+                else
+                {
+                    if (!FileName.ToUpper().EndsWith($".{FileType}"))
+                        FileName += $".{FileType.ToString().ToLower()}";
+                }
                 _fullFilePath = $"{_filePath}{FileName}";
                 if (File.Exists(_fullFilePath))
                 {
