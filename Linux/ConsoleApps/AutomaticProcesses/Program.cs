@@ -36,7 +36,7 @@ namespace AutomaticProcesses
             Nullable<int> _DBtimeOut = null, _processQuery = null, _processSubQuery = null, _fontsize = 11;
             string _processQueryParams = "", _processMailTo = "", _processMailSubject = "", _processMailErrorTo = "";
             bool _noBand = false, _noEmpty = false, _noExecDate = false;
-            string _result = "", _fileName = "", _emptyMessage = "";
+            string _result = "", _fileName = "", _emptyMessage = "", _copyTo = "";
             
             cConnDetails _connDetailsDB = null;
             cConnDetails _connDetailsMail = null;
@@ -51,7 +51,7 @@ namespace AutomaticProcesses
 
                 // If the settings file exists, the params will be loaded from it
                 _stage = "Loading settings file";
-                string[] _lines = File.ReadAllLines((pDebug ? Directory.GetCurrentDirectory().Substring(0, 3) : $"/media/bin/{_myName}/") + $"{_myName}.settings", Encoding.Unicode);
+                string[] _lines = File.ReadAllLines((pDebug ? Directory.GetCurrentDirectory().Substring(0, 3)+ "C# Apps Settings\\" : $"/media/bin/{_myName}/") + $"{_myName}.settings", Encoding.Unicode);
 
                 //
                 _stage = "Getting settings from file";
@@ -183,6 +183,9 @@ namespace AutomaticProcesses
                         case "NOEXECUTIONDATE":
                             _noExecDate = true;
                             break;
+                        case "COPYTO":
+                            _copyTo = _currentArgValue;
+                            break;
 
                         default:
                             throw new Exception($"Wrong argument: {_currentArgName}");
@@ -237,7 +240,7 @@ namespace AutomaticProcesses
                 _stage = "Creating process/es";
                 _procList = new Dictionary<int,cProcess>();
                 _taskList = new List<Task>();
-                cProcess _cp = new cProcess(_connDetailsDB, _connDetailsMail, _processQuery, _processQueryParams, _processMailSubject, _processMailTo, _processMailErrorTo, _processSubQuery, _emptyMessage, _noBand, _noExecDate, _noEmpty, _fileName, _fileType, _orientation, _fontsize);
+                cProcess _cp = new cProcess(_connDetailsDB, _connDetailsMail, _processQuery, _processQueryParams, _processMailSubject, _processMailTo, _processMailErrorTo, _processSubQuery, _emptyMessage, _noBand, _noExecDate, _noEmpty, _fileName, _fileType, _orientation, _fontsize, _copyTo);
                 cProcess _cpSub = null;
                 Console.Write($"> Executing {(_processSubQuery!=null?"parent":"")} process (TimeOut is {_connDetailsDB.TimeOut})... ");
                 
@@ -320,6 +323,11 @@ namespace AutomaticProcesses
                     _stage = "Sending email";
                     if (!processList[_finished.Id].NoSend)
                         processList[_finished.Id].SendEmail();
+
+                    //
+                    _stage = "Copying file";
+                    if (!String.IsNullOrEmpty(processList[_finished.Id].CopyTo))
+                        processList[_finished.Id].DoCopy();
 
                     //
                     _stage = "Removing task";

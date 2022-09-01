@@ -8,8 +8,19 @@ namespace AutomaticProcesses
     {
         public enum eFileType { HTML, PDF, XLS, TXT }
         public enum eOrientation { PORTRAIT, LANDSCAPE }
-
+        
         static string Service = "";
+
+#if DEBUG
+        private static bool pDebug = true;
+#else
+        private static bool pDebug = false;
+#endif
+
+        public static string PathSeparator()
+        {
+            return pDebug ? "\\" : "/";
+        }
 
         public static string DefaultValues(string Value) //valores_defecto($valor)
         {

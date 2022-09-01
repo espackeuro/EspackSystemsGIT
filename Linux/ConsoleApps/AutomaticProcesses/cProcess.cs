@@ -29,14 +29,14 @@ namespace AutomaticProcesses
         public int? QueryNumber, SubQueryNumber;
         public cMiscFunctions.eFileType FileType;
         public cMiscFunctions.eOrientation Orientation;
-        public string ArgsString, FileName, Title, MailTo, MailErrorTo, ErrorMessage, EmptyMessage, Contents = "";
+        public string ArgsString, FileName, Title, MailTo, MailErrorTo, ErrorMessage, EmptyMessage, Contents = "", CopyTo;
         public int? FontSize;
         public bool NoBand, Error, NoEmpty, MailSkipped, NoExecutionDate;
         public Dictionary<int, Dictionary<string, string>> Results = null;
         
         private Dictionary<int, string> Args;
 
-        public cProcess(cConnDetails connDetailsDB, cConnDetails connDetailsMail, int? queryNumber, string args, string title, string mailTo, string mailErrorTo, int? subQueryNumber = null, string emptyMessage = null, bool noBand = false, bool noExecutionDate = false, bool noEmpty = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT, int? fontSize = 11)
+        public cProcess(cConnDetails connDetailsDB, cConnDetails connDetailsMail, int? queryNumber, string args, string title, string mailTo, string mailErrorTo, int? subQueryNumber = null, string emptyMessage = null, bool noBand = false, bool noExecutionDate = false, bool noEmpty = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT, int? fontSize = 11, string copyTo=null)
         {
             ConnDetailsDB = connDetailsDB;
             ConnDetailsMail = connDetailsMail;
@@ -54,12 +54,13 @@ namespace AutomaticProcesses
             NoEmpty = noEmpty;
             EmptyMessage = emptyMessage;
             FontSize = fontSize;
+            CopyTo = copyTo + (copyTo.Substring(copyTo.Length - cMiscFunctions.PathSeparator().Length) != cMiscFunctions.PathSeparator() ? cMiscFunctions.PathSeparator() : "");
         }
-        public cProcess(string serverDB, string userDB, string passwordDB, string db, cConnDetails connDetailsMail, int? queryNumber, string args, string title, string mailTo, string mailErrorTo, int? subQueryNumber = null, string emptyMessage = null, bool noBand = false, bool noExecutionDate = false, bool noEmpty = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT, int? fontSize=null) : this(new cConnDetails(serverDB, userDB, passwordDB, db), connDetailsMail, queryNumber, args, title, mailTo, mailErrorTo, subQueryNumber, emptyMessage, noBand, noEmpty, noExecutionDate, fileName, fileType, orientation,fontSize)
+        public cProcess(string serverDB, string userDB, string passwordDB, string db, cConnDetails connDetailsMail, int? queryNumber, string args, string title, string mailTo, string mailErrorTo, int? subQueryNumber = null, string emptyMessage = null, bool noBand = false, bool noExecutionDate = false, bool noEmpty = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT, int? fontSize = null, string copyTo = null) : this(new cConnDetails(serverDB, userDB, passwordDB, db), connDetailsMail, queryNumber, args, title, mailTo, mailErrorTo, subQueryNumber, emptyMessage, noBand, noEmpty, noExecutionDate, fileName, fileType, orientation, fontSize, copyTo)
         {
 
         }
-        public cProcess(cConnDetails connDetailsDB, string serverMail, string userMail, string passwordMail,int? queryNumber, string args, string title, string mailTo, string mailErrorTo, int? subQueryNumber = null, string emptyMessage = null, bool noBand = false, bool noExecutionDate = false, bool noEmpty = false,  string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT, int? fontSize=null) : this(connDetailsDB, new cConnDetails(serverMail, userMail, passwordMail), queryNumber, args, title, mailTo, mailErrorTo, subQueryNumber, emptyMessage, noBand, noEmpty, noExecutionDate, fileName, fileType, orientation,fontSize)
+        public cProcess(cConnDetails connDetailsDB, string serverMail, string userMail, string passwordMail, int? queryNumber, string args, string title, string mailTo, string mailErrorTo, int? subQueryNumber = null, string emptyMessage = null, bool noBand = false, bool noExecutionDate = false, bool noEmpty = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT, int? fontSize = null, string copyTo = null) : this(connDetailsDB, new cConnDetails(serverMail, userMail, passwordMail), queryNumber, args, title, mailTo, mailErrorTo, subQueryNumber, emptyMessage, noBand, noEmpty, noExecutionDate, fileName, fileType, orientation, fontSize, copyTo)
         {
 
         }
@@ -653,6 +654,23 @@ namespace AutomaticProcesses
                 Console.WriteLine($"[cProcess/SendEmail#{_stage}] {ex.Message}.");
             }
 
+        }
+
+        public void DoCopy()
+        {
+            string _stage = "", _destination = CopyTo + Path.GetFileName(FileName);
+
+            try
+            {
+                _stage = "Copying file ";
+                Console.Write($"> Copying {FileName} to {_destination}... ");
+                File.Copy(FileName, _destination);
+                Console.WriteLine("OK!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[cProcess/DoCopy#{_stage}] {ex.Message}.");
+            }
         }
     }
 }
