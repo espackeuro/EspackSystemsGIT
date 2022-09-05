@@ -19,20 +19,21 @@ namespace ConsoleTools
 
         public static void RegisterMessage(EventLog eventLog,string message)
         {
-            RegisterMessage(eventLog, message, null);
+#if !DEBUG  
+            eventLog.WriteEntry(message);
+#else
+            Console.WriteLine(message);
+#endif
         }
         //public static void RegisterMessage(EventLog eventLog,string message, EventLogEntryType? errorType)
         //{
         //    RegisterMessage(eventLog, message, errorType);
         //}
-        public static void RegisterMessage(EventLog eventLog,string message, EventLogEntryType? errorType=null)
+        public static void RegisterMessage(EventLog eventLog,string message, EventLogEntryType errorType)
         {
 
 #if !DEBUG  
-            if (errorType != null)
-                eventLog.WriteEntry(message, errorType);
-            else
-                eventLog.WriteEntry(message);
+            eventLog.WriteEntry(message, errorType);
 #else
             Console.WriteLine(message);
 #endif
