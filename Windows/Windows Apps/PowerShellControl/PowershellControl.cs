@@ -114,17 +114,18 @@ namespace PowerShellControl
                         {
                             powershell.Runspace = runspace;
                             //powershell.AddCommand(command.Command); // [dvalles] 20220601: Change .AddScript -> .AddCommand (AddScript is obsolete)
-                            try
+                            if (!command.Command.Contains("Get-Mailbox"))
                             {
                                 powershell.AddScript(command.Command);
                                 Results = await Task.Factory.FromAsync(powershell.BeginInvoke(), pResult => powershell.EndInvoke(pResult));
                             }
-                            catch
+                            else
                             {
-                                powershell.AddCommand(command.Command);
-                                Results = await Task.Factory.FromAsync(powershell.BeginInvoke(), pResult => powershell.EndInvoke(pResult));
+
+                                //powershell.AddCommand(command.Command);
+                                //Results = await Task.Factory.FromAsync(powershell.BeginInvoke(), pResult => powershell.EndInvoke(pResult));
                             }
-                            
+
                             if (powershell.HadErrors)
                             {
                                 command.Result = powershell.Streams.Error[0].Exception.Message;
