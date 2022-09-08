@@ -54,7 +54,7 @@ namespace AutomaticProcesses
             NoEmpty = noEmpty;
             EmptyMessage = emptyMessage;
             FontSize = fontSize;
-            CopyTo = copyTo + (copyTo.Substring(copyTo.Length - cMiscFunctions.PathSeparator().Length) != cMiscFunctions.PathSeparator() ? cMiscFunctions.PathSeparator() : "");
+            if (!String.IsNullOrEmpty(copyTo)) CopyTo = copyTo + (copyTo.Substring(copyTo.Length - cMiscFunctions.PathSeparator().Length) != cMiscFunctions.PathSeparator() ? cMiscFunctions.PathSeparator() : "");
         }
         public cProcess(string serverDB, string userDB, string passwordDB, string db, cConnDetails connDetailsMail, int? queryNumber, string args, string title, string mailTo, string mailErrorTo, int? subQueryNumber = null, string emptyMessage = null, bool noBand = false, bool noExecutionDate = false, bool noEmpty = false, string fileName = null, cMiscFunctions.eFileType fileType = cMiscFunctions.eFileType.HTML, cMiscFunctions.eOrientation orientation = cMiscFunctions.eOrientation.PORTRAIT, int? fontSize = null, string copyTo = null) : this(new cConnDetails(serverDB, userDB, passwordDB, db), connDetailsMail, queryNumber, args, title, mailTo, mailErrorTo, subQueryNumber, emptyMessage, noBand, noEmpty, noExecutionDate, fileName, fileType, orientation, fontSize, copyTo)
         {
