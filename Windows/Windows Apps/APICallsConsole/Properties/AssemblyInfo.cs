@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("JaguarLandRover.SupplierBroadcast.Client")]
+[assembly: AssemblyTitle("APICalls")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Jaguar Land Rover")]
-[assembly: AssemblyProduct("JaguarLandRover.SupplierBroadcast.Client")]
-[assembly: AssemblyCopyright("Copyright © Jaguar Land Rover 2015")]
+[assembly: AssemblyCompany("Espack Eurologística")]
+[assembly: AssemblyProduct("APICalls (based on JRL sample code)")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

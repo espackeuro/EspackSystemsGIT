@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JaguarLandRover.SupplierBroadcast.Client.SupplierWebService {
+namespace APICallsConsole.SupplierWebService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -57,12 +57,12 @@ namespace JaguarLandRover.SupplierBroadcast.Client.SupplierWebService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ISupplierServiceContractChannel : JaguarLandRover.SupplierBroadcast.Client.SupplierWebService.ISupplierServiceContract, System.ServiceModel.IClientChannel {
+    public interface ISupplierServiceContractChannel : APICallsConsole.SupplierWebService.ISupplierServiceContract, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SupplierServiceContractClient : System.ServiceModel.ClientBase<JaguarLandRover.SupplierBroadcast.Client.SupplierWebService.ISupplierServiceContract>, JaguarLandRover.SupplierBroadcast.Client.SupplierWebService.ISupplierServiceContract {
+    public partial class SupplierServiceContractClient : System.ServiceModel.ClientBase<APICallsConsole.SupplierWebService.ISupplierServiceContract>, APICallsConsole.SupplierWebService.ISupplierServiceContract {
         
         public SupplierServiceContractClient() {
         }

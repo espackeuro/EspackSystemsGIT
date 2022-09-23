@@ -4,7 +4,7 @@ using System.ServiceModel.Channels;
 using System.Text;
 using System.Xml;
 
-namespace JaguarLandRover.SupplierBroadcast.Client
+namespace APICallsConsole
 {
     class cJLR : IDisposable
     {
@@ -16,7 +16,7 @@ namespace JaguarLandRover.SupplierBroadcast.Client
         private SupplierWebService.SupplierServiceContractClient Client;
         public string Messages;
 
-        public cJLR(string serviceURL, string apiKey, string user, string password)
+        public cJLR(string serviceURL, string user, string password, string apiKey)
         {
             ServiceURL = serviceURL;
             User = user;
@@ -30,8 +30,18 @@ namespace JaguarLandRover.SupplierBroadcast.Client
             
             try
             {
+                //
+                _stage = "Connecting to API";
+                if (!Connect())
+                    throw new Exception("Error unknown");
+
+                //
                 _stage = "Getting messages";
                 Messages = Client.GetMessages(APIKey);
+
+                //
+                _stage = "Disconnecting";
+                Disconect();
             }
             catch (Exception ex)
             {
@@ -42,11 +52,16 @@ namespace JaguarLandRover.SupplierBroadcast.Client
             return true;
         }
 
-        public bool RemoveTimestampFromSecurityBinding<TChannel>(ClientBase<TChannel> serviceClient) where TChannel : class
+        private bool RemoveTimestampFromSecurityBinding<TChannel>(ClientBase<TChannel> serviceClient) where TChannel : class
         {
             string _stage = "";
             try
             {
+                //
+                _stage = "Checking";
+                if (Client == null)
+                    throw new Exception("Client is not connected");
+
                 //
                 _stage = "Binding elements";
                 BindingElementCollection elements = serviceClient.Endpoint.Binding.CreateBindingElements();
@@ -68,7 +83,33 @@ namespace JaguarLandRover.SupplierBroadcast.Client
             return true;
         }
 
-        public bool Connect()
+        public bool AcknowledgeLastMessageReceived(string lastMessageID)
+        {
+            string _stage = "";
+            try
+            {
+                //
+                _stage = "Connecting to API";
+                if (!Connect())
+                    throw new Exception("Error unknown");
+
+                //
+                _stage = $"Acknowledging message {lastMessageID}";
+                Client.AcknowledgeLastMessageReceived(APIKey, lastMessageID);
+                
+                //
+                _stage = "Disconnecting";
+                Disconect();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
+            return true;
+        }
+
+        private bool Connect()
         {
             string _stage = "";
 
@@ -98,7 +139,7 @@ namespace JaguarLandRover.SupplierBroadcast.Client
             return true;
         }
 
-        public bool Disconect()
+        private bool Disconect()
         {
             string _stage = "";
 
@@ -122,13 +163,16 @@ namespace JaguarLandRover.SupplierBroadcast.Client
         }
         public void Dispose()
         {
+            string _stage = "";
             try
             {
+                //
+                _stage = "Disconnecting";
                 Disconect();
             }
             catch(Exception ex)
             {
-
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
             }
         }
     }
