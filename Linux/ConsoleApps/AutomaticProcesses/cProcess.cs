@@ -230,8 +230,9 @@ namespace AutomaticProcesses
         {
             string _stage = "";
             string _filePath, _fullFilePath="";
-            string _format = "";
+            string _format = "", _field = "";
             int _pos=0;
+            Dictionary<int, Dictionary<string, string>> _newResults;
 
             // Check file name null
             try
@@ -239,11 +240,34 @@ namespace AutomaticProcesses
                 _stage = "Preparing temp path";
                 _filePath = Path.GetTempPath();
 
+                _stage = "Obtaining DATE format";
                 if (FileName.ToUpper().Contains("{DATE:"))
                 {
                     _pos = FileName.IndexOf("{DATE:");
-                    _format = FileName.Substring(_pos+6, FileName.IndexOf("}")-_pos-6);
+                    _format = FileName.Substring(_pos+6, FileName.IndexOf("}",_pos+6)-_pos-6);
                     FileName = FileName.Replace("{DATE:"+_format+"}", DateTime.Now.ToString(_format));
+                }
+
+                // Getting the value in first row of field named FIELD:xxxx
+                _stage = "Obtaining FIELD value";
+                if (FileName.ToUpper().Contains("{FIELD:"))
+                {
+                    _pos = FileName.IndexOf("{FIELD:");
+                    _field = FileName.Substring(_pos + 7, FileName.IndexOf("}", _pos + 7) - _pos - 7);
+                    FileName = FileName.Replace("{FIELD:" + _field + "}", Results[1][_field].ToString());
+                    _newResults = new Dictionary<int, Dictionary<string, string>>();
+                    _stage = $"Removing {_field} column from results";
+                    for (int _i = 1; _i <= Results.Count; _i++)
+                    {
+                        _newResults.Add(_i,new Dictionary<string,string>());
+                        for (int _j = 0; _j < Results[_i].Count; _j++)
+                        {
+                            if(Results[_i].ElementAt(_j).Key!=_field)
+                                _newResults[_i].Add(Results[_i].ElementAt(_j).Key, Results[_i].ElementAt(_j).Value);
+                        }
+                    }
+                    Results = null
+                    Results = _newResults;
                 }
 
                 // For TXT type, let us to choose the extension if we want
