@@ -145,19 +145,25 @@ namespace SFTPUploadNS
         //    return true;
         //}
 
-        public bool Upload(string fileName, string sourceDir, string targetDir)
+        public bool Upload(string fileName, string sourceDir, string targetDir, string prefixName="")
         {
             string _stage = "";
             string _sourceFile = sourceDir + fileName;
+            string _prefixSourceFile = prefixName + fileName;
             string _targetFile = targetDir + fileName;
+            string _prefixTargetFile = targetDir + prefixName + fileName;
 
             try
             {
+                //if (!String.IsNullOrEmpty(prefixName))
+                //{
+                //    File.Move(_sourceFile, _prefixSourceFile);
+                //}
                 //
                 _stage = "Checkings";
                 if (!File.Exists(_sourceFile))
                     throw new Exception("Source file not found.");
-                if (pSFtp.Exists(_targetFile))
+                if (pSFtp.Exists(_targetFile) || pSFtp.Exists(_prefixTargetFile))
                     throw new Exception("Target file already exists.");
 
                 //
@@ -169,7 +175,7 @@ namespace SFTPUploadNS
                 using (FileStream fs = new FileStream(_sourceFile, FileMode.Open))
                 {
                     pSFtp.BufferSize = 4 * 1024;
-                    pSFtp.UploadFile(fs, Path.GetFileName(_sourceFile));
+                    pSFtp.UploadFile(fs, _prefixSourceFile);
                 }
             }
             catch (Exception ex)

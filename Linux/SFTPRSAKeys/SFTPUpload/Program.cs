@@ -23,6 +23,7 @@ namespace SFTPUploadNS
             string _server = "", _profile = "", _stage = "", _separator = pDebug ? "\\" : "/"; ;
             string _file = "", _idDoc = "", _internalCode = "";
             string _fileName = "", _sourceFilePath = "", _archiveFile = "";
+            string _prefix = "";
             string _localArchivePath = "/media/HISTORICOS/Transmisiones/";
             SqlConnection _conn = null;
             Dictionary<string, string> _settings = null;
@@ -98,9 +99,10 @@ namespace SFTPUploadNS
 
                     //
                     _stage = $"Uploading {_file} to {_settings["UPLOADFOLDER"]}{_fileName}";
+                    _prefix = _settings["TMPIT"] == "YES" ? "tmp_" : "";
                     while (!_done && _attempts < 3)
                     { 
-                        if (!_sftp.Upload(_fileName, _sourceFilePath, _settings["UPLOADFOLDER"]))
+                        if (!_sftp.Upload(_fileName, _sourceFilePath, _settings["UPLOADFOLDER"], _prefix))
                         {
                             Console.WriteLine($"-> Upload try {_attempts+1}/3 failed. Retrying...");
                             _attempts++;
@@ -113,20 +115,27 @@ namespace SFTPUploadNS
                     if (!_done)
                         throw new Exception("Could not upload the file");
 
-                    Console.WriteLine($"File {_file} uploaded to {_settings["UPLOADFOLDER"]}.");
+                    Console.WriteLine($"File {_file} uploaded to {_settings["UPLOADFOLDER"]}{_prefix}{_fileName}.");
 
                     //
                     if (_settings.ContainsKey("UPLOADPERMISSIONS"))
                     {
                         _stage = $"Changing file permissions to {_settings["UPLOADPERMISSIONS"]}"; 
-                        if (!_sftp.RemoteChangePermissions(_settings["UPLOADFOLDER"] +_fileName, Convert.ToInt16(_settings["UPLOADPERMISSIONS"])))
+                        if (!_sftp.RemoteChangePermissions(_settings["UPLOADFOLDER"] + _prefix + _fileName, Convert.ToInt16(_settings["UPLOADPERMISSIONS"])))
                             throw new Exception("Could not perform the change");
                         
-                        Console.WriteLine($"File {_settings["UPLOADFOLDER"]}{_fileName} permissions changed.");
+                        Console.WriteLine($"File {_settings["UPLOADFOLDER"]}{_prefix}{_fileName} permissions changed.");
                     }
 
                     //
-                   
+                    _stage = $"Renaming file from {_prefix}{_fileName} to {_fileName}";
+                    if (!String.IsNullOrEmpty(_prefix))
+                    {
+                        _sftp.RemoteMove(_settings["UPLOADFOLDER"] + _prefix + _fileName, _settings["UPLOADFOLDER"] + _fileName);
+                        Console.WriteLine($"File {_settings["UPLOADFOLDER"]}{_prefix}{_fileName} renamed to {_settings["UPLOADFOLDER"]}{_fileName} .");
+                    }
+
+                    //
                     _archiveFile = $"{ _settings["ARCHIVEFOLDER"]}{ _internalCode}{_separator}{ System.DateTime.Now.ToString("yyyyMMdd")}.{ _fileName}";
                     _stage = $"Moving {_file} to {_archiveFile}";
                     File.Move(_file, _archiveFile);
@@ -288,6 +297,8 @@ namespace SFTPUploadNS
                 {
                     _flag = "FTPSERVER";
                     Settings.Add("FTPSERVER", _settings.Where(p => p.Value["FLAGS"].Contains("|FTPSERVER|")).Select(p => p.Value["VALUE1"]).First());
+                    _flag = "TMPIT";
+                    Settings.Add("TMPIT", _settings.Any(p => (p.Value["FLAGS"].Contains("|FTPSERVER|") && p.Value["FLAGS"].Contains("|TMPIT|")))?"YES":"NO");
                     _flag = "FTPUSER";
                     Settings.Add("FTPUSER", _settings.Where(p => p.Value["FLAGS"].Contains("|FTPUSER|")).Select(p => p.Value["VALUE1"]).First());
                     _flag = pDebug ? "RSAKEY_WIN" : "RSAKEY_LIN";
