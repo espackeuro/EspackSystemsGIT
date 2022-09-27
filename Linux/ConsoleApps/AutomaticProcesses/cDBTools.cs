@@ -16,7 +16,8 @@ namespace AutomaticProcesses
         public string DB { get { return ConnDetails.DB; } set { ConnDetails.DB = value; } }
         public Nullable<int> TimeOut { get { return ConnDetails.TimeOut; } set { ConnDetails.TimeOut = value; } }
         public enum eRSTypes { Static, Dynamic }
-        
+        public string SkippedValue;
+
         private static string _sql = "";
         private static bool pEOF = false;
            
@@ -171,7 +172,7 @@ namespace AutomaticProcesses
         }
 
         // Return a dictionary 
-        public Dictionary<int, Dictionary<string, string>> ToDictionary()
+        public Dictionary<int, Dictionary<string, string>> ToDictionary(string skipField=null)
         {
             string _stage = "";
             Dictionary<int, Dictionary<string, string>> _dict = new Dictionary<int, Dictionary<string, string>>();
@@ -183,6 +184,8 @@ namespace AutomaticProcesses
                 _stage = "Checkings";
                 if (RS is null)
                     throw new Exception($"Recordset not defined");
+
+                SkippedValue = null;
 
                 //// Just in case we had used the recordset already (it would not show all the records otherwise)
                 //if (!RS.HasRows)
@@ -205,8 +208,20 @@ namespace AutomaticProcesses
                     _dict.Add(_dict.Count + 1, new Dictionary<string, string>());
                     for (int i = 0; i < RS.FieldCount; i++)
                     {
-                        _stage = $"Add row {_dict.Count}/field {RS.GetColumnSchema()[i].ColumnName}";
-                        _dict[_dict.Count].Add(RS.GetColumnSchema()[i].ColumnName, RS.GetValue(i).ToString());
+                        // add the row only if its not equal to skipField
+                        if (RS.GetColumnSchema()[i].ColumnName != skipField)
+                        {
+                            _stage = $"Add row {_dict.Count}/field {RS.GetColumnSchema()[i].ColumnName}";
+                            _dict[_dict.Count].Add(RS.GetColumnSchema()[i].ColumnName, RS.GetValue(i).ToString());
+                        }
+                        else
+                        {
+                            if (SkippedValue == null)
+                            {
+                                _stage = $"Get row {_dict.Count}/field {RS.GetColumnSchema()[i].ColumnName} value";
+                                SkippedValue = RS.GetValue(i).ToString();
+                            }
+                        }
                     }
                 } while (RS.Read());
             }

@@ -212,19 +212,21 @@ namespace AutomaticProcesses
                     throw new Exception($"File name is mandatory for {_fileType} files: FILENAME=<FileName>");
                 if (!String.IsNullOrEmpty(_fileName) && _fileType == cMiscFunctions.eFileType.HTML)
                     throw new Exception($"File name can't be used for HTML queries.");
+                if (String.IsNullOrEmpty(_fileName) && !String.IsNullOrEmpty(_copyTo))
+                    throw new Exception($"You must set a filename for storing the file: FILENAME=<FileName>");
                 if (!String.IsNullOrEmpty(_mailServer) || !String.IsNullOrEmpty(_mailUser) || !String.IsNullOrEmpty(_mailPassword))
                 {
                     if (String.IsNullOrEmpty(_mailServer) || String.IsNullOrEmpty(_mailUser) || String.IsNullOrEmpty(_mailPassword))
                         throw new Exception($"All email connection details are required when one of them is specified: MAIL_SERVER, MAIL_USER & MAIL_PASSWORD");
-                    if (String.IsNullOrEmpty(_processMailTo) || String.IsNullOrEmpty(_processMailSubject) || String.IsNullOrEmpty(_processMailErrorTo))
-                        throw new Exception($"For email sending, recipient, error recipient and subject are required: TO=<EmailAddress1,EmailAddress2,...> ERR_TO=<EmailAddress1,EmailAddress2,...> SUBJECT=<Subject>");
+                    if ((String.IsNullOrEmpty(_processMailTo) || String.IsNullOrEmpty(_processMailSubject) || String.IsNullOrEmpty(_processMailErrorTo)) && String.IsNullOrEmpty(_copyTo))
+                        throw new Exception($"You have to define a email address or a copy destination for the generated file.");
                 }
                 if (!String.IsNullOrEmpty(_processMailTo) || !String.IsNullOrEmpty(_processMailSubject) || !String.IsNullOrEmpty(_processMailErrorTo))
                 {
                     if (String.IsNullOrEmpty(_mailServer) || String.IsNullOrEmpty(_mailUser) || String.IsNullOrEmpty(_mailPassword))
                         throw new Exception($"All email connection details are required when recipient or subject are specified: MAIL_SERVER, MAIL_USER & MAIL_PASSWORD");
-                    if (String.IsNullOrEmpty(_processMailTo) || String.IsNullOrEmpty(_processMailSubject))
-                        throw new Exception($"Both, recipient, error recipient and subject, are required when sending emails: TO=<EmailAddress1,EmailAddress2,...> ERR_TO=<EmailAddress1,EmailAddress2,...> SUBJECT=<Subject>");
+                    if (String.IsNullOrEmpty(_processMailErrorTo))
+                        throw new Exception($"Error email address is required: ERR_TO=<EmailAddress1,EmailAddress2,...>");
                 }
 
                 //
