@@ -125,7 +125,7 @@ namespace AutomaticProcesses
         {
             string _stage = "";
             Dictionary<string, string> _params = null;
-            string _sql = "", _queryDB = "";
+            string _sql = "", _queryDB = "", _skipField = null;
 
             try
             {
@@ -159,10 +159,21 @@ namespace AutomaticProcesses
                     throw new Exception("Unknown error!");
 
                 //
+                if (FileName.ToUpper().Contains("{FIELD:"))
+                {
+                    int _pos = FileName.IndexOf("{FIELD:");
+                    _skipField = FileName.Substring(_pos + 7, FileName.IndexOf("}", _pos + 7) - _pos - 7);
+                }
+
+                //
                 _stage = "Converting data to dictionary";
                 if (_dbt.RS.HasRows)
-                    Results = _dbt.ToDictionary();
-                
+                {
+                    Results = _dbt.ToDictionary(_skipField);
+                    if (!String.IsNullOrEmpty(_skipField))
+                        FileName = FileName.Replace("{FIELD:" + _skipField + "}", _dbt.SkippedValue);
+                }
+
                 // Disconnect from DB
                 _dbt.Disconnect();
 
@@ -232,6 +243,7 @@ namespace AutomaticProcesses
             string _filePath, _fullFilePath="";
             string _format = "";
             int _pos=0;
+            
 
             // Check file name null
             try
@@ -239,10 +251,11 @@ namespace AutomaticProcesses
                 _stage = "Preparing temp path";
                 _filePath = Path.GetTempPath();
 
+                _stage = "Obtaining DATE format";
                 if (FileName.ToUpper().Contains("{DATE:"))
                 {
                     _pos = FileName.IndexOf("{DATE:");
-                    _format = FileName.Substring(_pos+6, FileName.IndexOf("}")-_pos-6);
+                    _format = FileName.Substring(_pos+6, FileName.IndexOf("}",_pos+6)-_pos-6);
                     FileName = FileName.Replace("{DATE:"+_format+"}", DateTime.Now.ToString(_format));
                 }
 
@@ -309,7 +322,7 @@ namespace AutomaticProcesses
             try
             {
                 //
-                _stage = "";
+                _stage = "Building the txt file";
                 foreach (var _currentRow in Results)
                 {
                     _rowContents += String.Join(";",_currentRow.Value.Values.ToList())+ "\r\n";
@@ -601,7 +614,7 @@ namespace AutomaticProcesses
                         // Send errors to informatica
                         if (Error)
                         {
-                            Title = "ERROR on " + Title;
+                            Title = "ERROR on " + (!String.IsNullOrEmpty(Title) ? Title : $" process QUERY {QueryNumber}");
                             FileName = null;
                         }
 
@@ -617,7 +630,7 @@ namespace AutomaticProcesses
                         Contents = !String.IsNullOrEmpty(Contents) ? (String.IsNullOrEmpty(FileName)?Contents: "<html><body><b>Message sent automatically.</b><br><i>Mensaje enviado automáticamente.</i></body></html>") : $"<html><body>{(!String.IsNullOrEmpty(EmptyMessage) ? EmptyMessage : "<b>No results found.</b><br><i>No se encontraron resultados.</i>")}</body></html>";
 
                         // This is to implement a feature to add the values from parameters in the subject at runtime
-                        _subject = Title;
+                        _subject = (!String.IsNullOrEmpty(Title) ? Title : $"Process QUERY {QueryNumber}"); ;
                         if (_subject.Contains("?"))
                         {
                             _stage = "Replacing arguments in subject";
@@ -630,9 +643,12 @@ namespace AutomaticProcesses
                             _subject += $" - Executed on {DateTime.Now.ToString("dd/MM/yyyy")}";
 
                         //
-                        _stage = "Sending email";
-                        if (!_email.SendEmail(Error ? MailErrorTo : MailTo, _subject, Contents , FileName))
-                            throw new Exception("Could not send the email");
+                        if (!String.IsNullOrEmpty(MailTo) || Error)
+                        {
+                            _stage = "Sending email";
+                            if (!_email.SendEmail(Error ? MailErrorTo : MailTo, _subject, Contents, FileName))
+                                throw new Exception("Could not send the email");
+                        }
 
                         // 
                         Console.WriteLine("OK!");
@@ -664,7 +680,7 @@ namespace AutomaticProcesses
             {
                 _stage = "Copying file ";
                 Console.Write($"> Copying {FileName} to {_destination}... ");
-                File.Copy(FileName, _destination);
+                File.Copy(FileName, _destination, true);
                 Console.WriteLine("OK!");
             }
             catch (Exception ex)
