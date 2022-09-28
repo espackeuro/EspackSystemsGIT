@@ -22,7 +22,7 @@ namespace APICallsConsole
             InitializeComponent();
             SecondsCounter = REFRESH_INTERVAL;
             chkAutoRefresh.Text = $"Perform an autorefresh in {SecondsCounter} seconds";
-            API = new cJLR("https://motersuppliermsgqa.jlrext.com/SupplierBroadCast", "ESPACK", "Jag@2022", "2c50fb8f-787f-4b56-b510-2767703aef1c");
+            API = new cJLRComm("https://motersuppliermsgqa.jlrext.com/SupplierBroadCast", "ESPACK", "Jag@2022", "2c50fb8f-787f-4b56-b510-2767703aef1c");
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
@@ -38,16 +38,16 @@ namespace APICallsConsole
 
                 //
                 _stage = "Getting new messages";
-                ((cJLR)API).GetMessages();
+                ((cJLRComm)API).GetMessages();
 
 
                 // 
                 _stage = "Loading messages into XML";
                 XmlDocument xml = new XmlDocument();
-                xml.LoadXml(((cJLR)API).Messages);
+                xml.LoadXml(((cJLRComm)API).MessagesString);
 
 
-                txtLog.Text = ((cJLR)API).Messages.ToString();
+                txtLog.Text = ((cJLRComm)API).MessagesString.ToString();
                 XmlNodeList elemlist = xml.GetElementsByTagName("message");
                 string result = elemlist[0].InnerXml; // header of the first message
 
@@ -78,7 +78,7 @@ namespace APICallsConsole
 
                 //
                 _stage = "Calling ACK function";
-                ((cJLR)API).AcknowledgeLastMessageReceived(txtLastMessageID.Text);
+                ((cJLRComm)API).AcknowledgeLastMessageReceived(txtLastMessageID.Text);
             }
             catch (Exception ex)
             {
