@@ -197,7 +197,11 @@ namespace APICallsConsole
                 //
                 _stage = "Checkings";
                 if (Messages != null)
-                    throw new Exception("There are already messages in the pending list");
+                {
+                    Messages.Clear();
+                    Messages = null;
+                }
+//                    throw new Exception("There are already messages in the pending list");
 
                 //
                 _stage = "Connecting to API";
@@ -262,10 +266,6 @@ namespace APICallsConsole
                     _stage = $"Adding message {_messageID} to dictionary";
                     Messages.Add(_messageID, _message);
 
-
-
-
-                    
                 }
             }
             catch (Exception ex)

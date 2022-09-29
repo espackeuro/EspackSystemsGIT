@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using AccesoDatosNet;
+using CommonTools;
 
 namespace APICallsConsole
 {
@@ -24,6 +26,25 @@ namespace APICallsConsole
         public fMain(string[] args)
         {
             InitializeComponent();
+
+            var espackArgs = CT.LoadVars(args);
+            Values.ProjectName = "WebAPIDownloader";
+            Values.gDatos.DataBase = espackArgs.DataBase;
+            Values.gDatos.Server = espackArgs.Server;
+            Values.gDatos.User = espackArgs.User;
+            Values.gDatos.Password = espackArgs.Password;
+
+            try
+            {
+                Values.gDatos.Connect();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error connecting to database: " + e.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+            Values.gDatos.Close();
+
             SecondsCounter = REFRESH_INTERVAL;
             API = new cJLRComm("https://motersuppliermsgqa.jlrext.com/SupplierBroadCast", "ESPACK", "Jag@2022", "2c50fb8f-787f-4b56-b510-2767703aef1c");
         }
@@ -44,6 +65,7 @@ namespace APICallsConsole
                 if (API.GetMessages())
                 {
                     FillPendingMessages();
+                    FillProcessedMessages();
                 }
 
             }
@@ -85,7 +107,9 @@ namespace APICallsConsole
 
                 }
 
+                //
                 _stage = "Adding data to the grid";
+                dgvPendingMessages.Rows.Clear();
                 foreach (cJLRMessage _message in API.Messages.Values)
                 {
                     //
@@ -112,34 +136,21 @@ namespace APICallsConsole
             {
                 //
                 _stage = "Checkings";
-                if (API.Messages == null)
-                    return;
 
-                //
-                _stage = "Defining columns";
-                if (dgvPendingMessages.Columns.Count == 0)
+                // Add the results of the query to the DataGrid            
+                //select * from JLRSequences where xfec>dateadd(hour,-8,getdate()) order by xfec desc
+                using (var _rs = new StaticRS($"select * from JLRSequences", Values.gDatos))
                 {
-
-                    //
-                    _stage = "Getting list of message columns";
-                    foreach (string _columnName in API.Messages.First().Value.Properties.Keys)
-                    {
-                        _stage = $"Adding column {_columnName}";
-                        dgvPendingMessages.Columns.Add(_columnName, ColumnizeName(_columnName));
-                    }
+                    _rs.Open();
+                    dgvLastProcessedMessages.DataSource = _rs.DataObject;
 
                 }
+                dgvLastProcessedMessages.CurrentCell = null;
+                dgvLastProcessedMessages.Refresh();
+                //if (dgvLastProcessedMessages.Rows.Count == 0) dgvLastProcessedMessages.Tag = "";
 
-                _stage = "Adding data to the grid";
-                foreach (cJLRMessage _message in API.Messages.Values)
-                {
-                    //
-                    _stage = $"Adding row ";
-                    dgvPendingMessages.Rows.Add(_message.Properties.Values.ToArray());
 
-                }
-
-                lblPendingMessages.Text = $"Pending messages ({dgvPendingMessages.Rows.Count})";
+                lblLastProcessedMessages.Text = $"Last Processed Messages ({dgvLastProcessedMessages.Rows.Count})";
             }
             catch (Exception ex)
             {
@@ -217,6 +228,14 @@ namespace APICallsConsole
             }
             
         }
+
     }
-    
+    public static class Values
+    {
+        public static cAccesoDatosNet gDatos = new cAccesoDatosNet();
+        public static string LabelPrinterAddress = "";
+        public static string COD3 = "NIT";
+        public static string ProjectName = "Web API Communications";
+    }
+
 }

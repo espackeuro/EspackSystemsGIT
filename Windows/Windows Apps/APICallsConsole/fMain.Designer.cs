@@ -37,10 +37,10 @@ namespace APICallsConsole
             this.dgvPendingMessages = new System.Windows.Forms.DataGridView();
             this.lblPendingMessages = new System.Windows.Forms.Label();
             this.lblLastProcessedMessages = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvLastProcessedMessages = new System.Windows.Forms.DataGridView();
             this.lblAutoRefreshCounter = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPendingMessages)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLastProcessedMessages)).BeginInit();
             this.SuspendLayout();
             // 
             // btnConnect
@@ -111,22 +111,22 @@ namespace APICallsConsole
             this.lblLastProcessedMessages.TabIndex = 8;
             this.lblLastProcessedMessages.Text = "Last Processed Messages";
             // 
-            // dataGridView1
+            // dgvLastProcessedMessages
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.ColumnHeadersHeight = 22;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 452);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1945, 395);
-            this.dataGridView1.TabIndex = 9;
+            this.dgvLastProcessedMessages.AllowUserToAddRows = false;
+            this.dgvLastProcessedMessages.AllowUserToDeleteRows = false;
+            this.dgvLastProcessedMessages.AllowUserToResizeRows = false;
+            this.dgvLastProcessedMessages.ColumnHeadersHeight = 22;
+            this.dgvLastProcessedMessages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvLastProcessedMessages.Location = new System.Drawing.Point(12, 452);
+            this.dgvLastProcessedMessages.Name = "dgvLastProcessedMessages";
+            this.dgvLastProcessedMessages.ReadOnly = true;
+            this.dgvLastProcessedMessages.RowHeadersVisible = false;
+            this.dgvLastProcessedMessages.RowHeadersWidth = 51;
+            this.dgvLastProcessedMessages.RowTemplate.Height = 24;
+            this.dgvLastProcessedMessages.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLastProcessedMessages.Size = new System.Drawing.Size(1945, 395);
+            this.dgvLastProcessedMessages.TabIndex = 9;
             // 
             // lblAutoRefreshCounter
             // 
@@ -142,7 +142,7 @@ namespace APICallsConsole
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1973, 921);
             this.Controls.Add(this.lblAutoRefreshCounter);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvLastProcessedMessages);
             this.Controls.Add(this.lblLastProcessedMessages);
             this.Controls.Add(this.lblPendingMessages);
             this.Controls.Add(this.dgvPendingMessages);
@@ -152,7 +152,7 @@ namespace APICallsConsole
             this.Name = "fMain";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPendingMessages)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLastProcessedMessages)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,7 +167,7 @@ namespace APICallsConsole
         private System.Windows.Forms.DataGridView dgvPendingMessages;
         private System.Windows.Forms.Label lblPendingMessages;
         private System.Windows.Forms.Label lblLastProcessedMessages;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvLastProcessedMessages;
         private System.Windows.Forms.Label lblAutoRefreshCounter;
     }
 }
