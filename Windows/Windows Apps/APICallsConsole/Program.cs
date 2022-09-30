@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using CommonTools;
 using CommonToolsWin;
+using AccesoDatosNet;
 
 namespace APICallsConsole
 {
@@ -29,5 +30,14 @@ namespace APICallsConsole
             Application.Run(fMain);
         }
 
+
+    }
+
+    public static class Values
+    {
+        public static cAccesoDatosNet gDatos = new cAccesoDatosNet();
+        public static string LabelPrinterAddress = "";
+        public static string COD3 = "NIT";
+        public static string ProjectName = "Web API Communications";
     }
 }
