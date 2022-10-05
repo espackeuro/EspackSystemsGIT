@@ -44,21 +44,22 @@ namespace APICallsConsole
                 Application.Exit();
             }
             Values.gDatos.Close();
-
-            SecondsCounter = REFRESH_INTERVAL;
             API = new cJLRComm("https://motersuppliermsgqa.jlrext.com/SupplierBroadCast", "ESPACK", "Jag@2022", "2c50fb8f-787f-4b56-b510-2767703aef1c");
         }
 
-        private void btnConnect_Click(object sender, EventArgs e)
+        public void tmrRefreshPending_OnStart()
+        {
+            SecondsCounter = REFRESH_INTERVAL;
+        }
+
+        private void RefreshMessages()
         {
             string _stage = "";
 
             try
             {
                 //
-                btnConnect.Enabled = false;
-                tmrRefreshPending.Enabled = false;
-                SecondsCounter = REFRESH_INTERVAL;
+                StopPendingTimer();
 
                 //
                 _stage = "Getting new messages";
@@ -66,7 +67,17 @@ namespace APICallsConsole
                 {
                     FillPendingMessages();
                     FillProcessedMessages();
+                    if (API.Messages.Count == 0)
+                    {
+                        API.Disconect();
+                        StartPendingTimer();
+                    }
+                    else
+                    {
+                        StartProcessTimer();
+                    }
                 }
+
 
             }
             catch (Exception ex)
@@ -75,10 +86,21 @@ namespace APICallsConsole
             }
             finally
             {
-                btnConnect.Enabled = true;
                 tmrRefreshPending.Enabled = true;
             }
 
+        }
+        private void btnConnect_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnConnect.Enabled = false;
+                RefreshMessages();
+            }
+            finally
+            {
+                btnConnect.Enabled = true;
+            }
         }
 
         private void FillPendingMessages()
@@ -195,7 +217,7 @@ namespace APICallsConsole
             }
         }
 
-        private void btnACK_Click(object sender, EventArgs e)
+        private void AcknownledgeMessageID(string messageID)
         {
             string _stage = "";
             try
@@ -204,12 +226,102 @@ namespace APICallsConsole
                 _stage = "Checkings";
                 if (API == null)
                     throw new Exception("API not created");
-                if (txtLastMessageID.Text=="")
-                    throw new Exception("Enter a last message ID");
+                if (String.IsNullOrEmpty(messageID))
+                    throw new Exception("Missing parameter MessageID");
 
                 //
                 _stage = "Calling ACK function";
-                API.AcknowledgeLastMessageReceived(txtLastMessageID.Text);
+                API.AcknowledgeLastMessageReceived(messageID);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
+        }
+
+        private void btnACK_Click(object sender, EventArgs e)
+        {
+            AcknownledgeMessageID(txtLastMessageID.Text);
+        }
+
+        private void StartPendingTimer()
+        {
+            string _stage = "";
+
+            try
+            {
+                //
+                _stage = "Checkings";
+                if (tmrRefreshPending.Enabled)
+                    throw new Exception("Timer already started");
+
+                SecondsCounter = 0;
+                tmrRefreshPending.Start();
+                
+            }
+            catch(Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
+
+        }
+
+        private void StopPendingTimer()
+        {
+            string _stage = "";
+
+            try
+            {
+                //
+                _stage = "Checkings";
+                if (!tmrRefreshPending.Enabled)
+                    throw new Exception("Timer already stopped");
+                
+                SecondsCounter = 0;
+                tmrRefreshPending.Stop();
+                
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
+
+        }
+
+        private void StartProcessTimer()
+        {
+            string _stage = "";
+
+            try
+            {
+                //
+                _stage = "Checkings";
+                if (tmrProcessPending.Enabled)
+                    throw new Exception("Timer already started");
+
+                tmrProcessPending.Start();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
+
+        }
+
+        private void StopProcessTimer()
+        {
+            string _stage = "";
+
+            try
+            {
+                //
+                _stage = "Checkings";
+                if (!tmrProcessPending.Enabled)
+                    throw new Exception("Timer already stopped");
+
+                tmrProcessPending.Stop();
+
             }
             catch (Exception ex)
             {
@@ -219,16 +331,39 @@ namespace APICallsConsole
 
         private void tmrRefresh_Tick(object sender, EventArgs e)
         {
-            SecondsCounter--;
-            lblAutoRefreshCounter.Text = $"An autorefresh will be executed in {SecondsCounter} seconds";
-            if (SecondsCounter == 0)
+            SecondsCounter++;
+            lblAutoRefreshCounter.Text = $"An autorefresh will be executed in {REFRESH_INTERVAL-SecondsCounter} seconds";
+            if (SecondsCounter >= REFRESH_INTERVAL)
             {
-                SecondsCounter = REFRESH_INTERVAL;
-                btnConnect_Click(sender, e);
+                StopPendingTimer();
+                RefreshMessages();
             }
             
         }
 
+        private void tmrProcessPending_Tick(object sender, EventArgs e)
+        {
+            StopProcessTimer();
+            if (API!=null)
+            {
+                if(API.Messages.Count!=0)
+                {
+                    ProcessMessage();
+                    StartProcessTimer();
+                    return;
+                }
+            }
+            if (!tmrRefreshPending.Enabled)
+                StartPendingTimer();
+        }
+
+        private void ProcessMessage()
+        {
+            string _stage = "";
+            var p= API.Messages.Select(r => r.Key == "messageID").OrderBy(x => x.ToString()).FirstOrDefault();
+            _stage = "";
+//            dgvLastProcessedMessages.Rows.Remove();
+        }
     }
 
 

@@ -201,20 +201,22 @@ namespace APICallsConsole
                     Messages.Clear();
                     Messages = null;
                 }
-//                    throw new Exception("There are already messages in the pending list");
 
                 //
-                _stage = "Connecting to API";
-                if (!Connect())
-                    throw new Exception("Error unknown");
+                if (Client == null)
+                {
+                    _stage = "Connecting to API";
+                    if (!Connect())
+                        throw new Exception("Error unknown");
+                }
 
                 //
                 _stage = "Getting messages";
                 MessagesString = Client.GetMessages(APIKey);
 
-                //
-                _stage = "Disconnecting";
-                Disconect();
+                ////
+                //_stage = "Disconnecting";
+                //Disconect();
 
                 //
                 _stage = "Formatting XML data";
@@ -312,20 +314,24 @@ namespace APICallsConsole
         public bool AcknowledgeLastMessageReceived(string lastMessageID)
         {
             string _stage = "";
+
             try
             {
                 //
-                _stage = "Connecting to API";
-                if (!Connect())
-                    throw new Exception("Error unknown");
+                if (Client != null)
+                {
+                    _stage = "Connecting to API";
+                    if (!Connect())
+                        throw new Exception("Error unknown");
+                }
 
                 //
                 _stage = $"Acknowledging message {lastMessageID}";
                 Client.AcknowledgeLastMessageReceived(APIKey, lastMessageID);
                 
-                //
-                _stage = "Disconnecting";
-                Disconect();
+                ////
+                //_stage = "Disconnecting";
+                //Disconect();
 
             }
             catch (Exception ex)
@@ -336,7 +342,7 @@ namespace APICallsConsole
         }
 
         // Connect to the Web API
-        private bool Connect()
+        public bool Connect()
         {
             string _stage = "";
 
@@ -373,7 +379,7 @@ namespace APICallsConsole
         }
 
         // Disconnect from the Web API
-        private bool Disconect()
+        public bool Disconect()
         {
             string _stage = "";
 

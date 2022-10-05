@@ -39,6 +39,7 @@ namespace APICallsConsole
             this.lblLastProcessedMessages = new System.Windows.Forms.Label();
             this.dgvLastProcessedMessages = new System.Windows.Forms.DataGridView();
             this.lblAutoRefreshCounter = new System.Windows.Forms.Label();
+            this.tmrProcessPending = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPendingMessages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLastProcessedMessages)).BeginInit();
             this.SuspendLayout();
@@ -136,6 +137,11 @@ namespace APICallsConsole
             this.lblAutoRefreshCounter.Size = new System.Drawing.Size(0, 17);
             this.lblAutoRefreshCounter.TabIndex = 10;
             // 
+            // tmrProcessPending
+            // 
+            this.tmrProcessPending.Interval = 1000;
+            this.tmrProcessPending.Tick += new System.EventHandler(this.tmrProcessPending_Tick);
+            // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -169,5 +175,6 @@ namespace APICallsConsole
         private System.Windows.Forms.Label lblLastProcessedMessages;
         private System.Windows.Forms.DataGridView dgvLastProcessedMessages;
         private System.Windows.Forms.Label lblAutoRefreshCounter;
+        private System.Windows.Forms.Timer tmrProcessPending;
     }
 }
