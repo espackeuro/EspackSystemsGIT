@@ -360,9 +360,18 @@ namespace APICallsConsole
         private void ProcessMessage()
         {
             string _stage = "";
-            var p= API.Messages.Select(r => r.Key == "messageID").OrderBy(x => x.ToString()).FirstOrDefault();
+            var _minMessageID = API.Messages.Select(k => k.Key).Min();
+
+            DataGridViewRow _row = (DataGridViewRow)dgvPendingMessages.Rows.Cast<DataGridViewRow>()
+                .Where(r => r.Cells["messageID"].Value.ToString().Equals(_minMessageID)).First();
+
+
+            API.Messages.Remove(_minMessageID);
+            dgvPendingMessages.Rows.Remove(_row);
+            Application.DoEvents();
+
             _stage = "";
-//            dgvLastProcessedMessages.Rows.Remove();
+
         }
     }
 
