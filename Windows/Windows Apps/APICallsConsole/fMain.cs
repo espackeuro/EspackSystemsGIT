@@ -47,11 +47,6 @@ namespace APICallsConsole
             API = new cJLRComm("https://motersuppliermsgqa.jlrext.com/SupplierBroadCast", "ESPACK", "Jag@2022", "2c50fb8f-787f-4b56-b510-2767703aef1c");
         }
 
-        public void tmrRefreshPending_OnStart()
-        {
-            SecondsCounter = REFRESH_INTERVAL;
-        }
-
         private void RefreshMessages()
         {
             string _stage = "";
@@ -59,6 +54,10 @@ namespace APICallsConsole
             try
             {
                 //
+                btnConnect.Enabled = false;
+
+                //
+                _stage = "Stopping pending timer";
                 StopPendingTimer();
 
                 //
@@ -77,8 +76,6 @@ namespace APICallsConsole
                         StartProcessTimer();
                     }
                 }
-
-
             }
             catch (Exception ex)
             {
@@ -86,15 +83,22 @@ namespace APICallsConsole
             }
             finally
             {
-                tmrRefreshPending.Enabled = true;
+                if (!tmrProcessPending.Enabled && !tmrRefreshPending.Enabled)
+                {
+                    StartPendingTimer();
+                    btnConnect.Enabled = false;
+                }
             }
-
         }
+
         private void btnConnect_Click(object sender, EventArgs e)
         {
+            string _stage = "";
+
             try
             {
-                btnConnect.Enabled = false;
+                //
+                _stage = "Refreshing pending messages";
                 RefreshMessages();
             }
             finally
@@ -165,7 +169,6 @@ namespace APICallsConsole
                 {
                     _rs.Open();
                     dgvLastProcessedMessages.DataSource = _rs.DataObject;
-
                 }
                 dgvLastProcessedMessages.CurrentCell = null;
                 dgvLastProcessedMessages.Refresh();
@@ -255,6 +258,8 @@ namespace APICallsConsole
                 if (tmrRefreshPending.Enabled)
                     throw new Exception("Timer already started");
 
+                //
+                _stage = "Starting pending timer";
                 SecondsCounter = 0;
                 tmrRefreshPending.Start();
                 
@@ -263,7 +268,6 @@ namespace APICallsConsole
             {
                 throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
             }
-
         }
 
         private void StopPendingTimer()
@@ -276,16 +280,16 @@ namespace APICallsConsole
                 _stage = "Checkings";
                 if (!tmrRefreshPending.Enabled)
                     throw new Exception("Timer already stopped");
-                
+
+                //
+                _stage = "Stopping pending timer";
                 SecondsCounter = 0;
                 tmrRefreshPending.Stop();
-                
             }
             catch (Exception ex)
             {
                 throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
             }
-
         }
 
         private void StartProcessTimer()
@@ -299,6 +303,8 @@ namespace APICallsConsole
                 if (tmrProcessPending.Enabled)
                     throw new Exception("Timer already started");
 
+                //
+                _stage = "Starting process timer";
                 tmrProcessPending.Start();
 
             }
@@ -306,7 +312,6 @@ namespace APICallsConsole
             {
                 throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
             }
-
         }
 
         private void StopProcessTimer()
@@ -320,6 +325,8 @@ namespace APICallsConsole
                 if (!tmrProcessPending.Enabled)
                     throw new Exception("Timer already stopped");
 
+                //
+                _stage = "Stopping pending timer";
                 tmrProcessPending.Stop();
 
             }
@@ -331,46 +338,104 @@ namespace APICallsConsole
 
         private void tmrRefresh_Tick(object sender, EventArgs e)
         {
-            SecondsCounter++;
-            lblAutoRefreshCounter.Text = $"An autorefresh will be executed in {REFRESH_INTERVAL-SecondsCounter} seconds";
-            if (SecondsCounter >= REFRESH_INTERVAL)
+            string _stage = "";
+
+            try
             {
-                StopPendingTimer();
-                RefreshMessages();
+                //
+                _stage = "Increasing seconds counter";
+                SecondsCounter++;
+                lblAutoRefreshCounter.Text = $"An autorefresh will be executed in {REFRESH_INTERVAL-SecondsCounter} seconds";
+
+                if (SecondsCounter >= REFRESH_INTERVAL)
+                {
+                    //
+                    _stage = "Refreshing pending messages";
+                    RefreshMessages();
+                }
             }
-            
+            catch (Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
         }
 
         private void tmrProcessPending_Tick(object sender, EventArgs e)
         {
-            StopProcessTimer();
-            if (API!=null)
+            string _stage = "";
+
+            try
             {
-                if(API.Messages.Count!=0)
+                //
+                _stage = "Stopping process timer";
+                StopProcessTimer();
+
+                //
+                _stage = "Checking API";
+                if (API != null)
                 {
-                    ProcessMessage();
-                    StartProcessTimer();
-                    return;
+                    if (API.Messages.Count != 0)
+                    {
+                        //
+                        _stage = "Processing message";
+                        ProcessMessage();
+
+                        //
+                        _stage = "Starting process timer";
+                        StartProcessTimer();
+                        return;
+                    }
+                }
+                if (!tmrRefreshPending.Enabled)
+                {
+                    _stage = "Starting pending timer";
+                    StartPendingTimer();
                 }
             }
-            if (!tmrRefreshPending.Enabled)
-                StartPendingTimer();
+            catch (Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
         }
 
         private void ProcessMessage()
         {
             string _stage = "";
-            var _minMessageID = API.Messages.Select(k => k.Key).Min();
 
-            DataGridViewRow _row = (DataGridViewRow)dgvPendingMessages.Rows.Cast<DataGridViewRow>()
-                .Where(r => r.Cells["messageID"].Value.ToString().Equals(_minMessageID)).First();
+            try
+            {
+                //
+                _stage = "Getting next Message ID";
+                string _minMessageID = API.Messages.Select(k => k.Key).Min();
 
+                //
+                _stage = $"Getting row data for Message ID {_minMessageID}";
+                DataGridViewRow _row = (DataGridViewRow)dgvPendingMessages.Rows.Cast<DataGridViewRow>()
+                    .Where(r => r.Cells["messageID"].Value.ToString().Equals(_minMessageID)).First();
 
-            API.Messages.Remove(_minMessageID);
-            dgvPendingMessages.Rows.Remove(_row);
-            Application.DoEvents();
+                //
+                _stage = $"Add Message ID {_minMessageID} sequence to DB";
+                if (API.Save(_minMessageID))
+                {
+                    //
+                    _stage = $"Ackownledging MessageID {_minMessageID}";
+                    AcknownledgeMessageID(_minMessageID.ToString());
 
-            _stage = "";
+                    //
+                    _stage = $"Remove pending Message ID {_minMessageID} from data grid view";
+                    dgvPendingMessages.Rows.Remove(_row);
+
+                    //
+                    _stage = "Refresing processed grid";
+                    FillProcessedMessages();
+                }
+                Application.DoEvents();
+
+            }
+            catch(Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
 
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AccesoDatosNet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
@@ -13,41 +14,41 @@ namespace APICallsConsole
     class cJLRMessageAttributes : IDisposable
     {
         // Private properties
-        private string pTLS;
-        private string pTimeStamp;
+        private int? pTLS;
+        private DateTime? pTimeStamp;
         private string pAssemblyTrack;
         private string pDrive;
         private string pSendToMarket;
         private string pBuildToMarket;
         private string pFullVIN;
-        private string pLastLaunchTLS;
+        private int? pLastLaunchTLS;
         private string pColour;
         private string pModel;
         private string pModelYear;
-        private string pBSN;
-        private string pVFifoQty;
+        private int? pBSN;
+        private int? pVFifoQty;
         private string pShortVIN;
         private string pEECVINPrefix;
 
         // Public read only access
-        public string TLS { get { return pTLS; } }
-        public string TimeStamp { get { return pTimeStamp; } }
+        public int? TLS { get { return pTLS; } }
+        public DateTime? TimeStamp { get { return pTimeStamp; } }
         public string AssemblyTrack { get { return pAssemblyTrack; } }
         public string Drive { get { return pDrive; } }
         public string SendToMarket { get { return pSendToMarket; } }
         public string BuildToMarket { get { return pBuildToMarket; } }
         public string FullVIN { get { return pFullVIN; } }
-        public string LastLaunchTLS { get { return pLastLaunchTLS; } }
+        public int? LastLaunchTLS { get { return pLastLaunchTLS; } }
         public string Colour { get { return pColour; } }
         public string Model { get { return pModel; } }
         public string ModelYear { get { return pModelYear; } }
-        public string BSN { get { return pBSN; } }
-        public string VFifoQty { get { return pVFifoQty; } }
+        public int? BSN { get { return pBSN; } }
+        public int? VFifoQty { get { return pVFifoQty; } }
         public string ShortVIN { get { return pShortVIN; } }
         public string EECVINPrefix { get { return pEECVINPrefix; } }
 
         // Constructor
-        public cJLRMessageAttributes(string tls, string timeStamp, string assemblyTrack, string drive, string sendToMarket, string buildToMarket, string fullVIN, string lastLaunchTLS, string colour, string model, string modelYear, string bsn, string vFifoQty, string shortVIN, string eecVINPrefix)
+        public cJLRMessageAttributes(int? tls, DateTime? timeStamp, string assemblyTrack, string drive, string sendToMarket, string buildToMarket, string fullVIN, int? lastLaunchTLS, string colour, string model, string modelYear, int? bsn, int? vFifoQty, string shortVIN, string eecVINPrefix)
         {
             pTLS = tls;
             pTimeStamp = timeStamp;
@@ -77,24 +78,24 @@ namespace APICallsConsole
     class cJLRMessage : IDisposable
     {
         // Private properties
-        private string pMessageID;
-        private string pOrderNumber;
+        private int pMessageID;
+        private int pOrderNumber;
         private string pModel;
-        private string pTLS;
-        private string pStatus;
-        private string pTimeStamp;
+        private int pTLS;
+        private int pStatus;
+        private DateTime pTimeStamp;
         private cJLRMessageAttributes pAttributes;
-        private Dictionary<string, string> pProperties;
+        private Dictionary<string, dynamic> pProperties;
 
         // Public read only access
-        public string MessageID { get { return pMessageID; } }
-        public string OrderNumber { get { return pOrderNumber; } }
+        public int MessageID { get { return pMessageID; } }
+        public int OrderNumber { get { return pOrderNumber; } }
         public string Model { get { return pModel; } }
-        public string TLS { get { return pTLS; } }
-        public string Status { get { return pStatus; } }
-        public string TimeStamp { get { return pTimeStamp; } }
+        public int TLS { get { return pTLS; } }
+        public int Status { get { return pStatus; } }
+        public DateTime TimeStamp { get { return pTimeStamp; } }
         public cJLRMessageAttributes Attributes { get { return pAttributes; } }
-        public Dictionary<string,string> Properties { get { return pProperties; } }
+        public Dictionary<string, dynamic> Properties { get { return pProperties; } }
 
         public object this[string propertyName]
         {
@@ -103,7 +104,7 @@ namespace APICallsConsole
         }
 
         // Constructor
-        public cJLRMessage(string messageID, string orderNumber, string model, string tls, string status, string timeStamp, cJLRMessageAttributes attributes)
+        public cJLRMessage(int messageID, int orderNumber, string model, int tls, int status, DateTime timeStamp, cJLRMessageAttributes attributes)
         {
             string _stage = "";
 
@@ -122,15 +123,18 @@ namespace APICallsConsole
 
                 //
                 _stage = "Generating list of properties";
-                IEnumerable<Tuple<string, string>> _messageProps =                              // And here we go, my beloved nemesis: Linq queries
+                IEnumerable<Tuple<string, dynamic>> _messageProps =                              // And here we go, my beloved nemesis: Linq queries
                     (from property in this.GetType().GetProperties()                            // <- Get automatically the list of public properties of this class
-                     where property.PropertyType == typeof(string)                              // <- But only those whose type is string 
-                     select new Tuple<string, string>(property.Name,                            // <- Create a tuple (Property Name...
-                                       (string)property.GetValue(this))                         // <- ... and Value)
+                     where property.PropertyType == typeof(string)               // <- But not of type cJLRMessageAttributes
+                     || property.PropertyType == typeof(int)
+                     || property.PropertyType == typeof(DateTime)
+                     // && property.PropertyType != typeof(Dictionary<string, dynamic>)          // <- neiter of type Dictionary<string,string>
+                     select new Tuple<string, dynamic>(property.Name,                            // <- Create a tuple (Property Name...
+                                       property.GetValue(this))                         // <- ... and Value)
                      ).Union(from property in this.Attributes.GetType().GetProperties()         // <- Join obtained list with the list of the properties of the Attribute class
-                             where property.PropertyType == typeof(string)                      // <- Again, only those which are string
-                             select new Tuple<string, string>("Att" + property.Name,            // <- Create a tuple again, but the property name will start with "Att"
-                                               (string)property.GetValue(this.Attributes)));    // Done
+//                             where property.PropertyType == typeof(string)                      // <- Again, only those which are string
+                             select new Tuple<string, dynamic>("Att" + property.Name,            // <- Create a tuple again, but the property name will start with "Att"
+                                               property.GetValue(this.Attributes)));    // Done
 
                 //
                 _stage = "Creating properties dictionary";
@@ -160,12 +164,14 @@ namespace APICallsConsole
         private string pUser; //="ESPACK";
         private string pPassword;// = "Jag@2022";
         private string pAPIKey; // = "2c50fb8f-787f-4b56-b510-2767703aef1c"; //"c7a4284c-2ddf-4b07-ab6a-b489fa8ba1d5";
+        private string pSessionID;
 
         // Public read only access
         public string ServiceURL { get { return pServiceURL; } }
         public string User { get { return pUser; } }
         public string Password { get { return pPassword; } }
         public string APIKey { get { return pAPIKey; } }
+        public string SessionID { get { return pSessionID; } }
 
         // Private vars
         private SupplierWebService.SupplierServiceContractClient Client;
@@ -181,6 +187,7 @@ namespace APICallsConsole
             pUser = user;
             pPassword = password;
             pAPIKey = apiKey;
+            pSessionID = null;
         }
 
         // Public functions
@@ -238,30 +245,31 @@ namespace APICallsConsole
                     //
                     _stage = $"Creating attributes object for message {_messageID}";
                     _attributes = new cJLRMessageAttributes(
-                        _nodeAttributes[0].Attributes[1].Value,     // TLS
-                        _nodeAttributes[1].Attributes[1].Value,     // TIMESTAMP
-                        _nodeAttributes[2].Attributes[1].Value,     // ASSEMBLYTRACK
-                        _nodeAttributes[3].Attributes[1].Value,     // DRIVE
-                        _nodeAttributes[4].Attributes[1].Value,     // SEND_TO_MARKET
-                        _nodeAttributes[5].Attributes[1].Value,     // BUILD_TO_MARKET
-                        _nodeAttributes[6].Attributes[1].Value,     // FULL_VIN
-                        _nodeAttributes[7].Attributes[1].Value,     // LAST_LAUNCH_TLS
-                        _nodeAttributes[8].Attributes[1].Value,     // COLOUR
-                        _nodeAttributes[9].Attributes[1].Value,     // MODEL
-                        _nodeAttributes[10].Attributes[1].Value,    // MODEL_YEAR
-                        _nodeAttributes[11].Attributes[1].Value,    // BSN
-                        _nodeAttributes[12].Attributes[1].Value,    // VFIFO_QTY
-                        _nodeAttributes[13].Attributes[1].Value,    // SHORT_VIN
-                        _nodeAttributes[14].Attributes[1].Value);   // EEC_VIN_PREFIX
+                        Int32.TryParse(_nodeAttributes[0].Attributes[1].Value, out int _tls) ? _tls : (int?)null,                   // TLS
+                        DateTime.TryParse(_nodeAttributes[1].Attributes[1].Value, out DateTime _date) ? (DateTime?)_date : null,    // TIMESTAMP
+                        _nodeAttributes[2].Attributes[1].Value,                                                                     // ASSEMBLYTRACK
+                        _nodeAttributes[3].Attributes[1].Value,                                                                     // DRIVE
+                        _nodeAttributes[4].Attributes[1].Value,                                                                     // SEND_TO_MARKET
+                        _nodeAttributes[5].Attributes[1].Value,                                                                     // BUILD_TO_MARKET
+                        _nodeAttributes[6].Attributes[1].Value,                                                                     // FULL_VIN
+                        Int32.TryParse(_nodeAttributes[7].Attributes[1].Value, out int _launch) ? _launch : (int?)null,             // LAST_LAUNCH_TLS
+                        _nodeAttributes[8].Attributes[1].Value,                                                                     // COLOUR
+                        _nodeAttributes[9].Attributes[1].Value,                                                                     // MODEL
+                        _nodeAttributes[10].Attributes[1].Value,                                                                    // MODEL_YEAR
+                        Int32.TryParse(_nodeAttributes[11].Attributes[1].Value, out int _bsn) ? _bsn : (int?)null,                  // BSN
+                        Int32.TryParse(_nodeAttributes[12].Attributes[1].Value, out int _qty) ? _qty : (int?)null,                  // VFIFO_QTY                        
+                        _nodeAttributes[13].Attributes[1].Value,                                                                    // SHORT_VIN
+                        _nodeAttributes[14].Attributes[1].Value);                                                                   // EEC_VIN_PREFIX
 
                     //
                     _stage = $"Creating object for message {_messageID}";
-                    _message = new cJLRMessage(_node.Attributes["messageID"].Value,
-                        _node.Attributes["orderNumber"].Value,
+                    _message = new cJLRMessage(
+                        Int32.Parse(_node.Attributes["messageID"].Value),
+                        Int32.Parse(_node.Attributes["orderNumber"].Value),
                         _node.Attributes["model"].Value,
-                        _node.Attributes["tls"].Value,
-                        _node.Attributes["status"].Value,
-                        _node.Attributes["timestamp"].Value,
+                        Int32.Parse(_node.Attributes["tls"].Value),
+                        Int32.Parse(_node.Attributes["status"].Value),
+                        DateTime.Parse(_node.Attributes["timestamp"].Value),
                         _attributes);
 
                     //
@@ -318,7 +326,7 @@ namespace APICallsConsole
             try
             {
                 //
-                if (Client != null)
+                if (Client == null)
                 {
                     _stage = "Connecting to API";
                     if (!Connect())
@@ -416,6 +424,77 @@ namespace APICallsConsole
             {
                 throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
             }
+        }
+
+        public bool Save(string MessageID)
+        {
+            string _stage = "";
+
+            try
+            {
+                //
+                _stage = $"Getting message Id {MessageID}";
+                cJLRMessage _message = Messages[MessageID];
+
+                //
+                _stage = $"Getting message Id {MessageID}";
+                cJLRMessageAttributes _attributes = _message.Attributes;
+
+                //
+                _stage = "Preparing SP";
+                using (var _sp = new SP(Values.gDatos, "pJLRSequencesAdd"))
+                {
+                    //
+                    _stage = "Adding parameters to SP";
+                    _sp.AddParameterValue("@sessionID", pSessionID);
+                    _sp.AddParameterValue("@messageID", _message.MessageID);
+                    _sp.AddParameterValue("@orderNumber", _message.OrderNumber);
+                    _sp.AddParameterValue("@model", _message.Model);
+                    _sp.AddParameterValue("@TLS", _message.TLS);
+                    _sp.AddParameterValue("@status", _message.Status);
+                    _sp.AddParameterValue("@timeStamp", _message.TimeStamp);
+                    _sp.AddParameterValue("@attTLS", _attributes.TLS);
+                    _sp.AddParameterValue("@attTimeStamp", _attributes.TimeStamp);
+                    _sp.AddParameterValue("@attAssemblyTrack", _attributes.AssemblyTrack);
+                    _sp.AddParameterValue("@attDrive", _attributes.Drive);
+                    _sp.AddParameterValue("@attSendToMarket", _attributes.SendToMarket);
+                    _sp.AddParameterValue("@attBuildToMarket", _attributes.BuildToMarket);
+                    _sp.AddParameterValue("@attFullVIN", _attributes.FullVIN);
+                    _sp.AddParameterValue("@attLastLaunchTLS", _attributes.LastLaunchTLS);
+                    _sp.AddParameterValue("@attColour", _attributes.Colour);
+                    _sp.AddParameterValue("@attModel", _attributes.Model);
+                    _sp.AddParameterValue("@attModelYear", _attributes.ModelYear);
+                    _sp.AddParameterValue("@attBSN", _attributes.BSN);
+                    _sp.AddParameterValue("@attVFifoQty", _attributes.VFifoQty);
+                    _sp.AddParameterValue("@attShortVIN", _attributes.ShortVIN);
+                    _sp.AddParameterValue("@attEECVINPrefix", _attributes.EECVINPrefix);
+                    _sp.AddParameterValue("@service", Values.Service);
+                    _sp.AddParameterValue("@cod3", Values.COD3);
+
+                    //
+                    _stage = "Executing SP";
+                        _sp.Execute();
+
+                    //
+                    _stage = "Checking SP results";
+                    if (_sp.LastMsg.Substring(0, 2) != "OK")
+                        throw new Exception($"{_sp.LastMsg}");
+
+                    //
+                    _stage = "Setting new session ID";
+                    if (String.IsNullOrEmpty(pSessionID))
+                        pSessionID = _sp.LastMsg.Substring(3);
+
+                    //
+                    _stage = $"Removing message ID {MessageID}";
+                    Messages.Remove(MessageID);
+                }
+            }
+            catch(Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
+            return true;
         }
     }
 }

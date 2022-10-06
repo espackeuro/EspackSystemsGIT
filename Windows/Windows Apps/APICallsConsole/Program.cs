@@ -38,6 +38,7 @@ namespace APICallsConsole
         public static cAccesoDatosNet gDatos = new cAccesoDatosNet();
         public static string LabelPrinterAddress = "";
         public static string COD3 = "NIT";
+        public static string Service = "TENUK";
         public static string ProjectName = "Web API Communications";
     }
 }
