@@ -328,7 +328,6 @@ namespace APICallsConsole
                 //
                 _stage = "Stopping pending timer";
                 tmrProcessPending.Stop();
-
             }
             catch (Exception ex)
             {
@@ -390,6 +389,7 @@ namespace APICallsConsole
                 {
                     _stage = "Starting pending timer";
                     StartPendingTimer();
+                    btnConnect.Enabled = true;
                 }
             }
             catch (Exception ex)
