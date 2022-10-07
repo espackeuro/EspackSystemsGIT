@@ -159,7 +159,7 @@ namespace AutomaticProcesses
                     throw new Exception("Unknown error!");
 
                 //
-                if (FileName.ToUpper().Contains("{FIELD:"))
+                if ((FileName ?? "").ToUpper().Contains("{FIELD:"))
                 {
                     int _pos = FileName.IndexOf("{FIELD:");
                     _skipField = FileName.Substring(_pos + 7, FileName.IndexOf("}", _pos + 7) - _pos - 7);
