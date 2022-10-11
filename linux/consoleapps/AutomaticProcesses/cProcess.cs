@@ -630,7 +630,7 @@ namespace AutomaticProcesses
                         Contents = !String.IsNullOrEmpty(Contents) ? (String.IsNullOrEmpty(FileName)?Contents: "<html><body><b>Message sent automatically.</b><br><i>Mensaje enviado automáticamente.</i></body></html>") : $"<html><body>{(!String.IsNullOrEmpty(EmptyMessage) ? EmptyMessage : "<b>No results found.</b><br><i>No se encontraron resultados.</i>")}</body></html>";
 
                         // This is to implement a feature to add the values from parameters in the subject at runtime
-                        _subject = (!String.IsNullOrEmpty(Title) ? Title : $"Process QUERY {QueryNumber}"); ;
+                        _subject = (!String.IsNullOrEmpty(Title) ? Title : $"Process QUERY {QueryNumber}");
                         if (_subject.Contains("?"))
                         {
                             _stage = "Replacing arguments in subject";
