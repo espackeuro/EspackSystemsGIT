@@ -165,7 +165,7 @@ namespace APICallsConsole
 
                 // Add the results of the query to the DataGrid            
                 //select * from JLRSequences where xfec>dateadd(hour,-8,getdate()) order by xfec desc
-                using (var _rs = new StaticRS($"select * from JLRSequences", Values.gDatos))
+                using (var _rs = new StaticRS($"select * from JLRTLSData where xfec>dateadd(hour,-8,getdate()) order by xfec desc", Values.gDatos))
                 {
                     _rs.Open();
                     dgvLastProcessedMessages.DataSource = _rs.DataObject;
@@ -424,6 +424,7 @@ namespace APICallsConsole
                     //
                     _stage = $"Remove pending Message ID {_minMessageID} from data grid view";
                     dgvPendingMessages.Rows.Remove(_row);
+                    lblPendingMessages.Text = $"Pending messages ({dgvPendingMessages.Rows.Count})";
 
                     //
                     _stage = "Refresing processed grid";
