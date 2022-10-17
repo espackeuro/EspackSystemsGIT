@@ -142,7 +142,7 @@ public class ExchangeAttachments : IDisposable
         return _attachmentFound;
     }
 
-    public bool SendEmail(string sendTo, string subject=null,string body=null,string filePath=null)
+    public bool SendEmail(string sendTo, string subject=null,string body=null,string fileName=null, string filePath=null)
     {
         string _stage = "";
 
@@ -166,7 +166,7 @@ public class ExchangeAttachments : IDisposable
                 EmailMessage _message = new EmailMessage(pExchange);
                 _message.Subject = subject;
                 _message.Body = body;
-                if (filePath != null) _message.Attachments.AddFileAttachment(filePath);
+                if (filePath != null) _message.Attachments.AddFileAttachment(fileName, filePath);
                 foreach (string _sendTo in sendTo.Split(","))
                 {
                     _message.ToRecipients.Add(_sendTo.Trim());

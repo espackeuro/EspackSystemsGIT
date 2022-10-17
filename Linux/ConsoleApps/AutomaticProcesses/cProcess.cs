@@ -33,6 +33,7 @@ namespace AutomaticProcesses
         public int? FontSize;
         public bool NoBand, Error, NoEmpty, MailSkipped, NoExecutionDate;
         public Dictionary<int, Dictionary<string, string>> Results = null;
+        private string FilePath;
         
         private Dictionary<int, string> Args;
 
@@ -209,7 +210,7 @@ namespace AutomaticProcesses
                 if (FileType == cMiscFunctions.eFileType.XLS || FileType == cMiscFunctions.eFileType.PDF || FileType == cMiscFunctions.eFileType.TXT)
                 {
                     _stage = $"Converting data to {FileType} file";
-                    FileName = ToFile();
+                    FilePath = ToFile();
                 }
 
             }
@@ -269,7 +270,7 @@ namespace AutomaticProcesses
                     if (!FileName.ToUpper().EndsWith($".{FileType}"))
                         FileName += $".{FileType.ToString().ToLower()}";
                 }
-                _fullFilePath = $"{_filePath}{FileName}";
+                _fullFilePath = $"{_filePath}{DateTime.Now.ToString("yyyyMMddHHmmss")}_{FileName}";
                 if (File.Exists(_fullFilePath))
                 {
                     //
@@ -646,7 +647,7 @@ namespace AutomaticProcesses
                         if (!String.IsNullOrEmpty(MailTo) || Error)
                         {
                             _stage = "Sending email";
-                            if (!_email.SendEmail(Error ? MailErrorTo : MailTo, _subject, Contents, FileName))
+                            if (!_email.SendEmail(Error ? MailErrorTo : MailTo, _subject, Contents, FileName, FilePath))
                                 throw new Exception("Could not send the email");
                         }
 
@@ -663,7 +664,17 @@ namespace AutomaticProcesses
                         MailSkipped = true;
                     }
                 }
+                try
+                {
+                    //
+                    _stage = $"Deleting tmp file {FilePath}";
+                    if (!String.IsNullOrEmpty(FileName))
+                        File.Delete(FilePath);
+                }
+                catch
+                {
 
+                }
             }
             catch (Exception ex)
             {
