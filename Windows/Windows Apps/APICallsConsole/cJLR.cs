@@ -336,6 +336,10 @@ namespace APICallsConsole
                 //
                 _stage = $"Acknowledging message {lastMessageID}";
                 Client.AcknowledgeLastMessageReceived(APIKey, lastMessageID);
+
+                //
+                _stage = $"Updating ACK for message {lastMessageID}";
+                Acknowledge(lastMessageID);
                 
                 ////
                 //_stage = "Disconnecting";
@@ -426,26 +430,62 @@ namespace APICallsConsole
             }
         }
 
-        public bool Save(string MessageID)
+        private void Acknowledge(string MessageID)
         {
-            string _stage = "";
+            string _stage = "", _spName = "pJLRTLSAcknowledge";
 
             try
             {
                 //
-                _stage = $"Getting message Id {MessageID}";
+                _stage = $"Getting message by Id {MessageID}";
                 cJLRMessage _message = Messages[MessageID];
 
                 //
-                _stage = $"Getting message Id {MessageID}";
+                _stage = $"Preparing SP {_spName}";
+                using (var _sp = new SP(Values.gDatos, _spName))
+                {
+                    //
+                    _stage = $"Adding parameters to SP {_spName}";
+                    _sp.AddParameterValue("@messageID", _message.MessageID);
+                    _sp.AddParameterValue("@cod3", Values.COD3);
+
+                    //
+                    _stage = $"Executing SP {_spName}";
+                    _sp.Execute();
+
+                    //
+                    _stage = $"Checking SP {_spName} results";
+                    if (_sp.LastMsg.Substring(0, 2) != "OK")
+                        throw new Exception($"{_sp.LastMsg}");
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+            }
+        }
+
+        public bool Save(string MessageID)
+        {
+            string _stage = "", _spName = "pJLRTLSDataAdd";
+
+            try
+            {
+                //
+                _stage = $"Getting message by Id {MessageID}";
+                cJLRMessage _message = Messages[MessageID];
+
+                //
+                _stage = $"Getting message {MessageID} attributes";
                 cJLRMessageAttributes _attributes = _message.Attributes;
 
                 //
-                _stage = "Preparing SP";
-                using (var _sp = new SP(Values.gDatos, "pJLRTLSDataAdd"))
+                _stage = $"Preparing SP {_spName}";
+                using (var _sp = new SP(Values.gDatos, _spName))
                 {
                     //
-                    _stage = "Adding parameters to SP";
+                    _stage = $"Adding parameters to SP {_spName}";
                     _sp.AddParameterValue("@sessionID", pSessionID);
                     _sp.AddParameterValue("@messageID", _message.MessageID);
                     _sp.AddParameterValue("@orderNumber", _message.OrderNumber);
@@ -468,15 +508,14 @@ namespace APICallsConsole
                     _sp.AddParameterValue("@attVFifoQty", _attributes.VFifoQty);
                     _sp.AddParameterValue("@attShortVIN", _attributes.ShortVIN);
                     _sp.AddParameterValue("@attEECVINPrefix", _attributes.EECVINPrefix);
-                    _sp.AddParameterValue("@service", Values.Service);
                     _sp.AddParameterValue("@cod3", Values.COD3);
 
                     //
-                    _stage = "Executing SP";
-                        _sp.Execute();
+                    _stage = $"Executing SP {_spName}";
+                    _sp.Execute();
 
                     //
-                    _stage = "Checking SP results";
+                    _stage = $"Checking SP {_spName} results";
                     if (_sp.LastMsg.Substring(0, 2) != "OK")
                         throw new Exception($"{_sp.LastMsg}");
 
@@ -488,6 +527,7 @@ namespace APICallsConsole
                     //
                     _stage = $"Removing message ID {MessageID}";
                     Messages.Remove(MessageID);
+
                 }
             }
             catch(Exception ex)

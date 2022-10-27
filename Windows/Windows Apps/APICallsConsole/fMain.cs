@@ -378,7 +378,7 @@ namespace APICallsConsole
                         //
                         _stage = "Processing message";
                         ProcessMessage();
-
+                        
                         //
                         _stage = "Starting process timer";
                         StartProcessTimer();
@@ -420,6 +420,7 @@ namespace APICallsConsole
                     //
                     _stage = $"Ackownledging MessageID {_minMessageID}";
                     AcknownledgeMessageID(_minMessageID.ToString());
+
 
                     //
                     _stage = $"Remove pending Message ID {_minMessageID} from data grid view";
