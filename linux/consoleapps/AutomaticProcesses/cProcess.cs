@@ -33,7 +33,7 @@ namespace AutomaticProcesses
         public int? FontSize;
         public bool NoBand, Error, NoEmpty, MailSkipped, NoExecutionDate;
         public Dictionary<int, Dictionary<string, string>> Results = null;
-        private string FilePath;
+        public string FilePath;
         
         private Dictionary<int, string> Args;
 
@@ -216,23 +216,7 @@ namespace AutomaticProcesses
             }
             catch (Exception ex)
             {
-                //Console.WriteLine($"[cProcess#Process] {QueryNumber}/{ArgsString}: {ex.Message}");
-                ErrorMessage = $"[cProcess#Process] {ex.Message}";
-                Console.WriteLine(ErrorMessage);
-
-                // Prepare the _result message for the email.
-                string _processQueryParams = String.IsNullOrEmpty(ArgsString) ? "NONE" : ArgsString;
-                string _processQuery = (QueryNumber == null) ? "NONE" : QueryNumber.ToString();
-
-                // Match the last occurrence of [xxx#xxx] to ensure it's part of our error message, not part of the system error. This is to show the error message in bold.
-                Match _match = Regex.Match(ErrorMessage, @"\[([^\[]*)#([^\[]*)\]", RegexOptions.RightToLeft);
-                int _i = _match.Index + _match.Length;
-
-                // Set to bold the error message, ignoring all the "call stack" string, and prepare the html code.
-                Contents = ErrorMessage.Substring(0, _i) + "<ul><strong>" + ErrorMessage.Substring(_i + 1);
-                Contents = $"<html><body>Query: {_processQuery}<br>Params: {_processQueryParams}<br>Error:<br>" + Contents.Replace("] ", "]<ul>") + "</strong></body></html>";
-
-                //
+                PrepareErrorMessage(ex.Message);
                 Error = true;
             }
             return;
@@ -311,6 +295,8 @@ namespace AutomaticProcesses
             }
             catch (Exception ex)
             {
+                PrepareErrorMessage($"[cProcess/ToFile#{_stage}] {ex.Message}.");
+                Error = true;
                 throw new Exception($"[cProcess/ToFile#{_stage}] {ex.Message}.");
             }
         }
@@ -609,7 +595,7 @@ namespace AutomaticProcesses
                 //  - Or there are no results, but _noEmpty is false
                 if (ConnDetailsMail != null && !String.IsNullOrEmpty(ConnDetailsMail.Server) && !String.IsNullOrEmpty(ConnDetailsMail.User) && !String.IsNullOrEmpty(ConnDetailsMail.Password))
                 {
-                    if (!NoSend)
+                    if (!NoSend || Error)
                     {
 
                         // Send errors to informatica
@@ -617,6 +603,7 @@ namespace AutomaticProcesses
                         {
                             Title = "ERROR on " + (!String.IsNullOrEmpty(Title) ? Title : $" process QUERY {QueryNumber}");
                             FileName = null;
+                            FilePath = null;
                         }
 
                         //
@@ -664,17 +651,7 @@ namespace AutomaticProcesses
                         MailSkipped = true;
                     }
                 }
-                try
-                {
-                    //
-                    _stage = $"Deleting tmp file {FilePath}";
-                    if (!String.IsNullOrEmpty(FileName))
-                        File.Delete(FilePath);
-                }
-                catch
-                {
 
-                }
             }
             catch (Exception ex)
             {
@@ -691,13 +668,35 @@ namespace AutomaticProcesses
             {
                 _stage = "Copying file ";
                 Console.Write($"> Copying {FileName} to {_destination}... ");
-                File.Copy(FileName, _destination, true);
+                File.Copy(FilePath, _destination, true);
                 Console.WriteLine("OK!");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[cProcess/DoCopy#{_stage}] {ex.Message}.");
+                //Console.WriteLine($"[cProcess/DoCopy#{_stage}] {ex.Message}.");
+                PrepareErrorMessage($"[cProcess/DoCopy#{_stage}] {ex.Message}.");
+                Error = true;
+                throw new Exception($"[cProcess/DoCopy#{_stage}] {ex.Message}");
             }
+        }
+
+        private void PrepareErrorMessage(string ErrorMessage)
+        {
+            //Console.WriteLine($"[cProcess#Process] {QueryNumber}/{ArgsString}: {ex.Message}");
+            ErrorMessage = $"[cProcess#Process] {ErrorMessage}";
+            Console.WriteLine(ErrorMessage);
+
+            // Prepare the _result message for the email.
+            string _processQueryParams = String.IsNullOrEmpty(ArgsString) ? "NONE" : ArgsString;
+            string _processQuery = (QueryNumber == null) ? "NONE" : QueryNumber.ToString();
+
+            // Match the last occurrence of [xxx#xxx] to ensure it's part of our error message, not part of the system error. This is to show the error message in bold.
+            Match _match = Regex.Match(ErrorMessage, @"\[([^\[]*)#([^\[]*)\]", RegexOptions.RightToLeft);
+            int _i = _match.Index + _match.Length;
+
+            // Set to bold the error message, ignoring all the "call stack" string, and prepare the html code.
+            Contents = ErrorMessage.Substring(0, _i) + "<ul><strong>" + ErrorMessage.Substring(_i + 1);
+            Contents = $"<html><body>Query: {_processQuery}<br>Params: {_processQueryParams}<br>Error:<br>" + Contents.Replace("] ", "]<ul>") + "</strong></body></html>";
         }
     }
 }
