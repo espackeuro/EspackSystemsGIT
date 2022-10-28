@@ -185,6 +185,8 @@ namespace AutomaticProcesses
                             break;
                         case "COPYTO":
                             _copyTo = _currentArgValue;
+                            if (_copyTo.Substring(_copyTo.Length - 1, 1) == "\"")
+                                _copyTo = _copyTo.Substring(0, _copyTo.Length - 1) + "\\";
                             break;
 
                         default:
@@ -322,14 +324,26 @@ namespace AutomaticProcesses
                     _finished = await Task.WhenAny(taskList);
 
                     //
+                    _stage = "Copying file";
+                    if (!String.IsNullOrEmpty(processList[_finished.Id].CopyTo))
+                        processList[_finished.Id].DoCopy();
+
+                    //
                     _stage = "Sending email";
                     if (!processList[_finished.Id].NoSend)
                         processList[_finished.Id].SendEmail();
 
-                    //
-                    _stage = "Copying file";
-                    if (!String.IsNullOrEmpty(processList[_finished.Id].CopyTo))
-                        processList[_finished.Id].DoCopy();
+                    try
+                    {
+                        //
+                        _stage = $"Deleting tmp file {processList[_finished.Id].FileName}";
+                        if (!String.IsNullOrEmpty(processList[_finished.Id].FileName))
+                            File.Delete(processList[_finished.Id].FilePath);
+                    }
+                    catch
+                    {
+
+                    }
 
                     //
                     _stage = "Removing task";
@@ -338,9 +352,12 @@ namespace AutomaticProcesses
                 }
                 catch(Exception e)
                 {
-                    if (_finished!=null)
-                        if (!processList[_finished.Id].NoSend)
-                            processList[_finished.Id].SendEmail();
+                    if (_finished != null)
+                    {
+                        //if (!processList[_finished.Id].NoSend)
+                        processList[_finished.Id].SendEmail();
+                        taskList.Remove(_finished);
+                    }
                 }
             }
         }
