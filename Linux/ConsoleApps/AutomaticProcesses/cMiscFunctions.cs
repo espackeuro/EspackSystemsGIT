@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace AutomaticProcesses
 {
@@ -11,15 +12,15 @@ namespace AutomaticProcesses
         
         static string Service = "";
 
-#if DEBUG
-        private static bool pDebug = true;
-#else
-        private static bool pDebug = false;
-#endif
-
         public static string PathSeparator()
         {
-            return pDebug ? "\\" : "/";
+            //return pDebug ? "\\" : "/";
+            return RunningOnLinux() ? "\\" : "/";
+        }
+
+        public static bool RunningOnLinux()
+        {
+            return RuntimeInformation.IsOSPlatform(OSPlatform.Linux);
         }
 
         public static string DefaultValues(string Value) //valores_defecto($valor)

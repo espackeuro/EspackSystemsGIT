@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using ConsoleTools;
 
@@ -15,19 +16,32 @@ namespace ExchangeTools
         //    public static string Extension = "csv";
         //}
 
-        private static bool pDebug;
+        //private static bool pDebug;
+
+        public static string PathSeparator()
+        {
+            return RunningOnLinux() ? "\\" : "/";
+        }
+
+        public static bool RunningOnLinux()
+        {
+            return RuntimeInformation.IsOSPlatform(OSPlatform.Linux);
+        }
 
         static void Main(string[] args)
         {
+            /*
 #if DEBUG
             pDebug = true;
 #else
             pDebug = false;
 #endif
+            */
             string _stage;
             string _currentArgName, _currentArgValue;
             string _user = "", _password = "", _path = "", _subject = "", _filefilter = "", _sender = "", _reportTo = "";
-            string _separator = pDebug ? "\\" : "/";
+            //string _separator = pDebug ? "\\" : "/";
+            string _separator = PathSeparator();
 
             // Args
             _stage = "Checking args";
