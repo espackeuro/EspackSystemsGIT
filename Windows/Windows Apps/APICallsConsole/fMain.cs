@@ -45,7 +45,7 @@ namespace APICallsConsole
             }
             Values.gDatos.Close();
             //API = new cJLRComm("https://motersuppliermsgqa.jlrext.com/SupplierBroadCast", "ESPACK", "Jag@2022", "2c50fb8f-787f-4b56-b510-2767703aef1c");
-            API = new cJLRComm("https://motersuppliermsgqa.jlrext.com/SupplierBroadCast?wsdl", "ESPACK", "Jag@2022", "0570e3a1-0a2a-4513-a69f-55fc7ee392ae");
+            API = new cJLRComm("https://motersuppliermsg.jlrext.com/SupplierBroadCast", "ESPACK", "Jag@2022", "0570e3a1-0a2a-4513-a69f-55fc7ee392ae");
         }
 
         private void RefreshMessages()
