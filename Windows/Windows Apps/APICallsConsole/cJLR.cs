@@ -160,10 +160,10 @@ namespace APICallsConsole
     {
 
         // Private properties
-        private string pServiceURL; //= "https://motersuppliermsgqa.jlrext.com/SupplierBroadCast";
-        private string pUser; //="ESPACK";
-        private string pPassword;// = "Jag@2022";
-        private string pAPIKey; // = "2c50fb8f-787f-4b56-b510-2767703aef1c"; //"c7a4284c-2ddf-4b07-ab6a-b489fa8ba1d5";
+        private string pServiceURL;
+        private string pUser;
+        private string pPassword;
+        private string pAPIKey;
         private string pSessionID;
 
         // Public read only access
