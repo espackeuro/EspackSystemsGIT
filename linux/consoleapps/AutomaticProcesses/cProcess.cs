@@ -74,7 +74,7 @@ namespace AutomaticProcesses
             {
                 //
                 _stage = "Checkings";
-                if (args.Count != queryParams.Count)
+                if (args.Count != queryParams.Count && args.Count != 0)
                     throw new Exception($"Number of args ({args.Count}) differ the number of parameters ({queryParams.Count})");
 
                 //
@@ -82,7 +82,7 @@ namespace AutomaticProcesses
                 _count = 1;
                 foreach (var _a in queryParams)
                 {
-                    sql = sql.Replace($"?{_count}", args[_count]);
+                    sql = sql.Replace($"?{_count}", args.Count != 0 ? args[_count] : "");
                     _count++;
                 }
 
