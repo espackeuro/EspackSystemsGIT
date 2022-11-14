@@ -438,7 +438,7 @@ namespace APICallsConsole
             {
                 //
                 _stage = $"Getting message by Id {MessageID}";
-                cJLRMessage _message = Messages[MessageID];
+                //cJLRMessage _message = Messages[MessageID];
 
                 //
                 _stage = $"Preparing SP {_spName}";
@@ -446,7 +446,7 @@ namespace APICallsConsole
                 {
                     //
                     _stage = $"Adding parameters to SP {_spName}";
-                    _sp.AddParameterValue("@messageID", _message.MessageID);
+                    _sp.AddParameterValue("@messageID", MessageID);
                     _sp.AddParameterValue("@cod3", Values.COD3);
 
                     //

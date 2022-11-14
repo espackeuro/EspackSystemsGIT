@@ -420,7 +420,7 @@ namespace APICallsConsole
                 {
                     //
                     _stage = $"Ackownledging MessageID {_minMessageID}";
-                    //AcknownledgeMessageID(_minMessageID.ToString());
+                    AcknownledgeMessageID(_minMessageID.ToString());
 
 
                     //
