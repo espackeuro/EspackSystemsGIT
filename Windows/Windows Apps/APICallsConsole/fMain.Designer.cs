@@ -139,7 +139,7 @@ namespace APICallsConsole
             // 
             // tmrProcessPending
             // 
-            this.tmrProcessPending.Interval = 1000;
+            this.tmrProcessPending.Interval = 500;
             this.tmrProcessPending.Tick += new System.EventHandler(this.tmrProcessPending_Tick);
             // 
             // fMain
