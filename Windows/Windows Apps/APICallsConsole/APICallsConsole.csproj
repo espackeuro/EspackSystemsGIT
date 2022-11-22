@@ -54,6 +54,9 @@
   <PropertyGroup>
     <StartupObject>APICallsConsole.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>3079030.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EspackDataGridViewControl">
       <HintPath>..\EspackDataGridViewControl\obj\Debug\EspackDataGridViewControl.dll</HintPath>
@@ -147,6 +150,9 @@
       <Project>{5DA9CB0B-9007-40F1-8086-1B0303D8271F}</Project>
       <Name>cAccesoDatos</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="3079030.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
