@@ -30,6 +30,7 @@ namespace APICallsConsole
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMain));
             this.btnConnect = new System.Windows.Forms.Button();
             this.txtLastMessageID = new System.Windows.Forms.TextBox();
             this.btnACK = new System.Windows.Forms.Button();
@@ -46,7 +47,7 @@ namespace APICallsConsole
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(1820, 863);
+            this.btnConnect.Location = new System.Drawing.Point(1246, 853);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(137, 48);
             this.btnConnect.TabIndex = 0;
@@ -56,14 +57,14 @@ namespace APICallsConsole
             // 
             // txtLastMessageID
             // 
-            this.txtLastMessageID.Location = new System.Drawing.Point(1534, 876);
+            this.txtLastMessageID.Location = new System.Drawing.Point(960, 866);
             this.txtLastMessageID.Name = "txtLastMessageID";
             this.txtLastMessageID.Size = new System.Drawing.Size(137, 22);
             this.txtLastMessageID.TabIndex = 2;
             // 
             // btnACK
             // 
-            this.btnACK.Location = new System.Drawing.Point(1677, 863);
+            this.btnACK.Location = new System.Drawing.Point(1103, 853);
             this.btnACK.Name = "btnACK";
             this.btnACK.Size = new System.Drawing.Size(137, 48);
             this.btnACK.TabIndex = 3;
@@ -91,7 +92,7 @@ namespace APICallsConsole
             this.dgvPendingMessages.RowHeadersWidth = 51;
             this.dgvPendingMessages.RowTemplate.Height = 24;
             this.dgvPendingMessages.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPendingMessages.Size = new System.Drawing.Size(1945, 395);
+            this.dgvPendingMessages.Size = new System.Drawing.Size(1370, 395);
             this.dgvPendingMessages.TabIndex = 5;
             // 
             // lblPendingMessages
@@ -126,7 +127,7 @@ namespace APICallsConsole
             this.dgvLastProcessedMessages.RowHeadersWidth = 51;
             this.dgvLastProcessedMessages.RowTemplate.Height = 24;
             this.dgvLastProcessedMessages.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLastProcessedMessages.Size = new System.Drawing.Size(1945, 395);
+            this.dgvLastProcessedMessages.Size = new System.Drawing.Size(1370, 395);
             this.dgvLastProcessedMessages.TabIndex = 9;
             // 
             // lblAutoRefreshCounter
@@ -146,7 +147,7 @@ namespace APICallsConsole
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1973, 921);
+            this.ClientSize = new System.Drawing.Size(1394, 921);
             this.Controls.Add(this.lblAutoRefreshCounter);
             this.Controls.Add(this.dgvLastProcessedMessages);
             this.Controls.Add(this.lblLastProcessedMessages);
@@ -155,8 +156,9 @@ namespace APICallsConsole
             this.Controls.Add(this.btnACK);
             this.Controls.Add(this.txtLastMessageID);
             this.Controls.Add(this.btnConnect);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fMain";
-            this.Text = "Form1";
+            this.Text = "JLR API Sequencing";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPendingMessages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLastProcessedMessages)).EndInit();
             this.ResumeLayout(false);
