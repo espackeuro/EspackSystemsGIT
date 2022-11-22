@@ -70,19 +70,26 @@ namespace APICallsConsole
                 _stage = "Getting new messages";
                 if (API.GetMessages())
                 {
-                    
-                    FillProcessedMessages();
+                    //
+                    _stage = "Checking API messages";
                     if (API.Messages.Count == 0)
                     {
+                        //
+                        _stage = "Disconnecting from Web API";
                         API.Disconect();
                         StartPendingTimer();
                     }
                     else
                     {
+                        //
+                        _stage = "Filling pending messages grid";
                         FillPendingMessages();
                         StartProcessTimer();
                     }
                 }
+                //
+                _stage = "Filling processed messages grid";
+                FillProcessedMessages();
             }
             catch (Exception ex)
             {
