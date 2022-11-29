@@ -36,11 +36,12 @@ namespace PostMan
                 switch (_pureFileName.Substring(_pureFileName.IndexOf("_") + 1,_pureFileName.IndexOf(".")- _pureFileName.IndexOf("_")-1))
                 {
                     case "DEDMB":
+                    case "AB3CA":
                         _carrier = "TW";
                         break;
-                    case "AB3CA":
-                        _carrier = "ND";
-                        break;
+                    //case "AB3CA":
+                    //    _carrier = "ND";
+                    //    break;
                     case "V9":
                         _carrier = "V9";
                         break;
