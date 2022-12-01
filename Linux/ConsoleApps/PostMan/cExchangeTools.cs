@@ -38,7 +38,7 @@ public class ExchangeAttachments : IDisposable
     }
     public bool Connect(string userEmail, string passwordEmail, string server)
     {
-        return Connect(new cCredentials(userEmail, passwordEmail, server, ""));
+        return Connect(new cCredentials(server, userEmail, passwordEmail, ""));
     }
 
 
