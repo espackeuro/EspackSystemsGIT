@@ -93,7 +93,8 @@ namespace APICallsConsole
             }
             catch (Exception ex)
             {
-                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+                AddError($"{this.GetType().Name}/{ System.Reflection.MethodBase.GetCurrentMethod().Name}", _stage, ex.Message);
+                //throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
             }
             finally
             {
@@ -162,7 +163,8 @@ namespace APICallsConsole
             }
             catch (Exception ex)
             {
-                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+                AddError($"{this.GetType().Name}/{ System.Reflection.MethodBase.GetCurrentMethod().Name}", _stage, ex.Message);
+                //throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
             }
         }
 
@@ -193,7 +195,8 @@ namespace APICallsConsole
             }
             catch (Exception ex)
             {
-                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+                //throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+                AddError($"{this.GetType().Name}/{ System.Reflection.MethodBase.GetCurrentMethod().Name}", _stage, ex.Message);
             }
         }
 
@@ -230,6 +233,7 @@ namespace APICallsConsole
             }
             catch (Exception ex)
             {
+                //AddError($"{this.GetType().Name}/{ System.Reflection.MethodBase.GetCurrentMethod().Name}", _stage, ex.Message);
                 throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
             }
         }
@@ -252,7 +256,8 @@ namespace APICallsConsole
             }
             catch (Exception ex)
             {
-                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+                AddError($"{this.GetType().Name}/{ System.Reflection.MethodBase.GetCurrentMethod().Name}", _stage, ex.Message);
+                //throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
             }
         }
 
@@ -280,8 +285,10 @@ namespace APICallsConsole
             }
             catch(Exception ex)
             {
-                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+                AddError($"{this.GetType().Name}/{ System.Reflection.MethodBase.GetCurrentMethod().Name}", _stage, ex.Message);
+                //throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
             }
+            //AddError($"{this.GetType().Name}/{ System.Reflection.MethodBase.GetCurrentMethod().Name}", _stage,"TEST");
         }
 
         private void StopPendingTimer()
@@ -302,7 +309,8 @@ namespace APICallsConsole
             }
             catch (Exception ex)
             {
-                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+                AddError($"{this.GetType().Name}/{ System.Reflection.MethodBase.GetCurrentMethod().Name}", _stage, ex.Message);
+                //throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
             }
         }
 
@@ -324,7 +332,8 @@ namespace APICallsConsole
             }
             catch (Exception ex)
             {
-                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+                AddError($"{this.GetType().Name}/{ System.Reflection.MethodBase.GetCurrentMethod().Name}", _stage, ex.Message);
+                //throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
             }
         }
 
@@ -345,7 +354,8 @@ namespace APICallsConsole
             }
             catch (Exception ex)
             {
-                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+                AddError($"{this.GetType().Name}/{ System.Reflection.MethodBase.GetCurrentMethod().Name}", _stage, ex.Message);
+                //throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
             }
         }
 
@@ -369,7 +379,8 @@ namespace APICallsConsole
             }
             catch (Exception ex)
             {
-                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+                AddError($"{this.GetType().Name}/{ System.Reflection.MethodBase.GetCurrentMethod().Name}", _stage, ex.Message);
+                //throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
             }
         }
 
@@ -410,7 +421,8 @@ namespace APICallsConsole
             }
             catch (Exception ex)
             {
-                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+                AddError($"{this.GetType().Name}/{ System.Reflection.MethodBase.GetCurrentMethod().Name}", _stage, ex.Message);
+                //throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
             }
         }
 
@@ -452,9 +464,16 @@ namespace APICallsConsole
             }
             catch(Exception ex)
             {
-                throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
+                AddError($"{this.GetType().Name}/{ System.Reflection.MethodBase.GetCurrentMethod().Name}", _stage, ex.Message);
+                //throw new Exception($"[{this.GetType().Name}/{System.Reflection.MethodBase.GetCurrentMethod().Name}#{_stage}] {ex.Message}");
             }
 
+        }
+
+        private void AddError(string origin, string stage, string message)
+        {
+            // Insert row at first position always
+            dgvErrors.Rows.Insert(0, DateTime.Now.ToString(), origin, stage, message);
         }
     }
 

@@ -41,13 +41,20 @@ namespace APICallsConsole
             this.dgvLastProcessedMessages = new System.Windows.Forms.DataGridView();
             this.lblAutoRefreshCounter = new System.Windows.Forms.Label();
             this.tmrProcessPending = new System.Windows.Forms.Timer(this.components);
+            this.dgvErrors = new System.Windows.Forms.DataGridView();
+            this.lblErrors = new System.Windows.Forms.Label();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Origin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Message = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPendingMessages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLastProcessedMessages)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvErrors)).BeginInit();
             this.SuspendLayout();
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(1246, 853);
+            this.btnConnect.Location = new System.Drawing.Point(1245, 893);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(137, 48);
             this.btnConnect.TabIndex = 0;
@@ -57,14 +64,14 @@ namespace APICallsConsole
             // 
             // txtLastMessageID
             // 
-            this.txtLastMessageID.Location = new System.Drawing.Point(960, 866);
+            this.txtLastMessageID.Location = new System.Drawing.Point(959, 906);
             this.txtLastMessageID.Name = "txtLastMessageID";
             this.txtLastMessageID.Size = new System.Drawing.Size(137, 22);
             this.txtLastMessageID.TabIndex = 2;
             // 
             // btnACK
             // 
-            this.btnACK.Location = new System.Drawing.Point(1103, 853);
+            this.btnACK.Location = new System.Drawing.Point(1102, 893);
             this.btnACK.Name = "btnACK";
             this.btnACK.Size = new System.Drawing.Size(137, 48);
             this.btnACK.TabIndex = 3;
@@ -92,13 +99,13 @@ namespace APICallsConsole
             this.dgvPendingMessages.RowHeadersWidth = 51;
             this.dgvPendingMessages.RowTemplate.Height = 24;
             this.dgvPendingMessages.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPendingMessages.Size = new System.Drawing.Size(1370, 395);
+            this.dgvPendingMessages.Size = new System.Drawing.Size(1370, 306);
             this.dgvPendingMessages.TabIndex = 5;
             // 
             // lblPendingMessages
             // 
             this.lblPendingMessages.AutoSize = true;
-            this.lblPendingMessages.Location = new System.Drawing.Point(13, 13);
+            this.lblPendingMessages.Location = new System.Drawing.Point(9, 13);
             this.lblPendingMessages.Name = "lblPendingMessages";
             this.lblPendingMessages.Size = new System.Drawing.Size(128, 17);
             this.lblPendingMessages.TabIndex = 6;
@@ -107,7 +114,7 @@ namespace APICallsConsole
             // lblLastProcessedMessages
             // 
             this.lblLastProcessedMessages.AutoSize = true;
-            this.lblLastProcessedMessages.Location = new System.Drawing.Point(9, 431);
+            this.lblLastProcessedMessages.Location = new System.Drawing.Point(9, 342);
             this.lblLastProcessedMessages.Name = "lblLastProcessedMessages";
             this.lblLastProcessedMessages.Size = new System.Drawing.Size(174, 17);
             this.lblLastProcessedMessages.TabIndex = 8;
@@ -120,14 +127,14 @@ namespace APICallsConsole
             this.dgvLastProcessedMessages.AllowUserToResizeRows = false;
             this.dgvLastProcessedMessages.ColumnHeadersHeight = 22;
             this.dgvLastProcessedMessages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvLastProcessedMessages.Location = new System.Drawing.Point(12, 452);
+            this.dgvLastProcessedMessages.Location = new System.Drawing.Point(12, 362);
             this.dgvLastProcessedMessages.Name = "dgvLastProcessedMessages";
             this.dgvLastProcessedMessages.ReadOnly = true;
             this.dgvLastProcessedMessages.RowHeadersVisible = false;
             this.dgvLastProcessedMessages.RowHeadersWidth = 51;
             this.dgvLastProcessedMessages.RowTemplate.Height = 24;
             this.dgvLastProcessedMessages.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLastProcessedMessages.Size = new System.Drawing.Size(1370, 395);
+            this.dgvLastProcessedMessages.Size = new System.Drawing.Size(1370, 331);
             this.dgvLastProcessedMessages.TabIndex = 9;
             // 
             // lblAutoRefreshCounter
@@ -143,11 +150,76 @@ namespace APICallsConsole
             this.tmrProcessPending.Interval = 500;
             this.tmrProcessPending.Tick += new System.EventHandler(this.tmrProcessPending_Tick);
             // 
+            // dgvErrors
+            // 
+            this.dgvErrors.AllowUserToAddRows = false;
+            this.dgvErrors.AllowUserToDeleteRows = false;
+            this.dgvErrors.AllowUserToResizeRows = false;
+            this.dgvErrors.ColumnHeadersHeight = 22;
+            this.dgvErrors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvErrors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Date,
+            this.Origin,
+            this.Stage,
+            this.Message});
+            this.dgvErrors.Location = new System.Drawing.Point(12, 716);
+            this.dgvErrors.Name = "dgvErrors";
+            this.dgvErrors.ReadOnly = true;
+            this.dgvErrors.RowHeadersVisible = false;
+            this.dgvErrors.RowHeadersWidth = 51;
+            this.dgvErrors.RowTemplate.Height = 24;
+            this.dgvErrors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvErrors.Size = new System.Drawing.Size(1370, 164);
+            this.dgvErrors.TabIndex = 11;
+            // 
+            // lblErrors
+            // 
+            this.lblErrors.AutoSize = true;
+            this.lblErrors.Location = new System.Drawing.Point(9, 696);
+            this.lblErrors.Name = "lblErrors";
+            this.lblErrors.Size = new System.Drawing.Size(47, 17);
+            this.lblErrors.TabIndex = 12;
+            this.lblErrors.Text = "Errors";
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "Date";
+            this.Date.MinimumWidth = 6;
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            this.Date.Width = 125;
+            // 
+            // Origin
+            // 
+            this.Origin.HeaderText = "Origin";
+            this.Origin.MinimumWidth = 6;
+            this.Origin.Name = "Origin";
+            this.Origin.ReadOnly = true;
+            this.Origin.Width = 250;
+            // 
+            // Stage
+            // 
+            this.Stage.HeaderText = "Stage";
+            this.Stage.MinimumWidth = 6;
+            this.Stage.Name = "Stage";
+            this.Stage.ReadOnly = true;
+            this.Stage.Width = 250;
+            // 
+            // Message
+            // 
+            this.Message.HeaderText = "Message";
+            this.Message.MinimumWidth = 6;
+            this.Message.Name = "Message";
+            this.Message.ReadOnly = true;
+            this.Message.Width = 768;
+            // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1394, 921);
+            this.ClientSize = new System.Drawing.Size(1394, 953);
+            this.Controls.Add(this.lblErrors);
+            this.Controls.Add(this.dgvErrors);
             this.Controls.Add(this.lblAutoRefreshCounter);
             this.Controls.Add(this.dgvLastProcessedMessages);
             this.Controls.Add(this.lblLastProcessedMessages);
@@ -161,6 +233,7 @@ namespace APICallsConsole
             this.Text = "JLR API Sequencing";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPendingMessages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLastProcessedMessages)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvErrors)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,5 +251,11 @@ namespace APICallsConsole
         private System.Windows.Forms.DataGridView dgvLastProcessedMessages;
         private System.Windows.Forms.Label lblAutoRefreshCounter;
         private System.Windows.Forms.Timer tmrProcessPending;
+        private System.Windows.Forms.DataGridView dgvErrors;
+        private System.Windows.Forms.Label lblErrors;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Origin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Stage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Message;
     }
 }
