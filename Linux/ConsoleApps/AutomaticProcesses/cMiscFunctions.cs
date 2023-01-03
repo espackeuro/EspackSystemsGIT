@@ -15,7 +15,7 @@ namespace AutomaticProcesses
         public static string PathSeparator()
         {
             //return pDebug ? "\\" : "/";
-            return RunningOnLinux() ? "\\" : "/";
+            return RunningOnLinux() ? "/" : "\\";
         }
 
         public static bool RunningOnLinux()
