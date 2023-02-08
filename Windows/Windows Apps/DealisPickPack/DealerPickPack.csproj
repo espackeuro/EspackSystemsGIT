@@ -58,10 +58,11 @@
     <ApplicationIcon>dpp - referrals.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>344534980385E12BEC2B3E39DEA30956C96F9A37</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>39FB2BC192C7592DF7570A8C6509E2D7B1421EFE</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>DealerPickPack_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
