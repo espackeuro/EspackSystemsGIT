@@ -295,15 +295,17 @@ namespace SFTPDownloadNS
                         Console.WriteLine($"  -> Download success: {ftpfile.Name}");
                         _count++;
 
+                        /*
                         if (archiveDir != null)
                         {
                             _stage = "Moving to archive folder";
                             string _archiveFile = archiveDir + ftpfile.Name;
 
-                            if (!pSFtp.Exists(_archiveFile))
+                            if (pSFtp.Exists(_archiveFile))
                                 if (!RemoteMove(sourceDir + ftpfile.Name, _archiveFile))
                                     Console.WriteLine($"Could not move to archive {_archiveFile}.");
                         }
+                        */
 
                         // In case there was no archive directory or the previous move command failed (because the target existed yet), we need to delete the source file to avoid duplicate
                         // next captures.
