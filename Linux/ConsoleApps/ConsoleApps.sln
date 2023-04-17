@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Postman", "PostMan\Postman.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTools", "ConsoleTools\ConsoleTools.csproj", "{242E323A-6DCC-478E-96B6-03C3FA51158E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SFTPDownload", "SFTP\Download\SFTPDownload.csproj", "{7DAC0346-190B-4BDF-9A91-0D6529AEB341}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SFTPUpload", "SFTP\Upload\SFTPUpload.csproj", "{3A22ADC4-5902-4EA6-B61C-9EA6EC65B4E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{242E323A-6DCC-478E-96B6-03C3FA51158E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{242E323A-6DCC-478E-96B6-03C3FA51158E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{242E323A-6DCC-478E-96B6-03C3FA51158E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DAC0346-190B-4BDF-9A91-0D6529AEB341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DAC0346-190B-4BDF-9A91-0D6529AEB341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DAC0346-190B-4BDF-9A91-0D6529AEB341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DAC0346-190B-4BDF-9A91-0D6529AEB341}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A22ADC4-5902-4EA6-B61C-9EA6EC65B4E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A22ADC4-5902-4EA6-B61C-9EA6EC65B4E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A22ADC4-5902-4EA6-B61C-9EA6EC65B4E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A22ADC4-5902-4EA6-B61C-9EA6EC65B4E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
