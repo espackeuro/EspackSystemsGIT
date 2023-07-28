@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Data.SqlClient;
+using System.Runtime.InteropServices;
 
 namespace SFTPDownloadNS
 {
@@ -60,6 +61,7 @@ namespace SFTPDownloadNS
                         _archiveKey = p.Key[0..^2] + "ARCHIVE";
                         try
                         {
+                            //Console.WriteLine($">>>> {p.Value}, {_settings["DROPFOLDER"]}, {(_settings.ContainsKey(_archiveKey) ? _settings[_archiveKey] : null)}");
                             _sftp.DownloadFolder(p.Value, _settings["DROPFOLDER"], _settings.ContainsKey(_archiveKey) ? _settings[_archiveKey] : null);
                         }
                         catch(Exception ex)
@@ -215,15 +217,17 @@ namespace SFTPDownloadNS
                 Settings = new Dictionary<string, string>();
                 Settings.Add("FTPSERVER", _settings.Where(p => p.Value["FLAGS"].Contains("|FTPSERVER|")).Select(p => p.Value["VALUE1"]).First());
                 Settings.Add("FTPUSER", _settings.Where(p => p.Value["FLAGS"].Contains("|FTPUSER|")).Select(p => p.Value["VALUE1"]).First());
-                Settings.Add("RSAKEY", _settings.Where(p => p.Value["FLAGS"].Contains(pDebug ? "|RSAKEY_WIN|" : "|RSAKEY_LIN|")).Select(p => p.Value["VALUE1"]).First());
+                //Settings.Add("RSAKEY", _settings.Where(p => p.Value["FLAGS"].Contains(pDebug ? "|RSAKEY_WIN|" : "|RSAKEY_LIN|")).Select(p => p.Value["VALUE1"]).First());
+                Settings.Add("RSAKEY", _settings.Where(p => p.Value["FLAGS"].Contains(OSIsWindows()? "|RSAKEY_WIN|" : "|RSAKEY_LIN|")).Select(p => p.Value["VALUE1"]).First());
                 Settings.Add("RSAPASSPHRASE", _settings.Where(p => p.Value["FLAGS"].Contains("|RSAPASSPHRASE|")).Select(p => p.Value["VALUE1"]).First());
 
                 //
                 _stage = $"Assigning FTP folder settings for {Profile}";
 
                 // Drop folder
-                Settings.Add("DROPFOLDER", ArrangePath(_settings.Where(p => p.Value["FLAGS"].Contains(pDebug ? "|DROP_WIN|" : "|DROP_LIN|")).Select(p => p.Value["VALUE1"]).First(), pDebug ? "\\" : "/"));
-                
+                //Settings.Add("DROPFOLDER", ArrangePath(_settings.Where(p => p.Value["FLAGS"].Contains(pDebug ? "|DROP_WIN|" : "|DROP_LIN|")).Select(p => p.Value["VALUE1"]).First(), pDebug ? "\\" : "/"));
+                Settings.Add("DROPFOLDER", ArrangePath(_settings.Where(p => p.Value["FLAGS"].Contains(OSIsWindows() ? "|DROP_WIN|" : "|DROP_LIN|")).Select(p => p.Value["VALUE1"]).First(), OSIsWindows() ? "\\" : "/"));
+
                 // Source & archive folders: I am forced to do this in to steps as I can't use ref variables inside a lambda expression
                 // Step 1
                 _folderSettings = new Dictionary<string, string>();
@@ -243,6 +247,10 @@ namespace SFTPDownloadNS
 
             // OK
             return true;
+        }
+        public static bool OSIsWindows()
+        {
+            return RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
         }
     }
 }
