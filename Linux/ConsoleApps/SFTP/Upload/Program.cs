@@ -4,6 +4,7 @@ using System.Linq;
 using System.IO;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
+using System.Runtime.InteropServices;
 
 namespace SFTPUploadNS
 {
@@ -20,13 +21,17 @@ namespace SFTPUploadNS
             pDebug = false;
 #endif
             // Declare vars
-            string _server = "", _profile = "", _stage = "", _separator = pDebug ? "\\" : "/"; ;
+            string _server = "", _profile = "", _stage = "", _separator = OSIsWindows() ? "\\" : "/"; ;
             string _file = "", _idDoc = "", _internalCode = "";
             string _fileName = "", _sourceFilePath = "", _archiveFile = "";
             string _prefix = "";
             string _localArchivePath = "/media/HISTORICOS/Transmisiones/";
             SqlConnection _conn = null;
             Dictionary<string, string> _settings = null;
+            bool _break = false;
+
+            //
+            Console.WriteLine($"-----===== SFTPUpload starting execution at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} =====-----");
 
             if (!CheckArgs(args, ref _server, ref _profile, ref _file))
                 return;
@@ -36,117 +41,185 @@ namespace SFTPUploadNS
                 return;
 
             // Get the "pure" name, without path, and the "pure" path, without the file name
-            _fileName = Path.GetFileName(_file);
-            _sourceFilePath = ArrangePath(Path.GetDirectoryName(_file),_separator);
-
-            //_fileName = Path.GetFileName(Path.GetDirectoryName(_file));
-
-            //
-            _stage = "Identifying document";
-            if (!IdentifyDocument(_conn, _file, ref _idDoc, ref _internalCode))
+            if (String.IsNullOrEmpty(_file))
             {
-                if (_idDoc != null)
+                // 
+                _stage = "Getting watch folder";
+                using (SqlCommand _cmd = new SqlCommand($"select CMP_varchar from datosEmpresa where dbo.checkFlag(flags,'{_profile}')=1 and dbo.checkFlag(flags,'{(OSIsWindows()?"SEND_WIN":"SEND_LIN")}')=1", _conn))
                 {
-                    Console.WriteLine($"File {_fileName} identified as {_idDoc} with errors. Moving it to ERROR.");
-                    System.IO.Directory.CreateDirectory($"{_localArchivePath}ERROR/{_internalCode}");
-                    File.Move(_file, $"{_localArchivePath}ERROR/{System.DateTime.Now.ToString("yyyyMMdd")}.{_internalCode}/{_fileName}");
+                    //
+                    _stage = "Executing query";
+                    SqlDataReader _rs = _cmd.ExecuteReader();
+
+                    if (!_rs.HasRows)
+                        throw new Exception($"Profile {_profile} not found");
+
+                    _rs.Read();
+                    _file = ArrangePath(_rs["CMP_varchar"].ToString(), _separator);
+                    _rs.Close();
+                    _rs = null;
+                }
+                DirectoryInfo _directoryInfo = new DirectoryInfo(_file);
+                FileInfo[] _fileList = _directoryInfo.GetFiles();
+
+                if (_fileList.Length > 0)
+                {
+                    // Ordenar los archivos por fecha de creación de forma ascendente (el más antiguo primero)
+                    Array.Sort(_fileList, (a, b) => a.CreationTime.CompareTo(b.CreationTime));
+
+                    // Obtener el archivo más antiguo
+                    _file = _fileList[0].FullName;
                 }
                 else
                 {
-                    Console.WriteLine($"File {_fileName} couldn't be identified. Moving it to BASURA.");
-                    File.Move(_file, $"{_localArchivePath}BASURA/{_fileName}");
+                    Console.WriteLine($"> No pending files in {_file}.");
+                    _file = "";
                 }
-                return;
             }
 
-            // Load settings from DB
-            if (!LoadSettings(_conn, _profile, _idDoc, ref _settings))
-                return;
-
-            // Close conn
-            _conn.Close();
-
-            //
-            Console.WriteLine($"-----===== SFTPUpload starting execution at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} =====-----");
-
-            using (var _sftp = new SFTPClass())
+            if (_file != "")
             {
-                try
+
+                _fileName = Path.GetFileName(_file);
+
+                //
+                _stage = "Getting transmissions folder";
+                using (SqlCommand _cmd = new SqlCommand($"select CMP_varchar from datosEmpresa where dbo.checkFlag(flags,'{_profile}')=1 and dbo.checkFlag(flags,'{(OSIsWindows() ? "LOCAL_ARCHIVE_WIN" : "LOCAL_ARCHIVE_LIN")}')=1", _conn))
                 {
                     //
-                    bool _done=false;
-                    int _attempts = 0;
+                    _stage = "Executing query";
+                    SqlDataReader _rs = _cmd.ExecuteReader();
 
-                    _stage = $"Connecting to  {_settings["FTPSERVER"]}";
-                    while (!_done && _attempts < 3)
-                    {
-                        //
-                        if (!_sftp.Connect(_settings["FTPSERVER"], _settings["FTPUSER"], _settings["RSAKEY"], _settings["RSAPASSPHRASE"]))
-                        {
-                            Console.WriteLine($"-> Connecion try {_attempts + 1}/3 failed. Retrying...");
-                            _attempts++;
-                            System.Threading.Thread.Sleep(5);
-                            continue;
-                        }
-                        _done = true;
-                    }
+                    if (!_rs.HasRows)
+                        throw new Exception($"Profile {_profile} not found");
 
-                    if (!_done)
-                        throw new Exception($"Could not connect to server");
-
-                    _done = false;
-                    _attempts = 0;
-
-                    //
-                    _stage = $"Uploading {_file} to {_settings["UPLOADFOLDER"]}{_fileName}";
-                    _prefix = _settings["TMPIT"] == "YES" ? "tmp_" : "";
-                    while (!_done && _attempts < 3)
-                    { 
-                        if (!_sftp.Upload(_fileName, _sourceFilePath, _settings["UPLOADFOLDER"], _prefix))
-                        {
-                            Console.WriteLine($"-> Upload try {_attempts+1}/3 failed. Retrying...");
-                            _attempts++;
-                            System.Threading.Thread.Sleep(5);
-                            continue;
-                        }
-                        _done = true;
-                    }
-
-                    if (!_done)
-                        throw new Exception("Could not upload the file");
-
-                    Console.WriteLine($"File {_file} uploaded to {_settings["UPLOADFOLDER"]}{_prefix}{_fileName}.");
-
-                    //
-                    if (_settings.ContainsKey("UPLOADPERMISSIONS"))
-                    {
-                        _stage = $"Changing file permissions to {_settings["UPLOADPERMISSIONS"]}"; 
-                        if (!_sftp.RemoteChangePermissions(_settings["UPLOADFOLDER"] + _prefix + _fileName, Convert.ToInt16(_settings["UPLOADPERMISSIONS"])))
-                            throw new Exception("Could not perform the change");
-                        
-                        Console.WriteLine($"File {_settings["UPLOADFOLDER"]}{_prefix}{_fileName} permissions changed.");
-                    }
-
-                    //
-                    _stage = $"Renaming file from {_prefix}{_fileName} to {_fileName}";
-                    if (!String.IsNullOrEmpty(_prefix))
-                    {
-                        _sftp.RemoteMove(_settings["UPLOADFOLDER"] + _prefix + _fileName, _settings["UPLOADFOLDER"] + _fileName);
-                        Console.WriteLine($"File {_settings["UPLOADFOLDER"]}{_prefix}{_fileName} renamed to {_settings["UPLOADFOLDER"]}{_fileName} .");
-                    }
-
-                    //
-                    _archiveFile = $"{ _settings["ARCHIVEFOLDER"]}{ _internalCode}{_separator}{ System.DateTime.Now.ToString("yyyyMMdd")}.{ _fileName}";
-                    _stage = $"Moving {_file} to {_archiveFile}";
-                    File.Move(_file, _archiveFile);
-                    Console.WriteLine($"File {_file} moved to {_archiveFile}.");
-
+                    _rs.Read();
+                    _localArchivePath = ArrangePath(_rs["CMP_varchar"].ToString(), _separator);
+                    _rs.Close();
+                    _rs = null;
                 }
-                catch (Exception ex)
+
+                _sourceFilePath = ArrangePath(Path.GetDirectoryName(_file), _separator);
+
+                //_fileName = Path.GetFileName(Path.GetDirectoryName(_file));
+
+                //
+                _stage = "Identifying document";
+                if (IdentifyDocument(_conn, _file, ref _idDoc, ref _internalCode))
                 {
-                    Console.WriteLine($"[{_stage}] {ex.Message}.");
-                    return;
+                    // Load settings from DB
+                    if (LoadSettings(_conn, _profile, _idDoc, ref _settings))
+                    {
+
+                        // Close conn
+                        _conn.Close();
+
+                        using (var _sftp = new SFTPClass())
+                        {
+                            try
+                            {
+                                //
+                                bool _done = false;
+                                int _attempts = 0;
+
+                                _stage = $"Connecting to  {_settings["FTPSERVER"]}";
+                                while (!_done && _attempts < 3)
+                                {
+                                    //
+                                    if (!_sftp.Connect(_settings["FTPSERVER"], _settings["FTPUSER"], _settings["RSAKEY"], _settings["RSAPASSPHRASE"]))
+                                    {
+                                        Console.WriteLine($"-> Connecion try {_attempts + 1}/3 failed. Retrying...");
+                                        _attempts++;
+                                        System.Threading.Thread.Sleep(5);
+                                        continue;
+                                    }
+                                    _done = true;
+                                }
+
+                                if (!_done)
+                                    throw new Exception($"Could not connect to server");
+
+                                _done = false;
+                                _attempts = 0;
+
+                                //
+                                _stage = $"Uploading {_file} to {_settings["UPLOADFOLDER"]}{_fileName}";
+                                _prefix = _settings["TMPIT"] == "YES" ? "tmp_" : "";
+                                while (!_done && _attempts < 3)
+                                {
+                                    if (!_sftp.Upload(_fileName, _sourceFilePath, _settings["UPLOADFOLDER"], _prefix))
+                                    {
+                                        Console.WriteLine($"-> Upload try {_attempts + 1}/3 failed. Retrying...");
+                                        _attempts++;
+                                        System.Threading.Thread.Sleep(5);
+                                        continue;
+                                    }
+                                    _done = true;
+                                }
+
+                                if (!_done)
+                                    throw new Exception("Could not upload the file");
+
+                                Console.WriteLine($"File {_file} uploaded to {_settings["UPLOADFOLDER"]}{_prefix}{_fileName}.");
+
+                                //
+                                if (_settings.ContainsKey("UPLOADPERMISSIONS"))
+                                {
+                                    _stage = $"Changing file permissions to {_settings["UPLOADPERMISSIONS"]}";
+                                    if (!_sftp.RemoteChangePermissions(_settings["UPLOADFOLDER"] + _prefix + _fileName, Convert.ToInt16(_settings["UPLOADPERMISSIONS"])))
+                                        throw new Exception("Could not perform the change");
+
+                                    Console.WriteLine($"File {_settings["UPLOADFOLDER"]}{_prefix}{_fileName} permissions changed.");
+                                }
+
+                                //
+                                _stage = $"Renaming file from {_prefix}{_fileName} to {_fileName}";
+                                if (!String.IsNullOrEmpty(_prefix))
+                                {
+                                    _sftp.RemoteMove(_settings["UPLOADFOLDER"] + _prefix + _fileName, _settings["UPLOADFOLDER"] + _fileName);
+                                    Console.WriteLine($"File {_settings["UPLOADFOLDER"]}{_prefix}{_fileName} renamed to {_settings["UPLOADFOLDER"]}{_fileName} .");
+                                }
+
+                                //
+                                _archiveFile = $"{ _settings["ARCHIVEFOLDER"]}{_internalCode}{_separator}{ System.DateTime.Now.ToString("yyyyMMdd")}.{_fileName}";
+                                _stage = $"Moving {_file} to {_archiveFile}";
+                                File.Move(_file, _archiveFile);
+                                Console.WriteLine($"File {_file} moved to {_archiveFile}.");
+
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine($"[{_stage}] {ex.Message}.");
+                                //return;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        // Close conn
+                        _conn.Close();
+                    }
+
                 }
+                else
+                {
+                    _fileName = Path.GetFileName(_file);
+
+                    if (_idDoc != null)
+                    {
+                        Console.WriteLine($"File {_fileName} identified as {_idDoc} with errors. Moving it to ERROR.");
+                        System.IO.Directory.CreateDirectory($"{_localArchivePath}ERROR/{_internalCode}");
+                        File.Move(_file, $"{_localArchivePath}ERROR{_separator}{System.DateTime.Now.ToString("yyyyMMddmmss")}.{_internalCode}/{_fileName}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"File {_fileName} couldn't be identified. Moving it to BASURA.");
+                        File.Move(_file, $"{_localArchivePath}BASURA{_separator}{System.DateTime.Now.ToString("yyyyMMddmmss")}.{_fileName}");
+                    }
+                }
+
+
+
             }
             Console.WriteLine($"-----===== SFTPUpload finishing execution at {System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")} =====-----");
             return;
@@ -218,8 +291,8 @@ namespace SFTPUploadNS
                         throw new Exception($"Argument SERVER is missing");
                     if (Profile == "")
                         throw new Exception($"Argument PROFILE is missing");
-                    if (Filename == "")
-                        throw new Exception($"Argument FILENAME is missing");
+                    //if (Filename == "")
+                    //    throw new Exception($"Argument FILE name is missing");
                 }
             }
             catch (Exception ex)
@@ -307,14 +380,14 @@ namespace SFTPUploadNS
                     Settings.Add("RSAPASSPHRASE", _settings.Where(p => p.Value["FLAGS"].Contains("|RSAPASSPHRASE|")).Select(p => p.Value["VALUE1"]).First());
                     _flag = "OUT";
                     Settings.Add("UPLOADFOLDER", ArrangePath(_settings.Where(p => p.Value["FLAGS"].Contains("|OUT|") && p.Value["VALUE2"] == idDoc).Select(p => p.Value["VALUE1"]).First(), "/"));
-                    _flag = pDebug ? "LOCAL_ARCHIVE_WIN" : "LOCAL_ARCHIVE_LIN";
-                    Settings.Add("ARCHIVEFOLDER", ArrangePath(_settings.Where(p => p.Value["FLAGS"].Contains($"|{_flag}|")).Select(p => p.Value["VALUE1"]).First(), pDebug ? "\\" : "/"));
+                    _flag = OSIsWindows() ? "LOCAL_ARCHIVE_WIN" : "LOCAL_ARCHIVE_LIN";
+                    Settings.Add("ARCHIVEFOLDER", ArrangePath(_settings.Where(p => p.Value["FLAGS"].Contains($"|{_flag}|")).Select(p => p.Value["VALUE1"]).First(), OSIsWindows() ? "\\" : "/"));
                     _flag = "UPLOADPERMISSIONS";
                     Settings.Add("UPLOADPERMISSIONS", _settings.Where(p => p.Value["FLAGS"].Contains("|UPLOADPERMISSIONS|")).Select(p => p.Value["VALUE1"]).First());
                 }
                 catch(Exception ex)
                 {
-                    throw new Exception($"{_flag} flag for profile {Profile} ({idDoc}) not found");
+                    throw new Exception($"{_flag} flag for profile {Profile} ({idDoc}) not found: {ex.Message}");
                 }
             }
             catch (Exception ex)
@@ -404,6 +477,11 @@ namespace SFTPUploadNS
 
             // OK
             return _found;
+        }
+
+        public static bool OSIsWindows()
+        {
+            return RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
         }
     }
 }

@@ -162,7 +162,7 @@ namespace SFTPUploadNS
                 //
                 _stage = "Checkings";
                 if (!File.Exists(_sourceFile))
-                    throw new Exception("Source file not found.");
+                    throw new Exception($"Source file {_sourceFile} not found.");
                 if (pSFtp.Exists(_targetFile) || pSFtp.Exists(_prefixTargetFile))
                     throw new Exception("Target file already exists.");
 
