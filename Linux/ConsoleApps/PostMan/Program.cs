@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 
 namespace PostMan
@@ -18,6 +18,7 @@ namespace PostMan
             string _myName = System.Reflection.Assembly.GetCallingAssembly().GetName().Name;
             string _sendTo = "", _subject = "", _carrier = "", _destPath = "",_pureFileName ="";
             string _stage = "";
+            bool _referrals = false;
 
             try
             {
@@ -52,7 +53,11 @@ namespace PostMan
                         throw new Exception($"File {_fileName} not recognized");
                 }
 
-                _subject = $"Informe de líneas {_carrier}";
+                //
+                _referrals = (DateTime.TryParseExact(_pureFileName.Substring(0, 14), "yyyyMMddHHmmss", null, System.Globalization.DateTimeStyles.None, out DateTime resultadoFecha));
+
+                //
+                _subject = "Informe de líneas "+ (_referrals?"REFERRALS ":"") + $"{_carrier}";
                 _sendTo = (_carrier!="TEST"?$"po_lineas_{_carrier.ToLower()}@grupointerpack.com":"dvalles@espackeuro.com");
                 _destPath = $"/media/HISTORICOS/Transmisiones/SAP_REPORT_LINEAS_{_carrier}/";
 
@@ -89,3 +94,4 @@ namespace PostMan
         }
     }
 }
+
