@@ -45,7 +45,7 @@ namespace AccesoDatos
             get
             {
                 if (oServer != null)
-                    return oServer.HostName;
+                    return oServer.DBServer??oServer.HostName; /***/
                 else
                     return null;
             }
@@ -118,6 +118,8 @@ namespace AccesoDatos
                     oServer.Password = value;
             }
         }
+
+
         public bool Silent { get; set; }
         public IPAddress IP { get; set; }
         public DateTime TimeTic { get; set; }

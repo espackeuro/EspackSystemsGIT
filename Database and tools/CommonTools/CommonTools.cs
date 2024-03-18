@@ -28,6 +28,7 @@ namespace CommonTools
         public string Password { get; set; }
         public string Cod3 { get; set; }
         public string DataBase { get; set; }
+        public int? Port { get; set; }
     }
 
     public static class CT
@@ -188,6 +189,9 @@ namespace CommonTools
                             break;
                         case "/db":
                             lParam.DataBase = lValue;
+                            break;
+                        case "/port":
+                            lParam.Port = lValue.ToInt();
                             break;
                     }
                 }
@@ -560,6 +564,9 @@ namespace CommonTools
         public string COD3 { get; set; }
         public string User { get; set; }
         public string Password { get; set; }
+        public string DBServer { get; set; }
+
+        //public int? Port { get; set; }
         public XElement xServer
         {
             get
@@ -571,6 +578,8 @@ namespace CommonTools
                 _root.Add(new XElement("COD3", COD3));
                 _root.Add(new XElement("User", User));
                 _root.Add(new XElement("Password", Password));
+                _root.Add(new XElement("DBServer", DBServer));
+                //_root.Add(new XElement("Port", Port.ToString()));
                 return _root;
             }
             set
@@ -580,6 +589,11 @@ namespace CommonTools
                 COD3 = value.Element("COD3").Value;
                 User = value.Element("User").Value;
                 Password = value.Element("Password").Value;
+                try
+                {
+                    DBServer = value.Element("DBServer").Value;
+                } catch { }
+                //value.Element("Port").Value.ToInt();
             }
         }
         public string Server

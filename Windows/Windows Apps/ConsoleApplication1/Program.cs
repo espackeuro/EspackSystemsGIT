@@ -29,11 +29,13 @@ namespace AsyncEchoServer
         {
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
             IPAddress ipAddress = ipHostInfo.AddressList.FirstOrDefault(x => x.GetAddressBytes()[0] == 10);
-            IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 17011);
+            IPEndPoint localEndPoint = new IPEndPoint(ipAddress, _listeningPort); /***/ // 17011
             TcpListener listener = new TcpListener(ipAddress, _listeningPort);
             listener.Start();
             LogMessage("Server is running");
             LogMessage("Listening on port " + _listeningPort);
+
+            ///// This doesn't seem to be the live project /////
 
             while (true)
             {
@@ -125,10 +127,15 @@ namespace AsyncEchoServer
             Values.gDatos.Server = espackArgs.Server;
             Values.gDatos.User = espackArgs.User;
             Values.gDatos.Password = espackArgs.Password;
+            Values.Port = int.TryParse(espackArgs.Port.ToString(), out int _port) ? _port : (int?)null;
             InitialConnection.gDatos = Values.gDatos;
-            AsyncEchoServer async = new AsyncEchoServer(17011);
+            AsyncEchoServer async = new AsyncEchoServer(Values.Port.Value); /***/ // 17011
             async.Start();
-            Console.ReadLine();
+            //Console.ReadLine();
+            while (true)
+            {
+                Thread.Sleep(1000);
+            }
         }
     }
     public static class Values
@@ -137,5 +144,6 @@ namespace AsyncEchoServer
         public static string LabelPrinterAddress = "";
         public static string COD3 = "";
         public static string ProjectName = "";
+        public static int? Port;
     }
 }

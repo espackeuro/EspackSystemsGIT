@@ -528,6 +528,7 @@ namespace CommonTools
     // Class cServer -> there are two types: DATABASE and SHARE
     public class cServer
     {
+        public string DataBase { get; set; }
         public bool Resolve { get; set; } = true;
         private string _hostName;
         public string HostName
@@ -559,6 +560,7 @@ namespace CommonTools
                 }
             }
         }
+
         public IPAddress IP { get; set; }
         public ServerTypes Type { get; set; }
         public string COD3 { get; set; }

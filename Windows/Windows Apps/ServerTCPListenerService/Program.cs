@@ -17,7 +17,7 @@ namespace ServerTCPListenerService
             DataBase = "SISTEMAS",
             Server = "net.espackeuro.com"
         };
-        public static int ServerPort { get; } = 17011;
+        public static int ServerPort { get; } = 18011; /***/ // 17011
         public static int ControlPort { get; } = 17012;
     }
     static class Program

@@ -89,6 +89,7 @@ namespace AccesoDatos
         }
         public string Printer { get; set; }
         public string DataBase { get; set; }
+
         public string User
         {
             get

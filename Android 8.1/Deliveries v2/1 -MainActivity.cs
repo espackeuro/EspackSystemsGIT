@@ -170,7 +170,9 @@ namespace RadioLogisticaDeliveries
                 if (Result == "OK")
                 {
                     Values.gDatos.DataBase = "LOGISTICA";
-                    Values.gDatos.Server = "net.espackeuro.com";
+                    
+                    Values.gDatos.Server = "net.espackeuro.com"; // why again? it took quite efort to get this server name! /***/
+                    Values.gDatos.Server = LogonDetails.ConnectionServer;
                     Values.gDatos.User = LogonDetails.User;
                     Values.gDatos.Password = LogonDetails.Password;
                     string _mainScreenMode = "NEW";

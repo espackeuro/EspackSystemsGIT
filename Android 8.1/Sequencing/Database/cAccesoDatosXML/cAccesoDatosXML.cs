@@ -965,6 +965,9 @@ namespace AccesoDatosXML
         }
         //session number
         private string _session = null;
+        private string _COD3 = null;
+        private string _DBServer = null;
+
         public string SessionNumber
         {
             get
@@ -979,6 +982,8 @@ namespace AccesoDatosXML
 
         public IPAddress IP { get; set; }
         public int Port { get; set; }
+        public string Cod3 => _COD3;
+        public string DBServer => _DBServer;
 
         public static List<IPAddress> IPServerList { get; set; } = new List<IPAddress>();
 
@@ -989,11 +994,18 @@ namespace AccesoDatosXML
 
             List<string> serverList = new List<string>()
             {
-                "val-tel1.espackeuro.com",
-                "val-nwckkdjtjv.dynamic-m.com",
-                "liv-bkrgrgvmjv.dynamic-m.com",
-                "gra-bghgwkwqjv-1.dynamic-m.com",
-                "nit-cwcgtdrrjv-1.dynamic-m.com"
+                //"10.200.90.40", /***/
+                "azuradio01.uksouth.cloudapp.azure.com",    // Azure UK South
+                "val-tel1.espackeuro.com",                  // Valencia Tel1
+                "val-vndjzkmdjv.dynamic-m.com",             // Valencia Meraki
+                "liv-bkrgrgvmjv.dynamic-m.com",             // Liverpool Meraki
+                "nit-cwcgtdrrjv.dynamic-m.com",             // Nitra Meraki
+                "cas-wired-wcwqhcjnjv.dynamic-m.com"        // Castle Bromwich Meraki
+                
+                //"val-nwckkdjtjv.dynamic-m.com", // Old one
+                //"gra-bghgwkwqjv-1.dynamic-m.com", // GRA doesn't exist anymore
+                //"nit-cwcgtdrrjv-1.dynamic-m.com", // Old one?
+                
             };
             foreach (var server in serverList)
             {
@@ -1008,13 +1020,16 @@ namespace AccesoDatosXML
             };
             if (IPServerList.Count == 0)
             {
+                
+                IPServerList.Add(IPAddress.Parse("20.0.110.239"));      // azuradio01.uksouth.cloudapp.azure.com
+                IPServerList.Add(IPAddress.Parse("213.0.111.218"));     // val-tel1.espackeuro.com & val-vndjzkmdjv.dynamic-m.com
+                IPServerList.Add(IPAddress.Parse("81.131.22.66"));      // liv-bkrgrgvmjv.dynamic-m.com
+                IPServerList.Add(IPAddress.Parse("62.168.66.218"));     // nit-cwcgtdrrjv.dynamic-m.com
+                IPServerList.Add(IPAddress.Parse("109.159.205.186"));   // cas-wired-wcwqhcjnjv.dynamic-m.com
 
-                IPServerList.Add(IPAddress.Parse("213.0.111.218"));
-
-                IPServerList.Add(IPAddress.Parse("46.24.173.2"));
-
-                IPServerList.Add(IPAddress.Parse("81.150.8.34"));
-                IPServerList.Add(IPAddress.Parse("81.12.170.94"));
+                //IPServerList.Add(IPAddress.Parse("46.24.173.2"));     // Unknown
+                //IPServerList.Add(IPAddress.Parse("81.150.8.34"));     // Unknown
+                //IPServerList.Add(IPAddress.Parse("81.12.170.94"));    // Unknown
 
             }
 
@@ -1025,7 +1040,8 @@ namespace AccesoDatosXML
             _message.SetActionData(new XElement("data", Serial));
             _message.SetSession("");
             XDocument _msgOut = new XDocument();
-            Port = 17011;
+//            Port = 17011;
+            Port = 20001;   /***/
             string _ip = "";
             string _messages = "";
             foreach (var _IP in IPServerList)
@@ -1061,23 +1077,50 @@ namespace AccesoDatosXML
                 var _parameters = _result.Element("parameters").Elements("parameter");
 
                 string _sIP = (from _par in _parameters where _par.Element("Name").Value.ToString() == "@ExternalIP" select _par.Element("Value").Value).First();
-#if DEBUG
-                //_sIP = "10.200.90.40";//"46.24.173.2";
-#endif
-                var _COD3 = (from _par in _parameters where _par.Element("Name").Value.ToString() == "@COD3" select _par.Element("Value").Value).First();
+                Port = (from _par in _parameters where _par.Element("Name").Value.ToString() == "@Port" select _par.Element("Value").Value).First().ToInt();
+                
+                //DBServer = (from _par in _parameters where _par.Element("Name").Value.ToString() == "@DBServer" select _par.Element("Value").Value).First().ToInt();
+
+                #if DEBUG
+                //_sIP = "10.200.90.40";//"46.24.173.2"; /***/
+                //_sIP = "20.0.110.239";
+                //Port = 18011;
+                #endif
+                _COD3 = (from _par in _parameters where _par.Element("Name").Value.ToString() == "@COD3" select _par.Element("Value").Value).First();
                 _session = (from _par in _parameters where _par.Element("Name").Value.ToString() == "@SessionNumber" select _par.Element("Value").Value).First();
+                _DBServer = (from _par in _parameters where _par.Element("Name").Value.ToString() == "@DBServer" select _par.Element("Value").Value).First();
+                
                 IP = IPAddress.Parse(_sIP);
             }
         }
         public async Task<XDocument> Transmit(XDataMessageRequest x)
         {
+            string aux="";
             try
             {
                 Status = CommStatus.CONNECTED;
                 if (_session == null)
                     await getSocksConnection();
+
+                if (Cod3 != null  ) /***/
+                {
+                    try
+                    {
+                        // no way to update or add items in the XML. every test and try takes minutes, which i don't have... so the "cheapest" solution is:
+                        aux = x.ToString().Replace("<COD3 />", $"<COD3>{Cod3}</COD3><DBServer>{DBServer}</DBServer>"); /***/
+                        //x.Data.Element("data").Element("server").Element("COD3").Value = Cod3;
+                        //x.Data.Element("data").Element("server").Element("HostName").Value = DBServer;
+                        //x.Data.Element("data").Element("server").Add(new XElement("DBServer", DBServer));
+                    } catch {
+                        aux = x.ToString();
+                    }
+                } else
+                {
+                    aux = x.ToString();
+                }
+
                 var msgOut = new Message();
-                var encryptedCompressedMsgOut = new EncryptMessageOutput(new CompressMessageOutput(msgOut)) { MsgIn = x.ToString() };
+                var encryptedCompressedMsgOut = new EncryptMessageOutput(new CompressMessageOutput(msgOut)) { MsgIn = aux }; /***/
                 await encryptedCompressedMsgOut.process();
                 var Socket = new AsynchronousSocketClient() { ServerIP = IP, ServerPort = Port };
                 var _result = await Socket.AsyncConversation(encryptedCompressedMsgOut.MsgOut);

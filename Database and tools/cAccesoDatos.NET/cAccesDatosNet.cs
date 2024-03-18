@@ -200,6 +200,7 @@ namespace AccesoDatosNet
         {
             try
             {
+
                 if (AdoCon.State == ConnectionState.Open)
                     Close();
                 string newConnectionString = "";
